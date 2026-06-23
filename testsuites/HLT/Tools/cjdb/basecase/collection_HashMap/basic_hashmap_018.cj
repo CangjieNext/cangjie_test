@@ -16,6 +16,7 @@ class testC1 {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var a1 = testC1()
     var a2 = a1.map_a
     var a3 = a1.map_b

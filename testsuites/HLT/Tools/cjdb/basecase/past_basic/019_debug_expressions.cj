@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     //自增自减表达式：6/7
     var owni: Int64 = 5
     owni++ //6

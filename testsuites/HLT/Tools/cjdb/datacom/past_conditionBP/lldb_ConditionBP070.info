@@ -8,17 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/042_debuginfun_expressions.cj
-// (not MAC and not Windows and not arm) EXEC: %compiler %cmp_opt -g 042_debuginfun_expressions.cj -o 042_debuginfun_expressions%cmp_output
-// (not MAC and not Windows and not arm) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP070.info 042_debuginfun_expressions %run_env
+// (not target_mac and not Windows and not arm) EXEC: %compiler %cmp_opt -g 042_debuginfun_expressions.cj -o 042_debuginfun_expressions%cmp_output
+// (not target_mac and not Windows and not arm) EXEC: python3 cjdb_test.py lldb_ConditionBP070.info 042_debuginfun_expressions %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 042_debuginfun_expressions,042_debuginfun_expressions
-breakpoint,breakpoint set -l 34 -c 'weip==-30',042_debuginfun_expressions.cj:34
-AOT r,r,-> 34
+breakpoint,breakpoint set -l 35 -c 'weip==-30',042_debuginfun_expressions.cj:35
+AOT r,r,-> 35
+Android c,c,35
 CJVM c,c,
-n,n,-> 37
+n,n,38
 locals,locals,weiq = -120
 q,q,

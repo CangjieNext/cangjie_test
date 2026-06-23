@@ -11,6 +11,7 @@
 
 var var_top1 : Int32 = 12
 main() : Int32 {
+    sleep(Duration.millisecond*3000)
     var v_main_1: Int32 = f_001(2, b: 2) //命名形参
     var v_main_2: Int32 = f_001(2) //可选形参b,默认b=1
     var v_main_3: Int32 = Exter_C1(12,20).area()

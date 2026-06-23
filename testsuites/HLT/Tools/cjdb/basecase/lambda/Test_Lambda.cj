@@ -7,6 +7,7 @@
  */
 
 main(){
+    sleep(Duration.millisecond*3000)
     var test_lambda =
             {
             a:Int64,

@@ -21,6 +21,7 @@ enum E1<T> {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     let v1 = Option<Option<C1>>.Some(Some(C1()))
     let v2 = Option<Option<C1>>.None
     let v3 = Option<Option<S1<Int64>>>.Some(Some(S1<Int64>()))

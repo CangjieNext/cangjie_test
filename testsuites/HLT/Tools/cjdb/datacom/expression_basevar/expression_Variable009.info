@@ -8,15 +8,16 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_basetype.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g VArray_basetype.cj -o VArray_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_Variable009.info VArray_basetype %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g VArray_basetype.cj -o VArray_basetype%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py expression_Variable009.info VArray_basetype %run_env
  
  
 test#
 cjdb,cjdb --no-use-colors VArray_basetype,VArray_basetype
-b,b 50,Breakpoint 1: where = VArray_basetype`default::main[\s\S]*VArray_basetype.cj:50
-AOT r,r,-> 50
-CJVM c,c,-> 50
+b,b 51,Breakpoint 1: where = VArray_basetype`default::main[\s\S]*VArray_basetype.cj:51
+AOT r,r,-> 51
+Android c,c,51
+CJVM c,c,51
 p, p vInt8[0],\(Int8\) \$[\d] = 0
 expression, expression vInt8[0],\(Int8\) \$[\d] = 0
 expression, expression vInt16[1],\(Int16\) \$[\d] = -2

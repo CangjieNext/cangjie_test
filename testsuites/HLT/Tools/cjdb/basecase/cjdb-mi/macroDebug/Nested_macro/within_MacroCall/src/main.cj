@@ -24,6 +24,7 @@ struct Data {
     }
 }
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let data = Data()
     var a = data.getA() // a = 2
     var b = data.getB() // b = 6

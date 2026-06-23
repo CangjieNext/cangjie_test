@@ -8,19 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/016_debug_return.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 016_debug_return.cj -o 016_debug_return%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP029.info 016_debug_return %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 016_debug_return.cj -o 016_debug_return%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py lldb_ConditionBP029.info 016_debug_return %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 016_debug_return,016_debug_return
-breakpoint,breakpoint set -l 24 -c 'a==10',016_debug_return.cj:24
-breakpoint,breakpoint set -l 32 -c 'a==10',016_debug_return.cj:32
-AOT r,r,-> 24
+breakpoint,breakpoint set -l 25 -c 'a==10',016_debug_return.cj:25
+breakpoint,breakpoint set -l 33 -c 'a==10',016_debug_return.cj:33
+AOT r,r,-> 25
+Android c,c,25
 CJVM c,c,
-c,c,-> 32
+c,c,33
 locals,locals,a = 10
 locals,locals,b = 20
 q,q,

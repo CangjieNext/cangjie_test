@@ -8,17 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/008_debug_func_no_arg.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 008_debug_func_no_arg.cj -o 008_debug_func_no_arg%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP032.info 008_debug_func_no_arg %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 008_debug_func_no_arg.cj -o 008_debug_func_no_arg%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py lldb_ConditionBP032.info 008_debug_func_no_arg %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_func_no_arg,008_debug_func_no_arg
-breakpoint,breakpoint set -l 13 -c 'Functioncall001==30',008_debug_func_no_arg.cj:13
-AOT r,r,-> 13
+breakpoint,breakpoint set -l 14 -c 'Functioncall001==30',008_debug_func_no_arg.cj:14
+AOT r,r,-> 14
+Android c,c,14
 CJVM c,c,
-n,n,-> 14
+n,n,15
 locals,locals,Functioncall002 = 60
 q,q,

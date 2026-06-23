@@ -11,6 +11,7 @@ enum E {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     var a1 = E.A
     var a2 = E.B
     var a3 = C

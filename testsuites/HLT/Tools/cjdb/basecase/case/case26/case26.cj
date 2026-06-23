@@ -14,6 +14,7 @@ class AC {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var gg = AC({a: AC, b: Int64 => b}) //expr gg or locals or p gg
     0
 }

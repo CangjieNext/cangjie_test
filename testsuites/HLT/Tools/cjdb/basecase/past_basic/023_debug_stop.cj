@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a: Int64 = 1
     let l: Bool = true
     while (l) {

@@ -8,17 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case04/string_var.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g string_var.cj -o string_var%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py case04_struct.info string_var %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g string_var.cj -o string_var%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py case04_struct.info string_var %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors string_var,string_var
-b,b 22,string_var.cj:22
-AOT r,r,-> 22
+b,b 23,string_var.cj:23
+AOT r,r,-> 23
+Android c,c,23
 CJVM c,c,
-s,s,-> 10
-n,n,-> 11
-n,n,-> 9
-n,n,-> 22
+s,s,11
+n,n,12
+n,n,10
+n,n,23
 q,q,

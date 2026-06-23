@@ -19,6 +19,7 @@ let e1 = ArrayList<(Int64, Bool)>([(1, true)])
 let f1 = HashMap<String, (Int64, Int64)>([("a", (1, 2))])
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var tuple00 = (3, 4)
     var mixtuple01 = [1, 2, tuple00]
     let tuple01: (Int64, Int64) = (1, 2)

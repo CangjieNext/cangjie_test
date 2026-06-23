@@ -9,6 +9,7 @@
 import std.collection.*
 
 main(){
+    sleep(Duration.millisecond*3000)
     var a1 = HashSet<Int64>([0,1])
     let v1 = Option<Option<Array<Int64>>>.Some(Some([1]))
     let v2 = Option<Option<Array<Int64>>>.None

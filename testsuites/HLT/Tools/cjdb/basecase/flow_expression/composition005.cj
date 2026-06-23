@@ -37,6 +37,7 @@ func fa<T>(a: T): T {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var b1 = f ~> f
     var b2 = f2 ~> f2
     var b3 = f3 ~> f3

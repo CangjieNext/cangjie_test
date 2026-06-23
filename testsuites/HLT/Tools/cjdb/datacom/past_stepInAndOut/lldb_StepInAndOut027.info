@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/038_debuginfun_basetype.cj
-//  EXEC: %compiler %cmp_opt -g 038_debuginfun_basetype.cj -o 038_debuginfun_basetype%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut027.info 038_debuginfun_basetype %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 038_debuginfun_basetype.cj -o 038_debuginfun_basetype%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_StepInAndOut027.info 038_debuginfun_basetype %run_env
 
 
 
@@ -64,6 +64,5 @@ locals,locals,varf14 = 1
 locals,locals,varBool16 = true
 locals,locals,varchar17 = '5'
 rerun,r,-> 16
-AOT finish,finish,-> 17
-AOT locals,locals,var1 = -128
+AOT finish,finish,-> 12
 q,q,

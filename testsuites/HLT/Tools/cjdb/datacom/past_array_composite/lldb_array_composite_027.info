@@ -9,16 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/002_debug_array_enum.cj
 // EXEC: %compiler %cmp_opt -g 002_debug_array_enum.cj -o 002_debug_array_enum%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_array_composite_027.info 002_debug_array_enum %run_env
+// EXEC: python3 cjdb_test.py lldb_array_composite_027.info 002_debug_array_enum %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_enum,002_debug_array_enum
-b,b 40,002_debug_array_enum.cj:40
-AOT r,r,-> 40
+b,b 41,002_debug_array_enum.cj:41
+AOT r,r,-> 41
+Android c,c,41
 CJVM c,c,
-n,n,-> 41
+n,n,42
 locals,locals,TimeUnit1\) time1 = a[\s\S]*
 q,q,

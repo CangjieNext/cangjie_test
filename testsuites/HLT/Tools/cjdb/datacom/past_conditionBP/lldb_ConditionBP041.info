@@ -8,17 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/019_debug_expressions.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 019_debug_expressions.cj -o 019_debug_expressions%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP041.info 019_debug_expressions %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 019_debug_expressions.cj -o 019_debug_expressions%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py lldb_ConditionBP041.info 019_debug_expressions %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 019_debug_expressions,019_debug_expressions
-breakpoint,breakpoint set -l 18 -c 'owni==5',019_debug_expressions.cj:18
-AOT r,r,-> 18
+breakpoint,breakpoint set -l 19 -c 'owni==5',019_debug_expressions.cj:19
+AOT r,r,-> 19
+Android c,c,19
 CJVM c,c,
-n,n,-> 29
+n,n,30
 locals,locals,count = 11
 q,q,

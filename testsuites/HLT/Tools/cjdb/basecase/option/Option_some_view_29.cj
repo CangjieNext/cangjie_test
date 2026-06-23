@@ -15,5 +15,6 @@ class Rectangle {
 let op1: Option<Rectangle> = Some(Rectangle())
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     return 0
 }

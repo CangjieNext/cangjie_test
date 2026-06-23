@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/014_enum_extend.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 014_enum_extend.cj -o 014_enum_extend%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum004.info 014_enum_extend %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 014_enum_extend.cj -o 014_enum_extend%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum004.info 014_enum_extend %run_env
 
 test#
 cjdb,cjdb --no-use-colors 014_enum_extend,014_enum_extend
-b,b 26,014_enum_extend.cj:26
-AOT r,r,-> 26
+b,b 27,014_enum_extend.cj:27
+AOT r,r,-> 27
+Android c,c,27
 CJVM c,c,
 p,p a,\(default.E1<Int64>\) \$[\d] = {[\s\S]*constructor = XY[\s\S]*arg_1 = 5[\s\S]*}
 expr,expr a,\(default.E1<Int64>\) \$[\d] = {[\s\S]*constructor = XY[\s\S]*arg_1 = 5[\s\S]*}

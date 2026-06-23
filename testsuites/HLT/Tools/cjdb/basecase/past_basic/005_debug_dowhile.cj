@@ -9,6 +9,7 @@
 
 
 main() {   //设置断点：4/5/6/7 第5行设置断点后，显示失败图标
+    sleep(Duration.millisecond*3000)
     var hundredo = 0
     do {
         hundredo++ //hundredo先自加1后进入while循环

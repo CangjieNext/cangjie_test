@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/025_enum_collection.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 025_enum_collection.cj -o 025_enum_collection%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum021.info 025_enum_collection %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 025_enum_collection.cj -o 025_enum_collection%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py expression_enum021.info 025_enum_collection %run_env
 
 test#
 cjdb,cjdb --no-use-colors 025_enum_collection,025_enum_collection
-b,b 22,025_enum_collection.cj:22
-AOT r,r,-> 22
+b,b 23,025_enum_collection.cj:23
+AOT r,r,-> 23
+Android c,c,23
 CJVM c,c,
 p,p a1,\(default.EE<Int64>\) \$[\d] = {[\s\S]*constructor = A[\s\S]*arg_1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
 p,p a2,\(default.EE<Int64>\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}

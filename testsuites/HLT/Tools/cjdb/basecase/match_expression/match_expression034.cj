@@ -24,6 +24,7 @@ enum E1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var c1 = E1.AB.test1()
     0
 }

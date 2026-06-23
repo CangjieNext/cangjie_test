@@ -8,19 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/061_debug_fun.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 061_debug_fun.cj -o 002_express_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py express_fun_002.info 002_express_basetype %run_env
+// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g 061_debug_fun.cj -o 002_express_basetype%cmp_output
+// (not target_mac and not target_android) EXEC: python3 cjdb_test.py express_fun_002.info 002_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
-CJVM b,b main,061_debug_fun.cj:59
-CJVM c,c,-> 59
-b,b 71,061_debug_fun.cj:71
-CJVM c,c,-> 71
-AOT r,r,-> 71
+CJVM b,b main,061_debug_fun.cj:60
+CJVM c,c,60
+b,b 72,061_debug_fun.cj:72
+CJVM c,c,72
+AOT r,r,-> 72
+Android c,c,72
 expr:expr obj1.f31():\(UInt64\) \$[\d] = 100
 expr:expr obj1.f311(10, 20):\(Int64\) \$[\d] = 30
 expr:expr obj1.f311(10):\(Int64\) \$[\d] = 10

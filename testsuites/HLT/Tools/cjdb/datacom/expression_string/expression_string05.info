@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/String/string_numberfunc05.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g string_numberfunc05.cj -o string_numberfunc05%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_string05.info string_numberfunc05 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g string_numberfunc05.cj -o string_numberfunc05%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_string05.info string_numberfunc05 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors string_numberfunc05,string_numberfunc05
 b,b 13,string_numberfunc05.cj:13
 AOT r,r,-> 13
+Android c,c,13
 CJVM c,c,
 p,p main_str12,\(std.core.String\) \$[\d] = "012"
 p,p main_str11,\(std.core.String\) \$[\d] = "This is a \\"#\\\\n"

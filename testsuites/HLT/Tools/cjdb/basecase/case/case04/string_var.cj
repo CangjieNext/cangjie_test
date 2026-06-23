@@ -18,6 +18,7 @@ class testC1{
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
 	var test_C1 = testC1()
 	var struct_R1 = structR1()
 	return 0

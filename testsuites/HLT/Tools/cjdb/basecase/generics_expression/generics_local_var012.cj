@@ -31,6 +31,7 @@ struct S2<T> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var a1 = Rect2<Int64>.ftuple(2)
     var a2 = S2<Int64>.ftuple(2)
     return 0

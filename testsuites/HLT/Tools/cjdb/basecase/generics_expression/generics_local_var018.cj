@@ -18,6 +18,7 @@ func main1<T>() {
     return indexbreak
 }
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     main1<Int64>()
     return 0
 }

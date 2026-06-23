@@ -8,18 +8,19 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/015_debug_basetype.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_Variable002.info 015_debug_basetype %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py expression_Variable002.info 015_debug_basetype %run_env
  
  
  
  
 test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
-CJVM b,b main,015_debug_basetype.cj:12
-CJVM c,c,-> 12
-b,b 37,015_debug_basetype.cj:37
-AOT r,r,-> 37
+CJVM b,b main,015_debug_basetype.cj:13
+CJVM c,c,13
+b,b 38,015_debug_basetype.cj:38
+AOT r,r,-> 38
+Android c,c,38
 p, p varf11,\(Float16\) \$[\d] = 0.0010004
 expression, expression varf11,\(Float16\) \$[\d] = 0.0010004
 expression, expression varf12,\(Float16\) \$[\d] = 4

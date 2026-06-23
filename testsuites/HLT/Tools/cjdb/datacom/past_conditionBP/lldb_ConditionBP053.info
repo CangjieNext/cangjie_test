@@ -8,18 +8,19 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/027_debuginfun_match.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 027_debuginfun_match.cj -o 027_debuginfun_match%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP053.info 027_debuginfun_match %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 027_debuginfun_match.cj -o 027_debuginfun_match%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py lldb_ConditionBP053.info 027_debuginfun_match %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 027_debuginfun_match,027_debuginfun_match
-breakpoint,breakpoint set -l 24 -c 'score==90',027_debuginfun_match.cj:24
-AOT r,r,-> 24
+breakpoint,breakpoint set -l 25 -c 'score==90',027_debuginfun_match.cj:25
+AOT r,r,-> 25
+Android c,c,25
 CJVM c,c,
-n,n,-> 19
-n,n,-> 27
+n,n,20
+n,n,28
 locals,locals,scoreResult = 5
 q,q,

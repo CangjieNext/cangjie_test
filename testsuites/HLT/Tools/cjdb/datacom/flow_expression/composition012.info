@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/composition012.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g composition012.cj -o composition012%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py composition012.info composition012 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g composition012.cj -o composition012%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py composition012.info composition012 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors composition012,composition012
-b,b 48,composition012.cj:48
-AOT r,r,-> 48
+b,b 49,composition012.cj:49
+AOT r,r,-> 49
+Android c,c,49
 expr,expr a1,\(default.\(Int64\)->Bool\) \$[\d] = 0x[\s\S]*
 expr,expr a2,\(default.\(Bool\)->Bool\) \$[\d] = 0x[\s\S]*
 expr,expr a4,\(default.\(UInt32\)->UInt32\) \$[\d] = 0x[\s\S]*

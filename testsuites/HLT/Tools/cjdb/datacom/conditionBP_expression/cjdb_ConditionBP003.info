@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func003.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func003.cj -o generics_global_func003%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP003.info generics_global_func003 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_global_func003.cj -o generics_global_func003%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP003.info generics_global_func003 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func003,generics_global_func003
-breakpoint,breakpoint set -l 28 -c 'a1==true',generics_global_func003.cj:28
-AOT r,r,-> 28
+breakpoint,breakpoint set -l 29 -c 'a1==true',generics_global_func003.cj:29
+AOT r,r,-> 29
+Android c,c,29
 CJVM c,c,
 locals,locals,\(Rune\) a2 = 'f'
 p,p a5,\(Tuple<Bool,Bool>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}

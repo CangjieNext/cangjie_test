@@ -21,6 +21,7 @@ func test_hashset(a: HashSet<UInt8>) {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var hashset11 = HashSet<UInt8>([10, 11, 12])
     var hashset12 = HashSet<UInt16>([20, 21, 22])
     var hashset13 = HashSet<UInt32>([30, 31, 32])

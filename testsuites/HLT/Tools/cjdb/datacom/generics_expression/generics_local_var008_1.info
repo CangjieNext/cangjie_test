@@ -8,20 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var008.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var008.cj -o generics_local_var008%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_var008_1.info generics_local_var008 %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g generics_local_var008.cj -o generics_local_var008%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py generics_local_var008_1.info generics_local_var008 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var008,generics_local_var008
-b,b 79,generics_local_var008.cj:79
-AOT r,r,-> 79
+b,b 80,generics_local_var008.cj:80
+AOT r,r,-> 80
+Android c,c,80
 CJVM c,c,
 expr:expr ai8.:error: unsupported expression
 expr:expr ai8.c1_a:\(default.S3<Int8>\) \$[\d] = {[\s\S]*s3_a = 8[\s\S]*}
-s,s,-> 46
-n,n,-> 47
-n,n,-> 48
+s,s,47
+n,n,48
+n,n,49
 expr:expr this.s1_a:\(UInt8\) \$[\d] = 8
 expr:expr aa-Int64(a):\(Int64\) \$[\d] = 2
 q,q,

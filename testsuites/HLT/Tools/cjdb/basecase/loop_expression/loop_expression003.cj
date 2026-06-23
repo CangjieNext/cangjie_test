@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     var sum = ArrayList([1,2,3])
     var count = 0
     for (i in sum) {

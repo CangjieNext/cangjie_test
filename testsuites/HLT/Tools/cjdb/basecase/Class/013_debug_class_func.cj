@@ -77,6 +77,7 @@ class C4<T> <: C2<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var newc1 = C1()
     var main_num1 = newc1.funcdemo1()
     //var main_num2 = newc1.funcdemo2(2)

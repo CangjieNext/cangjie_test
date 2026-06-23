@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func010.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func010.cj -o generics_global_func010%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_global_func010.info generics_global_func010 %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g generics_global_func010.cj -o generics_global_func010%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py generics_global_func010.info generics_global_func010 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func010,generics_global_func010
-b,b 41,generics_global_func010.cj:41
-AOT r,r,-> 41
+b,b 42,generics_global_func010.cj:42
+AOT r,r,-> 42
+Android c,c,42
 CJVM c,c,
 expr,expr rf3,\(default.RGBColor2<Bool>\) \$[\d] = {\s+constructor = Green[\s\S]*arg_1 = true[\s\S]*}
 expr,expr rf5,\(default.RGBColor3<Float64,Int64>\) \$[\d] = {\s+constructor = Green[\s\S]*arg_1 = 1.1[\s\S]*arg_2 = 2[\s\S]*}

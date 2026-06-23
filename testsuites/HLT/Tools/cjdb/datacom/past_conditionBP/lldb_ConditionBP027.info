@@ -8,17 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/006_debug_break.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 006_debug_break.cj -o 006_debug_break%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP027.info 006_debug_break %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 006_debug_break.cj -o 006_debug_break%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py lldb_ConditionBP027.info 006_debug_break %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_break,006_debug_break
-breakpoint,breakpoint set -l 16 -c 'indexbreak==12',006_debug_break.cj:16
-AOT r,r,-> 16
+breakpoint,breakpoint set -l 17 -c 'indexbreak==12',006_debug_break.cj:17
+AOT r,r,-> 17
+Android c,c,17
 CJVM c,c,
-n,n,-> 19
+n,n,20
 locals,locals,indexbreak = 12
 q,q,

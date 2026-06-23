@@ -28,6 +28,7 @@ func h1<T>(x: T): T { x }
 func h2<T>(x: T): T { x }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     let arr: Array<Int64> = [1, 3, 5]
     let res = arr |> inc<Int64> |> sum<Int64>
     var hh = h1<Int64> ~> h2<Int64>

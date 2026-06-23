@@ -8,26 +8,27 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/generics_debug_files/func_generics/
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt %compile_lib_opt -g func_generics/p1/debug_func_generics_p101.cj func_generics/p1/debug_func_generics_p102.cj -o p1.%middle
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt %compile_lib_opt -g func_generics/p2/debug_func_generics_p201.cj -o p2.%middle
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g func_generics/debug_func_generics.cj p1.%middle p2.%middle -o debug_func_generics%cmp_output
-// (not MAC and not Windows) EXEC: cj_pwd=`realpath func_generics/debug_func_generics.cj`;sed -i "s;b 56;b ${cj_pwd}:56;g" cjdb_func_generics_015.info
-// (not MAC and not Windows) EXEC: python3 cjdb_test.py cjdb_func_generics_015.info debug_func_generics %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt %compile_lib_opt -g func_generics/p1/debug_func_generics_p101.cj func_generics/p1/debug_func_generics_p102.cj -o p1.%middle
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt %compile_lib_opt -g func_generics/p2/debug_func_generics_p201.cj -o p2.%middle
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g func_generics/debug_func_generics.cj p1.%middle p2.%middle -o debug_func_generics%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: cj_pwd=`realpath func_generics/debug_func_generics.cj`;sed -i "s;b 56;b ${cj_pwd}:56;g" cjdb_func_generics_015.info
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py cjdb_func_generics_015.info debug_func_generics %run_env
 
 test#
 cjdb,cjdb --no-use-colors debug_func_generics,debug_func_generics
-CJVM b main,b main,debug_func_generics.cj:33
-CJVM c,c,-> 33
-b,b 64,debug_func_generics.cj:64
-AOT r,r,-> 64
-CJVM c,c,-> 64
-s,s,-> 13
-s,s,-> 23
-n,n,-> 24
-finish,finish,-> 13
-n,n,-> 14
-s,s,-> 13
-finish,finish,-> 14
-n,n,-> 15
-finish,finish,-> 64
+CJVM b main,b main,debug_func_generics.cj:34
+CJVM c,c,34
+b,b 65,debug_func_generics.cj:65
+AOT r,r,-> 65
+Android c,c,65
+CJVM c,c,65
+s,s,14
+s,s,24
+n,n,25
+finish,finish,14
+n,n,15
+s,s,14
+finish,finish,15
+n,n,16
+finish,finish,65
 q,quit,

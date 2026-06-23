@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/026_enum_generics_lambda.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 026_enum_generics_lambda.cj -o 026_enum_generics_lambda%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum022.info 026_enum_generics_lambda %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 026_enum_generics_lambda.cj -o 026_enum_generics_lambda%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py expression_enum022.info 026_enum_generics_lambda %run_env
 
 test#
 cjdb,cjdb --no-use-colors 026_enum_generics_lambda,026_enum_generics_lambda
-b,b 21,026_enum_generics_lambda.cj:21
-AOT r,r,-> 21
+b,b 22,026_enum_generics_lambda.cj:22
+AOT r,r,-> 22
+Android c,c,22
 CJVM c,c,
 p,p time4,\(default.TimeUnit4<Int32>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 0x[\s\S]*}
 p,p time5,\(default.TimeUnit5<Int64>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}

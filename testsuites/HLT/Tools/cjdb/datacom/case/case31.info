@@ -8,14 +8,15 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/001_HashMap_Ins_basic.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 001_HashMap_Ins_basic.cj -o case31%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py case31.info case31 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 001_HashMap_Ins_basic.cj -o case31%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py case31.info case31 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case31,case31
-b,b 35,001_HashMap_Ins_basic.cj:35
-AOT r,r,-> 35
-CJVM c,c,-> 35
+b,b 36,001_HashMap_Ins_basic.cj:36
+AOT r,r,-> 36
+Android c,c,36
+CJVM c,c,36
 locals,locals,\(std[.]collection.HashMap<Int8,UInt8>\) map_main_1 =
 locals,locals,\(std[.]collection.HashMap<Int32,UInt32>\) map_main_3 =
 q,q,

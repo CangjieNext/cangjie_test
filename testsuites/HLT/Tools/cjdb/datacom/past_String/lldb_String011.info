@@ -16,10 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 24,049_debug_string.cj:24
-AOT r,r,-> 24
+b,b 25,049_debug_string.cj:25
+AOT r,r,-> 25
+Android c,c,25
 CJVM c,c,
-n,n,-> 27
-AOT locals,locals,\(std[.]core.String\) main_str10 = "Hello\\nCangJie!"
+n,n,28
+locals,locals,\(std[.]core.String\) main_str10 = "Hello\\nCangJie!"
 CJVM locals,locals,\(std[.]core.String\) main_str10 = "
 q,q,

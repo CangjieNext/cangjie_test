@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func009.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func009.cj -o generics_global_func009%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_global_func009.info generics_global_func009 %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g generics_global_func009.cj -o generics_global_func009%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py generics_global_func009.info generics_global_func009 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func009,generics_global_func009
-b,b 30,generics_global_func009.cj:30
-AOT r,r,-> 30
+b,b 31,generics_global_func009.cj:31
+AOT r,r,-> 31
+Android c,c,31
 CJVM c,c,
 expr:expr A2<Int64>(1):\(default.A2<Int64>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
 expr:expr bb2:\(default.A2<Int64>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}

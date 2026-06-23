@@ -8,14 +8,15 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func005.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func005.cj -o generics_global_func005%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_global_func005.info generics_global_func005 %run_env
+// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g generics_global_func005.cj -o generics_global_func005%cmp_output
+// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py generics_global_func005.info generics_global_func005 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func005,generics_global_func005
-b,b 30,generics_global_func005.cj:30
-AOT r,r,-> 30
+b,b 31,generics_global_func005.cj:31
+AOT r,r,-> 31
+Android c,c,31
 CJVM c,c,
 expr:expr x5.contains(1):\(Bool\) \$[\d] = true
 expr:expr x4.size==2:\(Bool\) \$[\d] = true

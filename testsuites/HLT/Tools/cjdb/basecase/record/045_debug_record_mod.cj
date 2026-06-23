@@ -53,6 +53,7 @@ struct Rectangle {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let rect = Rectangle(3)
     var main_length: Int32 = rect.length    // OK: 访问控制符为 public，可以在struct外访问
     var main_diagonalLength: Int32 = rect.diagonalLength    // OK: 访问控制符缺省时为 public，可以在struct外访问

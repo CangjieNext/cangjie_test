@@ -17,6 +17,7 @@ func test<T>(input: T): HashMap<Int64, Int64> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var hashmap1: HashMap<Int8, String> = HashMap<Int8, String>(2, {x: Int64 => (Int8(x), x.toString())})
     var a = test<Int64>(1)
     var b = f<HashMap<Int64, String>>(HashMap<Int64, String>([(1, 'a')]))

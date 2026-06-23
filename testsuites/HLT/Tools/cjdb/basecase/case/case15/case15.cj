@@ -27,6 +27,7 @@ func gfunc1(a: Int64) {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     gfunc1(2)
     println("finished")
     return 0

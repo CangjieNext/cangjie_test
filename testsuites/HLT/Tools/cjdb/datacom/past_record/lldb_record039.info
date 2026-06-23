@@ -8,16 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/Packages/src
-// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/046_debug_record_mod_external.cj -o libpkg1.%middle
-// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/046_debug_record_mod_external_use.cj -o 046_debug_record_mod_external_use%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_record039.info 046_debug_record_mod_external_use %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/046_debug_record_mod_external.cj -o libpkg1.%middle
+// (!target_android) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/046_debug_record_mod_external_use.cj -o 046_debug_record_mod_external_use%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_record039.info 046_debug_record_mod_external_use %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 046_debug_record_mod_external_use,046_debug_record_mod_external_use
-b,b 22,046_debug_record_mod_external_use.cj:22
-AOT r,r,-> 22
+b,b 23,046_debug_record_mod_external_use.cj:23
+AOT r,r,-> 23
+Android c,c,23
 CJVM c,c,
-n,n,-> 23
+n,n,24
 locals,locals,main_area = 20000
 q,q,
