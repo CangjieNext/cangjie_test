@@ -14,6 +14,7 @@ var map_c: HashMap<cla, Float32> = HashMap<cla, Float32>([(cla(1), 17.750), (cla
 var map_d: HashMap<cla, Rune> = HashMap<cla, Rune>([(cla(1), r'C'), (cla(3), r'a'), (cla(2), r'N')])
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var map_a: HashMap<cla, UInt8> = HashMap<cla, UInt8>([(cla(1), 42), (cla(2), 12)])
     var map_b: HashMap<cla, String> = HashMap<cla, String>([(cla(1), 'a'), (cla(2), 'b')])
     var map_c: HashMap<cla, Float32> = HashMap<cla, Float32>([(cla(1), 17.750), (cla(2), 1.836), (cla(3), 3.594)])

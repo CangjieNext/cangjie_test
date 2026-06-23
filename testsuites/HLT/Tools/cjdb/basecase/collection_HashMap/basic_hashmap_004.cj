@@ -21,6 +21,7 @@ func test2<T>(a: HashMap<Int, T>) {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var map_1: HashMap<Int8, UInt8> = HashMap<Int8, UInt8>([(-3, 42), (2, 12), (-76, 165)])
     var map_2 = HashMap<Int, A1>([(1, 'abc'), (2, "bcd")])
     test1(map_1)

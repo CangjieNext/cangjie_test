@@ -15,6 +15,7 @@ class C2 <: C1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C2()
     let b1 = Option<C2>.Some(a1)
     let b2 = Option<C2>.None

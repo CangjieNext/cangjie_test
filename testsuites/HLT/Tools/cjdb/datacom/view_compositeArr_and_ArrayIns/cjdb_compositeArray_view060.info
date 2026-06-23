@@ -9,13 +9,14 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/011_debug_ArrayIns_composite_record.cj
 // EXEC: %compiler %cmp_opt -g 011_debug_ArrayIns_composite_record.cj -o 011_debug_ArrayIns_composite_record%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_compositeArray_view060.info 011_debug_ArrayIns_composite_record %run_env
+// EXEC: python3 cjdb_test.py cjdb_compositeArray_view060.info 011_debug_ArrayIns_composite_record %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_ArrayIns_composite_record,011_debug_ArrayIns_composite_record
-b,b 30,011_debug_ArrayIns_composite_record.cj:30
-AOT r,r,-> 30
+b,b 31,011_debug_ArrayIns_composite_record.cj:31
+AOT r,r,-> 31
+Android c,c,31
 CJVM c,c,
 p,p multiArr_mg_d2[0],\(std[.]core.Array<default.R2<Rune>>\) \$[\d] = {(\r|\n|\r\n)  \[0\] = [\s\S]*
 p,p multiArr_mg_d2[0][1],default.R2<Rune>\) \$[\d] = {(\r|\n|\r\n)  width = 'F'

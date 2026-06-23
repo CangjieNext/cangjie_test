@@ -13,6 +13,7 @@ let test1: Int64 = pkgs1.varpkg1_001
 let test2: Int64 = pkgs2.varpkg1_001
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var res1: Int64 = f1() //20
     var res2: Int64 = f2() //40
     0

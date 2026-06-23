@@ -10,6 +10,7 @@ import std.collection.*
 import std.math.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     var map1: HashMap<String, Int64> = HashMap<String, Int64>([("a", 8), ("b", 19)])
     var map2: HashMap<Bool, Unit> = HashMap<Bool, Unit>([(true, ()), (false, ())])
     var map3: HashMap<Int8, Int16> = HashMap<Int8, Int16>([(Int8.Max, Int16.Max), (Int8.Min, Int16.Min)])

@@ -15,47 +15,48 @@
 
 test#
 cjdb,cjdb --no-use-colors 021_debug_file,021_debug_file
-CJVM b main,b main,021_debug_file.cj:16
-CJVM c,c,-> 16
-b,b 16,021_debug_file.cj:16
-AOT r,r,-> 16
-s,s,-> 22
-s,s,-> 26
-s,s,-> 30
-s,s,-> 34
-s,s,-> 38
-s,s,-> 42
-s,s,-> 46
-s,s,-> 50
-s,s,-> 54
-s,s,-> 59
-s,s,-> 63
-s,s,-> 67
-s,s,-> 71
-s,s,-> 75
-s,s,-> 79
-s,s,-> 83
-s,s,-> 87
-s,s,-> 91
-s,s,-> 95
-s,s,-> 100
-finish,finish,-> 95
-finish,finish,-> 91
-finish,finish,-> 87
-finish,finish,-> 83
-finish,finish,-> 79
-finish,finish,-> 75
-finish,finish,-> 71
-finish,finish,-> 67
-finish,finish,-> 63
-finish,finish,-> 59
-finish,finish,-> 54
-finish,finish,-> 50
-finish,finish,-> 46
-finish,finish,-> 42
-finish,finish,-> 38
-finish,finish,-> 34
-finish,finish,-> 30
-finish,finish,-> 26
-finish,finish,-> 22
+CJVM b main,b main,021_debug_file.cj:17
+CJVM c,c,17
+b,b 17,021_debug_file.cj:17
+AOT r,r,-> 17
+Android c,c,17
+s,s,23
+s,s,27
+s,s,31
+s,s,35
+s,s,39
+s,s,43
+s,s,47
+s,s,51
+s,s,55
+s,s,60
+s,s,64
+s,s,68
+s,s,72
+s,s,76
+s,s,80
+s,s,84
+s,s,88
+s,s,92
+s,s,96
+s,s,101
+finish,finish,96
+finish,finish,92
+finish,finish,88
+finish,finish,84
+finish,finish,80
+finish,finish,76
+finish,finish,72
+finish,finish,68
+finish,finish,64
+finish,finish,60
+finish,finish,55
+finish,finish,51
+finish,finish,47
+finish,finish,43
+finish,finish,39
+finish,finish,35
+finish,finish,31
+finish,finish,27
+finish,finish,23
 q,q,

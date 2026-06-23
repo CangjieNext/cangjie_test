@@ -9,6 +9,7 @@
 import org5::pkgs.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = T1<Int64>.Year
     var a2 = a1.f1(3)
     var a3 = T1<Int64>.fun_s1(4)

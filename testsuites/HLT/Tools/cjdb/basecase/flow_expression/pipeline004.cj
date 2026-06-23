@@ -15,6 +15,7 @@ func f2<T>(x: T): T {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a1 = 'A'
     var res1 = a1 |> f1
     let a2 = true

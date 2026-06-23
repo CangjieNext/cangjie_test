@@ -16,9 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 009_debug_class_main_mod_private,009_debug_class_main_mod_private
-b,b 37,009_debug_class_main_mod_private.cj:37
-AOT r,r,-> 37
-CJVM c,c,-> 37
-n,n,-> 38
+b,b 38,009_debug_class_main_mod_private.cj:38
+AOT r,r,-> 38
+Android c,c,38
+CJVM c,c,38
+n,n,39
 locals,locals,Rectangle\) newRectangle = {(\r|\n|\r\n)  name = "afdoaidfad"(\r|\n|\r\n)  width = 1(\r|\n|\r\n)  length = 2(\r|\n|\r\n)  height = 1
 q,q,

@@ -9,6 +9,7 @@
 class A <: Exception {}
 
 main() {
+    sleep(Duration.millisecond*3000)
     try {
         throw A()
     } catch (_) {

@@ -9,15 +9,16 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/004_debug_enum_recursion.cj
 // EXEC: %compiler %cmp_opt -g 004_debug_enum_recursion.cj -o 004_debug_enum_recursion%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_enum019.info 004_debug_enum_recursion %run_env
+// EXEC: python3 cjdb_test.py lldb_enum019.info 004_debug_enum_recursion %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_enum_recursion,004_debug_enum_recursion
-b,b 41,004_debug_enum_recursion.cj:41
-AOT r,r,-> 41
+b,b 42,004_debug_enum_recursion.cj:42
+AOT r,r,-> 42
+Android c,c,42
 CJVM c,c,
 n,n,->
 locals,locals,E1\) time3 = {(\r|\n|\r\n)  constructor = B

@@ -13,6 +13,7 @@ let gr3 = gf1?(1)
 let gr4 = gf2?(1)
 
 main() {
+    sleep(Duration.millisecond*3000)
     let foo = {i:Int64 => i+1}
     let f1 = Option<(Int64) -> Int64>.Some(foo)
     let f2 = Option<(Int64) -> Int64>.None

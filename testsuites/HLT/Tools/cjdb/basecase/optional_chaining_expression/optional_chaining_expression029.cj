@@ -11,6 +11,7 @@ func test<T>(a:Option<Int64>){
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let arr = Array<Int64>(3,{i:Int64 => i*2})
     let a1 = Option<Array<Int64>>.Some(arr)
     let a2 = Option<Array<Int64>>.None

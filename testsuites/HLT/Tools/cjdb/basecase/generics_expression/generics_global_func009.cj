@@ -23,6 +23,7 @@ struct A2<T> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var aa = A()
     var bb = A2<Int64>(1)
     var aa2 = foo<A>(aa)

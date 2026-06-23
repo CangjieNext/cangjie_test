@@ -28,6 +28,7 @@ struct S1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = S1()
     a.name<Int64>(2)
     a.name()

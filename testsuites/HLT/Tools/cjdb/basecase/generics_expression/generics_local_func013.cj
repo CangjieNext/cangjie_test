@@ -20,6 +20,7 @@ open class C1<T> <: I1<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var data1 = C1<Int64>().fc1()
     return 0
 }

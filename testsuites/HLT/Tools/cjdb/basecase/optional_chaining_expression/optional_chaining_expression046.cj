@@ -15,6 +15,7 @@ struct ABC {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var f1 = Option<(ABC)->ABC>.Some(func3<ABC>)
     var f2 = Option<(ABC)->ABC>.None
     var f3 = Option<(Int64)->Int64>.Some(func3<Int64>)

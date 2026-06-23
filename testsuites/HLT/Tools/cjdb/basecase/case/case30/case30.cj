@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     let e = ArrayList<String>(2, {x: Int64 => x.toString()})
     0
 }

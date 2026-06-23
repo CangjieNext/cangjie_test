@@ -13,6 +13,7 @@ class Circle{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let circleMap = HashMap<String,Circle>()
     circleMap.add("small",Circle(1))
     circleMap.add("large",Circle(2))

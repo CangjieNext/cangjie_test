@@ -13,6 +13,7 @@ enum Expr {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let x = Add(Num(1),Num(2))
     let s = match (x) {
         case Num(y) => "aa"

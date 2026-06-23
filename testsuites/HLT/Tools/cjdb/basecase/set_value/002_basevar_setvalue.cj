@@ -13,6 +13,7 @@ func test(a: Int64, b: Int64) {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var d = test(1, 2)
     return 0
 }

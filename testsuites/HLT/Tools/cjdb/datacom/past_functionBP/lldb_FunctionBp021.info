@@ -16,9 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 014_debug_func_bp,014_debug_func_bp
-CJVM b,breakpoint set -n main,014_debug_func_bp.cj:14
-CJVM c,c,-> 14
-b,b funcbp002,014_debug_func_bp.cj:72
-AOT r,r,-> 72
-CJVM c,c,-> 72
+CJVM b,breakpoint set -n main,014_debug_func_bp.cj:15
+CJVM c,c,15
+b,b funcbp002,014_debug_func_bp.cj:73
+AOT r,r,-> 73
+Android c,c,73
+CJVM c,c,73
 q,q,

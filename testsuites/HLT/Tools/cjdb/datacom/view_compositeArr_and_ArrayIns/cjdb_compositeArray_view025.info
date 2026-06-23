@@ -9,16 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/006_debug_multiArray_composite_record.cj
 // EXEC: %compiler %cmp_opt -g 006_debug_multiArray_composite_record.cj -o 006_debug_multiArray_composite_record%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_compositeArray_view025.info 006_debug_multiArray_composite_record %run_env
+// EXEC: python3 cjdb_test.py cjdb_compositeArray_view025.info 006_debug_multiArray_composite_record %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_multiArray_composite_record,006_debug_multiArray_composite_record
-b,b 24,006_debug_multiArray_composite_record.cj:24
-AOT r,r,-> 24
+b,b 25,006_debug_multiArray_composite_record.cj:25
+AOT r,r,-> 25
+Android c,c,25
 CJVM c,c,
-s,s,func fun_r1\(pa_1:Array<String>,pa_2!:Array<String> = array_top_str_1\)[\s\S]*-> 53
-n,n,-> 54
+s,s,func fun_r1\(pa_1:Array<String>,pa_2!:Array<String> = array_top_str_1\)[\s\S]*54
+n,n,55
 p,p fun_v1,std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "string_test_001"[\s\S]*
-finish,finish,-> 24
+finish,finish,25
 q,q,

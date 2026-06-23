@@ -26,6 +26,7 @@ type ST<T> = structtype01<T>
 type CT<T> = classtype01<T>
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let lst = ST<Int32>(32)
     let lct = CT<Int32>(16)
     let lst2 = structtype01<Int32>(32)

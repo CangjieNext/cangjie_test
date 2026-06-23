@@ -12,6 +12,7 @@ enum C {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var c1 = C.C1(Some(16))
     var c2 = C.C2(Some(2.4e-1))
     var c3 = C.C3(Some(ArrayList<Rune>([r'c', r'a', r'n', r'g', r'j', r'i', r'e'])))

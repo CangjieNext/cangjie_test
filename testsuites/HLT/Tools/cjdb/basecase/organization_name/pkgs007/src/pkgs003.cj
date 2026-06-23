@@ -14,6 +14,7 @@ var map_top_2 : HashMap<Float32, Float64> = HashMap<Float32, Float64>([(12.15654
 var map_top_empty_uint32 : HashMap<UInt32, UInt32> = HashMap<UInt32, UInt32>()
 
 main() {
+    sleep(Duration.millisecond*3000)
     var newc = Cla_exter_1(120,"help me!")
     var main_rect = rec_exter_1(10,12)
     var val_1 :HashMap<Int32, Rune> =newc.map_c_1

@@ -24,6 +24,7 @@ func test01<T>(a:T):T {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var aaa = HashMap<Rune, Rectangle>([(r'a', Rectangle()), (r'b', Rectangle())])
     test01<HashMap<Rune, Rectangle>>(aaa)
     return 0

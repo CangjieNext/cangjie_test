@@ -29,6 +29,7 @@ func func_2<T1,T2>(a:T1,b:T2){
 var gobalValue = func_p201<Int64>(999)
 
 main(){
+    sleep(Duration.millisecond*3000)
     // 调用包1内p101文件的单类型单参函数
     var data_p101_1 = func_1<Int64>(100)
     // 同文件调用重载函数

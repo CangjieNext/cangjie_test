@@ -49,6 +49,7 @@ open class C2 <: C1 {
     }
 }
 main() {
+    sleep(Duration.millisecond*3000)
     var rr=C2()
     return 0
 }
