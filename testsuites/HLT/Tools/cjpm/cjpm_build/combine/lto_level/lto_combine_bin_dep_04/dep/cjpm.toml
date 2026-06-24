@@ -48,6 +48,8 @@
 [target.aarch64-linux-android35.bin-dependencies]
   path-option = ["inner_dep/target/aarch64-linux-android35/release/inner_dep"]
 
+[target.arm-linux-android23.bin-dependencies]
+  path-option = ["inner_dep/target/arm-linux-android23/release/inner_dep"]
 
 
 
