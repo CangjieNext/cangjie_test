@@ -46,6 +46,9 @@ combine-all-deps = true
 [target.aarch64-linux-android35.bin-dependencies]
   path-option = ["p3/target/aarch64-linux-android35/release/p3"]
 
+[target.arm-linux-android23.bin-dependencies]
+  path-option = ["p3/target/arm-linux-android23/release/p3"]
+
 [target.x86_64-linux-ohos]
   compile-option = "-B=${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/bin --sysroot=${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/sysroot"
 
