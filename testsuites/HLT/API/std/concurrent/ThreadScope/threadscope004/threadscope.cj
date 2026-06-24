@@ -18,7 +18,7 @@ main(): Int64 {
     var caughtMessage = ""
 
     try {
-        ThreadScope<Unit, Unit> {
+        threadScope<Unit, Unit> {
             group =>
                 group.launch {
                     throw Exception("child failed")

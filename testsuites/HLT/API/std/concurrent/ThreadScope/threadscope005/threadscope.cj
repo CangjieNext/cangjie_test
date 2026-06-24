@@ -16,7 +16,7 @@ import std.sync.*
 main(): Int64 {
     let finishedCount = AtomicInt64(0)
 
-    ThreadScope<Unit, Unit> {
+    threadScope<Unit, Unit> {
         group =>
             group.launch {
                 sleep(Duration.millisecond * 30)

@@ -13,7 +13,7 @@
 import std.concurrent.*
 
 main(): Int64 {
-    let sum = ThreadScope<Int64, Int64> {
+    let sum = threadScope<Int64, Int64> {
         group =>
             group.launch { 10 }
             group.launch { 20 }

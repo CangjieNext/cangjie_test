@@ -19,7 +19,7 @@ main(): Int64 {
     var caughtException = false
 
     try {
-        ThreadScope<Unit, Unit> {
+        threadScope<Unit, Unit> {
             group =>
                 group.launch {
                     try {

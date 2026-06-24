@@ -13,7 +13,7 @@
 import std.concurrent.*
 
 main(): Int64 {
-    let result = ThreadScope<Unit, Int64> {
+    let result = threadScope<Unit, Int64> {
         _ =>
             42
     }

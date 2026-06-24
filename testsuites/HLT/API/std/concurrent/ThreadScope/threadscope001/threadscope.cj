@@ -15,7 +15,7 @@ import std.concurrent.*
 private func requireUnit(_: Unit): Unit {}
 
 main(): Int64 {
-    ThreadScope<Int64, Unit> {
+    threadScope<Int64, Unit> {
         group =>
             requireUnit(group.launch { 1 })
     }

@@ -16,7 +16,7 @@ import std.sync.*
 main(): Int64 {
     let cancellationObserved = AtomicBool(false)
 
-    ThreadScope<Unit, Unit> {
+    threadScope<Unit, Unit> {
         group =>
             group.launch {
                 while (!Thread.currentThread.hasPendingCancellation) {

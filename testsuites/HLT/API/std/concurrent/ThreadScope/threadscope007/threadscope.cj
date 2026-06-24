@@ -14,7 +14,7 @@ import std.collection.ArrayList
 import std.concurrent.*
 
 main(): Int64 {
-    let results = ThreadScope<Int64, ArrayList<Int64>> {
+    let results = threadScope<Int64, ArrayList<Int64>> {
         group =>
             group.launch {
                 sleep(Duration.millisecond * 60)

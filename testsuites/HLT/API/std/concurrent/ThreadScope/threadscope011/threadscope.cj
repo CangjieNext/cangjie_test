@@ -21,7 +21,7 @@ main(): Int64 {
     let cmeObserved = AtomicBool(false)
 
     try {
-        ThreadScope<Unit, Unit> {
+        threadScope<Unit, Unit> {
             group =>
                 for (_ in 0..launcherCount) {
                     group.launch {

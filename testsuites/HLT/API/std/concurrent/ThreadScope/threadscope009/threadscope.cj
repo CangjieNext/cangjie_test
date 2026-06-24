@@ -19,7 +19,7 @@ main(): Int64 {
     var caughtMessage = ""
 
     try {
-        ThreadScope<Int64, Unit> {
+        threadScope<Int64, Unit> {
             group =>
                 group.launch {
                     sleep(Duration.millisecond * 20)
