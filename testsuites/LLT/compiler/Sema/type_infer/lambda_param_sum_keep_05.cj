@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC:%frontendCompiler %typecheck %cmp_opt -Woff all %f
+// EXEC-PIPE-1: %compiler %diag_json %f -o %output 2>&1 | compare %f
 
 // Guard for the issue #927 fix: when the member usage has explicit generic
 // arguments, coverage must be computed only from members with the same function
@@ -26,3 +26,5 @@ main() {
     let f = {x => x.pick<Int64>(1)}
     return 0
 }
+
+// ASSERT: scan sema_lambdaExpr_must_have_type_annotation
