@@ -1,4 +1,4 @@
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %cmp_opt %f -o %output
 // ASSERT: regex-not core dumped
 
 class A{
