@@ -15,13 +15,15 @@
 unsafe func f(x: Int32): Float32 { Float32(x) }
 unsafe func g(x: Float32): Int32 { Int32(x) }
 
-var fg = f ~> g  // Equivalence: {x: Int32 => g(f(x))}
+// A composition is desugared to a lambda that calls both operands, so composing
+// unsafe functions requires an unsafe context, same as the equivalent lambda.
+var fg = unsafe { f ~> g }  // Equivalence: {x: Int32 => g(f(x))}
 
-let lambdaComp = { x: Int32 => x } ~> f // ok
+let lambdaComp = unsafe { { x: Int32 => x } ~> f } // ok
 
 unsafe func h1<T>(x: T): T { x }
 unsafe func h2<T>(x: T): T { x }
-var hh = h1<Int32> ~> h2<Int32> // ok
+var hh = unsafe { h1<Int32> ~> h2<Int32> } // ok
 
 // COMPOSITION with operator `()` overloading
 class A {

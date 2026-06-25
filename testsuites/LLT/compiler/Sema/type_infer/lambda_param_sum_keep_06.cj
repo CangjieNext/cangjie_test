@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC:%frontendCompiler %typecheck %cmp_opt -Woff all %f
+// EXEC-PIPE-1: %compiler %diag_json %f -o %output 2>&1 | compare %f
 
 // Guard for candidate filtering: a generic candidate may be determined by a
 // member call's result type through outer constraints. `a[0]` does not cover
@@ -12,7 +12,9 @@
 // result to Int64, so Array<Int64> must not be discarded.
 
 main() {
-    let f = {a => a[0] == 1}
+    let f = {a => a[0] == 1} // a : Array<Int64> or String
     let _: (Array<Int64>) -> Bool = f
     return 0
 }
+
+// ASSERT: scan sema_lambdaExpr_must_have_type_annotation
