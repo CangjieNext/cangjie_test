@@ -7,7 +7,7 @@
  */
  
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %cmp_opt %f -o %output
 
 
 class A{
