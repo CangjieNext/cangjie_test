@@ -42,6 +42,18 @@ func identity(x: Int64): Int64 { x }
 func bodyContext(): Int64 { (Int64)((makeIntExtern)(4)) + 1 }
 func returnContext(): Int64 { return (Int64)((makeIntExtern)(4)) + 1 }
 
+// Reading a field off a forced-cast result inside a function-call argument is a
+// synthesis context (no target type flows in from a typed `let`); the cast must
+// still resolve there. Regression guard: this combination previously crashed sema.
+// Use two classes to show it is the shape, not a particular type.
+func checkFcResultFieldInArg(): Unit {
+    let viaBox = identity(((Box)(makeBoxExtern(11))).value)
+    let viaUser = identity(((User)(makeUserExtern(12))).id)
+    if (viaBox != 11 || viaUser != 12) {
+        throw Exception("forced-cast result field in argument failed")
+    }
+}
+
 // Cast vs postfix: cast binds looser, so parens are needed to act on the result.
 func checkPostfixPrecedence(): Unit {
     let methodOnResult: Int64 = ((Box)(makeBoxExtern(5))).get()
@@ -99,4 +111,5 @@ main() {
     checkPostfixPrecedence()
     checkTrailingOperators()
     checkCastVsCallBinding()
+    checkFcResultFieldInArg()
 }
