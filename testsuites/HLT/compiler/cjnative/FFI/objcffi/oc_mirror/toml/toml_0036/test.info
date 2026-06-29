@@ -8,5 +8,18 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h
-// (iOSNative) ERRCHECK: %mirror_gen test.toml
-// ASSERT: regex Entity `UInt32` from .* is ambiguous between 2 packages. Specify -v for more detailed information
+// (iOSNative) EXEC: %mirror_gen test.toml
+// (iOSNative) EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+package cjworld
+
+import objc.foundation.NSObject
+import objc.lang.*
+
+@ObjCMirror
+public open class A <: NSObject {
+    public open func test1(): Unit
+    public static func test2(): Unit
+}
+*/
+
