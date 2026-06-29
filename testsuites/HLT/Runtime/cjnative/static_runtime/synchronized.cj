@@ -7,7 +7,9 @@
  */
 
 // LEVEL: 0
-// (not Windows and not MAC) EXEC-PIPE-1: %compiler %cmp_opt  --static %f -o %output 2>&1 | compare %f
+// EXEC: %compiler %compilation_options %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --static %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// ASSERT: scan in main, count = 10
 
 import std.sync.*
 
@@ -15,7 +17,7 @@ var count: Int64 = 0
 var mtx: ReentrantMutex = ReentrantMutex()
 
 func test(): Unit {
-    synchronized() { 
+    synchronized(mtx) { 
         count = count + 1
     }
 }
@@ -34,4 +36,3 @@ main(): Int64 {
     print("in main, count = ${count}\n")
     return 0
 }
-// ASSERT: scan parse_expected_expression
