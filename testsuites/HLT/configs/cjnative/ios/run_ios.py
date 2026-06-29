@@ -226,9 +226,21 @@ def main():
         
         # 读取日志内容
         with open('ios_sim.log', 'r', encoding='utf-8') as f:
-            cangjie_runtime_log_lines = (line.rstrip('\n') for line in f if '[CANGJIE:RUNTIME]' in line)
-            # 过滤掉这一句
-            cangjie_runtime_log_lines = [line for line in cangjie_runtime_log_lines if 'signpost functions all loaded successfully' not in line]
+            cangjie_runtime_log_lines = []
+            for line in f.readlines():
+                line = line.rstrip('\n')
+                if '[CANGJIE:RUNTIME]' in line:
+                    cangjie_runtime_log_lines.append(line)
+                if 'Process exited:' in line and '(SpringBoard)' in line:
+                    cangjie_runtime_log_lines.append(line)
+            spring_board_line = [line for line in cangjie_runtime_log_lines if '(SpringBoard)' in line]
+            if len(spring_board_line) == 1:
+                exit_message = spring_board_line[0]
+            else:
+                exit_message = ''
+            
+            # 过滤无关stdout/stderr
+            cangjie_runtime_log_lines = [line for line in cangjie_runtime_log_lines if 'signpost functions all loaded successfully' not in line and '(SpringBoard)' not in line]
             sys_log_content = '\n'.join(cangjie_runtime_log_lines)
 
         if not args.objcffi:
@@ -238,13 +250,13 @@ def main():
                 com_out = com_out.split("cj_main_return_start")[0] + com_out.split("cj_main_return_end")[1]
             else:
                 # 如果没有找到cj_main_return_start/cj_main_return_end可能是因为全局抛出异常导致的
-                if 'Init Image fail! exception occurrence when init image' in sys_log_content:
+                if 'An exception has occurred' in sys_log_content:
                     # 全局静态初始化过程中抛出异常，退出码改为1，并将日志内容输出到标准输出流
                     return_code = 1
-                elif 'CJNative Handle signal: 11.' in sys_log_content:
+                elif 'CJNative Handle signal: 11.' in sys_log_content or 'SIGSEGV(11)' in exit_message:
                     # SIGSEGV(11) -> 139
                     return_code = 139
-                elif 'CJNative Handle signal: 6.' in sys_log_content:
+                elif 'CJNative Handle signal: 6.' in sys_log_content or 'SIGABRT(6)' in exit_message:
                     # SIGABRT(6) -> 134
                     return_code = 134
                 else:
