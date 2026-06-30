@@ -14,4 +14,8 @@ open class Fraction {
 	var denom: Int64
 	@ForeignName["initWithNum:andDenom:"]
 	public init(num: Int32, denom: Int32)
+
+	@ObjCInit
+	@ForeignName["initWithNum:andDenom2:"]
+	public static func initWithNumAndDenom2(num: Int32, denom: Int32): Fraction
 }
