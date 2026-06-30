@@ -44,7 +44,7 @@ public class Impl extends MyObject {
 
     private native void initCJObjectl(long value);
 
-    public static native long superC1A0P0(long value);
+    private static native long superC1A0P0(long value);
     public Impl(long x, long y) {
         super(superC2A0P0P1(x, y));
         initCJObjectll(x, y);
@@ -56,7 +56,7 @@ public class Impl extends MyObject {
 
     private native void initCJObjectll(long x, long y);
 
-    public static native long superC2A0P0P1(long x, long y);
+    private static native long superC2A0P0P1(long x, long y);
     public Impl(long x, long y, long z) {
         super(superC3A0P0P1P2(x, y, z));
         initCJObjectlll(x, y, z);
@@ -68,7 +68,7 @@ public class Impl extends MyObject {
 
     private native void initCJObjectlll(long x, long y, long z);
 
-    public static native long superC3A0P0P1P2(long x, long y, long z);
+    private static native long superC3A0P0P1P2(long x, long y, long z);
     public Impl(long x, long y, long z, long u) {
         super(superC4A0P0P1P2P3(x, y, z, u));
         initCJObjectllll(x, y, z, u);
@@ -80,7 +80,7 @@ public class Impl extends MyObject {
 
     private native void initCJObjectllll(long x, long y, long z, long u);
 
-    public static native long superC4A0P0P1P2P3(long x, long y, long z, long u);
+    private static native long superC4A0P0P1P2P3(long x, long y, long z, long u);
     @Override
     public boolean equals(Object obj) {
         throw new UnsupportedOperationException("equals is not supported for java proxy object.");
@@ -96,7 +96,7 @@ public class Impl extends MyObject {
         throw new UnsupportedOperationException("toString is not supported for java proxy object.");
     }
 
-    public native void deleteCJObject(long self);
+    private native void deleteCJObject(long self);
 
     @Override
     public void finalize() {

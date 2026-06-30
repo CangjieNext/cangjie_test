@@ -45,13 +45,13 @@ public class A extends M {
         pCN9java_lang6JArrayICN16cjworld_theworld1AEE(this.self, o);
     }
 
-    public native void pCN9java_lang6JArrayICN16cjworld_theworld1AEE(long self, A[] o);
+    private native void pCN9java_lang6JArrayICN16cjworld_theworld1AEE(long self, A[] o);
 
     public void r(char[] o) {
         rCN9java_lang6JArrayItE(this.self, o);
     }
 
-    public native void rCN9java_lang6JArrayItE(long self, char[] o);
+    private native void rCN9java_lang6JArrayItE(long self, char[] o);
 
     @Override
     public boolean equals(Object obj) {
@@ -68,7 +68,7 @@ public class A extends M {
         throw new UnsupportedOperationException("toString is not supported for java proxy object.");
     }
 
-    public native void deleteCJObject(long self);
+    private native void deleteCJObject(long self);
 
     @Override
     public void finalize() {

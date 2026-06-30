@@ -45,19 +45,19 @@ public class A extends M {
         f(this.self);
     }
 
-    native void f(long self);
+    private native void f(long self);
 
     void oneArg(long x) {
         oneArgl(this.self, x);
     }
 
-    native void oneArgl(long self, long x);
+    private native void oneArgl(long self, long x);
 
     void twoArgs(long x, boolean y) {
         twoArgslb(this.self, x, y);
     }
 
-    native void twoArgslb(long self, long x, boolean y);
+    private native void twoArgslb(long self, long x, boolean y);
 
     @Override
     public boolean equals(Object obj) {
@@ -74,7 +74,7 @@ public class A extends M {
         throw new UnsupportedOperationException("toString is not supported for java proxy object.");
     }
 
-    public native void deleteCJObject(long self);
+    private native void deleteCJObject(long self);
 
     @Override
     public void finalize() {

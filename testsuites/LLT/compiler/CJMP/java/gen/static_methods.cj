@@ -41,7 +41,7 @@ public class A extends M {
 
     private native void initCJObjectli(long f, int x);
 
-    public static native long superC3A0P0P1(long f, int x);
+    private static native long superC3A0P0P1(long f, int x);
     public A(long f) {
         super(superC4A0P0(f));
         initCJObjectl(f);
@@ -53,18 +53,18 @@ public class A extends M {
 
     private native void initCJObjectl(long f);
 
-    public static native long superC4A0P0(long f);
+    private static native long superC4A0P0(long f);
     public static long fieldInitStatic(long f, int x) {
         return fieldInitStaticli(f, x);
     }
 
-    public static native long fieldInitStaticli(long f, int x);
+    private static native long fieldInitStaticli(long f, int x);
 
     public static long fieldInitStatic(long f) {
         return fieldInitStaticl(f);
     }
 
-    public static native long fieldInitStaticl(long f);
+    private static native long fieldInitStaticl(long f);
 
     @Override
     public boolean equals(Object obj) {
@@ -81,7 +81,7 @@ public class A extends M {
         throw new UnsupportedOperationException("toString is not supported for java proxy object.");
     }
 
-    public native void deleteCJObject(long self);
+    private native void deleteCJObject(long self);
 
     @Override
     public void finalize() {

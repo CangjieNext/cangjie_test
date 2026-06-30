@@ -23,13 +23,13 @@ public class A extends M {
         return getTImpl(this.self);
     }
 
-    public native long getTImpl(long self);
+    private native long getTImpl(long self);
 
     public void setT(long t) {
         setTImpl(this.self, t);
     }
 
-    public native void setTImpl(long self, long t);
+    private native void setTImpl(long self, long t);
 
     public A() {
         super();
@@ -57,7 +57,7 @@ public class A extends M {
         throw new UnsupportedOperationException("toString is not supported for java proxy object.");
     }
 
-    public native void deleteCJObject(long self);
+    private native void deleteCJObject(long self);
 
     @Override
     public void finalize() {
