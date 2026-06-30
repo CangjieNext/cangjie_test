@@ -12,4 +12,5 @@
     @public long denom;
 }
 -(id) initWithNum: (int) inum andDenom: (int) idenom;
+-(id) initWithNum: (int) inum andDenom2: (int) idenom;
 @end

@@ -20,6 +20,4 @@ objc: [M init]
 objc: M.counter++
 objc: [M dealloc]
 objc: M.counter--
-objc: [M dealloc]
-objc: M.counter--
 */
