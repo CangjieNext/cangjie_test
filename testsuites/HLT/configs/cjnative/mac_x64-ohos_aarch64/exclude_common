@@ -3,3 +3,180 @@
 # with Runtime Library Exception.
 # 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# testcase is not correct.
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
+
+# old jffi can only be run with cjvm.
+compiler/cjnative/FFI/jffi
+
+# syntax will be supported in future
+API/syntax
+
+# timezone file in ci not support now
+API/std/time/TimeZone/load/test_loadFromPaths.cj
+
+# feature organization name temporarily being disable on branch main
+compiler/cjnative/Packages/org_name
+
+# MacOS does not support reflect yet, these test cases for compatibility require reflect so disabled for now.
+compiler/cjnative/stable_abi/package_name
+compiler/cjnative/stable_abi/add_instance_member_variable
+compiler/cjnative/stable_abi/add_virtual_function
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/256
+compiler/cjnative/Packages/cjmp/cjmp_16010/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_16020/test.cj
+
+# API exclude during sync main
+API/std/collection/TreeMap/treemap_12.cj
+API/std/collection/TreeSet/treeset_random_key.cj
+
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# testcase is not correct.
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
+
+# old jffi can only be run with cjvm.
+compiler/cjnative/FFI/jffi
+
+# issue 198: syntax rewriter not support
+API/syntax/visit/ASTRewriter/test_rewriter_02.cj
+
+# MacOS does not support reflect yet, these test cases for compatibility require reflect so disabled for now.
+compiler/cjnative/stable_abi/package_name
+compiler/cjnative/stable_abi/add_instance_member_variable
+compiler/cjnative/stable_abi/add_virtual_function
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/211
+compiler/cjnative/Packages/cjmp/cjmp_03018/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_03019/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_03020/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_03021/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_03022/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_03023/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_03024/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_04029/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_04038/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_04073/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_04076/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_04077/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_04082/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_04083/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11037/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11039/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_13007/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_16007/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_16009/test.cj
+
+# failed test cases during syncing main.
+API/std/reflect/cjnative/enum_type/test_org_name.cj
+compiler/cjnative/Packages/cjmp/cjmp_01005/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_01006/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_01007/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_04046/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_04052/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11044/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11045/test.cj
+API/net/Client/ClientBuilder/Http1/ClientBuilder_httpsProxy.cj
+API/openssl/check_stdx.info
+API/openssl/static_link_openssl_extract.cj
+API/openssl/static_link_openssl_no_extract.cj
+API/std/unittest/GC/test_gccount_01.cj
+API/std/unittest/GC/test_gccount_02.cj
+API/std/unittest/GC/test_gccount_03.cj
+API/std/unittest/GC/test_gctime_01.cj
+API/std/unittest/GC/test_mem_measurement_01.cj
+API/std/unittest/benchmark/test_bench_newreport_01.cj
+API/net/Client/ClientBuilder/Http1/ClientBuilder_httpsProxy.cj
+API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
+API/openssl/check_stdx.info
+API/openssl/static_link_openssl_no_extract.cj
+API/std/unittest/GC/test_gccount_01.cj
+API/std/unittest/GC/test_gccount_02.cj
+API/std/unittest/GC/test_gccount_03.cj
+API/std/unittest/GC/test_gctime_01.cj
+API/std/unittest/GC/test_mem_measurement_01.cj
+API/std/unittest/benchmark/test_bench_newreport_01.cj
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/315
+compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj
+compiler/cjnative/Chir/CompileOption/plugin/runplugin/plugin5/runplugin.cj
+
+# cjpm mac bug
+Tools/cjpm/repo
+
+# testcase is not correct.
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
+
+# syntax will be supported in future
+API/syntax
+
+# timezone file in ci not support now
+API/std/time/TimeZone/load/test_loadFromPaths.cj
+
+# feature organization name temporarily being disable on branch main
+compiler/cjnative/Packages/org_name
+
+# MacOS does not support reflect yet, these test cases for compatibility require reflect so disabled for now.
+compiler/cjnative/stable_abi/package_name
+compiler/cjnative/stable_abi/add_instance_member_variable
+compiler/cjnative/stable_abi/add_virtual_function
+
+# API exclude during sync main
+API/std/collection/TreeMap/treemap_12.cj
+API/std/collection/TreeSet/treeset_random_key.cj
+
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# testcase is not correct.
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
+
+# issue 198: syntax rewriter not support
+API/syntax/visit/ASTRewriter/test_rewriter_02.cj
+
+# MacOS does not support reflect yet, these test cases for compatibility require reflect so disabled for now.
+compiler/cjnative/stable_abi/package_name
+compiler/cjnative/stable_abi/add_instance_member_variable
+compiler/cjnative/stable_abi/add_virtual_function
+
+# failed test cases during syncing main.
+API/std/reflect/cjnative/enum_type/test_org_name.cj
+compiler/cjnative/Packages/cjmp/cjmp_01005/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_01006/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_01007/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_04046/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_04052/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11044/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11045/test.cj
+API/net/Client/ClientBuilder/Http1/ClientBuilder_httpsProxy.cj
+API/openssl/check_stdx.info
+API/openssl/static_link_openssl_extract.cj
+API/openssl/static_link_openssl_no_extract.cj
+API/std/unittest/GC/test_gccount_01.cj
+API/std/unittest/GC/test_gccount_02.cj
+API/std/unittest/GC/test_gccount_03.cj
+API/std/unittest/GC/test_gctime_01.cj
+API/std/unittest/GC/test_mem_measurement_01.cj
+API/std/unittest/benchmark/test_bench_newreport_01.cj
+API/net/Client/ClientBuilder/Http1/ClientBuilder_httpsProxy.cj
+API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
+API/openssl/check_stdx.info
+API/openssl/static_link_openssl_no_extract.cj
+API/std/unittest/GC/test_gccount_01.cj
+API/std/unittest/GC/test_gccount_02.cj
+API/std/unittest/GC/test_gccount_03.cj
+API/std/unittest/GC/test_gctime_01.cj
+API/std/unittest/GC/test_mem_measurement_01.cj
+API/std/unittest/benchmark/test_bench_newreport_01.cj
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/315
+compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj 
