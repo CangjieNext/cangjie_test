@@ -19,5 +19,11 @@ public class Test <: Base {
         } catch (e: ObjCInitException) {
             println(e.toString())
         }
+
+        try {
+            let b = Fraction.initWithNumAndDenom2(0, 0)
+        } catch (e: ObjCInitException) {
+            println(e.toString())
+        }
     }
 }
