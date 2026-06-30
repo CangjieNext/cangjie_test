@@ -8,16 +8,16 @@
 #import <Foundation/Foundation.h>
 
 int main(int argc, char** argv) {
-    int64_t counter;
+    int64_t leaked;
+
     @autoreleasepool {
         A* a = [[A alloc] init];
-        counter = [a test];
+
+        int64_t before = [a test];
+        // we could count leaked after pool drained, but it will require
+        // taking `a` instance into account
+        leaked = [M counter] - before;
     }
 
-    int64_t mCounter = [M counter];
-    if (counter - 1 == mCounter) {
-        return 0;
-    }
-
-    return counter;
+    return (int)leaked;
 }

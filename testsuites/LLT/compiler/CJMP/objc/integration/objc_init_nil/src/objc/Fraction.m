@@ -19,4 +19,8 @@
     
     return self; // <- returning nil here, if [super init] failed
 }
+-(id) initWithNum: (int) inum andDenom2: (int) idenom {
+    // just check if @ObjCInit will throw exception too
+	return [self initWithNum:inum andDenom:idenom];
+}
 @end

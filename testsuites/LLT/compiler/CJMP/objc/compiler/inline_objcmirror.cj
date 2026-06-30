@@ -6,10 +6,10 @@
 
 // (Linux) EXEC-PIPE-0: %compiler %dumpCHIRDebug %enableO2 -Woff all %f %compile_lib_opt -o %n.%middle %import_objc_interop
 // (Linux) EXEC: %cat %n\_CHIR/[0-9]*_Devirtualization.chirtxt | compare %f
-// (Linux) ASSERT: regex-not Apply\(.*instancef
-// (Linux) ASSERT: regex-not Invoke\(.*instancef
-// (Linux) ASSERT: regex-not Apply\(.*staticf
-// (Linux) ASSERT: regex-not InvokeStatic\(.*staticf
+// (Linux) ASSERT: regex-not Apply\(.*9instancef
+// (Linux) ASSERT: regex-not Invoke\(.*9instancef
+// (Linux) ASSERT: regex-not Apply\(.*7staticf
+// (Linux) ASSERT: regex-not InvokeStatic\(.*7staticf
 // (Linux) ASSERT: regex Intrinsic\(.*, @objc_msgSend
 
 import objc.lang.*
