@@ -48,19 +48,19 @@ public class A extends M {
         fCN15java_cj_mirrors7JStringE(this.self, arg);
     }
 
-    public native void fCN15java_cj_mirrors7JStringE(long self, String arg);
+    private native void fCN15java_cj_mirrors7JStringE(long self, String arg);
 
     public void oneArg(long x) {
         oneArgl(this.self, x);
     }
 
-    public native void oneArgl(long self, long x);
+    private native void oneArgl(long self, long x);
 
     public void twoArgs(long x, boolean y) {
         twoArgslb(this.self, x, y);
     }
 
-    public native void twoArgslb(long self, long x, boolean y);
+    private native void twoArgslb(long self, long x, boolean y);
 
     @Override
     public boolean equals(Object obj) {
@@ -77,7 +77,7 @@ public class A extends M {
         throw new UnsupportedOperationException("toString is not supported for java proxy object.");
     }
 
-    public native void deleteCJObject(long self);
+    private native void deleteCJObject(long self);
 
     @Override
     public void finalize() {

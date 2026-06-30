@@ -45,7 +45,7 @@ public class A extends M {
         throw new UnsupportedOperationException("toString is not supported for java proxy object.");
     }
 
-    public native void deleteCJObject(long self);
+    private native void deleteCJObject(long self);
 
     @Override
     public void finalize() {

@@ -34,7 +34,7 @@ public class CangjieInvoke_Father {
         return test(this.self);
     }
 
-    public native boolean test(long self);
+    private native boolean test(long self);
 
     @Override
     public boolean equals(Object obj) {
@@ -51,7 +51,7 @@ public class CangjieInvoke_Father {
         throw new UnsupportedOperationException("toString is not supported for java proxy object.");
     }
 
-    public native void deleteCJObject(long self);
+    private native void deleteCJObject(long self);
 
     @Override
     public void finalize() {

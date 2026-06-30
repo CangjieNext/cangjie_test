@@ -8,7 +8,7 @@
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./src/java/impl/A.java | compare %f
 
 // ASSERT: scan protected void foo() {
-// ASSERT: scan protected native void foo(long self);
+// ASSERT: scan private native void foo(long self);
 
 package cjworld.theworld
 

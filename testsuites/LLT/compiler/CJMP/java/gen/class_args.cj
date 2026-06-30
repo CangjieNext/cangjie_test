@@ -23,13 +23,13 @@ public class A extends M {
         return getTImpl(this.self);
     }
 
-    public native M getTImpl(long self);
+    private native M getTImpl(long self);
 
     public void setT(M t) {
         setTImpl(this.self, t);
     }
 
-    public native void setTImpl(long self, M t);
+    private native void setTImpl(long self, M t);
 
     A(long x, long y) {
         super();
@@ -53,8 +53,8 @@ public class A extends M {
 
     private native void initCJObject();
 
-    public static native A superC3A0();
-    public static native M superC3A1();
+    private static native A superC3A0();
+    private static native M superC3A1();
     A(int x) {
         super(superC4A0());
         initCJObjecti(x);
@@ -66,12 +66,12 @@ public class A extends M {
 
     private native void initCJObjecti(int x);
 
-    public static native A superC4A0();
+    private static native A superC4A0();
     public void f(M arg) {
         fCN16cjworld_theworld1ME(this.self, arg);
     }
 
-    public native void fCN16cjworld_theworld1ME(long self, M arg);
+    private native void fCN16cjworld_theworld1ME(long self, M arg);
 
     @Override
     public boolean equals(Object obj) {
@@ -88,7 +88,7 @@ public class A extends M {
         throw new UnsupportedOperationException("toString is not supported for java proxy object.");
     }
 
-    public native void deleteCJObject(long self);
+    private native void deleteCJObject(long self);
 
     @Override
     public void finalize() {

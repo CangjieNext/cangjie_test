@@ -33,7 +33,7 @@ public class Impl extends MyObject {
 
     private native void initCJObject();
 
-    public static native long superC0A0();
+    private static native long superC0A0();
     public Impl(long value) {
         super(superC1A0P0(value));
         initCJObjectl(value);
@@ -45,7 +45,7 @@ public class Impl extends MyObject {
 
     private native void initCJObjectl(long value);
 
-    public static native MyObject superC1A0P0(long value);
+    private static native MyObject superC1A0P0(long value);
     public Impl(long x, long y) {
         super(superC2A0P0P1(x, y));
         initCJObjectll(x, y);
@@ -57,7 +57,7 @@ public class Impl extends MyObject {
 
     private native void initCJObjectll(long x, long y);
 
-    public static native Impl superC2A0P0P1(long x, long y);
+    private static native Impl superC2A0P0P1(long x, long y);
     @Override
     public boolean equals(Object obj) {
         throw new UnsupportedOperationException("equals is not supported for java proxy object.");
@@ -73,7 +73,7 @@ public class Impl extends MyObject {
         throw new UnsupportedOperationException("toString is not supported for java proxy object.");
     }
 
-    public native void deleteCJObject(long self);
+    private native void deleteCJObject(long self);
 
     @Override
     public void finalize() {

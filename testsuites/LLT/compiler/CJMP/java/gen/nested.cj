@@ -34,7 +34,7 @@ public class A extends Cla$s.Inner {
         return useTypesCN16cjworld_theworld5OuterECN16cjworld_theworld5InnerECN16cjworld_theworld17OtherPackageOuterECN16cjworld_theworld15OtherInnerInnerE(this.self, a1, a2, a3, a4);
     }
 
-    public native Clas$.Inner.InnerCla$s useTypesCN16cjworld_theworld5OuterECN16cjworld_theworld5InnerECN16cjworld_theworld17OtherPackageOuterECN16cjworld_theworld15OtherInnerInnerE(long self, Clas$ a1, Clas$.Inner a2, Cla$s a3, Cla$s.Inner.InnerCla$s a4);
+    private native Clas$.Inner.InnerCla$s useTypesCN16cjworld_theworld5OuterECN16cjworld_theworld5InnerECN16cjworld_theworld17OtherPackageOuterECN16cjworld_theworld15OtherInnerInnerE(long self, Clas$ a1, Clas$.Inner a2, Cla$s a3, Cla$s.Inner.InnerCla$s a4);
 
     @Override
     public boolean equals(Object obj) {
@@ -51,7 +51,7 @@ public class A extends Cla$s.Inner {
         throw new UnsupportedOperationException("toString is not supported for java proxy object.");
     }
 
-    public native void deleteCJObject(long self);
+    private native void deleteCJObject(long self);
 
     @Override
     public void finalize() {
