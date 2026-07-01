@@ -30,7 +30,7 @@ main() {
         count += 1
     }
 
-    if (a3.isEmpty() == true) {
+    if (a3.isEmpty() == false) {
         count += 1
     }
     try {
