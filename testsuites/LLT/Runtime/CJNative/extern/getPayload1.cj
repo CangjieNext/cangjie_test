@@ -12,5 +12,5 @@ func foo<T>(e: Extern<T>) where T <: Runtime<T> {
 }
 
 main () {
-    0
+    1
 }
