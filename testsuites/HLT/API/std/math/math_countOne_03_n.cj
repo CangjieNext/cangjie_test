@@ -22,10 +22,10 @@ main() {
     CaseRunner<Int64>().runCases(
         [
             //不连续多个1
-            (countOnes(m82), 3),
-            (countOnes(n82), 3),
-            (countOnes(g82), 3),
-            (countOnes(f82), 3)
+            (countOnes(m82), 7),
+            (countOnes(n82), 15),
+            (countOnes(g82), 31),
+            (countOnes(f82), 63)
         ],
         description: "不连续1计算1的个数"
     )
