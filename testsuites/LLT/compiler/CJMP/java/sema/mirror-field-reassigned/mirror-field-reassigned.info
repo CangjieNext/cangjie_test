@@ -9,30 +9,30 @@
 
 /* SCAN-IN
 error: cannot assign to immutable value
-  ==> src/cj/Main.cj:10:9:
-   |
-10 |         obj.y = 2
-   |         ^^^^^^^^^
-   |
+  ==> src/cj/Main.cj:17:9:
+   | 
+17 |         obj.y = 2
+   |         ^^^^^^^^^ 
+   | 
 note: property 'y' is immutable
- ==> src/cj/MyObject.cj:8:16:
-  |
-8 |     public let y: Int16
-  |                ^
-  |
+  ==> src/cj/MyObject.cj:15:16:
+   | 
+15 |     public let y: Int16
+   |                ^ 
+   | 
 
 error: cannot assign to immutable value
-  ==> src/cj/Main.cj:11:9:
-   |
-11 |         MyObject.sy = 111
-   |         ^^^^^^^^^^^^^^^^^
-   |
+  ==> src/cj/Main.cj:19:9:
+   | 
+19 |         MyObject.sy = 200
+   |         ^^^^^^^^^^^^^^^^^ 
+   | 
 note: property 'sy' is immutable
- ==> src/cj/MyObject.cj:9:23:
-  |
-9 |     public static let sy: Int64
-  |                       ^^
-  |
+  ==> src/cj/MyObject.cj:17:23:
+   | 
+17 |     public static let sy: Int64
+   |                       ^^ 
+   | 
 
 2 errors generated, 2 errors printed.
 */
