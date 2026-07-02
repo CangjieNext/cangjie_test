@@ -61,7 +61,7 @@ class Test_decimal_change_abs_sqrt_round_37 {
         @Expect(round(dec1, roundingMode: HalfUp).toString(), "-13824376")
         @Expect(abs(dec1).toString(), "13824376")
         let e = @AssertThrows[IllegalArgumentException](sqrt(dec2))
-        @Expect(e.message, "Negative decimal cannot be squared.")
+        @Expect(e.message, "Invalid argument: negative decimal cannot take the square root.")
     }
 
     @TestCase

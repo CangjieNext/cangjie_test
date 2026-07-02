@@ -56,9 +56,9 @@ let float32NormalArray: Array<Float32InitStruct> = [
 ]
 
 let float32SpecialArray: Array<Float32InitStruct> = [
-    Float32InitStruct(Float32.NaN, "Float value cannot be Inf or NaN."),
-    Float32InitStruct(Float32.Inf, "Float value cannot be Inf or NaN."),
-    Float32InitStruct(-Float32.Inf, "Float value cannot be Inf or NaN.")
+    Float32InitStruct(Float32.NaN, "Invalid argument: 'val' cannot be Inf or NaN."),
+    Float32InitStruct(Float32.Inf, "Invalid argument: 'val' cannot be Inf or NaN."),
+    Float32InitStruct(-Float32.Inf, "Invalid argument: 'val' cannot be Inf or NaN.")
 ]
 
 @Test

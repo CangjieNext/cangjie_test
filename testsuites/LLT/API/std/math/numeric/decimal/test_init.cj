@@ -188,11 +188,11 @@ let initStringArray: Array<InitStruct> = [
     InitStruct("156161.1681E0", "156161.1681"),
     InitStruct("24515668.89118", "24515668.89118"),
     InitStruct("115613615631E-10", "11.5613615631"),
-    InitStruct("", "String value cannot be empty."),
-    InitStruct("fdfdsa", "String value not allow contains other character beyond [digit, '.', e, sign]."),
-    InitStruct("+.", "String value not allow without digits."),
-    InitStruct("+.123.4154E-", "String value not allow contains more than one dot."),
-    InitStruct("+.1234154E-", "String value not allow without digits after e.")
+    InitStruct("", "Invalid argument: 'val' cannot be empty."),
+    InitStruct("fdfdsa", "Invalid argument: 'val' contains invalid character; only digits, '.', 'e', and sign characters are allowed."),
+    InitStruct("+.", "Invalid argument: 'val' must contain at least one digit."),
+    InitStruct("+.123.4154E-", "Invalid argument: 'val' cannot contain more than one decimal point."),
+    InitStruct("+.1234154E-", "Invalid argument: 'val' must contain at least one digit after the exponent indicator.")
 ]
 let initIntArray: Array<InitStruct> = [
     InitStruct(1i8, "1"),
@@ -242,8 +242,8 @@ let initFloatArray: Array<InitStruct> = [
     InitStruct(-1515.1468168186163f32, "-1515.1468505859375"),
     InitStruct(-1265168516.15136513f64, "-1265168516.1513650417327880859375"),
     InitStruct(3.0f64, "3"),
-    InitStruct(Float64.NaN, "Float value cannot be Inf or NaN."),
-    InitStruct(Float64.Inf, "Float value cannot be Inf or NaN."),
+    InitStruct(Float64.NaN, "Invalid argument: 'val' cannot be Inf or NaN."),
+    InitStruct(Float64.Inf, "Invalid argument: 'val' cannot be Inf or NaN."),
     InitStruct(0.25f64, "0.25")
 ]
 

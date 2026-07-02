@@ -42,8 +42,8 @@ let tc4Sqrt = [
         "10000000000000000000000000000000000", "10000000000000000000000000000000000"),
     TS(Decimal.parse("1000000000000000000000000000000000000000000000000000000000000000000000"), 36, HalfEven,
         "31622776601683793319988935444327190", "31622776601683793319988935444327185.3"),
-    TS(Decimal.parse("-00010000"), 1, Up, "Negative decimal cannot be squared.", "Negative decimal cannot be squared."),
-    TS(Decimal(BigInt(21), Int32.Min), 1, Up, "Scale overflow during calculation.", "Scale overflow during calculation.")
+    TS(Decimal.parse("-00010000"), 1, Up, "Invalid argument: negative decimal cannot take the square root.", "Invalid argument: negative decimal cannot take the square root."),
+    TS(Decimal(BigInt(21), Int32.Min), 1, Up, "Overflow: scale exceeds the representable range during calculation.", "Overflow: scale exceeds the representable range during calculation.")
 ]
 
 @Test

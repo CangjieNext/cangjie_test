@@ -84,7 +84,7 @@ class BigInitTest {
             i = BigInt(bytes)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size of bytes cannot be zero!")
+            @Expect(e.message, "Invalid argument: 'bytes' cannot be empty.")
         }
 
         bytes = [0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
@@ -119,7 +119,7 @@ class BigInitTest {
             i = BigInt(false, bytes)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size or the value of magnitude cannot be zero if sign is true!")
+            @Expect(e.message, "Invalid argument: 'magnitude' cannot be zero when 'sign' is negative.")
         }
 
         bytes = Array<Byte>()
@@ -127,7 +127,7 @@ class BigInitTest {
             i = BigInt(false, bytes)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size or the value of magnitude cannot be zero if sign is true!")
+            @Expect(e.message, "Invalid argument: 'magnitude' cannot be zero when 'sign' is negative.")
         }
         i = BigInt(true, bytes)
         @Expect(i.toString(), "0")
@@ -180,14 +180,14 @@ class BigInitTest {
             BigInt(false, 0, rand: rand1)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The bitLen of the BigInt must > 0.")
+            @Expect(e.message, "Invalid argument: 'bitLen' must be greater than 0.")
         }
 
         try {
             BigInt(false, -1, rand: rand1)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The bitLen of the BigInt must > 0.")
+            @Expect(e.message, "Invalid argument: 'bitLen' must be greater than 0.")
         }
     }
 
@@ -219,7 +219,7 @@ class BigInitTest {
             BigInt.randomProbablePrime(1, 5)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The bitLen of the BigInt must > 1.")
+            @Expect(e.message, "Invalid argument: 'bitLen' must be greater than 1.")
         }
     }
 
@@ -229,43 +229,43 @@ class BigInitTest {
             BigInt.parse("", radix: 10)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid string.")
+            @Expect(e.message, "Invalid argument: string cannot be empty.")
         }
         try {
             BigInt.parse("-", radix: 10)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid string.")
+            @Expect(e.message, "Invalid argument: string format does not match the required pattern.")
         }
         try {
             BigInt.parse("+", radix: 10)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid string.")
+            @Expect(e.message, "Invalid argument: string format does not match the required pattern.")
         }
         try {
             BigInt.parse("3", radix: 1)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The radix should in the range of [2, 36].")
+            @Expect(e.message, "Invalid argument: 'radix' must be in the range [2, 36].")
         }
         try {
             BigInt.parse("3", radix: 37)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The radix should in the range of [2, 36].")
+            @Expect(e.message, "Invalid argument: 'radix' must be in the range [2, 36].")
         }
         try {
             BigInt.parse("3", radix: 3)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid string.")
+            @Expect(e.message, "Invalid argument: string contains character not valid for the given radix.")
         }
         try {
             BigInt.parse("3+", radix: 4)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid string.")
+            @Expect(e.message, "Invalid argument: string contains character not valid for the given radix.")
         }
 
         var i = BigInt.parse("-zzzzz", radix: 36)

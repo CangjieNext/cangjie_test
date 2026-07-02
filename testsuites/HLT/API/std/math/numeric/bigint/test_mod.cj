@@ -93,7 +93,7 @@ class Test_bigint_mod {
             modInv_result = modnum_1.modInverse(modnum_2)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The BigInt is not relatively prime with the input.")
+            @Expect(e.message, "Invalid argument: 'this' and 'other' are not relatively prime.")
         }
 
         modnum_1 = BigInt(2)
@@ -102,7 +102,7 @@ class Test_bigint_mod {
             modInv_result = modnum_1.modInverse(modnum_2)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The BigInt is not relatively prime with the input.")
+            @Expect(e.message, "Invalid argument: 'this' and 'other' are not relatively prime.")
         }
     }
 }

@@ -32,7 +32,7 @@ class Test_decimal_typeconvert_float64_34 {
         try {
             dec1.toInt8()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int8.")
+            @Expect(e.message, "Overflow: value is out of range of 'Int8'.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -43,35 +43,35 @@ class Test_decimal_typeconvert_float64_34 {
         try {
             dec1.toUInt8()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt8.")
+            @Expect(e.message, "Overflow: value is out of range of 'UInt8'.")
             sum += 1
         }
         @Expect(sum, 2)
         try {
             dec1.toUInt16()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt16.")
+            @Expect(e.message, "Overflow: value is out of range of 'UInt16'.")
             sum += 1
         }
         @Expect(sum, 3)
         try {
             dec1.toUInt32()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt32.")
+            @Expect(e.message, "Overflow: value is out of range of 'UInt32'.")
             sum += 1
         }
         @Expect(sum, 4)
         try {
             dec1.toUInt64()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt64.")
+            @Expect(e.message, "Overflow: value is out of range of 'UInt64'.")
             sum += 1
         }
         @Expect(sum, 5)
         try {
             dec1.toUIntNative()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt64.")
+            @Expect(e.message, "Overflow: value is out of range of 'UInt64'.")
             sum += 1
         }
         @Expect(sum, 6)
@@ -79,7 +79,7 @@ class Test_decimal_typeconvert_float64_34 {
         try {
             dec1.toInt8(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int8.")
+            @Expect(e.message, "Overflow: value is out of range of 'Int8'.")
             sum += 1
         }
         @Expect(sum, 7)
@@ -90,35 +90,35 @@ class Test_decimal_typeconvert_float64_34 {
         try {
             dec1.toUInt8(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt8.")
+            @Expect(e.message, "Overflow: value is out of range of 'UInt8'.")
             sum += 1
         }
         @Expect(sum, 8)
         try {
             dec1.toUInt16(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt16.")
+            @Expect(e.message, "Overflow: value is out of range of 'UInt16'.")
             sum += 1
         }
         @Expect(sum, 9)
         try {
             dec1.toUInt32(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt32.")
+            @Expect(e.message, "Overflow: value is out of range of 'UInt32'.")
             sum += 1
         }
         @Expect(sum, 10)
         try {
             dec1.toUInt64(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt64.")
+            @Expect(e.message, "Overflow: value is out of range of 'UInt64'.")
             sum += 1
         }
         @Expect(sum, 11)
         try {
             dec1.toUIntNative(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt64.")
+            @Expect(e.message, "Overflow: value is out of range of 'UInt64'.")
             sum += 1
         }
         @Expect(sum, 12)

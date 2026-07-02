@@ -247,7 +247,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionClamp_01",
             caseException01,
-            "Check parameter min:'11.000000' or max:'-10.125000'."
+            "Invalid argument: 'min' must not be greater than 'max', and neither can be NaN."
         )
         var caseException02: ?Exception = None
         try {
@@ -261,7 +261,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionClamp_02",
             caseException02,
-            "Check parameter min:'nan' or max:'nan'."
+            "Invalid argument: 'min' must not be greater than 'max', and neither can be NaN."
         )
 
         var caseException03: ?Exception = None
@@ -276,7 +276,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionClamp_03",
             caseException03,
-            "Check parameter min:'10.999000' or max:'-10.123000'."
+            "Invalid argument: 'min' must not be greater than 'max', and neither can be NaN."
         )
         var caseException04: ?Exception = None
         try {
@@ -290,7 +290,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionClamp_04",
             caseException04,
-            "Check parameter min:'nan' or max:'nan'."
+            "Invalid argument: 'min' must not be greater than 'max', and neither can be NaN."
         )
 
         var caseException05: ?Exception = None
@@ -305,7 +305,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionClamp_05",
             caseException05,
-            "Check parameter min:'10.999000' or max:'-10.123000'."
+            "Invalid argument: 'min' must not be greater than 'max', and neither can be NaN."
         )
         var caseException06: ?Exception = None
         try {
@@ -319,7 +319,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionClamp_06",
             caseException06,
-            "Check parameter min:'nan' or max:'nan'."
+            "Invalid argument: 'min' must not be greater than 'max', and neither can be NaN."
         )
     }
 
@@ -438,7 +438,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionGcd_01",
             caseException01,
-            "Both parameters x and y are minimum boundary values."
+            "Invalid argument: both 'x' and 'y' are the minimum value of the signed integer type."
         )
 
         var caseException02: ?Exception = None
@@ -450,7 +450,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionGcd_02",
             caseException02,
-            "One of the parameters is minimum boundary value, and another is 0."
+            "Invalid argument: one of 'x' or 'y' is the minimum value and the other is zero."
         )
 
         var caseException03: ?Exception = None
@@ -462,7 +462,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionGcd_03",
             caseException03,
-            "Both parameters x and y are minimum boundary values."
+            "Invalid argument: both 'x' and 'y' are the minimum value of the signed integer type."
         )
 
         var caseException04: ?Exception = None
@@ -474,7 +474,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionGcd_04",
             caseException04,
-            "One of the parameters is minimum boundary value, and another is 0."
+            "Invalid argument: one of 'x' or 'y' is the minimum value and the other is zero."
         )
         var caseException05: ?Exception = None
         try {
@@ -485,7 +485,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionGcd_05",
             caseException05,
-            "Both parameters x and y are minimum boundary values."
+            "Invalid argument: both 'x' and 'y' are the minimum value of the signed integer type."
         )
 
         var caseException06: ?Exception = None
@@ -497,7 +497,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionGcd_06",
             caseException06,
-            "One of the parameters is minimum boundary value, and another is 0."
+            "Invalid argument: one of 'x' or 'y' is the minimum value and the other is zero."
         )
 
         var caseException07: ?Exception = None
@@ -509,7 +509,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionGcd_07",
             caseException07,
-            "Both parameters x and y are minimum boundary values."
+            "Invalid argument: both 'x' and 'y' are the minimum value of the signed integer type."
         )
 
         var caseException08: ?Exception = None
@@ -521,7 +521,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionGcd_08",
             caseException08,
-            "One of the parameters is minimum boundary value, and another is 0."
+            "Invalid argument: one of 'x' or 'y' is the minimum value and the other is zero."
         )
     }
 
@@ -598,7 +598,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_01",
             caseException01,
-            "Both parameters x and y are minimum boundary values."
+            "Invalid argument: both 'x' and 'y' are the minimum value of the signed integer type."
         )
 
         var caseException02: ?Exception = None
@@ -610,7 +610,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_02",
             caseException02,
-            "The result is out of the Int8 range."
+            "Overflow: result exceeds the range of 'Int8'."
         )
 
         var caseException03: ?Exception = None
@@ -622,7 +622,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_03",
             caseException03,
-            "Both parameters x and y are minimum boundary values."
+            "Invalid argument: both 'x' and 'y' are the minimum value of the signed integer type."
         )
 
         var caseException04: ?Exception = None
@@ -634,7 +634,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_04",
             caseException04,
-            "The result is out of the Int16 range."
+            "Overflow: result exceeds the range of 'Int16'."
         )
 
         var caseException05: ?Exception = None
@@ -646,7 +646,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_05",
             caseException05,
-            "Both parameters x and y are minimum boundary values."
+            "Invalid argument: both 'x' and 'y' are the minimum value of the signed integer type."
         )
         var caseException06: ?Exception = None
         try {
@@ -657,7 +657,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_06",
             caseException06,
-            "The result is out of the Int32 range."
+            "Overflow: result exceeds the range of 'Int32'."
         )
 
         var caseException07: ?Exception = None
@@ -669,7 +669,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_07",
             caseException07,
-            "Both parameters x and y are minimum boundary values."
+            "Invalid argument: both 'x' and 'y' are the minimum value of the signed integer type."
         )
 
         var caseException08: ?Exception = None
@@ -681,7 +681,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_08",
             caseException08,
-            "The result is out of the Int64 range."
+            "Overflow: result exceeds the range of 'Int64'."
         )
 
         var caseException09: ?Exception = None
@@ -693,7 +693,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_09",
             caseException09,
-            "The result is out of the UInt64 range."
+            "Overflow: result exceeds the range of 'UInt64'."
         )
         var caseException10: ?Exception = None
         try {
@@ -704,7 +704,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_10",
             caseException10,
-            "The result is out of the UInt32 range."
+            "Overflow: result exceeds the range of 'UInt32'."
         )
 
         var caseException11: ?Exception = None
@@ -716,7 +716,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_11",
             caseException11,
-            "The result is out of the UInt16 range."
+            "Overflow: result exceeds the range of 'UInt16'."
         )
 
         var caseException12: ?Exception = None
@@ -728,7 +728,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_12",
             caseException12,
-            "The result is out of the UInt8 range."
+            "Overflow: result exceeds the range of 'UInt8'."
         )
 
         var caseException13: ?Exception = None
@@ -740,7 +740,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_13",
             caseException13,
-            "The result is out of the Int8 range."
+            "Overflow: result exceeds the range of 'Int8'."
         )
 
         var caseException14: ?Exception = None
@@ -752,7 +752,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_14",
             caseException14,
-            "The result is out of the Int16 range."
+            "Overflow: result exceeds the range of 'Int16'."
         )
 
         var caseException15: ?Exception = None
@@ -764,7 +764,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_15",
             caseException15,
-            "The result is out of the Int32 range."
+            "Overflow: result exceeds the range of 'Int32'."
         )
 
         var caseException16: ?Exception = None
@@ -776,7 +776,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_16",
             caseException16,
-            "The result is out of the Int64 range."
+            "Overflow: result exceeds the range of 'Int64'."
         )
     }
 
@@ -840,7 +840,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_01",
             caseException01,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' and 'base' must be positive, and 'base' must not be 1.0."
         )
         var caseException02: ?Exception = None
         try {
@@ -851,7 +851,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_02",
             caseException02,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' and 'base' must be positive, and 'base' must not be 1.0."
         )
 
         var caseException03: ?Exception = None
@@ -863,7 +863,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_03",
             caseException03,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' and 'base' must be positive, and 'base' must not be 1.0."
         )
         var caseException04: ?Exception = None
         try {
@@ -874,7 +874,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_04",
             caseException04,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' and 'base' must be positive, and 'base' must not be 1.0."
         )
 
         var caseException05: ?Exception = None
@@ -886,7 +886,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_05",
             caseException05,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' and 'base' must be positive, and 'base' must not be 1.0."
         )
         var caseException06: ?Exception = None
         try {
@@ -897,7 +897,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionLcm_06",
             caseException06,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' and 'base' must be positive, and 'base' must not be 1.0."
         )
     }
 
@@ -1305,7 +1305,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testIncalidMathExtensionAsin_01",
             caseException01,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: value must be in range [-1.0, 1.0]."
         )
         var caseException02: ?Exception = None
         try {
@@ -1316,7 +1316,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testIncalidMathExtensionAsin_02",
             caseException02,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: value must be in range [-1.0, 1.0]."
         )
         var caseException03: ?Exception = None
         try {
@@ -1327,7 +1327,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testIncalidMathExtensionAsin_03",
             caseException03,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: value must be in range [-1.0, 1.0]."
         )
     }
     /*
@@ -1363,7 +1363,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testIncalidMathExtensionAsin_01",
             caseException01,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: value must be in range [-1.0, 1.0]."
         )
 
         var caseException02: ?Exception = None
@@ -1375,7 +1375,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionAcos_02",
             caseException02,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: value must be in range [-1.0, 1.0]."
         )
         var caseException03: ?Exception = None
         try {
@@ -1386,7 +1386,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionAcos_03",
             caseException03,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: value must be in range [-1.0, 1.0]."
         )
     }
 
@@ -1497,7 +1497,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionAcosh_01",
             caseException01,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' must be greater than or equal to 1.0."
         )
 
         var caseException02: ?Exception = None
@@ -1509,7 +1509,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionAcosh_02",
             caseException02,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' must be greater than or equal to 1.0."
         )
 
         var caseException03: ?Exception = None
@@ -1521,7 +1521,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionAcosh_03",
             caseException03,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' must be greater than or equal to 1.0."
         )
     }
 
@@ -1559,7 +1559,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionAtanh_01",
             caseException01,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' must be in range (-1.0, 1.0)."
         )
 
         var caseException02: ?Exception = None
@@ -1571,7 +1571,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionAtanh_02",
             caseException02,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' must be in range (-1.0, 1.0)."
         )
         var caseException03: ?Exception = None
         try {
@@ -1582,7 +1582,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionAtanh_03",
             caseException03,
-            "The input parameter is invalid. Please enter a correct parameter."
+            "Invalid argument: 'x' must be in range (-1.0, 1.0)."
         )
     }
     /*

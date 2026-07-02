@@ -30,14 +30,14 @@ class BigIntTypeConvertTest {
             convert_result = param_a.toInt8(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int8.")
+            @Expect(e.message, "Overflow: value is out of range of 'Int8'.")
         }
         try {
             var param_a = BigInt(128)
             convert_result = param_a.toInt8(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int8.")
+            @Expect(e.message, "Overflow: value is out of range of 'Int8'.")
         }
 
         let expwra_map = HashMap<String, Int8>([("0", 0), ("127", 127), ("-128", -128), ("-129", 127), ("128", -128)])
@@ -70,14 +70,14 @@ class BigIntTypeConvertTest {
             convert_result = param_a.toInt16(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int16.")
+            @Expect(e.message, "Overflow: value is out of range of 'Int16'.")
         }
         try {
             var param_a = BigInt.parse("8000", radix: 16)
             convert_result = param_a.toInt16(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int16.")
+            @Expect(e.message, "Overflow: value is out of range of 'Int16'.")
         }
 
         let expwra_map = HashMap<String, String>(
@@ -112,14 +112,14 @@ class BigIntTypeConvertTest {
             convert_result = param_a.toInt32(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int32.")
+            @Expect(e.message, "Overflow: value is out of range of 'Int32'.")
         }
         try {
             var param_a = BigInt.parse("80000000", radix: 16)
             convert_result = param_a.toInt32(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int32.")
+            @Expect(e.message, "Overflow: value is out of range of 'Int32'.")
         }
 
         let expwra_map = HashMap<String, String>(
@@ -157,14 +157,14 @@ class BigIntTypeConvertTest {
             convert_result = param_a.toInt64(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int64.")
+            @Expect(e.message, "Overflow: value is out of range of 'Int64'.")
         }
         try {
             var param_a = BigInt.parse("10000000000000000", radix: 16)
             convert_result = param_a.toInt64(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int64.")
+            @Expect(e.message, "Overflow: value is out of range of 'Int64'.")
         }
 
         let expwra_map = HashMap<String, String>(
