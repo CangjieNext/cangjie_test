@@ -45,7 +45,7 @@ Options:
     <value>=full                
     <value>=thin                
   --lto-staticlib-format <value>
-                              Specify the format of static library output in LTO mode. Candidate formats:  (Experimental)
+                              Specify the format of static library output in LTO mode (Only supported on iOS target). Candidate formats:  (Experimental)
     <value>=bitcode             
     <value>=native              
   --compile-as-exe            Hide symbols from bitcode files in LTO mode, and only the package init symbols remain visible
