@@ -43,7 +43,7 @@ main(): Int64 {
             return 1
         }
     } catch (e: IllegalArgumentException) {
-        println(e) // Exception Exception IllegalArgumentException Invalid character string: please check the parameter :--=
+        println(e) // Exception IllegalArgumentException: Invalid long argument format '--=': must start with a letter, '-', or '--' followed by a letter.
         return 0
     }
     return 1
