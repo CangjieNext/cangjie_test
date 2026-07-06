@@ -68,7 +68,7 @@ func testDirectRun(): Unit {
         .actor { => counter.fetchAdd(-1) }
         .verify { => counter.load() == 0 }
 
-    let testCase = concurrentTest(
+    let testCase = ConcurrentTestCase.createFromBuilder(
         "test_atomic_counter",
         builder: scenarioBuilder
     )
@@ -85,7 +85,7 @@ func testWithLifecycle(): Unit {
         .actor { => counter.fetchAdd(1) }
         .verify { => counter.load() >= 0 }
 
-    let testCase = concurrentTest(
+    let testCase = ConcurrentTestCase.createFromBuilder(
         "test_concurrent_lifecycle",
         builder: scenarioBuilder
     )
@@ -123,9 +123,9 @@ func testMultipleConcurrentTests(): Unit {
 
     let suite = TestSuite
         .builder("mixed_concurrent_suite")
-        .add(concurrentTest("passing_test_1", builder: passingScenario))
-        .add(concurrentTest("failing_test", builder: failingScenario))
-        .add(concurrentTest("reset_test", builder: resetScenario))
+        .add(ConcurrentTestCase.createFromBuilder("passing_test_1", builder: passingScenario))
+        .add(ConcurrentTestCase.createFromBuilder("failing_test", builder: failingScenario))
+        .add(ConcurrentTestCase.createFromBuilder("reset_test", builder: resetScenario))
         .build()
 
     let report = suite.runTests()
@@ -147,8 +147,8 @@ func testTestGroup(): Unit {
 
     let group = TestGroup
         .builder("concurrent_group")
-        .add(concurrentTest("test_1", builder: scenario1))
-        .add(concurrentTest("test_2", builder: scenario2))
+        .add(ConcurrentTestCase.createFromBuilder("test_1", builder: scenario1))
+        .add(ConcurrentTestCase.createFromBuilder("test_2", builder: scenario2))
         .build()
 
     let report = group.runTests()

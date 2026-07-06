@@ -7,7 +7,9 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// DEPENDENCE: helpers
+// EXEC: %compiler %cmp_opt -p helpers %compile_lib_opt --output p.%middle
+// EXEC: %compiler %cmp_opt p.%middle %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args %run_utest_opt --no-color | compare %f
 // ASSERT: scan PASSED: 4
 
@@ -58,6 +60,7 @@
 //    Outcome (read=0 after write=1): achievable under SC but not linearizability.
 
 import std.unittest.concurrent.*
+import std.concurrent_test_util.*
 import std.collection.ArrayList
 import std.sync.AtomicInt64
 
@@ -266,9 +269,7 @@ class ConsistencyModelBehavioralDistinctionTests {
             }
         }
 
-        let history = ConcurrentHistory()
-
-        let writeInv = OperationInvocation(
+        let writeInv = newOperationInvocation(
             actorId: 0,
             operationIndex: 0,
             operationName: "write",
@@ -277,7 +278,7 @@ class ConsistencyModelBehavioralDistinctionTests {
             responseVC: Some(Array<Int64>(2, { i => if (i == 0) { 2 } else { 0 } }))
         )
 
-        let readInv = OperationInvocation(
+        let readInv = newOperationInvocation(
             actorId: 1,
             operationIndex: 0,
             operationName: "read",
@@ -288,26 +289,22 @@ class ConsistencyModelBehavioralDistinctionTests {
 
         let actor0Invs = ArrayList<OperationInvocation>()
         actor0Invs.add(writeInv)
-        history.recordActorInvocations(0, actor0Invs)
-
         let actor1Invs = ArrayList<OperationInvocation>()
         actor1Invs.add(readInv)
-        history.recordActorInvocations(1, actor1Invs)
 
-        let scValidator = ConsistencyValidator(
-            consistencyModel: SequentialConsistency,
-            createFreshInstance: { => SimpleRegister() },
-            reExecuteOperation: specExecReg
+        let scResult = validateManualHistory(
+            SequentialConsistency,
+            [actor0Invs, actor1Invs],
+            { => SimpleRegister() },
+            specExecReg
         )
 
-        let linValidator = ConsistencyValidator(
-            consistencyModel: Linearizability,
-            createFreshInstance: { => SimpleRegister() },
-            reExecuteOperation: specExecReg
+        let linResult = validateManualHistory(
+            Linearizability,
+            [actor0Invs, actor1Invs],
+            { => SimpleRegister() },
+            specExecReg
         )
-
-        let scResult = scValidator.validate(history)
-        let linResult = linValidator.validate(history)
 
         println("SC: ${scResult.report()}")
         println("Linearizability: ${linResult.report()}")
