@@ -7,7 +7,9 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// DEPENDENCE: helpers
+// EXEC: %compiler %cmp_opt -p helpers %compile_lib_opt --output p.%middle
+// EXEC: %compiler %cmp_opt p.%middle %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args %run_utest_opt --no-color | compare %f
 // ASSERT: scan PASSED: 4
 
@@ -26,6 +28,7 @@
 // If a stronger model accepts an outcome, a weaker model must also accept it.
 
 import std.unittest.concurrent.*
+import std.concurrent_test_util.*
 import std.sync.AtomicInt64
 
 @Test
@@ -116,11 +119,11 @@ class ConsistencyModelDistinctionTests {
         @Assert(scResult.passed)
         @Assert(serResult.passed)
 
-        let scEdges = countPredecessorEdges(getPartialOrder(scResult))
-        let serEdges = countPredecessorEdges(getPartialOrder(serResult))
+        let scEdges = countPredecessorEdges(scResult)
+        let serEdges = countPredecessorEdges(serResult)
 
-        println("SC predecessor edges: ${scEdges}, operations: ${getPartialOrder(scResult).size}")
-        println("Serializability predecessor edges: ${serEdges}, operations: ${getPartialOrder(serResult).size}")
+        println("SC predecessor edges: ${scEdges}, operations: ${getPartialOrderSize(scResult)}")
+        println("Serializability predecessor edges: ${serEdges}, operations: ${getPartialOrderSize(serResult)}")
 
         @Assert(scEdges > 0)
         @Assert(serEdges == 0)
@@ -204,28 +207,13 @@ class ConsistencyModelDistinctionTests {
         @Assert(linResult.passed)
         @Assert(scResult.passed)
 
-        let linEdges = countPredecessorEdges(getPartialOrder(linResult))
-        let scEdges = countPredecessorEdges(getPartialOrder(scResult))
+        let linEdges = countPredecessorEdges(linResult)
+        let scEdges = countPredecessorEdges(scResult)
 
         println("Linearizability predecessor edges: ${linEdges}")
         println("SC predecessor edges: ${scEdges}")
 
         @Assert(linEdges >= scEdges)
         @Assert(!linResult.passed || scResult.passed)
-    }
-
-    func getPartialOrder(result: ScenarioResult): PartialOrder {
-        match (result.iterationResults[0].consistencyValidation) {
-            case Some(cr) => cr.partialOrder
-            case None => PartialOrder()
-        }
-    }
-
-    func countPredecessorEdges(po: PartialOrder): Int64 {
-        var total: Int64 = 0
-        for (opId in po.operations) {
-            total += po.predecessorCount(opId)
-        }
-        total
     }
 }

@@ -64,7 +64,7 @@ class SequentialSpecTests {
     @TestCase
     func testDataRaceCounterSequential(): Unit {
         
-        let result = scenario("atomic_counter_data_race")
+        let result = scenario("counter_data_race")
             .reset { => counter = 0 }
             .actor({ => counter += 1; counter })
             .actor({ => counter -= 1; counter })
@@ -80,7 +80,7 @@ class SequentialSpecTests {
     @TestCase
     func testTechnicallyDataRaceButPasses(): Unit {
         
-        let result = scenario("atomic_counter_data_race_but_passes")
+        let result = scenario("counter_data_race_but_passes")
             .reset { => counter = 0 }
             .actor({ => for (_ in 0..100) { counter += blackBox(1) } })
             .actor({ => 
