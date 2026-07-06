@@ -73,7 +73,7 @@ compiler/IncrementalCompilation/DeclLevel/Package/O2/LF_2_Incr.cj
 
 # no perf and gnuplot
 API/std/unittest/new_bench/bench_perf.cj
-API/std/unittest/report_bench_html/report_html_no_gnuplot.cj
+API/std/unittest/report_bench_html/report_html_gnuplot.cj
 
 # should be blocked , it's for --stdlib-mock version.
 API/std/unittest/mock/compiler/misc/stdlib/disabledMocking.cj
@@ -199,9 +199,6 @@ compiler/CJMP/java/integration/public-class-without-override/public-class-withou
 
 ## objc (objc.internal and objc.lang are missing)
 compiler/CJMP/objc/
-
-### gnuplot executable not found
-API/std/unittest/report_bench_html/report_html_gnuplot.cj
 
 ## fuzzer testcases (libclang_rt.fuzzer_no_main.a: No Such file or directory)
 API/stdx/fuzz/fuzzer_coverage.cj
