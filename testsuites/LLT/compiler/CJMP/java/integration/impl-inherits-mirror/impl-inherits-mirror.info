@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// Test: @JavaImpl inherits from specific @JavaMirror (full Java execution)
+// Scenario: Common/specific CJMP pair with @JavaMirror mirroring java.lang.Exception,
+//           @JavaImpl inheriting from the specific @JavaMirror
+// Expected: Java code executes successfully, getMessage() and getValue() work
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && mkdir -p build
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc --experimental src/cj/common.cj --output-type chir --output-dir build %import_java_interop
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc --experimental src/cj/specific.cj --common-part-chir=build/demo.chir --common-part-cjo=build/demo.cjo --output-type dylib -o build/libdemo.so %import_java_interop --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/cj/*.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && LD_LIBRARY_PATH=$CANGJIE_HOME/runtime/lib/linux_x86_64_cjnative:./build:$LD_LIBRARY_PATH %java %cp_cj_loader_java_interop demo.MyMain 2>& 1 | compare %f
+
+/* SCAN-IN
+my message
+42
+*/
