@@ -108,4 +108,31 @@ public class SaturatingShiftTest {
         @Expect(u64.saturatingShr(63), 1)
         @Expect(u64.saturatingShr(64), 1)
     }
+
+    @TestCase
+    func nativeSaturatingShiftTest(): Unit {
+        let bit: UInt64 = if (UInt64(!UIntNative(0)) == UInt64.Max) {
+            64
+        } else {
+            32
+        }
+
+        @Expect(IntNative(1).saturatingShl(0), 1)
+        @Expect(IntNative(1).saturatingShl(1), 2)
+        @Expect(IntNative(1).saturatingShl(bit - 1), IntNative.Min)
+        @Expect(IntNative(1).saturatingShl(bit), IntNative.Min)
+
+        @Expect(IntNative.Min.saturatingShr(0), IntNative.Min)
+        @Expect(IntNative.Min.saturatingShr(bit - 1), -1)
+        @Expect(IntNative.Min.saturatingShr(bit), -1)
+
+        @Expect(UIntNative(1).saturatingShl(0), 1)
+        @Expect(UIntNative(1).saturatingShl(1), 2)
+        @Expect(UIntNative(1).saturatingShl(bit - 1), UIntNative(1) << (bit - 1))
+        @Expect(UIntNative(1).saturatingShl(bit), UIntNative(1) << (bit - 1))
+
+        @Expect(UIntNative.Max.saturatingShr(0), UIntNative.Max)
+        @Expect(UIntNative.Max.saturatingShr(bit - 1), 1)
+        @Expect(UIntNative.Max.saturatingShr(bit), 1)
+    }
 }
