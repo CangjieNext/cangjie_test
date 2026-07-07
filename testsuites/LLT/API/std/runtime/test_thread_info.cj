@@ -9,6 +9,8 @@
 // EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.runtime.*
+import std.sync.*
+import std.time.*
 
 @When[backend == "cjnative"]
 @Test
@@ -23,5 +25,30 @@ public class ThreadInfoTest {
         @Expect(getThreadCount(), 1)
         @Expect(getBlockingThreadCount(), 0)
         @Expect(getNativeThreadCount(), 1)
+    }
+
+    @TestCase
+    func threadCountConsistency(): Unit {
+        @Expect(getNativeThreadCount() >= getThreadCount())
+        @Expect(getThreadCount() >= 1)
+        @Expect(getBlockingThreadCount() >= 0)
+        @Expect(getBlockingThreadCount() <= getThreadCount())
+    }
+
+    @TestCase
+    func threadCountWithSpawn(): Unit {
+        let before = getThreadCount()
+        let f = spawn {
+            sleep(Duration.millisecond * 100)
+        }
+        @Expect(getThreadCount() >= before)
+        f.get()
+    }
+
+    @TestCase
+    func deprecatedAndNewApiConsistency(): Unit {
+        @Expect(ThreadInfo.threadCount, getThreadCount())
+        @Expect(ThreadInfo.blockingThreadCount, getBlockingThreadCount())
+        @Expect(ThreadInfo.nativeThreadCount, getNativeThreadCount())
     }
 }

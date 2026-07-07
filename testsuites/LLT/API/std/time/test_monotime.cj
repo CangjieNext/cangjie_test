@@ -105,4 +105,12 @@ class MonoTimeTest {
         let m2 = m1 + Duration.second - Duration.second
         @Expect(m1.hashCode(), m2.hashCode())
     }
+
+    @TestCase
+    func testNativeMonotonicNowDirect(): Unit {
+        let samples = Array<MonoTime>(5, {_ => MonoTime.now()})
+        for (i in 1..samples.size) {
+            @Expect(samples[i] >= samples[i - 1])
+        }
+    }
 }

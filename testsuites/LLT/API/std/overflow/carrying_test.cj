@@ -736,11 +736,11 @@ class TestCarrying {
         @Expect(inativeresult, true)
         @Expect(inativeshift, 1)
 
-        var (unativeresult, unativeshift) = IntNative(1).carryingShl(1)
+        var (unativeresult, unativeshift) = UIntNative(1).carryingShl(1)
         @Expect(unativeresult, false)
         @Expect(unativeshift, 2)
 
-        (unativeresult, unativeshift) = IntNative(1).carryingShl(bit)
+        (unativeresult, unativeshift) = UIntNative(1).carryingShl(bit)
         @Expect(unativeresult, true)
         @Expect(unativeshift, 1)
     }

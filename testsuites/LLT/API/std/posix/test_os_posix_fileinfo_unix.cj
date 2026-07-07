@@ -60,7 +60,7 @@ class OsPosixFileInfoUnixTest {
     func testIsSock(): Unit {
         var result: Bool = isSock("/dev")
         @Expect(result, false)
-        @Expect(isLnk("dev\0"), false)
+        @Expect(isSock("dev\0"), false)
     }
 
     @TestCase
