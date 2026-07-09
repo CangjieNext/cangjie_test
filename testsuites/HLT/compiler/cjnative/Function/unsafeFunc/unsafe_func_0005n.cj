@@ -17,5 +17,5 @@ main() {
     var f: () -> Unit = A.foo
     f()
 }
-// ASSERT: scan sema_unsafe_func_can_only_be_called
+// ASSERT: scan sema_func_can_only_be_called
 // ASSERT: scan sema_interface_call_with_unimplemented_call
