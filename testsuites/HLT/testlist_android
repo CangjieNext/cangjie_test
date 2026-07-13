@@ -1,0 +1,25 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[ALL-TEST-CASE]
+
+compiler/cjnative/FFI/jffi/android/java_impl/
+compiler/cjnative/FFI/jffi/android/exclusive_scope/
+
+# compiler/cjnative/FFI/jffi/android/java_impl/JString/new
+
+# compiler/cjnative/FFI/jffi/android/java_impl/JArray/invoke_location/test_invoke_04/CangjieInvoke.cj
+# compiler/cjnative/FFI/jffi/android/java_impl/abstract_class/mixuse/mix_use_01/CangjieInvoke.cj
+# compiler/cjnative/FFI/jffi/android/java_impl/interface/example/CangjieInvoke.cj
+# compiler/cjnative/FFI/jffi/android/java_impl/interface/mirror_interface_funcs_01/CangjieInvoke.cj
+# compiler/cjnative/FFI/jffi/android/java_impl/interface/mirror_interface_funcs_02/CangjieInvoke.cj
+# compiler/cjnative/FFI/jffi/android/java_impl/interface/mirror_interface_funcs_03/CangjieInvoke.cj
+# compiler/cjnative/FFI/jffi/android/java_impl/interface/mirror_interface_funcs_04/CangjieInvoke.cj
+# compiler/cjnative/FFI/jffi/android/java_impl/interface/mirror_interface_inherit_01/CangjieInvoke.cj
+# compiler/cjnative/FFI/jffi/android/java_impl/interface/mirror_interface_inherit_02/CangjieInvoke.cj
+# compiler/cjnative/FFI/jffi/android/java_impl/interface/mirror_interface_inherit_03/CangjieInvoke.cj
+
+[EXCLUDE-TEST-CASE]

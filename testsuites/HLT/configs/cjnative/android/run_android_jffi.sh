@@ -103,7 +103,7 @@ wait $LOG_PID 2>/dev/null
 cat "$TEMP_LOG_FILE"
 
 # 清理临时文件
-rm -f "$TEMP_LOG_FILE"
+#rm -f "$TEMP_LOG_FILE"
 
 # do cleaning.
 rm -rf "$ANDROID_PROJ_PATH/app/build"
