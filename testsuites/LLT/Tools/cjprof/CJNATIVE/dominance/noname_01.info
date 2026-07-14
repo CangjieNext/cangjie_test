@@ -1,0 +1,18 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: objects whose class name string id is absent from the string table.
+# GetStringSafe returns "" -> obj.name empty, so HeapAnalyzer.cpp L1203-1214
+# (the ObjectCategory className switch + classIdToNameMap fallback) executes
+# instead of the always-taken "name non-empty" branch at L1202. Without this
+# case those branches stay at 0%.
+
+// DEPENDENCE: cjprof_api_test.py ../sample/noname.data
+// EXEC: python3 cjprof_api_test.py noname_01.info
+
+test#
+noname,/api/snapshot,object_count,scan,gc_root_count
+noname,/api/fragment/summary,object_array_total,scan,instance_object_total

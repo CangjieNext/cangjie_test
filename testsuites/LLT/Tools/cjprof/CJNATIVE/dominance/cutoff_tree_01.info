@@ -1,0 +1,20 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: dominance tree cutoff aggregation path (HttpHandlers.cpp L285-294).
+# heap.data has 26 objects with a wide retained-size spread, so 5 small
+# nodes fall below threshold01 (used_size*0.001) and get aggregated into one
+# cutoff node ("... (5 instances)", is_cutoff=true). Without this case the
+# cutoff push_back branch (~56 branches on L285 alone) is never executed.
+
+// DEPENDENCE: cjprof_api_test.py ../sample/heap.data
+// EXEC: python3 cjprof_api_test.py cutoff_tree_01.info
+
+test#
+heap,/api/dominance/tree,is_cutoff":true,scan,"... (5 instances)","cutoff_count":5
+heap,/api/dominance/tree,"depth":0,regex,"is_clustered":false,"is_cutoff":true
+heap,/api/dominance/tree-by-type,is_cutoff":true,scan,"... (5 instances)","cutoff_count":5
+heap,/api/dominance/tree-by-type,"instance_count":5,regex,"is_cutoff":true

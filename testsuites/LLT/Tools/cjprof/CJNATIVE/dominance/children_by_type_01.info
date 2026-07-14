@@ -1,0 +1,16 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: dominance children-by-type endpoint (string node_id, V2 format data)
+# dom_multi_instance: Container(type id=1) clusters 3 Node instances into
+# type node id=2 (is_clustered=true, instance_count=3, object_ids=[17,18,19]).
+
+// DEPENDENCE: cjprof_api_test.py ../sample/dom_multi_instance.data
+// EXEC: python3 cjprof_api_test.py children_by_type_01.info
+
+test#
+dom_multi_instance,/api/dominance/children-by-type?node_id=1,class_name:default::Node (3 instances),regex,"instance_count":3,"is_clustered":true
+dom_multi_instance,/api/dominance/children-by-type?node_id=1,class_name:default::Node (3 instances),regex,"object_ids":\[17,18,19\]

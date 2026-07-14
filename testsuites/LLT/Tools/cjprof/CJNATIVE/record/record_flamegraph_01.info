@@ -1,0 +1,18 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: cjprof record + flame graph report. Requires perf_event_paranoid
+# <= 2 (software CPU-clock) and CANGJIE_HOME/runtime in LD_LIBRARY_PATH.
+# Covers LinuxRecorder/Record/Elf/FlameGraph which the perf-less path can't.
+# Uses default sampling frequency (needs enough samples for call stacks).
+
+// DEPENDENCE: ../sample
+// EXEC: %copy sample/test.cj .
+// EXEC: %compiler test.cj -o test
+// EXEC: %cjprof record ./test
+// EXEC: %cjprof report -F -i cjprof.data
+// EXEC: %cat FlameGraph.svg | compare %f
+// ASSERT: scan main

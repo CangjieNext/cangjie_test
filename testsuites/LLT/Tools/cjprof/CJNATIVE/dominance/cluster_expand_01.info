@@ -1,0 +1,17 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: dominance cluster-expand endpoint (single instance_id; multiple ids
+# cannot be expressed here because the test-line parser splits on commas,
+# and instance_ids itself is comma-separated).
+# Expanding clustered Node instance 17 returns it with has_children=false.
+
+// DEPENDENCE: cjprof_api_test.py ../sample/dom_multi_instance.data
+// EXEC: python3 cjprof_api_test.py cluster_expand_01.info
+
+test#
+dom_multi_instance,/api/dominance/cluster-expand?instance_ids=17,class_name:default::Node,regex,"has_children":false,"is_clustered":false
+dom_multi_instance,/api/dominance/cluster-expand?instance_ids=17,class_name:default::Node,regex,"id":17
