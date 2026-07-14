@@ -10,7 +10,7 @@
 // FuncCallContext.setArg / setInstTypeArg
 
 /* SCAN
-setArg value: 9
+setArg value: true
 setInstTypeArg ty: Int32
 apply args after set: 1
 */

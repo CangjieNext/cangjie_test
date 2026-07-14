@@ -10,16 +10,16 @@
 
 /* SCAN
 customAnnoInstances empty: 0
-customAnnoInstances size after set: 1
-annotation class name: FlagAnno
-annotation str has At: true
-anno field kind: flag flag
 anno location valid default: false
 anno location start line: 0
 anno location file empty: true
 anno location str size: 0
 anno with loc valid: false
 anno with loc start line: 0
+customAnnoInstances size after set: 1
+annotation class name: FlagAnno
+annotation str has At: true
+anno field kind: flag flag
 stored anno location valid: false
 stored anno location start line: 0
 */

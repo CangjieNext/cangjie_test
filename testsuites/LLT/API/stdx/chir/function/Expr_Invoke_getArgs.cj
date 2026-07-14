@@ -11,8 +11,8 @@
 
 /* SCAN
 invoke getArgs: 1
-tryinvoke getArgs: 1
 invoke refEq: true
+tryinvoke getArgs: 1
 tryinvoke refEq: true
 */
 
