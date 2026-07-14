@@ -4,9 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// Test: Platform parent missing empty constructor
-// Scenario: Specific extends platform parent that lacks empty ctor
-// Expected: Error - constructor validation fails (empty ctor required)
+// Test: Platform parent missing parameterless constructor
+// Scenario: Specific extends platform parent that lacks parameterless ctor
+// Expected: Error - constructor validation fails (parameterless ctor required)
 
 // SEPARATE-FILE: c/testpkg.cj
 // EXEC-0: %compiler %cmp_opt %experimental_opt c/testpkg.cj --output-type=chir --output-dir ./c %import_java_interop
@@ -24,7 +24,7 @@ package testpkg
 
 import java.lang.*
 
-// Platform parent WITHOUT empty constructor (only parameterized ctor)
+// Platform parent WITHOUT parameterless constructor (only parameterized ctor)
 @JavaMirror
 public open class MyPlatformClass {
     public init(x: Int64)
@@ -32,11 +32,11 @@ public open class MyPlatformClass {
 
 // Specific class extends platform parent
 // Relaxation allowed (Object→MyPlatformClass)
-// BUT constructor validation fails - MyPlatformClass has no empty constructor
+// BUT constructor validation fails - MyPlatformClass has no parameterless constructor
 @JavaImpl
 public specific class TestRelaxation <: MyPlatformClass { }
 
 /*SCAN-IN
-error: platform parent class 'MyPlatformClass' must have an empty constructor (no parameters)
+error: platform parent class 'MyPlatformClass' must have a parameterless constructor
   ==> p/testpkg.cj:16:1:
 */
