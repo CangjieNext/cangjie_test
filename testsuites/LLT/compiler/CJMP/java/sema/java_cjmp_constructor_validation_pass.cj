@@ -6,7 +6,7 @@
 
 // Test: Constructor validation with multiple ctor options
 // Scenario: Platform parent has both empty and parameterized constructors
-// Expected: Success - empty constructor found, validation passes
+// Expected: Success - parameterless constructor found, validation passes
 
 // SEPARATE-FILE: c/testpkg.cj
 // EXEC-0: %compiler %cmp_opt %experimental_opt c/testpkg.cj --output-type=chir --output-dir ./c %import_java_interop
@@ -25,7 +25,7 @@ package testpkg
 
 import java.lang.*
 
-// Platform parent with multiple constructors (including empty one)
+// Platform parent with multiple constructors (including parameterless one)
 @JavaMirror
 public open class JavaBaseClass {
     public init()
@@ -34,6 +34,6 @@ public open class JavaBaseClass {
 }
 
 // Specific class extends platform parent
-// Validation passes - empty constructor found in JavaBaseClass
+// Validation passes - parameterless constructor found in JavaBaseClass
 @JavaImpl
 public specific class TestMultiCtor <: JavaBaseClass { }
