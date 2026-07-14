@@ -1,0 +1,20 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: HTTP error-response branches in HttpServer (otherwise never exercised
+# by normal cases that only send well-formed requests).
+#   /api/dominance/children?parent_id=abc  -> stoull throws -> L173 Invalid parent_id (400)
+#   /static/../etc/passwd                   -> ".." check -> L233 Bad Request (400)
+#   /static/does_not_exist.txt              -> ifstream fail -> L240 Not Found (404)
+# fetch_api returns the 4xx body so we can grep it.
+
+// DEPENDENCE: cjprof_api_test.py ../sample/heap.data
+// EXEC: python3 cjprof_api_test.py error_resp_01.info
+
+test#
+heap,/api/dominance/children?parent_id=abc,parent_id,scan,Invalid parent_id
+heap,/static/../etc/passwd,Request,scan,Bad Request
+heap,/static/does_not_exist_zzz.txt,Found,scan,Not Found

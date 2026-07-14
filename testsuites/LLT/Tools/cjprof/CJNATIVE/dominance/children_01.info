@@ -1,0 +1,15 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: dominance children endpoint (numeric parent_id, V2 format data)
+# dom_chain: A(16) -> B(17). children of parent_id=16 returns B with parent_id=16.
+
+// DEPENDENCE: cjprof_api_test.py ../sample/dom_chain.data
+// EXEC: python3 cjprof_api_test.py children_01.info
+
+test#
+dom_chain,/api/dominance/children?parent_id=16,class_name:default::Node,regex,"parent_id":16
+dom_chain,/api/dominance/children?parent_id=16,class_name:default::Node,regex,"id":17
