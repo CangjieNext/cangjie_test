@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: unknown record tag whose declared length exceeds remaining file.
+# Exercises Hprof.cpp "Record length is too long" error path (line 108-110).
+
+// DEPENDENCE: ../sample
+// EXEC: %copy sample/bad_toolong.data .
+// EXEC: %cjprof heap -i bad_toolong.data 2>&1 | compare %f
+// ASSERT: scan error: Record length is too long

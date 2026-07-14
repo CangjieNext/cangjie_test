@@ -35,19 +35,30 @@ import time
 import json
 import signal
 import socket
+import random
+import re
+import threading
 
 
 def find_free_port(start=19000, stop=19999):
-    """Find a free TCP port in the given range."""
-    for port in range(start, stop):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        try:
-            sock.bind(('127.0.0.1', port))
-            sock.close()
-            return port
-        except OSError:
-            continue
-    raise RuntimeError(f"No free port found in range {start}-{stop}")
+    """Find a free TCP port in the given range.
+
+    NOTE: This only *suggests* a port — it does not reserve it. The previous
+    implementation (bind then close then return) had a TOCTOU race under
+    parallel execution (-jN): between the close() and cjprof's own bind() another
+    concurrent case could grab the same port, sending requests to the wrong server
+    and producing spurious FAILs. We now hand the suggested port to cjprof, which
+    resolves the actual free port itself (see HeapAnalyzer::StartReportServer:
+    it walks actualPort++ while isPortInUse) and reports it via stdout, then read
+    the real port back from cjprof's "Access URL" log line. bind+listen happen
+    inside cjprof, eliminating the cross-process window."""
+    rng = random.Random(os.getpid() ^ int(time.time() * 1000) & 0xffffffff)
+    # Spread concurrent cases across the range so they don't all start scanning
+    # from the same base and collide on the first free slot.
+    span = stop - start
+    offset = rng.randrange(span)
+    return start + offset
+
 
 
 def read_test_lines(info_file):
@@ -89,7 +100,13 @@ def parse_test_line(line):
 
 
 def start_server(data_file, port):
-    """Start cjprof HTTP server on given port with given data file.
+    """Start cjprof HTTP server with the given *suggested* port and data file.
+
+    cjprof does NOT guarantee to listen on `port`: if it is already in use,
+    HeapAnalyzer::StartReportServer walks actualPort++ while isPortInUse and
+    binds the first free one it finds, then logs "Access URL: http://localhost:PORT".
+    We read that line back from stdout to learn the *actual* port, so requests
+    always hit the right server even when several cases run concurrently.
     cjprof must be in PATH (cjprof.exe on Windows, cjprof on Linux/Mac)."""
     cjprof = 'cjprof.exe' if sys.platform == 'win32' else 'cjprof'
     cmd = [cjprof, 'heap', '-i', data_file, '--dump-report=' + str(port)]
@@ -97,8 +114,35 @@ def start_server(data_file, port):
     # os.killpg only kills cjprof, not this test script. Harmless on Windows
     # (no process-group concept there; kill_server uses taskkill /PID instead).
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                            start_new_session=True)
+                            start_new_session=True, text=True, bufsize=1)
     return proc
+
+
+def read_actual_port(proc, timeout=15):
+    """Read cjprof stdout until it logs the port it actually bound.
+
+    Returns the real port number, or None if the process exited or no line
+    appeared within timeout. Done in a reader thread so we can stream stdout
+    line-by-line instead of blocking until EOF (the server never exits)."""
+    actual = {'port': None, 'stderr_tail': []}
+
+    def reader():
+        # stdout lines arrive as the server boots; we scan for the Access URL.
+        if proc.stdout is None:
+            return
+        deadline = time.time() + timeout
+        for line in proc.stdout:
+            m = re.search(r'localhost:(\d+)', line)
+            if m and actual['port'] is None:
+                actual['port'] = int(m.group(1))
+                return
+            if time.time() > deadline:
+                return
+
+    t = threading.Thread(target=reader, daemon=True)
+    t.start()
+    t.join(timeout)
+    return actual['port']
 
 
 def check_server_alive(proc):
@@ -139,12 +183,25 @@ def kill_server(proc):
 
 
 def fetch_api(port, endpoint):
-    """Fetch JSON from HTTP API endpoint."""
-    import urllib.request
+    """Fetch body from HTTP API endpoint.
+
+    Returns the response body even for 4xx/5xx (so error-response branches like
+    'Invalid parent_id' / 'Bad Request' / 'Not Found' can be asserted on);
+    only real transport failures (connection refused, timeout) return None."""
+    import urllib.request, urllib.error
     url = f'http://127.0.0.1:{port}{endpoint}'
     try:
         raw = urllib.request.urlopen(url, timeout=10).read()
-        return raw.decode('utf-8')
+        return raw.decode('utf-8', errors='replace')
+    except urllib.error.HTTPError as e:
+        # 4xx/5xx: the server responded — read the error body so the caller can
+        # grep it. Coverage-wise this still exercised cjprof's handler code.
+        try:
+            body = e.read().decode('utf-8', errors='replace')
+            return body
+        except Exception:
+            print(f"FAIL: fetch {url} HTTP {e.code} but body unreadable: {e}")
+            return None
     except Exception as e:
         print(f"FAIL: fetch {url} failed: {e}")
         return None
@@ -232,15 +289,21 @@ def run_tests(info_file):
             all_pass = False
             continue
 
-        # Find free port
+        # Suggest a port; cjprof resolves the actual free port itself (see
+        # find_free_port/start_server) and reports it via stdout.
         port = find_free_port()
 
-        # Clean any stale cache
-        cache_file = data_path + '.cjprof.db'
-        if os.path.isfile(cache_file):
-            os.remove(cache_file)
-
-        # Copy data file to working directory
+        # Copy data file to working directory. A committed .cjprof.db may be
+        # declared in DEPENDENCE alongside the data file; the framework copies
+        # both into a fresh temp dir, so we must NOT delete the cache here —
+        # doing so would make cjprof re-parse instead of hitting the load path.
+        # NOTE: do NOT auto-copy *.cjprof.db here unconditionally — the framework
+        # already copies files declared in DEPENDENCE. Auto-copying the db for a
+        # case that did NOT declare it (e.g. all_tags_01, which shares
+        # all_tags.data with cache_load_01) forces an unintended cache-hit:
+        # the saved SnapshotEntry has no address_range fields, so fragment/overview
+        # drops address_range_start and fragment/distribution returns empty, and
+        # the case FAILs. Only cache_load_01 declares the db, so only it gets one.
         work_data = os.path.basename(data_file)
         if data_path != work_data and os.path.abspath(data_path) != os.path.abspath(work_data):
             import shutil
@@ -249,7 +312,7 @@ def run_tests(info_file):
             work_data = data_path
 
         # Start server
-        print(f"Starting cjprof with {work_data} on port {port}")
+        print(f"Starting cjprof with {work_data} (suggested port {port})")
         proc = start_server(work_data, port)
 
         # Wait for server to be ready
@@ -258,6 +321,12 @@ def run_tests(info_file):
             print(f"FAIL: cjprof process exited unexpectedly:\n{stderr}")
             all_pass = False
             continue
+
+        # Read the actual port cjprof bound (it may differ from the suggestion
+        # under -jN parallelism, since cjprof walks to the next free port).
+        actual_port = read_actual_port(proc)
+        if actual_port is not None:
+            port = actual_port
 
         if not wait_for_server(port):
             alive, stderr = check_server_alive(proc)

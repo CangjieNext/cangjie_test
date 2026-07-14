@@ -1,0 +1,16 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: dominance depth-limit cutoff. A 9-node chain (depth 0..8) exceeds
+# m_maxDepthLimit=5, so nodes beyond depth 5 are cutoff, exercising the
+# HttpHandlers cutoff/depth branches (skip-beyond-depth + cutoff aggregation).
+
+// DEPENDENCE: cjprof_api_test.py ../sample/deep_chain.data
+// EXEC: python3 cjprof_api_test.py deep_cutoff_01.info
+
+test#
+deep_chain,/api/dominance/tree,"depth":0,regex,"retained_size":288
+deep_chain,/api/dominance/tree,"depth":5,regex,"parent_id":20
