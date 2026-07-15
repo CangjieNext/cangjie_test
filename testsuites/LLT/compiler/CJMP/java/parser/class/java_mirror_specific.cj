@@ -6,8 +6,11 @@
 
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
-// ASSERT: scan parse_java_mirror_cannot_be_common_specific
+// Check: @JavaMirror is allowed on a specific class (CJMP feature)
+// ASSERT: scan-not error
 package cmp
+
+import java.lang.*
 
 @JavaMirror
 public specific open class A {
