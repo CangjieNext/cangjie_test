@@ -9,7 +9,10 @@
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashSet/001_HashSet_Ins_basic.cj
 // EXEC: %compiler %cmp_opt -g 001_HashSet_Ins_basic.cj -o 001_HashSet_Ins_basic%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_HashSet015.info 001_HashSet_Ins_basic %run_env
+// (target_ios_simulator) EXEC: mv 001_HashSet_Ins_basic%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashSet015.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashSet015.info 001_HashSet_Ins_basic %run_env
 
 
 test#
@@ -18,10 +21,10 @@ b,breakpoint set -l 28 -c "set_uint64_size ==4",001_HashSet_Ins_basic.cj:28
 AOT r,r,-> 28
 Android c,c,28
 CJVM c,c,28
-p,p set_uint64_size,\(UInt64\) \$[\d] = 4
-p,p set_uint64,std[.]collection.HashSet<UInt64>\) \$[\d] = {[\S\s]*\[0\] = 2000[\S\s]*}
-p,p set_uint64,std[.]collection.HashSet<UInt64>\) \$[\d] = {[\S\s]*\[2\] = 46[\S\s]*}
+p,p set_uint64_size,\(UInt64\)[\s\S]*4
+p,p set_uint64,std[.]collection(?:\.|::)HashSet<UInt64>\)[\s\S]*{[\S\s]*\[0\] = 2000[\S\s]*}
+p,p set_uint64,std[.]collection(?:\.|::)HashSet<UInt64>\)[\s\S]*{[\S\s]*\[2\] = 46[\S\s]*}
 n,n,29
-p,p set_uint64,std[.]collection.HashSet<UInt64>\) \$[\d] = {[\S\s]*\[0\] = 2000[\S\s]*}
-p,p set_uint64,std[.]collection.HashSet<UInt64>\) \$[\d] = {[\S\s]*\[4\] = 4[\S\s]*}
+p,p set_uint64,std[.]collection(?:\.|::)HashSet<UInt64>\)[\s\S]*{[\S\s]*\[0\] = 2000[\S\s]*}
+p,p set_uint64,std[.]collection(?:\.|::)HashSet<UInt64>\)[\s\S]*{[\S\s]*\[4\] = 4[\S\s]*}
 q,q,

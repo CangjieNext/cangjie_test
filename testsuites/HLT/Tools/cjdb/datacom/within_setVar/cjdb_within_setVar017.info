@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_setVar/001_debug_setVar_generices.cj
 // EXEC: %compiler %cmp_opt -g 001_debug_setVar_generices.cj -o 001_debug_setVar_generices%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_within_setVar017.info 001_debug_setVar_generices %run_env
+// (target_ios_simulator) EXEC: mv 001_debug_setVar_generices%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar017.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar017.info 001_debug_setVar_generices %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
-b,b 22,001_debug_setVar_generices.cj:22
+b,b 001_debug_setVar_generices.cj:22,001_debug_setVar_generices.cj:22
 AOT r,r,-> 22
 Android c,c,22
 CJVM c,c,
-p,p mr_m1,\(Int16\) \$[0-9]* = 12
-set,set mr_m1 =16,\(Int16\) \$[0-9]* = 16
-p,p mr_m1,\(Int16\) \$[0-9]* = 16
+p,p mr_m1,\(Int16\)[\s\S]*12
+set,set mr_m1 =16,\(Int16\)[\s\S]*16
+p,p mr_m1,\(Int16\)[\s\S]*16
 q,q,

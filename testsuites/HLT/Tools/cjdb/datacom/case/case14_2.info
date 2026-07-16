@@ -14,7 +14,7 @@
 test#
 cjdb,cjdb --no-use-colors case14_2,case14_2
 b,b 39,Breakpoint 1
-b,b 41,case14.cj:41
+b,b case14.cj:41,case14.cj:41
 AOT r,r,-> 39
 Android c,c,39
 CJVM c,c,

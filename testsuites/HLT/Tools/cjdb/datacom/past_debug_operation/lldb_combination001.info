@@ -9,20 +9,23 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/022_debug_launch.cj
 // (!target_android) EXEC: %compiler %cmp_opt -g 022_debug_launch.cj -o 022_debug_launch%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_combination001.info 022_debug_launch %run_env
+// (target_ios_simulator) EXEC: mv 022_debug_launch%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_combination001.info %output %run_env
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_combination001.info 022_debug_launch %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 022_debug_launch,022_debug_launch
-b,b 21,022_debug_launch.cj:21
-b,b 28,022_debug_launch.cj:28
+b,b 022_debug_launch.cj:21,022_debug_launch.cj:21
+b,b 022_debug_launch.cj:28,022_debug_launch.cj:28
 AOT r,r,-> 21
 CJVM c,c,
-s,s,-> 28
-finish,finish,-> 21
-n,n,-> 22
-n,n,-> 23
+s,s,28
+finish,finish,21
+n,n,22
+n,n,23
 n,n,stopped
-rerun,r,-> 21
+rerun,r,21
 q,q,
 

@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/015_debug_basetype.cj
 // EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
-// EXEC: python3 cjdb_test.py lldb_Variable007.info 015_debug_basetype %run_env
+// (target_ios_simulator) EXEC: mv 015_debug_basetype%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_Variable007.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_Variable007.info 015_debug_basetype %run_env
 
 
 
@@ -18,15 +21,15 @@ test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
 CJVM b,b main,015_debug_basetype.cj:13
 CJVM c,c,13
-b,b 13,015_debug_basetype.cj:13
-b,b 14,015_debug_basetype.cj:14
+b,b 015_debug_basetype.cj:13,015_debug_basetype.cj:13
+b,b 015_debug_basetype.cj:14,015_debug_basetype.cj:14
 bdelete,breakpoint delete 1,breakpoints deleted
 AOT r,r,-> 14
 Android c,c,14
 CJVM c,c,14
 s,s,15
 locals,locals,var1 = -128
-p,p var1,\(Int8\) \$[\d] = -128
+p,p var1,\(Int8\)[\s\S]*-128
 locals,locals,var2 = 127
-p,p var2,\(Int8\) \$[\d] = 127
+p,p var2,\(Int8\)[\s\S]*127
 q,q,

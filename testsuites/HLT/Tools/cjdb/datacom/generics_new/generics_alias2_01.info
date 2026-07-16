@@ -9,26 +9,29 @@
 // LEVEL: 1
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_alias2.cj
 // EXEC: %compiler %cmp_opt -g generics_alias2.cj -o generics_alias2%cmp_output
-// EXEC: python3 cjdb_test.py generics_alias2_01.info generics_alias2 %run_env
+// (target_ios_simulator) EXEC: mv generics_alias2%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_alias2_01.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_alias2_01.info generics_alias2 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_alias2,generics_alias2
-b,b 148,generics_alias2.cj:148
+b,b generics_alias2.cj:148,generics_alias2.cj:148
 AOT r,r,-> 148
 Android c,c,148
 CJVM c,c,
-p, p larr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p s1.varrs,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p c1.vcarrc,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p default::S1::varr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p globals_arr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p larr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p varr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p globals_arr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-b, b 160,generics_alias2.cj:160
+p, p larr,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p s1.varrs,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p c1.vcarrc,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+AOT p, p default::S1::varr,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p globals_arr,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p larr,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p varr,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p globals_arr,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+b, b generics_alias2.cj:160,generics_alias2.cj:160
 c,c,160
-p, p b,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p test_b,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-locals, locals,\(std.core.Array<Int64>\) b = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p b,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p test_b,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+locals, locals,\(std.core(?:\.|::)Array<Int64>\) b = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 q,q,

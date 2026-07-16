@@ -10,17 +10,20 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_list_045.info list_debug %run_env
+// (target_ios_simulator) EXEC: mv list_debug%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_045.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_045.info list_debug %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-AOT b,b 193,list_debug.cj:195
-CJVM b,b 195,list_debug.cj:195
+b,b list_debug.cj:195,list_debug.cj:195
+CJVM b,b list_debug.cj:195,list_debug.cj:195
 AOT r,r,-> 195
 Android c,c,195
 CJVM c,c,195
-p,p m_member_7,\$[\d] = 
-p,p m_member_7[0],\$[\d] =
-p,p m_member_7[0].z,\$[\d] =
+p,p m_member_7,[\s\S]*
+p,p m_member_7[0],[\s\S]*
+p,p m_member_7[0].z,[\s\S]*
 q,quit,

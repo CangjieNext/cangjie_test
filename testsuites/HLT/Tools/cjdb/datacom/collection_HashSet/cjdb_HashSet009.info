@@ -9,15 +9,18 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashSet/001_HashSet_Ins_basic.cj
 // EXEC: %compiler %cmp_opt -g 001_HashSet_Ins_basic.cj -o 001_HashSet_Ins_basic%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_HashSet009.info 001_HashSet_Ins_basic %run_env
+// (target_ios_simulator) EXEC: mv 001_HashSet_Ins_basic%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashSet009.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashSet009.info 001_HashSet_Ins_basic %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 001_HashSet_Ins_basic,001_HashSet_Ins_basic
-b,b 20,001_HashSet_Ins_basic.cj:20
+b,b 001_HashSet_Ins_basic.cj:20,001_HashSet_Ins_basic.cj:20
 AOT r,r,-> 20
 Android c,c,20
 CJVM c,c,20
-b,b 24,001_HashSet_Ins_basic.cj:24
+b,b 001_HashSet_Ins_basic.cj:24,001_HashSet_Ins_basic.cj:24
 c,c,24
 q,q,

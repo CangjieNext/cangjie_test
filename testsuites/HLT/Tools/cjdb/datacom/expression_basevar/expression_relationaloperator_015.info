@@ -8,16 +8,16 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_0o.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py expression_relationaloperator_015.info 057_debug_0o %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_relationaloperator_015.info 057_debug_0o %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
 CJVM b,b main,057_debug_0o.cj:13
 CJVM c,c,13
-b,b 64,057_debug_0o.cj:64
+b,b 057_debug_0o.cj:64,057_debug_0o.cj:64
 AOT r,r,-> 64
 Android c,c,64
-expression, expression var20!=var20,\(Bool\) \$[\d] = false
+expression, expression var20!=var20,\(Bool\)[\s\S]*false
 q,q,

@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_member.cj
 // EXEC: %compiler %cmp_opt -g generics_member.cj -o generics_member%cmp_output
-// EXEC: python3 cjdb_test.py generics_member_fun_09.info generics_member %run_env
+// (target_ios_simulator) EXEC: mv generics_member%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_09.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_09.info generics_member %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 123,Breakpoint 1:
+b,b generics_member.cj:123,generics_member.cj:123
 AOT r,r,-> 123
 Android c,c,123
 CJVM c,c,
-p, p a,\(std.core.String\) \$[\d] = "cangjie"
-p, p a1,\(std.core.String\) \$[\d] = "cangjie"
-locals, locals,\(std.core.String\) a = "cangjie"[\s\S]*\(std.core.String\) a1 = "cangjie"[\s\S]*
+p, p a,\(std\.core(?:\.|::)String\)[\s\S]*"cangjie"
+p, p a1,\(std\.core(?:\.|::)String\)[\s\S]*"cangjie"
+locals, locals,\(std\.core(?:\.|::)String\) a = "cangjie"[\s\S]*\(std\.core(?:\.|::)String\) a1 = "cangjie"[\s\S]*
 q,q,

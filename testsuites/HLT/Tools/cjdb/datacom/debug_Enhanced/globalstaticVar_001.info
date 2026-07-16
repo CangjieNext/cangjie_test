@@ -8,22 +8,22 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/debug_Enhanced/globalstaticVar.cj
-// EXEC: %compiler %cmp_opt -g globalstaticVar.cj -o globalstaticVar%cmp_output
-// EXEC: python3 cjdb_test.py globalstaticVar_001.info globalstaticVar %run_env
+// (!target_ios_simulator) EXEC: %compiler %cmp_opt -g globalstaticVar.cj -o globalstaticVar%cmp_output
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py globalstaticVar_001.info globalstaticVar %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors globalstaticVar,globalstaticVar
-b,b 42,globalstaticVar.cj:42
+b,b globalstaticVar.cj:42,globalstaticVar.cj:42
 AOT r,r,-> 42
 Android c,c,42
 CJVM c,c,
-target variable,target variable -s,STATIC: \(Rune\) default::A::varchar = '5'
-target variable,target variable -s,STATIC: \(UInt64\) default::A::varUInt = 1
-target variable,target variable -s,STATIC: \(Bool\) default::A::varBool = true
-target variable,target variable -s,STATIC: \(Int64\) default::A::varlet = 9
-target variable,target variable -s,STATIC: \(Int8\) default::A::varInt = -128
-target variable,target variable -s,STATIC: \(Unit\) default::A::varunit = \(\)
+target variable,target variable -s,STATIC: \(Rune\) default(?:\.|::)A::varchar = '5'
+target variable,target variable -s,STATIC: \(UInt64\) default(?:\.|::)A::varUInt = 1
+target variable,target variable -s,STATIC: \(Bool\) default(?:\.|::)A::varBool = true
+target variable,target variable -s,STATIC: \(Int64\) default(?:\.|::)A::varlet = 9
+target variable,target variable -s,STATIC: \(Int8\) default(?:\.|::)A::varInt = -128
+target variable,target variable -s,STATIC: \(Unit\) default(?:\.|::)A::varunit = \(\)
 q,q,

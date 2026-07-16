@@ -9,12 +9,15 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_rune.cj
 // EXEC: %compiler %cmp_opt -g 057_debug_rune.cj -o 057_debug_rune%cmp_output
-// EXEC: python3 cjdb_test.py basetype_Rune_04.info 057_debug_rune %run_env
+// (target_ios_simulator) EXEC: mv 057_debug_rune%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py basetype_Rune_04.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py basetype_Rune_04.info 057_debug_rune %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 057_debug_rune,057_debug_rune
-b,b 17,057_debug_rune.cj:17
+b,b 057_debug_rune.cj:17,057_debug_rune.cj:17
 AOT r,r,-> 17
 Android c,c,17
 CJVM c,c,17

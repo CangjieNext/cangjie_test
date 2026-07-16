@@ -9,12 +9,15 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/loop_expression/loop_expression006.cj
 // EXEC: %compiler %cmp_opt -g loop_expression006.cj -o loop_expression006%cmp_output
-// EXEC: python3 cjdb_test.py loop_expression006.info loop_expression006 %run_env
+// (target_ios_simulator) EXEC: mv loop_expression006%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py loop_expression006.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py loop_expression006.info loop_expression006 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors loop_expression006,loop_expression006
-b,b 20,loop_expression006.cj:20
+b,b loop_expression006.cj:20,loop_expression006.cj:20
 AOT r,r,-> 20
 Android c,c,20
 n,n,21

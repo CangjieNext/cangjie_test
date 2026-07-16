@@ -9,17 +9,20 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/009_debug_array_class_parameter.cj
 // EXEC: %compiler %cmp_opt -g 009_debug_array_class_parameter.cj -o 009_debug_array_class_parameter%cmp_output
-// EXEC: python3 cjdb_test.py lldb_array_composite_067.info 009_debug_array_class_parameter %run_env
+// (target_ios_simulator) EXEC: mv 009_debug_array_class_parameter%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_067.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_067.info 009_debug_array_class_parameter %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 009_debug_array_class_parameter,009_debug_array_class_parameter
-b,b 61,009_debug_array_class_parameter.cj:61
+b,b 009_debug_array_class_parameter.cj:61,009_debug_array_class_parameter.cj:61
 AOT r,r,-> 61
 Android c,c,61
 CJVM c,c,
 n,n,63
-print,print arraymainrec01[1],C1\) \$[\d] = {(\r|\n|\r\n)  pro = 5(\r|\n|\r\n)  namenum = 110(\r|\n|\r\n)  num = 15(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 20(\r|\n|\r\n)  height = 100
+print,print arraymainrec01[1],C1\)[\s\S]*{(\r|\n|\r\n)  pro = 5(\r|\n|\r\n)  namenum = 110(\r|\n|\r\n)  num = 15(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 20(\r|\n|\r\n)  height = 100
 q,q,

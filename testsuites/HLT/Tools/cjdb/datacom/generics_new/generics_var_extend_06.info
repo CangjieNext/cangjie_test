@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_var_extend.cj
 // EXEC: %compiler %cmp_opt -g generics_var_extend.cj -o generics_var_extend%cmp_output
-// EXEC: python3 cjdb_test.py generics_var_extend_06.info generics_var_extend %run_env
+// (target_ios_simulator) EXEC: mv generics_var_extend%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_var_extend_06.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_var_extend_06.info generics_var_extend %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 208,Breakpoint 1:
+b,b generics_var_extend.cj:208,generics_var_extend.cj:208
 AOT r,r,-> 208
 Android c,c,208
 CJVM c,c,
-p, p a,\(IntNative\) \$[\d] = 100
-p, p a1,\(IntNative\) \$[\d] = 100
+p, p a,\(IntNative\)[\s\S]*100
+p, p a1,\(IntNative\)[\s\S]*100
 locals, locals,\(IntNative\) a = 100[\s\S]*\(IntNative\) a1 = 100
 q, q

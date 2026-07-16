@@ -8,20 +8,20 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_0o.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py expression_bitwiseexpression_001.info 057_debug_0o %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_bitwiseexpression_001.info 057_debug_0o %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
 CJVM b,b main,057_debug_0o.cj:13
 CJVM c,c,13
-b,b 64,057_debug_0o.cj:64
+b,b 057_debug_0o.cj:64,057_debug_0o.cj:64
 AOT r,r,-> 64
 Android c,c,64
-expression, expression var1b<<2,\(Int8\) \$[\d] = 52
-expression, expression var2b<<2,\(Int16\) \$[\d] = 60
-expression, expression var3b<<2,\(Int32\) \$[\d] = 124
-expression, expression var4b<<2,\(Int64\) \$[\d] = 252
-expression, expression var5b<<2,\(IntNative\) \$[\d] = 508
+expression, expression var1b<<2,\(Int8\)[\s\S]*52
+expression, expression var2b<<2,\(Int16\)[\s\S]*60
+expression, expression var3b<<2,\(Int32\)[\s\S]*124
+expression, expression var4b<<2,\(Int64\)[\s\S]*252
+expression, expression var5b<<2,\(IntNative\)[\s\S]*508
 q,q,

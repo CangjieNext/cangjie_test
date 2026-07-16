@@ -9,16 +9,19 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_baseVar.cj
 // EXEC: %compiler %cmp_opt -g ArrayList_baseVar.cj -o ArrayList_baseVar%cmp_output
-// EXEC: python3 cjdb_test.py arraylist_test_004.info ArrayList_baseVar %run_env
+// (target_ios_simulator) EXEC: mv ArrayList_baseVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_004.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_004.info ArrayList_baseVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_baseVar,ArrayList_baseVar
-b,b 31,ArrayList_baseVar.cj:31
+b,b ArrayList_baseVar.cj:31,ArrayList_baseVar.cj:31
 AOT r,r,-> 31
 Android c,c,31
 CJVM c,c,31
-p,p Arrlist_F16,\(std[.]collection.ArrayList<Float16>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
-p,p Arrlist_F32,\(std[.]collection.ArrayList<Float32>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
-p,p Arrlist_F64,\(std[.]collection.ArrayList<Float64>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
+p,p Arrlist_F16,\(std[.]collection(?:\.|::)ArrayList<Float16>\)[\s\S]*{[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
+p,p Arrlist_F32,\(std[.]collection(?:\.|::)ArrayList<Float32>\)[\s\S]*{[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
+p,p Arrlist_F64,\(std[.]collection(?:\.|::)ArrayList<Float64>\)[\s\S]*{[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
 q,q,

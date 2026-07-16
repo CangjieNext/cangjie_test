@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/008_debug_array_class.cj
 // EXEC: %compiler %cmp_opt -g 008_debug_array_class.cj -o 008_debug_array_class%cmp_output
-// EXEC: python3 cjdb_test.py lldb_array_composite_065.info 008_debug_array_class %run_env
+// (target_ios_simulator) EXEC: mv 008_debug_array_class%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_065.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_065.info 008_debug_array_class %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_array_class,008_debug_array_class
-b,b 82,008_debug_array_class.cj:82
+b,b 008_debug_array_class.cj:82,008_debug_array_class.cj:82
 AOT r,r,-> 82
 Android c,c,82
 CJVM c,c,
-print,print arrayfunrec01[0],C2\) \$[\d]+ = {(\r|\n|\r\n)  width = 60(\r|\n|\r\n)  length = 400
+print,print arrayfunrec01[0],C2\)[\s\S]*{(\r|\n|\r\n)  width = 60(\r|\n|\r\n)  length = 400
 q,q,

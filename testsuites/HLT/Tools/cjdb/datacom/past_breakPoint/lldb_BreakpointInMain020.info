@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/007_debug_continue.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 007_debug_continue.cj -o 007_debug_continue%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointInMain020.info 007_debug_continue %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 007_debug_continue.cj -o 007_debug_continue%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_BreakpointInMain020.info 007_debug_continue %run_env
 
 
 
@@ -18,14 +18,14 @@ test#
 cjdb,cjdb --no-use-colors 007_debug_continue,007_debug_continue
 CJVM b,breakpoint set -n main,007_debug_continue.cj:13
 CJVM c,c,-> 13
-b,b 13,007_debug_continue.cj:13
-b,b 14,007_debug_continue.cj:14
-b,b 15,007_debug_continue.cj:15
-b,b 16,007_debug_continue.cj:16
-b,b 17,007_debug_continue.cj:17
-AOT b,b 18,007_debug_continue.cj:20
+b,b 007_debug_continue.cj:13,007_debug_continue.cj:13
+b,b 007_debug_continue.cj:14,007_debug_continue.cj:14
+b,b 007_debug_continue.cj:15,007_debug_continue.cj:15
+b,b 007_debug_continue.cj:16,007_debug_continue.cj:16
+b,b 007_debug_continue.cj:17,007_debug_continue.cj:17
+b,b 18,007_debug_continue.cj:20
 CJVM b,b 18,007_debug_continue.cj:18
-AOT b,b 19,007_debug_continue.cj:20
+b,b 19,007_debug_continue.cj:20
 CJVM b,b 19,007_debug_continue.cj:19
 AOT r,r,-> 13
 c,c,-> 14

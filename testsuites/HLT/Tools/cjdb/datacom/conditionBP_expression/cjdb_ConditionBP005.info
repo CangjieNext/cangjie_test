@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func005.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_global_func005.cj -o generics_global_func005%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP005.info generics_global_func005 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_global_func005.cj -o generics_global_func005%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py cjdb_ConditionBP005.info generics_global_func005 %run_env
 
 
 test#
@@ -18,12 +18,12 @@ breakpoint,breakpoint set -l 31 -c "varr[8]==9",generics_global_func005.cj:31
 AOT r,r,-> 31
 Android c,c,31
 CJVM c,c,
-locals,locals,\(std.core.Range<Int32>\) vrange = 1..10 : 1
-p,p x5,\(std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
-expr:expr x5.contains(1):\(Bool\) \$[\d] = true
-expr:expr x4.size==2:\(Bool\) \$[\d] = true
-expr:expr x4["a"]:\(UInt32\) \$[\d] = 1
-expr:expr x4["a"]+3:\(UInt32\) \$[\d] = 4
-expr:expr x3[2]:\(Int8\) \$[\d] = 3
+locals,locals,\(std.core(?:\.|::)Range<Int32>\) vrange = 1..10 : 1
+p,p x5,\(std.collection.HashSet<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
+expr:expr x5.contains(1):\(Bool\)[\s\S]*true
+expr:expr x4.size==2:\(Bool\)[\s\S]*true
+expr:expr x4["a"]:\(UInt32\)[\s\S]*1
+expr:expr x4["a"]+3:\(UInt32\)[\s\S]*4
+expr:expr x3[2]:\(Int8\)[\s\S]*3
 expr:expr x3[3]:IndexOutOfBoundsException: index: 3, size: 3
 q,q,

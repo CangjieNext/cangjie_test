@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/054_debug_struct_basetype.cj
 // EXEC: %compiler %cmp_opt -g 054_debug_struct_basetype.cj -o 003_express_basetype%cmp_output
-// EXEC: python3 cjdb_test.py express_error_003.info 003_express_basetype %run_env
+// (target_ios_simulator) EXEC: mv 003_express_basetype%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py express_error_003.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py express_error_003.info 003_express_basetype %run_env
 
 
 
@@ -18,7 +21,7 @@ test#
 cjdb,cjdb --no-use-colors 003_express_basetype,003_express_basetype
 CJVM b,b main,054_debug_struct_basetype.cj:34
 CJVM c,c,34
-b,b 37,054_debug_struct_basetype.cj:37
+b,b 054_debug_struct_basetype.cj:37,054_debug_struct_basetype.cj:37
 CJVM c,c,37
 AOT r,r,-> 37
 Android c,c,37

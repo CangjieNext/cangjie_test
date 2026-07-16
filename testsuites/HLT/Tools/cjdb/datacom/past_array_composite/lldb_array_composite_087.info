@@ -9,17 +9,20 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/014_debug_array_record_class_fun.cj
 // EXEC: %compiler %cmp_opt -g 014_debug_array_record_class_fun.cj -o 014_debug_array_record_class_fun%cmp_output
-// EXEC: python3 cjdb_test.py lldb_array_composite_087.info 014_debug_array_record_class_fun %run_env
+// (target_ios_simulator) EXEC: mv 014_debug_array_record_class_fun%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_087.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_087.info 014_debug_array_record_class_fun %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 014_debug_array_record_class_fun,014_debug_array_record_class_fun
-b,b 73,014_debug_array_record_class_fun.cj:73
+b,b 014_debug_array_record_class_fun.cj:73,014_debug_array_record_class_fun.cj:73
 AOT r,r,-> 73
 Android c,c,73
 CJVM c,c,
 n,n,75
-print,print arraymain01[1].rec_array,std[.]core.Array<Int32>\) \$[\d] = {(\r\n|\r|\n)  \[0\] = 200(\r\n|\r|\n)  \[1\] = 20(\r\n|\r|\n)  \[2\] = 30(\r\n|\r|\n)}
+print,print arraymain01[1].rec_array,std[.]core(?:\.|::)Array<Int32>\)[\s\S]*{(\r\n|\r|\n)  \[0\] = 200(\r\n|\r|\n)  \[1\] = 20(\r\n|\r|\n)  \[2\] = 30(\r\n|\r|\n)}
 q,q,

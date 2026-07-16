@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/past_basic/063_debug_expr_class.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 063_debug_expr_class.cj -o 001_express_basetype%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py express_class_010.info 001_express_basetype %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 063_debug_expr_class.cj -o 001_express_basetype%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py express_class_010.info 001_express_basetype %run_env
 
 
 
@@ -18,11 +18,11 @@ test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
 CJVM b,b main,063_debug_expr_class.cj:41
 CJVM c,c,41
-b,b 44,063_debug_expr_class.cj:44
+b,b 063_debug_expr_class.cj:44,063_debug_expr_class.cj:44
 CJVM c,c,44
 AOT r,r,-> 44
 Android c,c,44
-expr,expr stu.tt.scores,\(Float64\) \$[\d] = 12.119999999999999
-expr,expr stu.tt.scores=13.13,\(Unit\) \$[\d] = ()
-expr,expr stu.tt.scores,\(Float64\) \$[\d] = 13.130000000000001
+expr,expr stu.tt.scores,\(Float64\)[\s\S]*12.119999999999999
+expr,expr stu.tt.scores=13.13,\(Unit\)[\s\S]*()
+expr,expr stu.tt.scores,\(Float64\)[\s\S]*13.130000000000001
 q,q,

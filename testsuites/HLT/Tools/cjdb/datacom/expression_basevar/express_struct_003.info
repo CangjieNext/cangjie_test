@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/065_debug_struct.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 003_express_basetype%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py express_struct_003.info 003_express_basetype %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 003_express_basetype%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py express_struct_003.info 003_express_basetype %run_env
 
 
 
@@ -18,17 +18,17 @@ test#
 cjdb,cjdb --no-use-colors 003_express_basetype,003_express_basetype
 CJVM b,b main,065_debug_struct.cj:60
 CJVM c,c,60
-b,b 62,065_debug_struct.cj:62
+b,b 065_debug_struct.cj:62,065_debug_struct.cj:62
 CJVM c,c,62
 AOT r,r,-> 62
 Android c,c,62
-expr,expr rr.arr,std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*[\2\] = 2[\s\S]*}*
-expr,expr rr.arr[0],\(Int64\) \$[\d] = 0
-expr,expr rr.arr[0]=10,\(Unit\) \$[\d] = ()
-expr,expr rr.arr,std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 1[\s\S]*[\2\] = 2[\s\S]*}*
-expr,expr rr.s09,std[.]collection.HashSet<Int64>\) \$[\d] = {[\S\s]*\[0\] = 0[\S\s]*\[1\] = 1[\S\s]*\[2\] = 2[\S\s]*}
-expr,expr rr.s10,std[.]collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 0[\S\s]*}
-expr,expr rr.a.age,\(Int64\) \$[\d] = 10
-expr,expr rr.a.age=20,\(Unit\) \$[\d] = ()
-expr,expr rr.a.age,\(Int64\) \$[\d] = 20
+expr,expr rr.arr,std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*[\2\] = 2[\s\S]*}*
+expr,expr rr.arr[0],\(Int64\)[\s\S]*0
+expr,expr rr.arr[0]=10,\(Unit\)[\s\S]*()
+expr,expr rr.arr,std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 10[\s\S]*\[1\] = 1[\s\S]*[\2\] = 2[\s\S]*}*
+expr,expr rr.s09,std[.]collection(?:\.|::)HashSet<Int64>\)[\s\S]*{[\S\s]*\[0\] = 0[\S\s]*\[1\] = 1[\S\s]*\[2\] = 2[\S\s]*}
+expr,expr rr.s10,std[.]collection(?:\.|::)HashMap<std.core(?:\.|::)String,Int64>\)[\s\S]*{[\S\s]*key = "a"[\S\s]*value = 0[\S\s]*}
+expr,expr rr.a.age,\(Int64\)[\s\S]*10
+expr,expr rr.a.age=20,\(Unit\)[\s\S]*()
+expr,expr rr.a.age,\(Int64\)[\s\S]*20
 q,q,

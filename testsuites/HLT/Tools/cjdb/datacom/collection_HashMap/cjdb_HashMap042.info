@@ -9,14 +9,17 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/004_HashMap_Ins_array.cj
 // EXEC: %compiler %cmp_opt -g 004_HashMap_Ins_array.cj -o 004_HashMap_Ins_array%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_HashMap042.info 004_HashMap_Ins_array %run_env
+// (target_ios_simulator) EXEC: mv 004_HashMap_Ins_array%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashMap042.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashMap042.info 004_HashMap_Ins_array %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 004_HashMap_Ins_array,004_HashMap_Ins_array
-b,b 52,004_HashMap_Ins_array.cj:52
+b,b 004_HashMap_Ins_array.cj:52,004_HashMap_Ins_array.cj:52
 AOT r,r,-> 52
 Android c,c,52
 CJVM c,c,52
-p,p map_array_5,std[.]collection.HashMap<std[.]core.String,std[.]core.Array<std[.]collection.HashSet<Int32>>>\) \$[\d] = {[\S\s]*key = "0123456789abcdxyz"[\S\s]*value = [\S\s]*}
+p,p map_array_5,std[.]collection(?:\.|::)HashMap<std.core(?:\.|::)String,std[.]core(?:\.|::)Array<std[.]collection(?:\.|::)HashSet<Int32>>>\)[\s\S]*{[\S\s]*key = "0123456789abcdxyz"[\S\s]*value = [\S\s]*}
 q,q,

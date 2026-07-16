@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/002_debug_if.cj
 //  EXEC: %compiler %cmp_opt -g 002_debug_if.cj -o 002_debug_if%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut004.info 002_debug_if %run_env
+// (target_ios_simulator) EXEC: mv 002_debug_if%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut004.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut004.info 002_debug_if %run_env
 
 
 
@@ -18,23 +21,23 @@ test#
 cjdb,cjdb --no-use-colors 002_debug_if,002_debug_if
 CJVM b main,b main,002_debug_if.cj:13
 CJVM c,c,13
-b,b 13,002_debug_if.cj:13
-AOT b,b 14,002_debug_if.cj:15
-CJVM b,b 14,002_debug_if.cj:14
-b,b 15,002_debug_if.cj:15
-b,b 16,002_debug_if.cj:16
-AOT b,b 17,002_debug_if.cj:18
-CJVM b,b 17,002_debug_if.cj:17
-b,b 18,002_debug_if.cj:18
-AOT b,b 19,002_debug_if.cj:20
-CJVM b,b 19,002_debug_if.cj:19
-b,b 20,002_debug_if.cj:20
-b,b 21,002_debug_if.cj:21
-AOT b,b 22,002_debug_if.cj:23
-CJVM b,b 22,002_debug_if.cj:22
-b,b 23,002_debug_if.cj:23
-AOT b,b 24,002_debug_if.cj:25
-CJVM b,b 24,002_debug_if.cj:24
+b,b 002_debug_if.cj:13,002_debug_if.cj:13
+b,b 002_debug_if.cj:15,002_debug_if.cj:15
+CJVM b,b 002_debug_if.cj:14,002_debug_if.cj:14
+b,b 002_debug_if.cj:15,002_debug_if.cj:15
+b,b 002_debug_if.cj:16,002_debug_if.cj:16
+b,b 002_debug_if.cj:18,002_debug_if.cj:18
+CJVM b,b 002_debug_if.cj:17,002_debug_if.cj:17
+b,b 002_debug_if.cj:18,002_debug_if.cj:18
+b,b 002_debug_if.cj:20,002_debug_if.cj:20
+CJVM b,b 002_debug_if.cj:19,002_debug_if.cj:19
+b,b 002_debug_if.cj:20,002_debug_if.cj:20
+b,b 002_debug_if.cj:21,002_debug_if.cj:21
+b,b 002_debug_if.cj:23,002_debug_if.cj:23
+CJVM b,b 002_debug_if.cj:22,002_debug_if.cj:22
+b,b 002_debug_if.cj:23,002_debug_if.cj:23
+b,b 002_debug_if.cj:25,002_debug_if.cj:25
+CJVM b,b 002_debug_if.cj:24,002_debug_if.cj:24
 AOT r,r,-> 13
 Android c,c,13
 s,s,15

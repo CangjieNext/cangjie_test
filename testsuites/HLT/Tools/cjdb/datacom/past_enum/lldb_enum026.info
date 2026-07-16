@@ -9,17 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/007_debug_enum_members.cj
 // EXEC: %compiler %cmp_opt -g 007_debug_enum_members.cj -o 007_debug_enum_members%cmp_output
-// EXEC: python3 cjdb_test.py lldb_enum026.info 007_debug_enum_members %run_env
+// (target_ios_simulator) EXEC: mv 007_debug_enum_members%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_enum026.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_enum026.info 007_debug_enum_members %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 007_debug_enum_members,007_debug_enum_members
-b,b 28,007_debug_enum_members.cj:28
+b,b 007_debug_enum_members.cj:28,007_debug_enum_members.cj:28
 AOT r,r,-> 28
 Android c,c,28
 CJVM c,c,
 n,n,30
-print,print time,TimeUnit1\) \$[\d] = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = 3
+print,print time,TimeUnit1\)[\s\S]*{(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = 3
 q,q,

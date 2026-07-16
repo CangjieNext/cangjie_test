@@ -8,15 +8,15 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/match_expression/match_expression008.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g match_expression008.cj -o match_expression008%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py match_expression_008.info match_expression008 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g match_expression008.cj -o match_expression008%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py match_expression_008.info match_expression008 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors match_expression008,match_expression008
-b,b 35,match_expression008.cj:35
+b,b match_expression008.cj:35,match_expression008.cj:35
 r,r,-> 35
 Android c,c,35
-expr,expr aa,\(Bool\) \$[\d] = true
-expr~expr match {case 1 is String => false case b1 is Base => true case _ => true}~\(Bool\) \$[\d] = true
+expr,expr aa,\(Bool\)[\s\S]*true
+expr~expr match {case 1 is String => false case b1 is Base => true case _ => true}~\(Bool\)[\s\S]*true
 q,q,

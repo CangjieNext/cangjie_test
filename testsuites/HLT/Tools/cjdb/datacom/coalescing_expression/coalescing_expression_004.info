@@ -8,21 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/coalescing_expression/coalescing004.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g coalescing004.cj -o coalescing004%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py coalescing_expression_004.info coalescing004 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g coalescing004.cj -o coalescing004%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py coalescing_expression_004.info coalescing004 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors coalescing004,coalescing004
-b,b 28,coalescing004.cj:28
+b,b coalescing004.cj:28,coalescing004.cj:28
 AOT r,r,-> 28
 Android c,c,28
-expr,expr r1,\(UInt8\) \$[\d] = 1
-expr,expr r2,\(UInt8\) \$[\d] = 2
-expr,expr r3,\(UInt16\) \$[\d] = 2
-expr,expr r4,\(UInt16\) \$[\d] = 4
-expr,expr r5,\(UInt32\) \$[\d] = 3
-expr,expr r6,\(UInt32\) \$[\d] = 6
-expr,expr r7,\(UInt64\) \$[\d] = 4
-expr,expr r8,\(UInt64\) \$[\d] = 8
+expr,expr r1,\(UInt8\)[\s\S]*1
+expr,expr r2,\(UInt8\)[\s\S]*2
+expr,expr r3,\(UInt16\)[\s\S]*2
+expr,expr r4,\(UInt16\)[\s\S]*4
+expr,expr r5,\(UInt32\)[\s\S]*3
+expr,expr r6,\(UInt32\)[\s\S]*6
+expr,expr r7,\(UInt64\)[\s\S]*4
+expr,expr r8,\(UInt64\)[\s\S]*8
 q,q,

@@ -9,21 +9,24 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_var_extend.cj
 // EXEC: %compiler %cmp_opt -g generics_var_extend.cj -o generics_var_extend%cmp_output
-// EXEC: python3 cjdb_test.py generics_var_extend_07.info generics_var_extend %run_env
+// (target_ios_simulator) EXEC: mv generics_var_extend%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_var_extend_07.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_var_extend_07.info generics_var_extend %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 215,Breakpoint 1:
-b,b 220,generics_var_extend.cj:220
+b,b generics_var_extend.cj:215,generics_var_extend.cj:215
+b,b generics_var_extend.cj:220,generics_var_extend.cj:220
 AOT r,r,-> 215
 Android c,c,215
 CJVM c,c,
-p, p a,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
-p, p a1,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
-locals, locals,\(std.collection.HashMap<std.core.String,Int64>\) a = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}[\s\S]*\(std.collection.HashMap<std.core.String,Int64>\) a1 = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+p, p a,\(std.collection(?:\.|::)HashMap<std.core(?:\.|::)String,Int64>\)[\s\S]*{[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+p, p a1,\(std.collection(?:\.|::)HashMap<std.core(?:\.|::)String,Int64>\)[\s\S]*{[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+locals, locals,\(std.collection(?:\.|::)HashMap<std.core(?:\.|::)String,Int64>\) a = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}[\s\S]*\(std.collection(?:\.|::)HashMap<std.core(?:\.|::)String,Int64>\) a1 = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
 c,c,220
-p, p a,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p a2,\(std.core.String\) \$[\d] = "cangjie"
-locals, locals,\(std.collection.ArrayList<Int64>\) a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*[\s\S]*\(std.core.String\) b = "cangjie"[\s\S]*\(std.collection.ArrayList<Int64>\) a1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*[\s\S]*\(std.core.String\) a2 = "cangjie"
+p, p a,\(std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p a2,\(std\.core(?:\.|::)String\)[\s\S]*"cangjie"
+locals, locals,\(std.collection(?:\.|::)ArrayList<Int64>\) a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*[\s\S]*\(std\.core(?:\.|::)String\) b = "cangjie"[\s\S]*\(std.collection(?:\.|::)ArrayList<Int64>\) a1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*[\s\S]*\(std\.core(?:\.|::)String\) a2 = "cangjie"
 q, q

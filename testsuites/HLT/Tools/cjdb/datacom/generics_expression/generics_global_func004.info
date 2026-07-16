@@ -14,14 +14,14 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func004,generics_global_func004
-b,b 27,generics_global_func004.cj:27
+b,b generics_global_func004.cj:27,generics_global_func004.cj:27
 AOT r,r,-> 27
 Android c,c,27
 CJVM c,c,
 expr:expr a2:error: unsupported expression
-expr:expr a4:\(Int64\) \$[\d] = 5
-expr:expr foo(vcfunc,5):\(\(\)->Unit\) \$[\d] = 0x[\s\S]*
-expr:expr a6+1:\(Int32\) \$[\d] = 6
+expr:expr a4:\(Int64\)[\s\S]*5
+expr:expr foo(vcfunc,5):\(\(\)->Unit\)[\s\S]*0x[\s\S]*
+expr:expr a6+1:\(Int32\)[\s\S]*6
 expr:expr a6+1.1:error: unsupported expression
-expr:expr foo(vunit,vunit):\(Unit\) \$[\d] = ()
+expr:expr foo(vunit,vunit):\(Unit\)[\s\S]*()
 q,q,

@@ -10,14 +10,17 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_list_005.info list_debug %run_env
+// (target_ios_simulator) EXEC: mv list_debug%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_005.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_005.info list_debug %run_env
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 115,list_debug.cj:115
+b,b list_debug.cj:115,list_debug.cj:115
 AOT r,r,-> 115
 Android c,c,115
 CJVM c,c,
-AOT p,p m_base_1_2[1..5],\(std[.]core.Array<Int16>\) \$[\d] =
+AOT p,p m_base_1_2[1..5],\(std[.]core(?:\.|::)Array<Int16>\)[\s\S]*
 CJVM p,p m_base_1_2[1..5],error: variable was not declared in this scope
 q,quit,

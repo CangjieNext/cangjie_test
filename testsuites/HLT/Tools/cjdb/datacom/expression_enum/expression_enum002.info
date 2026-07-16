@@ -8,20 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/012_enum_class.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 012_enum_class.cj -o 012_enum_class%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum002.info 012_enum_class %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 012_enum_class.cj -o 012_enum_class%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_enum002.info 012_enum_class %run_env
 
 test#
 cjdb,cjdb --no-use-colors 012_enum_class,012_enum_class
-b,b 47,012_enum_class.cj:47
+b,b 012_enum_class.cj:47,012_enum_class.cj:47
 AOT r,r,-> 47
 Android c,c,47
 CJVM c,c,
-p,p m_time2,\(default.TimeUnit1<default.C<default.C<Int64>>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*c_width = 2[\s\S]*
-expr,expr m_time2,\(default.TimeUnit1<default.C<default.C<Int64>>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*c_width = 2[\s\S]*
-expr,expr arrayEnum01,\(std.core.Array<default.TimeUnit1<UInt8>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 2[\s\S]*
-expr~expr TimeUnit1<Array<TimeUnit1<UInt8>>>.Year(arrayEnum01)~\(default.TimeUnit1<std.core.Array<default.TimeUnit1<UInt8>>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*
-expr~expr TimeUnit1<Rectangle<Int64>>.Year(m_rec)~\(default.TimeUnit1<default.Rectangle<Int64>>\) \$[\d] = {(\r|\n|\r\n)  constructor = Year[\s\S]*
-expr~expr Rectangle<TimeUnit1<UInt8>>()~\(default.Rectangle<default.TimeUnit1<UInt8>>\) \$[\d] = {[\s\S]*rec_width = 10[\s\S]*
-expr~expr C<TimeUnit1<UInt8>>(m_time1)~\(default.C<default.TimeUnit1<UInt8>>\) \$[\d] = {[\s\S]*c_width = 2[\s\S]*}
+p,p m_time2,\(default(?:\.|::)TimeUnit1<default(?:\.|::)C<default(?:\.|::)C<Int64>>>\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*c_width = 2[\s\S]*
+expr,expr m_time2,\(default(?:\.|::)TimeUnit1<default(?:\.|::)C<default(?:\.|::)C<Int64>>>\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*c_width = 2[\s\S]*
+expr,expr arrayEnum01,\(std.core(?:\.|::)Array<default(?:\.|::)TimeUnit1<UInt8>>\)[\s\S]*{[\s\S]*\[0\] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 2[\s\S]*
+expr~expr TimeUnit1<Array<TimeUnit1<UInt8>>>.Year(arrayEnum01)~\(default(?:\.|::)TimeUnit1<std.core(?:\.|::)Array<default(?:\.|::)TimeUnit1<UInt8>>>\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*
+expr~expr TimeUnit1<Rectangle<Int64>>.Year(m_rec)~\(default(?:\.|::)TimeUnit1<default(?:\.|::)Rectangle<Int64>>\)[\s\S]*{(\r|\n|\r\n)  constructor = Year[\s\S]*
+expr~expr Rectangle<TimeUnit1<UInt8>>()~\(default(?:\.|::)Rectangle<default(?:\.|::)TimeUnit1<UInt8>>\)[\s\S]*{[\s\S]*rec_width = 10[\s\S]*
+expr~expr C<TimeUnit1<UInt8>>(m_time1)~\(default(?:\.|::)C<default(?:\.|::)TimeUnit1<UInt8>>\)[\s\S]*{[\s\S]*c_width = 2[\s\S]*}
 q,q,

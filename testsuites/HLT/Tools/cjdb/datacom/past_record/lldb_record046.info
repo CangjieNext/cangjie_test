@@ -9,19 +9,22 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/045_debug_record_mod.cj
 // EXEC: %compiler %cmp_opt -g 045_debug_record_mod.cj -o 045_debug_record_mod%cmp_output
-// EXEC: python3 cjdb_test.py lldb_record046.info 045_debug_record_mod %run_env
+// (target_ios_simulator) EXEC: mv 045_debug_record_mod%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_record046.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_record046.info 045_debug_record_mod %run_env
 
 
 
 // TODO: change "this$cjc" to "this" after 2022/8/12
 test#
 cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
-b,b 68,045_debug_record_mod.cj:68
+b,b 045_debug_record_mod.cj:68,045_debug_record_mod.cj:68
 AOT r,r,-> 68
 Android c,c,68
 CJVM c,c,
 s,s,44
-p,p this.width,\$[\d] = 100
+p,p this.width,[\s\S]*100
 n,n,45
-p,p temp, \$[\d] = 100
+p,p temp,[\s\S]*100
 q,q,

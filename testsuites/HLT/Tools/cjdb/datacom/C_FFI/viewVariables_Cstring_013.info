@@ -8,14 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/Test_CString.cj
-// (!target_android) EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py viewVariables_Cstring_013.info viewVariables_Cstring_013 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py viewVariables_Cstring_013.info viewVariables_Cstring_013 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_013,viewVariables_Cstring_013
-b,b 76,Test_CString.cj:76
+b,b Test_CString.cj:76,Test_CString.cj:76
 AOT r,r,-> 76
 CJVM c,c,
-p, p str_5,\(CString\) \$[\d] = "1000:>[\s\S]*
+p, p str_5,\(CString\)[\s\S]*"1000:>[\s\S]*
 q,q,

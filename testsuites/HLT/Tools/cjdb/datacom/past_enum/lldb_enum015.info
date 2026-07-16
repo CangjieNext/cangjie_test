@@ -9,18 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/003_debug_enum_reload.cj
 // EXEC: %compiler %cmp_opt -g 003_debug_enum_reload.cj -o 003_debug_enum_reload%cmp_output
-// EXEC: python3 cjdb_test.py lldb_enum015.info 003_debug_enum_reload %run_env
+// (target_ios_simulator) EXEC: mv 003_debug_enum_reload%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_enum015.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_enum015.info 003_debug_enum_reload %run_env
 
 
 
 // the float type can not accurately
 test#
 cjdb,cjdb --no-use-colors 003_debug_enum_reload,003_debug_enum_reload
-b,b 38,003_debug_enum_reload.cj:38
+b,b 003_debug_enum_reload.cj:38,003_debug_enum_reload.cj:38
 AOT r,r,-> 38
 Android c,c,38
 CJVM c,c,
 n,n,39
 locals,locals,TimeUnit1\) time4 = {(\r|\n|\r\n)  constructor = Day(\r|\n|\r\n)  arg_1 = 1
-print,print time4,TimeUnit1\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Day(\r|\n|\r\n)  arg_1 = 1(\r|\n|\r\n)  arg_2 = 
+print,print time4,TimeUnit1\)[\s\S]*{(\r|\n|\r\n)  constructor = Day(\r|\n|\r\n)  arg_1 = 1(\r|\n|\r\n)  arg_2 = 
 q,q,

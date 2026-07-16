@@ -9,17 +9,20 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_baseVar.cj
 // EXEC: %compiler %cmp_opt -g option_baseVar.cj -o option_baseVar%cmp_output
-// EXEC: python3 cjdb_test.py option_test_008.info option_baseVar %run_env
+// (target_ios_simulator) EXEC: mv option_baseVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py option_test_008.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py option_test_008.info option_baseVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors option_baseVar,option_baseVar
-b,b 59,option_baseVar.cj:59
+b,b option_baseVar.cj:59,option_baseVar.cj:59
 AOT r,r,-> 59
 Android c,c,59
 CJVM c,c,59
-p,p Char_c,\(std[.]core.Option<Rune>\) \$[\d] = 'c'
-AOT p,p Char_slash,\(std[.]core.Option<Rune>\) \$[\d] = '\\\\'
-p,p Char_chinese,\(std[.]core.Option<Rune>\) \$[\d] = 'ï¿?
+p,p Char_c,\(std[.]core(?:\.|::)Option<Rune>\)[\s\S]*'c'
+AOT p,p Char_slash,\(std[.]core(?:\.|::)Option<Rune>\)[\s\S]*'\\\\'
+p,p Char_chinese,\(std[.]core(?:\.|::)Option<Rune>\)[\s\S]*'ï¿½?
 q,q,
 

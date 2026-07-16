@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// EXEC: python3 cjdb_test.py lldb_VariableModify029.info 024_debug_variable %run_env
+// (target_ios_simulator) EXEC: mv 024_debug_variable%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify029.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify029.info 024_debug_variable %run_env
 
 
 
@@ -18,14 +21,14 @@ test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
 CJVM b,b main,024_debug_variable.cj:15
 CJVM c,c,15
-b,b 40,024_debug_variable.cj:40
+b,b 024_debug_variable.cj:40,024_debug_variable.cj:40
 AOT r,r,-> 40
 Android c,c,40
 CJVM c,c,40
 set,set var_uint32 = ,error
 n,n,43
 locals,locals,var_uint32 = 1
-p,p var_uint32,\(UInt32\) \$[\d] = 1
+p,p var_uint32,\(UInt32\)[\s\S]*1
 locals,locals,f_uint32 = 9
-p,p f_uint32,\(UInt32\) \$[\d] = 9
+p,p f_uint32,\(UInt32\)[\s\S]*9
 q,q,

@@ -10,15 +10,18 @@
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/Packages/src
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/array_external.cj -o libpkg1.%middle
 // EXEC: %compiler %cmp_opt -g libpkg1.%middle src/array_external_use.cj -o array_external_use%cmp_output
-// EXEC: python3 cjdb_test.py lldb_array_composite_081.info array_external_use %run_env
+// (target_ios_simulator) EXEC: mv array_external_use%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_081.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_081.info array_external_use %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors array_external_use,array_external_use
-b,b 18,array_external_use.cj:18
+b,b array_external_use.cj:18,array_external_use.cj:18
 AOT r,r,-> 18
 Android c,c,18
 CJVM c,c,
 n,n,20
-print,print arraymainrec01[0],\(std[.]core.String\) \$[\d] = "top_abc"
+print,print arraymainrec01[0],\(std.core(?:\.|::)String\)[\s\S]*"top_abc"
 q,q,

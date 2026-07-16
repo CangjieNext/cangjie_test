@@ -9,16 +9,19 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/003_debug_large_array.cj
 // EXEC: %compiler %cmp_opt -g 003_debug_large_array.cj -o 003_debug_large_array%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_within_setVar062.info 003_debug_large_array %run_env
+// (target_ios_simulator) EXEC: mv 003_debug_large_array%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar062.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar062.info 003_debug_large_array %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_large_array,003_debug_large_array
-b,b 34,003_debug_large_array.cj:34
+b,b 003_debug_large_array.cj:34,003_debug_large_array.cj:34
 AOT r,r,-> 34
 Android c,c,34
 CJVM c,c,
-p, p arrayInt64_q[0][1][0][99],\(Int64\) \$[0-9]* = 98
-set,set arrayInt64_q[0][1][0][99]=-32768,\(Int64\) \$[0-9]* = -32768
-p,p arrayInt64_q[0][1][0][99],\(Int64\) \$[0-9]* = -32768
+p, p arrayInt64_q[0][1][0][99],\(Int64\)[\s\S]*98
+set,set arrayInt64_q[0][1][0][99]=-32768,\(Int64\)[\s\S]*-32768
+p,p arrayInt64_q[0][1][0][99],\(Int64\)[\s\S]*-32768
 q,q,

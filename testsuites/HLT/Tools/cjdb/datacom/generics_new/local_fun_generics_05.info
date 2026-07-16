@@ -9,20 +9,23 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_local.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_local.cj -o genericsfun_local%cmp_output
-// EXEC: python3 cjdb_test.py local_fun_generics_05.info genericsfun_local %run_env
+// (target_ios_simulator) EXEC: mv genericsfun_local%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py local_fun_generics_05.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py local_fun_generics_05.info genericsfun_local %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
-b,b 81,genericsfun_local.cj:81
+b,b genericsfun_local.cj:81,genericsfun_local.cj:81
 AOT r,r,-> 81
 Android c,c,81
 CJVM c,c,
-p, p gengricsvar,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
-p, p a,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
-p, p gengricsvar1,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
-p, p b,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
-p, p gengricsvar2,\(\(\)->Unit\) \$[\d] = 0x[\s\S]*
-p, p c,\(\(\)->Unit\) \$[\d] = 0x[\s\S]*
+p, p gengricsvar,\(CPointer<Int8>\)[\s\S]*0x[\s\S]*
+p, p a,\(CPointer<Int8>\)[\s\S]*0x[\s\S]*
+p, p gengricsvar1,\(CString\)[\s\S]*"CString in Cangjie\\n code. 05"
+p, p b,\(CString\)[\s\S]*"CString in Cangjie\\n code. 05"
+p, p gengricsvar2,\(\(\)->Unit\)[\s\S]*0x[\s\S]*
+p, p c,\(\(\)->Unit\)[\s\S]*0x[\s\S]*
 locals, locals,\(CPointer<Int8>\) a = 0x[\s\S]*\(CString\) b = "CString in Cangjie\\n code. 05"[\s\S]*\(\(\)->Unit\) c = 0x[\s\S]*\(CPointer<Int8>\) gengricsvar = 0x[\s\S]*\(CString\) gengricsvar1 = "CString in Cangjie\\n code. 05"[\s\S]*\(\(\)->Unit\) gengricsvar2 = 0x[\s\S]*
 q,q,

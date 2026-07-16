@@ -9,17 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_member.cj
 // EXEC: %compiler %cmp_opt -g generics_member.cj -o generics_member%cmp_output
-// EXEC: python3 cjdb_test.py generics_member_fun_16.info generics_member %run_env
+// (target_ios_simulator) EXEC: mv generics_member%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_16.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_16.info generics_member %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 100,Breakpoint 1:
+b,b generics_member.cj:100,generics_member.cj:100
 AOT r,r,-> 100
 Android c,c,100
 CJVM c,c,
 c,c,100
-p, p a,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
-p, p t1,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
-locals, locals,\(default.TimeUnit1<CPointer<Int64>>\) this = {(\r|\n|\r\n)  constructor = Year[\s\S]*arg_1 = 0x0000000000000000[\s\S]*}[\s\S]*\(CPointer<Int64>\) a = 0x0000000000000000[\s\S]*\(CPointer<Int64>\) t1 = 0x0000000000000000
+p, p a,\(CPointer<Int64>\)[\s\S]*0x0000000000000000
+p, p t1,\(CPointer<Int64>\)[\s\S]*0x0000000000000000
+locals, locals,\(default(?:\.|::)TimeUnit1<CPointer<Int64>>\) this = {(\r|\n|\r\n)  constructor = Year[\s\S]*arg_1 = 0x0000000000000000[\s\S]*}[\s\S]*\(CPointer<Int64>\) a = 0x0000000000000000[\s\S]*\(CPointer<Int64>\) t1 = 0x0000000000000000
 q,q,

@@ -8,22 +8,22 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/Test_CString.cj
-// (!target_android) EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py viewVariables_Cstring_011.info viewVariables_Cstring_011 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py viewVariables_Cstring_011.info viewVariables_Cstring_011 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_011,viewVariables_Cstring_011
-b,b 71,Test_CString.cj:71
+b,b Test_CString.cj:71,Test_CString.cj:71
 AOT r,r,-> 71
 CJVM c,c,
 s,s,-> 28
-b,b 31,Test_CString.cj:31
+b,b Test_CString.cj:31,Test_CString.cj:31
 c,c,-> 31
 n,n,-> 32
 n,n,-> 39
-p,p vf_2,\(CString\) \$[\d] = "\\\"bc"
+p,p vf_2,\(CString\)[\s\S]*"\\\"bc"
 finish,finish,-> 71
 n,n,-> 72
-p,p vmf_2,\(CString\) \$[\d] = "\\\"bc"
+p,p vmf_2,\(CString\)[\s\S]*"\\\"bc"
 q,q,

@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/003_debug_match.cj
 //  EXEC: %compiler %cmp_opt -g 003_debug_match.cj -o 003_debug_match%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut005.info 003_debug_match %run_env
+// (target_ios_simulator) EXEC: mv 003_debug_match%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut005.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut005.info 003_debug_match %run_env
 
 
 
@@ -18,11 +21,11 @@ test#
 cjdb,cjdb --no-use-colors 003_debug_match,003_debug_match
 CJVM b main,b main,003_debug_match.cj:13
 CJVM c,c,13
-b,b 13,003_debug_match.cj:13
-b,b 16,003_debug_match.cj:16
-b,b 21,003_debug_match.cj:21
-AOT b,b 23,003_debug_match.cj:24
-CJVM b,b 23,003_debug_match.cj:23
+b,b 003_debug_match.cj:13,003_debug_match.cj:13
+b,b 003_debug_match.cj:16,003_debug_match.cj:16
+b,b 003_debug_match.cj:21,003_debug_match.cj:21
+b,b 003_debug_match.cj:24,003_debug_match.cj:24
+CJVM b,b 003_debug_match.cj:23,003_debug_match.cj:23
 AOT r,r,-> 13
 Android c,c,13
 s,s,14

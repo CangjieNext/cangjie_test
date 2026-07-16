@@ -8,15 +8,15 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/C_FFI.c   ../../basecase/CFFI/C_FFI.cj
-// (!target_android) EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
-// (!target_android) EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py viewVariables_basic_02.info viewVariables_basic_02 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
+// (!(target_android|target_ios_simulator)) EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py viewVariables_basic_02.info viewVariables_basic_02 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_basic_02,viewVariables_basic_02
-b,b 99,C_FFI.cj:99
+b,b C_FFI.cj:99,C_FFI.cj:99
 AOT r,r,-> 99
 CJVM c,c,
-p,p bt_C,\(Int8\) \$[\d] = 74
+p,p bt_C,\(Int8\)[\s\S]*74
 q,q,

@@ -8,16 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/Test_CString.cj
-// (!target_android) EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py viewVariables_Cstring_002.info viewVariables_Cstring_002 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py viewVariables_Cstring_002.info viewVariables_Cstring_002 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_002,viewVariables_Cstring_002
-b,b 63,Test_CString.cj:63
+b,b Test_CString.cj:63,Test_CString.cj:63
 AOT r,r,-> 63
 CJVM c,c,
-p,p str_1,\(CString\) \$[\d] = "a\\\"bc"
-p,p b,\(std[.]core.String\) \$[\d] = "a\\\"bc"
+p,p str_1,\(CString\)[\s\S]*"a\\\"bc"
+p,p b,\(std.core(?:\.|::)String\)[\s\S]*"a\\\"bc"
 p,p str_1.toString(),error: unsupported expression
 q,q,

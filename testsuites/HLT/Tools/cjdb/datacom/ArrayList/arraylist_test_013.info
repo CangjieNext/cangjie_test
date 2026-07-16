@@ -9,19 +9,22 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_CompositeVar.cj
 // EXEC: %compiler %cmp_opt -g ArrayList_CompositeVar.cj -o ArrayList_CompositeVar%cmp_output
-// EXEC: python3 cjdb_test.py arraylist_test_013.info ArrayList_CompositeVar %run_env
+// (target_ios_simulator) EXEC: mv ArrayList_CompositeVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_013.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_013.info ArrayList_CompositeVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_CompositeVar,ArrayList_CompositeVar
-b,b 70,ArrayList_CompositeVar.cj:70
+b,b ArrayList_CompositeVar.cj:70,ArrayList_CompositeVar.cj:70
 AOT r,r,-> 70
 Android c,c,70
 CJVM c,c,70
-p,p b.Arrlist_str,\(std[.]collection.ArrayList<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*\[2\] = "                    Hello[\s\S]*                    CangJie![\s\S]*                    "[\s\S]*}
-p,p b.Arrlist_Arr,\(std[.]collection.ArrayList<std[.]core.Array<std[.]core.String>>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
-p,p b.Arrlist_Arrlist,\(std[.]collection.ArrayList<std[.]collection.ArrayList<std[.]core.String>>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
-p,p b.Arrlist_Hset,\(std[.]collection.ArrayList<std[.]collection.HashSet<Rune>>\) \$[\d] = {[\s\S]*\[0\] = 'c'[\s\S]*\[1\] = 'a'[\s\S]*\[0\] = 'n'[\s\S]*\[1\] = 'g'[\s\S]*}
-p,p b.Arrlist_Hmap,\(std[.]collection.ArrayList<std[.]collection.HashMap<Bool,std[.]core.String>>\) \$[\d] = {[\s\S]*key = true[\s\S]*value = "cangjie"[\s\S]*}
+p,p b.Arrlist_str,\(std[.]collection(?:\.|::)ArrayList<std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*\[2\] = "                    Hello[\s\S]*                    CangJie![\s\S]*                    "[\s\S]*}
+p,p b.Arrlist_Arr,\(std[.]collection(?:\.|::)ArrayList<std[.]core(?:\.|::)Array<std.core(?:\.|::)String>>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
+p,p b.Arrlist_Arrlist,\(std[.]collection(?:\.|::)ArrayList<std[.]collection(?:\.|::)ArrayList<std.core(?:\.|::)String>>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
+p,p b.Arrlist_Hset,\(std[.]collection(?:\.|::)ArrayList<std[.]collection(?:\.|::)HashSet<Rune>>\)[\s\S]*{[\s\S]*\[0\] = 'c'[\s\S]*\[1\] = 'a'[\s\S]*\[0\] = 'n'[\s\S]*\[1\] = 'g'[\s\S]*}
+p,p b.Arrlist_Hmap,\(std[.]collection(?:\.|::)ArrayList<std[.]collection(?:\.|::)HashMap<Bool,std.core(?:\.|::)String>>\)[\s\S]*{[\s\S]*key = true[\s\S]*value = "cangjie"[\s\S]*}
 q,q,
 

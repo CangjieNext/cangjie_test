@@ -9,17 +9,20 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/003_debug_large_array.cj
 // EXEC: %compiler %cmp_opt -g 003_debug_large_array.cj -o 003_debug_large_array%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_within_setVar061.info 003_debug_large_array %run_env
+// (target_ios_simulator) EXEC: mv 003_debug_large_array%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar061.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar061.info 003_debug_large_array %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_large_array,003_debug_large_array
-b,b 18,003_debug_large_array.cj:18
+b,b 003_debug_large_array.cj:18,003_debug_large_array.cj:18
 AOT r,r,-> 18
 Android c,c,18
 CJVM c,c,
-p, p arrayInt64_t[0][0][1998],\(Int64\) \$[0-9]* = 1997
+p, p arrayInt64_t[0][0][1998],\(Int64\)[\s\S]*1997
 AOT set,set arrayInt64_t[0][0][1998]=10.23,error: unsupported expression
 CJVM set,set arrayInt64_t[0][0][1998]=10.23,error: invalid argument 10.23
-p,p arrayInt64_t[0][0][1998],\(Int64\) \$[0-9]* = 1997
+p,p arrayInt64_t[0][0][1998],\(Int64\)[\s\S]*1997
 q,q,

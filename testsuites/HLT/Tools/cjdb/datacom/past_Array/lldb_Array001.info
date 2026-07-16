@@ -9,18 +9,21 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/046_debug_array.cj
 // EXEC: %compiler %cmp_opt -g 046_debug_array.cj -o 046_debug_array%cmp_output
-// EXEC: python3 cjdb_test.py lldb_Array001.info 046_debug_array %run_env
+// (target_ios_simulator) EXEC: mv 046_debug_array%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_Array001.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_Array001.info 046_debug_array %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 046_debug_array,046_debug_array
-b,b 18,046_debug_array.cj:18
+b,b 046_debug_array.cj:18,046_debug_array.cj:18
 AOT r,r,-> 18
 Android c,c,18
 CJVM c,c,
 globals,globals,\[0\] = 1
-AOT globals,globals,std[.]core.Array<Int8>\) default::arrayTopcopy = {[\s\S]*\[0\] = 1[\s\S]*
-CJVM globals,globals,std[.]core.Array<Int8>\) default.arrayTopcopy = {[\s\S]*\[0\] = 1[\s\S]*
+globals,globals,std[.]core(?:\.|::)Array<Int8>\) default(?:\.|::)arrayTopcopy = {[\s\S]*\[0\] = 1[\s\S]*
+CJVM globals,globals,std[.]core(?:\.|::)Array<Int8>\) default(?:\.|::)arrayTopcopy = {[\s\S]*\[0\] = 1[\s\S]*
 q,q,

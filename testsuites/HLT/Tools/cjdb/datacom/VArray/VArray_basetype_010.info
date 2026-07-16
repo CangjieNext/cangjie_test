@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_basetype.cj
 // EXEC: %compiler %cmp_opt -g VArray_basetype.cj -o VArray_basetype_010%cmp_output
-// EXEC: python3 cjdb_test.py VArray_basetype_010.info VArray_basetype_010 %run_env
+// (target_ios_simulator) EXEC: mv VArray_basetype_010%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py VArray_basetype_010.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py VArray_basetype_010.info VArray_basetype_010 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors VArray_basetype_010,VArray_basetype_010
-b,b 41,Breakpoint 1: where = VArray_basetype_010`default::main[\s\S]*VArray_basetype.cj:41
+b,b VArray_basetype.cj:41,Breakpoint 1: where = VArray_basetype_010`default(?:\.|::)main[\s\S]*VArray_basetype.cj:41
 AOT r,r,-> 41
 Android c,c,41
 CJVM c,c,41
-p,p vChar[1],\(Rune\) \$[\d] = 'b'
-p,p vBool[1],\(Bool\) \$[\d] = true
-p,p vUnit[1],\(Unit\) \$[\d] = ()
+p,p vChar[1],\(Rune\)[\s\S]*'b'
+p,p vBool[1],\(Bool\)[\s\S]*true
+p,p vUnit[1],\(Unit\)[\s\S]*()
 q,q,

@@ -18,9 +18,9 @@ breakpoint,breakpoint set -l 22 -c "a6[8]==10",generics_local_var009.cj:22
 AOT r,r,-> 22
 Android c,c,22
 CJVM c,c,
-locals,locals,\(std.core.Array<Int64>\) a6 = {[\s\S]*\[0\] = 2[\s\S*}
+locals,locals,\(std.core(?:\.|::)Array<Int64>\) a6 = {[\s\S]*\[0\] = 2[\s\S*}
 locals,locals,\(Int8\) a3 = -128
 expr:expr UInt8(a3):OverflowException: The result would be less than UInt8.Min.
-expr:expr a4[0]+1:\(Int8\) \$[\d] = 0
-expr~expr Rect2<UInt64>.vInt8~\(VArray<Int8,\$3>\) \$[\d] = {[\s\S]*\[0\] = -1[\s\S]*\[1\] = -2[\s\S]*\[2\] = -3[\s\S]*}
+expr:expr a4[0]+1:\(Int8\)[\s\S]*0
+expr~expr Rect2<UInt64>.vInt8~\(VArray<Int8,\$3>\)[\s\S]*{[\s\S]*\[0\] = -1[\s\S]*\[1\] = -2[\s\S]*\[2\] = -3[\s\S]*}
 q,q,

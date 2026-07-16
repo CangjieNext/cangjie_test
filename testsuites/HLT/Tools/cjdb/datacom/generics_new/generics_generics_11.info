@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_generics.cj
 // EXEC: %compiler %cmp_opt -g generics_generics.cj -o generics_generics%cmp_output
-// EXEC: python3 cjdb_test.py generics_generics_11.info generics_generics %run_env
+// (target_ios_simulator) EXEC: mv generics_generics%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_generics_11.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_generics_11.info generics_generics %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 142,Breakpoint 1:
+b,b generics_generics.cj:142,generics_generics.cj:142
 AOT r,r,-> 142
 Android c,c,142
 CJVM c,c,
 c,c,142
-p, p a,\(default.C3<std.core.Array<Int64>>\) \$[\d] = {[\s\S]*c3_a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
-locals, locals,\(default.S4<default.C3<std.core.Array<Int64>>>\) this = {[\s\S]*s4_a = {[\s\S]*c3_a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}[\s\S]*\(default.C3<std.core.Array<Int64>>\) a = {[\s\S]*c3_a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
+p, p a,\(default(?:\.|::)C3<std.core(?:\.|::)Array<Int64>>\)[\s\S]*{[\s\S]*c3_a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
+locals, locals,\(default(?:\.|::)S4<default(?:\.|::)C3<std.core(?:\.|::)Array<Int64>>>\) this = {[\s\S]*s4_a = {[\s\S]*c3_a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}[\s\S]*\(default(?:\.|::)C3<std.core(?:\.|::)Array<Int64>>\) a = {[\s\S]*c3_a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
 q,q,

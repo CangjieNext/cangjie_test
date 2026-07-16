@@ -8,14 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/packages/pkgs007/src
-// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/module007/src/pkgs/pkgs.cj --module-name module007 -o src/module007/pkgs.%middle
-// (!target_android) EXEC: %compiler %cmp_opt --import-path=src/ -g  src/pkgs007.cj src/module007/pkgs.%middle -o pkgs007%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_pkgs017.info pkgs007 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/module007/src/pkgs/pkgs.cj --module-name module007 -o src/module007/pkgs.%middle
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt --import-path=src/ -g  src/pkgs007.cj src/module007/pkgs.%middle -o pkgs007%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_pkgs017.info pkgs007 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pkgs007,pkgs007
-b,b 20,pkgs007.cj:20
+b,b pkgs007.cj:20,pkgs007.cj:20
 AOT r,r,-> 20
 Android c,c,20
 CJVM c,c,

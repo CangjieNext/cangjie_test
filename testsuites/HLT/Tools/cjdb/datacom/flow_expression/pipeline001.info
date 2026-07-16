@@ -8,18 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline001.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g pipeline001.cj -o pipeline001%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py pipeline001.info pipeline001 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g pipeline001.cj -o pipeline001%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py pipeline001.info pipeline001 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pipeline001,pipeline001
-b,b 81,pipeline001.cj:81
+b,b pipeline001.cj:81,pipeline001.cj:81
 AOT r,r,-> 81
 Android c,c,81
-globals,globals,\(Int8\) default::res = 2
-expr,expr res,\(Int8\) \$[\d] = 2
-expr,expr a2|>f2,\(Int16\) \$[\d] = 3
-expr,expr a3_|>f_3,\(UInt32\) \$[\d] = 4
-expr,expr res5_,\(UIntNative\) \$[\d] = 4
+globals,globals,\(Int8\) default(?:\.|::)res = 2
+expr,expr res,\(Int8\)[\s\S]*2
+expr,expr a2|>f2,\(Int16\)[\s\S]*3
+expr,expr a3_|>f_3,\(UInt32\)[\s\S]*4
+expr,expr res5_,\(UIntNative\)[\s\S]*4
 q,q,

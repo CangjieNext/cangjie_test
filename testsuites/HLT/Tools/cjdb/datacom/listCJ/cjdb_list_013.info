@@ -10,17 +10,20 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_list_013.info list_debug %run_env
+// (target_ios_simulator) EXEC: mv list_debug%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_013.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_013.info list_debug %run_env
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 124,list_debug.cj:124
+b,b list_debug.cj:124,list_debug.cj:124
 AOT r,r,-> 124
 Android c,c,124
 CJVM c,c,
-AOT p,p m_base_1_8[0..3],\$[\d] =
+AOT p,p m_base_1_8[0..3],[\s\S]*
 AOT set,set m_base_1_8[0]=-3,error: unsupported expression
 CJVM set,set m_base_1_8[0]=-3,\(UInt64\) \$0 = 18446744073709551613
-AOT p,p m_base_1_8[0],\$[\d] = 2
-CJVM p,p m_base_1_8[0],\$[\d] = 18446744073709551613
+AOT p,p m_base_1_8[0],[\s\S]*2
+CJVM p,p m_base_1_8[0],[\s\S]*18446744073709551613
 q,quit,

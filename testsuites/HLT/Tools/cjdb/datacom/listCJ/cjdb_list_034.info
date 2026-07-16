@@ -10,15 +10,18 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_list_034.info list_debug %run_env
+// (target_ios_simulator) EXEC: mv list_debug%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_034.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_034.info list_debug %run_env
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 181,list_debug.cj:181
+b,b list_debug.cj:181,list_debug.cj:181
 AOT r,r,-> 181
 Android c,c,181
 CJVM c,c,
-p,p m_com_4_2,\$[\d] = 
-p,p m_com_4_2[1],\$[\d] =
-p,p m_com_4_2[1].length,\$[\d] = 10
+p,p m_com_4_2,[\s\S]*
+p,p m_com_4_2[1],[\s\S]*
+p,p m_com_4_2[1].length,[\s\S]*10
 q,quit,

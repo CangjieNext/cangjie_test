@@ -8,20 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/const01.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g const01.cj -o const01%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py const01.info const01 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g const01.cj -o const01%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py const01.info const01 %run_env
 
 test#
 cjdb,cjdb --no-use-colors const01,const01
-b,b 33,const01.cj:33
+b,b const01.cj:33,const01.cj:33
 AOT r,r,-> 33
 Android c,c,33
 CJVM c,c,
-globals,globals,\(default.C1<Int64>\) default::c1 = {[\s\S]*a = 0[\s\S]*b = 100[\s\S]*}
-p,p c1,\(default.C1<Int64>\) \$[\d] = {[\s\S]*a = 0[\s\S]*b = 100[\s\S]*}
-p,p c2,\(default.C2<Int64>\) \$[\d] = {[\s\S]*default.C1<Int64> = {[\s\S]*a = 0[\s\S]*b = -1[\s\S]*}[\s\S]*c = -1[\s\S]*}
-expr,expr c1,\(default.C1<Int64>\) \$[\d] = {[\s\S]*a = 0[\s\S]*b = 100[\s\S]*}
-expr,expr c2,\(default.C2<Int64>\) \$[\d] = {[\s\S]*default.C1<Int64> = {[\s\S]*a = 0[\s\S]*b = -1[\s\S]*}[\s\S]*c = -1[\s\S]*}
-expr~expr c1.b~\(std.core.Option<Int64>\) \$[\d] = 100
-expr~expr c2.a~\(Int64\) \$[\d] = 0
+globals,globals,\(default(?:\.|::)C1<Int64>\) default(?:\.|::)c1 = {[\s\S]*a = 0[\s\S]*b = 100[\s\S]*}
+p,p c1,\(default(?:\.|::)C1<Int64>\)[\s\S]*{[\s\S]*a = 0[\s\S]*b = 100[\s\S]*}
+p,p c2,\(default(?:\.|::)C2<Int64>\)[\s\S]*{[\s\S]*default(?:\.|::)C1<Int64> = {[\s\S]*a = 0[\s\S]*b = -1[\s\S]*}[\s\S]*c = -1[\s\S]*}
+expr,expr c1,\(default(?:\.|::)C1<Int64>\)[\s\S]*{[\s\S]*a = 0[\s\S]*b = 100[\s\S]*}
+expr,expr c2,\(default(?:\.|::)C2<Int64>\)[\s\S]*{[\s\S]*default(?:\.|::)C1<Int64> = {[\s\S]*a = 0[\s\S]*b = -1[\s\S]*}[\s\S]*c = -1[\s\S]*}
+expr~expr c1.b~\(std.core(?:\.|::)Option<Int64>\)[\s\S]*100
+expr~expr c2.a~\(Int64\)[\s\S]*0
 q,q,

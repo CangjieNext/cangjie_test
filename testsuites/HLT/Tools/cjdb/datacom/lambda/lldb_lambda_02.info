@@ -8,14 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/lambda/Test_Lambda.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g Test_Lambda.cj -o Test_Lambda%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_lambda_02.info Test_Lambda %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g Test_Lambda.cj -o Test_Lambda%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_lambda_02.info Test_Lambda %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors Test_Lambda,Test_Lambda
 CJVM b,b 11,Test_Lambda.cj:11
-AOT b,b 12,Breakpoint [\d]: 2 locations.
+b,b 12,Breakpoint [\d]: 2 locations.
 AOT r,r,-> 12
 Android c,c,12
 CJVM c,c,

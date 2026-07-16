@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/041_debuginfun_parentheses.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 041_debuginfun_parentheses.cj -o 041_debuginfun_parentheses%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain033.info 041_debuginfun_parentheses %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 041_debuginfun_parentheses.cj -o 041_debuginfun_parentheses%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain033.info 041_debuginfun_parentheses %run_env
 
 
 
@@ -18,8 +18,8 @@ test#
 cjdb,cjdb --no-use-colors 041_debuginfun_parentheses,041_debuginfun_parentheses
 CJVM b,breakpoint set -n main,041_debuginfun_parentheses.cj:13
 CJVM c,c,-> 13
-b,b 17,041_debuginfun_parentheses.cj:17
-b,b 18,041_debuginfun_parentheses.cj:18
+b,b 041_debuginfun_parentheses.cj:17,041_debuginfun_parentheses.cj:17
+b,b 041_debuginfun_parentheses.cj:18,041_debuginfun_parentheses.cj:18
 AOT r,r,-> 17
 CJVM c,c,-> 17
 n,n,-> 18

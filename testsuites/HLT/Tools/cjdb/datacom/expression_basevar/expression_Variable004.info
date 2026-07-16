@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/015_debug_basetype.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py expression_Variable004.info 015_debug_basetype %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_Variable004.info 015_debug_basetype %run_env
  
  
  
@@ -18,16 +18,16 @@ test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
 CJVM b,b main,015_debug_basetype.cj:13
 CJVM c,c,13
-b,b 38,015_debug_basetype.cj:38
+b,b 015_debug_basetype.cj:38,015_debug_basetype.cj:38
 AOT r,r,-> 38
 Android c,c,38
-expression, expression r'a',\(Rune\) \$[\d] = \'a\'
-expression, expression 10,\(Int64\) \$[\d] = 10
-expression, expression 12.12,\(Float64\) \$[\d] = 12.119999999999999
-expression, expression true,\(Bool\) \$[\d] = true
-expression, expression false,\(Bool\) \$[\d] = false
-expression, expression 10i8,\(Int8\) \$[\d] = 10
-expression, expression 10i16,\(Int16\) \$[\d] = 10
-expression, expression 10i32,\(Int32\) \$[\d] = 10
-expression, expression 10i64,\(Int64\) \$[\d] = 10
+expression, expression r'a',\(Rune\)[\s\S]*\'a\'
+expression, expression 10,\(Int64\)[\s\S]*10
+expression, expression 12.12,\(Float64\)[\s\S]*12.119999999999999
+expression, expression true,\(Bool\)[\s\S]*true
+expression, expression false,\(Bool\)[\s\S]*false
+expression, expression 10i8,\(Int8\)[\s\S]*10
+expression, expression 10i16,\(Int16\)[\s\S]*10
+expression, expression 10i32,\(Int32\)[\s\S]*10
+expression, expression 10i64,\(Int64\)[\s\S]*10
 q,q,

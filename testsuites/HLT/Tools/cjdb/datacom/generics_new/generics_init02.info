@@ -9,15 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_init.cj
 // EXEC: %compiler %cmp_opt -g generics_init.cj -o generics_init%cmp_output
-// EXEC: python3 cjdb_test.py generics_init02.info generics_init %run_env
+// (target_ios_simulator) EXEC: mv generics_init%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_init02.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_init02.info generics_init %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_init,generics_init
-b,b 46,generics_init.cj:46
+b,b generics_init.cj:46,generics_init.cj:46
 AOT r,r,-> 46
 Android c,c,46
-p,p t1,\(default.Rect2<Int32,Bool,Float64>\) \$[\d] = {}
-p ,p t3,\(Int64\) \$[\d] = 0
-p,p t4,\(default.\(Int64,Float64\)->Int64\) \$[\d] = 0x[\s\S]*
+p,p t1,\(default(?:\.|::)Rect2<Int32,Bool,Float64>\)[\s\S]*{}
+p ,p t3,\(Int64\)[\s\S]*0
+p,p t4,\(default.\(Int64,Float64\)->Int64\)[\s\S]*0x[\s\S]*
 q,q,

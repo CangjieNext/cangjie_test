@@ -9,15 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/004_debug_multiArray_composite_string.cj
 // EXEC: %compiler %cmp_opt -g 004_debug_multiArray_composite_string.cj -o 004_debug_multiArray_composite_string%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_compositeArray_view009.info 004_debug_multiArray_composite_string %run_env
+// (target_ios_simulator) EXEC: mv 004_debug_multiArray_composite_string%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_compositeArray_view009.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_compositeArray_view009.info 004_debug_multiArray_composite_string %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_multiArray_composite_string,004_debug_multiArray_composite_string
-b,b 31,004_debug_multiArray_composite_string.cj:31
+b,b 004_debug_multiArray_composite_string.cj:31,004_debug_multiArray_composite_string.cj:31
 AOT r,r,-> 31
 Android c,c,31
 CJVM c,c,
-p,p multiArr_str_d2[1][1],\(std[.]core.String\) \$[0-9]* = "0123456789abcdxyz"
-p,p  multiArr_str_d2[2][1],\(std[.]core.String\) \$[0-9]* = "\\"Hello Cangjie Lang\\"仓颉中文字符串测�?
+p,p multiArr_str_d2[1][1],\(std.core(?:\.|::)String\)[\s\S]*"0123456789abcdxyz"
+p,p  multiArr_str_d2[2][1],\(std.core(?:\.|::)String\)[\s\S]*"\\"Hello Cangjie Lang\\"仓颉中文字符串测�?
 q,q,

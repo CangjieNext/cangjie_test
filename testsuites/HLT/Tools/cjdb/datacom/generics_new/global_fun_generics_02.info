@@ -9,20 +9,23 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun.cj
 // EXEC: %compiler %cmp_opt -g genericsfun.cj -o genericsfun%cmp_output
-// EXEC: python3 cjdb_test.py global_fun_generics_02.info genericsfun %run_env
+// (target_ios_simulator) EXEC: mv genericsfun%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py global_fun_generics_02.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py global_fun_generics_02.info genericsfun %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun,genericsfun
-b,b 50,genericsfun.cj:50
+b,b genericsfun.cj:50,genericsfun.cj:50
 AOT r,r,-> 50
 Android c,c,50
 CJVM c,c,
-p, p gengricsvar,\(Float16\) \$[\d] = 16.156
-p, p a,\(Float16\) \$[\d] = 16.156
-p, p gengricsvar1,\(Float32\) \$[\d] = 32.3199997
-p, p b,\(Float32\) \$[\d] = 32.3199997
-p, p gengricsvar2,\(Float64\) \$[\d] = 64.640000000000001
-p, p c,\(Float64\) \$[\d] = 64.640000000000001
+p, p gengricsvar,\(Float16\)[\s\S]*16.156
+p, p a,\(Float16\)[\s\S]*16.156
+p, p gengricsvar1,\(Float32\)[\s\S]*32.3199997
+p, p b,\(Float32\)[\s\S]*32.3199997
+p, p gengricsvar2,\(Float64\)[\s\S]*64.640000000000001
+p, p c,\(Float64\)[\s\S]*64.640000000000001
 locals, locals,\(Float16\) a = 16.156[\s\S]*\(Float32\) b = 32.3199997[\s\S]*\(Float64\) c = 64.640000000000001[\s\S]*\(Float16\) gengricsvar = 16.156[\s\S]*\(Float32\) gengricsvar1 = 32.3199997[\s\S]*\(Float64\) gengricsvar2 = 64.640000000000001
 q,q,

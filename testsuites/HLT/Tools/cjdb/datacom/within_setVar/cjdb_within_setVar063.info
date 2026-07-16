@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/002_debug_array_via_inherit.cj
 // EXEC: %compiler %cmp_opt -g 002_debug_array_via_inherit.cj -o 002_debug_array_via_inherit%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_within_setVar063.info 002_debug_array_via_inherit %run_env
+// (target_ios_simulator) EXEC: mv 002_debug_array_via_inherit%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar063.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar063.info 002_debug_array_via_inherit %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_via_inherit,002_debug_array_via_inherit
-b,b 17,002_debug_array_via_inherit.cj:17
+b,b 002_debug_array_via_inherit.cj:17,002_debug_array_via_inherit.cj:17
 AOT r,r,-> 17
 Android c,c,17
 CJVM c,c,
-p, p v_main_1[0],std[.]core.Array<UInt64>\) \$[0-9]* = {[\s\S]*
-set,set v_main_1[0][6]=64,\(UInt64\) \$[0-9]* = 64
-p,p v_main_1[0][6],\(UInt64\) \$[0-9]* = 64
+p, p v_main_1[0],std[.]core(?:\.|::)Array<UInt64>\)[\s\S]*{[\s\S]*
+set,set v_main_1[0][6]=64,\(UInt64\)[\s\S]*64
+p,p v_main_1[0][6],\(UInt64\)[\s\S]*64
 q,q,

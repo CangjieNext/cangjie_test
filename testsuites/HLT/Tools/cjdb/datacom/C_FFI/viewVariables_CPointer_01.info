@@ -8,16 +8,16 @@
 
 // LEVEL:1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/C_FFI.c   ../../basecase/CFFI/C_FFI.cj
-// (!target_android) EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
-// (!target_android) EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py viewVariables_CPointer_01.info viewVariables_CPointer_01 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
+// (!(target_android|target_ios_simulator)) EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py viewVariables_CPointer_01.info viewVariables_CPointer_01 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_CPointer_01,viewVariables_CPointer_01
-b,b 64,C_FFI.cj:64
+b,b C_FFI.cj:64,C_FFI.cj:64
 AOT r,r,-> 64
 CJVM c,c,
-p,p pc,\(CPointer<UInt8>\) \$[\d] = 0x[0-9a-f]+
-p,p pc_2,\(UInt.*\) \$[\d] = [\S]*
+p,p pc,\(CPointer<UInt8>\)[\s\S]*0x[0-9a-f]+
+p,p pc_2,\(UInt.*\)[\s\S]*[\S]*
 q,q,

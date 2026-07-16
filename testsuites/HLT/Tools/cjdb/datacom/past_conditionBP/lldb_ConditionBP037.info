@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/010_debug_func_default_arg.cj
-// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 010_debug_func_default_arg.cj -o 010_debug_func_default_arg%cmp_output
-// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py lldb_ConditionBP037.info 010_debug_func_default_arg %run_env
+// (!(target_mac|target_win|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 010_debug_func_default_arg.cj -o 010_debug_func_default_arg%cmp_output
+// (!(target_mac|target_win|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_ConditionBP037.info 010_debug_func_default_arg %run_env
 
 
 

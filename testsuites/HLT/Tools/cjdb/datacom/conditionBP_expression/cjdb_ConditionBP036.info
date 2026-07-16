@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var014.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_var014.cj -o generics_local_var014%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP036.info generics_local_var014 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_local_var014.cj -o generics_local_var014%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py cjdb_ConditionBP036.info generics_local_var014 %run_env
 
 
 test#
@@ -18,7 +18,7 @@ breakpoint,breakpoint set -l 15 -c "9==9",generics_local_var014.cj:15
 AOT r,r,-> 15
 Android c,c,15
 CJVM c,c,
-locals,locals,\(default.Rect1<Int64>\) this = {}
-p,p vcarrc2[0],\(Int64\) \$[\d] = 2
-expr~expr vcarrc2[0]-3~\(Int64\) \$[\d] = -1
+locals,locals,\(default(?:\.|::)Rect1<Int64>\) this = {}
+p,p vcarrc2[0],\(Int64\)[\s\S]*2
+expr~expr vcarrc2[0]-3~\(Int64\)[\s\S]*-1
 q,q,

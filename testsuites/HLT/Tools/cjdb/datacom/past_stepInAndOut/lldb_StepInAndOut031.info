@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/027_debuginfun_match.cj
 // EXEC: %compiler %cmp_opt -g 027_debuginfun_match.cj -o 027_debuginfun_match%cmp_output
-// EXEC: python3 cjdb_test.py lldb_StepInAndOut031.info 027_debuginfun_match %run_env
+// (target_ios_simulator) EXEC: mv 027_debuginfun_match%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut031.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut031.info 027_debuginfun_match %run_env
 
 
 
@@ -18,11 +21,11 @@ test#
 cjdb,cjdb --no-use-colors 027_debuginfun_match,027_debuginfun_match
 CJVM b main,b main,027_debuginfun_match.cj:13
 CJVM c,c,13
-b,b 17,027_debuginfun_match.cj:17
-b,b 20,027_debuginfun_match.cj:20
-b,b 25,027_debuginfun_match.cj:25
-AOT b,b 27,027_debuginfun_match.cj:28
-CJVM b,b 28,027_debuginfun_match.cj:28
+b,b 027_debuginfun_match.cj:17,027_debuginfun_match.cj:17
+b,b 027_debuginfun_match.cj:20,027_debuginfun_match.cj:20
+b,b 027_debuginfun_match.cj:25,027_debuginfun_match.cj:25
+b,b 027_debuginfun_match.cj:28,027_debuginfun_match.cj:28
+CJVM b,b 027_debuginfun_match.cj:28,027_debuginfun_match.cj:28
 AOT r,r,-> 17
 Android c,c,17
 CJVM c,c,17
@@ -34,5 +37,5 @@ s,s,20
 s,s,28
 locals,locals,scoreResult = 5
 rerun,r,-> 17
-AOT finish,finish,13
+AOT finish,finish,20
 q,q,

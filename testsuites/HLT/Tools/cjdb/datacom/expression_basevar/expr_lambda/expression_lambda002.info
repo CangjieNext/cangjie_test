@@ -8,21 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py    ../../../basecase/past_basic/066_debug_lambda.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py expression_lambda002.info 066_debug_lambda %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_lambda002.info 066_debug_lambda %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
 CJVM b,b main,066_debug_lambda.cj:19
 CJVM c,c,19
-b,b 21,066_debug_lambda.cj:21
+b,b 066_debug_lambda.cj:21,066_debug_lambda.cj:21
 AOT r,r,-> 21
 Android c,c,21
-expr~ expr { => a - 1 }()~\(Int64\) \$[\d] = 9
-expr~  expr let l1 ={=>}()~\(Unit\) \$[\d] = ()
-expr~ expr f1({ a2 => a2 + 10 })~\(Int64\) \$[\d] = 11
-expr~ expr func f3(a1: (Int64) -> Int64): Int64 {a1(5)};f3({ a2 => a2 + 10 })~\(Int64\) \$[\d] = 15
-expr~ expr f2()(2)~\(Int64\) \$[\d] = 2
-expr~ expr func f4(): (Int64) -> Int64 {{a: Int64 => a}};f4()(10)~\(Int64\) \$[\d] = 10
+expr~ expr { => a - 1 }()~\(Int64\)[\s\S]*9
+expr~  expr let l1 ={=>}()~\(Unit\)[\s\S]*()
+expr~ expr f1({ a2 => a2 + 10 })~\(Int64\)[\s\S]*11
+expr~ expr func f3(a1: (Int64) -> Int64): Int64 {a1(5)};f3({ a2 => a2 + 10 })~\(Int64\)[\s\S]*15
+expr~ expr f2()(2)~\(Int64\)[\s\S]*2
+expr~ expr func f4(): (Int64) -> Int64 {{a: Int64 => a}};f4()(10)~\(Int64\)[\s\S]*10
 q,q,

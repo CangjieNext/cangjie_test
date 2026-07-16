@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/038_debuginfun_basetype.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 038_debuginfun_basetype.cj -o 038_debuginfun_basetype%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain003.info 038_debuginfun_basetype %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 038_debuginfun_basetype.cj -o 038_debuginfun_basetype%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain003.info 038_debuginfun_basetype %run_env
 
 
 
@@ -18,7 +18,7 @@ test#
 cjdb,cjdb --no-use-colors 038_debuginfun_basetype,038_debuginfun_basetype
 CJVM b,breakpoint set -n main,038_debuginfun_basetype.cj:12
 CJVM c,c,-> 12
-b,b 36,038_debuginfun_basetype.cj:36
+b,b 038_debuginfun_basetype.cj:36,038_debuginfun_basetype.cj:36
 AOT r,r,-> 36
 CJVM c,c,-> 36
 n,n,-> 41

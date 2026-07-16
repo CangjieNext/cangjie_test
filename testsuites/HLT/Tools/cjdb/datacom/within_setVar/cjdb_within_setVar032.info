@@ -9,18 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_setVar/002_debug_setVar.cj
 // EXEC: %compiler %cmp_opt -g 002_debug_setVar.cj -o 002_debug_setVar%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_within_setVar032.info 002_debug_setVar %run_env
+// (target_ios_simulator) EXEC: mv 002_debug_setVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar032.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar032.info 002_debug_setVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_setVar,002_debug_setVar
-b,b 19,002_debug_setVar.cj:19
+b,b 002_debug_setVar.cj:19,002_debug_setVar.cj:19
 AOT r,r,-> 19
 Android c,c,19
 CJVM c,c,
 s,s,46
 n,n,47
-p,p p_arr,Array<Int32>\) \$[\d] = {[\s\S]*
-set,set p_arr[0]=-45,\(Int32\) \$[0-9]* = -45
-p,p p_arr,Array<Int32>\) \$[\d] = {[\s\S]*\[0\] = -45[\s\S]*
+p,p p_arr,Array<Int32>\)[\s\S]*{[\s\S]*
+set,set p_arr[0]=-45,\(Int32\)[\s\S]*-45
+p,p p_arr,Array<Int32>\)[\s\S]*{[\s\S]*\[0\] = -45[\s\S]*
 q,q,

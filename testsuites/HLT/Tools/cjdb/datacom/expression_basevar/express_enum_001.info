@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/064_debug_enum.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 064_debug_enum.cj -o 001_express_basetype%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py express_enum_001.info 001_express_basetype %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 064_debug_enum.cj -o 001_express_basetype%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py express_enum_001.info 001_express_basetype %run_env
 
 
 
@@ -18,13 +18,13 @@ test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
 CJVM b,b main,064_debug_enum.cj:24
 CJVM c,c,24
-b,b 42,064_debug_enum.cj:42
+b,b 064_debug_enum.cj:42,064_debug_enum.cj:42
 CJVM c,c,42
 AOT r,r,-> 42
 Android c,c,42
-expr,expr time2,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Year\s+arg_1 = 10
-expr,expr time3,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Red\s+arg_1 = 10
-expr,expr time4,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Green\s+arg_1 = 32.3199997
-expr,expr time5,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Green1\s+arg_1 = true
-expr,expr time6,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Green2\s+arg_1 = 'A'
+expr,expr time2,\(default(?:\.|::)TimeUnit2\)[\s\S]*{\s+constructor = Year\s+arg_1 = 10
+expr,expr time3,\(default(?:\.|::)TimeUnit2\)[\s\S]*{\s+constructor = Red\s+arg_1 = 10
+expr,expr time4,\(default(?:\.|::)TimeUnit2\)[\s\S]*{\s+constructor = Green\s+arg_1 = 32.3199997
+expr,expr time5,\(default(?:\.|::)TimeUnit2\)[\s\S]*{\s+constructor = Green1\s+arg_1 = true
+expr,expr time6,\(default(?:\.|::)TimeUnit2\)[\s\S]*{\s+constructor = Green2\s+arg_1 = 'A'
 q,q,

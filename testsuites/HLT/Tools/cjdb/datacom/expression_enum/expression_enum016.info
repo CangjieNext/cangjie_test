@@ -8,27 +8,27 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/020_enum_globals.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 020_enum_globals.cj -o 020_enum_globals%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum016.info 020_enum_globals %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 020_enum_globals.cj -o 020_enum_globals%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_enum016.info 020_enum_globals %run_env
 
 test#
 cjdb,cjdb --no-use-colors 020_enum_globals,020_enum_globals
-b,b 47,020_enum_globals.cj:47
+b,b 020_enum_globals.cj:47,020_enum_globals.cj:47
 AOT r,r,-> 47
 Android c,c,47
 CJVM c,c,
-p,p t1,\(default.TimeUnit\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 5[\s\S]*}
-expr,expr t2,\(default.TimeUnit1\) \$[\d] = Year
-expr,expr t3,\(default.TimeUnit2<Bool>\) \$[\d] = {[\s\S]*constructor = Month[\s\S]*arg_1 = true[\s\S]*rg_2 = 3[\s\S]*}
-p,p t4,\(default.TimeUnit3<std.core.Array<Rune>>\) \$[\d] = Year
-expr,expr t5,\(default.TimeUnit3<default.C1>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
-expr,expr t6,\(default.TimeUnit4<Int64>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
-expr,expr t7,\(default.TimeUnit4<Int64>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*arg_2 = {}[\s\S]*}
-expr~expr TimeUnit.Year(5)~\(default.TimeUnit\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 5[\s\S]*}
-expr~expr TimeUnit1.Year~\(default.TimeUnit1\) \$[\d] = Year
-expr~expr TimeUnit2.Month(true, 3)~\(default.TimeUnit2<Bool>\) \$[\d] = {[\s\S]*constructor = Month[\s\S]*arg_1 = true[\s\S]*rg_2 = 3[\s\S]*}
-expr~expr TimeUnit3<Array<Rune>>.Year~\(default.TimeUnit3<std.core.Array<Rune>>\) \$[\d]+ = Year
-expr~expr TimeUnit3<C1>.Year(C1())~\(default.TimeUnit3<default.C1>\) \$[\d]+ = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
-expr~expr TimeUnit4<Int64>.Year(C1())~\(default.TimeUnit4<Int64>\) \$[\d]+ = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
-expr~expr TimeUnit4<Int64>.Year(S1(), S2<Int64>())~\(default.TimeUnit4<Int64>\) \$[\d]+ = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*arg_2 = {}[\s\S]*}
+p,p t1,\(default(?:\.|::)TimeUnit\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*arg_1 = 5[\s\S]*}
+expr,expr t2,\(default(?:\.|::)TimeUnit1\)[\s\S]*Year
+expr,expr t3,\(default(?:\.|::)TimeUnit2<Bool>\)[\s\S]*{[\s\S]*constructor = Month[\s\S]*arg_1 = true[\s\S]*rg_2 = 3[\s\S]*}
+p,p t4,\(default(?:\.|::)TimeUnit3<std.core(?:\.|::)Array<Rune>>\)[\s\S]*Year
+expr,expr t5,\(default(?:\.|::)TimeUnit3<default(?:\.|::)C1>\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
+expr,expr t6,\(default(?:\.|::)TimeUnit4<Int64>\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
+expr,expr t7,\(default(?:\.|::)TimeUnit4<Int64>\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*arg_2 = {}[\s\S]*}
+expr~expr TimeUnit.Year(5)~\(default(?:\.|::)TimeUnit\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*arg_1 = 5[\s\S]*}
+expr~expr TimeUnit1.Year~\(default(?:\.|::)TimeUnit1\)[\s\S]*Year
+expr~expr TimeUnit2.Month(true, 3)~\(default(?:\.|::)TimeUnit2<Bool>\)[\s\S]*{[\s\S]*constructor = Month[\s\S]*arg_1 = true[\s\S]*rg_2 = 3[\s\S]*}
+expr~expr TimeUnit3<Array<Rune>>.Year~\(default(?:\.|::)TimeUnit3<std.core(?:\.|::)Array<Rune>>\)[\s\S]*Year
+expr~expr TimeUnit3<C1>.Year(C1())~\(default(?:\.|::)TimeUnit3<default(?:\.|::)C1>\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
+expr~expr TimeUnit4<Int64>.Year(C1())~\(default(?:\.|::)TimeUnit4<Int64>\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
+expr~expr TimeUnit4<Int64>.Year(S1(), S2<Int64>())~\(default(?:\.|::)TimeUnit4<Int64>\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*arg_2 = {}[\s\S]*}
 q,q,

@@ -9,17 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/049_debug_string.cj
 //  EXEC: %compiler %cmp_opt -g 049_debug_string.cj -o 049_debug_string%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_String015.info 049_debug_string %run_env
+// (target_ios_simulator) EXEC: mv 049_debug_string%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_String015.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_String015.info 049_debug_string %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 37,049_debug_string.cj:37
+b,b 049_debug_string.cj:37,049_debug_string.cj:37
 AOT r,r,-> 37
 Android c,c,37
 CJVM c,c,
 n,n,38
-locals,locals,\(std[.]core.String\) s2 = "你好仓颉�?
+locals,locals,\(std.core(?:\.|::)String\) s2 = "你好仓颉�?
 q,q,

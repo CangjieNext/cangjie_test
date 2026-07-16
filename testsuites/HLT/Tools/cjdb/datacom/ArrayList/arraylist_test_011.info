@@ -9,17 +9,20 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_CompositeVar.cj
 // EXEC: %compiler %cmp_opt -g ArrayList_CompositeVar.cj -o ArrayList_CompositeVar%cmp_output
-// EXEC: python3 cjdb_test.py arraylist_test_011.info ArrayList_CompositeVar %run_env
+// (target_ios_simulator) EXEC: mv ArrayList_CompositeVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_011.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_011.info ArrayList_CompositeVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_CompositeVar,ArrayList_CompositeVar
-b,b 66,ArrayList_CompositeVar.cj:66
+b,b ArrayList_CompositeVar.cj:66,ArrayList_CompositeVar.cj:66
 AOT r,r,-> 66
 Android c,c,66
 CJVM c,c,66
-p,p Arrlist_cls,\(std[.]collection.ArrayList<default.A>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*\[2\] = "                    Hello[\s\S]*                    CangJie![\s\S]*                    "[\s\S]*}
-p,p Arrlist_cls,\(std[.]collection.ArrayList<default.A>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
-p,p Arrlist_cls,\(std[.]collection.ArrayList<default.A>\) \$[\d] = {[\s\S]*\[0\] = 'c'[\s\S]*\[1\] = 'a'[\s\S]*\[0\] = 'n'[\s\S]*\[1\] = 'g'[\s\S]*}
-p,p Arrlist_cls,\(std[.]collection.ArrayList<default.A>\) \$[\d] = {[\s\S]*key = true[\s\S]*value = "cangjie"[\s\S]*}
+p,p Arrlist_cls,\(std[.]collection(?:\.|::)ArrayList<default(?:\.|::)A>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*\[2\] = "                    Hello[\s\S]*                    CangJie![\s\S]*                    "[\s\S]*}
+p,p Arrlist_cls,\(std[.]collection(?:\.|::)ArrayList<default(?:\.|::)A>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
+p,p Arrlist_cls,\(std[.]collection(?:\.|::)ArrayList<default(?:\.|::)A>\)[\s\S]*{[\s\S]*\[0\] = 'c'[\s\S]*\[1\] = 'a'[\s\S]*\[0\] = 'n'[\s\S]*\[1\] = 'g'[\s\S]*}
+p,p Arrlist_cls,\(std[.]collection(?:\.|::)ArrayList<default(?:\.|::)A>\)[\s\S]*{[\s\S]*key = true[\s\S]*value = "cangjie"[\s\S]*}
 q,q,

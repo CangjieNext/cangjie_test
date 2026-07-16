@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var013.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_var013.cj -o generics_local_var013%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP034.info generics_local_var013 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_local_var013.cj -o generics_local_var013%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py cjdb_ConditionBP034.info generics_local_var013 %run_env
 
 
 test#
@@ -19,8 +19,8 @@ AOT r,r,-> 44
 Android c,c,44
 CJVM c,c,
 locals,locals,\(Unit\) r1 = ()
-expr:expr r2:\(Int64\) \$[\d] = 1
-expr:expr RGBColor<Int32>.Red.name<Int64>(1):\(Int64\) \$[\d] = 1
+expr:expr r2:\(Int64\)[\s\S]*1
+expr:expr RGBColor<Int32>.Red.name<Int64>(1):\(Int64\)[\s\S]*1
 expr~expr Green(true, 1.0).name<Int32>(2)~error: unsupported expression
 expr~expr Green(3, 1.0).name()~error: unsupported expression
 q,q,

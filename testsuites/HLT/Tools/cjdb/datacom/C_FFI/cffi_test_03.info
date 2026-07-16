@@ -8,13 +8,13 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/C_FFI_stepin.c   ../../basecase/CFFI/C_FFI_stepin.cj
-// (!target_android) EXEC: %clang -g %clang_opt C_FFI_stepin.c -o %cffi_output
-// (!target_android) EXEC: %compiler -g -L. -l%n C_FFI_stepin.cj -o %n%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py cffi_test_03.info cffi_test_03 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %clang -g %clang_opt C_FFI_stepin.c -o %cffi_output
+// (!(target_android|target_ios_simulator)) EXEC: %compiler -g -L. -l%n C_FFI_stepin.cj -o %n%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py cffi_test_03.info cffi_test_03 %run_env
 
 test#
 cjdb,cjdb --no-use-colors cffi_test_03,cffi_test_03
-b,b 32,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:32
+b,b C_FFI_stepin.cj:32,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:32
 AOT r,r,-> 32
 CJVM c,c,-> 32
 s,s,-> 14

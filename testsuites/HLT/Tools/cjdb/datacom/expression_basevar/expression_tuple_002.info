@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/056_debug_tuple.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 056_debug_tuple.cj -o expression_tuple_002%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py expression_tuple_002.info expression_tuple_002 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 056_debug_tuple.cj -o expression_tuple_002%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_tuple_002.info expression_tuple_002 %run_env
  
  
  
@@ -18,17 +18,17 @@ test#
 cjdb,cjdb --no-use-colors expression_tuple_002,expression_tuple_002
 CJVM b,b main,056_debug_tuple.cj:5
 CJVM c,c,5
-b,b 16,056_debug_tuple.cj:16
+b,b 056_debug_tuple.cj:16,056_debug_tuple.cj:16
 CJVM c,c,16
 AOT r,r,-> 16
 Android c,c,16
-expression,expression "string",\(std.core.String\) \$[\d] = "string"
-expression:expression ("String1","cangjie1"):\(Tuple<std.core.String,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "String1"[\s\S]*\[1\] = "cangjie1"[\s\S]*}
-expression:expression (b'a',b'b'):\(Tuple<UInt8,UInt8>\) \$[\d] = {[\s\S]*\[0\] = 97[\s\S]*\[1\] = 98[\s\S]*}
-expression:expression (r'a', r'b', r'c', r'd'):\(Tuple<Rune,Rune,Rune,Rune>\) \$[\d] = {[\s\S]*\[0\] = \'a\'[\s\S]*\[1\] = \'b\'[\s\S]*\[2\] = \'c\'[\s\S]*\[3\] = \'d\'[\s\S]*}
-expression:expression (true, false):\(Tuple<Bool,Bool>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
-expression:expression (16.12f16,32642.32f32,64.621325947594f64):\(Tuple<Float16,Float32,Float64>\) \$[\d] = {[\s\S]*\[0\] = 16.125[\s\S]*\[1\] = 32642.3203[\s\S]*\[2\] = 64.621325947594002[\s\S]*}
-expression:expression (-8i8,16i16,-32i32,64i64):\(Tuple<Int8,Int16,Int32,Int64>\) \$[\d] = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 16[\s\S]*\[2\] = -32[\s\S]*\[3\] = 64[\s\S]*}
-expression:expression (-8,16):\(Tuple<Int64,Int64>\) \$[\d] = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 16[\s\S]*}
-expression:expression (16.12,64.621325947594):\(Tuple<Float64,Float64>\) \$[\d] = {[\s\S]*\[0\] = 16.120000000000001[\s\S]*\[1\] = 64.621325947594002[\s\S]*}
+expression,expression "string",\(std\.core(?:\.|::)String\)[\s\S]*"string"
+expression:expression ("String1","cangjie1"):\(Tuple<std.core(?:\.|::)String,std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = "String1"[\s\S]*\[1\] = "cangjie1"[\s\S]*}
+expression:expression (b'a',b'b'):\(Tuple<UInt8,UInt8>\)[\s\S]*{[\s\S]*\[0\] = 97[\s\S]*\[1\] = 98[\s\S]*}
+expression:expression (r'a', r'b', r'c', r'd'):\(Tuple<Rune,Rune,Rune,Rune>\)[\s\S]*{[\s\S]*\[0\] = \'a\'[\s\S]*\[1\] = \'b\'[\s\S]*\[2\] = \'c\'[\s\S]*\[3\] = \'d\'[\s\S]*}
+expression:expression (true, false):\(Tuple<Bool,Bool>\)[\s\S]*{[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
+expression:expression (16.12f16,32642.32f32,64.621325947594f64):\(Tuple<Float16,Float32,Float64>\)[\s\S]*{[\s\S]*\[0\] = 16.125[\s\S]*\[1\] = 32642.3203[\s\S]*\[2\] = 64.621325947594002[\s\S]*}
+expression:expression (-8i8,16i16,-32i32,64i64):\(Tuple<Int8,Int16,Int32,Int64>\)[\s\S]*{[\s\S]*\[0\] = -8[\s\S]*\[1\] = 16[\s\S]*\[2\] = -32[\s\S]*\[3\] = 64[\s\S]*}
+expression:expression (-8,16):\(Tuple<Int64,Int64>\)[\s\S]*{[\s\S]*\[0\] = -8[\s\S]*\[1\] = 16[\s\S]*}
+expression:expression (16.12,64.621325947594):\(Tuple<Float64,Float64>\)[\s\S]*{[\s\S]*\[0\] = 16.120000000000001[\s\S]*\[1\] = 64.621325947594002[\s\S]*}
 q,q,

@@ -8,13 +8,13 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/b_main/b_main_006.cj
-// (!(target_mac|target_android)) EXEC: %compiler %cmp_opt -g b_main_006.cj -o b_main_006%cmp_output
-// (!(target_mac|target_android)) EXEC: python3 cjdb_test.py b_main_case_006.info b_main_006 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g b_main_006.cj -o b_main_006%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py b_main_case_006.info b_main_006 %run_env
 
 test#
 cjdb,cjdb --no-use-colors b_main_006,b_main_006
 b,b main,Breakpoint 1: where[\s\S]*b_main_006.cj:11
-AOT b,b main_,p1::main_\(\)[\s\S]*at b_main_006.cj:19
+b,b main_,p1::main_\(\)[\s\S]*at b_main_006.cj:19
 CJVM b,b main_,main_\(\)[\s\S]*at [\s\S]*b_main_006.cj:19
 AOT r,r,-> 11
 Android c,c,11

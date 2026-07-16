@@ -9,17 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/001_debug_class_top_mod.cj
 // EXEC: %compiler %cmp_opt -g 001_debug_class_top_mod.cj -o 001_debug_class_top_mod%cmp_output
-// EXEC: python3 cjdb_test.py lldb_class005.info 001_debug_class_top_mod %run_env
+// (target_ios_simulator) EXEC: mv 001_debug_class_top_mod%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class005.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class005.info 001_debug_class_top_mod %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_class_top_mod,001_debug_class_top_mod
-b,b 56,001_debug_class_top_mod.cj:56
+b,b 001_debug_class_top_mod.cj:56,001_debug_class_top_mod.cj:56
 AOT r,r,-> 56
 Android c,c,56
 CJVM c,c,56
 n,n,59
-locals,locals,\(std[.]core.String\) m_name = "Rec"
+locals,locals,\(std.core(?:\.|::)String\) m_name = "Rec"
 q,q,

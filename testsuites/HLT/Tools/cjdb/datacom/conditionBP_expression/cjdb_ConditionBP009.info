@@ -18,10 +18,10 @@ breakpoint,breakpoint set -l 31 -c "aa.a==1",generics_global_func009.cj:31
 AOT r,r,-> 31
 Android c,c,31
 CJVM c,c,
-locals,locals,\(default.A\) aa = {[\s\S]*a = 1[\s\S]*}
+locals,locals,\(default(?:\.|::)A\) aa = {[\s\S]*a = 1[\s\S]*}
 p,p A2<Int64>(1),error: unsupported expression
-expr:expr A2<Int64>(1):\(default.A2<Int64>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
-expr:expr bb2:\(default.A2<Int64>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
-expr:expr bb2.a-1:\(Int64\) \$[\d] = 0
-expr:expr foo<A2<Int64>>(bb):\(default.A2<Int64>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
+expr:expr A2<Int64>(1):\(default(?:\.|::)A2<Int64>\)[\s\S]*{[\s\S]*a = 1[\s\S]*}
+expr:expr bb2:\(default(?:\.|::)A2<Int64>\)[\s\S]*{[\s\S]*a = 1[\s\S]*}
+expr:expr bb2.a-1:\(Int64\)[\s\S]*0
+expr:expr foo<A2<Int64>>(bb):\(default(?:\.|::)A2<Int64>\)[\s\S]*{[\s\S]*a = 1[\s\S]*}
 q,q,

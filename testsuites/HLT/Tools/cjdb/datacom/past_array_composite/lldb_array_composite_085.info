@@ -15,13 +15,13 @@
 
 test#
 cjdb,cjdb --no-use-colors array_external_use,array_external_use
-b,b 29,array_external_use.cj:29
+b,b array_external_use.cj:29,array_external_use.cj:29
 AOT r,r,-> 29
 Android c,c,29
 CJVM c,c,
 n,n,32
-print,print arraytoprec01[0],C1\) \$[0-9]* = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
-print,print arraytoprec01[0].time,TimeUnit\) \$[0-9]* = {\s+constructor = Year\s+arg_1 = 19
-print,print arraytoprec01[0].newRectangle1,Rectangle_ex\) \$[0-9]* = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
-print,print arraytoprec01[0].array01[0],Rectangle_ex\) \$[0-9]* = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
+print,print arraytoprec01[0],C1\)[\s\S]*{(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
+print,print arraytoprec01[0].time,TimeUnit\)[\s\S]*{\s+constructor = Year\s+arg_1 = 19
+print,print arraytoprec01[0].newRectangle1,Rectangle_ex\)[\s\S]*{(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
+print,print arraytoprec01[0].array01[0],Rectangle_ex\)[\s\S]*{(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
 q,q,

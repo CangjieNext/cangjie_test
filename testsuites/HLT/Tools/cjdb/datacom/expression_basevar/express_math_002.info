@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/059_debug_jit.cj
-// (not Windows and not target_mac) EXEC: %compiler %cmp_opt -g 059_debug_jit.cj -o 002_express_basetype%cmp_output
-// (not Windows and not target_mac) EXEC: python3 cjdb_test.py express_math_002.info 002_express_basetype %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 059_debug_jit.cj -o 002_express_basetype%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py express_math_002.info 002_express_basetype %run_env
 
 
 
@@ -18,16 +18,16 @@ test#
 cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
 CJVM b,b main,059_debug_jit.cj:13
 CJVM c,c,13
-b,b 42,059_debug_jit.cj:42
+b,b 059_debug_jit.cj:42,059_debug_jit.cj:42
 CJVM c,c,42
 AOT r,r,-> 42
 Android c,c,42
-expr,expr arr[1]/arr[0],\(Int64\) \$[\d] = 2
-expr,expr arrl[1]/arrl[0],\(Float16\) \$[\d] = 2
-expr,expr var_float16/=f_float16;var_float16,\(Float16\) \$[\d] = 0.11108
-expr,expr var_float32/=f_float32;var_float32,\(Float32\) \$[\d] = 0.111111112
-expr,expr hm1["a"]/hm1["b"],\(Int64\) \$[\d] = 0
-expr,expr var_int64/=f_int64;var_int64,\(Int64\) \$[\d] = 0
-expr,expr f_uint64/=var_uint64;f_uint64,\(UInt64\) \$[\d] = 9
-expr,expr va[1]/=va[0];va[1],\(Float64\) \$[\d] = 1.3333333333333333
+expr,expr arr[1]/arr[0],\(Int64\)[\s\S]*2
+expr,expr arrl[1]/arrl[0],\(Float16\)[\s\S]*2
+expr,expr var_float16/=f_float16;var_float16,\(Float16\)[\s\S]*0.11108
+expr,expr var_float32/=f_float32;var_float32,\(Float32\)[\s\S]*0.111111112
+expr,expr hm1["a"]/hm1["b"],\(Int64\)[\s\S]*0
+expr,expr var_int64/=f_int64;var_int64,\(Int64\)[\s\S]*0
+expr,expr f_uint64/=var_uint64;f_uint64,\(UInt64\)[\s\S]*9
+expr,expr va[1]/=va[0];va[1],\(Float64\)[\s\S]*1.3333333333333333
 q,q,

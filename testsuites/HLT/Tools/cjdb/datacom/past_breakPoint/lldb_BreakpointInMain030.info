@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/010_debug_func_default_arg.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 010_debug_func_default_arg.cj -o 010_debug_func_default_arg%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointInMain030.info 010_debug_func_default_arg %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 010_debug_func_default_arg.cj -o 010_debug_func_default_arg%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_BreakpointInMain030.info 010_debug_func_default_arg %run_env
 
 
 
@@ -18,7 +18,7 @@ test#
 cjdb,cjdb --no-use-colors 010_debug_func_default_arg,010_debug_func_default_arg
 CJVM b,breakpoint set -n main,010_debug_func_default_arg.cj:13
 CJVM c,c,-> 13
-b,b 14,010_debug_func_default_arg.cj:14
+b,b 010_debug_func_default_arg.cj:14,010_debug_func_default_arg.cj:14
 AOT r,r,-> 14
 CJVM c,c,-> 14
 n,n,-> 15

@@ -8,13 +8,13 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/050_debug_dataType_basic.cj
-// (not arm) EXEC: %compiler %cmp_opt -g 050_debug_dataType_basic.cj -o 050_debug_dataType_basic%cmp_output
-// (not arm) EXEC: python3 cjdb_test.py lldb_within_watchpoint030.info 050_debug_dataType_basic %run_env
+// (!target_aarch64) EXEC: %compiler %cmp_opt -g 050_debug_dataType_basic.cj -o 050_debug_dataType_basic%cmp_output
+// (!target_aarch64) EXEC: python3 cjdb_test.py lldb_within_watchpoint030.info 050_debug_dataType_basic %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b,b 48,050_debug_dataType_basic.cj:48
+b,b 050_debug_dataType_basic.cj:48,050_debug_dataType_basic.cj:48
 AOT r,r,-> 48
 Android c,c,48
 CJVM c,c,

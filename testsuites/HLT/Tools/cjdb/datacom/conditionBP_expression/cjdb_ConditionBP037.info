@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var015.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_var015.cj -o generics_local_var015%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP037.info generics_local_var015 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_local_var015.cj -o generics_local_var015%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py cjdb_ConditionBP037.info generics_local_var015 %run_env
 
 
 test#
@@ -19,6 +19,6 @@ AOT r,r,-> 23
 Android c,c,23
 CJVM c,c,
 locals,locals,\(Int64\) a = 2
-expr:expr vhmc["a"]:\(Int64\) \$[\d] = 1
-expr:expr aa:\(Tuple<Int64,Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
+expr:expr vhmc["a"]:\(Int64\)[\s\S]*1
+expr:expr aa:\(Tuple<Int64,Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
 q,q,

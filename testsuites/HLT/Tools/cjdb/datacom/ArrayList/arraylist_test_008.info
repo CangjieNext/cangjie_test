@@ -9,16 +9,19 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_CompositeVar.cj
 // EXEC: %compiler %cmp_opt -g ArrayList_CompositeVar.cj -o ArrayList_CompositeVar%cmp_output
-// EXEC: python3 cjdb_test.py arraylist_test_008.info ArrayList_CompositeVar %run_env
+// (target_ios_simulator) EXEC: mv ArrayList_CompositeVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_008.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_008.info ArrayList_CompositeVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_CompositeVar,ArrayList_CompositeVar
-b,b 62,ArrayList_CompositeVar.cj:62
+b,b ArrayList_CompositeVar.cj:62,ArrayList_CompositeVar.cj:62
 AOT r,r,-> 62
 Android c,c,62
 CJVM c,c,62
-p,p Arrlist_str,\(std[.]collection.ArrayList<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*\[2\] = "                    Hello[\s\S]*                    CangJie![\s\S]*                    "[\s\S]*}
-p,p Arrlist_Arr,\(std[.]collection.ArrayList<std[.]core.Array<std[.]core.String>>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
-p,p Arrlist_Arrlist,\(std[.]collection.ArrayList<std[.]collection.ArrayList<std[.]core.String>>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
+p,p Arrlist_str,\(std[.]collection(?:\.|::)ArrayList<std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*\[2\] = "                    Hello[\s\S]*                    CangJie![\s\S]*                    "[\s\S]*}
+p,p Arrlist_Arr,\(std[.]collection(?:\.|::)ArrayList<std[.]core(?:\.|::)Array<std.core(?:\.|::)String>>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
+p,p Arrlist_Arrlist,\(std[.]collection(?:\.|::)ArrayList<std[.]collection(?:\.|::)ArrayList<std.core(?:\.|::)String>>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
 q,q,

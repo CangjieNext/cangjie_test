@@ -9,11 +9,14 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case06/case06.cj
 // EXEC: %compiler %cmp_opt -g case06.cj -o case06%cmp_output
-// EXEC: python3 cjdb_test.py case06_2.info case06 %run_env
+// (target_ios_simulator) EXEC: mv case06%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py case06_2.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py case06_2.info case06 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case06,case06
-b,b 13,case06.cj:13
+b,b case06.cj:13,case06.cj:13
 AOT r,r,-> 13
 Android c,c,13
 CJVM c,c,

@@ -9,21 +9,24 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/053_debug_class_basetype_1.cj
 // EXEC: %compiler %cmp_opt -g 053_debug_class_basetype_1.cj -o 001_express_basetype%cmp_output
-// EXEC: python3 cjdb_test.py express_class_010.info 001_express_basetype %run_env
+// (target_ios_simulator) EXEC: mv 001_express_basetype%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py express_class_010.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py express_class_010.info 001_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 36,053_debug_class_basetype_1.cj:36
+b,b 053_debug_class_basetype_1.cj:36,053_debug_class_basetype_1.cj:36
 CJVM c,c,36
 AOT r,r,-> 36
 Android c,c,36
 AOT p,p a.var1=false,error: unsupported expression
-CJVM p,p a.var1=false,\(Bool\) \$[\d] = false
+CJVM p,p a.var1=false,\(Bool\)[\s\S]*false
 AOT p,p a.var2=(),error: unsupported expression
-CJVM p,p a.var2=(),\(Unit\) \$[\d] = \(\)
+CJVM p,p a.var2=(),\(Unit\)[\s\S]*\(\)
 AOT p,p a.var3='s',error: unsupported expression
-CJVM p,p a.var3='s',\(Rune\) \$[\d] = 's'
+CJVM p,p a.var3='s',\(Rune\)[\s\S]*'s'
 q,q,

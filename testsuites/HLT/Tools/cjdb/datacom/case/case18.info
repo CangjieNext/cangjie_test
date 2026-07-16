@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case18/case18.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g case18.cj -o case18%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py case18.info case18 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g case18.cj -o case18%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py case18.info case18 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case18,case18
-b,b 21,case18.cj:21
+b,b case18.cj:21,case18.cj:21
 AOT r,r,-> 21
 Android c,c,21
 CJVM c,c,
 AOT expr,expr add,error: unsupported expression
-AOT expr,expr c,\(default.\(Int32\)->Int32\) \$[\d] = 0x
+AOT expr,expr c,\(default.\(Int32\)->Int32\)[\s\S]*0x
 AOT expr,expr identity<Int64>,error: unsupported expression
 CJVM expr,expr identity<Int64>,error: variable was not declared in this scope
 q,q,

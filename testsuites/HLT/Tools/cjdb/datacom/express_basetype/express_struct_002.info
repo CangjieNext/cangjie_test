@@ -9,7 +9,10 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/054_debug_struct_basetype.cj
 // EXEC: %compiler %cmp_opt -g 054_debug_struct_basetype.cj -o 002_express_basetype%cmp_output
-// EXEC: python3 cjdb_test.py express_struct_002.info 002_express_basetype %run_env
+// (target_ios_simulator) EXEC: mv 002_express_basetype%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py express_struct_002.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py express_struct_002.info 002_express_basetype %run_env
 
 
 
@@ -18,13 +21,13 @@ test#
 cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
 CJVM b,b main,054_debug_struct_basetype.cj:34
 CJVM c,c,34
-b,b 36,054_debug_struct_basetype.cj:36
+b,b 054_debug_struct_basetype.cj:36,054_debug_struct_basetype.cj:36
 CJVM c,c,36
 AOT r,r,-> 36
 Android c,c,36
-p,p b.varu1,\(UInt8\) \$[\d] = 127
-p,p b.varu2,\(UInt16\) \$[\d] = 1
-p,p b.varu3,\(UInt32\) \$[\d] = 1
-p,p b.varu4,\(UInt64\) \$[\d] = 1
-p,p b.varu5,\(UIntNative\) \$[\d] = 128
+p,p b.varu1,\(UInt8\)[\s\S]*127
+p,p b.varu2,\(UInt16\)[\s\S]*1
+p,p b.varu3,\(UInt32\)[\s\S]*1
+p,p b.varu4,\(UInt64\)[\s\S]*1
+p,p b.varu5,\(UIntNative\)[\s\S]*128
 q,q,

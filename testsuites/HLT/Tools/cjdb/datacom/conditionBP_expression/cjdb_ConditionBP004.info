@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func004.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_global_func004.cj -o generics_global_func004%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP004.info generics_global_func004 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_global_func004.cj -o generics_global_func004%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py cjdb_ConditionBP004.info generics_global_func004 %run_env
 
 
 test#
@@ -20,11 +20,11 @@ Android c,c,27
 breakpoint,breakpoint set -l 29 -c 'a6==5',Breakpoint 2: no locations
 CJVM c,c,
 locals,locals,\(Unit\) vunit = ()
-p,p a2,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
+p,p a2,\(CPointer<Int8>\)[\s\S]*0x[\s\S]*
 expr:expr a2:error: unsupported expression
-expr:expr a4:\(Int64\) \$[\d] = 5
-expr:expr foo(vcfunc,5):\(\(\)->Unit\) \$[\d] = 0x[\s\S]*
-expr:expr a6+1:\(Int32\) \$[\d] = 6
+expr:expr a4:\(Int64\)[\s\S]*5
+expr:expr foo(vcfunc,5):\(\(\)->Unit\)[\s\S]*0x[\s\S]*
+expr:expr a6+1:\(Int32\)[\s\S]*6
 expr:expr a6+1.1:error: unsupported expression
-expr:expr foo(vunit,vunit):\(Unit\) \$[\d] = ()
+expr:expr foo(vunit,vunit):\(Unit\)[\s\S]*()
 q,q,

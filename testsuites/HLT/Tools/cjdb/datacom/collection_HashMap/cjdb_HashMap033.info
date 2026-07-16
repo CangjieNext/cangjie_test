@@ -9,14 +9,17 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/003_HashMap_Ins_composite.cj
 // EXEC: %compiler %cmp_opt -g 003_HashMap_Ins_composite.cj -o 003_HashMap_Ins_composite%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_HashMap033.info 003_HashMap_Ins_composite %run_env
+// (target_ios_simulator) EXEC: mv 003_HashMap_Ins_composite%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashMap033.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashMap033.info 003_HashMap_Ins_composite %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
-b,b 49,003_HashMap_Ins_composite.cj:49
+b,b 003_HashMap_Ins_composite.cj:49,003_HashMap_Ins_composite.cj:49
 AOT r,r,-> 49
 Android c,c,49
 CJVM c,c,49
-p,p map_array_4,std[.]collection.HashMap<std[.]core.String,std[.]core.Array<std[.]core.Array<std[.]core.String>>>\) \$[\d] = {[\S\s]*key = "0123456789abcdxyz"[\S\s]*\[2\] = "0123456789[\S\s]*}
+p,p map_array_4,std[.]collection(?:\.|::)HashMap<std.core(?:\.|::)String,std[.]core(?:\.|::)Array<std[.]core(?:\.|::)Array<std.core(?:\.|::)String>>>\)[\s\S]*{[\S\s]*key = "0123456789abcdxyz"[\S\s]*\[2\] = "0123456789[\S\s]*}
 q,q,

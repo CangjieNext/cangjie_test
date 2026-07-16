@@ -9,27 +9,30 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
-// EXEC: python3 cjdb_test.py generics_fun_returnvalue_03.info genericsfun_return %run_env
+// (target_ios_simulator) EXEC: mv genericsfun_return%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_03.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_03.info genericsfun_return %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 135,genericsfun_return.cj:135
+b,b genericsfun_return.cj:135,genericsfun_return.cj:135
 AOT r,r,-> 135
 Android c,c,135
 CJVM c,c,
-p, p lb,\(Bool\) \$[\d] = true
-p, p cvb,\(Bool\) \$[\d] = false
-p, p s1.vbs,\(Bool\) \$[\d] = true
-p, p c1.vbc,\(Bool\) \$[\d] = true
-p, p default::S1::vb,\(Bool\) \$[\d] = true
-p, p globals_vb,\(Bool\) \$[\d] = true
-locals, locals,\(Bool\) lb = true[\s\S]*\(default.S1\) s1 = {[\s\S]*vbs = true[\s\S]*\(default.C1\) c1 = {[\s\S]*vbc = true[\s\S]*
-globals, globals,\(Bool\) default::S1::vb = true[\s\S]*
-globals, globals,\(Bool\) default::globals_vb = true
-b, b 146,genericsfun_return.cj:146
+p, p lb,\(Bool\)[\s\S]*true
+p, p cvb,\(Bool\)[\s\S]*false
+p, p s1.vbs,\(Bool\)[\s\S]*true
+p, p c1.vbc,\(Bool\)[\s\S]*true
+AOT p, p default::S1::vb,\(Bool\)[\s\S]*true
+p, p globals_vb,\(Bool\)[\s\S]*true
+locals, locals,\(Bool\) lb = true[\s\S]*\(default(?:\.|::)S1\) s1 = {[\s\S]*vbs = true[\s\S]*\(default(?:\.|::)C1\) c1 = {[\s\S]*vbc = true[\s\S]*
+globals, globals,\(Bool\) default(?:\.|::)S1::vb = true[\s\S]*
+globals, globals,\(Bool\) default(?:\.|::)globals_vb = true
+b, b genericsfun_return.cj:146,genericsfun_return.cj:146
 c,c,146
-p, p d,\(Bool\) \$[\d] = true
-p, p test_d,\(Bool\) \$[\d] = true
+p, p d,\(Bool\)[\s\S]*true
+p, p test_d,\(Bool\)[\s\S]*true
 locals, locals,\(Bool\) d = true
 q,q,

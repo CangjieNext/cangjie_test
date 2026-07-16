@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/018_debug_parentheses.cj
 // EXEC: %compiler %cmp_opt -g 018_debug_parentheses.cj -o 018_debug_parentheses%cmp_output
-// EXEC: python3 cjdb_test.py lldb_StepInAndOut026.info 018_debug_parentheses %run_env
+// (target_ios_simulator) EXEC: mv 018_debug_parentheses%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut026.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut026.info 018_debug_parentheses %run_env
 
 
 
@@ -18,7 +21,7 @@ test#
 cjdb,cjdb --no-use-colors 018_debug_parentheses,018_debug_parentheses
 CJVM b main,b main,018_debug_parentheses.cj:13
 CJVM c,c,13
-b,b 13,018_debug_parentheses.cj:13
+b,b 018_debug_parentheses.cj:13,018_debug_parentheses.cj:13
 AOT r,r,-> 13
 Android c,c,13
 s,s,14

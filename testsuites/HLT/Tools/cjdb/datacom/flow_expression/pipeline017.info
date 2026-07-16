@@ -8,18 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline017.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g pipeline017.cj -o pipeline017%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py pipeline017.info pipeline017 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g pipeline017.cj -o pipeline017%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py pipeline017.info pipeline017 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pipeline017,pipeline017
-b,b 49,pipeline017.cj:49
+b,b pipeline017.cj:49,pipeline017.cj:49
 AOT r,r,-> 49
 Android c,c,49
-expr,expr b1,\(Float32\) \$[\d] = 1
-expr,expr b2,\(Bool\) \$[\d] = true
-expr,expr b3,\(std.core.String\) \$[\d] = "aaa"
-expr,expr b5,\(default.C1\) \$[\d] = {}
-expr~expr C1()|>a3.f1~\(default.C1\) \$[\d] = {}
+expr,expr b1,\(Float32\)[\s\S]*1
+expr,expr b2,\(Bool\)[\s\S]*true
+expr,expr b3,\(std\.core(?:\.|::)String\)[\s\S]*"aaa"
+expr,expr b5,\(default(?:\.|::)C1\)[\s\S]*{}
+expr~expr C1()|>a3.f1~\(default(?:\.|::)C1\)[\s\S]*{}
 q,q,
