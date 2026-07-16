@@ -9,14 +9,17 @@
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/023_debug_stop.cj
 // EXEC: %compiler %cmp_opt -g 023_debug_stop.cj -o 023_debug_stop%cmp_output
-// EXEC: python3 cjdb_test.py lldb_StepOver008.info 023_debug_stop %run_env
+// (target_ios_simulator) EXEC: mv 023_debug_stop%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepOver008.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepOver008.info 023_debug_stop %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 023_debug_stop,023_debug_stop
-b,b 15,023_debug_stop.cj:15
+b,b 023_debug_stop.cj:15,023_debug_stop.cj:15
 AOT r,r,-> 15
 Android c,c,15
 CJVM c,c,

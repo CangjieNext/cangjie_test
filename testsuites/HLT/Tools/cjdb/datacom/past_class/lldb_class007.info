@@ -9,19 +9,22 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/001_debug_class_top_mod.cj
 // EXEC: %compiler %cmp_opt -g 001_debug_class_top_mod.cj -o 001_debug_class_top_mod%cmp_output
-// EXEC: python3 cjdb_test.py lldb_class007.info 001_debug_class_top_mod %run_env
+// (target_ios_simulator) EXEC: mv 001_debug_class_top_mod%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class007.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class007.info 001_debug_class_top_mod %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_class_top_mod,001_debug_class_top_mod
-b,b 50,001_debug_class_top_mod.cj:50
+b,b 001_debug_class_top_mod.cj:50,001_debug_class_top_mod.cj:50
 AOT r,r,-> 50
 Android c,c,50
 CJVM c,c,50
 n,n,51
 locals,locals,C1\) m_c = {(\r\n|\r|\n)  length = 3
-print,print m_c,C1\) \$[\d] = {(\r\n|\r|\n)  length = 3
-print,print m_c.diagonalLength,\(Int32\) \$[\d] = 0
+print,print m_c,C1\)[\s\S]*{(\r\n|\r|\n)  length = 3
+print,print m_c.diagonalLength,\(Int32\)[\s\S]*0
 q,q,

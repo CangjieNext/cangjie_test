@@ -9,19 +9,22 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/002_debug_class_top_mod_open.cj
 //  EXEC: %compiler %cmp_opt -g 002_debug_class_top_mod_open.cj -o 002_debug_class_top_mod_open%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_class023.info 002_debug_class_top_mod_open %run_env
+// (target_ios_simulator) EXEC: mv 002_debug_class_top_mod_open%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class023.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class023.info 002_debug_class_top_mod_open %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_class_top_mod_open,002_debug_class_top_mod_open
-b,b 49,002_debug_class_top_mod_open.cj:49
+b,b 002_debug_class_top_mod_open.cj:49,002_debug_class_top_mod_open.cj:49
 AOT r,r,-> 49
 Android c,c,49
 CJVM c,c,49
 n,n,50
-AOT print,print data2,default.C2\) \$[\d]+ = {(\r|\n|\r\n)  default.C1 = {(\r|\n|\r\n)    a1 = 1(\r|\n|\r\n)  }(\r|\n|\r\n)  a2 = 1
-CJVM print,print data2,default.C2\) \$[\d]+ = {(\r|\n|\r\n)  default.C1 = {(\r|\n|\r\n)    a1 = 1(\r|\n|\r\n)  }(\r|\n|\r\n)  a2 = 1
-print,print data2.a2,\(Int64\) \$[\d]+ = 1
+print,print data2,default(?:\.|::)C2\)[\s\S]*{(\r|\n|\r\n)  default(?:\.|::)C1 = {(\r|\n|\r\n)    a1 = 1(\r|\n|\r\n)  }(\r|\n|\r\n)  a2 = 1
+CJVM print,print data2,default(?:\.|::)C2\)[\s\S]*{(\r|\n|\r\n)  default(?:\.|::)C1 = {(\r|\n|\r\n)    a1 = 1(\r|\n|\r\n)  }(\r|\n|\r\n)  a2 = 1
+print,print data2.a2,\(Int64\)[\s\S]*1
 q,q,

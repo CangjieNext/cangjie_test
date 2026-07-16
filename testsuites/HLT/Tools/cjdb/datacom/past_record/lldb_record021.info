@@ -9,14 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/049_debug_record_main_no_parameter.cj
 // EXEC: %compiler %cmp_opt -g 049_debug_record_main_no_parameter.cj -o 049_debug_record_main_no_parameter%cmp_output
-// EXEC: python3 cjdb_test.py lldb_record021.info 049_debug_record_main_no_parameter %run_env
+// (target_ios_simulator) EXEC: mv 049_debug_record_main_no_parameter%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_record021.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_record021.info 049_debug_record_main_no_parameter %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_record_main_no_parameter,049_debug_record_main_no_parameter
-b,b 43,049_debug_record_main_no_parameter.cj:43
+b,b 049_debug_record_main_no_parameter.cj:43,049_debug_record_main_no_parameter.cj:43
 AOT r,r,-> 43
 Android c,c,43
 CJVM c,c,

@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/019_debug_expressions.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 019_debug_expressions.cj -o 019_debug_expressions%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointInMain035.info 019_debug_expressions %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 019_debug_expressions.cj -o 019_debug_expressions%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_BreakpointInMain035.info 019_debug_expressions %run_env
 
 
 
@@ -18,9 +18,9 @@ test#
 cjdb,cjdb --no-use-colors 019_debug_expressions,019_debug_expressions
 CJVM b,breakpoint set -n main,019_debug_expressions.cj:14
 CJVM c,c,-> 14
-AOT b,b 22,019_debug_expressions.cj:30
+b,b 22,019_debug_expressions.cj:30
 CJVM b,b 22,019_debug_expressions.cj:22
-AOT b,b 27,019_debug_expressions.cj:30
+b,b 27,019_debug_expressions.cj:30
 CJVM b,b 30,019_debug_expressions.cj:30
 AOT r,r,-> 30
 CJVM c,c,-> 30

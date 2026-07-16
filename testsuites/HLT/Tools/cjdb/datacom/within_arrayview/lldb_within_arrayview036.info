@@ -9,14 +9,17 @@
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/003_debug_large_array.cj
 // EXEC: %compiler %cmp_opt -g 003_debug_large_array.cj -o 003_debug_large_array%cmp_output
-// EXEC: python3 cjdb_test.py lldb_within_arrayview036.info 003_debug_large_array %run_env
+// (target_ios_simulator) EXEC: mv 003_debug_large_array%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_within_arrayview036.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_within_arrayview036.info 003_debug_large_array %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_large_array,003_debug_large_array
-b,b 16,003_debug_large_array.cj:16
+b,b 003_debug_large_array.cj:16,003_debug_large_array.cj:16
 AOT r,r,-> 16
 Android c,c,16
 CJVM c,c,
-print,print a_d[0],\(std[.]core.Array<Int64>\) \$[0-9]* = {[\s\S]*? \[0\] =[\s\S]*&? \[99\] =[\s\S]*
+print,print a_d[0],\(std[.]core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*? \[0\] =[\s\S]*&? \[99\] =[\s\S]*
 q,q,

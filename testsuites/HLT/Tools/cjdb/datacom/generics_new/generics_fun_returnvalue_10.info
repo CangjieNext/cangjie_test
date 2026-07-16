@@ -9,26 +9,29 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
-// EXEC: python3 cjdb_test.py generics_fun_returnvalue_10.info genericsfun_return %run_env
+// (target_ios_simulator) EXEC: mv genericsfun_return%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_10.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_10.info genericsfun_return %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 135,genericsfun_return.cj:135
+b,b genericsfun_return.cj:135,genericsfun_return.cj:135
 AOT r,r,-> 135
 Android c,c,135
 CJVM c,c,
-p, p lrange,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
-p, p s1.vranges,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
-p, p c1.vrangec,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
-p, p default::C1::vrange,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
-p, p globals_range,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
-locals, locals,\(std.core.Range<Int64>\) lrange = 1..10 : 1[\s\S]*\(default.S1\) s1 = {[\s\S]*vranges = 1..10 : 1[\s\S]*\(default.C1\) c1 = {[\s\S]*vrangec = 1..10 : 1[\s\S]*
-globals, globals,\(std.core.Range<Int64>\) default::C1::vrange = 1..10 : 1
-globals, globals,\(std.core.Range<Int64>\) default::globals_range = 1..10 : 1
-b, b 162,genericsfun_return.cj:162
+p, p lrange,\(std.core(?:\.|::)Range<Int64>\)[\s\S]*1..10 : 1
+p, p s1.vranges,\(std.core(?:\.|::)Range<Int64>\)[\s\S]*1..10 : 1
+p, p c1.vrangec,\(std.core(?:\.|::)Range<Int64>\)[\s\S]*1..10 : 1
+AOT p, p default::C1::vrange,\(std.core(?:\.|::)Range<Int64>\)[\s\S]*1..10 : 1
+p, p globals_range,\(std.core(?:\.|::)Range<Int64>\)[\s\S]*1..10 : 1
+locals, locals,\(std.core(?:\.|::)Range<Int64>\) lrange = 1..10 : 1[\s\S]*\(default(?:\.|::)S1\) s1 = {[\s\S]*vranges = 1..10 : 1[\s\S]*\(default(?:\.|::)C1\) c1 = {[\s\S]*vrangec = 1..10 : 1[\s\S]*
+globals, globals,\(std.core(?:\.|::)Range<Int64>\) default(?:\.|::)C1::vrange = 1..10 : 1
+globals, globals,\(std.core(?:\.|::)Range<Int64>\) default(?:\.|::)globals_range = 1..10 : 1
+b, b genericsfun_return.cj:162,genericsfun_return.cj:162
 c,c,162
-p, p c,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
-p, p test_c,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
-locals, locals,\(std.core.Range<Int64>\) c = 1..10 : 1
+p, p c,\(std.core(?:\.|::)Range<Int64>\)[\s\S]*1..10 : 1
+p, p test_c,\(std.core(?:\.|::)Range<Int64>\)[\s\S]*1..10 : 1
+locals, locals,\(std.core(?:\.|::)Range<Int64>\) c = 1..10 : 1
 q,q,

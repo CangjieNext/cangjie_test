@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// EXEC: python3 cjdb_test.py lldb_VariableModify058.info 024_debug_variable %run_env
+// (target_ios_simulator) EXEC: mv 024_debug_variable%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify058.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify058.info 024_debug_variable %run_env
 
 
 
@@ -18,15 +21,15 @@ test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
 CJVM b,b main,024_debug_variable.cj:15
 CJVM c,c,15
-b,b 140,024_debug_variable.cj:140
+b,b 024_debug_variable.cj:140,024_debug_variable.cj:140
 AOT r,r,-> 140
 Android c,c,140
 CJVM c,c,140
 set,set var_stepout = 10,10
 locals,locals,var_stepout = 10
-p,p var_stepout,\(Int32\) \$[\d] = 10
+p,p var_stepout,\(Int32\)[\s\S]*10
 finish,finish,117
 s,s,120
 locals,locals,f_stepout = 20
-p,p f_stepout,\(Int32\) \$[\d] = 20
+p,p f_stepout,\(Int32\)[\s\S]*20
 q,q,

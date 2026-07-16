@@ -9,15 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Range/range_baseVar.cj
 // EXEC: %compiler %cmp_opt -g range_baseVar.cj -o range_baseVar%cmp_output
-// EXEC: python3 cjdb_test.py range_test_005.info range_baseVar %run_env
+// (target_ios_simulator) EXEC: mv range_baseVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py range_test_005.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py range_test_005.info range_baseVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors range_baseVar,range_baseVar
-b,b 26,range_baseVar.cj:26
+b,b range_baseVar.cj:26,range_baseVar.cj:26
 AOT r,r,-> 26
 Android c,c,26
 CJVM c,c,26
-p,p r33,\(std[.]core.Range<Int64>\) \$[\d] = ..=10 : 2
-p,p r44,\(std[.]core.Range<Int64>\) \$[\d] = ..10 : 2
+p,p r33,\(std[.]core(?:\.|::)Range<Int64>\)[\s\S]*..=10 : 2
+p,p r44,\(std[.]core(?:\.|::)Range<Int64>\)[\s\S]*..10 : 2
 q,q,

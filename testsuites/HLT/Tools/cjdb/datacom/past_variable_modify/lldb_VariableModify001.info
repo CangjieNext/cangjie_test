@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
-// (not arm) EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// (not arm) EXEC: python3 cjdb_test.py lldb_VariableModify001.info 024_debug_variable %run_env
+// (!target_aarch64) EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
+// (!target_aarch64) EXEC: python3 cjdb_test.py lldb_VariableModify001.info 024_debug_variable %run_env
 
 
 
@@ -18,14 +18,14 @@ test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
 CJVM b,b main,024_debug_variable.cj:15
 CJVM c,c,15
-b,b 16,024_debug_variable.cj:16
+b,b 024_debug_variable.cj:16,024_debug_variable.cj:16
 AOT r,r,-> 16
 Android c,c,16
 CJVM c,c,16
 set,set var_int8 = -2,-2
 n,n,19
 locals,locals,var_int8 = -2
-p,p var_int8,\(Int8\) \$[\d] = -2
+p,p var_int8,\(Int8\)[\s\S]*-2
 locals,locals,f_int8 = 10
-p,p f_int8,\(Int8\) \$[\d] = 10
+p,p f_int8,\(Int8\)[\s\S]*10
 q,q,

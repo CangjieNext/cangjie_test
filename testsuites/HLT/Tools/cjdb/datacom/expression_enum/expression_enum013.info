@@ -8,18 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/006_debug_enum_conflict.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 006_debug_enum_conflict.cj -o 006_debug_enum_conflict%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum013.info 006_debug_enum_conflict %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 006_debug_enum_conflict.cj -o 006_debug_enum_conflict%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_enum013.info 006_debug_enum_conflict %run_env
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_enum_conflict,006_debug_enum_conflict
-b,b 39,006_debug_enum_conflict.cj:39
+b,b 006_debug_enum_conflict.cj:39,006_debug_enum_conflict.cj:39
 AOT r,r,-> 39
 Android c,c,39
 CJVM c,c,
-expr,expr A,\(Int64\) \$[\d] = 0
-expr,expr F,\(p.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*
-expr,expr b,\(p.E\) \$[\d] = A
-expr,expr d,\(p.E\) \$[\d] = {[\s\S]*constructor = F[\s\S]*arg_1 = 1[\s\S]*}
-expr,expr f,\(p.R\) \$[\d] = {[\s\S]*constructor = C[\s\S]*arg_1 = 1[\s\S]*}
+expr,expr A,\(Int64\)[\s\S]*0
+expr,expr F,\(p.\(Int64\)->Int64\)[\s\S]*0x[\s\S]*
+expr,expr b,\(p.E\)[\s\S]*A
+expr,expr d,\(p.E\)[\s\S]*{[\s\S]*constructor = F[\s\S]*arg_1 = 1[\s\S]*}
+expr,expr f,\(p.R\)[\s\S]*{[\s\S]*constructor = C[\s\S]*arg_1 = 1[\s\S]*}
 q,q,

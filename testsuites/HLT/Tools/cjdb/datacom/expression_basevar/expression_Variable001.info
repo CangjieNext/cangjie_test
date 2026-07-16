@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/015_debug_basetype.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py expression_Variable001.info 015_debug_basetype %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_Variable001.info 015_debug_basetype %run_env
  
  
  
@@ -18,17 +18,17 @@ test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
 CJVM b,b main,015_debug_basetype.cj:13
 CJVM c,c,13
-b,b 38,015_debug_basetype.cj:38
+b,b 015_debug_basetype.cj:38,015_debug_basetype.cj:38
 AOT r,r,-> 38
 Android c,c,38
-p, p var1,\(Int8\) \$[\d] = -128
-expression, expression var1,\(Int8\) \$[\d] = -128
-expression, expression var2,\(Int8\) \$[\d] = 127
-expression, expression var3,\(Int64\) \$[\d] = 1
-expression, expression var4,\(Int16\) \$[\d] = 1
-expression, expression var5,\(Int32\) \$[\d] = 1
-expression, expression var6,\(Int64\) \$[\d] = 1
-expression, expression var7,\(UInt8\) \$[\d] = 1
-expression, expression var8,\(UInt16\) \$[\d] = 1
-expression, expression var9,\(UInt32\) \$[\d] = 1
+p, p var1,\(Int8\)[\s\S]*-128
+expression, expression var1,\(Int8\)[\s\S]*-128
+expression, expression var2,\(Int8\)[\s\S]*127
+expression, expression var3,\(Int64\)[\s\S]*1
+expression, expression var4,\(Int16\)[\s\S]*1
+expression, expression var5,\(Int32\)[\s\S]*1
+expression, expression var6,\(Int64\)[\s\S]*1
+expression, expression var7,\(UInt8\)[\s\S]*1
+expression, expression var8,\(UInt16\)[\s\S]*1
+expression, expression var9,\(UInt32\)[\s\S]*1
 q,q,

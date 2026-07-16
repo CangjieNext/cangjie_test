@@ -8,28 +8,28 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/demangle/
-// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_class/* -o pkg_class.%middle
-// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_func/* -o pkg_func.%middle
-// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_enum/* -o pkg_enum.%middle
-// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_struct/* -o pkg_struct.%middle
-// (!target_android) EXEC: %compiler %cmp_opt -g demangle/demangle.cj pkg_class.%middle pkg_func.%middle pkg_enum.%middle pkg_struct.%middle -o demangle_target%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py demangle_010.info demangle_target %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_class/* -o pkg_class.%middle
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_func/* -o pkg_func.%middle
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_enum/* -o pkg_enum.%middle
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_struct/* -o pkg_struct.%middle
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g demangle/demangle.cj pkg_class.%middle pkg_func.%middle pkg_enum.%middle pkg_struct.%middle -o demangle_target%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py demangle_010.info demangle_target %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
 b,b 280,Breakpoint 1
-AOT r,r,demangle_target`default::main\(\) at demangle.cj:280:34[\s\S]*-> 280
+AOT r,r,demangle_target`default(?:\.|::)main\(\) at demangle.cj:280:34[\s\S]*-> 280
 CJVM c,c,-> 280
-AOT s,s,demangle_target`default::main\(\) at demangle.cj:280:24[\s\S]*-> 280
-AOT s,s,demangle_target`default::main\(\) at demangle.cj:280:24[\s\S]*-> 280
-AOT s,s,demangle_target`default::main\(\) at demangle.cj:280:24[\s\S]*-> 280
-AOT s,s,demangle_target`default::main\(\) at demangle.cj:280:24[\s\S]*-> 280
-AOT s,s,demangle_target`default::main\(\) at demangle.cj:280:24[\s\S]*-> 280
-CJVM s,s,default.main at [\s\S]*demangle.cj:280[\s\S]*-> 280
-CJVM s,s,default.main at [\s\S]*demangle.cj:280[\s\S]*-> 280
-CJVM s,s,default.main at [\s\S]*demangle.cj:280[\s\S]*-> 280
-CJVM s,s,default.main at [\s\S]*demangle.cj:280[\s\S]*-> 280
-CJVM s,s,default.main at [\s\S]*demangle.cj:280[\s\S]*-> 280
-s,s,stop reason = step in[\s\S]*demangle_target`default::main\(\) at demangle.cj:282:5[\s\S]*-> 282
+AOT s,s,demangle_target`default(?:\.|::)main\(\) at demangle.cj:280:24[\s\S]*-> 280
+AOT s,s,demangle_target`default(?:\.|::)main\(\) at demangle.cj:280:24[\s\S]*-> 280
+AOT s,s,demangle_target`default(?:\.|::)main\(\) at demangle.cj:280:24[\s\S]*-> 280
+AOT s,s,demangle_target`default(?:\.|::)main\(\) at demangle.cj:280:24[\s\S]*-> 280
+AOT s,s,demangle_target`default(?:\.|::)main\(\) at demangle.cj:280:24[\s\S]*-> 280
+CJVM s,s,default(?:\.|::)main at [\s\S]*demangle.cj:280[\s\S]*-> 280
+CJVM s,s,default(?:\.|::)main at [\s\S]*demangle.cj:280[\s\S]*-> 280
+CJVM s,s,default(?:\.|::)main at [\s\S]*demangle.cj:280[\s\S]*-> 280
+CJVM s,s,default(?:\.|::)main at [\s\S]*demangle.cj:280[\s\S]*-> 280
+CJVM s,s,default(?:\.|::)main at [\s\S]*demangle.cj:280[\s\S]*-> 280
+s,s,stop reason = step in[\s\S]*demangle_target`default(?:\.|::)main\(\) at demangle.cj:282:5[\s\S]*-> 282
 q,q,[\s\S]*-> 280

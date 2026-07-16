@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Range/range_core.cj
 // EXEC: %compiler %cmp_opt -g range_core.cj -o range_core%cmp_output
-// EXEC: python3 cjdb_test.py core_range_view_05.info range_core %run_env
+// (target_ios_simulator) EXEC: mv range_core%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py core_range_view_05.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py core_range_view_05.info range_core %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors range_core,range_core
-b,b 31,range_core.cj:31
+b,b range_core.cj:31,range_core.cj:31
 AOT r,r,-> 31
 Android c,c,31
 CJVM c,c,31
-p,p b,\(std.core.Range<UInt16>\) \$[\d] = 0..=10 : 1
-locals,locals,\(std.core.Range<UInt16>\) b = 0..=10 : 1
-frame var,frame var b,\(std.core.Range<UInt16>\) b = 0..=10 : 1
+p,p b,\(std.core(?:\.|::)Range<UInt16>\)[\s\S]*0..=10 : 1
+locals,locals,\(std.core(?:\.|::)Range<UInt16>\) b = 0..=10 : 1
+frame var,frame var b,\(std.core(?:\.|::)Range<UInt16>\) b = 0..=10 : 1
 q,q,

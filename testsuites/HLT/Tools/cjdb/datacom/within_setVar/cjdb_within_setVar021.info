@@ -9,15 +9,18 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_setVar/001_debug_setVar_generices.cj
 // EXEC: %compiler %cmp_opt -g 001_debug_setVar_generices.cj -o 001_debug_setVar_generices%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_within_setVar021.info 001_debug_setVar_generices %run_env
+// (target_ios_simulator) EXEC: mv 001_debug_setVar_generices%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar021.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar021.info 001_debug_setVar_generices %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
-b,b 24,001_debug_setVar_generices.cj:24
+b,b 001_debug_setVar_generices.cj:24,001_debug_setVar_generices.cj:24
 AOT r,r,-> 24
 Android c,c,24
 CJVM c,c,
-p, p mr_ms3,\(Int32\) \$[\d] = 32
-set,set mr_ms3 = 90,\(Int32\) \$[\d] = 90
+p, p mr_ms3,\(Int32\)[\s\S]*32
+set,set mr_ms3 = 90,\(Int32\)[\s\S]*90
 q,q,

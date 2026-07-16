@@ -9,24 +9,27 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_local.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_local.cj -o genericsfun_local%cmp_output
-// EXEC: python3 cjdb_test.py local_fun_generics_01.info genericsfun_local %run_env
+// (target_ios_simulator) EXEC: mv genericsfun_local%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py local_fun_generics_01.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py local_fun_generics_01.info genericsfun_local %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
-b,b 48,genericsfun_local.cj:48
+b,b genericsfun_local.cj:48,genericsfun_local.cj:48
 AOT r,r,-> 48
 Android c,c,48
 CJVM c,c,
-p, p gengricsvar,\(UInt8\) \$[\d] = 8
-p, p a,\(UInt8\) \$[\d] = 8
-p, p gengricsvar1,\(UInt16\) \$[\d] = 16
-p, p b,\(UInt16\) \$[\d] = 16
-p, p gengricsvar2,\(UInt32\) \$[\d] = 32
-p, p c,\(UInt32\) \$[\d] = 32
-p, p gengricsvar3,\(UInt64\) \$[\d] = 64
-p, p d,\(UInt64\) \$[\d] = 64
-p, p gengricsvar4,\(UIntNative\) \$[\d] = 100
-p, p e,\(UIntNative\) \$[\d] = 100
+p, p gengricsvar,\(UInt8\)[\s\S]*8
+p, p a,\(UInt8\)[\s\S]*8
+p, p gengricsvar1,\(UInt16\)[\s\S]*16
+p, p b,\(UInt16\)[\s\S]*16
+p, p gengricsvar2,\(UInt32\)[\s\S]*32
+p, p c,\(UInt32\)[\s\S]*32
+p, p gengricsvar3,\(UInt64\)[\s\S]*64
+p, p d,\(UInt64\)[\s\S]*64
+p, p gengricsvar4,\(UIntNative\)[\s\S]*100
+p, p e,\(UIntNative\)[\s\S]*100
 locals, locals,\(UInt8\) a = 8[\s\S]*\(UInt16\) b = 16[\s\S]*\(UInt32\) c = 32[\s\S]*\(UInt64\) d = 64[\s\S]*\(UIntNative\) e = 100[\s\S]*\(UInt8\) gengricsvar = 8[\s\S]*\(UInt16\) gengricsvar1 = 16[\s\S]*\(UInt32\) gengricsvar2 = 32[\s\S]*\(UInt64\) gengricsvar3 = 64[\s\S]*\(UIntNative\) gengricsvar4 = 100
 q,q,

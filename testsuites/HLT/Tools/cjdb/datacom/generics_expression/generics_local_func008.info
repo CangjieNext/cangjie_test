@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func008,generics_local_func008
-b,b 24,generics_local_func008.cj:24
+b,b generics_local_func008.cj:24,generics_local_func008.cj:24
 AOT r,r,-> 24
 Android c,c,24
 CJVM c,c,
-expr:expr a3:\(Unit\) \$[\d] = ()
-expr:expr a4:\(default.Foo<Int64>\) \$[\d] = {}
-expr:expr a1+a2:\(default.Foo<Int64>\) \$[\d] = {}
-expr:expr a1.f<Int64>(1):\(Unit\) \$[\d] = ()
+expr:expr a3:\(Unit\)[\s\S]*()
+expr:expr a4:\(default(?:\.|::)Foo<Int64>\)[\s\S]*{}
+expr:expr a1+a2:\(default(?:\.|::)Foo<Int64>\)[\s\S]*{}
+expr:expr a1.f<Int64>(1):\(Unit\)[\s\S]*()
 q,q,

@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var008.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_var008.cj -o generics_local_var008%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP027.info generics_local_var008 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_local_var008.cj -o generics_local_var008%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py cjdb_ConditionBP027.info generics_local_var008 %run_env
 
 
 test#
@@ -18,9 +18,9 @@ breakpoint,breakpoint set -l 83 -c "9==9",generics_local_var008.cj:83
 AOT r,r,-> 83
 Android c,c,83
 CJVM c,c,
-locals,locals,\(default.C1<default.S3<Int8>>\) ai8 = {[\s\S]*c1_a = {[\s\S]*s3_a = 8[\s\S]*}
-locals,locals,\(default.C2<default.C3<Float16>>\) cf16 = {[\s\S]*c2_a = {[\s\S]*c3_a = 16.156[\s\S]*}
-p,p dBl,\(default.S2<default.S3<Bool>>\) \$[\d] = {[\s\S]*s2_a = {[\s\S]*s3_a = true[\s\S]*}
-expr:expr ai8.c1_a:\(default.S3<Int8>\) \$[\d] = {[\s\S]*s3_a = 8[\s\S]*}
-expr:expr bui8.s1_a:\(UInt8\) \$[\d] = 8
+locals,locals,\(default(?:\.|::)C1<default(?:\.|::)S3<Int8>>\) ai8 = {[\s\S]*c1_a = {[\s\S]*s3_a = 8[\s\S]*}
+locals,locals,\(default(?:\.|::)C2<default(?:\.|::)C3<Float16>>\) cf16 = {[\s\S]*c2_a = {[\s\S]*c3_a = 16.156[\s\S]*}
+p,p dBl,\(default(?:\.|::)S2<default(?:\.|::)S3<Bool>>\)[\s\S]*{[\s\S]*s2_a = {[\s\S]*s3_a = true[\s\S]*}
+expr:expr ai8.c1_a:\(default(?:\.|::)S3<Int8>\)[\s\S]*{[\s\S]*s3_a = 8[\s\S]*}
+expr:expr bui8.s1_a:\(UInt8\)[\s\S]*8
 q,q,

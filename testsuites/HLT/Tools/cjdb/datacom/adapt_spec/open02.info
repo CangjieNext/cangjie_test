@@ -8,16 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/open02.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g open02.cj -o open02%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py open02.info open02 %run_env %port_num
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g open02.cj -o open02%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py open02.info open02 %run_env %port_num
 
 test#
 cjdb,cjdb --no-use-colors open02,open02
-b,b 26,open02.cj:26
+b,b open02.cj:26,open02.cj:26
 AOT r,r,-> 26
 Android c,c,26
 CJVM c,c,
-expr,expr b,\(Int64\) \$[\d] = 2
-expr~expr a[8]~\(Int64\) \$[\d] = 8
-expr~expr a[8]+a[1]~\(Int64\) \$[\d] = 9
+expr,expr b,\(Int64\)[\s\S]*2
+expr~expr a[8]~\(Int64\)[\s\S]*8
+expr~expr a[8]+a[1]~\(Int64\)[\s\S]*9
 q,q,

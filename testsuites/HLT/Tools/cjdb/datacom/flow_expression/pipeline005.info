@@ -8,16 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline005.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g pipeline005.cj -o pipeline005%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py pipeline005.info pipeline005 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g pipeline005.cj -o pipeline005%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py pipeline005.info pipeline005 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pipeline005,pipeline005
-b,b 29,pipeline005.cj:29
+b,b pipeline005.cj:29,pipeline005.cj:29
 AOT r,r,-> 29
 Android c,c,29
-expr,expr res2,\(std.core.String\) \$[\d] = "abc"
-expr,expr res3,\(std.core.String\) \$[\d] = "    1223\\n"
-expr,expr res4,\(std.core.String\) \$[\d] = "abc"
+expr,expr res2,\(std\.core(?:\.|::)String\)[\s\S]*"abc"
+expr,expr res3,\(std\.core(?:\.|::)String\)[\s\S]*"    1223\\n"
+expr,expr res4,\(std\.core(?:\.|::)String\)[\s\S]*"abc"
 q,q,

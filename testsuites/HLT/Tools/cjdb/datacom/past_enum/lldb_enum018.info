@@ -9,14 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/004_debug_enum_recursion.cj
 // EXEC: %compiler %cmp_opt -g 004_debug_enum_recursion.cj -o 004_debug_enum_recursion%cmp_output
-// EXEC: python3 cjdb_test.py lldb_enum018.info 004_debug_enum_recursion %run_env
+// (target_ios_simulator) EXEC: mv 004_debug_enum_recursion%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_enum018.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_enum018.info 004_debug_enum_recursion %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_enum_recursion,004_debug_enum_recursion
-b,b 39,004_debug_enum_recursion.cj:39
+b,b 004_debug_enum_recursion.cj:39,004_debug_enum_recursion.cj:39
 AOT r,r,-> 39
 Android c,c,39
 CJVM c,c,

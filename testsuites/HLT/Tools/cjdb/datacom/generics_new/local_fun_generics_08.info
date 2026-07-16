@@ -9,17 +9,20 @@
 // LEVEL: 1
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_local.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_local.cj -o genericsfun_local%cmp_output
-// EXEC: python3 cjdb_test.py local_fun_generics_08.info genericsfun_local %run_env
+// (target_ios_simulator) EXEC: mv genericsfun_local%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py local_fun_generics_08.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py local_fun_generics_08.info genericsfun_local %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
-b,b 106,genericsfun_local.cj:106
+b,b genericsfun_local.cj:106,genericsfun_local.cj:106
 AOT r,r,-> 106
 Android c,c,106
 CJVM c,c,
-p, p gengricsvar5,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
-p, p f,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
+p, p gengricsvar5,\(CPointer<Int8>\)[\s\S]*0x[\s\S]*
+p, p f,\(CPointer<Int8>\)[\s\S]*0x[\s\S]*
 locals, locals,\(CPointer<Int8>\) f = 0x[\s\S]*
 locals, locals,\(CPointer<Int8>\) gengricsvar5 = 0x[\s\S]*
 q,q,

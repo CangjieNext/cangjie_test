@@ -9,21 +9,24 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_debug.cj
 // EXEC: %compiler %cmp_opt -g option_debug.cj -o option_debug%cmp_output
-// EXEC: python3 cjdb_test.py option_test_029.info option_debug %run_env
+// (target_ios_simulator) EXEC: mv option_debug%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py option_test_029.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py option_test_029.info option_debug %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors option_debug,option_debug
-b,b 77,option_debug.cj:77
+b,b option_debug.cj:77,option_debug.cj:77
 AOT r,r,-> 77
 Android c,c,77
 CJVM c,c,77
-p,p F16,\(std[.]core.Option<Float16>\) \$[\d] = 16.156
-p,p F32,\(std[.]core.Option<Float32>\) \$[\d] = 32.3199997
-p,p F64,\(std[.]core.Option<Float64>\) \$[\d] = 64.640000000000001
-locals,locals,\(std[.]core.Option<Float16>\) F16 = 16.156[\s\S]*\(std[.]core.Option<Float32>\) F32 = 32.3199997[\s\S]*\(std[.]core.Option<Float64>\) F64 = 64.640000000000001[\s\S]*
-globals,globals,\(std[.]core.Option<Float16>\) default::globals_F16 = 16.156[\s\S]*
-AOT frame var,frame var F16,\(std[.]core.Option<Float16>\) F16 = 16.156
-AOT frame var,frame var F32,\(std[.]core.Option<Float32>\) F32 = 32.3199997
-AOT frame var,frame var F64,\(std[.]core.Option<Float64>\) F64 = 64.640000000000001
+p,p F16,\(std[.]core(?:\.|::)Option<Float16>\)[\s\S]*16.156
+p,p F32,\(std[.]core(?:\.|::)Option<Float32>\)[\s\S]*32.3199997
+p,p F64,\(std[.]core(?:\.|::)Option<Float64>\)[\s\S]*64.640000000000001
+locals,locals,\(std[.]core(?:\.|::)Option<Float16>\) F16 = 16.156[\s\S]*\(std[.]core(?:\.|::)Option<Float32>\) F32 = 32.3199997[\s\S]*\(std[.]core(?:\.|::)Option<Float64>\) F64 = 64.640000000000001[\s\S]*
+globals,globals,\(std[.]core(?:\.|::)Option<Float16>\) default(?:\.|::)globals_F16 = 16.156[\s\S]*
+AOT frame var,frame var F16,\(std[.]core(?:\.|::)Option<Float16>\) F16 = 16.156
+AOT frame var,frame var F32,\(std[.]core(?:\.|::)Option<Float32>\) F32 = 32.3199997
+AOT frame var,frame var F64,\(std[.]core(?:\.|::)Option<Float64>\) F64 = 64.640000000000001
 q,q,

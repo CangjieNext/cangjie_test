@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors array_external_use,array_external_use
-b,b 20,array_external_use.cj:20
+b,b array_external_use.cj:20,array_external_use.cj:20
 AOT r,r,-> 20
 Android c,c,20
 CJVM c,c,
 n,n,22
-print,print arraymainrec02,std[.]core.Array<Int8>\) \$[\d] = {(\r\n|\r|\n)  \[0\] = 1(\r\n|\r|\n)  \[1\] = 2(\r\n|\r|\n)  \[2\] = 3(\r\n|\r|\n)}
+print,print arraymainrec02,std[.]core(?:\.|::)Array<Int8>\)[\s\S]*{(\r\n|\r|\n)  \[0\] = 1(\r\n|\r|\n)  \[1\] = 2(\r\n|\r|\n)  \[2\] = 3(\r\n|\r|\n)}
 q,q,

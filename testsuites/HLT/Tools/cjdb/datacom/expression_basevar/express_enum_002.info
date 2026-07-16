@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/064_debug_enum.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 064_debug_enum.cj -o 002_express_basetype%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py express_enum_002.info 002_express_basetype %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 064_debug_enum.cj -o 002_express_basetype%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py express_enum_002.info 002_express_basetype %run_env
 
 
 
@@ -18,12 +18,12 @@ test#
 cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
 CJVM b,b main,064_debug_enum.cj:24
 CJVM c,c,24
-b,b 42,064_debug_enum.cj:42
+b,b 064_debug_enum.cj:42,064_debug_enum.cj:42
 CJVM c,c,42
 AOT r,r,-> 42
 Android c,c,42
-expr,expr time7,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Green3\s+arg_1 = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}*
-expr,expr time8,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Green4\s+arg_1 = {[\s\S]*\[0\] = 1..10 : 2[\s\S]*\[1\] = 1..10 : 2[\s\S]*\[2\] = 1..10 : 2[\s\S]*}*
-expr,expr time9,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Green5\s+arg_1 = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}*
-expr,expr time10,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Green6\s+arg_1 = {[\S\s]*key = "a"[\S\s]*value = 0[\S\s]*}*
+expr,expr time7,\(default(?:\.|::)TimeUnit2\)[\s\S]*{\s+constructor = Green3\s+arg_1 = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}*
+expr,expr time8,\(default(?:\.|::)TimeUnit2\)[\s\S]*{\s+constructor = Green4\s+arg_1 = {[\s\S]*\[0\] = 1..10 : 2[\s\S]*\[1\] = 1..10 : 2[\s\S]*\[2\] = 1..10 : 2[\s\S]*}*
+expr,expr time9,\(default(?:\.|::)TimeUnit2\)[\s\S]*{\s+constructor = Green5\s+arg_1 = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}*
+expr,expr time10,\(default(?:\.|::)TimeUnit2\)[\s\S]*{\s+constructor = Green6\s+arg_1 = {[\S\s]*key = "a"[\S\s]*value = 0[\S\s]*}*
 q,q,

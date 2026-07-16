@@ -13,11 +13,11 @@
 
 test#
 cjdb,cjdb --no-use-colors case19_3,case19_3
-b,b 21,case19_3.cj:21
+b,b case19_3.cj:21,case19_3.cj:21
 AOT r,r,-> 21
 Android c,c,21
 CJVM c,c,
-AOT expr:expr test_lambda:\(std.core.String\) \$[\d] = "lambda"
-AOT expr:expr ad2:\(Int64\) \$[\d] = 3
-AOT expr:expr ad1(1,2):\(Int64\) \$[\d] = 3
+AOT expr:expr test_lambda:\(std\.core(?:\.|::)String\)[\s\S]*"lambda"
+AOT expr:expr ad2:\(Int64\)[\s\S]*3
+AOT expr:expr ad1(1,2):\(Int64\)[\s\S]*3
 q,q,

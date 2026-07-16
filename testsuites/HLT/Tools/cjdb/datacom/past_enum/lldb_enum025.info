@@ -9,15 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/006_debug_enum_conflict.cj
 // EXEC: %compiler %cmp_opt -g 006_debug_enum_conflict.cj -o 006_debug_enum_conflict%cmp_output
-// EXEC: python3 cjdb_test.py lldb_enum025.info 006_debug_enum_conflict %run_env
+// (target_ios_simulator) EXEC: mv 006_debug_enum_conflict%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_enum025.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_enum025.info 006_debug_enum_conflict %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_enum_conflict,006_debug_enum_conflict
-b,b 36,006_debug_enum_conflict.cj:36
+b,b 006_debug_enum_conflict.cj:36,006_debug_enum_conflict.cj:36
 AOT r,r,-> 36
 Android c,c,36
 CJVM c,c,
 n,n,39
-print,print f,R\) \$[\d] = {(\r|\n|\r\n)  constructor = C(\r|\n|\r\n)  arg_1 = 1
+print,print f,R\)[\s\S]*{(\r|\n|\r\n)  constructor = C(\r|\n|\r\n)  arg_1 = 1
 q,q,

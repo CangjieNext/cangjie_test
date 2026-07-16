@@ -9,17 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_Compositetype.cj
 // EXEC: %compiler %cmp_opt -g VArray_Compositetype.cj -o VArray_Compositetype_005%cmp_output
-// EXEC: python3 cjdb_test.py VArray_Compositetype_005.info VArray_Compositetype_005 %run_env
+// (target_ios_simulator) EXEC: mv VArray_Compositetype_005%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py VArray_Compositetype_005.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py VArray_Compositetype_005.info VArray_Compositetype_005 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors VArray_Compositetype_005,VArray_Compositetype_005
-b,b 44,Breakpoint 1: where = VArray_Compositetype_005`default::main[\s\S]*VArray_Compositetype.cj:44
+b,b VArray_Compositetype.cj:44,Breakpoint 1: where = VArray_Compositetype_005`default(?:\.|::)main[\s\S]*VArray_Compositetype.cj:44
 AOT r,r,-> 44
 Android c,c,44
 CJVM c,c,44
-p,p v2.vRInt64,\(VArray<std[.]core.Range<Int64>,\$1>\) \$[\d] = {[\s\S]*\[0\] = 0..1 : 1
-p,p v2.vRChar,\(VArray<std[.]core.Range<Rune>,\$1>\) \$[\d] = {[\s\S]*\[0\] = 'A'..'Z' : 1
-p,p v2.vvarr,\(VArray<Tuple<VArray<Int64,\$3>,VArray<Int64,\$4>>,\$2>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
-p,p v2.vstruct,\(VArray<default.A<Int64>,\$2>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*a = 1[\s\S]*a = 1
+p,p v2.vRInt64,\(VArray<std[.]core(?:\.|::)Range<Int64>,\$1>\)[\s\S]*{[\s\S]*\[0\] = 0..1 : 1
+p,p v2.vRChar,\(VArray<std[.]core(?:\.|::)Range<Rune>,\$1>\)[\s\S]*{[\s\S]*\[0\] = 'A'..'Z' : 1
+p,p v2.vvarr,\(VArray<Tuple<VArray<Int64,\$3>,VArray<Int64,\$4>>,\$2>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+p,p v2.vstruct,\(VArray<default(?:\.|::)A<Int64>,\$2>\)[\s\S]*{[\s\S]*\[0\] = {[\s\S]*a = 1[\s\S]*a = 1
 q,q,

@@ -9,7 +9,10 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/053_debug_class_basetype.cj
 // EXEC: %compiler %cmp_opt -g 053_debug_class_basetype.cj -o 005_express_basetype%cmp_output
-// EXEC: python3 cjdb_test.py express_class_005.info 005_express_basetype %run_env
+// (target_ios_simulator) EXEC: mv 005_express_basetype%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py express_class_005.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py express_class_005.info 005_express_basetype %run_env
 
 
 
@@ -18,13 +21,13 @@ test#
 cjdb,cjdb --no-use-colors 005_express_basetype,005_express_basetype
 CJVM b,b main,053_debug_class_basetype.cj:34
 CJVM c,c,34
-b,b 36,053_debug_class_basetype.cj:36
+b,b 053_debug_class_basetype.cj:36,053_debug_class_basetype.cj:36
 CJVM c,c,36
 AOT r,r,-> 36
 Android c,c,36
-p,p b.varu1=127,\(UInt8\) \$[\d] = 127
-p,p b.varu2=32767,\(UInt16\) \$[\d] = 32767
-p,p b.varu3=2147483647,\(UInt32\) \$[\d] = 2147483647
-p,p b.varu4=9223372036854775807,\(UInt64\) \$[\d] = 9223372036854775807
-p,p b.varu5=9223372036854775807,\(UIntNative\) \$[\d] = 9223372036854775807
+p,p b.varu1=127,\(UInt8\)[\s\S]*127
+p,p b.varu2=32767,\(UInt16\)[\s\S]*32767
+p,p b.varu3=2147483647,\(UInt32\)[\s\S]*2147483647
+p,p b.varu4=9223372036854775807,\(UInt64\)[\s\S]*9223372036854775807
+p,p b.varu5=9223372036854775807,\(UIntNative\)[\s\S]*9223372036854775807
 q,q,

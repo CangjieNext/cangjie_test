@@ -8,15 +8,15 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/match_expression/match_expression002.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g match_expression002.cj -o match_expression002%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py match_expression_002.info match_expression002 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g match_expression002.cj -o match_expression002%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py match_expression_002.info match_expression002 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors match_expression002,match_expression002
-b,b 16,match_expression002.cj:16
+b,b match_expression002.cj:16,match_expression002.cj:16
 r,r,-> 16
 Android c,c,16
-expr,expr a,\(Unit\) \$[\d] = ()
-expr~expr match {case x > 0 => print("x > 0") case _ => print("x = 0")}~\(Unit\) \$[\d] = ()
+expr,expr a,\(Unit\)[\s\S]*()
+expr~expr match {case x > 0 => print("x > 0") case _ => print("x = 0")}~\(Unit\)[\s\S]*()
 q,q,

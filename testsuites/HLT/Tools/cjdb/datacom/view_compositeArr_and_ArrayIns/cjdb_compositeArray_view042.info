@@ -9,16 +9,19 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/008_debug_ArrayIns_baseType.cj
 // EXEC: %compiler %cmp_opt -g 008_debug_ArrayIns_baseType.cj -o 008_debug_ArrayIns_baseType%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_compositeArray_view042.info 008_debug_ArrayIns_baseType %run_env
+// (target_ios_simulator) EXEC: mv 008_debug_ArrayIns_baseType%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_compositeArray_view042.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_compositeArray_view042.info 008_debug_ArrayIns_baseType %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_ArrayIns_baseType,008_debug_ArrayIns_baseType
-b,b 47,008_debug_ArrayIns_baseType.cj:47
+b,b 008_debug_ArrayIns_baseType.cj:47,008_debug_ArrayIns_baseType.cj:47
 AOT r,r,-> 47
 Android c,c,47
 CJVM c,c,
-p,p arrayFloat64_d[1][2..4],\(std[.]core.Array<Float64>\) \$[\d] = {[\s\S]*\[0\] = 64.299999999999997
-p,p arrayChar_d[0][2..5],\(std[.]core.Array<Rune>\) \$[\d] = {[\s\S]*\[1\] = 'd'
-p,p arrayBool_d[1][5..7],\(std[.]core.Array<Bool>\) \$[\d] = {[\s\S]*\[1\] = true
+p,p arrayFloat64_d[1][2..4],\(std[.]core(?:\.|::)Array<Float64>\)[\s\S]*{[\s\S]*\[0\] = 64.299999999999997
+p,p arrayChar_d[0][2..5],\(std[.]core(?:\.|::)Array<Rune>\)[\s\S]*{[\s\S]*\[1\] = 'd'
+p,p arrayBool_d[1][5..7],\(std[.]core(?:\.|::)Array<Bool>\)[\s\S]*{[\s\S]*\[1\] = true
 q,q,

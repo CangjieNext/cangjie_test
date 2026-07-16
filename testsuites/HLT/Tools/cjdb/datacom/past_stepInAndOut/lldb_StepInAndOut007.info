@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/005_debug_dowhile.cj
 //  EXEC: %compiler %cmp_opt -g 005_debug_dowhile.cj -o 005_debug_dowhile%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut007.info 005_debug_dowhile %run_env
+// (target_ios_simulator) EXEC: mv 005_debug_dowhile%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut007.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut007.info 005_debug_dowhile %run_env
 
 
 
@@ -18,11 +21,11 @@ test#
 cjdb,cjdb --no-use-colors 005_debug_dowhile,005_debug_dowhile
 CJVM b main,b main,005_debug_dowhile.cj:13
 CJVM c,c,13
-b,b 13,005_debug_dowhile.cj:13
-AOT b,b 14,005_debug_dowhile.cj:15
-CJVM b,b 14,005_debug_dowhile.cj:14
-b,b 15,005_debug_dowhile.cj:15
-b,b 16,005_debug_dowhile.cj:16
+b,b 005_debug_dowhile.cj:13,005_debug_dowhile.cj:13
+b,b 005_debug_dowhile.cj:15,005_debug_dowhile.cj:15
+CJVM b,b 005_debug_dowhile.cj:14,005_debug_dowhile.cj:14
+b,b 005_debug_dowhile.cj:15,005_debug_dowhile.cj:15
+b,b 005_debug_dowhile.cj:16,005_debug_dowhile.cj:16
 AOT r,r,-> 13
 Android c,c,13
 s,s,15

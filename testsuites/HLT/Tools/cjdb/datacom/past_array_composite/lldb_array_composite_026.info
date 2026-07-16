@@ -9,18 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/002_debug_array_enum.cj
 // EXEC: %compiler %cmp_opt -g 002_debug_array_enum.cj -o 002_debug_array_enum%cmp_output
-// EXEC: python3 cjdb_test.py lldb_array_composite_026.info 002_debug_array_enum %run_env
+// (target_ios_simulator) EXEC: mv 002_debug_array_enum%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_026.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_026.info 002_debug_array_enum %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_enum,002_debug_array_enum
-b,b 39,002_debug_array_enum.cj:39
+b,b 002_debug_array_enum.cj:39,002_debug_array_enum.cj:39
 AOT r,r,-> 39
 Android c,c,39
 CJVM c,c,
 n,n,41
-locals,locals,std[.]core.Array<default.TimeUnit2>\) arrayMainEnum02 = {(\r|\n|\r\n)  \[0\] =
-print,print arrayMainEnum02[2],TimeUnit2\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Day(\r|\n|\r\n)  arg_1 = 1(\r|\n|\r\n)  arg_2 = 2(\r|\n|\r\n)  arg_3 = 3
+locals,locals,std[.]core(?:\.|::)Array<default(?:\.|::)TimeUnit2>\) arrayMainEnum02 = {(\r|\n|\r\n)  \[0\] =
+print,print arrayMainEnum02[2],TimeUnit2\)[\s\S]*{(\r|\n|\r\n)  constructor = Day(\r|\n|\r\n)  arg_1 = 1(\r|\n|\r\n)  arg_2 = 2(\r|\n|\r\n)  arg_3 = 3
 q,q,

@@ -9,18 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun.cj
 // EXEC: %compiler %cmp_opt -g genericsfun.cj -o genericsfun%cmp_output
-// EXEC: python3 cjdb_test.py global_fun_generics_09.info genericsfun %run_env
+// (target_ios_simulator) EXEC: mv genericsfun%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py global_fun_generics_09.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py global_fun_generics_09.info genericsfun %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun,genericsfun
-b,b 81,genericsfun.cj:81
+b,b genericsfun.cj:81,genericsfun.cj:81
 AOT r,r,-> 81
 Android c,c,81
 CJVM c,c,
-p, p gengricsvar4,std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p e,std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p gengricsvar6,VArray<Int64,\$2>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*
-p, p g,VArray<Int64,\$2>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*
+p, p gengricsvar4,std.collection.HashSet<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p e,std.collection.HashSet<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p gengricsvar6,VArray<Int64,\$2>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*
+p, p g,VArray<Int64,\$2>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*
 locals, locals,std.collection.HashSet<Int64>\) e = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*VArray<Int64,\$2>\) g = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*std.collection.HashSet<Int64>\) gengricsvar4 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*VArray<Int64,\$2>\) gengricsvar6 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*
 q,q,

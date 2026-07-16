@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline016.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g pipeline016.cj -o pipeline016%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py pipeline016.info pipeline016 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g pipeline016.cj -o pipeline016%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py pipeline016.info pipeline016 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pipeline016,pipeline016
-b,b 47,pipeline016.cj:47
+b,b pipeline016.cj:47,pipeline016.cj:47
 AOT r,r,-> 47
 Android c,c,47
-expr,expr b1,\(Bool\) \$[\d] = true
-expr,expr b2,\(Bool\) \$[\d] = true
-expr~expr Float32(1.0)|>S1.f2~\(Bool\) \$[\d] = true
-expr~expr Int64(1.0)|>a2.f4~\(Int64\) \$[\d] = 1
+expr,expr b1,\(Bool\)[\s\S]*true
+expr,expr b2,\(Bool\)[\s\S]*true
+expr~expr Float32(1.0)|>S1.f2~\(Bool\)[\s\S]*true
+expr~expr Int64(1.0)|>a2.f4~\(Int64\)[\s\S]*1
 q,q,

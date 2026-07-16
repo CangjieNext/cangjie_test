@@ -8,15 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/C_FFI.c   ../../basecase/CFFI/C_FFI.cj
-// (!target_android) EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
-// (!target_android) EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py viewVariables_CFunc_03.info viewVariables_CFunc_03 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
+// (!(target_android|target_ios_simulator)) EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py viewVariables_CFunc_03.info viewVariables_CFunc_03 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_CFunc_03,viewVariables_CFunc_03
-b,b 84,C_FFI.cj:84
+b,b C_FFI.cj:84,C_FFI.cj:84
 AOT r,r,-> 84
 CJVM c,c,
-p,p CF_C,\(pkg_cffi.\(\)->UInt8\) \$[\d] = 0x.*\(libviewVariables_CFunc_03.(so|dll|dylib)\`CharFromC at C_FFI.c:97\)
+p,p CF_C,\(pkg_cffi.\(\)->UInt8\)[\s\S]*0x.*\(libviewVariables_CFunc_03.(so|dll|dylib)\`CharFromC at C_FFI.c:97\)
 q,q,

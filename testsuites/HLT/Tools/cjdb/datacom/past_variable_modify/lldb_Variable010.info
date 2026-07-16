@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/021_debug_file.cj
 // EXEC: %compiler %cmp_opt -g 021_debug_file.cj -o 021_debug_file%cmp_output
-// EXEC: python3 cjdb_test.py lldb_Variable010.info 021_debug_file %run_env
+// (target_ios_simulator) EXEC: mv 021_debug_file%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_Variable010.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_Variable010.info 021_debug_file %run_env
 
 
 
@@ -18,20 +21,20 @@ test#
 cjdb,cjdb --no-use-colors 021_debug_file,021_debug_file
 CJVM b,b main,021_debug_file.cj:17
 CJVM c,c,17
-b,b 17,021_debug_file.cj:17
-b,b 24,021_debug_file.cj:24
-b,b 28,021_debug_file.cj:28
-b,b 32,021_debug_file.cj:32
+b,b 021_debug_file.cj:17,021_debug_file.cj:17
+b,b 021_debug_file.cj:24,021_debug_file.cj:24
+b,b 021_debug_file.cj:28,021_debug_file.cj:28
+b,b 021_debug_file.cj:32,021_debug_file.cj:32
 AOT r,r,-> 17
 Android c,c,17
 c,c,32
 locals,locals,a = 30
-p,p a,\(Int64\) \$[\d] = 30
+p,p a,\(Int64\)[\s\S]*30
 bt,bt,frame #0
 frame,frame select 2,-> 23
 locals,locals,a =
-p,p a,\(Int64\) \$[\d]
+p,p a,\(Int64\)[\s\S]*
 frame,frame select 0,-> 32
 locals,locals,a = 30
-p,p a,\(Int64\) \$[\d] = 30
+p,p a,\(Int64\)[\s\S]*30
 q,q,

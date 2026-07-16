@@ -8,19 +8,19 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/coalescing_expression/coalescing012.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g coalescing012.cj -o coalescing012%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py coalescing_expression_012.info coalescing012 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g coalescing012.cj -o coalescing012%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py coalescing_expression_012.info coalescing012 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors coalescing012,coalescing012
-b,b 24,coalescing012.cj:24
+b,b coalescing012.cj:24,coalescing012.cj:24
 AOT r,r,-> 24
 Android c,c,24
-expr,expr r1,\(default.E1\) \$[\d] = XY
-expr,expr r2,\(default.E1\) \$[\d] = XY2
-expr,expr r3,\(default.E2<Int64>\) \$[\d] = {[\s\S]*constructor = AB[\s\S]*arg_1 = 2[\s\S]*}
-expr,expr r4,\(default.E2<Int64>\) \$[\d] = {[\s\S]*constructor = AB[\s\S]*arg_1 = 3[\s\S]*}
-expr~expr v4??E2<Int64>.AB(3)~\(default.E2<Int64>\) \$[\d] =
-expr~expr v3??E2<Int64>.AB(3)~\(default.E2<Int64>\) \$[\d] =
+expr,expr r1,\(default(?:\.|::)E1\)[\s\S]*XY
+expr,expr r2,\(default(?:\.|::)E1\)[\s\S]*XY2
+expr,expr r3,\(default(?:\.|::)E2<Int64>\)[\s\S]*{[\s\S]*constructor = AB[\s\S]*arg_1 = 2[\s\S]*}
+expr,expr r4,\(default(?:\.|::)E2<Int64>\)[\s\S]*{[\s\S]*constructor = AB[\s\S]*arg_1 = 3[\s\S]*}
+expr~expr v4??E2<Int64>.AB(3)~\(default(?:\.|::)E2<Int64>\)[\s\S]* =
+expr~expr v3??E2<Int64>.AB(3)~\(default(?:\.|::)E2<Int64>\)[\s\S]* =
 q,q,

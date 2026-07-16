@@ -8,16 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var008.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_var008.cj -o generics_local_var008%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py generics_local_var008.info generics_local_var008 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_local_var008.cj -o generics_local_var008%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py generics_local_var008.info generics_local_var008 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var008,generics_local_var008
-b,b 83,generics_local_var008.cj:83
+b,b generics_local_var008.cj:83,generics_local_var008.cj:83
 AOT r,r,-> 83
 Android c,c,83
 CJVM c,c,
-expr:expr ai8.c1_a:\(default.S3<Int8>\) \$[\d] = {[\s\S]*s3_a = 8[\s\S]*}
-expr:expr bui8.s1_a:\(UInt8\) \$[\d] = 8
+expr:expr ai8.c1_a:\(default(?:\.|::)S3<Int8>\)[\s\S]*{[\s\S]*s3_a = 8[\s\S]*}
+expr:expr bui8.s1_a:\(UInt8\)[\s\S]*8
 q,q,

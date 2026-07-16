@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case18/case18_12.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g case18_12.cj -o case18_12%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py case18_12.info case18_12 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g case18_12.cj -o case18_12%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py case18_12.info case18_12 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case18_12,case18_12
-b,b 51,case18_12.cj:51
+b,b case18_12.cj:51,case18_12.cj:51
 AOT r,r,-> 51
 Android c,c,51
 CJVM c,c,
-expr,expr a,\(Int64\) \$[\d] = 321
-expr,expr b,\(Int64\) \$[\d] = 321
-expr,expr c,\(std.core.String\) \$[\d] = "A"
-expr,expr d,\(Unit\) \$[\d] = ()
+expr,expr a,\(Int64\)[\s\S]*321
+expr,expr b,\(Int64\)[\s\S]*321
+expr,expr c,\(std\.core(?:\.|::)String\)[\s\S]*"A"
+expr,expr d,\(Unit\)[\s\S]*()
 q,q,

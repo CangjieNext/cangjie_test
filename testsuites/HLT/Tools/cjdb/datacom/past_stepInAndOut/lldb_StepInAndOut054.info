@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/021_debug_file.cj
 //  EXEC: %compiler %cmp_opt -g 021_debug_file.cj -o 021_debug_file%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut054.info 021_debug_file %run_env
+// (target_ios_simulator) EXEC: mv 021_debug_file%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut054.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut054.info 021_debug_file %run_env
 
 
 
@@ -17,7 +20,7 @@ test#
 cjdb,cjdb --no-use-colors 021_debug_file,021_debug_file
 CJVM b main,b main,021_debug_file.cj:17
 CJVM c,c,17
-b,b 17,021_debug_file.cj:17
+b,b 021_debug_file.cj:17,021_debug_file.cj:17
 AOT r,r,-> 17
 Android c,c,17
 s,s,23

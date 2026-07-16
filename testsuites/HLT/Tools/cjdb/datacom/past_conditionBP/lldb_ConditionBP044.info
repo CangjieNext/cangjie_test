@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/019_debug_expressions.cj
-// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 019_debug_expressions.cj -o 019_debug_expressions%cmp_output
-// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py lldb_ConditionBP044.info 019_debug_expressions %run_env
+// (!(target_mac|target_win|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 019_debug_expressions.cj -o 019_debug_expressions%cmp_output
+// (!(target_mac|target_win|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_ConditionBP044.info 019_debug_expressions %run_env
 
 
 

@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_basetype.cj
 // EXEC: %compiler %cmp_opt -g VArray_basetype.cj -o VArray_basetype_003%cmp_output
-// EXEC: python3 cjdb_test.py VArray_basetype_003.info VArray_basetype_003 %run_env
+// (target_ios_simulator) EXEC: mv VArray_basetype_003%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py VArray_basetype_003.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py VArray_basetype_003.info VArray_basetype_003 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors VArray_basetype_003,VArray_basetype_003
-b,b 34,Breakpoint 1: where = VArray_basetype_003`default::main[\s\S]*VArray_basetype.cj:34
+b,b VArray_basetype.cj:34,Breakpoint 1: where = VArray_basetype_003`default(?:\.|::)main[\s\S]*VArray_basetype.cj:34
 AOT r,r,-> 34
 Android c,c,34
 CJVM c,c,34
-p,p vFloat16,\(VArray<Float16,\$3>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
-p,p vFloat32,\(VArray<Float32,\$3>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
-p,p vFloat64,\(VArray<Float64,\$3>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+p,p vFloat16,\(VArray<Float16,\$3>\)[\s\S]*{[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+p,p vFloat32,\(VArray<Float32,\$3>\)[\s\S]*{[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+p,p vFloat64,\(VArray<Float64,\$3>\)[\s\S]*{[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
 q,q,

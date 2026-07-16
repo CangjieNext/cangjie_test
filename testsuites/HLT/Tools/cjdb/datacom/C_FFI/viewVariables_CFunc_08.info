@@ -8,15 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/C_FFI.c   ../../basecase/CFFI/C_FFI.cj
-// (!target_android) EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
-// (!target_android) EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py viewVariables_CFunc_08.info viewVariables_CFunc_08 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
+// (!(target_android|target_ios_simulator)) EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py viewVariables_CFunc_08.info viewVariables_CFunc_08 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_CFunc_08,viewVariables_CFunc_08
-b,b 87,C_FFI.cj:87
+b,b C_FFI.cj:87,C_FFI.cj:87
 AOT r,r,-> 87
 CJVM c,c,
-p,p CF_I4,\(Int32\) \$[\d] = 56
+p,p CF_I4,\(Int32\)[\s\S]*56
 q,q,

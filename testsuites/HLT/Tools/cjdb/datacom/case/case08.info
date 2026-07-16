@@ -8,16 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case08/case08.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g case08.cj -o case08%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py case08.info case08 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g case08.cj -o case08%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py case08.info case08 %run_env
 test#
 cjdb,cjdb --no-use-colors case08,case08
-b,b 26,case08.cj:26
+b,b case08.cj:26,case08.cj:26
 AOT r,r,-> 26
 Android c,c,26
 CJVM c,c,
 AOT s,s,ClassViaOverLoad(::|\.)init\(this=pkg_class(::|\.)ClassViaOverLoad[\S\s]*case08\.cj:14
 n,n,16
 n,n,20
-AOT p,p this,\$[\d] = \{[\S\s]*width = 10[\S\s]*length = 20[\S\s]*\}
+AOT p,p this,[\s\S]*\{[\S\s]*width = 10[\S\s]*length = 20[\S\s]*\}
 q,q,

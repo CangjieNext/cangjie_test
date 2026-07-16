@@ -9,18 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/004_debug_array_record_parameter.cj
 // EXEC: %compiler %cmp_opt -g 004_debug_array_record_parameter.cj -o 004_debug_array_record_parameter%cmp_output
-// EXEC: python3 cjdb_test.py lldb_array_composite_044.info 004_debug_array_record_parameter %run_env
+// (target_ios_simulator) EXEC: mv 004_debug_array_record_parameter%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_044.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_044.info 004_debug_array_record_parameter %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_array_record_parameter,004_debug_array_record_parameter
-b,b 45,004_debug_array_record_parameter.cj:45
+b,b 004_debug_array_record_parameter.cj:45,004_debug_array_record_parameter.cj:45
 AOT r,r,-> 45
 Android c,c,45
 CJVM c,c,
 n,n,48
 locals,locals,Rectangle\) rec1 = {(\r|\n|\r\n)  namenum = 1
-print,print arraymainrec01[1],Rectangle\) \$[\d]+ = {(\r|\n|\r\n)  namenum = 1(\r|\n|\r\n)  num = 15(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 20(\r|\n|\r\n)  height = 100
+print,print arraymainrec01[1],Rectangle\)[\s\S]*{(\r|\n|\r\n)  namenum = 1(\r|\n|\r\n)  num = 15(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 20(\r|\n|\r\n)  height = 100
 q,q,

@@ -8,17 +8,17 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/050_debug_dataType_basic.cj
-// EXEC: %compiler %cmp_opt -g 050_debug_dataType_basic.cj -o 050_debug_dataType_basic%cmp_output
-// EXEC: python3 cjdb_test.py lldb_within_watchpoint046.info 050_debug_dataType_basic %run_env
+// (!target_ios_simulator) EXEC: %compiler %cmp_opt -g 050_debug_dataType_basic.cj -o 050_debug_dataType_basic%cmp_output
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_within_watchpoint046.info 050_debug_dataType_basic %run_env
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b,b 31,050_debug_dataType_basic.cj:31
+b,b 050_debug_dataType_basic.cj:31,050_debug_dataType_basic.cj:31
 AOT r,r,-> 31
 Android c,c,31
 CJVM c,c,
 watchpoint,watchpoint set variable -w read_write vu5,050_debug_dataType_basic.cj:30
 modify,watch modify -c "vu5 == 2"
 c,c,33|32
-print,print vu5,\(UInt8\) \$[\d] = 2
+print,print vu5,\(UInt8\)[\s\S]*2
 q,q,

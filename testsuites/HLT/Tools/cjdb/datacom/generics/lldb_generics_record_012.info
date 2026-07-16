@@ -9,17 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/052_debug_record_generics.cj
 // EXEC: %compiler %cmp_opt -g 052_debug_record_generics.cj -o 052_debug_record_generics%cmp_output
-// EXEC: python3 cjdb_test.py lldb_generics_record_012.info 052_debug_record_generics %run_env
+// (target_ios_simulator) EXEC: mv 052_debug_record_generics%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_generics_record_012.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_generics_record_012.info 052_debug_record_generics %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 112,052_debug_record_generics.cj:112
+b,b 052_debug_record_generics.cj:112,052_debug_record_generics.cj:112
 AOT r,r,-> 112
 Android c,c,112
 CJVM c,c,
 n,n,113
-print,print m_c.c_r1,R1<UInt32>\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
+print,print m_c.c_r1,R1<UInt32>\)[\s\S]*{(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 q,q,

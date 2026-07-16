@@ -8,15 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case29/case29.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g case29.cj -o case29%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py case29.info case29 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g case29.cj -o case29%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py case29.info case29 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case29,case29
-b,b 19,case29.cj:19
+b,b case29.cj:19,case29.cj:19
 AOT r,r,-> 19
 Android c,c,19
 CJVM c,c,
-AOT p,p b,\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A
-AOT expr,expr b,\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A
+AOT p,p b,\(default(?:\.|::)E1\)[\s\S]*{[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A
+AOT expr,expr b,\(default(?:\.|::)E1\)[\s\S]*{[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A
 q,q,

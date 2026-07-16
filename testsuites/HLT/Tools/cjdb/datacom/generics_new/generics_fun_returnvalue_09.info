@@ -9,26 +9,29 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
-// EXEC: python3 cjdb_test.py generics_fun_returnvalue_09.info genericsfun_return %run_env
+// (target_ios_simulator) EXEC: mv genericsfun_return%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_09.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_09.info genericsfun_return %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 135,genericsfun_return.cj:135
+b,b genericsfun_return.cj:135,genericsfun_return.cj:135
 AOT r,r,-> 135
 Android c,c,135
 CJVM c,c,
-p, p lstr,\(std.core.String\) \$[\d] = "Cangjie"
-p, p s1.vstrs,\(std.core.String\) \$[\d] = "Cangjie"
-p, p c1.vstrc,\(std.core.String\) \$[\d] = "Cangjie"
-p, p default::C1::vstr,\(std.core.String\) \$[\d] = "Cangjie"
-p, p globals_str,\(std.core.String\) \$[\d] = "Cangjie"
-locals, locals,\(std.core.String\) lstr = "Cangjie"[\s\S]*\(default.S1\) s1 = {[\s\S]*vstrs = "Cangjie"[\s\S]*\(default.C1\) c1 = {[\s\S]*vstrc = "Cangjie"[\s\S]*
-globals, globals,\(std.core.String\) default::C1::vstr = "Cangjie"
-globals, globals,\(std.core.String\) default::globals_str = "Cangjie"
-b, b 162,genericsfun_return.cj:162
+p, p lstr,\(std\.core(?:\.|::)String\)[\s\S]*"Cangjie"
+p, p s1.vstrs,\(std\.core(?:\.|::)String\)[\s\S]*"Cangjie"
+p, p c1.vstrc,\(std\.core(?:\.|::)String\)[\s\S]*"Cangjie"
+AOT p, p default::C1::vstr,\(std\.core(?:\.|::)String\)[\s\S]*"Cangjie"
+p, p globals_str,\(std\.core(?:\.|::)String\)[\s\S]*"Cangjie"
+locals, locals,\(std\.core(?:\.|::)String\) lstr = "Cangjie"[\s\S]*\(default(?:\.|::)S1\) s1 = {[\s\S]*vstrs = "Cangjie"[\s\S]*\(default(?:\.|::)C1\) c1 = {[\s\S]*vstrc = "Cangjie"[\s\S]*
+globals, globals,\(std\.core(?:\.|::)String\) default(?:\.|::)C1::vstr = "Cangjie"
+globals, globals,\(std\.core(?:\.|::)String\) default(?:\.|::)globals_str = "Cangjie"
+b, b genericsfun_return.cj:162,genericsfun_return.cj:162
 c,c,162
-p, p a,\(std.core.String\) \$[\d] = "Cangjie"
-p, p test_a,\(std.core.String\) \$[\d] = "Cangjie"
-locals, locals,\(std.core.String\) a = "Cangjie"
+p, p a,\(std\.core(?:\.|::)String\)[\s\S]*"Cangjie"
+p, p test_a,\(std\.core(?:\.|::)String\)[\s\S]*"Cangjie"
+locals, locals,\(std\.core(?:\.|::)String\) a = "Cangjie"
 q,q,

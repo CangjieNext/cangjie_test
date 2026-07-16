@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/056_debug_tuple.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 056_debug_tuple.cj -o 056_debug_tuple%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py expression_Variable003.info 056_debug_tuple %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 056_debug_tuple.cj -o 056_debug_tuple%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_Variable003.info 056_debug_tuple %run_env
  
  
  
@@ -18,13 +18,13 @@ test#
 cjdb,cjdb --no-use-colors 056_debug_tuple,056_debug_tuple
 CJVM b,b main,056_debug_tuple.cj:13
 CJVM c,c,13
-b,b 24,056_debug_tuple.cj:24
+b,b 056_debug_tuple.cj:24,056_debug_tuple.cj:24
 CJVM c,c,24
 AOT r,r,-> 24
 Android c,c,24
-p, p str,\(std.core.String\) \$[\d] = "cangjie"
-expression, expression str,\(std.core.String\) \$[\d] = "cangjie"
-expression, expression var1,\(IntNative\) \$[\d] = 10
-expression, expression var2,\(UIntNative\) \$[\d] = 8
+p, p str,\(std\.core(?:\.|::)String\)[\s\S]*"cangjie"
+expression, expression str,\(std\.core(?:\.|::)String\)[\s\S]*"cangjie"
+expression, expression var1,\(IntNative\)[\s\S]*10
+expression, expression var2,\(UIntNative\)[\s\S]*8
 expression, expression b,error: unsupported expression
 q,q,

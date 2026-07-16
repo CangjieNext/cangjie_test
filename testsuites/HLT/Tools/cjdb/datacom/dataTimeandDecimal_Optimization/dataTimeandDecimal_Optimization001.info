@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/dataTimeandDecimal_Optimization/dataTimeandDecimal_Optimization001.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization001.cj -o dataTimeandDecimal_Optimization001%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization001.info dataTimeandDecimal_Optimization001 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization001.cj -o dataTimeandDecimal_Optimization001%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization001.info dataTimeandDecimal_Optimization001 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors dataTimeandDecimal_Optimization001,dataTimeandDecimal_Optimization001
-b,b 16,dataTimeandDecimal_Optimization001.cj:16
+b,b dataTimeandDecimal_Optimization001.cj:16,dataTimeandDecimal_Optimization001.cj:16
 r,r,-> 16
-globals,globals,\(std.math.numeric.Decimal\) default::d2 = -65.4321
-globals,globals,\(std.math.numeric.Decimal\) default::d3 = -154151.1651531
+globals,globals,\(std.math.numeric.Decimal\) default(?:\.|::)d2 = -65.4321
+globals,globals,\(std.math.numeric.Decimal\) default(?:\.|::)d3 = -154151.1651531
 locals,locals,\(std.math.numeric.Decimal\) a1 = -465131.0000
-p,p a4,\(std.math.numeric.Decimal\) \$[\d] = -461615156.464684
-expr,expr a2,\(std.math.numeric.Decimal\) \$[\d] = -65.4321
+p,p a4,\(std.math.numeric.Decimal\)[\s\S]*-461615156.464684
+expr,expr a2,\(std.math.numeric.Decimal\)[\s\S]*-65.4321
 q,q,

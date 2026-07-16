@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/002_debug_if.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 002_debug_if.cj -o 002_debug_if%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointInMain014.info 002_debug_if %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 002_debug_if.cj -o 002_debug_if%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_BreakpointInMain014.info 002_debug_if %run_env
 
 
 
@@ -18,18 +18,18 @@ test#
 cjdb,cjdb --no-use-colors 002_debug_if,002_debug_if
 CJVM b,breakpoint set -n main,002_debug_if.cj:13
 CJVM c,c,-> 13
-b,b 13,002_debug_if.cj:13
-AOT b,b 14,002_debug_if.cj:15
-AOT b,b 15,002_debug_if.cj:15
-AOT b,b 16,002_debug_if.cj:16
-AOT b,b 17,002_debug_if.cj:18
-AOT b,b 18,002_debug_if.cj:18
-AOT b,b 19,002_debug_if.cj:20
-b,b 20,002_debug_if.cj:20
-AOT b,b 21,002_debug_if.cj:21
-AOT b,b 22,002_debug_if.cj:23
-b,b 23,002_debug_if.cj:23
-AOT b,b 24,002_debug_if.cj:25
+b,b 002_debug_if.cj:13,002_debug_if.cj:13
+b,b 14,002_debug_if.cj:15
+b,b 002_debug_if.cj:15,002_debug_if.cj:15
+b,b 002_debug_if.cj:16,002_debug_if.cj:16
+b,b 17,002_debug_if.cj:18
+b,b 002_debug_if.cj:18,002_debug_if.cj:18
+b,b 19,002_debug_if.cj:20
+b,b 002_debug_if.cj:20,002_debug_if.cj:20
+b,b 002_debug_if.cj:21,002_debug_if.cj:21
+b,b 22,002_debug_if.cj:23
+b,b 002_debug_if.cj:23,002_debug_if.cj:23
+b,b 24,002_debug_if.cj:25
 AOT r,r,-> 13
 AOT n,n,-> 15
 AOT n,n,-> 16

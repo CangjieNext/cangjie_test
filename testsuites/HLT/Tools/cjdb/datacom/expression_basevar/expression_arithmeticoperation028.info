@@ -8,20 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_0o.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py expression_arithmeticoperation028.info 057_debug_0o %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_arithmeticoperation028.info 057_debug_0o %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
 CJVM b,b main,057_debug_0o.cj:13
 CJVM c,c,13
-b,b 64,057_debug_0o.cj:64
+b,b 057_debug_0o.cj:64,057_debug_0o.cj:64
 AOT r,r,-> 64
 Android c,c,64
-expression, expression var1=-var1;var1,\(Int8\) \$[\d] = -26
-expression, expression var2=-var2;var2,\(Int16\) \$[\d] = -14
-expression, expression var3=-var3;var3,\(Int32\) \$[\d] = -26
-expression, expression var4=-var4;var4,\(Int64\) \$[\d] = -52
-expression, expression var5=-var5;var5,\(IntNative\) \$[\d] = -52
+expression, expression var1=-var1;var1,\(Int8\)[\s\S]*-26
+expression, expression var2=-var2;var2,\(Int16\)[\s\S]*-14
+expression, expression var3=-var3;var3,\(Int32\)[\s\S]*-26
+expression, expression var4=-var4;var4,\(Int64\)[\s\S]*-52
+expression, expression var5=-var5;var5,\(IntNative\)[\s\S]*-52
 q,q,

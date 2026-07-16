@@ -9,17 +9,20 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_baseVar.cj
 // EXEC: %compiler %cmp_opt -g ArrayList_baseVar.cj -o ArrayList_baseVar%cmp_output
-// EXEC: python3 cjdb_test.py arraylist_test_005.info ArrayList_baseVar %run_env
+// (target_ios_simulator) EXEC: mv ArrayList_baseVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_005.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_005.info ArrayList_baseVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_baseVar,ArrayList_baseVar
-b,b 36,ArrayList_baseVar.cj:36
+b,b ArrayList_baseVar.cj:36,ArrayList_baseVar.cj:36
 AOT r,r,-> 36
 Android c,c,36
 CJVM c,c,36
-p,p Arrlist_bool,\(std[.]collection.ArrayList<Bool>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
-p,p Arrlist_rune,\(std[.]collection.ArrayList<Rune>\) \$[\d] = {[\s\S]*\[0\] = 'c'[\s\S]*\[6\] = 'e'[\s\S]*}
-p,p Arrlist_unit,\(std[.]collection.ArrayList<Unit>\) \$[\d] = {[\s\S]*\[0\] = \(\)[\s\S]*\[1\] = \(\)[\s\S]*}
+p,p Arrlist_bool,\(std[.]collection(?:\.|::)ArrayList<Bool>\)[\s\S]*{[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
+p,p Arrlist_rune,\(std[.]collection(?:\.|::)ArrayList<Rune>\)[\s\S]*{[\s\S]*\[0\] = 'c'[\s\S]*\[6\] = 'e'[\s\S]*}
+p,p Arrlist_unit,\(std[.]collection(?:\.|::)ArrayList<Unit>\)[\s\S]*{[\s\S]*\[0\] = \(\)[\s\S]*\[1\] = \(\)[\s\S]*}
 q,q,
 

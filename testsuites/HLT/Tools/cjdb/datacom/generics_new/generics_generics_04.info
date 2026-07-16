@@ -9,15 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_generics.cj
 // EXEC: %compiler %cmp_opt -g generics_generics.cj -o generics_generics%cmp_output
-// EXEC: python3 cjdb_test.py generics_generics_04.info generics_generics %run_env
+// (target_ios_simulator) EXEC: mv generics_generics%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_generics_04.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_generics_04.info generics_generics %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 110,Breakpoint 1:
+b,b generics_generics.cj:110,generics_generics.cj:110
 AOT r,r,-> 110
 Android c,c,110
 CJVM c,c,
-p, p a,\(default.C3<Rune>\) \$[\d] = {[\s\S]*c3_a = 'a'[\s\S]*}
-locals, locals,\(default.C4<default.C3<Rune>>\) this = {[\s\S]*c4_a = {[\s\S]*c3_a = 'a'[\s\S]*}[\s\S]*}[\s\S]*\(default.C3<Rune>\) a = {[\s\S]*c3_a = 'a'[\s\S]*}
+p, p a,\(default(?:\.|::)C3<Rune>\)[\s\S]*{[\s\S]*c3_a = 'a'[\s\S]*}
+locals, locals,\(default(?:\.|::)C4<default(?:\.|::)C3<Rune>>\) this = {[\s\S]*c4_a = {[\s\S]*c3_a = 'a'[\s\S]*}[\s\S]*}[\s\S]*\(default(?:\.|::)C3<Rune>\) a = {[\s\S]*c3_a = 'a'[\s\S]*}
 q,q,

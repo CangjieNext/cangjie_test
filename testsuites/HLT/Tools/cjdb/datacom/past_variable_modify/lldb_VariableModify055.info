@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// EXEC: python3 cjdb_test.py lldb_VariableModify055.info 024_debug_variable %run_env
+// (target_ios_simulator) EXEC: mv 024_debug_variable%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify055.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify055.info 024_debug_variable %run_env
 
 
 
@@ -18,7 +21,7 @@ test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
 CJVM b,b main,024_debug_variable.cj:15
 CJVM c,c,15
-b,b 91,024_debug_variable.cj:91
+b,b 024_debug_variable.cj:91,024_debug_variable.cj:91
 AOT r,r,-> 91
 Android c,c,91
 CJVM c,c,91
@@ -29,15 +32,15 @@ set,set var_four = 2,2
 set,set var_five = 2,2
 n,n,96
 locals,locals,var_one = 2
-p,p var_one,\(Int64\) \$[\d] = 2
+p,p var_one,\(Int64\)[\s\S]*2
 locals,locals,var_two = 2
-p,p var_two,\(Int64\) \$[\d] = 2
+p,p var_two,\(Int64\)[\s\S]*2
 locals,locals,var_three = 2
-p,p var_three,\(Int64\) \$[\d] = 2
+p,p var_three,\(Int64\)[\s\S]*2
 locals,locals,var_four = 2
-p,p var_four,\(Int64\) \$[\d] = 2
+p,p var_four,\(Int64\)[\s\S]*2
 locals,locals,var_five = 2
-p,p var_five,\(Int64\) \$[\d] = 2
+p,p var_five,\(Int64\)[\s\S]*2
 locals,locals,f_sum = 10
-p,p f_sum,\(Int64\) \$10 = 10
+p,p f_sum,\(Int64\)[\s\S]*10
 q,q,

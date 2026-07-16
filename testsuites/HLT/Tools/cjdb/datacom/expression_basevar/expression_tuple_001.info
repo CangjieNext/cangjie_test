@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/056_debug_tuple.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 056_debug_tuple.cj -o expression_tuple_001%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py expression_tuple_001.info expression_tuple_001 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 056_debug_tuple.cj -o expression_tuple_001%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_tuple_001.info expression_tuple_001 %run_env
  
  
  
@@ -18,15 +18,15 @@ test#
 cjdb,cjdb --no-use-colors expression_tuple_001,expression_tuple_001
 CJVM b,b main,056_debug_tuple.cj:13
 CJVM c,c,13
-b,b 24,056_debug_tuple.cj:24
+b,b 056_debug_tuple.cj:24,056_debug_tuple.cj:24
 CJVM c,c,24
 AOT r,r,-> 24
 Android c,c,24
-p,p tuple1,\(Tuple<std.core.String,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "String"[\s\S]*\[1\] = "cangjie"[\s\S]*}
-expression,expression tuple1,\(Tuple<std.core.String,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "String"[\s\S]*\[1\] = "cangjie"[\s\S]*}
-expression,expression tuple2,\(Tuple<UInt8,UInt8>\) \$[\d] = {[\s\S]*\[0\] = 97[\s\S]*\[1\] = 98[\s\S]*}
-expression,expression tuple3,\(Tuple<Rune,Rune,Rune,Rune>\) \$[\d] = {[\s\S]*\[0\] = \'b\'[\s\S]*\[1\] = \'\\\\'[\s\S]*\[2\] = \'好\'[\s\S]*\[3\] = \'\\"\'[\s\S]*}
-expression,expression tuple4,\(Tuple<Bool,Bool>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
-expression,expression tuple_F,\(Tuple<Float16,Float32,Float64>\) \$[\d] = {[\s\S]*\[0\] = 16.125[\s\S]*\[1\] = 32642.3203[\s\S]*\[2\] = 64.621325947594002[\s\S]*}
-expression,expression tuple_I,\(Tuple<Int8,Int16,Int32,Int64>\) \$[\d] = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 16[\s\S]*\[2\] = -32[\s\S]*\[3\] = 64[\s\S]*}
+p,p tuple1,\(Tuple<std.core(?:\.|::)String,std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = "String"[\s\S]*\[1\] = "cangjie"[\s\S]*}
+expression,expression tuple1,\(Tuple<std.core(?:\.|::)String,std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = "String"[\s\S]*\[1\] = "cangjie"[\s\S]*}
+expression,expression tuple2,\(Tuple<UInt8,UInt8>\)[\s\S]*{[\s\S]*\[0\] = 97[\s\S]*\[1\] = 98[\s\S]*}
+expression,expression tuple3,\(Tuple<Rune,Rune,Rune,Rune>\)[\s\S]*{[\s\S]*\[0\] = \'b\'[\s\S]*\[1\] = \'\\\\'[\s\S]*\[2\] = \'好\'[\s\S]*\[3\] = \'\\"\'[\s\S]*}
+expression,expression tuple4,\(Tuple<Bool,Bool>\)[\s\S]*{[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
+expression,expression tuple_F,\(Tuple<Float16,Float32,Float64>\)[\s\S]*{[\s\S]*\[0\] = 16.125[\s\S]*\[1\] = 32642.3203[\s\S]*\[2\] = 64.621325947594002[\s\S]*}
+expression,expression tuple_I,\(Tuple<Int8,Int16,Int32,Int64>\)[\s\S]*{[\s\S]*\[0\] = -8[\s\S]*\[1\] = 16[\s\S]*\[2\] = -32[\s\S]*\[3\] = 64[\s\S]*}
 q,q,

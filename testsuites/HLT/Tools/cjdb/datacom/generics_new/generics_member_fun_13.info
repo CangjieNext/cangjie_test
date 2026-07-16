@@ -9,17 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_member.cj
 // EXEC: %compiler %cmp_opt -g generics_member.cj -o generics_member%cmp_output
-// EXEC: python3 cjdb_test.py generics_member_fun_13.info generics_member %run_env
+// (target_ios_simulator) EXEC: mv generics_member%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_13.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_13.info generics_member %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 75,Breakpoint 1:
+b,b generics_member.cj:75,generics_member.cj:75
 AOT r,r,-> 75
 Android c,c,75
 CJVM c,c,
 c,c,75
-p, p vf1,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-p, p para1,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-locals, locals,\(std.collection.ArrayList<Int64>\) para1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(std.collection.ArrayList<Int64>\) vf1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p vf1,\(std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p para1,\(std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+locals, locals,\(std.collection(?:\.|::)ArrayList<Int64>\) para1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(std.collection(?:\.|::)ArrayList<Int64>\) vf1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 q,q,

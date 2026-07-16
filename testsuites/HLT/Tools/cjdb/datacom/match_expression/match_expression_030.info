@@ -8,14 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/match_expression/match_expression030.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g match_expression030.cj -o match_expression030%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py match_expression_030.info match_expression030 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g match_expression030.cj -o match_expression030%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py match_expression_030.info match_expression030 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors match_expression030,match_expression030
-b,b 28,match_expression030.cj:28
+b,b match_expression030.cj:28,match_expression030.cj:28
 r,r,-> 28
 Android c,c,28
-expr,expr t1,\(std.core.String\) \$[\d] = "Set year 2026"
+expr,expr t1,\(std\.core(?:\.|::)String\)[\s\S]*"Set year 2026"
 q,q,

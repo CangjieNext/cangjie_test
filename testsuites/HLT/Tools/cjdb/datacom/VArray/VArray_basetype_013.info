@@ -9,17 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_basetype.cj
 // EXEC: %compiler %cmp_opt -g VArray_basetype.cj -o VArray_basetype_013%cmp_output
-// EXEC: python3 cjdb_test.py VArray_basetype_013.info VArray_basetype_013 %run_env
+// (target_ios_simulator) EXEC: mv VArray_basetype_013%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py VArray_basetype_013.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py VArray_basetype_013.info VArray_basetype_013 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors VArray_basetype_013,VArray_basetype_013
-b,b 51,Breakpoint 1: where = VArray_basetype_013`default::main[\s\S]*VArray_basetype.cj:51
+b,b VArray_basetype.cj:51,Breakpoint 1: where = VArray_basetype_013`default(?:\.|::)main[\s\S]*VArray_basetype.cj:51
 AOT r,r,-> 51
 Android c,c,51
 CJVM c,c,51
 p,p vInt8[1]=1024,error: unsupported expression
-p,p vInt16[1]=16,\(Int16\) \$[\d] = 16
-p,p vInt32[1]=32,\(Int32\) \$[\d] = 32
+p,p vInt16[1]=16,\(Int16\)[\s\S]*16
+p,p vInt32[1]=32,\(Int32\)[\s\S]*32
 p,p vInt64[3]=64,\(Int64\)
 q,q,

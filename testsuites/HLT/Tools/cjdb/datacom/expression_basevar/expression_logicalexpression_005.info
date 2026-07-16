@@ -8,19 +8,19 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_0o.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py expression_logicalexpression_005.info 057_debug_0o %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_logicalexpression_005.info 057_debug_0o %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
 CJVM b,b main,057_debug_0o.cj:13
 CJVM c,c,13
-b,b 64,057_debug_0o.cj:64
+b,b 057_debug_0o.cj:64,057_debug_0o.cj:64
 AOT r,r,-> 64
 Android c,c,64
-expression, expression !var1z,\(Int8\) \$[\d] = -9
-expression, expression !var2z,\(Int16\) \$[\d] = -17
-expression, expression !var3z,\(Int32\) \$[\d] = -33
-expression, expression !var4z,\(Int64\) \$[\d] = -65
+expression, expression !var1z,\(Int8\)[\s\S]*-9
+expression, expression !var2z,\(Int16\)[\s\S]*-17
+expression, expression !var3z,\(Int32\)[\s\S]*-33
+expression, expression !var4z,\(Int64\)[\s\S]*-65
 q,q,

@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_member.cj
 // EXEC: %compiler %cmp_opt -g generics_member.cj -o generics_member%cmp_output
-// EXEC: python3 cjdb_test.py generics_member_fun_03.info generics_member %run_env
+// (target_ios_simulator) EXEC: mv generics_member%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_03.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_03.info generics_member %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 75,Breakpoint 1:
+b,b generics_member.cj:75,generics_member.cj:75
 AOT r,r,-> 75
 Android c,c,75
 CJVM c,c,
-p, p vf1,\(Bool\) \$[\d] = true
-p, p para1,\(Bool\) \$[\d] = true
+p, p vf1,\(Bool\)[\s\S]*true
+p, p para1,\(Bool\)[\s\S]*true
 locals, locals,\(Bool\) para1 = true[\s\S]*\(Bool\) vf1 = true[\s\S]*
 q,q,

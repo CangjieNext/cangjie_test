@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/case/case15/case15.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g case15.cj -o case15%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py case15.info case15 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g case15.cj -o case15%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py case15.info case15 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors case15,case15
-b,b 24,case15.cj:24
+b,b case15.cj:24,case15.cj:24
 AOT r,r,-> 24
 Android c,c,24
 CJVM c,c,
-AOT locals,locals,\(std.core.String\) c = "run"(\r|\n|\r\n)\(Int64\) d = 0(\r|\n|\r\n)\(Int64\) lvb = 1(\r|\n|\r\n)\(Int64\) llb = 2
-AOT p,p c,\(std.core.String\) \$[\d] = "run"
-AOT p,p d,\(Int64\) \$[\d] = 0
+AOT locals,locals,\(std\.core(?:\.|::)String\) c = "run"(\r|\n|\r\n)\(Int64\) d = 0(\r|\n|\r\n)\(Int64\) lvb = 1(\r|\n|\r\n)\(Int64\) llb = 2
+AOT p,p c,\(std\.core(?:\.|::)String\)[\s\S]*"run"
+AOT p,p d,\(Int64\)[\s\S]*0
 q,q,

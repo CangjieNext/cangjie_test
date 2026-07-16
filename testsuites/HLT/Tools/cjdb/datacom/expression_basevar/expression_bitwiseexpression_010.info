@@ -8,19 +8,19 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/058_debug_varray.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g 058_debug_varray.cj -o 058_debug_varray%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py expression_bitwiseexpression_010.info 058_debug_varray %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 058_debug_varray.cj -o 058_debug_varray%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_bitwiseexpression_010.info 058_debug_varray %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 058_debug_varray,058_debug_varray
-b,b 25,Breakpoint 1: where = 058_debug_varray`default::main[\s\S]*058_debug_varray.cj:25
+b,b 25,Breakpoint 1: where = 058_debug_varray`default(?:\.|::)main[\s\S]*058_debug_varray.cj:25
 AOT r,r,-> 25
 Android c,c,25
 CJVM c,c,25
-expression, expression vInt8[0]&(vInt8[0]-1),\(Int8\) \$[\d] = -2
-expression, expression vInt16[0]&(vInt16[0]-1),\(Int16\) \$[\d] = -2
-expression, expression vInt32[0]&(vInt32[0]-1),\(Int32\) \$[\d] = -2
-expression, expression vInt64[0]&(vInt64[0]-1),\(Int64\) \$[\d] = -2
-expression, expression vIntNative[0]&(vIntNative[0]-1),\(IntNative\) \$[\d] = -2
+expression, expression vInt8[0]&(vInt8[0]-1),\(Int8\)[\s\S]*-2
+expression, expression vInt16[0]&(vInt16[0]-1),\(Int16\)[\s\S]*-2
+expression, expression vInt32[0]&(vInt32[0]-1),\(Int32\)[\s\S]*-2
+expression, expression vInt64[0]&(vInt64[0]-1),\(Int64\)[\s\S]*-2
+expression, expression vIntNative[0]&(vIntNative[0]-1),\(IntNative\)[\s\S]*-2
 q,q,

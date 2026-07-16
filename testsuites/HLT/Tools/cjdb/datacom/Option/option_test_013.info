@@ -9,16 +9,19 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_compositeVar.cj
 // EXEC: %compiler %cmp_opt -g option_compositeVar.cj -o option_compositeVar%cmp_output
-// EXEC: python3 cjdb_test.py option_test_013.info option_compositeVar %run_env
+// (target_ios_simulator) EXEC: mv option_compositeVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py option_test_013.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py option_test_013.info option_compositeVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors option_compositeVar,option_compositeVar
-b,b 28,option_compositeVar.cj:28
+b,b option_compositeVar.cj:28,option_compositeVar.cj:28
 AOT r,r,-> 28
 Android c,c,28
 CJVM c,c,28
-p,p Arrlist_F16,\(std[.]core.Option<std[.]collection.ArrayList<Float16>>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
-p,p Arrlist_F64,\(std[.]core.Option<std[.]collection.ArrayList<Float64>>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
-p,p Arrlist_none,\(std[.]core.Option<std[.]collection.ArrayList<Int64>>\) \$[\d] = None
+p,p Arrlist_F16,\(std[.]core(?:\.|::)Option<std[.]collection(?:\.|::)ArrayList<Float16>>\)[\s\S]*{[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
+p,p Arrlist_F64,\(std[.]core(?:\.|::)Option<std[.]collection(?:\.|::)ArrayList<Float64>>\)[\s\S]*{[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
+p,p Arrlist_none,\(std[.]core(?:\.|::)Option<std[.]collection(?:\.|::)ArrayList<Int64>>\)[\s\S]*None
 q,q,

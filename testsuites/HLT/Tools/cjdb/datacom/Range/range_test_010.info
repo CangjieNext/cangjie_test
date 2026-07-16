@@ -9,12 +9,15 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Range/range_compositeVar.cj
 // EXEC: %compiler %cmp_opt -g range_compositeVar.cj -o range_compositeVar%cmp_output
-// EXEC: python3 cjdb_test.py range_test_010.info range_compositeVar %run_env
+// (target_ios_simulator) EXEC: mv range_compositeVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py range_test_010.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py range_test_010.info range_compositeVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors range_compositeVar,range_compositeVar
-b,b 45,range_compositeVar.cj:45
+b,b range_compositeVar.cj:45,range_compositeVar.cj:45
 AOT r,r,-> 45
 Android c,c,45
 CJVM c,c,45

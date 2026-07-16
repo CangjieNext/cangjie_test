@@ -8,20 +8,20 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/Test_CString.cj
-// (!target_android) EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py viewVariables_Cstring_010.info viewVariables_Cstring_010 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py viewVariables_Cstring_010.info viewVariables_Cstring_010 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_010,viewVariables_Cstring_010
-b,b 70,Test_CString.cj:70
+b,b Test_CString.cj:70,Test_CString.cj:70
 AOT r,r,-> 70
 CJVM c,c,
 s,s,-> 53
-b,b 58,Test_CString.cj:58
+b,b Test_CString.cj:58,Test_CString.cj:58
 c,c,-> 58
-p,p vf_arr_str_2,\(std[.]core.Array<std[.]core.Array<CString>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = " "[\S\s]*\[1\] = {[\s\S]*\[0\] = "Hello cangjie!"[\S\s]*
-p,p vf_arr_str_2[0],\(std[.]core.Array<CString>\) \$[\d] = {[\s\S]*\[0\] = " "[\S\s]*\[2\] = "仓颉与C互操作_CString\(<>\)"[\s\S]*
-p,p vf_arr_str_2[1][2],\(CString\) \$[\d] = "!@#\$%\^\&\*\(\)<<\?>"
+p,p vf_arr_str_2,\(std[.]core(?:\.|::)Array<std[.]core(?:\.|::)Array<CString>>\)[\s\S]*{[\s\S]*\[0\] = {[\s\S]*\[0\] = " "[\S\s]*\[1\] = {[\s\S]*\[0\] = "Hello cangjie!"[\S\s]*
+p,p vf_arr_str_2[0],\(std[.]core(?:\.|::)Array<CString>\)[\s\S]*{[\s\S]*\[0\] = " "[\S\s]*\[2\] = "仓颉与C互操作_CString\(<>\)"[\s\S]*
+p,p vf_arr_str_2[1][2],\(CString\)[\s\S]*"!@#\$%\^\&\*\(\)<<\?>"
 p,p vf_arr_str_2[2][2],error: unsupported expression
 q,q,

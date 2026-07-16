@@ -8,16 +8,16 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/dataTimeandDecimal_Optimization/dataTimeandDecimal_Optimization007.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization007.cj -o dataTimeandDecimal_Optimization007%cmp_output
-// (not target_mac and not target_android)EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization007.info dataTimeandDecimal_Optimization007 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization007.cj -o dataTimeandDecimal_Optimization007%cmp_output
+// (!(target_mac|target_android|target_ios_simulator))EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization007.info dataTimeandDecimal_Optimization007 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors dataTimeandDecimal_Optimization007,dataTimeandDecimal_Optimization007
-b,b 16,dataTimeandDecimal_Optimization007.cj:16
+b,b dataTimeandDecimal_Optimization007.cj:16,dataTimeandDecimal_Optimization007.cj:16
 r,r,-> 16
 locals,locals,\(std.math.numeric.Decimal\) b1 = 1
-p,p b2,\(std.math.numeric.Decimal\) \$[\d] = 0.1
-expr~expr Decimal(".1")~\(std.math.numeric.Decimal\) \$[\d] = 0.1
-expr~expr Decimal.parse("1.")~\(std.math.numeric.Decimal\) \$[\d] = 1
+p,p b2,\(std.math.numeric.Decimal\)[\s\S]*0.1
+expr~expr Decimal(".1")~\(std.math.numeric.Decimal\)[\s\S]*0.1
+expr~expr Decimal.parse("1.")~\(std.math.numeric.Decimal\)[\s\S]*1
 q,q,

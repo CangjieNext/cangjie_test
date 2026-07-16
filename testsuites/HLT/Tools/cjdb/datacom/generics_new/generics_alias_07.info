@@ -9,26 +9,29 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_alias.cj
 // EXEC: %compiler %cmp_opt -g generics_alias.cj -o generics_alias%cmp_output
-// EXEC: python3 cjdb_test.py generics_alias_07.info generics_alias %run_env
+// (target_ios_simulator) EXEC: mv generics_alias%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_alias_07.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_alias_07.info generics_alias %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_alias,generics_alias
-b,b 99,generics_alias.cj:99
+b,b generics_alias.cj:99,generics_alias.cj:99
 AOT r,r,-> 99
 Android c,c,99
 CJVM c,c,
-p, p lst,\(default.structtype01<Int32>\) \$[\d] = {[\s\S]*a = 32[\s\S]
-p, p s1.vsts,\(default.structtype01<Int64>\) \$[\d] = {[\s\S]*a = 10[\s\S]
-p, p c1.vstc,\(default.structtype01<Int64>\) \$[\d] = {[\s\S]*a = 10[\s\S]
-p, p default::C1::vst,\(default.structtype01<Int64>\) \$[\d] = {[\s\S]*a = 10[\s\S]
-p, p globals_st,\(default.structtype01<Int32>\) \$[\d] = {[\s\S]*a = 32[\s\S]
-locals, locals,\(default.structtype01<Int32>\) lst = {[\s\S]*a = 32[\s\S][\s\S]*\(default.S1\) s1 = {[\s\S]*vsts = {[\s\S]*a = 10[\s\S][\s\S]*\(default.C1\) c1 = {[\s\S]*vstc = {[\s\S]*a = 10[\s\S][\s\S]*
-globals, globals,\(default.structtype01<Int64>\) default::C1::vst = {[\s\S]*a = 10[\s\S]
-globals, globals,\(default.structtype01<Int32>\) default::globals_st = {[\s\S]*a = 32[\s\S]
-b, b 110,generics_alias.cj:110
+p, p lst,\(default(?:\.|::)structtype01<Int32>\)[\s\S]*{[\s\S]*a = 32[\s\S]
+p, p s1.vsts,\(default(?:\.|::)structtype01<Int64>\)[\s\S]*{[\s\S]*a = 10[\s\S]
+p, p c1.vstc,\(default(?:\.|::)structtype01<Int64>\)[\s\S]*{[\s\S]*a = 10[\s\S]
+AOT p, p default::C1::vst,\(default(?:\.|::)structtype01<Int64>\)[\s\S]*{[\s\S]*a = 10[\s\S]
+p, p globals_st,\(default(?:\.|::)structtype01<Int32>\)[\s\S]*{[\s\S]*a = 32[\s\S]
+locals, locals,\(default(?:\.|::)structtype01<Int32>\) lst = {[\s\S]*a = 32[\s\S][\s\S]*\(default(?:\.|::)S1\) s1 = {[\s\S]*vsts = {[\s\S]*a = 10[\s\S][\s\S]*\(default(?:\.|::)C1\) c1 = {[\s\S]*vstc = {[\s\S]*a = 10[\s\S][\s\S]*
+globals, globals,\(default(?:\.|::)structtype01<Int64>\) default(?:\.|::)C1::vst = {[\s\S]*a = 10[\s\S]
+globals, globals,\(default(?:\.|::)structtype01<Int32>\) default(?:\.|::)globals_st = {[\s\S]*a = 32[\s\S]
+b, b generics_alias.cj:110,generics_alias.cj:110
 c,c,110
-p, p g,\(default.structtype01<Int32>\) \$[\d] = {[\s\S]*a = 32[\s\S]
-p, p test_g,\(default.structtype01<Int32>\) \$[\d] = {[\s\S]*a = 32[\s\S]
-locals, locals,\(default.structtype01<Int32>\) g = {[\s\S]*a = 32[\s\S]
+p, p g,\(default(?:\.|::)structtype01<Int32>\)[\s\S]*{[\s\S]*a = 32[\s\S]
+p, p test_g,\(default(?:\.|::)structtype01<Int32>\)[\s\S]*{[\s\S]*a = 32[\s\S]
+locals, locals,\(default(?:\.|::)structtype01<Int32>\) g = {[\s\S]*a = 32[\s\S]
 q,q,

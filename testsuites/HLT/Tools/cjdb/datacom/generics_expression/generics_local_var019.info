@@ -8,16 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var019.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_var019.cj -o generics_local_var019%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py generics_local_var019.info generics_local_var019 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_local_var019.cj -o generics_local_var019%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py generics_local_var019.info generics_local_var019 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var019,generics_local_var019
-b,b 16,generics_local_var019.cj:16
+b,b generics_local_var019.cj:16,generics_local_var019.cj:16
 AOT r,r,-> 16
 Android c,c,16
 CJVM c,c,
-expr~expr cla_ins~\(default.Cla_1<Int64>\) \$[\d] = {[\s\S]*width = "Cangjie"[\s\S]*intValue = 18[\s\S]*
-expr~expr set_string_1~\(std.collection.HashSet<std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "Cangjie"[\s\S]*}
+expr~expr cla_ins~\(default(?:\.|::)Cla_1<Int64>\)[\s\S]*{[\s\S]*width = "Cangjie"[\s\S]*intValue = 18[\s\S]*
+expr~expr set_string_1~\(std.collection.HashSet<std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = "Cangjie"[\s\S]*}
 q,q,

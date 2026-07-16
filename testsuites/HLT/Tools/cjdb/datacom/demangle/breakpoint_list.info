@@ -8,18 +8,18 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/demangle/
-// (!target_android) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_class/* -o libpkg_class.%test_suffix
-// (!target_android) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_func/* -o libpkg_func.%test_suffix
-// (!target_android) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_enum/* -o libpkg_enum.%test_suffix
-// (!target_android) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_struct/* -o libpkg_struct.%test_suffix
-// (!target_android) EXEC: %compiler %cmp_opt -g demangle/demangle.cj -L. -lpkg_class -lpkg_func -lpkg_enum -lpkg_struct -o demangle_target%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py breakpoint_list.info demangle_target %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_class/* -o libpkg_class.%test_suffix
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_func/* -o libpkg_func.%test_suffix
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_enum/* -o libpkg_enum.%test_suffix
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_struct/* -o libpkg_struct.%test_suffix
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g demangle/demangle.cj -L. -lpkg_class -lpkg_func -lpkg_enum -lpkg_struct -o demangle_target%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py breakpoint_list.info demangle_target %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-b,b 212,demangle.cj:212
-AOT r,r,demangle_target`default::main\(\) at demangle.cj:212[\s\S]*-> 212
+b,b demangle.cj:212,demangle.cj:212
+AOT r,r,demangle_target`default(?:\.|::)main\(\) at demangle.cj:212[\s\S]*-> 212
 s,s,-> 43
-b,b 45,ClassViaInherit.cj:45
+b,b ClassViaInherit.cj:45,ClassViaInherit.cj:45
 q,q,

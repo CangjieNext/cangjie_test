@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/044_debug_func_nobody.cj
 // EXEC: %compiler %cmp_opt -g 044_debug_func_nobody.cj -o 044_debug_func_nobody%cmp_output
-// EXEC: python3 cjdb_test.py lldb_step001.info 044_debug_func_nobody %run_env
+// (target_ios_simulator) EXEC: mv 044_debug_func_nobody%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_step001.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_step001.info 044_debug_func_nobody %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 044_debug_func_nobody,044_debug_func_nobody
-b,b 13,044_debug_func_nobody.cj:13
-b,b 14,044_debug_func_nobody.cj:14
-b,b 22,044_debug_func_nobody.cj:22
+b,b 044_debug_func_nobody.cj:13,044_debug_func_nobody.cj:13
+b,b 044_debug_func_nobody.cj:14,044_debug_func_nobody.cj:14
+b,b 044_debug_func_nobody.cj:22,044_debug_func_nobody.cj:22
 AOT r,r,-> 13
 Android c,c,13
 CJVM c,c,

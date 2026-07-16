@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_var_extend.cj
 // EXEC: %compiler %cmp_opt -g generics_var_extend.cj -o generics_var_extend%cmp_output
-// EXEC: python3 cjdb_test.py generics_var_extend_10.info generics_var_extend %run_env
+// (target_ios_simulator) EXEC: mv generics_var_extend%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_var_extend_10.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_var_extend_10.info generics_var_extend %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 239,Breakpoint 1:
+b,b generics_var_extend.cj:239,generics_var_extend.cj:239
 AOT r,r,-> 239
 Android c,c,239
 CJVM c,c,
-p, p a,\(Float64\) \$[\d] = 64.640000000000001
-p, p a1,\(Float64\) \$[\d] = 64.640000000000001
+p, p a,\(Float64\)[\s\S]*64.640000000000001
+p, p a1,\(Float64\)[\s\S]*64.640000000000001
 locals, locals,\(Float64\) a = 64.640000000000001[\s\S]*\(Float64\) a1 = 64.640000000000001
 q, q

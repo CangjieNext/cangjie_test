@@ -8,16 +8,16 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/collection_HashMap/basic_hashmap_011.cj
-// (not target_mac) EXEC: %compiler %cmp_opt -g basic_hashmap_011.cj -o basic_hashmap_011%cmp_output
-// (not target_mac) EXEC: python3 cjdb_test.py cjdb_hashmap_011.info basic_hashmap_011 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g basic_hashmap_011.cj -o basic_hashmap_011%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py cjdb_hashmap_011.info basic_hashmap_011 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_011,basic_hashmap_011
-b,b 22,basic_hashmap_011.cj:22
+b,b basic_hashmap_011.cj:22,basic_hashmap_011.cj:22
 AOT r,r,-> 22
 Android c,c,22
-globals,globals,\(std.collection.HashMap<default.cla,UInt8>\) default::map_a = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 42[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 2[\s\S]*}[\s\S]*value = 12[\s\S]*
-p,p map_d,\(std.collection.HashMap<default.cla,Rune>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 'C'[\s\S]*}[\s\S]*\[1\] = {[\s\S]*
-expr,expr map_b,\(std.collection.HashMap<default.cla,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = "a"[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 2[\s\S]*
+globals,globals,\(std.collection(?:\.|::)HashMap<default(?:\.|::)cla,UInt8>\) default(?:\.|::)map_a = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 42[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 2[\s\S]*}[\s\S]*value = 12[\s\S]*
+p,p map_d,\(std.collection(?:\.|::)HashMap<default(?:\.|::)cla,Rune>\)[\s\S]*{[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 'C'[\s\S]*}[\s\S]*\[1\] = {[\s\S]*
+expr,expr map_b,\(std.collection(?:\.|::)HashMap<default(?:\.|::)cla,std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = "a"[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 2[\s\S]*
 q,q,

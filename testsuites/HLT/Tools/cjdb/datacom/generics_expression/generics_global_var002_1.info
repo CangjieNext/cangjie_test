@@ -8,16 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_var002.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_global_var002.cj -o generics_global_var002%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py generics_global_var002_1.info generics_global_var002 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_global_var002.cj -o generics_global_var002%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py generics_global_var002_1.info generics_global_var002 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_global_var002,generics_global_var002
-b,b 22,generics_global_var002.cj:22
+b,b generics_global_var002.cj:22,generics_global_var002.cj:22
 AOT r,r,-> 22
 Android c,c,22
 CJVM c,c,
-expr:expr i>6:\(Bool\) \$[\d] = false
-expr:expr if(i==0){i++};i:\(Int64\) \$[\d] = 1
+expr:expr i>6:\(Bool\)[\s\S]*false
+expr:expr if(i==0){i++};i:\(Int64\)[\s\S]*1
 q,q,

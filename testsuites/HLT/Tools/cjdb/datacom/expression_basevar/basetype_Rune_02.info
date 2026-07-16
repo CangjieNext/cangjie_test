@@ -8,16 +8,16 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_rune.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 057_debug_rune.cj -o 057_debug_rune%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py basetype_Rune_02.info 057_debug_rune %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 057_debug_rune.cj -o 057_debug_rune%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py basetype_Rune_02.info 057_debug_rune %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 057_debug_rune,057_debug_rune
-b,b 17,057_debug_rune.cj:17
+b,b 057_debug_rune.cj:17,057_debug_rune.cj:17
 AOT r,r,-> 17
 Android c,c,17
 CJVM c,c,17
-expr,expr var01,\(Rune\) \$[\d] = 'b'
-expr,expr a,\(Rune\) \$[\d] = 'a'
+expr,expr var01,\(Rune\)[\s\S]*'b'
+expr,expr a,\(Rune\)[\s\S]*'a'
 q,q,

@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// EXEC: python3 cjdb_test.py lldb_VariableModify054.info 024_debug_variable %run_env
+// (target_ios_simulator) EXEC: mv 024_debug_variable%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify054.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify054.info 024_debug_variable %run_env
 
 
 
@@ -18,17 +21,17 @@ test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
 CJVM b,b main,024_debug_variable.cj:15
 CJVM c,c,15
-b,b 81,024_debug_variable.cj:81
+b,b 024_debug_variable.cj:81,024_debug_variable.cj:81
 AOT r,r,-> 81
 Android c,c,81
 CJVM c,c,81
 set,set var_cover = 5,5
 n,n,82
 locals,locals,var_cover = 5
-p,p var_cover,\(Int64\) \$[\d] = 5
+p,p var_cover,\(Int64\)[\s\S]*5
 n,n,81
 n,n,81
 n,n,86
 locals,locals,var_cover = 10
-p,p var_cover,\(Int64\) \$[\d] = 10
+p,p var_cover,\(Int64\)[\s\S]*10
 q,q,

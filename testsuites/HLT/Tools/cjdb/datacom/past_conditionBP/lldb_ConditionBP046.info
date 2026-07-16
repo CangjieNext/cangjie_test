@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/018_debug_parentheses.cj
-// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 018_debug_parentheses.cj -o 018_debug_parentheses%cmp_output
-// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py lldb_ConditionBP046.info 018_debug_parentheses %run_env
+// (!(target_mac|target_win|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 018_debug_parentheses.cj -o 018_debug_parentheses%cmp_output
+// (!(target_mac|target_win|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_ConditionBP046.info 018_debug_parentheses %run_env
 
 
 

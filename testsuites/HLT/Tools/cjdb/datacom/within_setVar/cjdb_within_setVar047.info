@@ -9,19 +9,22 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_setVar/003_debug_setVar_inherit.cj
 // EXEC: %compiler %cmp_opt -g 003_debug_setVar_inherit.cj -o 003_debug_setVar_inherit%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_within_setVar047.info 003_debug_setVar_inherit %run_env
+// (target_ios_simulator) EXEC: mv 003_debug_setVar_inherit%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar047.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar047.info 003_debug_setVar_inherit %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_setVar_inherit,003_debug_setVar_inherit
-b,b 26,003_debug_setVar_inherit.cj:26
+b,b 003_debug_setVar_inherit.cj:26,003_debug_setVar_inherit.cj:26
 AOT r,r,-> 26
 Android c,c,26
 CJVM c,c,
 s,s,static func sub_s1\(\): Clazz_1<Bool>[\s\S]*105
 n,n,106
-p,p f_c1.para_f1,\(Bool\) \$[\d] = true
+p,p f_c1.para_f1,\(Bool\)[\s\S]*true
 AOT set,set f_c1.para_f1=0.0,error: unsupported expression
 CJVM set,set f_c1.para_f1=0.0,error: Incorrect value
-p,p f_c1.para_f1,\(Bool\) \$[\d] = true
+p,p f_c1.para_f1,\(Bool\)[\s\S]*true
 q,q,

@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/054_debug_struct_basetype.cj
 // EXEC: %compiler %cmp_opt -g 054_debug_struct_basetype.cj -o 001_express_basetype%cmp_output
-// EXEC: python3 cjdb_test.py express_error_001.info 006_express_basetype %run_env
+// (target_ios_simulator) EXEC: mv 001_express_basetype%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py express_error_001.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py express_error_001.info 001_express_basetype %run_env
 
 
 test#

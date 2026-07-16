@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/002_debug_array_enum.cj
 // EXEC: %compiler %cmp_opt -g 002_debug_array_enum.cj -o 002_debug_array_enum%cmp_output
-// EXEC: python3 cjdb_test.py lldb_array_composite_028.info 002_debug_array_enum %run_env
+// (target_ios_simulator) EXEC: mv 002_debug_array_enum%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_028.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_028.info 002_debug_array_enum %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_enum,002_debug_array_enum
-b,b 48,002_debug_array_enum.cj:48
+b,b 002_debug_array_enum.cj:48,002_debug_array_enum.cj:48
 AOT r,r,-> 48
 Android c,c,48
 CJVM c,c,
-locals,locals,std[.]core.Array<default.TimeUnit1>\) arrayfun = {[\S\s]* \[0\] = a[\s\S]*
+locals,locals,std[.]core(?:\.|::)Array<default(?:\.|::)TimeUnit1>\) arrayfun = {[\S\s]* \[0\] = a[\s\S]*
 q,q,

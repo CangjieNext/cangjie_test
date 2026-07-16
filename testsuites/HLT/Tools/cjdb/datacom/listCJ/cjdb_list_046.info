@@ -10,20 +10,23 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_list_046.info list_debug %run_env
+// (target_ios_simulator) EXEC: mv list_debug%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_046.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_046.info list_debug %run_env
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 199,list_debug.cj:199
+b,b list_debug.cj:199,list_debug.cj:199
 AOT r,r,-> 199
 Android c,c,199
 CJVM c,c,
-p,p m_inherit_8,\$[\d] =
+p,p m_inherit_8,[\s\S]*
 AOT p,p m_inherit_8[0].width,\$[0-9]* = {[\s\S]*There are 100 apples
 CJVM p,p m_inherit_8[0].width,error: variable was not declared in this scope
 AOT p;p m_inherit_8[0].C2<Array<String>,Array<Int64>>.width;error: unsupported expression
 p,p m_inherit_8[0].data,\$[0-9]* = {[\s\S]*There are 100 apples
-AOT p,p m_inherit_8[0].c2_pri[2],\(Int64\) \$[0-9]* = 3
+AOT p,p m_inherit_8[0].c2_pri[2],\(Int64\)[\s\S]* 3
 CJVM p,p m_inherit_8[0].c2_pri[2],error: variable was not declared in this scope
 AOT p;p m_inherit_8[0].C2<Array<String>,Array<Int64>>.c2_pri[2];error: unsupported expression
 q,quit,

@@ -9,25 +9,28 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashSet/003_HashSet_via_class.cj
 // EXEC: %compiler %cmp_opt -g 003_HashSet_via_class.cj -o 003_HashSet_via_class%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_HashSet027.info 003_HashSet_via_class %run_env
+// (target_ios_simulator) EXEC: mv 003_HashSet_via_class%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashSet027.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashSet027.info 003_HashSet_via_class %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 29,003_HashSet_via_class.cj:29
+b,b 003_HashSet_via_class.cj:29,003_HashSet_via_class.cj:29
 AOT r,r,-> 29
 Android c,c,29
 CJVM c,c,29
 s,s,117
-p,p par_1,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[0\] = 9458[\S\s]*}
-p,p par_1,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[1\] = 625654[\S\s]*}
-p,p par_2,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[0\] = 32[\S\s]*}
-p,p par_2,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[1\] = 126[\S\s]*}
-b,b 119,003_HashSet_via_class.cj:119
+p,p par_1,std[.]collection(?:\.|::)HashSet<UInt32>\)[\s\S]*{[\S\s]*\[0\] = 9458[\S\s]*}
+p,p par_1,std[.]collection(?:\.|::)HashSet<UInt32>\)[\s\S]*{[\S\s]*\[1\] = 625654[\S\s]*}
+p,p par_2,std[.]collection(?:\.|::)HashSet<UInt32>\)[\s\S]*{[\S\s]*\[0\] = 32[\S\s]*}
+p,p par_2,std[.]collection(?:\.|::)HashSet<UInt32>\)[\s\S]*{[\S\s]*\[1\] = 126[\S\s]*}
+b,b 003_HashSet_via_class.cj:119,003_HashSet_via_class.cj:119
 c,c,119
-p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[5\] = 5[\S\s]*}
-p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[4\] = 126[\S\s]*}
+p,p set_cuint32,std[.]collection(?:\.|::)HashSet<UInt32>\)[\s\S]*{[\S\s]*\[5\] = 5[\S\s]*}
+p,p set_cuint32,std[.]collection(?:\.|::)HashSet<UInt32>\)[\s\S]*{[\S\s]*\[4\] = 126[\S\s]*}
 n,n,120
-p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[5\] = 6978[\S\s]*}
-p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[4\] = 126[\S\s]*}
+p,p set_cuint32,std[.]collection(?:\.|::)HashSet<UInt32>\)[\s\S]*{[\S\s]*\[5\] = 6978[\S\s]*}
+p,p set_cuint32,std[.]collection(?:\.|::)HashSet<UInt32>\)[\s\S]*{[\S\s]*\[4\] = 126[\S\s]*}
 q,q,

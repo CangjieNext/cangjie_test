@@ -8,8 +8,11 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/015_debug_basetype.cj
-//  EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut001.info 015_debug_basetype %run_env
+// EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
+// (target_ios_simulator) EXEC: mv 015_debug_basetype%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut001.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut001.info 015_debug_basetype %run_env
 
 
 
@@ -18,23 +21,23 @@ test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
 CJVM b main,b main,015_debug_basetype.cj:13
 CJVM c,c,13
-b,b 13,015_debug_basetype.cj:13
-b,b 14,015_debug_basetype.cj:14
-b,b 15,015_debug_basetype.cj:15
-b,b 16,015_debug_basetype.cj:16
-b,b 17,015_debug_basetype.cj:17
-b,b 18,015_debug_basetype.cj:18
-b,b 19,015_debug_basetype.cj:19
-b,b 20,015_debug_basetype.cj:20
-b,b 21,015_debug_basetype.cj:21
-b,b 22,015_debug_basetype.cj:22
-b,b 24,015_debug_basetype.cj:24
-b,b 25,015_debug_basetype.cj:25
-b,b 26,015_debug_basetype.cj:26
-b,b 27,015_debug_basetype.cj:27
-b,b 28,015_debug_basetype.cj:28
-b,b 30,015_debug_basetype.cj:30
-b,b 31,015_debug_basetype.cj:31
+b,b 015_debug_basetype.cj:13,015_debug_basetype.cj:13
+b,b 015_debug_basetype.cj:14,015_debug_basetype.cj:14
+b,b 015_debug_basetype.cj:15,015_debug_basetype.cj:15
+b,b 015_debug_basetype.cj:16,015_debug_basetype.cj:16
+b,b 015_debug_basetype.cj:17,015_debug_basetype.cj:17
+b,b 015_debug_basetype.cj:18,015_debug_basetype.cj:18
+b,b 015_debug_basetype.cj:19,015_debug_basetype.cj:19
+b,b 015_debug_basetype.cj:20,015_debug_basetype.cj:20
+b,b 015_debug_basetype.cj:21,015_debug_basetype.cj:21
+b,b 015_debug_basetype.cj:22,015_debug_basetype.cj:22
+b,b 015_debug_basetype.cj:24,015_debug_basetype.cj:24
+b,b 015_debug_basetype.cj:25,015_debug_basetype.cj:25
+b,b 015_debug_basetype.cj:26,015_debug_basetype.cj:26
+b,b 015_debug_basetype.cj:27,015_debug_basetype.cj:27
+b,b 015_debug_basetype.cj:28,015_debug_basetype.cj:28
+b,b 015_debug_basetype.cj:30,015_debug_basetype.cj:30
+b,b 015_debug_basetype.cj:31,015_debug_basetype.cj:31
 AOT r,r,-> 13
 Android c,c,13
 s,s,14

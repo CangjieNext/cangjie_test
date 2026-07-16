@@ -9,17 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/001_debug_class_top_mod.cj
 // EXEC: %compiler %cmp_opt -g 001_debug_class_top_mod.cj -o 001_debug_class_top_mod%cmp_output
-// EXEC: python3 cjdb_test.py lldb_class011.info 001_debug_class_top_mod %run_env
+// (target_ios_simulator) EXEC: mv 001_debug_class_top_mod%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class011.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class011.info 001_debug_class_top_mod %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_class_top_mod,001_debug_class_top_mod
-b,b 55,001_debug_class_top_mod.cj:55
+b,b 001_debug_class_top_mod.cj:55,001_debug_class_top_mod.cj:55
 AOT r,r,-> 55
 Android c,c,55
 CJVM c,c,55
 n,n,56
-AOT locals,locals,std[.]core.Array<Int8>\) m_arrayInt8 = {(\r\n|\r|\n)  \[0\] = 10(\r\n|\r|\n)  \[1\] = 20(\r\n|\r|\n)  \[2\] = 30(\r\n|\r|\n)}
+AOT locals,locals,std[.]core(?:\.|::)Array<Int8>\) m_arrayInt8 = {(\r\n|\r|\n)  \[0\] = 10(\r\n|\r|\n)  \[1\] = 20(\r\n|\r|\n)  \[2\] = 30(\r\n|\r|\n)}
 q,q,

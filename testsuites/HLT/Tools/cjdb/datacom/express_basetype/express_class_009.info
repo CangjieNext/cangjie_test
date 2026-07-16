@@ -9,18 +9,21 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/053_debug_class_basetype_1.cj
 // EXEC: %compiler %cmp_opt -g 053_debug_class_basetype_1.cj -o 001_express_basetype%cmp_output
-// EXEC: python3 cjdb_test.py express_class_009.info 001_express_basetype %run_env
+// (target_ios_simulator) EXEC: mv 001_express_basetype%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py express_class_009.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py express_class_009.info 001_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 36,053_debug_class_basetype_1.cj:36
+b,b 053_debug_class_basetype_1.cj:36,053_debug_class_basetype_1.cj:36
 CJVM c,c,36
 AOT r,r,-> 36
 Android c,c,36
-p,p c.var111,\(Bool\) \$[\d] = false
-p,p c.var222,\(Unit\) \$[\d] = \(\)
-p,p c.var333,\(Rune\) \$[\d] = 'ï¿?
+p,p c.var111,\(Bool\)[\s\S]*false
+p,p c.var222,\(Unit\)[\s\S]*\(\)
+p,p c.var333,\(Rune\)[\s\S]*'ï¿?
 q,q,

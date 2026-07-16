@@ -9,14 +9,17 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/004_HashMap_Ins_array.cj
 // EXEC: %compiler %cmp_opt -g 004_HashMap_Ins_array.cj -o 004_HashMap_Ins_array%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_HashMap044.info 004_HashMap_Ins_array %run_env
+// (target_ios_simulator) EXEC: mv 004_HashMap_Ins_array%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashMap044.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashMap044.info 004_HashMap_Ins_array %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 004_HashMap_Ins_array,004_HashMap_Ins_array
-b,b 59,004_HashMap_Ins_array.cj:59
+b,b 004_HashMap_Ins_array.cj:59,004_HashMap_Ins_array.cj:59
 AOT r,r,-> 59
 Android c,c,59
 CJVM c,c,59
-p,p map_array_7,std[.]collection.HashMap<Bool,std[.]core.Array<std[.]collection.HashSet<default.cla>>>\) \$[\d] = {[\S\s]*key = false[\S\s]*value = [\S\s]*}
+p,p map_array_7,std[.]collection(?:\.|::)HashMap<Bool,std[.]core(?:\.|::)Array<std[.]collection(?:\.|::)HashSet<default(?:\.|::)cla>>>\)[\s\S]*{[\S\s]*key = false[\S\s]*value = [\S\s]*}
 q,q,

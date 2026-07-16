@@ -8,12 +8,12 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
-// (!target_android) EXEC: %compiler %cmp_opt -g coroutine/coroutine_10.cj -o coroutine_10%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py coroutine_024.info coroutine_10 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g coroutine/coroutine_10.cj -o coroutine_10%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py coroutine_024.info coroutine_10 %run_env
 
 test#
 cjdb,cjdb --no-use-colors coroutine_10,coroutine_10
-b,b 38,coroutine_10.cj:38
+b,b coroutine_10.cj:38,coroutine_10.cj:38
 AOT r,r,-> 38
 Android c,c,38
 b,breakpoint disable,

@@ -8,17 +8,17 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/pkgs007/src
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg6.cj -o libpkg6.%middle
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g libpkg6.%middle src/pkgs006.cj -o pkgs006%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py organization_name_014.info pkgs006 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg6.cj -o libpkg6.%middle
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g libpkg6.%middle src/pkgs006.cj -o pkgs006%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py organization_name_014.info pkgs006 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pkgs006,pkgs006
-b,b 33,pkgs006.cj:33
+b,b pkgs006.cj:33,pkgs006.cj:33
 r,r,-> 33
 Android c,c,33
-expr,expr main_c_area,\(Int32\) \$[\d] = -89
-expr,expr mian_year,\(org6.pkgs.TimeUnit\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 19[\s\S]*}
-expr,expr main_re_area,\(Int32\) \$[\d] = 10000
+expr,expr main_c_area,\(Int32\)[\s\S]*-89
+expr,expr mian_year,\(org6.pkgs.TimeUnit\)[\s\S]*{[\s\S]*constructor = Year[\s\S]*arg_1 = 19[\s\S]*}
+expr,expr main_re_area,\(Int32\)[\s\S]*10000
 q,q,

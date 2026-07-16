@@ -9,14 +9,17 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/011_debug_array_class_open.cj
 // EXEC: %compiler %cmp_opt -g 011_debug_array_class_open.cj -o 011_debug_array_class_open%cmp_output
-// EXEC: python3 cjdb_test.py lldb_array_composite_073.info 011_debug_array_class_open %run_env
+// (target_ios_simulator) EXEC: mv 011_debug_array_class_open%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_073.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_073.info 011_debug_array_class_open %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_array_class_open,011_debug_array_class_open
-b,b 57,011_debug_array_class_open.cj:57
+b,b 011_debug_array_class_open.cj:57,011_debug_array_class_open.cj:57
 AOT r,r,-> 57
 Android c,c,57
 CJVM c,c,

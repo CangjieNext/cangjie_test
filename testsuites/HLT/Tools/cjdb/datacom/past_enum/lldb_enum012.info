@@ -9,14 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/003_debug_enum_reload.cj
 // EXEC: %compiler %cmp_opt -g 003_debug_enum_reload.cj -o 003_debug_enum_reload%cmp_output
-// EXEC: python3 cjdb_test.py lldb_enum012.info 003_debug_enum_reload %run_env
+// (target_ios_simulator) EXEC: mv 003_debug_enum_reload%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_enum012.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_enum012.info 003_debug_enum_reload %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_enum_reload,003_debug_enum_reload
-b,b 26,003_debug_enum_reload.cj:26
+b,b 003_debug_enum_reload.cj:26,003_debug_enum_reload.cj:26
 AOT r,r,-> 26
 Android c,c,26
 CJVM c,c,

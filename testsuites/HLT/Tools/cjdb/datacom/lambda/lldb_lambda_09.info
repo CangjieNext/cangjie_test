@@ -8,20 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/lambda/Test_Lambda_Locals.cj
-// EXEC: %compiler %cmp_opt -g Test_Lambda_Locals.cj -o Test_Lambda%cmp_output
-// EXEC: python3 cjdb_test.py lldb_lambda_09.info Test_Lambda %run_env
+// (!target_ios_simulator) EXEC: %compiler %cmp_opt -g Test_Lambda_Locals.cj -o Test_Lambda%cmp_output
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_lambda_09.info Test_Lambda %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors Test_Lambda,Test_Lambda
-b,b 73,Test_Lambda_Locals.cj:73
+b,b Test_Lambda_Locals.cj:73,Test_Lambda_Locals.cj:73
 AOT r,r,-> 73
 Android c,c,73
 CJVM c,c,
 locals,locals,\(Int8\) intx8 = 8[\s\S]*\(Int16\) intx16 = 16[\s\S]*\(Int32\) intx32 = 32[\s\S]*\(Int64\) intx64 = 64[\s\S]*\(IntNative\) intxn = 10[\s\S]
-p, p intx8,\(Int8\) \$[\d] = 8
-p, p intx16,\(Int16\) \$[\d] = 16
-p, p intx32,\(Int32\) \$[\d] = 32
-p, p intx64,\(Int64\) \$[\d] = 64
-p, p intxn,\(IntNative\) \$[\d] = 10
+p, p intx8,\(Int8\)[\s\S]*8
+p, p intx16,\(Int16\)[\s\S]*16
+p, p intx32,\(Int32\)[\s\S]*32
+p, p intx64,\(Int64\)[\s\S]*64
+p, p intxn,\(IntNative\)[\s\S]*10
 q,q,

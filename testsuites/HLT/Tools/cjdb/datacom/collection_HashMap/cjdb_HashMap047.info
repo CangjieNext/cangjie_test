@@ -9,18 +9,21 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/002_HashMap_via_inherit.cj
 // EXEC: %compiler %cmp_opt -g 002_HashMap_via_inherit.cj -o 002_HashMap_via_inherit%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_HashMap047.info 002_HashMap_via_inherit %run_env
+// (target_ios_simulator) EXEC: mv 002_HashMap_via_inherit%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashMap047.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashMap047.info 002_HashMap_via_inherit %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 002_HashMap_via_inherit,002_HashMap_via_inherit
-b,b 20,002_HashMap_via_inherit.cj:20
+b,b 002_HashMap_via_inherit.cj:20,002_HashMap_via_inherit.cj:20
 AOT r,r,-> 20
 Android c,c,20
 CJVM c,c,20
 s,s,50
 n,n,51
-p,p map_f1,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = -29[\S\s]*value = 'C'[\S\s]*}
-p,p map_f1,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 12[\S\s]*value = 'H'[\S\s]*}
+p,p map_f1,std[.]collection(?:\.|::)HashMap<Int32,Rune>\)[\s\S]*{[\S\s]*key = -29[\S\s]*value = 'C'[\S\s]*}
+p,p map_f1,std[.]collection(?:\.|::)HashMap<Int32,Rune>\)[\s\S]*{[\S\s]*key = 12[\S\s]*value = 'H'[\S\s]*}
 n,n,52
 q,q,

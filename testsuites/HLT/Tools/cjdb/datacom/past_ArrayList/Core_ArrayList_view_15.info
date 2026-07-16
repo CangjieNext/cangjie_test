@@ -9,17 +9,20 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/066_debug_arraylist.cj
 // EXEC: %compiler %cmp_opt -g 066_debug_arraylist.cj -o 066_debug_arraylist%cmp_output
-// EXEC: python3 cjdb_test.py Core_ArrayList_view_15.info 066_debug_arraylist %run_env
+// (target_ios_simulator) EXEC: mv 066_debug_arraylist%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py Core_ArrayList_view_15.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py Core_ArrayList_view_15.info 066_debug_arraylist %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
-b,b 53,066_debug_arraylist.cj:53
+b,b 066_debug_arraylist.cj:53,066_debug_arraylist.cj:53
 AOT r,r,-> 53
 Android c,c,53
 CJVM c,c,53
-p,p arraylist0,\(std\.collection.ArrayList<std.collection.ArrayList<std.core.Array<std.collection.HashSet<Int64>>>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*}
+p,p arraylist0,\(std\.collection.ArrayList<std.collection(?:\.|::)ArrayList<std.core(?:\.|::)Array<std.collection.HashSet<Int64>>>>\)[\s\S]*{[\s\S]*\[0\] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*}
 locals,locals,arraylist0 = {[\s\S]*\[0\] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*}
 q,q,

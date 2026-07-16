@@ -57,7 +57,11 @@ ANDROID_RUNTIME_MARKER = ANDROID_DEVICE_DIR + ".runtime_marker"
 ANDROID_RUNTIME_PUSH_LOCK_PATH = os.path.join(LOCK_DIR, 'android_runtime_push_lock')
 
 LLDB_SERVER_PORT_START = 12000
-LLDB_SERVER_PORT_END = 15000
+LLDB_SERVER_PORT_END = 35000
+
+LLDB_STARTUP_TIMEOUT = int(os.environ.get('LLDB_STARTUP_TIMEOUT', 10))
+LLDB_ATTACH_TIMEOUT = int(os.environ.get('LLDB_ATTACH_TIMEOUT', 5))
+LLDB_CMD_TIMEOUT = int(os.environ.get('LLDB_CMD_TIMEOUT', 10))
 
 
 def get_android_paths():
@@ -305,6 +309,95 @@ def start_lldb_server_on_android(port, device_id=None):
     return process
 
 
+class IOSDebugSession:
+    """
+    IOSDebugSession: Manages iOS simulator debugging session
+    """
+    def __init__(self):
+        self.cjdb_proc = None
+        self.ios_pid = None
+        self.exec_file = None
+    
+    def setup(self, test_case, cmp_res):
+        """
+        setup: Setup iOS simulator debugging environment
+        """
+        self.exec_file = cmp_res
+        return True
+    
+    def run_ios_simulator(self, exec_file):
+        """
+        run_ios_simulator: Build, install, launch app on iOS simulator and return (pid, app_path)
+        Returns: (pid, app_path) or (None, None) on failure
+        """
+        cangjie_test = os.environ.get('CANGJIE_TEST')
+        if not cangjie_test:
+            print("Error: CANGJIE_TEST environment variable not set")
+            return None, None
+        
+        ios_script_dir = os.path.join(cangjie_test, 'testsuites', 'HLT', 'configs', 'cjnative', 'ios')
+        ios_script_path = os.path.join(ios_script_dir, 'run_ios_simulator.sh')
+        
+        if not os.path.exists(ios_script_path):
+            print(f"iOS simulator script not found: {ios_script_path}")
+            return None, None
+        
+        work_dir = os.path.dirname(exec_file)
+        if not work_dir:
+            work_dir = os.getcwd()
+        
+        cmd_args = [
+            'python3', os.path.join(ios_script_dir, 'run_ios.py'),
+            '--project-path', os.environ.get('XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST', 
+                                             os.path.join(ios_script_dir, 'xcode_project_of_cangjie_ios_test', 'test_cangjie_ios_175.xcodeproj')),
+            '--scheme', os.environ.get('XCODE_SCHEME_OF_CANGJIE_IOS_TEST', 'test_cangjie_ios_175'),
+            '--bundle-id', os.environ.get('XCODE_BUNDLE_ID_OF_CANGJIE_IOS_TEST', 'cangjie.test-cangjie-ios-175'),
+            '--configuration', os.environ.get('XCODE_CONFIGUARTION_OF_CANGJIE_IOS_TEST', 'Release'),
+            '--device-type', 'simulator',
+            '--simulator-name', os.environ.get('XCODE_SIMULATOR_NAME_OF_CANGJIE_IOS_TEST', 'iPhone 15'),
+            '--os-version', os.environ.get('XCODE_OS_VERSION_OF_CANGJIE_IOS_TEST', '17.5'),
+            '--launch'
+        ]
+        
+        if os.environ.get('XCODE_SKIP_BUILD', '').lower() == 'true':
+            cmd_args.append('--skip-build')
+        
+        result = subprocess.run(cmd_args, cwd=work_dir, capture_output=True, text=True, timeout=300)
+        
+        if result.returncode == 0:
+            output = result.stdout.strip()
+            ios_pid = None
+            ios_app_path = None
+            for line in output.split('\n'):
+                if line.startswith('IOS_PID:'):
+                    self.ios_pid = line.split(':')[1]
+                    ios_pid = self.ios_pid
+                elif line.startswith('IOS_APP_PATH:'):
+                    ios_app_path = line.split(':', 1)[1]
+            if ios_pid:
+                print(f"iOS simulator process started: PID={ios_pid}, APP_PATH={ios_app_path}")
+                return ios_pid, ios_app_path
+        
+        print(f"Failed to get iOS simulator PID: {result.stderr}")
+        return None, None
+    
+    def cleanup(self):
+        """
+        cleanup: Clean up all processes
+        """
+        try:
+            if self.cjdb_proc:
+                self.cjdb_proc.terminate()
+            if self.ios_pid:
+                subprocess.run(['kill', self.ios_pid], capture_output=True)
+                subprocess.run(['xcrun', 'simctl', 'terminate', 'booted', 
+                               os.environ.get('XCODE_BUNDLE_ID_OF_CANGJIE_IOS_TEST', 
+                                             'cangjie.test-cangjie-ios-175')],
+                              capture_output=True)
+        except Exception:
+            pass
+
+
 class AndroidDebugSession:
     """
     AndroidDebugSession: Manages Android remote debugging session
@@ -426,9 +519,9 @@ def split_cmd(line_e, run_env):
     result = symbol.join(line_e.split(symbol)[2:]).replace("\n", "")
     if "android_aarch64" in run_env and "cjdb" in firstcmd:
         doline = "cjdb"
-    if ("cjnative" in run_env and "android_aarch64" not in run_env and 'AOT' in firstcmd) or ("cjti" in run_env and 'CJVM' in firstcmd) or (
-            'AOT' not in firstcmd and 'CJVM' not in firstcmd and 'Android' not in firstcmd and not (
-                "android_aarch64" in run_env and firstcmd.strip() == "r")) or (
+    if ("cjnative" in run_env and "android_aarch64" not in run_env and "ios_simulator" not in run_env and 'AOT' in firstcmd) or ("cjti" in run_env and 'CJVM' in firstcmd) or (
+            'AOT' not in firstcmd and 'CJVM' not in firstcmd and 'Android' not in firstcmd and 'cjdb' not in firstcmd and not (
+                ("android_aarch64" in run_env or "ios_simulator" in run_env) and firstcmd.strip() == "r")) or (
             "android_aarch64" in run_env and 'Android' in firstcmd):
         print("__________________________")
         print("|" + firstcmd + "|")
@@ -507,14 +600,29 @@ def choose_lldb_server_port():
     return None, None
 
 
-def send_and_expect(process, cmd, timeout=15):
+def send_and_expect(process, cmd, timeout=None):
     """
     send_and_expect: Send command to cjdb, consume command echo, then wait for prompt.
     Returns the command output (between echo and prompt).
     """
+    if timeout is None:
+        timeout = LLDB_CMD_TIMEOUT
     process.sendline(cmd)
     process.expect_exact(cmd, timeout=5)
-    process.expect(['\(cjdb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=timeout)
+    process.expect(['\\(cjdb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=timeout)
+    return process.before
+
+
+def send_and_expect_lldb(process, cmd, timeout=None):
+    """
+    send_and_expect_lldb: Send command to lldb, wait for echo and prompt.
+    Returns the command output.
+    """
+    if timeout is None:
+        timeout = LLDB_CMD_TIMEOUT
+    process.sendline(cmd)
+    process.expect([re.escape(cmd.strip()), pexpect.EOF, pexpect.TIMEOUT], timeout=5)
+    process.expect(['\(lldb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=timeout)
     return process.before
 
 
@@ -570,25 +678,33 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
         elif "quit" in firstcmd or "q" in firstcmd or "exit" in firstcmd:
             process.sendline(doline)
             process.expect(['proc', pexpect.EOF, pexpect.TIMEOUT], timeout=5)
-            process.sendline('y')
+            try:
+                process.sendline("y")
+            except OSError:
+                pass
             if run_platform != 'darwin':
                 process.wait()
             break
 
-        # AOT-cmd only run on cjnative (non-Android) backend
-        elif "AOT" in firstcmd and ("android_aarch64" in run_env or "cjti" in run_env):
+        # AOT-cmd only run on cjnative (non-Android/iOS) backend
+        elif "AOT" in firstcmd and ("android_aarch64" in run_env or "ios_simulator" in run_env):
             continue
 
         # CJVM-cmd only run on cjti-backend
         elif "CJVM" in firstcmd and "cjti" not in run_env:
             continue
 
-        # Android-cmd only run on android_aarch64 backend
-        elif "Android" in firstcmd and "android_aarch64" not in run_env:
+        # Android-cmd: android_aarch64 executes normally, ios_simulator executes doline
+        elif "Android" in firstcmd:
+            if "android_aarch64" in run_env:
+                dotest(process, doline, result, f_e, run_env, run_platform, p)
+            elif "ios_simulator" in run_env and doline.strip():
+                print(f"[iOS Debug] Executing Android line: doline={doline}, result={result}")
+                dotest(process, doline, result, f_e, run_env, run_platform, p)
             continue
 
-        # Skip 'r' (run) command for Android: process is already attached, use 'c' instead
-        elif "android_aarch64" in run_env and firstcmd.strip() == "r" or firstcmd.strip() == "rerun":
+        # Skip 'r' (run) command for Android/iOS: process is already attached, use 'c' instead
+        elif ("android_aarch64" in run_env or "ios_simulator" in run_env) and (firstcmd.strip() == "r" or firstcmd.strip() == "rerun"):
             continue
 
         # Android remote debugging
@@ -596,6 +712,10 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
             if android_session is None:
                 print("Error: Android session not initialized")
                 os._exit(1)
+            dotest(process, doline, result, f_e, run_env, run_platform, p)
+
+        # iOS simulator debugging
+        elif "ios_simulator" in run_env and "cjdb" not in firstcmd:
             dotest(process, doline, result, f_e, run_env, run_platform, p)
 
         # CJVM need 'process connect' command to connect server
@@ -631,7 +751,10 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
     if not ("quit" in firstcmd or "q" in firstcmd or "exit" in firstcmd):
         process.sendline("q")
         process.expect(['proc', pexpect.EOF, pexpect.TIMEOUT], timeout=5)
-        process.sendline("y")
+        try:
+            process.sendline("y")
+        except OSError:
+            pass
         if run_platform != 'darwin':
             process.wait()
 
@@ -643,11 +766,27 @@ def dotest(process, doline, result, f_e, run_env, run_platform, p=None):
     dotest: send debug command and match expected result
     """
     process.sendline(doline)
-    if run_platform == 'linux' or "android_aarch64" in run_env:
-        result = '\n[\\s\\S]*' + result + '[\\s\\S]*\\(cjdb\\)'
+    
+    if "ios_simulator" in run_env:
+        process.expect([re.escape(doline.strip()), pexpect.EOF, pexpect.TIMEOUT], timeout=5)
+        
+        if doline.strip() in ['c', 'continue']:
+            expected_pattern = '[\\s\\S]*' + result + '[\\s\\S]*stopped'
+        else:
+            expected_pattern = '[\\s\\S]*' + result + '[\\s\\S]*'
+        
+        index = process.expect([expected_pattern, pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_CMD_TIMEOUT)
+        
+        if index == 0:
+            process.expect(['\(lldb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=3)
+
     else:
-        result = '\n[\\s\\S]*' + result + '[\\s\\S]*'
-    index = process.expect([result, pexpect.EOF, pexpect.TIMEOUT], timeout=15)
+        if run_platform == 'linux' or "android_aarch64" in run_env:
+            expected_pattern = '\n[\\s\\S]*' + result + '[\\s\\S]*\\(cjdb\\)'
+        else:
+            expected_pattern = '\n[\\s\\S]*' + result + '[\\s\\S]*'
+        index = process.expect([expected_pattern, pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_CMD_TIMEOUT)
+    
     indextest(process, doline, index, f_e, run_env, run_platform, p)
     return
 
@@ -708,11 +847,43 @@ def debugging():
     f_e, lines_e = read_execline(test_case)
 
     android_session = None
+    ios_session = None
     process = None
     test_failed = False
     
     try:
-        if "android_aarch64" in run_env:
+        if "ios_simulator" in run_env:
+            ios_session = IOSDebugSession()
+            
+            if not ios_session.setup(test_case, cmp_res):
+                print("Failed to setup iOS simulator debug environment")
+                test_failed = True
+                return
+            
+            if run_platform == 'darwin':
+                process = pexpect.popen_spawn.PopenSpawn('xcrun lldb', timeout=LLDB_STARTUP_TIMEOUT,
+                                                         encoding='utf-8',
+                                                         maxread=200000,
+                                                         codec_errors='replace'
+                                                         )
+            else:
+                process = pexpect.spawnu('xcrun lldb', timeout=LLDB_STARTUP_TIMEOUT, maxread=200000)
+            process.expect(['\(lldb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
+            
+            cangjie_home = os.environ.get('CANGJIE_HOME')
+            cjdb_script_path = os.path.join(cangjie_home, 'tools', 'script', 'cangjie_cjdb.py')
+            send_and_expect_lldb(process, f'command script import {cjdb_script_path}')
+            
+            ios_pid, ios_app_path = ios_session.run_ios_simulator(ios_session.exec_file)
+            if not ios_pid:
+                print("Failed to get iOS simulator process PID")
+                ios_session.cleanup()
+                test_failed = True
+                return
+            
+            send_and_expect_lldb(process, f'attach {ios_pid}', timeout=LLDB_ATTACH_TIMEOUT)
+           
+        elif "android_aarch64" in run_env:
             android_session = AndroidDebugSession()
             if not android_session.setup(test_case, cmp_res):
                 print("Failed to setup Android debug environment")
@@ -729,14 +900,14 @@ def debugging():
             os.environ['ANDROID_SERIAL'] = android_session.device_id
 
             if run_platform == 'windows':
-                process = pexpect.popen_spawn.PopenSpawn('cjdb', timeout=30,
+                process = pexpect.popen_spawn.PopenSpawn('cjdb', timeout=LLDB_STARTUP_TIMEOUT,
                                                          encoding='utf-8',
                                                          maxread=200000,
                                                          codec_errors='replace'
                                                          )
             else:
-                process = pexpect.spawnu('cjdb', timeout=30, maxread=200000)
-            process.expect(['\(cjdb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=30)
+                process = pexpect.spawnu('cjdb', timeout=LLDB_STARTUP_TIMEOUT, maxread=200000)
+            process.expect(['\\(cjdb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
             send_and_expect(process, 'platform select remote-android')
             send_and_expect(process, 'settings set target.default-arch aarch64')
             send_and_expect(process, f'file {cmp_res}')
@@ -749,7 +920,7 @@ def debugging():
                 return
 
             if android_session and android_session.android_pid:
-                send_and_expect(process, f'attach {android_session.android_pid}', timeout=30)
+                send_and_expect(process, f'attach {android_session.android_pid}', timeout=LLDB_ATTACH_TIMEOUT)
 
         process, p = on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_num, android_session, process)
 
@@ -758,6 +929,9 @@ def debugging():
 
         if android_session:
             android_session.cleanup()
+        
+        if ios_session:
+            ios_session.cleanup()
 
         f_e.close()
         process.kill(0)
@@ -765,6 +939,8 @@ def debugging():
         print(f"Test failed: {e}")
         if android_session:
             android_session.cleanup()
+        if ios_session:
+            ios_session.cleanup()
         if process:
             process.kill(0)
         if f_e:

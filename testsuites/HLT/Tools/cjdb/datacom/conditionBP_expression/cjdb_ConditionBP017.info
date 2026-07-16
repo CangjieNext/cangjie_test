@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var001.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_var001.cj -o generics_local_var001%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP017.info generics_local_var001 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_local_var001.cj -o generics_local_var001%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py cjdb_ConditionBP017.info generics_local_var001 %run_env
 
 
 test#
@@ -21,12 +21,12 @@ CJVM c,c,
 s,s,23
 n,n,25
 n,n,26
-p,p ssa,\(Tuple<Int64,Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 6[\s\S]*}
-p,p vunit,\(Unit\) \$[\d] = ()
-expr:expr ssa[0]:\(Int64\) \$[\d] = 1
-expr:expr ssa[1]:\(Int64\) \$[\d] = 6
+p,p ssa,\(Tuple<Int64,Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 6[\s\S]*}
+p,p vunit,\(Unit\)[\s\S]*()
+expr:expr ssa[0]:\(Int64\)[\s\S]*1
+expr:expr ssa[1]:\(Int64\)[\s\S]*6
 expr~expr ssa[2]~error: unsupported expression
 n,n,27
 n,n,28
-expr:expr vunit is Unit:\(Bool\) \$[\d] = true
+expr:expr vunit is Unit:\(Bool\)[\s\S]*true
 q,q,

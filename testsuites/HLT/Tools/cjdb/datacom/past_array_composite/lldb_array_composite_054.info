@@ -9,19 +9,22 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/007_debug_array_record_parameters.cj
 // EXEC: %compiler %cmp_opt -g 007_debug_array_record_parameters.cj -o 007_debug_array_record_parameters%cmp_output
-// EXEC: python3 cjdb_test.py lldb_array_composite_054.info 007_debug_array_record_parameters %run_env
+// (target_ios_simulator) EXEC: mv 007_debug_array_record_parameters%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_054.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_054.info 007_debug_array_record_parameters %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 007_debug_array_record_parameters,007_debug_array_record_parameters
-b,b 58,007_debug_array_record_parameters.cj:58
+b,b 007_debug_array_record_parameters.cj:58,007_debug_array_record_parameters.cj:58
 AOT r,r,-> 58
 Android c,c,58
 CJVM c,c,
 n,n,59
-print,print arraymainrec01[0].array01,std[.]core.Array<default.Rectangle2>\) \$[0-9]* =
-print,print arraymainrec01[0].array01[0],Rectangle2\) \$[0-9]* = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
-print,print arraymainrec01[0].array01[0].width,\(Int32\) \$[0-9]* = 100
+print,print arraymainrec01[0].array01,std[.]core(?:\.|::)Array<default(?:\.|::)Rectangle2>\)[\s\S]*
+print,print arraymainrec01[0].array01[0],Rectangle2\)[\s\S]*{(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
+print,print arraymainrec01[0].array01[0].width,\(Int32\)[\s\S]*100
 q,q,

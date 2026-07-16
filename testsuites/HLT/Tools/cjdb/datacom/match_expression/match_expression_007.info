@@ -8,15 +8,15 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/match_expression/match_expression007.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g match_expression007.cj -o match_expression007%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py match_expression_007.info match_expression007 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g match_expression007.cj -o match_expression007%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py match_expression_007.info match_expression007 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors match_expression007,match_expression007
-b,b 18,match_expression007.cj:18
+b,b match_expression007.cj:18,match_expression007.cj:18
 r,r,-> 18
 Android c,c,18
-expr,expr result,\(std.core.String\) \$[\d] = "true"
-expr~expr match{case true => "true" case false => "fail" case _ => "an"}~\(std.core.String\) \$[\d] = "true"
+expr,expr result,\(std\.core(?:\.|::)String\)[\s\S]*"true"
+expr~expr match{case true => "true" case false => "fail" case _ => "an"}~\(std\.core(?:\.|::)String\)[\s\S]*"true"
 q,q,

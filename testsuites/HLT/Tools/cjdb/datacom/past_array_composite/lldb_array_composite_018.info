@@ -9,18 +9,21 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/002_debug_array_enum.cj
 // EXEC: %compiler %cmp_opt -g 002_debug_array_enum.cj -o 002_debug_array_enum%cmp_output
-// EXEC: python3 cjdb_test.py lldb_array_composite_018.info 002_debug_array_enum %run_env
+// (target_ios_simulator) EXEC: mv 002_debug_array_enum%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_018.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_018.info 002_debug_array_enum %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_enum,002_debug_array_enum
-b,b 30,002_debug_array_enum.cj:30
+b,b 002_debug_array_enum.cj:30,002_debug_array_enum.cj:30
 AOT r,r,-> 30
 Android c,c,30
 CJVM c,c,
 globals,globals,\[0\] = a
-print,print arrayTopEnum01[0],TimeUnit1\) \$[\d] = a
-globals,globals,std[.]core.Array<default.TimeUnit1>\) default::arrayTopEnum01 = {
+print,print arrayTopEnum01[0],TimeUnit1\)[\s\S]*a
+globals,globals,std[.]core(?:\.|::)Array<default(?:\.|::)TimeUnit1>\) default(?:\.|::)arrayTopEnum01 = {
 q,q,

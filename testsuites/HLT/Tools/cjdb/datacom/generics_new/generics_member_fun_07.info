@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_member.cj
 // EXEC: %compiler %cmp_opt -g generics_member.cj -o generics_member%cmp_output
-// EXEC: python3 cjdb_test.py generics_member_fun_07.info generics_member %run_env
+// (target_ios_simulator) EXEC: mv generics_member%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_07.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_07.info generics_member %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 100,Breakpoint 1:
+b,b generics_member.cj:100,generics_member.cj:100
 AOT r,r,-> 100
 Android c,c,100
 CJVM c,c,
-p, p a,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
-p, p t1,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
-locals, locals,\(default.TimeUnit1<CString>\) this = {(\r|\n|\r\n)  constructor = Year[\s\S]*arg_1 = "CString in Cangjie\\n code. 05"[\s\S]*}[\s\S]*\(CString\) a = "CString in Cangjie\\n code. 05"[\s\S]*\(CString\) t1 = "CString in Cangjie\\n code. 05"
+p, p a,\(CString\)[\s\S]*"CString in Cangjie\\n code. 05"
+p, p t1,\(CString\)[\s\S]*"CString in Cangjie\\n code. 05"
+locals, locals,\(default(?:\.|::)TimeUnit1<CString>\) this = {(\r|\n|\r\n)  constructor = Year[\s\S]*arg_1 = "CString in Cangjie\\n code. 05"[\s\S]*}[\s\S]*\(CString\) a = "CString in Cangjie\\n code. 05"[\s\S]*\(CString\) t1 = "CString in Cangjie\\n code. 05"
 q,q,

@@ -8,19 +8,19 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/015_enum_lambda.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 015_enum_lambda.cj -o 015_enum_lambda%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum005.info 015_enum_lambda %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 015_enum_lambda.cj -o 015_enum_lambda%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_enum005.info 015_enum_lambda %run_env
 
 test#
 cjdb,cjdb --no-use-colors 015_enum_lambda,015_enum_lambda
-b,b 18,015_enum_lambda.cj:18
-b,b 21,015_enum_lambda.cj:21
+b,b 015_enum_lambda.cj:18,015_enum_lambda.cj:18
+b,b 015_enum_lambda.cj:21,015_enum_lambda.cj:21
 AOT r,r,-> 18
 Android c,c,18
 CJVM c,c,
-locals,locals,\(default.RGB<Int64>\) a = {[\s\S]*constructor = red[\s\S]*arg_1 = 1[\s\S]*}
-expr,expr b,\(default.RGB<Float64>\) \$[\d] = {[\s\S]*constructor = blue[\s\S]*arg_1 = 4[\s\S]*}
+locals,locals,\(default(?:\.|::)RGB<Int64>\) a = {[\s\S]*constructor = red[\s\S]*arg_1 = 1[\s\S]*}
+expr,expr b,\(default(?:\.|::)RGB<Float64>\)[\s\S]*{[\s\S]*constructor = blue[\s\S]*arg_1 = 4[\s\S]*}
 c,c,21
-expr,expr op3,\(Unit\) \$[\d] = ()
-expr~expr lambda1(op1,op2)~\(Unit\) \$[\d] = ()
+expr,expr op3,\(Unit\)[\s\S]*()
+expr~expr lambda1(op1,op2)~\(Unit\)[\s\S]*()
 q,q,

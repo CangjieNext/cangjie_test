@@ -9,19 +9,22 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/005_HashMap_via_class.cj
 // EXEC: %compiler %cmp_opt -g 005_HashMap_via_class.cj -o 005_HashMap_via_class%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_HashMap020.info 005_HashMap_via_class %run_env
+// (target_ios_simulator) EXEC: mv 005_HashMap_via_class%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashMap020.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashMap020.info 005_HashMap_via_class %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 005_HashMap_via_class,005_HashMap_via_class
-b,b 22,005_HashMap_via_class.cj:22
+b,b 005_HashMap_via_class.cj:22,005_HashMap_via_class.cj:22
 AOT r,r,-> 22
 Android c,c,22
 CJVM c,c,22
 s,s,75
-b,b 77,005_HashMap_via_class.cj:77
+b,b 005_HashMap_via_class.cj:77,005_HashMap_via_class.cj:77
 c,c,77
-p,p map_c_return,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 86[\S\s]*value = 'G'[\S\s]*}
-p,p map_c_return,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 12[\S\s]*value = 'F'[\S\s]*}
+p,p map_c_return,std[.]collection(?:\.|::)HashMap<Int32,Rune>\)[\s\S]*{[\S\s]*key = 86[\S\s]*value = 'G'[\S\s]*}
+p,p map_c_return,std[.]collection(?:\.|::)HashMap<Int32,Rune>\)[\s\S]*{[\S\s]*key = 12[\S\s]*value = 'F'[\S\s]*}
 n,n,78
 q,q,

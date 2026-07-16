@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_reflection/enum03.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g --disable-reflection enum03.cj -o enum03%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py adapt_reflection06.info enum03 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g --disable-reflection enum03.cj -o enum03%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py adapt_reflection06.info enum03 %run_env
 
 test#
 cjdb,cjdb --no-use-colors enum03,enum03
-b,b 27,enum03.cj:27
+b,b enum03.cj:27,enum03.cj:27
 AOT r,r,-> 27
 Android c,c,27
-p,p a1,\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A[\s\S]*}
-expr~expr E1.B(E2.C(E1.A))~\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A[\s\S]*}
-expr~expr E1.B(E2.D(2))~\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = D[\s\S]*arg_1 = 2[\s\S]*}
-expr~expr B(E2.D(2))~\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = D[\s\S]*arg_1 = 2[\s\S]*}
-expr~expr E3.C(E3.C(E3.D(4)))~\(default.E3\) \$[\d] = {[\s\S]*
+p,p a1,\(default(?:\.|::)E1\)[\s\S]*{[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A[\s\S]*}
+expr~expr E1.B(E2.C(E1.A))~\(default(?:\.|::)E1\)[\s\S]*{[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A[\s\S]*}
+expr~expr E1.B(E2.D(2))~\(default(?:\.|::)E1\)[\s\S]*{[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = D[\s\S]*arg_1 = 2[\s\S]*}
+expr~expr B(E2.D(2))~\(default(?:\.|::)E1\)[\s\S]*{[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = D[\s\S]*arg_1 = 2[\s\S]*}
+expr~expr E3.C(E3.C(E3.D(4)))~\(default(?:\.|::)E3\)[\s\S]*{[\s\S]*
 q,q,

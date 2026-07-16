@@ -9,16 +9,19 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_Extendclass.cj
 // EXEC: %compiler %cmp_opt -g ArrayList_Extendclass.cj -o ArrayList_Extendclass%cmp_output
-// EXEC: python3 cjdb_test.py arraylist_test_018.info ArrayList_Extendclass %run_env
+// (target_ios_simulator) EXEC: mv ArrayList_Extendclass%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_018.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_018.info ArrayList_Extendclass %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_Extendclass,ArrayList_Extendclass
-b,b 28,ArrayList_Extendclass.cj:28
+b,b ArrayList_Extendclass.cj:28,ArrayList_Extendclass.cj:28
 AOT r,r,-> 28
 Android c,c,28
 CJVM c,c,28
-p,p c1.arr1,\(std[.]collection.ArrayList<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
-p,p c2.arr2,\(std[.]collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
-,p c2.arr2[0],\(Int64\) \$[\d] = 1
+p,p c1.arr1,\(std[.]collection(?:\.|::)ArrayList<std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
+p,p c2.arr2,\(std[.]collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
+,p c2.arr2[0],\(Int64\)[\s\S]*1
 q,q,

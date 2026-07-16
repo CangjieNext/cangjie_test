@@ -9,14 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/047_debug_large_array.cj
 // EXEC: %compiler %cmp_opt -g 047_debug_large_array.cj -o 047_debug_large_array%cmp_output
-// EXEC: python3 cjdb_test.py lldb_Array025.info 047_debug_large_array %run_env
+// (target_ios_simulator) EXEC: mv 047_debug_large_array%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_Array025.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_Array025.info 047_debug_large_array %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 047_debug_large_array,047_debug_large_array
-b,b 48,047_debug_large_array.cj:48
+b,b 047_debug_large_array.cj:48,047_debug_large_array.cj:48
 AOT r,r,-> 48
 Android c,c,48
 CJVM c,c,

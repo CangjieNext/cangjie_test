@@ -14,13 +14,13 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var012,generics_local_var012
-b,b 21,generics_local_var012.cj:21
-b,b 29,generics_local_var012.cj:29
+b,b generics_local_var012.cj:21,generics_local_var012.cj:21
+b,b generics_local_var012.cj:29,generics_local_var012.cj:29
 AOT r,r,-> 21
 Android c,c,21
 CJVM c,c,
-expr:expr vcarrc2[0]:\(Int64\) \$[\d] = 2
+expr:expr vcarrc2[0]:\(Int64\)[\s\S]*2
 c,c,29
-expr:expr vlist2[0]:\(Int64\) \$[\d] = 1
-expr:expr vhmc["a"]:\(Bool\) \$[\d] = true
+expr:expr vlist2[0]:\(Int64\)[\s\S]*1
+expr:expr vhmc["a"]:\(Bool\)[\s\S]*true
 q,q,

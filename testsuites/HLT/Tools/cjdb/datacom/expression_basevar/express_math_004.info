@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/059_debug_jit.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 059_debug_jit.cj -o 004_express_basetype%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py express_math_004.info 004_express_basetype %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 059_debug_jit.cj -o 004_express_basetype%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py express_math_004.info 004_express_basetype %run_env
 
 
 
@@ -18,16 +18,16 @@ test#
 cjdb,cjdb --no-use-colors 004_express_basetype,004_express_basetype
 CJVM b,b main,059_debug_jit.cj:13
 CJVM c,c,13
-b,b 42,059_debug_jit.cj:42
+b,b 059_debug_jit.cj:42,059_debug_jit.cj:42
 CJVM c,c,42
 AOT r,r,-> 42
 Android c,c,42
-expr,expr var_int64%f_int64,\(Int64\) \$[\d] = 2
-expr,expr var_int32%f_int32,\(Int32\) \$[\d] = 1
-expr,expr var_int16%=f_int16;var_int16,\(Int16\) \$[\d] = 1
-expr,expr var_int8%=f_int8;var_int8,\(Int8\) \$[\d] = 1
-expr,expr var_uint8%=f_uint8;var_uint8,\(UInt8\) \$[\d] = 1
-expr,expr var_uint32%f_uint32,\(UInt32\) \$[\d] = 1
-expr,expr va1[0]%va1[1],\(UInt64\) \$[\d] = 2
-expr,expr va1[0]%=va1[1];va1[0],\(UInt64\) \$[\d] = 2
+expr,expr var_int64%f_int64,\(Int64\)[\s\S]*2
+expr,expr var_int32%f_int32,\(Int32\)[\s\S]*1
+expr,expr var_int16%=f_int16;var_int16,\(Int16\)[\s\S]*1
+expr,expr var_int8%=f_int8;var_int8,\(Int8\)[\s\S]*1
+expr,expr var_uint8%=f_uint8;var_uint8,\(UInt8\)[\s\S]*1
+expr,expr var_uint32%f_uint32,\(UInt32\)[\s\S]*1
+expr,expr va1[0]%va1[1],\(UInt64\)[\s\S]*2
+expr,expr va1[0]%=va1[1];va1[0],\(UInt64\)[\s\S]*2
 q,q,

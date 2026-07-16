@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/011_debug_func_reload.cj
 //  EXEC: %compiler %cmp_opt -g 011_debug_func_reload.cj -o 011_debug_func_reload%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut019.info 011_debug_func_reload %run_env
+// (target_ios_simulator) EXEC: mv 011_debug_func_reload%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut019.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut019.info 011_debug_func_reload %run_env
 
 
 
@@ -18,7 +21,7 @@ test#
 cjdb,cjdb --no-use-colors 011_debug_func_reload,011_debug_func_reload
 CJVM b main,b main,011_debug_func_reload.cj:13
 CJVM c,c,13
-b,b 13,011_debug_func_reload.cj:13
+b,b 011_debug_func_reload.cj:13,011_debug_func_reload.cj:13
 AOT r,r,-> 13
 Android c,c,13
 s,s,22

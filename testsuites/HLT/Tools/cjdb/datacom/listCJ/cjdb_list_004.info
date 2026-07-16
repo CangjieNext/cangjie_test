@@ -8,19 +8,19 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
-// (not arm) EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
-// (not arm) EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// (not arm) EXEC: python3 cjdb_test.py cjdb_list_004.info list_debug %run_env
+// (!target_aarch64) EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
+// (!target_aarch64) EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
+// (!target_aarch64) EXEC: python3 cjdb_test.py cjdb_list_004.info list_debug %run_env
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 114,list_debug.cj:114
+b,b list_debug.cj:114,list_debug.cj:114
 AOT r,r,-> 114
 Android c,c,114
 CJVM c,c,
-p,p m_base_1_1[0],\(Int8\) \$[\d] = 127
+p,p m_base_1_1[0],\(Int8\)[\s\S]*127
 AOT set,set m_base_1_1[0]=128,error: unsupported expression
 CJVM set,set m_base_1_1[0]=128,\(Int8\) \$1 = -128
-AOT p,p m_base_1_1[0],\$[\d] = 127
-CJVM p,p m_base_1_1[0],\$[\d] = -128
+AOT p,p m_base_1_1[0],[\s\S]*127
+CJVM p,p m_base_1_1[0],[\s\S]*-128
 q,quit,

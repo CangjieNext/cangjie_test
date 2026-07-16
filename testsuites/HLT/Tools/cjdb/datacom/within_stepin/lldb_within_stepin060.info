@@ -8,9 +8,9 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/packages/pkgs_h_001/src
-// (not arm) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/watchpoint_external_define.cj -o libpkg1.%middle
-// (not arm) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/stepin_external_invoke.cj -o stepin_external_invoke%cmp_output
-// (not arm) EXEC: python3 cjdb_test.py lldb_within_stepin060.info stepin_external_invoke %run_env
+// (!target_aarch64) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/watchpoint_external_define.cj -o libpkg1.%middle
+// (!target_aarch64) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/stepin_external_invoke.cj -o stepin_external_invoke%cmp_output
+// (!target_aarch64) EXEC: python3 cjdb_test.py lldb_within_stepin060.info stepin_external_invoke %run_env
 
 
 
@@ -19,7 +19,7 @@ test#
 cjdb,cjdb --no-use-colors stepin_external_invoke,stepin_external_invoke
 CJVM b main,b main,stepin_external_invoke.cj:21
 CJVM c,c,21
-b,b 26,stepin_external_invoke.cj:26
+b,b stepin_external_invoke.cj:26,stepin_external_invoke.cj:26
 AOT r,r,-> 26
 Android c,c,26
 CJVM c,c,26

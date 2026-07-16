@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/023_enum_name.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 023_enum_name.cj -o 023_enum_name%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum019.info 023_enum_name %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 023_enum_name.cj -o 023_enum_name%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_enum019.info 023_enum_name %run_env
 
 test#
 cjdb,cjdb --no-use-colors 023_enum_name,023_enum_name
-b,b 23,023_enum_name.cj:23
+b,b 023_enum_name.cj:23,023_enum_name.cj:23
 AOT r,r,-> 23
 Android c,c,23
 CJVM c,c,
-expr,expr t1,\(default._1<Int64>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 3[\s\S]*}
-expr,expr t2,\(default.中文<Int64>\) \$[\d] = {[\s\S]*constructor = AA[\s\S]*arg_1 = 1[\s\S]*}
-expr,expr t3,\(default.中文<Bool>\) \$[\d] = {[\s\S]*constructor = 仓颉[\s\S]*arg_1 = true[\s\S]*}
-expr~expr _1<Int64>.Day(3)~\(default._1<Int64>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 3[\s\S]*}
+expr,expr t1,\(default(?:\.|::)_1<Int64>\)[\s\S]*{[\s\S]*constructor = Day[\s\S]*arg_1 = 3[\s\S]*}
+expr,expr t2,\(default.中文<Int64>\)[\s\S]*{[\s\S]*constructor = AA[\s\S]*arg_1 = 1[\s\S]*}
+expr,expr t3,\(default.中文<Bool>\)[\s\S]*{[\s\S]*constructor = 仓颉[\s\S]*arg_1 = true[\s\S]*}
+expr~expr _1<Int64>.Day(3)~\(default(?:\.|::)_1<Int64>\)[\s\S]*{[\s\S]*constructor = Day[\s\S]*arg_1 = 3[\s\S]*}
 q,q,

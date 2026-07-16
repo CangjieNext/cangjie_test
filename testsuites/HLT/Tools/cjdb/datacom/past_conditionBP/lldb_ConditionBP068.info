@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/042_debuginfun_expressions.cj
-// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 042_debuginfun_expressions.cj -o 042_debuginfun_expressions%cmp_output
-// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py lldb_ConditionBP068.info 042_debuginfun_expressions %run_env
+// (!(target_mac|target_win|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 042_debuginfun_expressions.cj -o 042_debuginfun_expressions%cmp_output
+// (!(target_mac|target_win|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_ConditionBP068.info 042_debuginfun_expressions %run_env
 
 
 

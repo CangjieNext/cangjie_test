@@ -9,27 +9,30 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
-// EXEC: python3 cjdb_test.py generics_fun_returnvalue_06.info genericsfun_return %run_env
+// (target_ios_simulator) EXEC: mv genericsfun_return%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_06.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_06.info genericsfun_return %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 135,genericsfun_return.cj:135
+b,b genericsfun_return.cj:135,genericsfun_return.cj:135
 AOT r,r,-> 135
 Android c,c,135
 CJVM c,c,
-p, p lu,\(Unit\) \$[\d] = ()
-p, p cvu,\(Unit\) \$[\d] = ()
-p, p s1.vus,\(Unit\) \$[\d] = ()
-p, p c1.vuc,\(Unit\) \$[\d] = ()
-p, p default::C1::vu,\(Unit\) \$[\d] = ()
-p, p globals_vu,\(Unit\) \$[\d] = ()
-locals, locals,\(Unit\) lu = ()[\s\S]*\(default.S1\) s1 = {[\s\S]*vus = ()[\s\S]*\(default.C1\) c1 = {[\s\S]*vuc = ()[\s\S]*
-globals, globals,\(Unit\) default::C1::vu = ()
-globals, globals,\(Unit\) default::globals_vu = ()
-b, b 146,genericsfun_return.cj:146
+p, p lu,\(Unit\)[\s\S]*()
+p, p cvu,\(Unit\)[\s\S]*()
+p, p s1.vus,\(Unit\)[\s\S]*()
+p, p c1.vuc,\(Unit\)[\s\S]*()
+AOT p, p default::C1::vu,\(Unit\)[\s\S]*()
+p, p globals_vu,\(Unit\)[\s\S]*()
+locals, locals,\(Unit\) lu = ()[\s\S]*\(default(?:\.|::)S1\) s1 = {[\s\S]*vus = ()[\s\S]*\(default(?:\.|::)C1\) c1 = {[\s\S]*vuc = ()[\s\S]*
+globals, globals,\(Unit\) default(?:\.|::)C1::vu = ()
+globals, globals,\(Unit\) default(?:\.|::)globals_vu = ()
+b, b genericsfun_return.cj:146,genericsfun_return.cj:146
 c,c,146
-p, p g,\(Unit\) \$[\d] = ()
-p, p test_g,\(Unit\) \$[\d] = ()
+p, p g,\(Unit\)[\s\S]*()
+p, p test_g,\(Unit\)[\s\S]*()
 locals, locals,\(Unit\) g = ()
 q,q,
