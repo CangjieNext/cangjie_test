@@ -8,19 +8,19 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline003.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g pipeline003.cj -o pipeline003%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py pipeline003.info pipeline003 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g pipeline003.cj -o pipeline003%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py pipeline003.info pipeline003 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pipeline003,pipeline003
-b,b 29,pipeline003.cj:29
+b,b pipeline003.cj:29,pipeline003.cj:29
 AOT r,r,-> 29
 Android c,c,29
-expr,expr res1,\(Rune\) \$[\d] = 'A'
-expr,expr res2,\(Bool\) \$[\d] = true
-expr,expr res3,\(Unit\) \$[\d] = ()
-expr~expr a1|>f1~\(Rune\) \$[\d] = 'A'
-expr~expr a2|>f2~\(Bool\) \$[\d] = true
-expr~expr r'B'|>f1~\(Rune\) \$[\d] = 'B'
+expr,expr res1,\(Rune\)[\s\S]*'A'
+expr,expr res2,\(Bool\)[\s\S]*true
+expr,expr res3,\(Unit\)[\s\S]*()
+expr~expr a1|>f1~\(Rune\)[\s\S]*'A'
+expr~expr a2|>f2~\(Bool\)[\s\S]*true
+expr~expr r'B'|>f1~\(Rune\)[\s\S]*'B'
 q,q,

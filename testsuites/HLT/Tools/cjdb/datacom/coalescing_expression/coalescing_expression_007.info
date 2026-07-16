@@ -8,18 +8,18 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/coalescing_expression/coalescing007.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g coalescing007.cj -o coalescing007%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py coalescing_expression_007.info coalescing007 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g coalescing007.cj -o coalescing007%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py coalescing_expression_007.info coalescing007 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors coalescing007,coalescing007
-b,b 28,coalescing007.cj:28
+b,b coalescing007.cj:28,coalescing007.cj:28
 AOT r,r,-> 28
 Android c,c,28
-expr,expr r1,\(Rune\) \$[\d] = 'A'
-expr,expr r2,\(Rune\) \$[\d] = 'C'
-expr,expr r3,\(std.core.Range<Int64>\) \$[\d] = 1..6 : 1
-expr~expr v6 ??"#123#"~\(std.core.String\) \$[\d] = "#123#"
-expr~expr v4 ?? 1..5~\(std.core.Range<Int64>\) \$[\d] = 1..5 : 1
+expr,expr r1,\(Rune\)[\s\S]*'A'
+expr,expr r2,\(Rune\)[\s\S]*'C'
+expr,expr r3,\(std.core(?:\.|::)Range<Int64>\)[\s\S]*1..6 : 1
+expr~expr v6 ??"#123#"~\(std\.core(?:\.|::)String\)[\s\S]*"#123#"
+expr~expr v4 ?? 1..5~\(std.core(?:\.|::)Range<Int64>\)[\s\S]*1..5 : 1
 q,q,

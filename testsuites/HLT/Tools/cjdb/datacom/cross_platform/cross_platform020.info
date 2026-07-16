@@ -8,10 +8,10 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/cross_platform/cross_platform020/mp ../../basecase/cross_platform/cross_platform020/cross_platform020.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g mp/test_com.cj %compile_chir_opt -o ./
-// (!target_android) EXEC: %compiler %cmp_opt -g mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
-// (!target_android) EXEC: %compiler %cmp_opt -g cross_platform020.cj %link_cjmp -o cross_platform020%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py cross_platform020.info cross_platform020 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g mp/test_com.cj %compile_chir_opt -o ./
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g cross_platform020.cj %link_cjmp -o cross_platform020%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py cross_platform020.info cross_platform020 %run_env
 
 test#
 cjdb,cjdb --no-use-colors cross_platform020,cross_platform020
@@ -19,7 +19,7 @@ b,b cross_platform020.cj:13,cross_platform020.cj:13
 r,r,-> 13
 s,s,test_plat.cj:15
 n,n,-> 16
-p,p a,\(Int64\) \$[\d] = 1
+p,p a,\(Int64\)[\s\S]*1
 finish,finish,cross_platform020.cj:13
 n,n,-> 14
 s,s,test_plat.cj:20

@@ -9,18 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_local.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_local.cj -o genericsfun_local%cmp_output
-// EXEC: python3 cjdb_test.py local_fun_generics_04.info genericsfun_local %run_env
+// (target_ios_simulator) EXEC: mv genericsfun_local%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py local_fun_generics_04.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py local_fun_generics_04.info genericsfun_local %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
-b,b 91,genericsfun_local.cj:91
+b,b genericsfun_local.cj:91,genericsfun_local.cj:91
 AOT r,r,-> 91
 Android c,c,91
 CJVM c,c,
-p, p gengricsvar,Tuple<Int8,UInt8,Float16,Bool>\) \$[\d] = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*
-p, p a,Tuple<Int8,UInt8,Float16,Bool>\) \$[\d] = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*
-p, p gengricsvar1,\(std.core.String\) \$[\d] = "Cangjie仓颉"
-p, p b,\(std.core.String\) \$[\d] = "Cangjie仓颉"
-locals, locals,Tuple<Int8,UInt8,Float16,Bool>\) a = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*\(std.core.String\) b = "Cangjie仓颉"[\s\S]*Tuple<Int8,UInt8,Float16,Bool>\) gengricsvar = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*\(std.core.String\) gengricsvar1 = "Cangjie仓颉"
+p, p gengricsvar,Tuple<Int8,UInt8,Float16,Bool>\)[\s\S]*{[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*
+p, p a,Tuple<Int8,UInt8,Float16,Bool>\)[\s\S]*{[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*
+p, p gengricsvar1,\(std\.core(?:\.|::)String\)[\s\S]*"Cangjie仓颉"
+p, p b,\(std\.core(?:\.|::)String\)[\s\S]*"Cangjie仓颉"
+locals, locals,Tuple<Int8,UInt8,Float16,Bool>\) a = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*\(std\.core(?:\.|::)String\) b = "Cangjie仓颉"[\s\S]*Tuple<Int8,UInt8,Float16,Bool>\) gengricsvar = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*\(std\.core(?:\.|::)String\) gengricsvar1 = "Cangjie仓颉"
 q,q,

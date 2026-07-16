@@ -9,15 +9,18 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/001_debug_array_baseType.cj
 // EXEC: %compiler %cmp_opt -g 001_debug_array_baseType.cj -o 001_debug_array_baseType%cmp_output
-// EXEC: python3 cjdb_test.py lldb_within_arrayview016.info 001_debug_array_baseType %run_env
+// (target_ios_simulator) EXEC: mv 001_debug_array_baseType%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_within_arrayview016.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_within_arrayview016.info 001_debug_array_baseType %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_baseType,001_debug_array_baseType
-b,b 41,001_debug_array_baseType.cj:41
+b,b 001_debug_array_baseType.cj:41,001_debug_array_baseType.cj:41
 AOT r,r,-> 41
 Android c,c,41
 CJVM c,c,
-print, print arrayChar_d[0][6..10],\(std[.]core.Array<Rune>\) \$[\d] = {[\s\S]*? \[0\] = 'g'[\s\S]*&? \[3\] = 'j'[\s\S]*
+print, print arrayChar_d[0][6..10],\(std[.]core(?:\.|::)Array<Rune>\)[\s\S]*{[\s\S]*? \[0\] = 'g'[\s\S]*&? \[3\] = 'j'[\s\S]*
 q,q,
 

@@ -9,26 +9,29 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
-// EXEC: python3 cjdb_test.py generics_fun_returnvalue_08.info genericsfun_return %run_env
+// (target_ios_simulator) EXEC: mv genericsfun_return%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_08.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_08.info genericsfun_return %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 135,genericsfun_return.cj:135
+b,b genericsfun_return.cj:135,genericsfun_return.cj:135
 AOT r,r,-> 135
 Android c,c,135
 CJVM c,c,
-p, p lcfun,\(default.\(\)->Unit\) \$[\d] = 0x
-p, p s1.vcfuns,\(default.\(\)->Unit\) \$[\d] = 0x
-p, p c1.vcfunc,\(default.\(\)->Unit\) \$[\d] = 0x
-p, p default::S1::vcfun,\(default.\(\)->Unit\) \$[\d] = 0x
-p, p globals_cfun,\(default.\(\)->Unit\) \$[\d] = 0x
-locals, locals,\(default.\(\)->Unit\) lcfun = 0x[\s\S]*\(default.S1\) s1 = {[\s\S]*vcfuns = 0x[\s\S]*\(default.C1\) c1 = {[\s\S]*vcfunc = 0x[\s\S]*
-globals, globals,\(default.\(\)->Unit\) default::S1::vcfun = 0x
-globals, globals,\(default.\(\)->Unit\) default::globals_cfun = 0x
+p, p lcfun,\(default.\(\)->Unit\)[\s\S]*0x
+p, p s1.vcfuns,\(default.\(\)->Unit\)[\s\S]*0x
+p, p c1.vcfunc,\(default.\(\)->Unit\)[\s\S]*0x
+AOT p, p default::S1::vcfun,\(default.\(\)->Unit\)[\s\S]*0x
+p, p globals_cfun,\(default.\(\)->Unit\)[\s\S]*0x
+locals, locals,\(default.\(\)->Unit\) lcfun = 0x[\s\S]*\(default(?:\.|::)S1\) s1 = {[\s\S]*vcfuns = 0x[\s\S]*\(default(?:\.|::)C1\) c1 = {[\s\S]*vcfunc = 0x[\s\S]*
+globals, globals,\(default.\(\)->Unit\) default(?:\.|::)S1::vcfun = 0x
+globals, globals,\(default.\(\)->Unit\) default(?:\.|::)globals_cfun = 0x
 b, b 162,Breakpoint 2:
 c,c,162
-p, p b,\(default.\(\)->Unit\) \$[\d] = 0x
-p, p test_b,\(default.\(\)->Unit\) \$[\d] = 0x
+p, p b,\(default.\(\)->Unit\)[\s\S]*0x
+p, p test_b,\(default.\(\)->Unit\)[\s\S]*0x
 locals, locals,\(default.\(\)->Unit\) b = 0x
 q,q,

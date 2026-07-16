@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func002.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_global_func002.cj -o generics_global_func002%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP002.info generics_global_func002 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_global_func002.cj -o generics_global_func002%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py cjdb_ConditionBP002.info generics_global_func002 %run_env
 
 
 test#
@@ -19,9 +19,9 @@ AOT r,r,-> 25
 Android c,c,25
 CJVM c,c,
 locals,locals,\(UInt64\) a4 = 4
-p,p a1,\(UInt8\) \$[\d] = 1
-expr:expr a2:\(UInt16\) \$[\d] = 2
-expr:expr a2+1:\(UInt16\) \$[\d] = 3
-expr:expr a4%2:\(UInt64\) \$[\d] = 0
-expr:expr a5/2:\(UIntNative\) \$[\d] = 2
+p,p a1,\(UInt8\)[\s\S]*1
+expr:expr a2:\(UInt16\)[\s\S]*2
+expr:expr a2+1:\(UInt16\)[\s\S]*3
+expr:expr a4%2:\(UInt64\)[\s\S]*0
+expr:expr a5/2:\(UIntNative\)[\s\S]*2
 q,q,

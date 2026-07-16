@@ -8,18 +8,21 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/067_debug_hashmap.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 067_debug_hashmap.cj -o 067_debug_hashmap%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py Core_HashMap_view_07.info 067_debug_hashmap %run_env
+// EXEC: %compiler %cmp_opt -g 067_debug_hashmap.cj -o 067_debug_hashmap%cmp_output
+// (target_ios_simulator) EXEC: mv 067_debug_hashmap%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py Core_HashMap_view_07.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py Core_HashMap_view_07.info 067_debug_hashmap %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 067_debug_hashmap,067_debug_hashmap
-b,b 39,067_debug_hashmap.cj:39
+b,b 067_debug_hashmap.cj:39,067_debug_hashmap.cj:39
 AOT r,r,-> 39
 Android c,c,39
 CJVM c,c,39
-p,p hashmap06,\(std\.collection.HashMap<UInt16,std.collection.ArrayList<UInt32>>\) \$[\d] = {[\s\S]*\[10\] = {[\s\S]*key = 10[\s\S]*value = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 12[\s\S]*}[\s\S]*}[\s\S]*\[20\] = {[\s\S]*key = 20[\s\S]*value = {[\s\S]*\[0\] = 21[\s\S]*\[1\] = 22[\s\S]*}[\s\S]*}[\s\S]*}
+p,p hashmap06,\(std\.collection.HashMap<UInt16,std.collection(?:\.|::)ArrayList<UInt32>>\)[\s\S]*{[\s\S]*\[10\] = {[\s\S]*key = 10[\s\S]*value = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 12[\s\S]*}[\s\S]*}[\s\S]*\[20\] = {[\s\S]*key = 20[\s\S]*value = {[\s\S]*\[0\] = 21[\s\S]*\[1\] = 22[\s\S]*}[\s\S]*}[\s\S]*}
 locals,locals,hashmap06 = {[\s\S]*\[10\] = {[\s\S]*key = 10[\s\S]*value = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 12[\s\S]*}[\s\S]*}[\s\S]*\[20\] = {[\s\S]*key = 20[\s\S]*value = {[\s\S]*\[0\] = 21[\s\S]*\[1\] = 22[\s\S]*}[\s\S]*}[\s\S]*}
 q,q,

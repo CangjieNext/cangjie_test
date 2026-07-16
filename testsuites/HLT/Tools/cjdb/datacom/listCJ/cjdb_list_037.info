@@ -10,17 +10,20 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_list_037.info list_debug %run_env
+// (target_ios_simulator) EXEC: mv list_debug%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_037.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_037.info list_debug %run_env
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-AOT b,b 182,list_debug.cj:184
-CJVM b,b 184,list_debug.cj:184
+b,b list_debug.cj:184,list_debug.cj:184
+CJVM b,b list_debug.cj:184,list_debug.cj:184
 AOT r,r,-> 184
 Android c,c,184
 CJVM c,c,184
-AOT p,p m_com_4_3,\$[\d] = {[\s\S]*C2<Int32,Int32>[\s\S]*C2<Int32,Int32>
-CJVM p,p m_com_4_3,\$[\d] = {[\s\S]*default.C2<Int32,Int32>[\s\S]*default.C2<Int32,Int32>
-p,p m_com_4_3[0],\$[\d] = [\s\S]*2
-AOT p;p m_com_4_3[0].default::C2<Int32,Int32>.width;\$[\d] = 2
+AOT p,p m_com_4_3,[\s\S]*{[\s\S]*C2<Int32,Int32>[\s\S]*C2<Int32,Int32>
+CJVM p,p m_com_4_3,[\s\S]*{[\s\S]*default(?:\.|::)C2<Int32,Int32>[\s\S]*default(?:\.|::)C2<Int32,Int32>
+p,p m_com_4_3[0],[\s\S]*2
+AOT p;p m_com_4_3[0].default::C2<Int32,Int32>.width;[\s\S]*2
 q,quit,

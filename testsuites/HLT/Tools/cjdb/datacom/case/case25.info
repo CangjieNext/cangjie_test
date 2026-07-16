@@ -8,15 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case25/case25.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g case25.cj -o case25%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py case25.info case25 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g case25.cj -o case25%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py case25.info case25 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case25,case25
-b,b 16,case25.cj:16
+b,b case25.cj:16,case25.cj:16
 AOT r,r,-> 16
 Android c,c,16
 CJVM c,c,
-AOT locals,locals,\(default.enumCol\) eVar1 = Aa
-AOT p,p eVar1,\(default.enumCol\) \$[\d] = Aa
+AOT locals,locals,\(default(?:\.|::)enumCol\) eVar1 = Aa
+AOT p,p eVar1,\(default(?:\.|::)enumCol\)[\s\S]*Aa
 q,q,

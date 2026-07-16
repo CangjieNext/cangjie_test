@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/045_debug_record_mod.cj
 // EXEC: %compiler %cmp_opt -g 045_debug_record_mod.cj -o 045_debug_record_mod%cmp_output
-// EXEC: python3 cjdb_test.py lldb_record045.info 045_debug_record_mod %run_env
+// (target_ios_simulator) EXEC: mv 045_debug_record_mod%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_record045.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_record045.info 045_debug_record_mod %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
-b,b 22,045_debug_record_mod.cj:22
+b,b 045_debug_record_mod.cj:22,045_debug_record_mod.cj:22
 AOT r,r,-> 22
 Android c,c,22
 CJVM c,c,
-AOT locals,locals,\(default.Rectangle\) this = {(\r|\n|\r\n)  length = [-+]?\d+(\r|\n|\r\n)  width = 0(\r|\n|\r\n)  diagonalLength = 0(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)}(\r|\n|\r\n)\(Int32\) length = 3
+AOT locals,locals,\(default(?:\.|::)Rectangle\) this = {(\r|\n|\r\n)  length = [-+]?\d+(\r|\n|\r\n)  width = 0(\r|\n|\r\n)  diagonalLength = 0(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)}(\r|\n|\r\n)\(Int32\) length = 3
 q,q,

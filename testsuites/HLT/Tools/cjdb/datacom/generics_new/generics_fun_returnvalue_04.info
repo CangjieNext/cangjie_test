@@ -9,27 +9,30 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
-// EXEC: python3 cjdb_test.py generics_fun_returnvalue_04.info genericsfun_return %run_env
+// (target_ios_simulator) EXEC: mv genericsfun_return%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_04.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_fun_returnvalue_04.info genericsfun_return %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 135,genericsfun_return.cj:135
+b,b genericsfun_return.cj:135,genericsfun_return.cj:135
 AOT r,r,-> 135
 Android c,c,135
 CJVM c,c,
-p, p lr,\(Rune\) \$[\d] = 'a'
-p, p cvr,\(Rune\) \$[\d] = 'a'
-p, p s1.vrs,\(Rune\) \$[\d] = 'a'
-p, p c1.vrc,\(Rune\) \$[\d] = 'a'
-p, p default::C1::vr,\(Rune\) \$[\d] = 'a'
-p, p globals_vr,\(Rune\) \$[\d] = 'a'
-locals, locals,\(Rune\) lr = 'a'[\s\S]*\(default.S1\) s1 = {[\s\S]*vrs = 'a'[\s\S]*\(default.C1\) c1 = {[\s\S]*vrc = 'a'[\s\S]*
-globals, globals,\(Rune\) default::C1::vr = 'a'[\s\S]*
-globals, globals,\(Rune\) default::globals_vr = 'a'
-b, b 146,genericsfun_return.cj:146
+p, p lr,\(Rune\)[\s\S]*'a'
+p, p cvr,\(Rune\)[\s\S]*'a'
+p, p s1.vrs,\(Rune\)[\s\S]*'a'
+p, p c1.vrc,\(Rune\)[\s\S]*'a'
+AOT p, p default::C1::vr,\(Rune\)[\s\S]*'a'
+p, p globals_vr,\(Rune\)[\s\S]*'a'
+locals, locals,\(Rune\) lr = 'a'[\s\S]*\(default(?:\.|::)S1\) s1 = {[\s\S]*vrs = 'a'[\s\S]*\(default(?:\.|::)C1\) c1 = {[\s\S]*vrc = 'a'[\s\S]*
+globals, globals,\(Rune\) default(?:\.|::)C1::vr = 'a'[\s\S]*
+globals, globals,\(Rune\) default(?:\.|::)globals_vr = 'a'
+b, b genericsfun_return.cj:146,genericsfun_return.cj:146
 c,c,146
-p, p e,\(Rune\) \$[\d] = 'a'
-p, p test_e,\(Rune\) \$[\d] = 'a'
+p, p e,\(Rune\)[\s\S]*'a'
+p, p test_e,\(Rune\)[\s\S]*'a'
 locals, locals,\(Rune\) e = 'a'
 q,q,

@@ -9,16 +9,19 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_debug.cj
 // EXEC: %compiler %cmp_opt -g option_debug.cj -o option_debug%cmp_output
-// EXEC: python3 cjdb_test.py option_test_041.info option_debug %run_env
+// (target_ios_simulator) EXEC: mv option_debug%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py option_test_041.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py option_test_041.info option_debug %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors option_debug,option_debug
-b,b 75,option_debug.cj:75
+b,b option_debug.cj:75,option_debug.cj:75
 AOT r,r,-> 75
 Android c,c,75
 CJVM c,c,75
-p,p a,std.core.Option<std.core.Array<std.core.Range<Int64>>>\) \$[\d] = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}
-locals,locals,std.core.Option<std.core.Array<std.core.Range<Int64>>>\) a = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}
-AOT frame var,frame var a,std.core.Option<std.core.Array<std.core.Range<Int64>>>\) a = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}
+p,p a,std.core(?:\.|::)Option<std.core(?:\.|::)Array<std.core(?:\.|::)Range<Int64>>>\)[\s\S]*{[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}
+locals,locals,std.core(?:\.|::)Option<std.core(?:\.|::)Array<std.core(?:\.|::)Range<Int64>>>\) a = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}
+AOT frame var,frame var a,std.core(?:\.|::)Option<std.core(?:\.|::)Array<std.core(?:\.|::)Range<Int64>>>\) a = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}
 q,q,

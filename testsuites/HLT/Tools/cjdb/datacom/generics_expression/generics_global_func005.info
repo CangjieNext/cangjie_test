@@ -14,14 +14,14 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func005,generics_global_func005
-b,b 31,generics_global_func005.cj:31
+b,b generics_global_func005.cj:31,generics_global_func005.cj:31
 AOT r,r,-> 31
 Android c,c,31
 CJVM c,c,
-expr:expr x5.contains(1):\(Bool\) \$[\d] = true
-expr:expr x4.size==2:\(Bool\) \$[\d] = true
-expr:expr x4["a"]:\(UInt32\) \$[\d] = 1
-expr:expr x4["a"]+3:\(UInt32\) \$[\d] = 4
-expr:expr x3[2]:\(Int8\) \$[\d] = 3
+expr:expr x5.contains(1):\(Bool\)[\s\S]*true
+expr:expr x4.size==2:\(Bool\)[\s\S]*true
+expr:expr x4["a"]:\(UInt32\)[\s\S]*1
+expr:expr x4["a"]+3:\(UInt32\)[\s\S]*4
+expr:expr x3[2]:\(Int8\)[\s\S]*3
 expr:expr x3[3]:IndexOutOfBoundsException: index: 3, size: 3
 q,q,

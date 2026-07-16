@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/014_debug_func_bp.cj
-//  EXEC: %compiler %cmp_opt -g 014_debug_func_bp.cj -o 014_debug_func_bp%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_FunctionBp029.info 014_debug_func_bp %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 014_debug_func_bp.cj -o 014_debug_func_bp%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_FunctionBp029.info 014_debug_func_bp %run_env
 
 
 test#

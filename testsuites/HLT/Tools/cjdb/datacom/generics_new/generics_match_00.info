@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_match,generics_match
-b,b 23,generics_match.cj:23
+b,b generics_match.cj:23,generics_match.cj:23
 AOT r,r,-> 23
 Android c,c,23
 CJVM c,c,
-locals, locals,\(default.RGBColor<Int64>\) c = {(\r|\n|\r\n)  constructor = Green[\s\S]*arg_1 = -100[\s\S]*}[\s\S]*\(std.core.String\) cs = "Green = 0"
+locals, locals,\(default(?:\.|::)RGBColor<Int64>\) c = {(\r|\n|\r\n)  constructor = Green[\s\S]*arg_1 = -100[\s\S]*}[\s\S]*\(std\.core(?:\.|::)String\) cs = "Green = 0"
 q,q,

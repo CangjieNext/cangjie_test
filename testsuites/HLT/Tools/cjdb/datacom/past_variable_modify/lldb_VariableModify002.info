@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// EXEC: python3 cjdb_test.py lldb_VariableModify002.info 024_debug_variable %run_env
+// (target_ios_simulator) EXEC: mv 024_debug_variable%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify002.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify002.info 024_debug_variable %run_env
 
 
 
@@ -18,7 +21,7 @@ test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
 CJVM b,b main,024_debug_variable.cj:15
 CJVM c,c,15
-b,b 16,024_debug_variable.cj:16
+b,b 024_debug_variable.cj:16,024_debug_variable.cj:16
 AOT r,r,-> 16
 Android c,c,16
 CJVM c,c,16
@@ -26,7 +29,7 @@ AOT set,set var_int8 = 1.1,error: unsupported expression
 CJVM set,set var_int8 = 1.1,error: invalid argument
 n,n,19
 locals,locals,var_int8 = 1
-p,p var_int8,\(Int8\) \$[\d] = 1
+p,p var_int8,\(Int8\)[\s\S]*1
 locals,locals,f_int8 = 13
-p,p f_int8,\(Int8\) \$[\d] = 13
+p,p f_int8,\(Int8\)[\s\S]*13
 q,q,

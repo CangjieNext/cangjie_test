@@ -13,12 +13,12 @@
 
 test#
 cjdb,cjdb --no-use-colors case19,case19
-b,b 14,case19.cj:14
-b,b 21,case19.cj:21
+b,b case19.cj:14,case19.cj:14
+b,b case19.cj:21,case19.cj:21
 AOT r,r,-> 21
 Android c,c,21
 CJVM c,c,
-AOT expr:expr f4<Bool>(1,true):\(Int64\) \$[\d] = 1
+AOT expr:expr f4<Bool>(1,true):\(Int64\)[\s\S]*1
 c,c,14
-AOT expr:expr f2(1):\(Int64\) \$[\d] = 1
+AOT expr:expr f2(1):\(Int64\)[\s\S]*1
 q,q,

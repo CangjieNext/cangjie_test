@@ -9,15 +9,18 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/004_debug_multiArray_composite_string.cj
 // EXEC: %compiler %cmp_opt -g 004_debug_multiArray_composite_string.cj -o 004_debug_multiArray_composite_string%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_compositeArray_view015.info 004_debug_multiArray_composite_string %run_env
+// (target_ios_simulator) EXEC: mv 004_debug_multiArray_composite_string%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_compositeArray_view015.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_compositeArray_view015.info 004_debug_multiArray_composite_string %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_multiArray_composite_string,004_debug_multiArray_composite_string
-b,b 40,004_debug_multiArray_composite_string.cj:40
+b,b 004_debug_multiArray_composite_string.cj:40,004_debug_multiArray_composite_string.cj:40
 AOT r,r,-> 40
 Android c,c,40
 CJVM c,c,
-p,p multiArr_str_q[1][1],std[.]core.Array<std[.]core.Array<std[.]core.String>>\) \$[\d] = {[\s\S]*\[0\] = [\s\S]*
-p,p multiArr_str_q[1][1][2][2..3],std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "abcdxyz[\s\S]*
+p,p multiArr_str_q[1][1],std[.]core(?:\.|::)Array<std[.]core(?:\.|::)Array<std.core(?:\.|::)String>>\)[\s\S]*{[\s\S]*\[0\] = [\s\S]*
+p,p multiArr_str_q[1][1][2][2..3],std[.]core(?:\.|::)Array<std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = "abcdxyz[\s\S]*
 q,q,

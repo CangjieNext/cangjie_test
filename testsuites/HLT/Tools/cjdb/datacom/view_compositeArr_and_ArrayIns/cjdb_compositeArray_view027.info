@@ -9,15 +9,18 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/006_debug_multiArray_composite_record.cj
 // EXEC: %compiler %cmp_opt -g 006_debug_multiArray_composite_record.cj -o 006_debug_multiArray_composite_record%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_compositeArray_view027.info 006_debug_multiArray_composite_record %run_env
+// (target_ios_simulator) EXEC: mv 006_debug_multiArray_composite_record%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_compositeArray_view027.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_compositeArray_view027.info 006_debug_multiArray_composite_record %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_multiArray_composite_record,006_debug_multiArray_composite_record
-b,b 38,006_debug_multiArray_composite_record.cj:38
+b,b 006_debug_multiArray_composite_record.cj:38,006_debug_multiArray_composite_record.cj:38
 AOT r,r,-> 38
 Android c,c,38
 CJVM c,c,
-p,p multiArr_mg_d2[0][0],default.R2<Rune>\) \$[\d] = {(\r|\n|\r\n)  width = 'K'
-p,p multiArr_mg_d2[1][0],default.R2<Rune>\) \$[\d] = {(\r|\n|\r\n)  width = 'a'
+p,p multiArr_mg_d2[0][0],default(?:\.|::)R2<Rune>\)[\s\S]*{(\r|\n|\r\n)  width = 'K'
+p,p multiArr_mg_d2[1][0],default(?:\.|::)R2<Rune>\)[\s\S]*{(\r|\n|\r\n)  width = 'a'
 q,q,

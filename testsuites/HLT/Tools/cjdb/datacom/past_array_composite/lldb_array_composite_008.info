@@ -9,14 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/001_debug_array_string.cj
 // EXEC: %compiler %cmp_opt -g 001_debug_array_string.cj -o 001_debug_array_string%cmp_output
-// EXEC: python3 cjdb_test.py lldb_array_composite_008.info 001_debug_array_string %run_env
+// (target_ios_simulator) EXEC: mv 001_debug_array_string%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_008.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_array_composite_008.info 001_debug_array_string %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_string,001_debug_array_string
-b,b 48,001_debug_array_string.cj:48
+b,b 001_debug_array_string.cj:48,001_debug_array_string.cj:48
 AOT r,r,-> 48
 Android c,c,48
 CJVM c,c,
-print,print arrayMainString02[4],\(std[.]core.String\) \$[\d] = "This is a [\s\S]*"[\s\S]*#[\s\S]*"
+print,print arrayMainString02[4],\(std.core(?:\.|::)String\)[\s\S]*"This is a [\s\S]*"[\s\S]*#[\s\S]*"
 q,q,

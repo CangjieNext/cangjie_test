@@ -8,16 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/String/string_enum04.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g string_enum04.cj -o string_enum04%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_string04.info string_enum04 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g string_enum04.cj -o string_enum04%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_string04.info string_enum04 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors string_enum04,string_enum04
-b,b 17,string_enum04.cj:17
+b,b string_enum04.cj:17,string_enum04.cj:17
 AOT r,r,-> 17
 Android c,c,17
 CJVM c,c,
-expr~expr E1<Int64>.A("String")~\(default.E1<Int64>\) \$[\d] = {[\s\S]*constructor = A[\s\S]*arg_1 = "String"[\s\S]*}
-expr~expr E1<Int64>.B("String",1)~\(default.E1<Int64>\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = "String"[\s\S]*arg_2 = 1[\s\S]*}
+expr~expr E1<Int64>.A("String")~\(default(?:\.|::)E1<Int64>\)[\s\S]*{[\s\S]*constructor = A[\s\S]*arg_1 = "String"[\s\S]*}
+expr~expr E1<Int64>.B("String",1)~\(default(?:\.|::)E1<Int64>\)[\s\S]*{[\s\S]*constructor = B[\s\S]*arg_1 = "String"[\s\S]*arg_2 = 1[\s\S]*}
 q,q,

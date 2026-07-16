@@ -8,19 +8,19 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/pkgs007/src
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg3.cj -o libpkg3.%middle
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g libpkg3.%middle src/pkgs003.cj -o pkgs003%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py organization_name_012.info pkgs003 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg3.cj -o libpkg3.%middle
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g libpkg3.%middle src/pkgs003.cj -o pkgs003%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py organization_name_012.info pkgs003 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pkgs003,pkgs003
-b,b 32,pkgs003.cj:32
+b,b pkgs003.cj:32,pkgs003.cj:32
 r,r,-> 32
 Android c,c,32
-expr,expr map_top_1[209],\(Rune\) \$[\d] = 'N'
-expr,expr newc,\(org3.pkgs.Cla_exter_1\) \$[\d] = {[\s\S]*intValue = 120[\s\S]*str = "help me!"[\s\S]*map_c_1 = {[\s\S]*\[-29 -> 'C'\] = {[\s\S]*key = -29[\s\S]*value = 'C'[\s\S]*
-expr,expr val_2[-29],\(Rune\) \$[\d] = 'C'
-expr,expr val_8[76],\(Bool\) \$[\d] = true
-expr,expr val_9[52],\(Int64\) \$[\d] = 3729
+expr,expr map_top_1[209],\(Rune\)[\s\S]*'N'
+expr,expr newc,\(org3.pkgs.Cla_exter_1\)[\s\S]*{[\s\S]*intValue = 120[\s\S]*str = "help me!"[\s\S]*map_c_1 = {[\s\S]*\[-29 -> 'C'\] = {[\s\S]*key = -29[\s\S]*value = 'C'[\s\S]*
+expr,expr val_2[-29],\(Rune\)[\s\S]*'C'
+expr,expr val_8[76],\(Bool\)[\s\S]*true
+expr,expr val_9[52],\(Int64\)[\s\S]*3729
 q,q,

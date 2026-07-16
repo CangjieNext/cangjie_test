@@ -8,18 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_reflection/class01.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g --disable-reflection class01.cj -o class01%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py adapt_reflection01.info class01 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g --disable-reflection class01.cj -o class01%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py adapt_reflection01.info class01 %run_env
 
 test#
 cjdb,cjdb --no-use-colors class01,class01
-b,b 34,class01.cj:34
+b,b class01.cj:34,class01.cj:34
 AOT r,r,-> 34
 Android c,c,34
 locals,locals,\(Int32\) m_length = 3
-p,p m_str,\(std.core.String\) \$[\d] = "strmao"
-p,p m_arrayInt8,\(std.core.Array<Int8>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*\[2\] = 30[\s\S]*}
-expr~expr m_arrayInt8[2]~\(Int8\) \$[\d] = 30
-expr~expr C1.name~\(std.core.String\) \$[\d] = "Rec"
-expr~expr m_c.diagonalLength~\(Int32\) \$[\d] = 0
+p,p m_str,\(std\.core(?:\.|::)String\)[\s\S]*"strmao"
+p,p m_arrayInt8,\(std.core(?:\.|::)Array<Int8>\)[\s\S]*{[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*\[2\] = 30[\s\S]*}
+expr~expr m_arrayInt8[2]~\(Int8\)[\s\S]*30
+expr~expr C1.name~\(std\.core(?:\.|::)String\)[\s\S]*"Rec"
+expr~expr m_c.diagonalLength~\(Int32\)[\s\S]*0
 q,q,

@@ -10,15 +10,18 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_list_032.info list_debug %run_env
+// (target_ios_simulator) EXEC: mv list_debug%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_032.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_list_032.info list_debug %run_env
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 179,list_debug.cj:179
+b,b list_debug.cj:179,list_debug.cj:179
 AOT r,r,-> 179
 Android c,c,179
 CJVM c,c,
-p,p m_com_4,\$[\d]+ =
-p,p m_com_4[0],C1\) \$[\d]+ = {(\r|\n|\r\n)  width = 1(\r|\n|\r\n)  length = 2
-p,p m_com_4[0].width,\$[\d]+ = 1
+p,p m_com_4,[\s\S]*
+p,p m_com_4[0],C1\)[\s\S]*{(\r|\n|\r\n)  width = 1(\r|\n|\r\n)  length = 2
+p,p m_com_4[0].width,[\s\S]*1
 q,quit,

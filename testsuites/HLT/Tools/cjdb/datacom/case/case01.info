@@ -8,11 +8,11 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case01/case01.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g case01.cj -o case01%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py case01.info case01 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g case01.cj -o case01%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py case01.info case01 %run_env
 test#
 cjdb,cjdb --no-use-colors case01,case01
-b,b 19,case01.cj:19
+b,b case01.cj:19,case01.cj:19
 AOT r,r,-> 19
 Android c,c,19
 CJVM c,c,
@@ -20,7 +20,7 @@ AOT p,p item,error: unsupported expression
 b,b 21,Breakpoint 2: 2 locations
 c,c,21
 n,n,21
-locals,locals,\(Tuple<std[.]core.String,default.Circle>\) item = {[\S\s]*\[0\] = ""[\S\s]*\[1\] = \<parent is NULL\>
+locals,locals,\(Tuple<std.core(?:\.|::)String,default(?:\.|::)Circle>\) item = {[\S\s]*\[0\] = ""[\S\s]*\[1\] = \<parent is NULL\>
 n,n,23
-locals,locals,\(Tuple<std[.]core.String,default.Circle>\) item = {[\S\s]*\[0\] = "small"[\S\s]*\[1\] = {[\S\s]*radis = 1
+locals,locals,\(Tuple<std.core(?:\.|::)String,default(?:\.|::)Circle>\) item = {[\S\s]*\[0\] = "small"[\S\s]*\[1\] = {[\S\s]*radis = 1
 q,q,

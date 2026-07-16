@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/String/string_class02.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g string_class02.cj -o string_class02%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_string02.info string_class02 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g string_class02.cj -o string_class02%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_string02.info string_class02 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors string_class02,string_class02
-b,b 25,string_class02.cj:25
+b,b string_class02.cj:25,string_class02.cj:25
 AOT r,r,-> 25
 Android c,c,25
 CJVM c,c,
-expr,expr a2,\(std.core.String\) \$[\d] = "012"
-expr~expr a1.main_str2~\(std.core.String\) \$[\d] = "012"
-expr~expr C1<Int64>().main_str14~\(std.core.String\) \$[\d] = "012abc"
+expr,expr a2,\(std\.core(?:\.|::)String\)[\s\S]*"012"
+expr~expr a1.main_str2~\(std\.core(?:\.|::)String\)[\s\S]*"012"
+expr~expr C1<Int64>().main_str14~\(std\.core(?:\.|::)String\)[\s\S]*"012abc"
 q,q,

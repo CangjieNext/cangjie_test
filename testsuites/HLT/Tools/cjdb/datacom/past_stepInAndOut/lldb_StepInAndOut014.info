@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/008_debug_func_no_arg.cj
 //  EXEC: %compiler %cmp_opt -g 008_debug_func_no_arg.cj -o 008_debug_func_no_arg%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut014.info 008_debug_func_no_arg %run_env
+// (target_ios_simulator) EXEC: mv 008_debug_func_no_arg%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut014.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut014.info 008_debug_func_no_arg %run_env
 
 
 
@@ -18,7 +21,7 @@ test#
 cjdb,cjdb --no-use-colors 008_debug_func_no_arg,008_debug_func_no_arg
 CJVM b main,b main,008_debug_func_no_arg.cj:13
 CJVM c,c,13
-b,b 15,008_debug_func_no_arg.cj:15
+b,b 008_debug_func_no_arg.cj:15,008_debug_func_no_arg.cj:15
 AOT r,r,-> 15
 Android c,c,15
 CJVM c,c,15

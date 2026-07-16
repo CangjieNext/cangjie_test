@@ -9,16 +9,19 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_member.cj
 // EXEC: %compiler %cmp_opt -g generics_member.cj -o generics_member%cmp_output
-// EXEC: python3 cjdb_test.py generics_member_fun_08.info generics_member %run_env
+// (target_ios_simulator) EXEC: mv generics_member%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_08.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_08.info generics_member %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 111,Breakpoint 1:
+b,b generics_member.cj:111,generics_member.cj:111
 AOT r,r,-> 111
 Android c,c,111
 CJVM c,c,
-p, p a,\(\(\)->Unit\) \$[\d] = 0x0000000000000000
-p, p a1,\(\(\)->Unit\) \$[\d] = 0x0000000000000000
+p, p a,\(\(\)->Unit\)[\s\S]*0x0000000000000000
+p, p a1,\(\(\)->Unit\)[\s\S]*0x0000000000000000
 locals, locals,\(\(\)->Unit\) a = 0x0000000000000000[\s\S]*\(\(\)->Unit\) a1 = 0x0000000000000000[\s\S]*
 q,q,

@@ -9,14 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/052_debug_record_generics.cj
 // EXEC: %compiler %cmp_opt -g 052_debug_record_generics.cj -o 052_debug_record_generics%cmp_output
-// EXEC: python3 cjdb_test.py lldb_generics_record_004.info 052_debug_record_generics %run_env
+// (target_ios_simulator) EXEC: mv 052_debug_record_generics%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_generics_record_004.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_generics_record_004.info 052_debug_record_generics %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 98,052_debug_record_generics.cj:98
+b,b 052_debug_record_generics.cj:98,052_debug_record_generics.cj:98
 AOT r,r,-> 98
 Android c,c,98
 CJVM c,c,

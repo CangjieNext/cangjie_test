@@ -8,20 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/composition007.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g composition007.cj -o composition007%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py composition007.info composition007 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g composition007.cj -o composition007%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py composition007.info composition007 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors composition007,composition007
-b,b 49,composition007.cj:49
+b,b composition007.cj:49,composition007.cj:49
 AOT r,r,-> 49
 Android c,c,49
-expr,expr b1,\(default.\(Int64\)->Bool\) \$[\d] = 0x[\s\S]*
-expr,expr b2,\(default.\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
-expr,expr b3,\(default.\(Bool\)->Bool\) \$[\d] = 0x[\s\S]*
-expr,expr c1,\(default.\(Int64\)->Bool\) \$[\d] = 0x[\s\S]*
-expr,expr c2,\(default.\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
-expr,expr c3,\(default.\(Bool\)->Bool\) \$[\d] = 0x[\s\S]*
-expr:expr S1.f2~>a2.f3:\(\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
+expr,expr b1,\(default.\(Int64\)->Bool\)[\s\S]*0x[\s\S]*
+expr,expr b2,\(default.\(Float32\)->Bool\)[\s\S]*0x[\s\S]*
+expr,expr b3,\(default.\(Bool\)->Bool\)[\s\S]*0x[\s\S]*
+expr,expr c1,\(default.\(Int64\)->Bool\)[\s\S]*0x[\s\S]*
+expr,expr c2,\(default.\(Float32\)->Bool\)[\s\S]*0x[\s\S]*
+expr,expr c3,\(default.\(Bool\)->Bool\)[\s\S]*0x[\s\S]*
+expr:expr S1.f2~>a2.f3:\(\(Float32\)->Bool\)[\s\S]*0x[\s\S]*
 q,q,

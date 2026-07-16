@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_array_class,008_debug_array_class
-b,b 64,008_debug_array_class.cj:64
+b,b 008_debug_array_class.cj:64,008_debug_array_class.cj:64
 AOT r,r,-> 64
 Android c,c,64
 CJVM c,c,
 n,n,66
-print,print arraymainrec02[0],C2\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
+print,print arraymainrec02[0],C2\)[\s\S]*{(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 q,q,

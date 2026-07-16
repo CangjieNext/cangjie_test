@@ -8,20 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_func004.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_func004.cj -o generics_local_func004%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py generics_local_func004.info generics_local_func004 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_local_func004.cj -o generics_local_func004%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py generics_local_func004.info generics_local_func004 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func004,generics_local_func004
-b,b 51,generics_local_func004.cj:51
+b,b generics_local_func004.cj:51,generics_local_func004.cj:51
 AOT r,r,-> 51
 Android c,c,51
 CJVM c,c,
-expr:expr p3:\(default.Point\) \$[\d] = {[\s\S]*x = 0[\s\S]*y = 0[\s\S]*}
-expr:expr p1 + p2:\(default.Point\) \$[\d] = {[\s\S]*x = 0[\s\S]*y = 0[\s\S]*}
-expr:expr e:\(default.E\) \$[\d] = {[\s\S]*constructor = X[\s\S]*arg_1 = 1[\s\S]*}
-expr:expr E.X(1):\(default.E\) \$[\d] = {[\s\S]*constructor = X[\s\S]*arg_1 = 1[\s\S]*}
-expr:expr b:\(Int64\) \$[\d] = 8
-expr:expr e1(1):\(Unit\) \$[\d] = ()
+expr:expr p3:\(default(?:\.|::)Point\)[\s\S]*{[\s\S]*x = 0[\s\S]*y = 0[\s\S]*}
+expr:expr p1 + p2:\(default(?:\.|::)Point\)[\s\S]*{[\s\S]*x = 0[\s\S]*y = 0[\s\S]*}
+expr:expr e:\(default(?:\.|::)E\)[\s\S]*{[\s\S]*constructor = X[\s\S]*arg_1 = 1[\s\S]*}
+expr:expr E.X(1):\(default(?:\.|::)E\)[\s\S]*{[\s\S]*constructor = X[\s\S]*arg_1 = 1[\s\S]*}
+expr:expr b:\(Int64\)[\s\S]*8
+expr:expr e1(1):\(Unit\)[\s\S]*()
 q,q,

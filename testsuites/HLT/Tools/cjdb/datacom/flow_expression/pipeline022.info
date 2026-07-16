@@ -8,16 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline022.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g pipeline022.cj -o pipeline022%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py pipeline022.info pipeline022 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g pipeline022.cj -o pipeline022%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py pipeline022.info pipeline022 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pipeline022,pipeline022
-b,b 34,pipeline022.cj:34
+b,b pipeline022.cj:34,pipeline022.cj:34
 AOT r,r,-> 34
 Android c,c,34
-expr,expr x,\(Int64\) \$[\d] = 1
-expr,expr a,\(Int64\) \$[\d] = 2
-expr,expr a2,\(Int64\) \$[\d] = 3
+expr,expr x,\(Int64\)[\s\S]*1
+expr,expr a,\(Int64\)[\s\S]*2
+expr,expr a2,\(Int64\)[\s\S]*3
 q,q,

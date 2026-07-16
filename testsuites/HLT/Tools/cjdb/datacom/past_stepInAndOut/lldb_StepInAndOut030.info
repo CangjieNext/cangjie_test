@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/026_debuginfun_if.cj
 //  EXEC: %compiler %cmp_opt -g 026_debuginfun_if.cj -o 026_debuginfun_if%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut030.info 026_debuginfun_if %run_env
+// (target_ios_simulator) EXEC: mv 026_debuginfun_if%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut030.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut030.info 026_debuginfun_if %run_env
 
 
 
@@ -18,23 +21,23 @@ test#
 cjdb,cjdb --no-use-colors 026_debuginfun_if,026_debuginfun_if
 CJVM b main,b main,026_debuginfun_if.cj:13
 CJVM c,c,13
-b,b 17,026_debuginfun_if.cj:17
-AOT b,b 18,026_debuginfun_if.cj:19
-CJVM b,b 18,026_debuginfun_if.cj:18
-b,b 19,026_debuginfun_if.cj:19
-b,b 20,026_debuginfun_if.cj:20
-AOT b,b 21,026_debuginfun_if.cj:22
-CJVM b,b 21,026_debuginfun_if.cj:21
-b,b 22,026_debuginfun_if.cj:22
-AOT b,b 23,026_debuginfun_if.cj:24
-CJVM b,b 23,026_debuginfun_if.cj:23
-b,b 24,026_debuginfun_if.cj:24
-b,b 25,026_debuginfun_if.cj:25
-AOT b,b 26,026_debuginfun_if.cj:27
-CJVM b,b 26,026_debuginfun_if.cj:26
-b,b 27,026_debuginfun_if.cj:27
-AOT b,b 28,026_debuginfun_if.cj:29
-CJVM b,b 28,026_debuginfun_if.cj:28
+b,b 026_debuginfun_if.cj:17,026_debuginfun_if.cj:17
+b,b 026_debuginfun_if.cj:19,026_debuginfun_if.cj:19
+CJVM b,b 026_debuginfun_if.cj:18,026_debuginfun_if.cj:18
+b,b 026_debuginfun_if.cj:19,026_debuginfun_if.cj:19
+b,b 026_debuginfun_if.cj:20,026_debuginfun_if.cj:20
+b,b 026_debuginfun_if.cj:22,026_debuginfun_if.cj:22
+CJVM b,b 026_debuginfun_if.cj:21,026_debuginfun_if.cj:21
+b,b 026_debuginfun_if.cj:22,026_debuginfun_if.cj:22
+b,b 026_debuginfun_if.cj:24,026_debuginfun_if.cj:24
+CJVM b,b 026_debuginfun_if.cj:23,026_debuginfun_if.cj:23
+b,b 026_debuginfun_if.cj:24,026_debuginfun_if.cj:24
+b,b 026_debuginfun_if.cj:25,026_debuginfun_if.cj:25
+b,b 026_debuginfun_if.cj:27,026_debuginfun_if.cj:27
+CJVM b,b 026_debuginfun_if.cj:26,026_debuginfun_if.cj:26
+b,b 026_debuginfun_if.cj:27,026_debuginfun_if.cj:27
+b,b 026_debuginfun_if.cj:29,026_debuginfun_if.cj:29
+CJVM b,b 026_debuginfun_if.cj:28,026_debuginfun_if.cj:28
 AOT r,r,-> 17
 Android c,c,17
 CJVM c,c,17
@@ -48,6 +51,5 @@ locals,locals,if_a = 2
 rerun,r,-> 17
 AOT finish,finish,19
 AOT set,set if001 = 0,
-AOT s,s,14
-AOT locals,locals,mainnum = 2
+AOT s,s,22
 q,q,

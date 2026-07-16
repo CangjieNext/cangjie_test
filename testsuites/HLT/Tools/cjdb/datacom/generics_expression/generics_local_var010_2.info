@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var010,generics_local_var010
-b,b 18,generics_local_var010.cj:18
+b,b generics_local_var010.cj:18,generics_local_var010.cj:18
 AOT r,r,-> 18
 Android c,c,18
 CJVM c,c,
-expr:expr vcarrc2[0]:\(Int64\) \$[\d] = 2
-expr:expr vrange2:\(std.core.Range<Int32>\) \$[\d] = 1..6 : 2
+expr:expr vcarrc2[0]:\(Int64\)[\s\S]*2
+expr:expr vrange2:\(std.core(?:\.|::)Range<Int32>\)[\s\S]*1..6 : 2
 expr~expr UInt8(var1+Int8(127))~OverflowException: The result would be less than UInt8.Min.
 q,q,

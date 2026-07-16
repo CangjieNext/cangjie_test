@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/007_debug_continue.cj
 //  EXEC: %compiler %cmp_opt -g 007_debug_continue.cj -o 007_debug_continue%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut009.info 007_debug_continue %run_env
+// (target_ios_simulator) EXEC: mv 007_debug_continue%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut009.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut009.info 007_debug_continue %run_env
 
 
 
@@ -18,15 +21,15 @@ test#
 cjdb,cjdb --no-use-colors 007_debug_continue,007_debug_continue
 CJVM b main,b main,007_debug_continue.cj:13
 CJVM c,c,13
-b,b 13,007_debug_continue.cj:13
-b,b 14,007_debug_continue.cj:14
-b,b 15,007_debug_continue.cj:15
-b,b 16,007_debug_continue.cj:16
-b,b 17,007_debug_continue.cj:17
-AOT b,b 18,007_debug_continue.cj:20
-CJVM b,b 18,007_debug_continue.cj:18
-AOT b,b 19,007_debug_continue.cj:20
-CJVM b,b 19,007_debug_continue.cj:19
+b,b 007_debug_continue.cj:13,007_debug_continue.cj:13
+b,b 007_debug_continue.cj:14,007_debug_continue.cj:14
+b,b 007_debug_continue.cj:15,007_debug_continue.cj:15
+b,b 007_debug_continue.cj:16,007_debug_continue.cj:16
+b,b 007_debug_continue.cj:17,007_debug_continue.cj:17
+b,b 007_debug_continue.cj:20,007_debug_continue.cj:20
+CJVM b,b 007_debug_continue.cj:18,007_debug_continue.cj:18
+b,b 007_debug_continue.cj:20,007_debug_continue.cj:20
+CJVM b,b 007_debug_continue.cj:19,007_debug_continue.cj:19
 AOT r,r,-> 13
 Android c,c,13
 finish,finish,14

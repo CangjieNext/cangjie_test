@@ -9,16 +9,19 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_debug.cj
 // EXEC: %compiler %cmp_opt -g option_debug.cj -o option_debug%cmp_output
-// EXEC: python3 cjdb_test.py option_test_032.info option_debug %run_env
+// (target_ios_simulator) EXEC: mv option_debug%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py option_test_032.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py option_test_032.info option_debug %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors option_debug,option_debug
-b,b 75,option_debug.cj:75
+b,b option_debug.cj:75,option_debug.cj:75
 AOT r,r,-> 75
 Android c,c,75
 CJVM c,c,75
-p,p b,\(std[.]core.Option<Rune>\) \$[\d] = 'a'
-locals,locals,\(std[.]core.Option<Rune>\) b = 'a'[\s\S]*
-AOT frame var,frame var b,\(std[.]core.Option<Rune>\) b = 'a'
+p,p b,\(std[.]core(?:\.|::)Option<Rune>\)[\s\S]*'a'
+locals,locals,\(std[.]core(?:\.|::)Option<Rune>\) b = 'a'[\s\S]*
+AOT frame var,frame var b,\(std[.]core(?:\.|::)Option<Rune>\) b = 'a'
 q,q,

@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/013_debug_lambda.cj
 //  EXEC: %compiler %cmp_opt -g 013_debug_lambda.cj -o 013_debug_lambda%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut025.info 013_debug_lambda %run_env
+// (target_ios_simulator) EXEC: mv 013_debug_lambda%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut025.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut025.info 013_debug_lambda %run_env
 
 
 
@@ -19,12 +22,12 @@ cjdb,cjdb --no-use-colors 013_debug_lambda,013_debug_lambda
 CJVM b main,b main,013_debug_lambda.cj:13
 CJVM c,c,13
 b,b 13,Breakpoint
-AOT b,b 14,013_debug_lambda.cj:15
-CJVM b,b 14,013_debug_lambda.cj:14
-b,b 15,013_debug_lambda.cj:15
-AOT b,b 16,013_debug_lambda.cj:17
-CJVM b,b 16,013_debug_lambda.cj:16
-b,b 17,013_debug_lambda.cj:17
+b,b 013_debug_lambda.cj:15,013_debug_lambda.cj:15
+CJVM b,b 013_debug_lambda.cj:14,013_debug_lambda.cj:14
+b,b 013_debug_lambda.cj:15,013_debug_lambda.cj:15
+b,b 013_debug_lambda.cj:17,013_debug_lambda.cj:17
+CJVM b,b 013_debug_lambda.cj:16,013_debug_lambda.cj:16
+b,b 013_debug_lambda.cj:17,013_debug_lambda.cj:17
 AOT r,r,-> 13
 Android c,c,13
 s,s,17

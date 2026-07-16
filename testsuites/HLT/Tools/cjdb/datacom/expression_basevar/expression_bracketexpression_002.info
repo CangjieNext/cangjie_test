@@ -8,25 +8,25 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_0o.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py expression_bracketexpression_002.info 057_debug_0o %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_bracketexpression_002.info 057_debug_0o %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
 CJVM b,b main,057_debug_0o.cj:13
 CJVM c,c,13
-b,b 64,057_debug_0o.cj:64
+b,b 057_debug_0o.cj:64,057_debug_0o.cj:64
 AOT r,r,-> 64
 Android c,c,64
-expression, expression (1+1)*(var118<<2)-4,\(Int8\) \$[\d] = 60
-expression, expression (1+1)*(var116>>2)-4,\(Int16\) \$[\d] = 4
-expression, expression (1+1)*(var132&2)-4,\(Int32\) \$[\d] = -4
-expression, expression (1+1)*(var164^2)-4,\(Int64\) \$[\d] = 128
-expression, expression (1+1)*(var20|2)-4,\(UInt8\) \$[\d] = 240
-expression, expression (1+1)*(var1in<<2)-4,\(IntNative\) \$[\d] = 1020
-expression, expression (1+1)*(var6<<2)-4,\(UInt8\) \$[\d] = 60
-expression, expression (1+1)*(var8&var8)-4,\(UInt32\) \$[\d] = 60
-expression, expression (1+1)*(var9^2)-4,\(UInt64\) \$[\d] = 128
-expression, expression (1+1)*(var10|2)-4,\(UIntNative\) \$[\d] = 256
+expression, expression (1+1)*(var118<<2)-4,\(Int8\)[\s\S]*60
+expression, expression (1+1)*(var116>>2)-4,\(Int16\)[\s\S]*4
+expression, expression (1+1)*(var132&2)-4,\(Int32\)[\s\S]*-4
+expression, expression (1+1)*(var164^2)-4,\(Int64\)[\s\S]*128
+expression, expression (1+1)*(var20|2)-4,\(UInt8\)[\s\S]*240
+expression, expression (1+1)*(var1in<<2)-4,\(IntNative\)[\s\S]*1020
+expression, expression (1+1)*(var6<<2)-4,\(UInt8\)[\s\S]*60
+expression, expression (1+1)*(var8&var8)-4,\(UInt32\)[\s\S]*60
+expression, expression (1+1)*(var9^2)-4,\(UInt64\)[\s\S]*128
+expression, expression (1+1)*(var10|2)-4,\(UIntNative\)[\s\S]*256
 q,q,

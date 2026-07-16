@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/012_debug_func_recursion.cj
 //  EXEC: %compiler %cmp_opt -g 012_debug_func_recursion.cj -o 012_debug_func_recursion%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut020.info 012_debug_func_recursion %run_env
+// (target_ios_simulator) EXEC: mv 012_debug_func_recursion%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut020.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut020.info 012_debug_func_recursion %run_env
 
 
 
@@ -18,7 +21,7 @@ test#
 cjdb,cjdb --no-use-colors 012_debug_func_recursion,012_debug_func_recursion
 CJVM b main,b main,012_debug_func_recursion.cj:13
 CJVM c,c,13
-b,b 13,012_debug_func_recursion.cj:13
+b,b 012_debug_func_recursion.cj:13,012_debug_func_recursion.cj:13
 AOT r,r,-> 13
 Android c,c,13
 s,s,18

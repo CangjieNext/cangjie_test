@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_array_record_init,005_debug_array_record_init
-b,b 55,005_debug_array_record_init.cj:55
+b,b 005_debug_array_record_init.cj:55,005_debug_array_record_init.cj:55
 AOT r,r,-> 55
 Android c,c,55
 CJVM c,c,
 n,n,57
-print,print arraymainrec01[2],Rectangle\) \$[\d]+ = {(\r|\n|\r\n)  length = 3(\r|\n|\r\n)  width = 4(\r|\n|\r\n)  perimeter = 14
+print,print arraymainrec01[2],Rectangle\)[\s\S]*{(\r|\n|\r\n)  length = 3(\r|\n|\r\n)  width = 4(\r|\n|\r\n)  perimeter = 14
 q,q,

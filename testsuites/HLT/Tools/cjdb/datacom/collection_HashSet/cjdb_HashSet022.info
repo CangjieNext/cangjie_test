@@ -9,15 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashSet/003_HashSet_via_class.cj
 // EXEC: %compiler %cmp_opt -g 003_HashSet_via_class.cj -o 003_HashSet_via_class%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_HashSet022.info 003_HashSet_via_class %run_env
+// (target_ios_simulator) EXEC: mv 003_HashSet_via_class%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashSet022.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_HashSet022.info 003_HashSet_via_class %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 22,003_HashSet_via_class.cj:22
+b,b 003_HashSet_via_class.cj:22,003_HashSet_via_class.cj:22
 AOT r,r,-> 22
 Android c,c,22
 CJVM c,c,22
-p,p set_string_2,std[.]collection.HashSet<std[.]core.String>\) \$[\d] = {[\S\s]*\[0\] = "0123456789"[\S\s]*}
-p,p set_string_2,std[.]collection.HashSet<std[.]core.String>\) \$[\d] = {[\S\s]*\[3\] = "仓颉字符串测�?[\S\s]*}
+p,p set_string_2,std[.]collection(?:\.|::)HashSet<std.core(?:\.|::)String>\)[\s\S]*{[\S\s]*\[0\] = "0123456789"[\S\s]*}
+p,p set_string_2,std[.]collection(?:\.|::)HashSet<std.core(?:\.|::)String>\)[\s\S]*{[\S\s]*\[3\] = "仓颉字符串测�?[\S\s]*}
 q,q,

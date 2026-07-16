@@ -14,5 +14,5 @@ main() {
     let var02: Rune = '\\'
     let var03: Rune = '\u{4f60}'
     let var04: Rune = '\u{597d}'
-    return 1
+    return 0
 }

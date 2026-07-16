@@ -8,16 +8,16 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/open01.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g open01.cj -o open01%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py open01.info open01 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g open01.cj -o open01%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py open01.info open01 %run_env
 
 test#
 cjdb,cjdb --no-use-colors open01,open01
-b,b 49,open01.cj:49
+b,b open01.cj:49,open01.cj:49
 AOT r,r,-> 49
 Android c,c,49
 CJVM c,c,
-expr~expr Boo().boo<Int64>(3)~\(Int64\) \$[\d] = 1
-expr~expr Moo<Bool>().goo<Bool>(true)~\(Bool\) \$[\d] = true
-expr~expr Noo<UInt32>().goo<Int64>(4)+Moo<Float64>().goo2(1)~\(Int64\) \$[\d] = 7
+expr~expr Boo().boo<Int64>(3)~\(Int64\)[\s\S]*1
+expr~expr Moo<Bool>().goo<Bool>(true)~\(Bool\)[\s\S]*true
+expr~expr Noo<UInt32>().goo<Int64>(4)+Moo<Float64>().goo2(1)~\(Int64\)[\s\S]*7
 q,q,

@@ -9,20 +9,23 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_member.cj
 // EXEC: %compiler %cmp_opt -g generics_member.cj -o generics_member%cmp_output
-// EXEC: python3 cjdb_test.py generics_member_fun_02.info generics_member %run_env
+// (target_ios_simulator) EXEC: mv generics_member%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_02.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_member_fun_02.info generics_member %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 44,Breakpoint 1:
+b,b generics_member.cj:44,generics_member.cj:44
 AOT r,r,-> 44
 Android c,c,44
 CJVM c,c,
-p, p a1,\(Float16\) \$[\d] = 16.156
-p, p a,\(Float16\) \$[\d] = 16.156
-p, p a2,\(Float32\) \$[\d] = 32.3199997
-p, p b,\(Float32\) \$[\d] = 32.3199997
-p, p a3,\(Float64\) \$[\d] = 64.640000000000001
-p, p c,\(Float64\) \$[\d] = 64.640000000000001
+p, p a1,\(Float16\)[\s\S]*16.156
+p, p a,\(Float16\)[\s\S]*16.156
+p, p a2,\(Float32\)[\s\S]*32.3199997
+p, p b,\(Float32\)[\s\S]*32.3199997
+p, p a3,\(Float64\)[\s\S]*64.640000000000001
+p, p c,\(Float64\)[\s\S]*64.640000000000001
 locals, locals,\(Float16\) a = 16.156[\s\S]*\(Float32\) b = 32.3199997[\s\S]*\(Float64\) c = 64.640000000000001[\s\S]*\(Float16\) a1 = 16.156[\s\S]*\(Float32\) a2 = 32.3199997[\s\S]*\(Float64\) a3 = 64.640000000000001
 q,q,

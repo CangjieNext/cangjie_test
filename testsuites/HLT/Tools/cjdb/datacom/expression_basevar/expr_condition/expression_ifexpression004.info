@@ -8,21 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py    ../../../basecase/past_basic/066_debug_lambda.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py expression_ifexpression004.info 066_debug_lambda %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_ifexpression004.info 066_debug_lambda %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
 CJVM b,b main,066_debug_lambda.cj:19
 CJVM c,c,19
-b,b 21,066_debug_lambda.cj:21
+b,b 066_debug_lambda.cj:21,066_debug_lambda.cj:21
 AOT r,r,-> 21
 Android c,c,21
-expr~ expr if (r'a' < r'b') {if (globals_i64 < 70){for (i in 1..=10){globals_i64++}};globals_i64++} else if (r'a' < r'c'){globals_i64--};globals_i64~\(Int64\) \$[\d] = 75
-expr~ expr if (r'a' > r'b') {globals_i64++} else if (r'a' < r'c'){if (globals_i64 < 70){for (i in 1..=10){globals_i64--}};globals_i64--};globals_i64~\(Int64\) \$[\d] = 74
-expr~ expr if ("hello" >"hello1") {globals_i64++} else if ("hello" < "hello2"){if (globals_i64 < 70){do {globals_i64--} while (globals_i64<65)};globals_i64--}else {globals_i64--};globals_i64~\(Int64\) \$[\d] = 73
-expr~ expr if ("hello3" >"hello1") {if (globals_i64 > 70){do {globals_i64--} while (globals_i64>65)};globals_i64++} else if ("hello" < "hello2"){globals_i64--}else {globals_i64--};globals_i64~\(Int64\) \$[\d] = 66
-expr~ expr if (true) {while (globals_i64<70) {globals_i64++};globals_i64++};globals_i64~\(Int64\) \$[\d] = 71
-expr~ expr if (false) {while (globals_i64<70) {globals_i64++};globals_i64++};globals_i64~\(Int64\) \$[\d] = 71
+expr~ expr if (r'a' < r'b') {if (globals_i64 < 70){for (i in 1..=10){globals_i64++}};globals_i64++} else if (r'a' < r'c'){globals_i64--};globals_i64~\(Int64\)[\s\S]*75
+expr~ expr if (r'a' > r'b') {globals_i64++} else if (r'a' < r'c'){if (globals_i64 < 70){for (i in 1..=10){globals_i64--}};globals_i64--};globals_i64~\(Int64\)[\s\S]*74
+expr~ expr if ("hello" >"hello1") {globals_i64++} else if ("hello" < "hello2"){if (globals_i64 < 70){do {globals_i64--} while (globals_i64<65)};globals_i64--}else {globals_i64--};globals_i64~\(Int64\)[\s\S]*73
+expr~ expr if ("hello3" >"hello1") {if (globals_i64 > 70){do {globals_i64--} while (globals_i64>65)};globals_i64++} else if ("hello" < "hello2"){globals_i64--}else {globals_i64--};globals_i64~\(Int64\)[\s\S]*66
+expr~ expr if (true) {while (globals_i64<70) {globals_i64++};globals_i64++};globals_i64~\(Int64\)[\s\S]*71
+expr~ expr if (false) {while (globals_i64<70) {globals_i64++};globals_i64++};globals_i64~\(Int64\)[\s\S]*71
 q,q,

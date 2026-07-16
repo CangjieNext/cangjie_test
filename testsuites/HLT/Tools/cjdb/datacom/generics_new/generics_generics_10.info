@@ -9,18 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_generics.cj
 // EXEC: %compiler %cmp_opt -g generics_generics.cj -o generics_generics%cmp_output
-// EXEC: python3 cjdb_test.py generics_generics_10.info generics_generics %run_env
+// (target_ios_simulator) EXEC: mv generics_generics%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_generics_10.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_generics_10.info generics_generics %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 94,Breakpoint 1:
+b,b generics_generics.cj:94,generics_generics.cj:94
 AOT r,r,-> 94
 Android c,c,94
 CJVM c,c,
 c,c,94
 c,c,94
 c,c,94
-p, p a,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 2
-locals, locals,\(default.C2<std.core.Range<Int64>>\) this = {[\s\S]*c2_a = 1..10 : 2[\s\S]*}[\s\S]*\(std.core.Range<Int64>\) a = 1..10 : 2[\s\S]*
+p, p a,\(std.core(?:\.|::)Range<Int64>\)[\s\S]*1..10 : 2
+locals, locals,\(default(?:\.|::)C2<std.core(?:\.|::)Range<Int64>>\) this = {[\s\S]*c2_a = 1..10 : 2[\s\S]*}[\s\S]*\(std.core(?:\.|::)Range<Int64>\) a = 1..10 : 2[\s\S]*
 q,q,

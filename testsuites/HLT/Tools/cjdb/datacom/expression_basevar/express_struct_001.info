@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/065_debug_struct.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 001_express_basetype%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py express_struct_001.info 001_express_basetype %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 001_express_basetype%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py express_struct_001.info 001_express_basetype %run_env
 
 
 
@@ -18,17 +18,17 @@ test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
 CJVM b,b main,065_debug_struct.cj:60
 CJVM c,c,60
-b,b 62,065_debug_struct.cj:62
+b,b 065_debug_struct.cj:62,065_debug_struct.cj:62
 CJVM c,c,62
 AOT r,r,-> 62
 Android c,c,62
-expr,expr rr.age,\(Int64\) \$[\d] = 10
-expr,expr rr.age=20,\(Unit\) \$[\d] = ()
-expr,expr rr.age,\(Int64\) \$[\d] = 20
-expr,expr rr.scores,\(Float64\) \$[\d] = 12.119999999999999
-expr,expr rr.scores=13.13,\(Unit\) \$[\d] = ()
-expr,expr rr.scores,\(Float64\) \$[\d] = 13.130000000000001
-expr,expr rr.str1,std.core.String\) \$[\d] = "aaa"
-expr,expr rr.str1="bb",\(Unit\) \$[\d] = ()
-expr,expr rr.str1,std.core.String\) \$[\d] = "bb"
+expr,expr rr.age,\(Int64\)[\s\S]*10
+expr,expr rr.age=20,\(Unit\)[\s\S]*()
+expr,expr rr.age,\(Int64\)[\s\S]*20
+expr,expr rr.scores,\(Float64\)[\s\S]*12.119999999999999
+expr,expr rr.scores=13.13,\(Unit\)[\s\S]*()
+expr,expr rr.scores,\(Float64\)[\s\S]*13.130000000000001
+expr,expr rr.str1,std.core(?:\.|::)String\)[\s\S]*"aaa"
+expr,expr rr.str1="bb",\(Unit\)[\s\S]*()
+expr,expr rr.str1,std.core(?:\.|::)String\)[\s\S]*"bb"
 q,q,

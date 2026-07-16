@@ -9,20 +9,23 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_local.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_local.cj -o genericsfun_local%cmp_output
-// EXEC: python3 cjdb_test.py local_fun_generics_03.info genericsfun_local %run_env
+// (target_ios_simulator) EXEC: mv genericsfun_local%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py local_fun_generics_03.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py local_fun_generics_03.info genericsfun_local %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
-b,b 70,genericsfun_local.cj:70
+b,b genericsfun_local.cj:70,genericsfun_local.cj:70
 AOT r,r,-> 70
 Android c,c,70
 CJVM c,c,
-p, p gengricsvar,\(Bool\) \$[\d] = true
-p, p a,\(Bool\) \$[\d] = true
-p, p gengricsvar1,\(Rune\) \$[\d] = 'a'
-p, p b,\(Rune\) \$[\d] = 'a'
-p, p gengricsvar2,\(Unit\) \$[\d] = \(\)
-p, p c,\(Unit\) \$[\d] = \(\)
+p, p gengricsvar,\(Bool\)[\s\S]*true
+p, p a,\(Bool\)[\s\S]*true
+p, p gengricsvar1,\(Rune\)[\s\S]*'a'
+p, p b,\(Rune\)[\s\S]*'a'
+p, p gengricsvar2,\(Unit\)[\s\S]*\(\)
+p, p c,\(Unit\)[\s\S]*\(\)
 locals, locals,\(Bool\) a = true[\s\S]*\(Rune\) b = 'a'[\s\S]*\(Unit\) c = \(\)[\s\S]*\(Bool\) gengricsvar = true[\s\S]*\(Rune\) gengricsvar1 = 'a'[\s\S]*\(Unit\) gengricsvar2 = \(\)
 q,q,

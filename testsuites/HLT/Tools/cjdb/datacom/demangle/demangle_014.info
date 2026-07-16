@@ -8,14 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/demangle/demangle_2.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g demangle_2.cj -o demangle_2%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py demangle_014.info demangle_2 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g demangle_2.cj -o demangle_2%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py demangle_014.info demangle_2 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors demangle_2,demangle_2
 b,b 66,where = demangle_2`pkg_re::main\(std[.]core::Array<std[.]core::String>\) \+ \d+ at demangle_2.cj:66:18
-AOT r,r,demangle_2`pkg_re::main\(args=std.core.Array<std[.]core.String> @ [\s\S]*\) at demangle_2.cj:66:18[\s\S]*-> 66
+AOT r,r,demangle_2`pkg_re::main\(args=std.core(?:\.|::)Array<std.core(?:\.|::)String> @ [\s\S]*\) at demangle_2.cj:66:18[\s\S]*-> 66
 CJVM c,c,-> 66
 s,s,demangle_2`pkg_re::ClassViaExtend::v2::get\(this=pkg_re.ClassViaExtend @ [\S\s]*\) at demangle_2.cj:26:17[\s\S]*-> 26
 finish,finish,-> 66|68

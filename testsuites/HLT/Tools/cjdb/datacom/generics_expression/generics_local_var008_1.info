@@ -14,15 +14,15 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var008,generics_local_var008
-b,b 80,generics_local_var008.cj:80
+b,b generics_local_var008.cj:80,generics_local_var008.cj:80
 AOT r,r,-> 80
 Android c,c,80
 CJVM c,c,
 expr:expr ai8.:error: unsupported expression
-expr:expr ai8.c1_a:\(default.S3<Int8>\) \$[\d] = {[\s\S]*s3_a = 8[\s\S]*}
+expr:expr ai8.c1_a:\(default(?:\.|::)S3<Int8>\)[\s\S]*{[\s\S]*s3_a = 8[\s\S]*}
 s,s,47
 n,n,48
 n,n,49
-expr:expr this.s1_a:\(UInt8\) \$[\d] = 8
-expr:expr aa-Int64(a):\(Int64\) \$[\d] = 2
+expr:expr this.s1_a:\(UInt8\)[\s\S]*8
+expr:expr aa-Int64(a):\(Int64\)[\s\S]*2
 q,q,

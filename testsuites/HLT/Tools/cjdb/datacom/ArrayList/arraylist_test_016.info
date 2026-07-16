@@ -9,15 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_CompositeVar.cj
 // EXEC: %compiler %cmp_opt -g ArrayList_CompositeVar.cj -o ArrayList_CompositeVar%cmp_output
-// EXEC: python3 cjdb_test.py arraylist_test_016.info ArrayList_CompositeVar %run_env
+// (target_ios_simulator) EXEC: mv ArrayList_CompositeVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_016.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py arraylist_test_016.info ArrayList_CompositeVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_CompositeVar,ArrayList_CompositeVar
-b,b 79,ArrayList_CompositeVar.cj:79
+b,b ArrayList_CompositeVar.cj:79,ArrayList_CompositeVar.cj:79
 AOT r,r,-> 79
 Android c,c,79
 CJVM c,c,79
-p,p c4,\(default.C\) \$[\d] = {\s+constructor = C4\s+arg_1 = {\s+\[0\] = {\s+\[0\] = 'c'[\s\S]*\[1\] = 'a'\s+}\s+\[1\] = {\s+\[0\] = 'n'[\s\S]*\[1\] = 'g'[\s\S]*}
-p,p c5,\(default.C\) \$[\d] = {[\s\S]*constructor = C5[\s\S]*arg_1 = {[\s\S]*\[0\] = {[\s\S]*\[true -> "cangjie"\] = {[\s\S]*key = true[\s\S]*value = "cangjie"[\s\S]*
+p,p c4,\(default(?:\.|::)C\)[\s\S]*{\s+constructor = C4\s+arg_1 = {\s+\[0\] = {\s+\[0\] = 'c'[\s\S]*\[1\] = 'a'\s+}\s+\[1\] = {\s+\[0\] = 'n'[\s\S]*\[1\] = 'g'[\s\S]*}
+p,p c5,\(default(?:\.|::)C\)[\s\S]*{[\s\S]*constructor = C5[\s\S]*arg_1 = {[\s\S]*\[0\] = {[\s\S]*\[true -> "cangjie"\] = {[\s\S]*key = true[\s\S]*value = "cangjie"[\s\S]*
 q,q,

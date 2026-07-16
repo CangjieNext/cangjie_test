@@ -9,16 +9,19 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_memberVar.cj
 // EXEC: %compiler %cmp_opt -g option_memberVar.cj -o option_memberVar%cmp_output
-// EXEC: python3 cjdb_test.py option_test_020.info option_memberVar %run_env
+// (target_ios_simulator) EXEC: mv option_memberVar%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py option_test_020.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py option_test_020.info option_memberVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors option_memberVar,option_memberVar
-b,b 51,option_memberVar.cj:51
+b,b option_memberVar.cj:51,option_memberVar.cj:51
 AOT r,r,-> 51
 Android c,c,51
 CJVM c,c,51
-p,p a.I64,\(std[.]core.Option<Int64>\) \$[\d] = 16
-p,p a.UI64,\(std[.]core.Option<UInt64>\) \$[\d] = 16
-p,p a.F16,\(std[.]core.Option<Float16>\) \$[\d] = 16
+p,p a.I64,\(std[.]core(?:\.|::)Option<Int64>\)[\s\S]*16
+p,p a.UI64,\(std[.]core(?:\.|::)Option<UInt64>\)[\s\S]*16
+p,p a.F16,\(std[.]core(?:\.|::)Option<Float16>\)[\s\S]*16
 q,q,

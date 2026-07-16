@@ -9,19 +9,22 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/045_debug_record_mod.cj
 // EXEC: %compiler %cmp_opt -g 045_debug_record_mod.cj -o 045_debug_record_mod%cmp_output
-// EXEC: python3 cjdb_test.py lldb_record001.info 045_debug_record_mod %run_env
+// (target_ios_simulator) EXEC: mv 045_debug_record_mod%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_record001.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_record001.info 045_debug_record_mod %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
-b,b 57,045_debug_record_mod.cj:57
+b,b 045_debug_record_mod.cj:57,045_debug_record_mod.cj:57
 AOT r,r,-> 57
 Android c,c,57
 CJVM c,c,
 n,n,58
 locals,locals,Rectangle\) rect = {(\r|\n|\r\n)  length = 3
-print,print rect,Rectangle\) \$[\d] = {(\r|\n|\r\n)  length = 3
-print,print rect.length,\(Int32\) \$[\d] = 3
+print,print rect,Rectangle\)[\s\S]*{(\r|\n|\r\n)  length = 3
+print,print rect.length,\(Int32\)[\s\S]*3
 q,q,

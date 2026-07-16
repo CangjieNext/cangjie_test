@@ -9,17 +9,20 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/068_debug_hashset.cj
 // EXEC: %compiler %cmp_opt -g 068_debug_hashset.cj -o 068_debug_hashset%cmp_output
-// EXEC: python3 cjdb_test.py Core_HashSet_view_06.info 068_debug_hashset %run_env
+// (target_ios_simulator) EXEC: mv 068_debug_hashset%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py Core_HashSet_view_06.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py Core_HashSet_view_06.info 068_debug_hashset %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 068_debug_hashset,068_debug_hashset
-b,b 25,068_debug_hashset.cj:25
+b,b 068_debug_hashset.cj:25,068_debug_hashset.cj:25
 AOT r,r,-> 25
 Android c,c,25
 CJVM c,c,25
-p,p hashset06,\(std\.collection.HashSet<std.core.Range<Int64>>\) \$[\d] = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 11..20 : 1[\s\S]*}
+p,p hashset06,\(std\.collection.HashSet<std.core(?:\.|::)Range<Int64>>\)[\s\S]*{[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 11..20 : 1[\s\S]*}
 globals,globals,hashset06 = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 11..20 : 1[\s\S]*}
 q,q,

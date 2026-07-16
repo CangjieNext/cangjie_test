@@ -16,7 +16,7 @@ test#
 cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
 CJVM b,b main,057_debug_0o.cj:13
 CJVM c,c,13
-b,b 64,057_debug_0o.cj:64
+b,b 057_debug_0o.cj:64,057_debug_0o.cj:64
 AOT r,r,-> 64
 Android c,c,64
 expression, expression var6z=-var6z;var6z,OverflowException: sub

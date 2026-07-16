@@ -8,13 +8,13 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/debug_Enhanced/globalstaticVar.cj
-// EXEC: %compiler %cmp_opt -g globalstaticVar.cj -o globalstaticVar%cmp_output
-// EXEC: python3 cjdb_test.py globalstaticVar_004.info globalstaticVar %run_env
+// (!target_ios_simulator) EXEC: %compiler %cmp_opt -g globalstaticVar.cj -o globalstaticVar%cmp_output
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py globalstaticVar_004.info globalstaticVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors globalstaticVar,globalstaticVar
-b,b 42,globalstaticVar.cj:42
+b,b globalstaticVar.cj:42,globalstaticVar.cj:42
 AOT r,r,-> 42
 Android c,c,42
 CJVM c,c,

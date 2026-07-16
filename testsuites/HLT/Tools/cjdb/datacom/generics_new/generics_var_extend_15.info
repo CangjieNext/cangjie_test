@@ -9,21 +9,24 @@
 // LEVEL: 1
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_var_extend.cj
 // EXEC: %compiler %cmp_opt -g generics_var_extend.cj -o generics_var_extend%cmp_output
-// EXEC: python3 cjdb_test.py generics_var_extend_15.info generics_var_extend %run_env
+// (target_ios_simulator) EXEC: mv generics_var_extend%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_var_extend_15.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_var_extend_15.info generics_var_extend %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 282,Breakpoint 1:
-b,b 287,generics_var_extend.cj:287
+b,b generics_var_extend.cj:282,generics_var_extend.cj:282
+b,b generics_var_extend.cj:287,generics_var_extend.cj:287
 AOT r,r,-> 282
 Android c,c,282
 CJVM c,c,
-p, p a,\(Rune\) \$[\d] = 'b'
-p, p a1,\(Rune\) \$[\d] = 'b'
+p, p a,\(Rune\)[\s\S]*'b'
+p, p a1,\(Rune\)[\s\S]*'b'
 locals, locals,\(Rune\) a = 'b'[\s\S]*\(Rune\) a1 = 'b'
 c,c,287
-p, p a,\(Float32\) \$[\d] = 32.3199997
-p, p a2,\(UInt32\) \$[\d] = 32
+p, p a,\(Float32\)[\s\S]*32.3199997
+p, p a2,\(UInt32\)[\s\S]*32
 locals, locals,\(Float32\) a = 32.3199997[\s\S]*\(UInt32\) b = 32[\s\S]*\(Float32\) a1 = 32.3199997[\s\S]*\(UInt32\) a2 = 32
 q, q

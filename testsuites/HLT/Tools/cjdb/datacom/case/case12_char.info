@@ -13,7 +13,7 @@
 
 test#
 cjdb,cjdb --no-use-colors test_stepin,test_stepin
-b,b 50,test_stepin.cj:50
+b,b test_stepin.cj:50,test_stepin.cj:50
 AOT r,r,-> 50
 Android c,c,50
 CJVM c,c,

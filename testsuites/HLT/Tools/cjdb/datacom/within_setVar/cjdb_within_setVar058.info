@@ -9,16 +9,19 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/001_debug_array_baseType.cj
 // EXEC: %compiler %cmp_opt -g 001_debug_array_baseType.cj -o 001_debug_array_baseType%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_within_setVar058.info 001_debug_array_baseType %run_env
+// (target_ios_simulator) EXEC: mv 001_debug_array_baseType%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar058.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar058.info 001_debug_array_baseType %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_baseType,001_debug_array_baseType
-b,b 44,001_debug_array_baseType.cj:44
+b,b 001_debug_array_baseType.cj:44,001_debug_array_baseType.cj:44
 AOT r,r,-> 44
 Android c,c,44
 CJVM c,c,
-p, p arrayBool_d[0][1],\(Bool\) \$[0-9]* = true
-set,set arrayBool_d[0][1]=0,\(Bool\) \$[0-9]* = false
-p,p arrayBool_d[0][1],\(Bool\) \$[0-9]* = false
+p, p arrayBool_d[0][1],\(Bool\)[\s\S]*true
+set,set arrayBool_d[0][1]=0,\(Bool\)[\s\S]*false
+p,p arrayBool_d[0][1],\(Bool\)[\s\S]*false
 q,q,

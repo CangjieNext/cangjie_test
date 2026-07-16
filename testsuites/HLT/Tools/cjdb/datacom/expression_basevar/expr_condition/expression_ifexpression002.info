@@ -8,20 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py    ../../../basecase/past_basic/066_debug_lambda.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py expression_ifexpression002.info 066_debug_lambda %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_ifexpression002.info 066_debug_lambda %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
 CJVM b,b main,066_debug_lambda.cj:19
 CJVM c,c,19
-b,b 21,066_debug_lambda.cj:21
+b,b 066_debug_lambda.cj:21,066_debug_lambda.cj:21
 AOT r,r,-> 21
 Android c,c,21
-expr~ expr if (globals_i64<70){ test_f(); globals_i64++ }else { test_f(); globals_i64-- };globals_i64~\(Int64\) \$[\d] = 65
-expr~ expr if (globals_i64>70){ test_f(); globals_i64++ }else { test_f(); globals_i64-- };globals_i64~\(Int64\) \$[\d] = 64
-expr~ expr if (20>=70){ test_f(); globals_i64++ }else { test_f(); globals_i64-- };globals_i64~\(Int64\) \$[\d] = 63
-expr~ expr if (55.55<=66.66){ test_f(); globals_i64++ }else { test_f(); globals_i64-- };globals_i64~\(Int64\) \$[\d] = 64
-expr~ expr if (55u64==66u64){ test_f(); globals_i64++ }else { test_f(); globals_i64-- };globals_i64~\(Int64\) \$[\d] = 63
+expr~ expr if (globals_i64<70){ test_f(); globals_i64++ }else { test_f(); globals_i64-- };globals_i64~\(Int64\)[\s\S]*65
+expr~ expr if (globals_i64>70){ test_f(); globals_i64++ }else { test_f(); globals_i64-- };globals_i64~\(Int64\)[\s\S]*64
+expr~ expr if (20>=70){ test_f(); globals_i64++ }else { test_f(); globals_i64-- };globals_i64~\(Int64\)[\s\S]*63
+expr~ expr if (55.55<=66.66){ test_f(); globals_i64++ }else { test_f(); globals_i64-- };globals_i64~\(Int64\)[\s\S]*64
+expr~ expr if (55u64==66u64){ test_f(); globals_i64++ }else { test_f(); globals_i64-- };globals_i64~\(Int64\)[\s\S]*63
 q,q,

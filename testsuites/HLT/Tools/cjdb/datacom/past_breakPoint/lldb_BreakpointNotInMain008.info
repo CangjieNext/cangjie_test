@@ -8,18 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/028_debuginfun_while.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 028_debuginfun_while.cj -o 028_debuginfun_while%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain008.info 028_debuginfun_while %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 028_debuginfun_while.cj -o 028_debuginfun_while%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain008.info 028_debuginfun_while %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 028_debuginfun_while,028_debuginfun_while
-b,b 17,028_debuginfun_while.cj:17
-b,b 18,028_debuginfun_while.cj:18
-b,b 19,028_debuginfun_while.cj:19
-AOT b,b 20,028_debuginfun_while.cj:21
+b,b 028_debuginfun_while.cj:17,028_debuginfun_while.cj:17
+b,b 028_debuginfun_while.cj:18,028_debuginfun_while.cj:18
+b,b 028_debuginfun_while.cj:19,028_debuginfun_while.cj:19
+b,b 20,028_debuginfun_while.cj:21
 CJVM b,b 20,028_debuginfun_while.cj:20
 AOT r,r,-> 17
 CJVM c,c,-> 17

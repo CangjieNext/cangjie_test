@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/018_enum_return.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 018_enum_return.cj -o 018_enum_return%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum008.info 018_enum_return %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 018_enum_return.cj -o 018_enum_return%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_enum008.info 018_enum_return %run_env
 
 test#
 cjdb,cjdb --no-use-colors 018_enum_return,018_enum_return
-b,b 23,018_enum_return.cj:23
+b,b 018_enum_return.cj:23,018_enum_return.cj:23
 AOT r,r,-> 23
 Android c,c,23
 CJVM c,c,
-expr,expr bb,\(default.EE1\) \$[\d] = XY
-expr~expr EE1.XY~\(default.EE1\) \$[\d] = XY
-expr~expr (EE1.XY, EE1.XY.name())~\(Tuple<default.EE1,Int64>\) \$[\d] = {[\s\S]*\[0\] = XY[\s\S]*\[1\] = 2[\s\S]*}
-expr,expr aa,\(Tuple<default.EE1,Int64>\) \$[\d] = {[\s\S]*\[0\] = XY[\s\S]*\[1\] = 2[\s\S]*}
+expr,expr bb,\(default(?:\.|::)EE1\)[\s\S]*XY
+expr~expr EE1.XY~\(default(?:\.|::)EE1\)[\s\S]*XY
+expr~expr (EE1.XY, EE1.XY.name())~\(Tuple<default(?:\.|::)EE1,Int64>\)[\s\S]*{[\s\S]*\[0\] = XY[\s\S]*\[1\] = 2[\s\S]*}
+expr,expr aa,\(Tuple<default(?:\.|::)EE1,Int64>\)[\s\S]*{[\s\S]*\[0\] = XY[\s\S]*\[1\] = 2[\s\S]*}
 q,q,

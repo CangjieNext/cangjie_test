@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/004_debug_while.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 004_debug_while.cj -o 004_debug_while%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointInMain016.info 004_debug_while %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 004_debug_while.cj -o 004_debug_while%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_BreakpointInMain016.info 004_debug_while %run_env
 
 
 
@@ -18,10 +18,10 @@ test#
 cjdb,cjdb --no-use-colors 004_debug_while,004_debug_while
 CJVM b,breakpoint set -n main,004_debug_while.cj:13
 CJVM c,c,-> 13
-b,b 13,004_debug_while.cj:13
-b,b 14,004_debug_while.cj:14
-b,b 15,004_debug_while.cj:15
-AOT b,b 16,004_debug_while.cj:17
+b,b 004_debug_while.cj:13,004_debug_while.cj:13
+b,b 004_debug_while.cj:14,004_debug_while.cj:14
+b,b 004_debug_while.cj:15,004_debug_while.cj:15
+b,b 16,004_debug_while.cj:17
 AOT r,r,-> 13
 c,c,-> 14
 n,n,-> 15

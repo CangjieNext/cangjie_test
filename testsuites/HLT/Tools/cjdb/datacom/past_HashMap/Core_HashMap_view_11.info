@@ -8,18 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/collection_HashMap/HashMap_view_11.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g HashMap_view_11.cj -o HashMap_view_11%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py Core_HashMap_view_11.info HashMap_view_11 %run_env
+// EXEC: %compiler %cmp_opt -g HashMap_view_11.cj -o HashMap_view_11%cmp_output
+// (target_ios_simulator) EXEC: mv HashMap_view_11%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py Core_HashMap_view_11.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py Core_HashMap_view_11.info HashMap_view_11 %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors HashMap_view_11,HashMap_view_11
-b,b 23,HashMap_view_11.cj:23
+b,b HashMap_view_11.cj:23,HashMap_view_11.cj:23
 AOT r,r,-> 23
 Android c,c,23
 CJVM c,c,23
-p,p a,\(std\.collection.HashMap<Rune,default.Rectangle>\) \$[\d] = {[\s\S]*\['a'\] = {[\s\S]*key = 'a'[\s\S]*value = {[\s\S]*a = 'a'[\s\S]*str = "Hello Cangjie"[\s\S]*b = false[\s\S]*int_16 = 16[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*hs = {[\s\S]*\[0\] = false[\s\S]*\[1\] = true[\s\S]*}[\s\S]*hm = {[\s\S]*\["a" -> 0\] = {[\s\S]*key = "a"[\s\S]*value = 0[\s\S]*}[\s\S]*\["b" -> 1\] = {[\s\S]*key = "b"[\s\S]*value = 1[\s\S]*}[\s\S]*\["c" -> 2\] = {[\s\S]*key = "c"[\s\S]*value = 2[\s\S]*}[\s\S]*}[\s\S]*r = 0..10 : 1[\s\S]*}[\s\S]*}[\s\S]*\['b'\] = {[\s\S]*key = 'b'[\s\S]*value = {[\s\S]*}[\s\S]*}[\s\S]*}
-locals,locals,\(std\.collection.HashMap<Rune,default.Rectangle>\) a = {[\s\S]*\['a'\] = {[\s\S]*key = 'a'[\s\S]*value = {[\s\S]*a = 'a'[\s\S]*str = "Hello Cangjie"[\s\S]*b = false[\s\S]*int_16 = 16[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*hs = {[\s\S]*\[0\] = false[\s\S]*\[1\] = true[\s\S]*}[\s\S]*hm = {[\s\S]*\["a" -> 0\] = {[\s\S]*key = "a"[\s\S]*value = 0[\s\S]*}[\s\S]*\["b" -> 1\] = {[\s\S]*key = "b"[\s\S]*value = 1[\s\S]*}[\s\S]*\["c" -> 2\] = {[\s\S]*key = "c"[\s\S]*value = 2[\s\S]*}[\s\S]*}[\s\S]*r = 0..10 : 1[\s\S]*}[\s\S]*}[\s\S]*\['b'\] = {[\s\S]*key = 'b'[\s\S]*value = {[\s\S]*}[\s\S]*}[\s\S]*}
+p,p a,\(std\.collection.HashMap<Rune,default(?:\.|::)Rectangle>\)[\s\S]*{[\s\S]*\['a'\] = {[\s\S]*key = 'a'[\s\S]*value = {[\s\S]*a = 'a'[\s\S]*str = "Hello Cangjie"[\s\S]*b = false[\s\S]*int_16 = 16[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*hs = {[\s\S]*\[0\] = false[\s\S]*\[1\] = true[\s\S]*}[\s\S]*hm = {[\s\S]*\["a" -> 0\] = {[\s\S]*key = "a"[\s\S]*value = 0[\s\S]*}[\s\S]*\["b" -> 1\] = {[\s\S]*key = "b"[\s\S]*value = 1[\s\S]*}[\s\S]*\["c" -> 2\] = {[\s\S]*key = "c"[\s\S]*value = 2[\s\S]*}[\s\S]*}[\s\S]*r = 0..10 : 1[\s\S]*}[\s\S]*}[\s\S]*\['b'\] = {[\s\S]*key = 'b'[\s\S]*value = {[\s\S]*}[\s\S]*}[\s\S]*}
+locals,locals,\(std\.collection.HashMap<Rune,default(?:\.|::)Rectangle>\) a = {[\s\S]*\['a'\] = {[\s\S]*key = 'a'[\s\S]*value = {[\s\S]*a = 'a'[\s\S]*str = "Hello Cangjie"[\s\S]*b = false[\s\S]*int_16 = 16[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*hs = {[\s\S]*\[0\] = false[\s\S]*\[1\] = true[\s\S]*}[\s\S]*hm = {[\s\S]*\["a" -> 0\] = {[\s\S]*key = "a"[\s\S]*value = 0[\s\S]*}[\s\S]*\["b" -> 1\] = {[\s\S]*key = "b"[\s\S]*value = 1[\s\S]*}[\s\S]*\["c" -> 2\] = {[\s\S]*key = "c"[\s\S]*value = 2[\s\S]*}[\s\S]*}[\s\S]*r = 0..10 : 1[\s\S]*}[\s\S]*}[\s\S]*\['b'\] = {[\s\S]*key = 'b'[\s\S]*value = {[\s\S]*}[\s\S]*}[\s\S]*}
 q,q,

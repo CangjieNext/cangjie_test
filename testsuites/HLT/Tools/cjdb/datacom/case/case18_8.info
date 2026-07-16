@@ -8,17 +8,17 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case18/case18_8.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g case18_8.cj -o case18_8%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py case18_8.info case18_8 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g case18_8.cj -o case18_8%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py case18_8.info case18_8 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case18_8,case18_8
-b,b 45,case18_8.cj:45
+b,b case18_8.cj:45,case18_8.cj:45
 AOT r,r,-> 45
 Android c,c,45
 CJVM c,c,
-AOT expr,expr castOP1,\(std.core.Option<default.Base>\) \$[\d] = {[\s\S]*name = "Alice"[\s\S]*}
-AOT expr,expr castOP6,\(std.core.Option<default.Derived2>\) \$[\d] = None
-AOT expr,expr castOP14,\(std.core.Option<default.Derived1>\) \$[\d] = None
-AOT p,p castOP6,\(std.core.Option<default.Derived2>\) \$[\d] = None
+AOT expr,expr castOP1,\(std.core(?:\.|::)Option<default(?:\.|::)Base>\)[\s\S]*{[\s\S]*name = "Alice"[\s\S]*}
+AOT expr,expr castOP6,\(std.core(?:\.|::)Option<default(?:\.|::)Derived2>\)[\s\S]*None
+AOT expr,expr castOP14,\(std.core(?:\.|::)Option<default(?:\.|::)Derived1>\)[\s\S]*None
+AOT p,p castOP6,\(std.core(?:\.|::)Option<default(?:\.|::)Derived2>\)[\s\S]*None
 q,q,

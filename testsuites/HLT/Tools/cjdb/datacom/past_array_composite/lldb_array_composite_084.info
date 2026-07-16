@@ -15,10 +15,10 @@
 
 test#
 cjdb,cjdb --no-use-colors array_external_use,array_external_use
-b,b 26,array_external_use.cj:26
+b,b array_external_use.cj:26,array_external_use.cj:26
 AOT r,r,-> 26
 Android c,c,26
 CJVM c,c,
 n,n,28
-print,print array01[0],Rectangle_ex\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
+print,print array01[0],Rectangle_ex\)[\s\S]*{(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
 q,q,

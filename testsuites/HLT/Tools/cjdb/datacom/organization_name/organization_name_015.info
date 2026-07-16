@@ -8,18 +8,18 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/pkgs007/src
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg6.cj -o libpkg6.%middle
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g libpkg6.%middle src/pkgs006.cj -o pkgs006%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py organization_name_015.info pkgs006 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg6.cj -o libpkg6.%middle
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g libpkg6.%middle src/pkgs006.cj -o pkgs006%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py organization_name_015.info pkgs006 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pkgs006,pkgs006
-b,b 49,pkgs006.cj:49
+b,b pkgs006.cj:49,pkgs006.cj:49
 r,r,-> 49
 Android c,c,49
-expr,expr v1,\(Int32\) \$[\d] = 79
-expr,expr v2,\(Int32\) \$[\d] = 82
-expr,expr matched_val,\(Int32\) \$[\d] = 101
-expr~expr Exter_C1.vc_2~\(Int32\) \$[\d] = 3
+expr,expr v1,\(Int32\)[\s\S]*79
+expr,expr v2,\(Int32\)[\s\S]*82
+expr,expr matched_val,\(Int32\)[\s\S]*101
+expr~expr Exter_C1.vc_2~\(Int32\)[\s\S]*3
 q,q,

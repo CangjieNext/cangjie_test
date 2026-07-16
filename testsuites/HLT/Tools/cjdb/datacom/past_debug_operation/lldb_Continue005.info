@@ -9,23 +9,26 @@
 // LEVEL:0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/021_debug_file.cj
 // EXEC: %compiler %cmp_opt -g 021_debug_file.cj -o 021_debug_file%cmp_output
-// EXEC: python3 cjdb_test.py lldb_Continue005.info 021_debug_file %run_env
+// (target_ios_simulator) EXEC: mv 021_debug_file%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_Continue005.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_Continue005.info 021_debug_file %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 021_debug_file,021_debug_file
-b,b 17,021_debug_file.cj:17
-b,b 23,021_debug_file.cj:23
-b,b 27,021_debug_file.cj:27
-b,b 31,021_debug_file.cj:31
-b,b 35,021_debug_file.cj:35
-b,b 39,021_debug_file.cj:39
-b,b 43,021_debug_file.cj:43
-b,b 47,021_debug_file.cj:47
-b,b 51,021_debug_file.cj:51
-b,b 55,021_debug_file.cj:55
+b,b 021_debug_file.cj:17,021_debug_file.cj:17
+b,b 021_debug_file.cj:23,021_debug_file.cj:23
+b,b 021_debug_file.cj:27,021_debug_file.cj:27
+b,b 021_debug_file.cj:31,021_debug_file.cj:31
+b,b 021_debug_file.cj:35,021_debug_file.cj:35
+b,b 021_debug_file.cj:39,021_debug_file.cj:39
+b,b 021_debug_file.cj:43,021_debug_file.cj:43
+b,b 021_debug_file.cj:47,021_debug_file.cj:47
+b,b 021_debug_file.cj:51,021_debug_file.cj:51
+b,b 021_debug_file.cj:55,021_debug_file.cj:55
 AOT r,r,-> 17
 Android c,c,17
 CJVM c,c,

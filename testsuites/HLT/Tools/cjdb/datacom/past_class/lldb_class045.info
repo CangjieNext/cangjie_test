@@ -8,15 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/012_debug_class_init.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 012_debug_class_init.cj -o 012_debug_class_init%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_class045.info 012_debug_class_init %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 012_debug_class_init.cj -o 012_debug_class_init%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_class045.info 012_debug_class_init %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_class_init,012_debug_class_init
-b,b 60,012_debug_class_init.cj:60
+b,b 012_debug_class_init.cj:60,012_debug_class_init.cj:60
 AOT r,r,-> 60
 Android c,c,60
 CJVM c,c,60

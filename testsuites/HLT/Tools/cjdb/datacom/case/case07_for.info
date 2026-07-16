@@ -13,7 +13,7 @@
 
 test#
 cjdb,cjdb --no-use-colors loop,loop
-AOT b,b 14,Breakpoint 1: 2 locations
+b,b 14,Breakpoint 1: 2 locations
 CJVM b,b 14,loop.cj:14
 AOT r,r,-> 14
 Android c,c,14

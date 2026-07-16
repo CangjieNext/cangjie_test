@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/033_debuginfun_func_with_arg.cj
-// (!(target_mac|target_win|target_android)) EXEC: %compiler %cmp_opt -g 033_debuginfun_func_with_arg.cj -o 033_debuginfun_func_with_arg%cmp_output
-// (!(target_mac|target_win|target_android)) EXEC: python3 cjdb_test.py lldb_ConditionBP062.info 033_debuginfun_func_with_arg %run_env
+// (!(target_mac|target_win|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 033_debuginfun_func_with_arg.cj -o 033_debuginfun_func_with_arg%cmp_output
+// (!(target_mac|target_win|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_ConditionBP062.info 033_debuginfun_func_with_arg %run_env
 
 
 

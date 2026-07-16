@@ -9,15 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/012_debug_ArrayIns_composite_enum.cj
 // EXEC: %compiler %cmp_opt -g 012_debug_ArrayIns_composite_enum.cj -o 012_debug_ArrayIns_composite_enum%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_compositeArray_view064.info 012_debug_ArrayIns_composite_enum %run_env
+// (target_ios_simulator) EXEC: mv 012_debug_ArrayIns_composite_enum%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_compositeArray_view064.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_compositeArray_view064.info 012_debug_ArrayIns_composite_enum %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_ArrayIns_composite_enum,012_debug_ArrayIns_composite_enum
-b,b 53,012_debug_ArrayIns_composite_enum.cj:53
+b,b 012_debug_ArrayIns_composite_enum.cj:53,012_debug_ArrayIns_composite_enum.cj:53
 AOT r,r,-> 53
 Android c,c,53
 CJVM c,c,
-p,p multiArr_m_d2[1][1..2],\(std[.]core.Array<default.TimeUnit2>\) \$[\d]+ = {(\r|\n|\r\n)  \[0\] = [\s\S]*
-p,p multiArr_m_d2[1][1],TimeUnit2\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Month(\r|\n|\r\n)  arg_1 = 1(\r|\n|\r\n)  arg_2 = 2
+p,p multiArr_m_d2[1][1..2],\(std[.]core(?:\.|::)Array<default(?:\.|::)TimeUnit2>\)[\s\S]*{(\r|\n|\r\n)  \[0\] = [\s\S]*
+p,p multiArr_m_d2[1][1],TimeUnit2\)[\s\S]*{(\r|\n|\r\n)  constructor = Month(\r|\n|\r\n)  arg_1 = 1(\r|\n|\r\n)  arg_2 = 2
 q,q,

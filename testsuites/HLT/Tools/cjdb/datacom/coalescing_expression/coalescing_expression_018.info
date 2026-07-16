@@ -8,17 +8,17 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/coalescing_expression/coalescing018.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g coalescing018.cj -o coalescing018%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py coalescing_expression_018.info coalescing018 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g coalescing018.cj -o coalescing018%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py coalescing_expression_018.info coalescing018 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors coalescing018,coalescing018
-b,b 32,coalescing018.cj:32
+b,b coalescing018.cj:32,coalescing018.cj:32
 AOT r,r,-> 32
 Android c,c,32
-expr,expr r1,\(default.S1<default.C1>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
-expr,expr r2,\(default.S1<default.C1>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
-expr,expr r3,\(default.E1<default.C1>\) \$[\d] = AB
-expr,expr r4,\(default.E1<default.C1>\) \$[\d] = CD
+expr,expr r1,\(default(?:\.|::)S1<default(?:\.|::)C1>\)[\s\S]*{[\s\S]*a = 1[\s\S]*}
+expr,expr r2,\(default(?:\.|::)S1<default(?:\.|::)C1>\)[\s\S]*{[\s\S]*a = 1[\s\S]*}
+expr,expr r3,\(default(?:\.|::)E1<default(?:\.|::)C1>\)[\s\S]*AB
+expr,expr r4,\(default(?:\.|::)E1<default(?:\.|::)C1>\)[\s\S]*CD
 q,q,

@@ -8,9 +8,9 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/packages/pkgs_h_001/src
-// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/watchpoint_external_define.cj -o libpkg1.%middle
-// (!target_android) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/watchpoint_external_invoke.cj -o watchpoint_external_invoke%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_within_watchpoint064.info watchpoint_external_invoke %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/watchpoint_external_define.cj -o libpkg1.%middle
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/watchpoint_external_invoke.cj -o watchpoint_external_invoke%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_within_watchpoint064.info watchpoint_external_invoke %run_env
 
 test#
 cjdb,cjdb --no-use-colors watchpoint_external_invoke,watchpoint_external_invoke

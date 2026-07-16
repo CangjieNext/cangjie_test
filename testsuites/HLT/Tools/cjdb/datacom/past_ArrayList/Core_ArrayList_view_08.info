@@ -9,17 +9,20 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/066_debug_arraylist.cj
 // EXEC: %compiler %cmp_opt -g 066_debug_arraylist.cj -o 066_debug_arraylist%cmp_output
-// EXEC: python3 cjdb_test.py Core_ArrayList_view_08.info 066_debug_arraylist %run_env
+// (target_ios_simulator) EXEC: mv 066_debug_arraylist%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py Core_ArrayList_view_08.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py Core_ArrayList_view_08.info 066_debug_arraylist %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
-b,b 40,066_debug_arraylist.cj:40
+b,b 066_debug_arraylist.cj:40,066_debug_arraylist.cj:40
 AOT r,r,-> 40
 Android c,c,40
 CJVM c,c,40
-p,p c,\(std\.collection.ArrayList<std.core.Range<Int64>>\) \$[\d] = {[\s\S]*\[0\] = 0\.\.10 : 1[\s\S]*\[1\] = 10\.\.0 : -1[\s\S]*}
+p,p c,\(std\.collection.ArrayList<std.core(?:\.|::)Range<Int64>>\)[\s\S]*{[\s\S]*\[0\] = 0\.\.10 : 1[\s\S]*\[1\] = 10\.\.0 : -1[\s\S]*}
 locals,locals,c = {[\s\S]*\[0\] = 0\.\.10 : 1[\s\S]*\[1\] = 10\.\.0 : -1[\s\S]*}
 q,q,

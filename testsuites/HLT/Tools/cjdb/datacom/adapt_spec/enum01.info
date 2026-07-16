@@ -8,16 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/enum01.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g enum01.cj -o enum01%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py enum01.info enum01 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g enum01.cj -o enum01%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py enum01.info enum01 %run_env
 
 test#
 cjdb,cjdb --no-use-colors enum01,enum01
-b,b 18,enum01.cj:18
+b,b enum01.cj:18,enum01.cj:18
 AOT r,r,-> 18
 Android c,c,18
 CJVM c,c,
-locals,locals,\(default.E\) a1 = A
-expr,expr a1,\(default.E\) \$[\d] = A
-expr~expr E.B~\(default.E\) \$[\d] = B
+locals,locals,\(default(?:\.|::)E\) a1 = A
+expr,expr a1,\(default(?:\.|::)E\)[\s\S]*A
+expr~expr E.B~\(default(?:\.|::)E\)[\s\S]*B
 q,q,

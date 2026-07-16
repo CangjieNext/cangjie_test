@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// EXEC: python3 cjdb_test.py lldb_VariableModify046.info 024_debug_variable %run_env
+// (target_ios_simulator) EXEC: mv 024_debug_variable%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify046.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify046.info 024_debug_variable %run_env
 
 
 
@@ -18,7 +21,7 @@ test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
 CJVM b,b main,024_debug_variable.cj:15
 CJVM c,c,15
-b,b 62,024_debug_variable.cj:62
+b,b 024_debug_variable.cj:62,024_debug_variable.cj:62
 AOT r,r,-> 62
 Android c,c,62
 CJVM c,c,62
@@ -27,8 +30,8 @@ CJVM set,set var_bool = false,false
 n,n,65
 n,n,70
 locals,locals,var_bool = false
- p,p var_bool,\(Bool\) \$[\d] = false
-CJVM p,p var_bool,\(Bool\) \$[\d] = false
+ p,p var_bool,\(Bool\)[\s\S]*false
+CJVM p,p var_bool,\(Bool\)[\s\S]*false
 locals,locals,f_bool = 2
-p,p f_bool,\(Int64\) \$[\d] = 2
+p,p f_bool,\(Int64\)[\s\S]*2
 q,q,

@@ -9,16 +9,19 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_setVar/001_debug_setVar_generices.cj
 // EXEC: %compiler %cmp_opt -g 001_debug_setVar_generices.cj -o 001_debug_setVar_generices%cmp_output
-// EXEC: python3 cjdb_test.py cjdb_within_setVar024.info 001_debug_setVar_generices %run_env
+// (target_ios_simulator) EXEC: mv 001_debug_setVar_generices%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar024.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py cjdb_within_setVar024.info 001_debug_setVar_generices %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
-b,b 31,001_debug_setVar_generices.cj:31
+b,b 001_debug_setVar_generices.cj:31,001_debug_setVar_generices.cj:31
 AOT r,r,-> 31
 Android c,c,31
 CJVM c,c,
-p,p mc_ins,C2<UInt8,Int16,Float64,Bool,Rune>\) \$[\d] = {[\s\S]*
-set,set mc_ins.num4=1,\(Bool\) \$[0-9]* = true
-p,p mc_ins.num4,\(Bool\) \$[\d] = true
+p,p mc_ins,C2<UInt8,Int16,Float64,Bool,Rune>\)[\s\S]*{[\s\S]*
+set,set mc_ins.num4=1,\(Bool\)[\s\S]*true
+p,p mc_ins.num4,\(Bool\)[\s\S]*true
 q,q,

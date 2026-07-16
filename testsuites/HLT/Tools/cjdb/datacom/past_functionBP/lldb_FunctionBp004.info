@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/014_debug_func_bp.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 014_debug_func_bp.cj -o 014_debug_func_bp%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_FunctionBp004.info 014_debug_func_bp %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 014_debug_func_bp.cj -o 014_debug_func_bp%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_FunctionBp004.info 014_debug_func_bp %run_env
 
 
 
@@ -18,7 +18,7 @@ test#
 cjdb,cjdb --no-use-colors 014_debug_func_bp,014_debug_func_bp
 CJVM b,breakpoint set -n main,014_debug_func_bp.cj:15
 CJVM c,c,15
-AOT b,b funcbp000,no locations
+b,b funcbp000,no locations
 CJVM b,b funcbp000,Breakpoint 2: funcbp000 not loaded.
 AOT r,r,exited
 Android c,c,exited

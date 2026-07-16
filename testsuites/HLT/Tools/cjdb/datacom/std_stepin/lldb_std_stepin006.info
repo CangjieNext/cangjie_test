@@ -8,16 +8,16 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/std_stepin/std_test.cj
-// (!target_android) EXEC: %compiler %import-cangjie-stdx %cmp_opt -g std_test.cj -o std_test%cmp_output
-// (!target_android) EXEC: %run_stdx python3 cjdb_test.py lldb_std_stepin006.info std_test %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %import-cangjie-stdx %cmp_opt -g std_test.cj -o std_test%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: %run_stdx python3 cjdb_test.py lldb_std_stepin006.info std_test %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors std_test,std_test
-b,b 174,std_test.cj:174
+b,b std_test.cj:174,std_test.cj:174
 AOT r,r,-> 174
 CJVM c,c,
-AOT b,breakpoint disable,
+b,breakpoint disable,
 s,s,-> 175
 s,s,-> 176
 s,s,-> 177

@@ -8,18 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/pkgs002/src
-// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj src/pkgs/pkg2.cj -o libpkg1.%middle
-// (!target_android) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs002.cj -o pkgs002%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py organization_name_003.info pkgs002 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj src/pkgs/pkg2.cj -o libpkg1.%middle
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs002.cj -o pkgs002%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py organization_name_003.info pkgs002 %run_env
 
 test#
 cjdb,cjdb --no-use-colors pkgs002,pkgs002
-b,b 27,pkgs002.cj:27
+b,b pkgs002.cj:27,pkgs002.cj:27
 r,r,-> 27
 Android c,c,27
 locals,locals,var001 = 1
 locals,locals,var005 = 1
 locals,locals,var2_003 = 1
 locals,locals,\(Rune\) var2_006 = '5'
-p,p var2_005,\(Bool\) \$[\d] = true
+p,p var2_005,\(Bool\)[\s\S]*true
 q,q,

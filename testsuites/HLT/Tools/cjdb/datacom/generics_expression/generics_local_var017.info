@@ -8,13 +8,13 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var017.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_var017.cj -o generics_local_var017%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py generics_local_var017.info generics_local_var017 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_local_var017.cj -o generics_local_var017%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py generics_local_var017.info generics_local_var017 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var017,generics_local_var017
-b,b 24,generics_local_var017.cj:24
+b,b generics_local_var017.cj:24,generics_local_var017.cj:24
 AOT r,r,-> 24
 Android c,c,24
 CJVM c,c,
@@ -23,6 +23,6 @@ n,n,13
 n,n,14
 n,n,15
 n,n,20
-expr~expr if_a~\(Int64\) \$[\d] = 1
-expr~expr !if_a~\(Int64\) \$[\d] = -2
+expr~expr if_a~\(Int64\)[\s\S]*1
+expr~expr !if_a~\(Int64\)[\s\S]*-2
 q,q,

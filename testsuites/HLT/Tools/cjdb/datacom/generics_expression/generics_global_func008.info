@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func008,generics_global_func008
-b,b 31,generics_global_func008.cj:31
+b,b generics_global_func008.cj:31,generics_global_func008.cj:31
 AOT r,r,-> 31
 Android c,c,31
 CJVM c,c,
-expr:expr A2<Int64>(1):\(default.A2<Int64>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
-expr:expr bb2:\(default.A2<Int64>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
-expr:expr bb2.a-1:\(Int64\) \$[\d] = 0
+expr:expr A2<Int64>(1):\(default(?:\.|::)A2<Int64>\)[\s\S]*{[\s\S]*a = 1[\s\S]*}
+expr:expr bb2:\(default(?:\.|::)A2<Int64>\)[\s\S]*{[\s\S]*a = 1[\s\S]*}
+expr:expr bb2.a-1:\(Int64\)[\s\S]*0
 q,q,

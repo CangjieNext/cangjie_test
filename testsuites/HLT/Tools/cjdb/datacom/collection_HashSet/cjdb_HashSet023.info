@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 23,003_HashSet_via_class.cj:23
+b,b 003_HashSet_via_class.cj:23,003_HashSet_via_class.cj:23
 AOT r,r,-> 23
 Android c,c,23
 CJVM c,c,23
-p,p set_string_3,std[.]collection.HashSet<std[.]core.String>\) \$[\d] = {[\S\s]*\[2\] = "[\s\S]*        Hello[\s\S]*            CangJie![\s\S]*        this is a test."[\S\s]*}
+p,p set_string_3,std[.]collection(?:\.|::)HashSet<std.core(?:\.|::)String>\)[\s\S]*{[\S\s]*\[2\] = "[\s\S]*        Hello[\s\S]*            CangJie![\s\S]*        this is a test."[\S\s]*}
 q,q,

@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/051_debug_watchpoint_within_func.cj
-// (not arm) EXEC: %compiler %cmp_opt -g 051_debug_watchpoint_within_func.cj -o 051_debug_watchpoint_within_func%cmp_output
-// (not arm) EXEC: python3 cjdb_test.py lldb_within_watchpoint061.info 051_debug_watchpoint_within_func %run_env
+// (!target_aarch64) EXEC: %compiler %cmp_opt -g 051_debug_watchpoint_within_func.cj -o 051_debug_watchpoint_within_func%cmp_output
+// (!target_aarch64) EXEC: python3 cjdb_test.py lldb_within_watchpoint061.info 051_debug_watchpoint_within_func %run_env
 
 test#
 cjdb,cjdb --no-use-colors 051_debug_watchpoint_within_func,051_debug_watchpoint_within_func

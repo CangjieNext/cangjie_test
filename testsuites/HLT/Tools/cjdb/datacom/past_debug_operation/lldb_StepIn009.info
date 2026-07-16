@@ -9,18 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/015_debug_basetype.cj
 // EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
-// EXEC: python3 cjdb_test.py lldb_StepIn009.info 015_debug_basetype %run_env
+// (target_ios_simulator) EXEC: mv 015_debug_basetype%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepIn009.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepIn009.info 015_debug_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
-b,b 13,015_debug_basetype.cj:13
+b,b 015_debug_basetype.cj:13,015_debug_basetype.cj:13
 AOT r,r,-> 13
 Android c,c,13
 CJVM c,c,
-b,b 14,015_debug_basetype.cj:14
+b,b 015_debug_basetype.cj:14,015_debug_basetype.cj:14
 c,c,14
 s,s,15
 locals,locals,var2 = 127

@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/003_debug_match.cj
-// (!target_android) EXEC: %compiler %cmp_opt -g 003_debug_match.cj -o 003_debug_match%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointInMain015.info 003_debug_match %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 003_debug_match.cj -o 003_debug_match%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_BreakpointInMain015.info 003_debug_match %run_env
 
 
 
@@ -18,10 +18,10 @@ test#
 cjdb,cjdb --no-use-colors 003_debug_match,003_debug_match
 CJVM b,breakpoint set -n main,003_debug_match.cj:13
 CJVM c,c,-> 13
-b,b 13,003_debug_match.cj:13
-b,b 16,003_debug_match.cj:16
-b,b 21,003_debug_match.cj:21
-AOT b,b 23,003_debug_match.cj:24
+b,b 003_debug_match.cj:13,003_debug_match.cj:13
+b,b 003_debug_match.cj:16,003_debug_match.cj:16
+b,b 003_debug_match.cj:21,003_debug_match.cj:21
+b,b 23,003_debug_match.cj:24
 CJVM b,b 23,003_debug_match.cj:23
 AOT r,r,-> 13
 n,n,-> 14

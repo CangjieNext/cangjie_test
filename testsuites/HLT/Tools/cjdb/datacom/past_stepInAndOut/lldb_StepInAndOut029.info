@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/025_debuginfun_cover.cj
 //  EXEC: %compiler %cmp_opt -g 025_debuginfun_cover.cj -o 025_debuginfun_cover%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut029.info 025_debuginfun_cover %run_env
+// (target_ios_simulator) EXEC: mv 025_debuginfun_cover%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut029.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut029.info 025_debuginfun_cover %run_env
 
 
 
@@ -18,8 +21,8 @@ test#
 cjdb,cjdb --no-use-colors 025_debuginfun_cover,025_debuginfun_cover
 CJVM b main,b main,025_debuginfun_cover.cj:13
 CJVM c,c,13
-b,b 18,025_debuginfun_cover.cj:18
-b,b 20,025_debuginfun_cover.cj:20
+b,b 025_debuginfun_cover.cj:18,025_debuginfun_cover.cj:18
+b,b 025_debuginfun_cover.cj:20,025_debuginfun_cover.cj:20
 AOT r,r,-> 18
 Android c,c,18
 CJVM c,c,18
@@ -31,5 +34,5 @@ s,s,19
 s,s,22
 locals,locals,var3 = 3
 rerun,r,-> 18
-AOT finish,finish,13
+AOT finish,finish,20
 q,q,

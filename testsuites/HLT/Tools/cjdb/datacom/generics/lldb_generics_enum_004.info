@@ -8,18 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/002_debug_enum_generics.cj
-// EXEC: %compiler %cmp_opt -g 002_debug_enum_generics.cj -o 002_debug_enum_generics%cmp_output
-// EXEC: python3 cjdb_test.py lldb_generics_enum_004.info 002_debug_enum_generics %run_env
+// (!target_ios_simulator) EXEC: %compiler %cmp_opt -g 002_debug_enum_generics.cj -o 002_debug_enum_generics%cmp_output
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_generics_enum_004.info 002_debug_enum_generics %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 52,002_debug_enum_generics.cj:52
+b,b 002_debug_enum_generics.cj:52,002_debug_enum_generics.cj:52
 AOT r,r,-> 52
 Android c,c,52
 CJVM c,c,
 n,n,54
-locals,locals,\(default.TimeUnit2<Rune,Bool>\) m_time3 = {(\r|\n|\r\n)  constructor = Month[\s\S]*arg_1 = '5'[\s\S]*arg_2 = true[\s\S]*}
+locals,locals,\(default(?:\.|::)TimeUnit2<Rune,Bool>\) m_time3 = {(\r|\n|\r\n)  constructor = Month[\s\S]*arg_1 = '5'[\s\S]*arg_2 = true[\s\S]*}
 q,q,

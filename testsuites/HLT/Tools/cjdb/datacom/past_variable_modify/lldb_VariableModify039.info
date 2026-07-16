@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// EXEC: python3 cjdb_test.py lldb_VariableModify039.info 024_debug_variable %run_env
+// (target_ios_simulator) EXEC: mv 024_debug_variable%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify039.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify039.info 024_debug_variable %run_env
 
 
 
@@ -18,14 +21,14 @@ test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
 CJVM b,b main,024_debug_variable.cj:15
 CJVM c,c,15
-b,b 53,024_debug_variable.cj:53
+b,b 024_debug_variable.cj:53,024_debug_variable.cj:53
 AOT r,r,-> 53
 Android c,c,53
 CJVM c,c,53
 set,set var_float32 = 2.999,2.9990
 n,n,56
 locals,locals,var_float32 = 2.9990
-p,p var_float32,\(Float32\) \$[\d] = 2.9990
+p,p var_float32,\(Float32\)[\s\S]*2.9990
 locals,locals,f_float32 = 10.9990
-p,p f_float32,\(Float32\) \$[\d] = 10.9990
+p,p f_float32,\(Float32\)[\s\S]*10.9990
 q,q,

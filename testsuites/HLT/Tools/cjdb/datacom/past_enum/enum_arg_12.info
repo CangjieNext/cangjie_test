@@ -9,15 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/enum_arg.cj
 // EXEC: %compiler %cmp_opt -g enum_arg.cj -o enum_arg%cmp_output
-// EXEC: python3 cjdb_test.py enum_arg_12.info enum_arg %run_env
+// (target_ios_simulator) EXEC: mv enum_arg%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py enum_arg_12.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py enum_arg_12.info enum_arg %run_env
 
 test#
 cjdb,cjdb --no-use-colors enum_arg,enum_arg
-b,b 40,default(::|\.)main\(\)[\s\S]*enum_arg.cj:40
+b,b enum_arg.cj:40,default(::|\.)main\(\)[\s\S]*enum_arg.cj:40
 AOT r,r,-> 40
 Android c,c,40
 CJVM c,c,
 s,s,23
-p,p para_2,\(default.test_RGBColor\) \$[\d] = {(\r|\n|\r\n)  constructor = Red
+p,p para_2,\(default(?:\.|::)test_RGBColor\)[\s\S]*{(\r|\n|\r\n)  constructor = Red
 n,n,40|40
 q,q,

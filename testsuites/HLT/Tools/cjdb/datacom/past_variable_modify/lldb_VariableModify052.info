@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// EXEC: python3 cjdb_test.py lldb_VariableModify052.info 024_debug_variable %run_env
+// (target_ios_simulator) EXEC: mv 024_debug_variable%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify052.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify052.info 024_debug_variable %run_env
 
 
 
@@ -18,14 +21,14 @@ test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
 CJVM b,b main,024_debug_variable.cj:15
 CJVM c,c,15
-b,b 71,024_debug_variable.cj:71
+b,b 024_debug_variable.cj:71,024_debug_variable.cj:71
 AOT r,r,-> 71
 Android c,c,71
 CJVM c,c,71
 set,set var_char = ,error
 n,n,75
 locals,locals,var_char = '5'
-p,p var_char,\(Rune\) \$[\d] = '5'
+p,p var_char,\(Rune\)[\s\S]*'5'
 locals,locals,var_charbool = true
-p,p var_charbool,\(Bool\) \$[\d] = true
+p,p var_charbool,\(Bool\)[\s\S]*true
 q,q,

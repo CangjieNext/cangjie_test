@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/031_debuginfun_continue.cj
 //  EXEC: %compiler %cmp_opt -g 031_debuginfun_continue.cj -o 031_debuginfun_continue%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut035.info 031_debuginfun_continue %run_env
+// (target_ios_simulator) EXEC: mv 031_debuginfun_continue%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut035.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut035.info 031_debuginfun_continue %run_env
 
 
 
@@ -18,14 +21,14 @@ test#
 cjdb,cjdb --no-use-colors 031_debuginfun_continue,031_debuginfun_continue
 CJVM b main,b main,031_debuginfun_continue.cj:13
 CJVM c,c,13
-b,b 17,031_debuginfun_continue.cj:17
-b,b 18,031_debuginfun_continue.cj:18
-b,b 19,031_debuginfun_continue.cj:19
-b,b 20,031_debuginfun_continue.cj:20
-b,b 21,031_debuginfun_continue.cj:21
-AOT b,b 22,031_debuginfun_continue.cj:24
-AOT b,b 23,031_debuginfun_continue.cj:24
-CJVM b,b 24,031_debuginfun_continue.cj:24
+b,b 031_debuginfun_continue.cj:17,031_debuginfun_continue.cj:17
+b,b 031_debuginfun_continue.cj:18,031_debuginfun_continue.cj:18
+b,b 031_debuginfun_continue.cj:19,031_debuginfun_continue.cj:19
+b,b 031_debuginfun_continue.cj:20,031_debuginfun_continue.cj:20
+b,b 031_debuginfun_continue.cj:21,031_debuginfun_continue.cj:21
+b,b 031_debuginfun_continue.cj:24,031_debuginfun_continue.cj:24
+b,b 031_debuginfun_continue.cj:24,031_debuginfun_continue.cj:24
+CJVM b,b 031_debuginfun_continue.cj:24,031_debuginfun_continue.cj:24
 AOT r,r,-> 17
 Android c,c,17
 CJVM c,c,17

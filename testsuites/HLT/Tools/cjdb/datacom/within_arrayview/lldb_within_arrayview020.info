@@ -9,14 +9,17 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/001_debug_array_baseType.cj
 // EXEC: %compiler %cmp_opt -g 001_debug_array_baseType.cj -o 001_debug_array_baseType%cmp_output
-// EXEC: python3 cjdb_test.py lldb_within_arrayview020.info 001_debug_array_baseType %run_env
+// (target_ios_simulator) EXEC: mv 001_debug_array_baseType%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_within_arrayview020.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_within_arrayview020.info 001_debug_array_baseType %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_baseType,001_debug_array_baseType
-b,b 48,001_debug_array_baseType.cj:48
+b,b 001_debug_array_baseType.cj:48,001_debug_array_baseType.cj:48
 AOT r,r,-> 48
 Android c,c,48
 CJVM c,c,
-print,print a_d[1][1..5],\(std[.]core.Array<Int64>\) \$[\d] = {[\s\S]*? \[0\] = -9[\s\S]*&? \[3\] = -6[\s\S]*
+print,print a_d[1][1..5],\(std[.]core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*? \[0\] = -9[\s\S]*&? \[3\] = -6[\s\S]*
 q,q,

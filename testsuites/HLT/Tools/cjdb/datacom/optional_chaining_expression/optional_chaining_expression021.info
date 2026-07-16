@@ -8,19 +8,19 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/optional_chaining_expression/optional_chaining_expression021.cj
-// (!target_mac) EXEC: %compiler %cmp_opt -g optional_chaining_expression021.cj -o optional_chaining_expression021%cmp_output
-// (!target_mac) EXEC: python3 cjdb_test.py optional_chaining_expression021.info optional_chaining_expression021 %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g optional_chaining_expression021.cj -o optional_chaining_expression021%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py optional_chaining_expression021.info optional_chaining_expression021 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors optional_chaining_expression021,optional_chaining_expression021
-b,b 44,optional_chaining_expression021.cj:44
+b,b optional_chaining_expression021.cj:44,optional_chaining_expression021.cj:44
 r,r,-> 44
 Android c,c,44
-expr,expr r1,\(std.core.Option<Int64>\) \$[\d] = 1
-expr,expr r3,\(std.core.Option<Int64>\) \$[\d] = 2
-expr,expr r5,\(std.core.Option<default.E1>\) \$[\d] = A
-expr,expr r7,\(std.core.Option<default.E1>\) \$[\d] = {[\s\S]*constructor = CD[\s\S]*arg_1 = 1[\s\S]*}
-expr,expr r9,\(std.core.Option<default.E2<Bool>>\) \$[\d] = {[\s\S]*constructor = MN[\s\S]*arg_1 = true[\s\S]*}
-expr~expr aa?.item5~\(std.core.Option<default.E2<Bool>>\) \$[\d] = {[\s\S]*constructor = MN[\s\S]*arg_1 = true[\s\S]*}
+expr,expr r1,\(std.core(?:\.|::)Option<Int64>\)[\s\S]*1
+expr,expr r3,\(std.core(?:\.|::)Option<Int64>\)[\s\S]*2
+expr,expr r5,\(std.core(?:\.|::)Option<default(?:\.|::)E1>\)[\s\S]*A
+expr,expr r7,\(std.core(?:\.|::)Option<default(?:\.|::)E1>\)[\s\S]*{[\s\S]*constructor = CD[\s\S]*arg_1 = 1[\s\S]*}
+expr,expr r9,\(std.core(?:\.|::)Option<default(?:\.|::)E2<Bool>>\)[\s\S]*{[\s\S]*constructor = MN[\s\S]*arg_1 = true[\s\S]*}
+expr~expr aa?.item5~\(std.core(?:\.|::)Option<default(?:\.|::)E2<Bool>>\)[\s\S]*{[\s\S]*constructor = MN[\s\S]*arg_1 = true[\s\S]*}
 q,q,

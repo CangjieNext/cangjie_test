@@ -9,17 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/056_debug_record_initial_value.cj
 // EXEC: %compiler %cmp_opt -g 056_debug_record_initial_value.cj -o 056_debug_record_initial_value%cmp_output
-// EXEC: python3 cjdb_test.py lldb_record010.info 056_debug_record_initial_value %run_env
+// (target_ios_simulator) EXEC: mv 056_debug_record_initial_value%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_record010.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_record010.info 056_debug_record_initial_value %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 056_debug_record_initial_value,056_debug_record_initial_value
-b,b 56,056_debug_record_initial_value.cj:56
+b,b 056_debug_record_initial_value.cj:56,056_debug_record_initial_value.cj:56
 AOT r,r,-> 56
 Android c,c,56
 CJVM c,c,
 n,n,58
-print,print rect.length,\(Int8\) \$[\d] = 1
+print,print rect.length,\(Int8\)[\s\S]*1
 q,q,

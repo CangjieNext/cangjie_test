@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // (!target_android) EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// (!target_android) EXEC: python3 cjdb_test.py lldb_VariableModify060.info 024_debug_variable %run_env
+// (target_ios_simulator) EXEC: mv 024_debug_variable%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_VariableModify0260.info %output %run_env
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py lldb_VariableModify060.info 024_debug_variable %run_env
 
 
 
@@ -18,17 +21,17 @@ test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
 CJVM b,b main,024_debug_variable.cj:15
 CJVM c,c,15
-b,b 145,024_debug_variable.cj:145
+b,b 024_debug_variable.cj:145,024_debug_variable.cj:145
 AOT r,r,-> 145
 Android c,c,145
 CJVM c,c,145
 set,set var_samename = 10,10
 locals,locals,var_samename = 10
-p,p var_samename,\(Int64\) \$[\d] = 10
+p,p var_samename,\(Int64\)[\s\S]*10
 finish,finish,121
 n,n,124
 locals,locals,var_samename = 50
-p,p var_samename,\(Int64\) \$[\d] = 50
+p,p var_samename,\(Int64\)[\s\S]*50
 locals,locals,f_samename = 60
-p,p f_samename,\(Int64\) \$[\d] = 60
+p,p f_samename,\(Int64\)[\s\S]*60
 q,q,

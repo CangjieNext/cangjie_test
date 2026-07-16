@@ -18,7 +18,7 @@ test#
 cjdb,cjdb --no-use-colors debug_func_generics,debug_func_generics
 CJVM b main,b main,debug_func_generics.cj:34
 CJVM c,c,34
-b,b 65,debug_func_generics.cj:65
+b,b debug_func_generics.cj:65,debug_func_generics.cj:65
 AOT r,r,-> 65
 Android c,c,65
 CJVM c,c,65

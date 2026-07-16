@@ -8,16 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_func015.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_func015.cj -o generics_local_func015%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py generics_local_func015.info generics_local_func015 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_local_func015.cj -o generics_local_func015%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py generics_local_func015.info generics_local_func015 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func015,generics_local_func015
-b,b 49,generics_local_func015.cj:49
+b,b generics_local_func015.cj:49,generics_local_func015.cj:49
 AOT r,r,-> 49
 Android c,c,49
 CJVM c,c,
-expr:expr r10:\(default.R3<Bool,std.core.String>\) \$[\d] = {[\s\S]*z = "abcde"[\s\S]*}
-expr:expr r11:\(default.R4<Int8,Int8,Int8,Int16,Int16,Int32,Int32,Int64,Int64,Unit>\) \$[\d] = {[\s\S]*num1 = 1[\s\S]*num2 = 2[\s\S]*
+expr:expr r10:\(default(?:\.|::)R3<Bool,std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*z = "abcde"[\s\S]*}
+expr:expr r11:\(default(?:\.|::)R4<Int8,Int8,Int8,Int16,Int16,Int32,Int32,Int64,Int64,Unit>\)[\s\S]*{[\s\S]*num1 = 1[\s\S]*num2 = 2[\s\S]*
 q,q,

@@ -9,7 +9,10 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/028_debuginfun_while.cj
 //  EXEC: %compiler %cmp_opt -g 028_debuginfun_while.cj -o 028_debuginfun_while%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut032.info 028_debuginfun_while %run_env
+// (target_ios_simulator) EXEC: mv 028_debuginfun_while%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut032.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut032.info 028_debuginfun_while %run_env
 
 
 
@@ -18,11 +21,11 @@ test#
 cjdb,cjdb --no-use-colors 028_debuginfun_while,028_debuginfun_while
 CJVM b main,b main,028_debuginfun_while.cj:13
 CJVM c,c,13
-b,b 17,028_debuginfun_while.cj:17
-b,b 18,028_debuginfun_while.cj:18
-b,b 19,028_debuginfun_while.cj:19
-AOT b,b 20,028_debuginfun_while.cj:21
-CJVM b,b 20,028_debuginfun_while.cj:20
+b,b 028_debuginfun_while.cj:17,028_debuginfun_while.cj:17
+b,b 028_debuginfun_while.cj:18,028_debuginfun_while.cj:18
+b,b 028_debuginfun_while.cj:19,028_debuginfun_while.cj:19
+b,b 028_debuginfun_while.cj:21,028_debuginfun_while.cj:21
+CJVM b,b 028_debuginfun_while.cj:20,028_debuginfun_while.cj:20
 AOT r,r,-> 17
 Android c,c,17
 CJVM c,c,17
@@ -50,5 +53,5 @@ finish,finish,18
 s,s,21
 locals,locals,hundred = 10
 rerun,r,-> 17
-AOT finish,finish,13
+AOT finish,finish,20
 q,q,

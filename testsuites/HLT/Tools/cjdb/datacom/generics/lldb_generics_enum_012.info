@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 66,002_debug_enum_generics.cj:66
+b,b 002_debug_enum_generics.cj:66,002_debug_enum_generics.cj:66
 AOT r,r,-> 66
 Android c,c,66
 CJVM c,c,
 n,n,68
-locals,locals,TimeUnit1<default.C>\) m_time8 = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = {(\r|\n|\r\n)    c_width = 20(\r|\n|\r\n)    c_time = {(\r|\n|\r\n)      constructor = Day(\r|\n|\r\n)      arg_1 = 1(\r|\n|\r\n)      arg_2 = 2(\r|\n|\r\n)      arg_3 = 3
+locals,locals,TimeUnit1<default(?:\.|::)C>\) m_time8 = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = {(\r|\n|\r\n)    c_width = 20(\r|\n|\r\n)    c_time = {(\r|\n|\r\n)      constructor = Day(\r|\n|\r\n)      arg_1 = 1(\r|\n|\r\n)      arg_2 = 2(\r|\n|\r\n)      arg_3 = 3
 q,q,

@@ -8,18 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_func016.cj
-// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_func016.cj -o generics_local_func016%cmp_output
-// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py generics_local_func016.info generics_local_func016 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_local_func016.cj -o generics_local_func016%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py generics_local_func016.info generics_local_func016 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func016,generics_local_func016
-b,b 69,generics_local_func016.cj:69
+b,b generics_local_func016.cj:69,generics_local_func016.cj:69
 AOT r,r,-> 69
 Android c,c,69
 CJVM c,c,
-expr:expr m_time1:\(default.TimeUnit1<UInt8>\) \$[\d] = {\s+constructor = Year\s+arg_1 = 2[\s\S]*}
-expr:expr m_time3:\(default.TimeUnit2<Rune,Bool>\) \$[\d] = {\s+constructor = Month\s+arg_1 = '5'\s+arg_2 = true[\s\S]*}
-expr:expr m_time5:\(default.TimeUnit1<std.core.Array<default.TimeUnit1<UInt8>>>\) \$[\d] = {\s+constructor = Year\s+arg_1 = {\s+[0\] = {\s+constructor = Year\s+arg_1 = 2[\s\S]*
-expr:expr m_time10:\(Int64\) \$[\d] = 10
+expr:expr m_time1:\(default(?:\.|::)TimeUnit1<UInt8>\)[\s\S]*{\s+constructor = Year\s+arg_1 = 2[\s\S]*}
+expr:expr m_time3:\(default(?:\.|::)TimeUnit2<Rune,Bool>\)[\s\S]*{\s+constructor = Month\s+arg_1 = '5'\s+arg_2 = true[\s\S]*}
+expr:expr m_time5:\(default(?:\.|::)TimeUnit1<std.core(?:\.|::)Array<default(?:\.|::)TimeUnit1<UInt8>>>\)[\s\S]*{\s+constructor = Year\s+arg_1 = {\s+[0\] = {\s+constructor = Year\s+arg_1 = 2[\s\S]*
+expr:expr m_time10:\(Int64\)[\s\S]*10
 q,q,

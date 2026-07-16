@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline006.cj
-// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g pipeline006.cj -o pipeline006%cmp_output
-// (not target_mac and not target_android) EXEC: python3 cjdb_test.py pipeline006.info pipeline006 %run_env
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g pipeline006.cj -o pipeline006%cmp_output
+// (!(target_mac|target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py pipeline006.info pipeline006 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pipeline006,pipeline006
-b,b 32,pipeline006.cj:32
+b,b pipeline006.cj:32,pipeline006.cj:32
 AOT r,r,-> 32
 Android c,c,32
-expr,expr res1,\(std.core.String\) \$[\d] = "A"
-expr,expr res2,\(std.core.String\) \$[\d] = "abc"
-expr,expr res3,\(std.core.String\) \$[\d] = "ac"
-expr~expr a3|>f2<String>~\(std.core.String\) \$[\d] = "ac"
+expr,expr res1,\(std\.core(?:\.|::)String\)[\s\S]*"A"
+expr,expr res2,\(std\.core(?:\.|::)String\)[\s\S]*"abc"
+expr,expr res3,\(std\.core(?:\.|::)String\)[\s\S]*"ac"
+expr~expr a3|>f2<String>~\(std\.core(?:\.|::)String\)[\s\S]*"ac"
 q,q,

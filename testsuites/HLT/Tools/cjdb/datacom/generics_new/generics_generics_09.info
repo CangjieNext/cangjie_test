@@ -9,15 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_generics.cj
 // EXEC: %compiler %cmp_opt -g generics_generics.cj -o generics_generics%cmp_output
-// EXEC: python3 cjdb_test.py generics_generics_09.info generics_generics %run_env
+// (target_ios_simulator) EXEC: mv generics_generics%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py generics_generics_09.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py generics_generics_09.info generics_generics %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 142,Breakpoint 1:
+b,b generics_generics.cj:142,generics_generics.cj:142
 AOT r,r,-> 142
 Android c,c,142
 CJVM c,c,
-p, p a,\(default.S3<std.core.String>\) \$[\d] = {[\s\S]*s3_a = "cangjie"[\s\S]*}
-locals, locals,\(default.S4<default.S3<std.core.String>>\) this = {[\s\S]*s4_a = {[\s\S]*s3_a = "cangjie"[\s\S]*}[\s\S]*\(default.S3<std.core.String>\) a = {[\s\S]*s3_a = "cangjie"[\s\S]*}
+p, p a,\(default(?:\.|::)S3<std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*s3_a = "cangjie"[\s\S]*}
+locals, locals,\(default(?:\.|::)S4<default(?:\.|::)S3<std.core(?:\.|::)String>>\) this = {[\s\S]*s4_a = {[\s\S]*s3_a = "cangjie"[\s\S]*}[\s\S]*\(default(?:\.|::)S3<std.core(?:\.|::)String>\) a = {[\s\S]*s3_a = "cangjie"[\s\S]*}
 q,q,
