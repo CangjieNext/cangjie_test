@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (CJNATIVE and Linux)EXEC-PIPE-1: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output --plugin=$CANGJIE_STDX_PATH/libstdx.collect_aspects.%dylib_suffix --plugin=$CANGJIE_STDX_PATH/libstdx.wave_aspects.%dylib_suffix 2>&1 | compare %f
+// (CJNATIVE and Linux)EXEC-PIPE-1: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output --plugin=$CANGJIE_STDX_PATH/libstdx.collect_aspects.%dylib_suffix --plugin=$CANGJIE_STDX_PATH/libstdx.weave_aspects.%dylib_suffix 2>&1 | compare %f
 // (CJNATIVE and Linux)ASSERT: scan printCurrentTimeImpl: Instance member function must not be woven into global function or static member function.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
@@ -13,21 +13,21 @@ import stdx.aspect_cj.*
 import std.time.DateTime
 
 class CA {
-    @ReplaceFuncBody[packageName: "default", className: "CA", methodName: "printCurrentTime", isStatic: true, recursive: false]
+    @ReplaceFuncBody[packageName: "default", className: "", methodName: "printCurrentTime", isStatic: false, recursive: false]
     public func printCurrentTimeImpl(original: (String) -> String) {
         println("#----- start -----#")
         println(original("abc"))
         println("#----- end -----#")
-        "abc"
-    }
-
-    static func printCurrentTime(x: String): String {
-        println(x)
-        "456"
+        1
     }
 }
 
+public func printCurrentTime(x: String): String {
+    println(x)
+    "456"
+}
+
 main() {
-    CA.printCurrentTime("123")
+    println(printCurrentTime("123"))
     0
 }
