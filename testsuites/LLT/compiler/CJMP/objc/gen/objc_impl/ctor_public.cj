@@ -10,7 +10,7 @@
 /* SCAN-IN
 - (id)initWithM:(M*)m {
     self.$registryId = -1;
-    self = (__bridge_transfer A*)CJImpl_ObjC_cjworld_A_initWithM_PuCN7cjworld1ME((__bridge void*)self, (__bridge_retained void*)m);
+    self = (__bridge_transfer A*)CJImpl_ObjC_cjworld_A_initWithM_PuRN13objc_internal18NativeObjCIdMarkerECN7cjworld1ME((__bridge void*)self, (__bridge_retained void*)m)
 */
 
 package cjworld
