@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb func3,func3
+cjdb,cjdb --no-use-colors func3,func3
 b,b 20,func.cj:20
 r,r,-> 20
  ,expr bar3,\s+undeclared identifier 'bar3'

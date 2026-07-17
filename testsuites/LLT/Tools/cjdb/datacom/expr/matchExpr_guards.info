@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb matchExpr_guards,matchExpr_guards
+cjdb,cjdb --no-use-colors matchExpr_guards,matchExpr_guards
 b,b 22,matchExpr_guards.cj:22
 r,r,-> 22
  ,expr match (oneYear) { case Year(y) where y > 0 => y * 365 * 24  case _ => 0 },\(Int64\) \$\d+ = 8760

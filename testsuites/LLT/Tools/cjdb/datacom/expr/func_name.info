@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb func_name, func_name
+cjdb,cjdb --no-use-colors func_name, func_name
 b,b 21, func_name.cj:21
 r,r,-> 21
  ,expr f1,error: unsupported expression

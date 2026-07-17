@@ -6,10 +6,10 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/b_main/b_main_001.cj 
 // EXEC: %compiler %cmp_opt %enableCompileDebug b_main_001.cj -o b_main_001
-// EXEC: python3 cjdb_test.py b_main_case_001.info
+// EXEC: python3 cjdb_test.py b_main_case_001.info b_main_001 %run_env
 
 test#
-cjdb,cjdb -- b_main_001 hello world,b_main_001
+cjdb,cjdb --no-use-colors -- b_main_001 hello world,b_main_001
 b,b 9,Breakpoint 1: where.*b_main_001.cj:9
 r,r,-> 9
 q,quit,

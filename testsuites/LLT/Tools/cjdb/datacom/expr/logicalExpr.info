@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb logicalExpr,logicalExpr
+cjdb,cjdb --no-use-colors logicalExpr,logicalExpr
 b,b 14,logicalExpr.cj:14
 r,r,-> 14
  ,expr !true,\(Bool\) \$\d+ = false

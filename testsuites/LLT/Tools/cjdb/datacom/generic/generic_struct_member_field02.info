@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_struct_member_field02,generic_struct_member_field02
+cjdb,cjdb --no-use-colors generic_struct_member_field02,generic_struct_member_field02
 b,b 26, generic_struct_member_field02.cj:26
 r,r,-> 26
  ,expr A<Array<Int64>>(array1),\(default.A<std.core.Array<Int64>>\) \$\d+ = {\s+value = {\s+\[0\] = 1\s+\[1\] = 2

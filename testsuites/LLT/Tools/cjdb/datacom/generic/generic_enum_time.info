@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_enum_time,generic_enum_time
+cjdb,cjdb --no-use-colors generic_enum_time,generic_enum_time
 b,b 22, generic_enum_time.cj:22
 r,r,-> 22
  ,expr time,\(default.Time<default.Bar>\) \$\d+ = {\s+constructor = Day\s+arg_1 = {\s+default.Foo = {\s+dt1 = 2\s+}\s+dt = 4

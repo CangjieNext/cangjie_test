@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic015,generic015
+cjdb,cjdb --no-use-colors generic015,generic015
 b,b 10,generic015.cj:10
 r,r,-> 10
  ,p para,\(CPointer<UInt8>\) \$\d+ = 0x

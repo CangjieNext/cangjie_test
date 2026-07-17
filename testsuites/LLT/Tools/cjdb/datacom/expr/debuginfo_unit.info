@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_unit.info %n %run_env
 
 test#
-cjdb,cjdb unit,unit
+cjdb,cjdb --no-use-colors unit,unit
 b,b foo,unit.cj:10
 r,r,-> 10
 expr a,expr a,\(Unit\) \$\d+ = ()

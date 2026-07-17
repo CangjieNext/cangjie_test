@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic204,generic204
+cjdb,cjdb --no-use-colors generic204,generic204
 b,b 13,generic204.cj:13
 r,r,-> 13
  ,locals,\(\(\)->Unit\) a = 0x

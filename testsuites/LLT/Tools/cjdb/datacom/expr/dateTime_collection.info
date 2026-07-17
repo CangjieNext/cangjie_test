@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb dateTime_collection,dateTime_collection
+cjdb,cjdb --no-use-colors dateTime_collection,dateTime_collection
 b,b 20,dateTime_collection.cj:20
 r,r,-> 20
  ,p map1,\(std.collection.HashMap<Int64,std.time.DateTime>\) \$\d+ = {\s+\[30 -> 2023-03-30T00:02:02Z\] = {

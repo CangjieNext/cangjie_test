@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb matchExpr_tuple_pattern,matchExpr_tuple_pattern
+cjdb,cjdb --no-use-colors matchExpr_tuple_pattern,matchExpr_tuple_pattern
 b,b 15,matchExpr_tuple_pattern.cj:15
 r,r,-> 15
  ,expr scoreResult,\(std.core.String\) \$\d+ = "Allen got 90"

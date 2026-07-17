@@ -10,7 +10,7 @@
 
 
 test#
-cjdb,cjdb debuginfo_virtual_func_02,debuginfo_virtual_func_02
+cjdb,cjdb --no-use-colors debuginfo_virtual_func_02,debuginfo_virtual_func_02
 b,b main,debuginfo_virtual_func_02.cj:39
 r,r,-> 39
 n,n,-> 40

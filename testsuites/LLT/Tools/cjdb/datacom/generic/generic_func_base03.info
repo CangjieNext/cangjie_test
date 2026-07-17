@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_func_base03,generic_func_base03
+cjdb,cjdb --no-use-colors generic_func_base03,generic_func_base03
 b,b 14,generic_func_base03.cj:14
 r,r,-> 14
 ~expr test(a)~\(Unit\) \$\d+ = ()

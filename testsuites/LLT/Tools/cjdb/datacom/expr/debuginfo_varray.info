@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_varray.info %n %run_env
 
 test#
-cjdb,cjdb varray,varray
+cjdb,cjdb --no-use-colors varray,varray
 b,b main,varray.cj:11
 r,r,-> 11
 expr a,expr a,\(Int64\) \$\d+ = 3

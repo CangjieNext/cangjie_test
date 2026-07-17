@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb class11,class11
+cjdb,cjdb --no-use-colors class11,class11
 b,b 21,class_super.cj:21
 r,r,-> 21
  ,expr super.aa2,\(std.core.Array<Int64>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = 2\s+\[2\] = 3

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic005,generic005
+cjdb,cjdb --no-use-colors generic005,generic005
 b,b 9,generic005.cj:9
 r,r,-> 9
  ,p para,\(Rune\) \$\d+ = 'a'

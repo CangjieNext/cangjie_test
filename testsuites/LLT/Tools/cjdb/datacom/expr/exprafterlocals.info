@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb exprafterlocals,exprafterlocals
+cjdb,cjdb --no-use-colors exprafterlocals,exprafterlocals
 b,b 26,exprafterlocals.cj:26
 r,r,-> 26
  ,locals,\(default.SSubEvent\) event = {\s+default.SubEvent = {\s+default.Event = {}

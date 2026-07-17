@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_enum_with_args03,generic_enum_with_args03
+cjdb,cjdb --no-use-colors generic_enum_with_args03,generic_enum_with_args03
 b,b 17, generic_enum_with_args03.cj:17
 r,r,-> 17
  ,expr TimeUnit1<Int32>.One(TimeUnit2.Two),\(default.TimeUnit1<Int32>\) \$\d+ = {\s+constructor = One\s+arg_1 = Two

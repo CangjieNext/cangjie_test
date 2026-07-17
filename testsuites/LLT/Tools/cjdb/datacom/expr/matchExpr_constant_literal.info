@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb matchExpr_constant_literal,matchExpr_constant_literal
+cjdb,cjdb --no-use-colors matchExpr_constant_literal,matchExpr_constant_literal
 b,b 12,matchExpr_constant_literal.cj:12
 r,r,-> 12
  ,expr match (1) { case 21 => "false"  case _ => "true"  },\(std.core.String\) \$\d+ = "true"

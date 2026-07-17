@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb globalfunc,globalfunc
+cjdb,cjdb --no-use-colors globalfunc,globalfunc
 b,b 15,globalfunc.cj:15
 r,r,-> 15
  ,expr a,\(Int64\) \$\d+ = 5

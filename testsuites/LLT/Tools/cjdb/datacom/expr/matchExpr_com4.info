@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb matchExpr_com4,matchExpr_com4
+cjdb,cjdb --no-use-colors matchExpr_com4,matchExpr_com4
 b,b 23,matchExpr_com4.cj:23
 r,r,-> 23
  #expr match (a) {case (_, v: I) => v.get()  case _ => 0}#\(Int64\) \$\d+ = 12

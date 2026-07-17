@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb inc20,inc20
+cjdb,cjdb --no-use-colors inc20,inc20
 b,b 12,inc2.cj:12
 r,r,-> 12
  ,expr i++,\(Unit\) \$\d+ = ()

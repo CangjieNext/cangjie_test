@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb bitwiseExpr,bitwiseExpr
+cjdb,cjdb --no-use-colors bitwiseExpr,bitwiseExpr
 b,b 15,bitwiseExpr.cj:15
 r,r,-> 15
  ,expr !a,\(Bool\) \$\d+ = true

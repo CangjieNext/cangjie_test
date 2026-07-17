@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb try_catch2,try_catch2
+cjdb,cjdb --no-use-colors try_catch2,try_catch2
 b,b 18,try_catch2.cj:18
 r,r,-> 18
  ,expr try { if (a > 1) {a = 2; } else { println("exec try block") } } catch (e: ArithmeticException) { println("an arithmeticException happened: " + e.toString())} ,\(Unit\) \$\d+ = ()

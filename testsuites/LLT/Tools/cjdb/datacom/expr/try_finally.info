@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb try_finally,try_finally
+cjdb,cjdb --no-use-colors try_finally,try_finally
 b,b 15,try_finally.cj:15
 r,r,-> 15
  ,expr try {let var a =1} catch (e: ArithmeticException) { println("an arithmeticException happened: " + e.toString()) } finally { println("the finally block is executed")} ,the finally block is executed

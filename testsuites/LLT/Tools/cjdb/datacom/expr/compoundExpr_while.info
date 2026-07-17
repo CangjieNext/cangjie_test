@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb compoundExpr_while,compoundExpr_while
+cjdb,cjdb --no-use-colors compoundExpr_while,compoundExpr_while
 b,b 16,compoundExpr_while.cj:16
 r,r,-> 16
  ,expr while( clA().classMemberFunc() > a + strB().b ) { a++ };a,\(Int64\) \$\d+ = 4

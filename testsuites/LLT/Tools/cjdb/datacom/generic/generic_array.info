@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_array,generic_array
+cjdb,cjdb --no-use-colors generic_array,generic_array
 b,b 22, generic_array.cj:22
 r,r,-> 22
  ,expr b,\(std.core.Array<test2.thisstruct>\) \$\d+ = {\s+\[0\] = {\s+b = 321
