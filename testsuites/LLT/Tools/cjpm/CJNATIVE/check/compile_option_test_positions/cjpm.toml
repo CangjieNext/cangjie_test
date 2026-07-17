@@ -1,0 +1,7 @@
+[package]
+  cjc-version = "1.0.0"
+  name = "compile_option_test_positions"
+  version = "1.0.0"
+  output-type = "dynamic"
+  compile-option = "--test --test -O0 --test"
+  override-compile-option = "-O1 --test"

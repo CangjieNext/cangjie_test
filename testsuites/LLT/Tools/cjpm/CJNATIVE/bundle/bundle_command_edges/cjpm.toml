@@ -1,0 +1,5 @@
+[package]
+  cjc-version = "1.0.0"
+  name = "bundle_command_edges"
+  version = "1.0.0"
+  output-type = "executable"

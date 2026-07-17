@@ -1,0 +1,5 @@
+[package]
+  cjc-version = "1.0.0"
+  name = "lock_incompatible_version"
+  version = "1.0.0"
+  output-type = "dynamic"

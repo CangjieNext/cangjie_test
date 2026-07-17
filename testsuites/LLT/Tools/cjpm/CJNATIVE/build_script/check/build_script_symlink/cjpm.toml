@@ -1,0 +1,5 @@
+[package]
+  cjc-version = "1.0.0"
+  name = "build_script_symlink"
+  version = "1.0.0"
+  output-type = "executable"

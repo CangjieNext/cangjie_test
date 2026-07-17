@@ -1,0 +1,5 @@
+[package]
+  cjc-version = "1.0.0"
+  name = "test_log_dir_failure"
+  version = "1.0.0"
+  output-type = "executable"

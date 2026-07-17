@@ -1,0 +1,20 @@
+[package]
+  cjc-version = "1.0.0"
+  name = "source_set_overlap"
+  version = "1.0.0"
+  output-type = "executable"
+
+[profile]
+  experimental = true
+
+[[source-set]]
+  name = "common"
+  src-dir = "./src"
+  features = ["os.linux"]
+  product = true
+
+[[source-set]]
+  name = "nested"
+  src-dir = "./src/nested"
+  features = ["os.windows"]
+  product = true

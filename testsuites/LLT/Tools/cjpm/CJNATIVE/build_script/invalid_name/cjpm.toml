@@ -1,0 +1,9 @@
+[package]
+  cjc-version = "1.0.0"
+  organization = "bad-org"
+  name = "bad-org::bad-name"
+  version = "1.0.0"
+  output-type = "dynamic"
+
+[build]
+  script-dir = "."

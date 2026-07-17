@@ -1,0 +1,9 @@
+[package]
+  cjc-version = "1.0.0"
+  name = "empty_keep_visibility"
+  version = "1.0.0"
+  output-type = "dynamic"
+
+[profile.build.lto]
+  level = "thin"
+  keep-pkg-visibility = [""]

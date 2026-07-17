@@ -1,0 +1,5 @@
+[package]
+  cjc-version = "1.0.0"
+  name = ""
+  version = "1.0.0"
+  output-type = "dynamic"

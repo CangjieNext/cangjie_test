@@ -1,0 +1,5 @@
+[package]
+  cjc-version = "1.0.0"
+  name = "install_root_creation_failure"
+  version = "1.0.0"
+  output-type = "executable"

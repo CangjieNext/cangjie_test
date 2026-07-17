@@ -1,0 +1,8 @@
+[package]
+  cjc-version = "1.0.0"
+  name = "invalid_env_target"
+  version = "1.0.0"
+  output-type = "executable"
+
+[profile.run.env]
+  RUN-ENV-TEST = { value = "run-env-test", splice-type = "absent" }

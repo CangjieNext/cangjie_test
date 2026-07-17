@@ -1,0 +1,8 @@
+[package]
+  cjc-version = "1.0.0"
+  name = "run_feature_missing_experimental"
+  version = "1.0.0"
+  output-type = "executable"
+
+[profile]
+  experimental = true
