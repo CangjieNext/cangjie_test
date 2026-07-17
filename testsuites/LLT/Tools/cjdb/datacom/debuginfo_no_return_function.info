@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_no_return_function.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_no_return_function.cj -o debuginfo_no_return_function
-// EXEC: python3 cjdb_test.py debuginfo_no_return_function.info
+// EXEC: python3 cjdb_test.py debuginfo_no_return_function.info %n %run_env
 
 
 test#

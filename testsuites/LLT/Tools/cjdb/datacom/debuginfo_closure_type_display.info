@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_closure_type_display.cj
 // (CJNATIVE)EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_closure_type_display.cj -o debuginfo_closure_type_display
-// (CJNATIVE)EXEC: python3 cjdb_test.py debuginfo_closure_type_display.info
+// (CJNATIVE)EXEC: python3 cjdb_test.py debuginfo_closure_type_display.info %n %run_env
 
 
 test#

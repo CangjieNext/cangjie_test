@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_watchpoint.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_watchpoint.cj -o debuginfo_watchpoint
-// EXEC: python3 cjdb_test.py debuginfo_watchpoint.info
+// EXEC: python3 cjdb_test.py debuginfo_watchpoint.info %n %run_env
 
 
 test#

@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_sizeable_generic_enum.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_sizeable_generic_enum.cj -o debuginfo_sizeable_generic_enum
-// EXEC: python3 cjdb_test.py debuginfo_sizeable_generic_enum.info
+// EXEC: python3 cjdb_test.py debuginfo_sizeable_generic_enum.info %n %run_env
 
 
 test#

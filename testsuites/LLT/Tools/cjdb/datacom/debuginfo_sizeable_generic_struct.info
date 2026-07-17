@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_sizeable_generic_struct.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_sizeable_generic_struct.cj -o debuginfo_sizeable_generic_struct
-// EXEC: python3 cjdb_test.py debuginfo_sizeable_generic_struct.info
+// EXEC: python3 cjdb_test.py debuginfo_sizeable_generic_struct.info %n %run_env
 
 
 test#

@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/org/interface.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug interface.cj -o interface
-// EXEC: python3 cjdb_test.py interface.info
+// EXEC: python3 cjdb_test.py interface.info %n %run_env
 
 test#
 cjdb,cjdb interface,interface

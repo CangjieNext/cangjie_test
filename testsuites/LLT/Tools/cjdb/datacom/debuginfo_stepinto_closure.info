@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_stepinto_closure.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_stepinto_closure.cj -o debuginfo_stepinto_closure
-// EXEC: python3 cjdb_test.py debuginfo_stepinto_closure.info
+// EXEC: python3 cjdb_test.py debuginfo_stepinto_closure.info %n %run_env
 
 
 test#

@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_dafault_parameter_for_CString.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_dafault_parameter_for_CString.cj -o debuginfo_dafault_parameter_for_CString
-// EXEC: python3 cjdb_test.py debuginfo_dafault_parameter_for_CString.info
+// EXEC: python3 cjdb_test.py debuginfo_dafault_parameter_for_CString.info %n %run_env
 
 
 test#

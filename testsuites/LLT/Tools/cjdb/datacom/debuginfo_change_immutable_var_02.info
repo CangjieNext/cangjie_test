@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_change_immutable_var_02.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_change_immutable_var_02.cj -o debuginfo_change_immutable_var_02
-// EXEC: python3 cjdb_test.py debuginfo_change_immutable_var_02.info
+// EXEC: python3 cjdb_test.py debuginfo_change_immutable_var_02.info %n %run_env
 
 
 test#

@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_dynamic_type_display.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_dynamic_type_display.cj -o debuginfo_dynamic_type_display
-// EXEC: python3 cjdb_test.py debuginfo_dynamic_type_display.info
+// EXEC: python3 cjdb_test.py debuginfo_dynamic_type_display.info %n %run_env
 
 
 test#

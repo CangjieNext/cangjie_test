@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_generic_struct_display_03.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_generic_struct_display_03.cj -o debuginfo_generic_struct_display_03
-// EXEC: python3 cjdb_test.py debuginfo_generic_struct_display_03.info
+// EXEC: python3 cjdb_test.py debuginfo_generic_struct_display_03.info %n %run_env
 
 
 test#

@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_subScope.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_subScope.cj -o debuginfo_subScope
-// EXEC: python3 cjdb_test.py debuginfo_subScope.info
+// EXEC: python3 cjdb_test.py debuginfo_subScope.info %n %run_env
 
 
 test#

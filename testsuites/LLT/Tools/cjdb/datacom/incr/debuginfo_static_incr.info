@@ -9,7 +9,7 @@
 // EXEC: %compiler %cmp_opt %enableCompileDebug %incrementalCompile debuginfo_static_incr.cj -o debuginfo_static_incr
 // EXEC: %cpfile debuginfo_static_incr_new.cj debuginfo_static_incr.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %incrementalCompile debuginfo_static_incr.cj -o debuginfo_static_incr
-// EXEC: python3 cjdb_test.py debuginfo_static_incr.info
+// EXEC: python3 cjdb_test.py debuginfo_static_incr.info %n %run_env
 
 
 test#

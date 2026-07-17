@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_stepin_with_default_parameter_funtion.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_stepin_with_default_parameter_funtion.cj -o debuginfo_stepin_with_default_parameter_funtion
-// EXEC: python3 cjdb_test.py debuginfo_stepin_with_default_parameter_funtion.info
+// EXEC: python3 cjdb_test.py debuginfo_stepin_with_default_parameter_funtion.info %n %run_env
 
 
 test#

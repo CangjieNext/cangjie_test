@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_boxed_tuple.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_boxed_tuple.cj -o debuginfo_boxed_tuple
-// EXEC: python3 cjdb_test.py debuginfo_boxed_tuple.info
+// EXEC: python3 cjdb_test.py debuginfo_boxed_tuple.info %n %run_env
 
 
 test#

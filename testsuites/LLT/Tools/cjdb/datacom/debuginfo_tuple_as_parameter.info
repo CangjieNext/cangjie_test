@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_tuple_as_parameter.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_tuple_as_parameter.cj -o debuginfo_tuple_as_parameter
-// EXEC: python3 cjdb_test.py debuginfo_tuple_as_parameter.info
+// EXEC: python3 cjdb_test.py debuginfo_tuple_as_parameter.info %n %run_env
 
 
 test#

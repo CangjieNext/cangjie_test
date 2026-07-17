@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_unused_local.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_unused_local.cj -o debuginfo_unused_local
-// EXEC: python3 cjdb_test.py debuginfo_unused_local.info
+// EXEC: python3 cjdb_test.py debuginfo_unused_local.info %n %run_env
 
 
 test#

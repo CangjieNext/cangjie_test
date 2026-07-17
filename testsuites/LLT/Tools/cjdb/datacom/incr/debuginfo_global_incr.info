@@ -9,7 +9,7 @@
 // EXEC: %compiler %cmp_opt %enableCompileDebug %incrementalCompile debuginfo_global_incr.cj -o debuginfo_global_incr
 // EXEC: %cpfile debuginfo_global_incr_new.cj debuginfo_global_incr.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %incrementalCompile debuginfo_global_incr.cj -o debuginfo_global_incr
-// EXEC: python3 cjdb_test.py debuginfo_global_incr.info
+// EXEC: python3 cjdb_test.py debuginfo_global_incr.info %n %run_env
 
 
 test#

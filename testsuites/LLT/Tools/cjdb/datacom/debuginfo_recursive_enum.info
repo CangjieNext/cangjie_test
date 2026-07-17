@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_recursive_enum.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_recursive_enum.cj -o debuginfo_recursive_enum
-// EXEC: python3 cjdb_test.py debuginfo_recursive_enum.info
+// EXEC: python3 cjdb_test.py debuginfo_recursive_enum.info %n %run_env
 
 
 test#

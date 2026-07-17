@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_varray_02.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_varray_02.cj -o debuginfo_varray_02
-// EXEC: python3 cjdb_test.py debuginfo_varray_02.info
+// EXEC: python3 cjdb_test.py debuginfo_varray_02.info %n %run_env
 
 
 test#

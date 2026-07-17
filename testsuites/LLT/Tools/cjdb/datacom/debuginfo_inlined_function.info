@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_inlined_function.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_inlined_function.cj -o debuginfo_inlined_function
-// EXEC: python3 cjdb_test.py debuginfo_inlined_function.info
+// EXEC: python3 cjdb_test.py debuginfo_inlined_function.info %n %run_env
 
 
 test#

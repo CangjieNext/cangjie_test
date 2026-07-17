@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_enum05.cj
 // EXEC: %compiler %cmp_opt -g debuginfo_enum05.cj -o debuginfo_enum05
-// EXEC: python3 cjdb_test.py debuginfo_enum05.info
+// EXEC: python3 cjdb_test.py debuginfo_enum05.info %n %run_env
 
 
 test#
