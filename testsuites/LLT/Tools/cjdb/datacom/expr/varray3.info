@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb varray3,varray3
+cjdb,cjdb --no-use-colors varray3,varray3
 b,b 12,varray3.cj:12
 r,r,-> 12
  ,expr b2[0],\(VArray<Int64,\$2>\) \$\d+ = {\s+\[0\] = 1

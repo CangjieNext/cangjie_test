@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb matchExpr_enum_option2,matchExpr_enum_option2
+cjdb,cjdb --no-use-colors matchExpr_enum_option2,matchExpr_enum_option2
 b,b 23,matchExpr_enum_option2.cj:23
 r,r,-> 23
  ,expr match (v4) {case Some(v) => v  case None => true},\(Bool\) \$\d+ = false

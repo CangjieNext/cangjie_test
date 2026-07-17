@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb member,member
+cjdb,cjdb --no-use-colors member,member
 b,b 63,member.cj:63
 r,r,-> 63
 expr,expr rr.bbbb.arrlist,\(std.collection.ArrayList<Int64>\) \$\d+ = {\s+\[0\] = 0\s+\[1\] = 1\s+\[2\] = 2

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb enum7,enum7
+cjdb,cjdb --no-use-colors enum7,enum7
 b,b 23,enum7.cj:23
 r,r,-> 23
  ,expr bb1?.item,\(std.core.Option<Int64>\) \$\d+ = 100

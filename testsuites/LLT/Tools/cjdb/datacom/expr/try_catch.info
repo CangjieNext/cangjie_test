@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb try_catch,try_catch
+cjdb,cjdb --no-use-colors try_catch,try_catch
 b,b 14,try_catch.cj:14
 r,r,-> 14
  ,expr var result = try { a = a + 2 } catch (e: ArithmeticException) { println("an arithmeticException happened: " + e.toString())} ,\(Unit\) \$\d+ = ()

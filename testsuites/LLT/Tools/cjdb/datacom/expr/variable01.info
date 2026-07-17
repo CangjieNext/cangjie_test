@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb variable01,variable01
+cjdb,cjdb --no-use-colors variable01,variable01
 b,b 17,variable01.cj:17
 r,r,-> 17
  ,expr vctc,\(default.classtype01\) \$\d+ = {\s+a = 10

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb compoundExpr_ifExpr,compoundExpr_ifExpr
+cjdb,cjdb --no-use-colors compoundExpr_ifExpr,compoundExpr_ifExpr
 b,b 16,compoundExpr_ifExpr.cj:16
 r,r,-> 16
 q,q,

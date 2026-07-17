@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb struct,struct
+cjdb,cjdb --no-use-colors struct,struct
 b,b 14,struct.cj:14
 r,r,-> 14
  ,expr this.a,\(Int8\) \$\d+ = 1

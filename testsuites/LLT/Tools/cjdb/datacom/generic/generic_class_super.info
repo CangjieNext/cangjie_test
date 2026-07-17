@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_class_super,generic_class_super
+cjdb,cjdb --no-use-colors generic_class_super,generic_class_super
 b,b 30, generic_class_super.cj:30
 r,r,-> 30
  ,expr c1,\(default.C1<Int64>\) \$\d+ = {\s+a = 0\s+b = 100

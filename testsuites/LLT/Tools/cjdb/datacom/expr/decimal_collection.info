@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb decimal_collection,decimal_collection
+cjdb,cjdb --no-use-colors decimal_collection,decimal_collection
 b,b 23,decimal_collection.cj:23
 r,r,-> 23
  ,expr map1,\(std.collection.HashMap<Int64,std.math.numeric.Decimal>\) \$\d+ = {\s+\[30 -> 465131.0000\] = {

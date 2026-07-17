@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb class1,class1
+cjdb,cjdb --no-use-colors class1,class1
 b,b 21,class.cj:21
 r,r,-> 21
  ,expr this.aaa,\(Int64\) \$\d+ = 1

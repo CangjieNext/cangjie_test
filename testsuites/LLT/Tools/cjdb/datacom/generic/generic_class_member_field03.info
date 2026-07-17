@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_class_member_field03,generic_class_member_field03
+cjdb,cjdb --no-use-colors generic_class_member_field03,generic_class_member_field03
 b,b 80, generic_class_member_field03.cj:80
 r,r,-> 80
  ,expr ai8.c1_a,\(default.S3<Int8>\) \$\d+ = {\s+s3_a = 8

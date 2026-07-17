@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_uint32.info %n %run_env
 
 test#
-cjdb,cjdb uint32,uint32
+cjdb,cjdb --no-use-colors uint32,uint32
 b,b foo,uint32.cj:10
 r,r,-> 10
 expr a,expr a,\(UInt32\) \$\d+ = 1

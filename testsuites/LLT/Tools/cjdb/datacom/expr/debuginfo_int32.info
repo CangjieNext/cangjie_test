@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_int32.info %n %run_env
 
 test#
-cjdb,cjdb int32,int32
+cjdb,cjdb --no-use-colors int32,int32
 b,b foo,int32.cj:10
 r,r,-> 10
 expr a,expr a,\(Int32\) \$\d+ = 1

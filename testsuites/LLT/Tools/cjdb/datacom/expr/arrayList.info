@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb arrayList,arrayList
+cjdb,cjdb --no-use-colors arrayList,arrayList
 b,b 25,arrayList.cj:25
 r,r,-> 25
  ,expr ga[1],\(Int64\) \$\d+ = 1

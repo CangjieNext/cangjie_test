@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_class_base05,generic_class_base05
+cjdb,cjdb --no-use-colors generic_class_base05,generic_class_base05
 b,b 36, generic_class_base05.cj:36
 r,r,-> 36
  ,expr C2<Float64>().f1(),\(default.Child<Int64>\) \$\d+ = {}

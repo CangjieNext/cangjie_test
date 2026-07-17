@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb func_name_struct_member, func_name_struct_member
+cjdb,cjdb --no-use-colors func_name_struct_member, func_name_struct_member
 b,b 22, func_name_struct_member.cj:23
 r,r,-> 23
  ,expr a1.fBool,error: unsupported expression
@@ -20,4 +20,3 @@ r,r,-> 23
  ,expr a1.frange,error: unsupported expression
  ,expr a1.f6,error: unsupported expression
 q,q,
-

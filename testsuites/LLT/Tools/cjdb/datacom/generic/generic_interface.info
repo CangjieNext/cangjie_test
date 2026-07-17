@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_interface,generic_interface
+cjdb,cjdb --no-use-colors generic_interface,generic_interface
 b,b 39, generic_interface.cj:39
 r,r,-> 39
  ,p a,\(default.AAA\) \$\d+ = {\s+aaa = {\s+preSql = "123"

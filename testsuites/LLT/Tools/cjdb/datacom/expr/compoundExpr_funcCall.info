@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb compoundExpr_funcCall, compoundExpr_funcCall
+cjdb,cjdb --no-use-colors compoundExpr_funcCall, compoundExpr_funcCall
 b,b 11,compoundExpr_funcCall.cj:11
 r,r,-> 11
  ,expr (f2())(),\(Int64\) \$\d+ = 0

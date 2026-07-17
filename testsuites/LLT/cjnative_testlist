@@ -79,11 +79,11 @@ API/std/unittest/report_bench_html/report_html_no_gnuplot.cj
 API/std/unittest/mock/compiler/misc/stdlib/disabledMocking.cj
 
 # should be fixed.
-Tools/cjdb/datacom/debuginfo_enum03.info
-Tools/cjdb/datacom/debuginfo_env_display_03.info
+Tools/cjdb/datacom/debuginfo/debuginfo_enum03.info
+Tools/cjdb/datacom/debuginfo/debuginfo_env_display_03.info
 Tools/cjdb/datacom/generic/generic_func02.info
-Tools/cjdb/datacom/debuginfo_env_display_04.info
-Tools/cjdb/datacom/debuginfo_inlined_function.info
+Tools/cjdb/datacom/debuginfo/debuginfo_env_display_04.info
+Tools/cjdb/datacom/debuginfo/debuginfo_inlined_function.info
 Tools/cjdb/datacom/expr/enum5.info
 Tools/cjdb/datacom/expr/localfunc3.info
 Tools/cjdb/datacom/generic/generic_interface_nonimplements_generic_multi1.info

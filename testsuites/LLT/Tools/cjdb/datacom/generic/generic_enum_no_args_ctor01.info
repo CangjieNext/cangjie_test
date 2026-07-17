@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_enum_no_args_ctor01,generic_enum_no_args_ctor01
+cjdb,cjdb --no-use-colors generic_enum_no_args_ctor01,generic_enum_no_args_ctor01
 b,b 18, generic_enum_no_args_ctor01.cj:18
 r,r,-> 18
  ,expr RGBColor<Int8>.Blue,\(default.RGBColor<Int8>\) \$\d+ = Blue

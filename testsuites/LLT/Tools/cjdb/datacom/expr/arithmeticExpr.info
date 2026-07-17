@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb arithmeticExpr,arithmeticExpr
+cjdb,cjdb --no-use-colors arithmeticExpr,arithmeticExpr
 b,b 12,arithmeticExpr.cj:12
 r,r,-> 12
  ,expr -a,\(Int64\) \$\d+ = -2

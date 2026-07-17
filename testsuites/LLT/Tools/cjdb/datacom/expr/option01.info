@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb option,option
+cjdb,cjdb --no-use-colors option,option
 b,b 24,option.cj:24
 r,r,-> 24
 expr,expr Some(AA()),\(std.core.Option<default.AA>\) \$\d+ = {\s+a = 1

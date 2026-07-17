@@ -7,10 +7,10 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/macro/define.cj ../../basecase/macro/test3.cj
 // EXEC: %compiler %cmp_opt %cmp_macro define.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug test3.cj -o test3
-// EXEC: python3 cjdb_test.py debuginfo_test3.info
+// EXEC: python3 cjdb_test.py debuginfo_test3.info test3 %run_env
 
 test#
-cjdb,cjdb test3,test3
+cjdb,cjdb --no-use-colors test3,test3
 b,b testA,test3.cj:12
 r,r,-> 12
 n,n,-> 13

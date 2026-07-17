@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb interface,interface
+cjdb,cjdb --no-use-colors interface,interface
 b,b 19,interface.cj:19
 r,r,-> 19
  ,expr ic.fa(),call func fa.\s+\(Unit\) \$\d+ = ()
