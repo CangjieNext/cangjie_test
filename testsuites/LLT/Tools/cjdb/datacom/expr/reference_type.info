@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb reference_type,reference_type
+cjdb,cjdb --no-use-colors reference_type,reference_type
 b,b 25,reference_type.cj:25
 r,r,-> 25
  ,expr arr,\(std.core.Array<Int64>\) \$\d+ = {\s+\[0\] = 0\s+\[1\] = 1\s+\[2\] = 2

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb enum,enum
+cjdb,cjdb --no-use-colors enum,enum
 b,b 24,enum.cj:24
 r,r,-> 24
  ,expr ga,\(default.RGBColor\) \$\d+ = {\s+constructor = Red

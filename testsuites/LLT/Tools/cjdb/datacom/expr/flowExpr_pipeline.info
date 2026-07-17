@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb flowExpr_pipeline,flowExpr_pipeline
+cjdb,cjdb --no-use-colors flowExpr_pipeline,flowExpr_pipeline
 b,b 17,flowExpr_pipeline.cj:17
 r,r,-> 17
  ,expr a |> f ,\(Int32\) \$\d+ = 2

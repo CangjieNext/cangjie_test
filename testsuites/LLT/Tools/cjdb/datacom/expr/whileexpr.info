@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb while_expr,while_expr
+cjdb,cjdb --no-use-colors while_expr,while_expr
 b,b 15,dowhile.cj:15
 r,r,-> 15
  ,expr while(i64<100) {i64++};i64,\(Int64\) \$\d+ = 100

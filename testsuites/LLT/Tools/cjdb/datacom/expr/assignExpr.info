@@ -11,7 +11,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb assignExpr,assignExpr
+cjdb,cjdb --no-use-colors assignExpr,assignExpr
 b,b 15,assignExpr.cj:15
 r,r,-> 15
  ,expr a=2,\(Unit\) \$\d+ = ()

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb enum2,enum2
+cjdb,cjdb --no-use-colors enum2,enum2
 b,b 39,enum2.cj:39
 r,r,-> 39
  ,expr time1,\(default.TimeUnit2\) \$\d+ = {\s+constructor = Year1

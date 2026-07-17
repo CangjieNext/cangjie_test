@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb localfunc2,localfunc2
+cjdb,cjdb --no-use-colors localfunc2,localfunc2
 b,b 11,localfunc2.cj:11
 r,r,-> 11
 ,expr f<Int64>(1),\(Int64\) \$\d+ = 1

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb variable02,variable02
+cjdb,cjdb --no-use-colors variable02,variable02
 b,b 11,variable02.cj:11
 r,r,-> 11
  ,expr myMass,\(Float64\) \$\d+ = 71

@@ -10,7 +10,7 @@
 // EXEC: python3 cjdb_test.py import_member_function.info %n %run_env
 
 test#
-cjdb,cjdb import_member_function, import_member_function
+cjdb,cjdb --no-use-colors import_member_function, import_member_function
 b,b 12,import_member_function.cj:12
 r,r,-> 12
  ;expr S2(1,2);\(aaa.S2\) \$\d+ = {\s+width = 1\s+height = 2\s+}

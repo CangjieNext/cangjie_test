@@ -9,11 +9,11 @@
 // EXEC: %compiler %cmp_opt %enableCompileDebug %incrementalCompile debuginfo_static_incr.cj -o debuginfo_static_incr
 // EXEC: %cpfile debuginfo_static_incr_new.cj debuginfo_static_incr.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %incrementalCompile debuginfo_static_incr.cj -o debuginfo_static_incr
-// EXEC: python3 cjdb_test.py debuginfo_static_incr.info
+// EXEC: python3 cjdb_test.py debuginfo_static_incr.info %n %run_env
 
 
 test#
-cjdb,cjdb debuginfo_static_incr,debuginfo_static_incr
+cjdb,cjdb --no-use-colors debuginfo_static_incr,debuginfo_static_incr
 b,b 25,debuginfo_static_incr.cj:25
 r,r,-> 25
 globals,globals,Int64\) default::Rect::degree = 180

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_uint16.info %n %run_env
 
 test#
-cjdb,cjdb uint16,uint16
+cjdb,cjdb --no-use-colors uint16,uint16
 b,b foo,uint16.cj:10
 r,r,-> 10
 expr a,expr a,\(UInt16\) \$\d+ = 1

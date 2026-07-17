@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb coalescing03,coalescing03
+cjdb,cjdb --no-use-colors coalescing03,coalescing03
 b,b 37,coalescing03.cj:37
 r,r,-> 37
  ,expr Option<Cla>.Some(c1) ?? c1,\(Int64\) \$\d+ = 100

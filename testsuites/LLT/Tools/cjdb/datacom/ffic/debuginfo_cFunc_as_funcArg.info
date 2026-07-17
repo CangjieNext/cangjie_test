@@ -7,7 +7,7 @@
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/ffic/debuginfo_cFunc_as_funcArg.c    ../../basecase/ffic/debuginfo_cFunc_as_funcArg.cj
 // EXEC: %clang -g %clang_opt debuginfo_cFunc_as_funcArg.c -o %cffi_output
 // EXEC: %compiler %cmp_opt %enableCompileDebug -L. -l%n debuginfo_cFunc_as_funcArg.cj -o %n
-// EXEC: python3 cjdb_test.py debuginfo_cFunc_as_funcArg.info
+// EXEC: python3 cjdb_test.py debuginfo_cFunc_as_funcArg.info %n %run_env
 
 
 test#

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_struct_base03,generic_struct_base03
+cjdb,cjdb --no-use-colors generic_struct_base03,generic_struct_base03
 b,b 23, generic_struct_base03.cj:23
 r,r,-> 23
  ,expr a,\(default.Rectangle<UInt32>\) \$\d+ = {\s+width2 = 2\s+length2 = 2\s+id = 0

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py array1_2.info %n %run_env
 
 test#
-cjdb,cjdb array1_2,array1_2
+cjdb,cjdb --no-use-colors array1_2,array1_2
 b,b 24,array1.cj:24
 r,r,-> 24
  ,expr this.s12,\(std.core.Array<Int32>\) \$\d+ = {\s+\[0\] = 32\s+\[1\] = 33

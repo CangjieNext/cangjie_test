@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb indexAccess,indexAccess
+cjdb,cjdb --no-use-colors indexAccess,indexAccess
 b,b 16,indexAccess.cj:16
 r,r,-> 16
  ,expr tuple1[0],\(Int64\) \$\d+ = 1

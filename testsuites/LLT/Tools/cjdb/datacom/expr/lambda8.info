@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb lambda8,lambda8
+cjdb,cjdb --no-use-colors lambda8,lambda8
 b,b 13,lambda8.cj:13
 r,r,-> 13
  ,expr {i: Int64 => i},\(default.\(Int64\)->Int64\) \$[\d] = 0[xX][0-9a-fA-F]+

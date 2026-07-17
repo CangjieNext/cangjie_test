@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb class_member,class_member
+cjdb,cjdb --no-use-colors class_member,class_member
 b,b 34,class_member.cj:34
 r,r,-> 34
  ,expr R.width;\(Int64\) \$\d+ = 4

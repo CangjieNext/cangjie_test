@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb try_exception,try_exception
+cjdb,cjdb --no-use-colors try_exception,try_exception
 b,b 16,try_exception.cj:16
 r,r,-> 16
  ,expr try { throw ArithmeticException()  } catch (e: ArithmeticException) { println("an arithmeticException happened: " + e.toString())    } finally { println("the finally block is executed") } ,\(Unit\) \$\d+ = ()
