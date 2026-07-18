@@ -19,6 +19,9 @@ API/std/reflect/new_generic_cjnative.cj
 API/std/reflect/sealed_subtype_test.cj
 API/std/reflect/dynloading_cjnative/a1.cj
 API/std/time
+API/stdx/aspect_cj
+API/stdx/chir
+API/stdx/plugin
 API/stdx/zlib/compress
 API/stdx/crypto/x509/x509_test.cj
 API/stdx/logger

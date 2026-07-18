@@ -13,6 +13,9 @@ API/std/posix/
 API/std/process/darwin
 API/std/process/unix
 API/std/time/
+API/stdx/aspect_cj
+API/stdx/chir
+API/stdx/plugin
 compiler/CJMP/objc/
 compiler/CJMP/refgluecode/
 compiler/Diagnose/PlatformRelated
