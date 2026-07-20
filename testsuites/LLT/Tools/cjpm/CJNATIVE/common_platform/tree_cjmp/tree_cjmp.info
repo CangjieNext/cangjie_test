@@ -1,0 +1,15 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm tree --target x86_64-linux-gnu 2>&1 | compare %f
+// ASSERT: regex |-- tree_cjmp
+// ASSERT: scan Enabled features: { os.linux }
+// ASSERT: scan Source code locations for the multiplatform dependency `tree_cjmp`:
+// ASSERT: regex src/common  \[features: <none>\]
+// ASSERT: regex src/linux  \[features: os\.linux; product\]
+// ASSERT: scan-not src/darwin
+// ASSERT: scan cjpm tree success
