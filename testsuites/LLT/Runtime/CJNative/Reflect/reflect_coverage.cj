@@ -299,16 +299,12 @@ func testEnumGetAssociatedValuesStruct(): Bool {
 }
 
 // =============================================
-// 8: Struct copy to trigger CJ_MCC_CopyStructField
+// 8: Struct copy
 // =============================================
 func testStructCopy(): Bool {
-    let a = Vec3(1, 2, 3)
-    let b = a
-    blackBox(b.a + b.b + b.c)
-    true
+    let a = Vec3(1, 2, 3); let b = a; blackBox(b.a); true
 }
 
-// =============================================
 main(): Int64 {
     if (!testTypeInfoOf()) { return 1 }
     if (!testQualifiedName()) { return 2 }
