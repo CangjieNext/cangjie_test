@@ -6,60 +6,37 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f
-// EXEC-PIPE-0: %run %run_opt %output --no-color 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt
+// EXEC-PIPE-1: %run %run_opt %output %run_utest_opt --no-color 2>&1 | compare %f
 
-// ASSERT: scan === Test 1: Direct run of ConcurrentTestCase ===
 // ASSERT: scan [ PASSED ] CASE: test_atomic_counter
-// ASSERT: scan PASSED: 1
-
-// ASSERT: scan === Test 2: ConcurrentTestCase in TestSuite with lifecycle ===
+// ASSERT: scan [ PASSED ] CASE: test_concurrent_lifecycle
 // ASSERT: scan --beforeAll--
 // ASSERT: scan --beforeEach: test_concurrent_lifecycle--
 // ASSERT: scan --afterEach--
 // ASSERT: scan --afterAll--
-// ASSERT: scan [ PASSED ] CASE: test_concurrent_lifecycle
-// ASSERT: scan PASSED: 1
-
-// ASSERT: scan === Test 3: Multiple concurrent tests in TestSuite ===
 // ASSERT: scan [ PASSED ] CASE: passing_test_1
 // ASSERT: scan [ PASSED ] CASE: reset_test
-// ASSERT: scan [ ERROR  ] CASE: failing_test
+// ASSERT: scan [ FAILED ] CASE: failing_test
 // ASSERT: scan Concurrent test iteration 0 failed
-// ASSERT: scan PASSED: 2
-// ASSERT: scan ERROR: 1
-
-// ASSERT: scan === Test 4: TestGroup with concurrent tests ===
 // ASSERT: scan [ PASSED ] CASE: test_1
 // ASSERT: scan [ PASSED ] CASE: test_2
-// ASSERT: scan PASSED: 2
-
-// ASSERT: scan === Test 5: TestSuiteBuilder.add(concurrent) ===
 // ASSERT: scan [ PASSED ] CASE: test_builder_add
-// ASSERT: scan PASSED: 1
+// ASSERT: scan [ FAILED ] CASE: data_race
+// ASSERT: scan Ordering: per-actor + real-time (------- = barrier, ... = bridge)
+// ASSERT: scan Actor 0     Actor 1         
+// ASSERT: scan op_0: 1 ✓   op_0: -1 ≠ 0 ✗  
+// ASSERT: scan PASSED: 7
+// ASSERT: scan FAILED: 2
+// ASSERT: scan TOTAL: 9
 
 import std.unittest.*
+import std.unittest.testmacro.*
 import std.unittest.concurrent.*
 import std.sync.*
 
-main(): Unit {
-    println("=== Test 1: Direct run of ConcurrentTestCase ===")
-    testDirectRun()
-
-    println("\n=== Test 2: ConcurrentTestCase in TestSuite with lifecycle ===")
-    testWithLifecycle()
-
-    println("\n=== Test 3: Multiple concurrent tests in TestSuite ===")
-    testMultipleConcurrentTests()
-
-    println("\n=== Test 4: TestGroup with concurrent tests ===")
-    testTestGroup()
-
-    println("\n=== Test 5: TestSuiteBuilder.add(concurrent) ===")
-    testBuilderAddConcurrent()
-}
-
-func testDirectRun(): Unit {
+@TestBuilder
+func testDirectRun(): TestSuite {
     let counter = AtomicInt64(0)
 
     let scenarioBuilder = scenario("atomic_counter_test")
@@ -73,11 +50,14 @@ func testDirectRun(): Unit {
         builder: scenarioBuilder
     )
 
-    let report = testCase.run()
-    report.reportTo(ConsoleReporter(colored: false))
+    TestSuite
+        .builder("direct_run_suite")
+        .add(testCase)
+        .build()
 }
 
-func testWithLifecycle(): Unit {
+@TestBuilder
+func testWithLifecycle(): TestSuite {
     let counter = AtomicInt64(0)
 
     let scenarioBuilder = scenario("lifecycle_test")
@@ -90,7 +70,7 @@ func testWithLifecycle(): Unit {
         builder: scenarioBuilder
     )
 
-    let suite = TestSuite
+    TestSuite
         .builder("concurrent_suite")
         .beforeAll { => println("--beforeAll--") }
         .beforeEach { name => println("--beforeEach: ${name}--") }
@@ -98,12 +78,10 @@ func testWithLifecycle(): Unit {
         .afterAll { => println("--afterAll--") }
         .add(testCase)
         .build()
-
-    let report = suite.runTests()
-    report.reportTo(ConsoleReporter(colored: false))
 }
 
-func testMultipleConcurrentTests(): Unit {
+@TestBuilder
+func testMultipleConcurrentTests(): TestSuite {
     let counter = AtomicInt64(0)
 
     let passingScenario = scenario("passing_test")
@@ -121,18 +99,16 @@ func testMultipleConcurrentTests(): Unit {
         .actor { => counter.store(0) }
         .verify { => counter.load() == 0 }
 
-    let suite = TestSuite
+    TestSuite
         .builder("mixed_concurrent_suite")
         .add(ConcurrentTestCase.createFromBuilder("passing_test_1", builder: passingScenario))
         .add(ConcurrentTestCase.createFromBuilder("failing_test", builder: failingScenario))
         .add(ConcurrentTestCase.createFromBuilder("reset_test", builder: resetScenario))
         .build()
-
-    let report = suite.runTests()
-    report.reportTo(ConsoleReporter(colored: false))
 }
 
-func testTestGroup(): Unit {
+@TestBuilder
+func testTestGroup(): TestSuite {
     let counter = AtomicInt64(0)
 
     let scenario1 = scenario("group_test_1")
@@ -145,17 +121,15 @@ func testTestGroup(): Unit {
         .actor { => counter.fetchAdd(1) }
         .verify { => counter.load() >= 0 }
 
-    let group = TestGroup
+    TestSuite
         .builder("concurrent_group")
         .add(ConcurrentTestCase.createFromBuilder("test_1", builder: scenario1))
         .add(ConcurrentTestCase.createFromBuilder("test_2", builder: scenario2))
         .build()
-
-    let report = group.runTests()
-    report.reportTo(ConsoleReporter(colored: false))
 }
 
-func testBuilderAddConcurrent(): Unit {
+@TestBuilder
+func testBuilderAddConcurrent(): TestSuite {
     let counter = AtomicInt64(0)
 
     let scenarioBuilder = scenario("builder_add_test")
@@ -168,11 +142,31 @@ func testBuilderAddConcurrent(): Unit {
         builder: scenarioBuilder
     )
 
-    let suite = TestSuite
+    TestSuite
         .builder("builder_add_suite")
         .add(testCase)
         .build()
+}
 
-    let report = suite.runTests()
-    report.reportTo(ConsoleReporter(colored: false))
+var counter = 0
+
+@TestBuilder
+func testDataRaceReport(): TestSuite {
+
+    let scenarioBuilder = scenario("data_race_not_linearizable")
+        .consistencyModel(Linearizability)
+        .reset { => counter = 0 }
+        .actor({ => counter += 1; counter })
+        .actor({ => counter -= 1; counter })
+        .iterations(1000)
+
+    let testCase = ConcurrentTestCase.createFromBuilder(
+        "data_race",
+        builder: scenarioBuilder
+    )
+
+    TestSuite
+        .builder("data_race_suite")
+        .add(testCase)
+        .build()
 }
