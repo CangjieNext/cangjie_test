@@ -1,0 +1,16 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: cjprof record + flat report end-to-end. Requires perf_event_paranoid
+# <= 2 (software CPU-clock events) and CANGJIE_HOME/runtime in LD_LIBRARY_PATH.
+# Covers LinuxRecorder/Record/Elf/FlatReporter which the perf-less path can't.
+
+// DEPENDENCE: ../sample
+// EXEC: %copy sample/test.cj .
+// EXEC: %compiler test.cj -o test
+// EXEC: %cjprof record -f 100 ./test
+// EXEC: %cjprof report -i cjprof.data 2>&1 | compare %f
+// ASSERT: scan main

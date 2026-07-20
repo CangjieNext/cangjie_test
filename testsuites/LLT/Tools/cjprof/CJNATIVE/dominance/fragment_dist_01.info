@@ -1,0 +1,17 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: fragment distribution with objects spread across 64KB buckets so
+# adjacent buckets have different categories -> exercises the segment-merge
+# loop and categoryToString() (every ObjectCategory case) in HttpHandlers.
+
+// DEPENDENCE: cjprof_api_test.py ../sample/dist_spread.data
+// EXEC: python3 cjprof_api_test.py fragment_dist_01.info
+
+test#
+dist_spread,/api/fragment/layout,INSTANCE_OBJECT,regex,PRIMITIVE_ARRAY
+dist_spread,/api/fragment/layout,"OBJECT_ARRAY",regex,"FREE_SPACE"
+dist_spread,/api/fragment/summary,"instance_object_total":64,regex,"primitive_array_total":56

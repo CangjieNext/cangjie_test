@@ -1,0 +1,21 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: fragment distribution `sorted.empty()` fallback (HttpHandlers.cpp
+# L914-933). empty_fragment.data has 3 instances whose class.size == 0, so
+# HeapAnalyzer::ComputeInstanceSize returns 0 for every object. The
+# distribution handler filters each object with `obj.object_id > 0 &&
+# obj.size > 0`; all fail the size>0 check, sorted stays empty, and the
+# single-row FREE_SPACE fallback push_back (L919, ~94 uncovered branches)
+# is executed instead of the 64KB-bucket main path.
+# Also covers the handleFragmentOverview utilization=0 path (used_size=0).
+
+// DEPENDENCE: cjprof_api_test.py ../sample/empty_fragment.data
+// EXEC: python3 cjprof_api_test.py fragment_empty_01.info
+
+test#
+empty_fragment,/api/fragment/overview,"used_size":0,scan,"utilization":0.0
+empty_fragment,/api/snapshot,"object_count":3,scan,"used_size":0

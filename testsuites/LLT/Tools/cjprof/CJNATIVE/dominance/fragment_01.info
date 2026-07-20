@@ -1,0 +1,18 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: fragment overview/summary/layout/distribution + snapshot endpoints.
+# Uses heap.data which has instance objects, arrays and a used heap.
+# Line format: test_name,api_endpoint,grep_pattern,assert_type,assert_value
+
+// DEPENDENCE: cjprof_api_test.py ../sample/heap.data
+// EXEC: python3 cjprof_api_test.py fragment_01.info
+
+test#
+heap,/api/fragment/overview,"used_size":848,regex,"heap_limit":536870912
+heap,/api/fragment/summary,"instance_object_total":240,regex,"object_array_total":16
+heap,/api/fragment/layout,INSTANCE_OBJECT,regex,PRIMITIVE_ARRAY
+heap,/api/snapshot,"object_count":26,regex,"gc_root_count":13

@@ -1,0 +1,24 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: every ObjectCategory path via a V2 dump containing all sub-tags
+# (instance/object/primitive/struct/pinned/large/unmovable arrays).
+# Exercises HeapAnalyzer::AnalyzeArray category branches and the fragment
+# handlers (overview/summary/layout/distribution) + snapshot.
+
+// DEPENDENCE: cjprof_api_test.py ../sample/all_tags.data
+// EXEC: python3 cjprof_api_test.py all_tags_01.info
+
+test#
+all_tags,/api/fragment/summary,"instance_object_total":64,regex,"object_array_total":48
+all_tags,/api/fragment/summary,"primitive_array_total":40,regex,"struct_array_total":48
+all_tags,/api/fragment/summary,"large_object_total":152,regex,"pinned_object_total":32
+all_tags,/api/fragment/layout,INSTANCE_OBJECT,regex,OBJECT_ARRAY
+all_tags,/api/fragment/layout,PRIMITIVE_ARRAY,regex,STRUCT_ARRAY
+all_tags,/api/fragment/layout,PINNED_OBJECT,regex,LARGE_OBJECT
+all_tags,/api/fragment/layout,PRIMITIVE_ARRAY,regex,FREE_SPACE
+all_tags,/api/fragment/overview,"used_size":520,regex,"utilization"
+all_tags,/api/snapshot,"gc_root_count":3,regex,"object_count":14

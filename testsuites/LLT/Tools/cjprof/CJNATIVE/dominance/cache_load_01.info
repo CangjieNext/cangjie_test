@@ -1,0 +1,17 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: DatabaseCache::load path. A committed all_tags.data.cjprof.db ships
+# alongside the data file (declared in DEPENDENCE); the framework copies both
+# to a fresh temp dir, and cjprof_api_test.py no longer deletes the cache
+# before startup, so the server hits isCacheValid()->load() instead of parse.
+
+// DEPENDENCE: cjprof_api_test.py ../sample/all_tags.data ../sample/all_tags.data.cjprof.db
+// EXEC: python3 cjprof_api_test.py cache_load_01.info
+
+test#
+all_tags,/api/snapshot,"object_count":14,regex,"gc_root_count":3
+all_tags,/api/fragment/overview,"used_size":520,regex,"utilization"

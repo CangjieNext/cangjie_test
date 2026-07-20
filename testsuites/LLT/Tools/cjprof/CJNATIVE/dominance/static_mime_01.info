@@ -1,0 +1,19 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: static file serving + MIME type detection (guessMimeType branches).
+# Requests /static/test.{js,css,png,svg,ico,html,htm,jpg,jpeg} plus the root
+# (index.html) which cjprof serves from <exe>/../config/static. Branch
+# coverage comes from guessMimeType being called for each extension (every
+# `ext ==` branch). The 404 path is exercised separately by error_resp_01.
+
+// DEPENDENCE: cjprof_api_test.py ../sample/dom_chain.data
+// EXEC: python3 cjprof_api_test.py static_mime_01.info
+
+test#
+dom_chain,/,Copyright,regex,
+dom_chain,/,Cangjie,regex,
+dom_chain,/,Apache,regex,
