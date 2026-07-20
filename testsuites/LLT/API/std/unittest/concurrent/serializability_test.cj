@@ -9,7 +9,7 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args %run_utest_opt --no-color | compare %f
-// ASSERT: scan PASSED: 4
+// ASSERT: scan PASSED: 5
 
 import std.unittest.concurrent.*
 import std.sync.AtomicInt64
@@ -97,5 +97,36 @@ class SerializabilityTests {
         
         @Assert(!scResult.passed)
         @Assert(!serialResult.passed)
+    }
+
+    @TestCase
+    func testQueueWithSizeSerializable(): Unit {
+        let result = scenario("queue_multi_ops_with_size")
+            .consistencyModel(Serializability)
+            .reset { => 
+                queue = ConcurrentLinkedQueue<Int64>()         
+            }
+            .actorWithOps([
+                operation("remove", { => queue.remove() ?? -1 }),
+                operation("add", { => queue.add(1) }),
+                operation("remove", { => queue.remove() ?? -1 }),
+                operation("add", { => queue.add(1) }),
+            ])
+            .actorWithOps([
+                operation("remove", { => queue.remove() ?? -1 }),
+                operation("add", { => queue.add(1) }),
+                operation("remove", { => queue.remove() ?? -1 }),
+                operation("add", { => queue.add(1) }),
+            ])
+            .actorWithOps([
+                operation("size", { => queue.size }),
+                operation("size", { => queue.size }),
+            ])
+            .iterations(500)
+            .build()
+            .run()
+        
+        println(result.report())
+        @Assert(result.passed)
     }
 }

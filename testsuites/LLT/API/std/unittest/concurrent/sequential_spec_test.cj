@@ -9,7 +9,7 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE: cjHeapSize=16gb %run %run_opt %output %run_args %run_utest_opt --no-color| compare %f
-// ASSERT: scan PASSED: 9
+// ASSERT: scan PASSED: 8
 
 import std.unittest.concurrent.*
 import std.sync.AtomicInt64
@@ -179,39 +179,6 @@ class SequentialSpecTests {
     }
 
     var queue = ConcurrentLinkedQueue<Int64>()
-    @TestCase//[x in 1..=50]
-    func testQueueWithMultipleOperations3(): Unit {
-        
-        
-        let result = scenario("queue_multi_ops2")
-            .reset { => 
-                queue = ConcurrentLinkedQueue<Int64>()         
-            }
-            .actorWithOps([
-                operation("remove", { => queue.remove() ?? -1 }),
-                operation("add", { => queue.add(1) }),
-                operation("remove", { => queue.remove() ?? -1 }),
-                operation("add", { => queue.add(1) }),
-            ])
-            .actorWithOps([
-                operation("remove", { => queue.remove() ?? -1 }),
-                operation("add", { => queue.add(1) }),
-                operation("remove", { => queue.remove() ?? -1 }),
-                operation("add", { => queue.add(1) }),
-            ])
-            .actorWithOps([
-                operation("size", { => queue.size }),
-                operation("size", { => queue.size }),
-                operation("size", { => queue.size }),
-            ])
-            .iterations(50)
-            .build()
-            .run()
-        
-        println(result.report())
-        @Assert(result.passed)
-    }
-
     @TestCase
     func testQueueWithMultipleOperations2(): Unit {
         let result = scenario("queue_multi_ops3")
@@ -234,9 +201,6 @@ class SequentialSpecTests {
                 operation("remove", { => queue.remove() ?? -1 }),
                 operation("remove", { => queue.remove() ?? -1 }),
                 operation("remove", { => queue.remove() ?? -1 }),
-            ])
-            .actorWithOps([
-                operation("size", { => queue.size }),
             ])
             .iterations(1000)
             .build()

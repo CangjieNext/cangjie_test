@@ -6,57 +6,96 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f
-// EXEC-PIPE-0: %run %run_opt %output --no-color 2>&1 | compare %f
+// LEVEL: 0
+// DEPENDENCE: helpers
+// EXEC: %compiler %cmp_opt -p helpers %compile_lib_opt --output p.%middle
+// EXEC: %compiler %cmp_opt p.%middle %f %cmp_utest_opt -o %output
+// EXEC-PIPE-1: %run %run_opt %output %run_utest_opt --no-color --show-all-output 2>&1 | compare %f
 
-// ASSERT: scan === Test 1: verify failure ===
 // ASSERT: scan iteration 0
 // ASSERT: scan with randomSeed
 // ASSERT: scan Concurrent test iteration 0 failed: verify assertion failed
 
-// ASSERT: scan === Test 2: consistency failure ===
 // ASSERT: scan consistency validation failed
 // ASSERT: scan Consistency validation:
-// ASSERT: scan Executed operations:
-// ASSERT: scan Actor 0:
-// ASSERT: scan Actor 1:
+// ASSERT: scan Ordering:
+// ASSERT: scan Actor 0
+// ASSERT: scan Actor 1
 // ASSERT: scan op_0
-// ASSERT: scan Sequentialization failure
-// ASSERT: scan expected:
-// ASSERT: scan actual:
+// ASSERT: scan ≠
+// ASSERT: scan ✗
 
-// ASSERT: scan === Test 3: verbose progress ===
 // ASSERT: scan Operation checks:
 
-// ASSERT: scan === Test 4: multiple mismatches ===
-// ASSERT: scan Sequentialization failure
-// ASSERT: scan expected:
-// ASSERT: scan actual:
-// ASSERT: scan Actor 2: op_0 (expected:
+// ASSERT: scan Ordering:
+// ASSERT: scan Actor 0
+// ASSERT: scan Actor 1
+// ASSERT: scan Actor 2
+// ASSERT: scan op_0
+// ASSERT: scan ≠
+// ASSERT: scan ✗
+// ASSERT: scan inconsistent
 
+// ASSERT: scan Ordering: per-actor
+// ASSERT: scan Actor 0
+// ASSERT: scan Actor 1
+// ASSERT: scan op_0
+// ASSERT: scan op_1
+// ASSERT: scan -------
+// ASSERT: scan ≠
+// ASSERT: scan ✗
+
+// ASSERT: scan === Example 2: double barrier ===
+// ASSERT: scan NOT linearizable
+// ASSERT: scan Ordering: per-actor + real-time
+// ASSERT: scan Actor 0
+// ASSERT: scan Actor 1
+// ASSERT: scan op_0
+// ASSERT: scan op_1
+// ASSERT: scan -------
+// ASSERT: scan ≠
+// ASSERT: scan ✗
+
+// ASSERT: scan === Example 3: single barrier ===
+// ASSERT: scan NOT linearizable
+// ASSERT: scan Ordering: per-actor + real-time
+// ASSERT: scan Actor 0
+// ASSERT: scan Actor 1
+// ASSERT: scan op_0
+// ASSERT: scan op_1
+// ASSERT: scan -------
+// ASSERT: scan ≠
+// ASSERT: scan ✗
+
+// ASSERT: scan === Example 1: complex partial order ===
+// ASSERT: scan NOT linearizable
+// ASSERT: scan Ordering: per-actor + real-time
+// ASSERT: scan Actor 0
+// ASSERT: scan Actor 1
+// ASSERT: scan Actor 2
+// ASSERT: scan op_0
+// ASSERT: scan op_1
+// ASSERT: scan op_2
+// ASSERT: scan -------
+// ASSERT: scan ≠
+// ASSERT: scan ✗
+
+// ASSERT: scan-not Executed operations:
+// ASSERT: scan-not Sequentialization failure
 // ASSERT: scan-not Starting concurrent scenario 'test_atomic_counter'
 // ASSERT: scan-not Starting concurrent scenario 'counter_data_race'
 // ASSERT: scan-not Starting concurrent scenario 'multi_mismatch_test'
+// ASSERT: scan-not Starting concurrent scenario 'sc_barriers_test'
 
 import std.unittest.*
+import std.unittest.testmacro.*
 import std.unittest.concurrent.*
+import std.concurrent_test_util.*
 import std.sync.*
+import std.collection.ArrayList
 
-main(): Unit {
-    println("=== Test 1: verify failure ===")
-    testVerifyFailure()
-
-    println("=== Test 2: consistency failure ===")
-    testConsistencyFailure()
-
-    println("=== Test 3: verbose progress ===")
-    testVerboseProgress()
-
-    println("=== Test 4: multiple mismatches ===")
-    testMultipleMismatches()
-}
-
-func testVerifyFailure(): Unit {
+@TestBuilder
+func testVerifyFailure(): TestSuite {
     let counter = AtomicInt64(0)
 
     let scenarioBuilder = scenario("atomic_counter_test")
@@ -70,13 +109,16 @@ func testVerifyFailure(): Unit {
         builder: scenarioBuilder
     )
 
-    let report = testCase.run()
-    report.reportTo(ConsoleReporter(colored: false))
+    TestSuite
+        .builder("verify_failure_suite")
+        .add(testCase)
+        .build()
 }
 
 var counter = 0
-func testConsistencyFailure(): Unit {
 
+@TestBuilder
+func testConsistencyFailure(): TestSuite {
     let scenarioBuilder = scenario("counter_data_race")
         .reset { => counter = 0 }
         .consistencyModel(Serializability)
@@ -89,8 +131,10 @@ func testConsistencyFailure(): Unit {
         builder: scenarioBuilder
     )
 
-    let report = testCase.run()
-    report.reportTo(ConsoleReporter(colored: false))
+    TestSuite
+        .builder("consistency_failure_suite")
+        .add(testCase)
+        .build()
 }
 
 class AlwaysInconsistent <: Equatable<AlwaysInconsistent> & ToString {
@@ -98,7 +142,8 @@ class AlwaysInconsistent <: Equatable<AlwaysInconsistent> & ToString {
     public func toString(): String { "inconsistent" }
 }
 
-func testMultipleMismatches(): Unit {
+@TestBuilder
+func testMultipleMismatches(): TestSuite {
     let scenarioBuilder = scenario("multi_mismatch_test")
         .reset { => counter = 0 }
         .consistencyModel(Serializability)
@@ -112,11 +157,14 @@ func testMultipleMismatches(): Unit {
         builder: scenarioBuilder
     )
 
-    let report = testCase.run()
-    report.reportTo(ConsoleReporter(colored: false))
+    TestSuite
+        .builder("multiple_mismatches_suite")
+        .add(testCase)
+        .build()
 }
 
-func testVerboseProgress(): Unit {
+@TestBuilder
+func testVerboseProgress(): TestSuite {
     let scenarioBuilder = scenario("verbose_progress_test")
         .reset { => counter = 0 }
         .consistencyModel(Serializability)
@@ -133,6 +181,227 @@ func testVerboseProgress(): Unit {
         configuration: config
     )
 
-    let report = testCase.run()
-    report.reportTo(ConsoleReporter(colored: false))
+    TestSuite
+        .builder("verbose_progress_suite")
+        .add(testCase)
+        .build()
+}
+
+@TestBuilder
+func testSequentialConsistencyBarriers(): TestSuite {
+    let ops0: Array<Operation<Unit>> = [
+        operation("op_0") { => counter += 1; AlwaysInconsistent() },
+        operation("op_1") { => counter += 2; AlwaysInconsistent() }
+    ]
+    let ops1: Array<Operation<Unit>> = [
+        operation("op_0") { => counter += 3; AlwaysInconsistent() }
+    ]
+
+    let scenarioBuilder = scenario("sc_barriers_test")
+        .reset { => counter = 0 }
+        .consistencyModel(SequentialConsistency)
+        .actorWithOps(ops0)
+        .actorWithOps(ops1)
+        .iterations(1)
+
+    let testCase = ConcurrentTestCase.createFromBuilder(
+        "sc_barriers_test",
+        builder: scenarioBuilder
+    )
+
+    TestSuite
+        .builder("sc_barriers_suite")
+        .add(testCase)
+        .build()
+}
+
+class DummyState {}
+
+func testExample2DoubleBarrier(): Unit {
+    let actor0Ops = ArrayList<OperationInvocation>()
+    actor0Ops.add(newOperationInvocation(
+        actorId: 0, operationIndex: 0, operationName: "op_0",
+        result: execResultOf({ => 1 }),
+        invocationVC: Some([0, 0]), responseVC: Some([1, 0])
+    ))
+    actor0Ops.add(newOperationInvocation(
+        actorId: 0, operationIndex: 1, operationName: "op_1",
+        result: execResultOf({ => 5 }),
+        invocationVC: Some([2, 3]), responseVC: Some([3, 3])
+    ))
+
+    let actor1Ops = ArrayList<OperationInvocation>()
+    actor1Ops.add(newOperationInvocation(
+        actorId: 1, operationIndex: 0, operationName: "op_0",
+        result: execResultOf({ => 3 }),
+        invocationVC: Some([0, 0]), responseVC: Some([0, 1])
+    ))
+    actor1Ops.add(newOperationInvocation(
+        actorId: 1, operationIndex: 1, operationName: "op_1",
+        result: execResultOf({ => 4 }),
+        invocationVC: Some([1, 1]), responseVC: Some([2, 2])
+    ))
+
+    let specExec = { _: Any, inv: OperationInvocation =>
+        match (inv.actorId * 10 + inv.operationIndex) {
+            case 0 => execResultOf({ => 1 })
+            case 1 => execResultOf({ => 6 })
+            case 10 => execResultOf({ => 3 })
+            case 11 => execResultOf({ => 4 })
+            case _ => execResultOf({ => 0 })
+        }
+    }
+
+    let result = validateManualHistory(
+        Linearizability,
+        [actor0Ops, actor1Ops],
+        { => DummyState() },
+        specExec
+    )
+
+    println(result.report())
+    match (result.getMismatchDetails()) {
+        case Some(details) => println(details)
+        case None => println("No mismatch details")
+    }
+}
+
+func testExample3SingleBarrier(): Unit {
+    let actor0Ops = ArrayList<OperationInvocation>()
+    actor0Ops.add(newOperationInvocation(
+        actorId: 0, operationIndex: 0, operationName: "op_0",
+        result: execResultOf({ => 1 }),
+        invocationVC: Some([0, 0]), responseVC: Some([1, 0])
+    ))
+    actor0Ops.add(newOperationInvocation(
+        actorId: 0, operationIndex: 1, operationName: "op_1",
+        result: execResultOf({ => 5 }),
+        invocationVC: Some([1, 3]), responseVC: Some([2, 3])
+    ))
+
+    let actor1Ops = ArrayList<OperationInvocation>()
+    actor1Ops.add(newOperationInvocation(
+        actorId: 1, operationIndex: 0, operationName: "op_0",
+        result: execResultOf({ => 3 }),
+        invocationVC: Some([0, 0]), responseVC: Some([0, 1])
+    ))
+    actor1Ops.add(newOperationInvocation(
+        actorId: 1, operationIndex: 1, operationName: "op_1",
+        result: execResultOf({ => 4 }),
+        invocationVC: Some([0, 1]), responseVC: Some([1, 2])
+    ))
+
+    let specExec = { _: Any, inv: OperationInvocation =>
+        match (inv.actorId * 10 + inv.operationIndex) {
+            case 0 => execResultOf({ => 1 })
+            case 1 => execResultOf({ => 6 })
+            case 10 => execResultOf({ => 3 })
+            case 11 => execResultOf({ => 4 })
+            case _ => execResultOf({ => 0 })
+        }
+    }
+
+    let result = validateManualHistory(
+        Linearizability,
+        [actor0Ops, actor1Ops],
+        { => DummyState() },
+        specExec
+    )
+
+    println(result.report())
+    match (result.getMismatchDetails()) {
+        case Some(details) => println(details)
+        case None => println("No mismatch details")
+    }
+}
+
+func testExample1Complex(): Unit {
+    let actor0Ops = ArrayList<OperationInvocation>()
+    actor0Ops.add(newOperationInvocation(
+        actorId: 0, operationIndex: 0, operationName: "op_0",
+        result: execResultOf({ => 1 }),
+        invocationVC: Some([0, 0, 0]), responseVC: Some([1, 0, 0])
+    ))
+    actor0Ops.add(newOperationInvocation(
+        actorId: 0, operationIndex: 1, operationName: "op_1",
+        result: execResultOf({ => 5 }),
+        invocationVC: Some([1, 0, 0]), responseVC: Some([2, 0, 0])
+    ))
+    actor0Ops.add(newOperationInvocation(
+        actorId: 0, operationIndex: 2, operationName: "op_2",
+        result: execResultOf({ => 5 }),
+        invocationVC: Some([3, 3, 1]), responseVC: Some([4, 3, 1])
+    ))
+
+    let actor1Ops = ArrayList<OperationInvocation>()
+    actor1Ops.add(newOperationInvocation(
+        actorId: 1, operationIndex: 0, operationName: "op_0",
+        result: execResultOf({ => 4 }),
+        invocationVC: Some([0, 0, 0]), responseVC: Some([0, 1, 0])
+    ))
+    actor1Ops.add(newOperationInvocation(
+        actorId: 1, operationIndex: 1, operationName: "op_1",
+        result: execResultOf({ => 2 }),
+        invocationVC: Some([0, 1, 0]), responseVC: Some([0, 3, 0])
+    ))
+
+    let actor2Ops = ArrayList<OperationInvocation>()
+    actor2Ops.add(newOperationInvocation(
+        actorId: 2, operationIndex: 0, operationName: "op_0",
+        result: execResultOf({ => 6 }),
+        invocationVC: Some([3, 0, 0]), responseVC: Some([3, 1, 1])
+    ))
+    actor2Ops.add(newOperationInvocation(
+        actorId: 2, operationIndex: 1, operationName: "op_1",
+        result: execResultOf({ => 7 }),
+        invocationVC: Some([3, 1, 1]), responseVC: Some([3, 2, 2])
+    ))
+
+    let specExec = { _: Any, inv: OperationInvocation =>
+        match (inv.actorId * 10 + inv.operationIndex) {
+            case 0 => execResultOf({ => 1 })
+            case 1 => execResultOf({ => 5 })
+            case 2 => execResultOf({ => 5 })
+            case 10 => execResultOf({ => 4 })
+            case 11 => execResultOf({ => 2 })
+            case 20 => execResultOf({ => 6 })
+            case 21 => execResultOf({ => 6 })
+            case _ => execResultOf({ => 0 })
+        }
+    }
+
+    let result = validateManualHistory(
+        Linearizability,
+        [actor0Ops, actor1Ops, actor2Ops],
+        { => DummyState() },
+        specExec
+    )
+
+    println(result.report())
+    match (result.getMismatchDetails()) {
+        case Some(details) => println(details)
+        case None => println("No mismatch details")
+    }
+}
+
+@TestBuilder
+func testManualHistoryExamples(): TestSuite {
+    TestSuite
+        .builder("manual_history_suite")
+        .add(UnitTestCase.create("example_2_double_barrier") {
+            =>
+            println("=== Example 2: double barrier ===")
+            testExample2DoubleBarrier()
+        })
+        .add(UnitTestCase.create("example_3_single_barrier") {
+            =>
+            println("=== Example 3: single barrier ===")
+            testExample3SingleBarrier()
+        })
+        .add(UnitTestCase.create("example_1_complex_partial_order") {
+            =>
+            println("=== Example 1: complex partial order ===")
+            testExample1Complex()
+        })
+        .build()
 }
