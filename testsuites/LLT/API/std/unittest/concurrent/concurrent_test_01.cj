@@ -39,10 +39,9 @@ class ConcurrentTests {
     @TestCase
     func test_basic_counter_data_race(): Unit {
         println("Testing basic counter data race scenario...")
-        
-        
+                
         let result = scenario("basic_counter_test")
-            .iterations(10)
+            .iterations(100)
             .actor { => for (j in 0..1000) { counter += 1 } }
             .actor { => for (j in 0..1000) { counter -= 1 } }
             .verify { => counter == 0 }
@@ -86,6 +85,7 @@ class ConcurrentTests {
         @Assert(values.size == iterations * 2)
         
         @PowerAssert(values != [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2])
+        @PowerAssert(values != [2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1])
         
         @Assert(result.passed)
     }

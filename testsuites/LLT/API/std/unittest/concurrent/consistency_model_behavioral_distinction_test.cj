@@ -11,7 +11,7 @@
 // EXEC: %compiler %cmp_opt -p helpers %compile_lib_opt --output p.%middle
 // EXEC: %compiler %cmp_opt p.%middle %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args %run_utest_opt --no-color | compare %f
-// ASSERT: scan PASSED: 4
+// ASSERT: scan PASSED: 5
 
 // Behavioral distinction tests for consistency models.
 //
@@ -58,6 +58,7 @@
 //    Deterministic alternative to tests 1-2: manually constructed history with
 //    VC timestamps guaranteeing write completed before read started.
 //    Outcome (read=0 after write=1): achievable under SC but not linearizability.
+package std.concurrent_test
 
 import std.unittest.concurrent.*
 import std.concurrent_test_util.*
@@ -160,6 +161,13 @@ class ConsistencyModelBehavioralDistinctionTests {
         println("SC: ${scResult.report()}")
         println("Linearizability: ${linResult.report()}")
 
+
+        for (val in linResult.consistencyValidations) {
+            if (!val.isConsistent) {
+                println(val.getMismatchDetails())
+            }
+        }
+
         @Assert(scResult.passed)
         @Assert(!linResult.passed)
     }
@@ -170,13 +178,7 @@ class ConsistencyModelBehavioralDistinctionTests {
         let scResult = scenario("storebuffer_sc")
             .consistencyModel(SequentialConsistency)
             .reset { => storeBufferReg.reset() }
-            .actorWithOps([
-                operation("write", { => storeBufferReg.write(1) }),
-                operation("write", { => storeBufferReg.write(2) }),
-                operation("read", { => storeBufferReg.read() }),
-                operation("write", { => storeBufferReg.write(3) }),
-            ])
-            .actorWithOps([operation("read", { => storeBufferReg.read() })])
+            .actorWithOps([operation("write", { => storeBufferReg.write(1) })])
             .actorWithOps([operation("read", { => storeBufferReg.read() })])
             .iterations(500)
             .build()
@@ -193,6 +195,64 @@ class ConsistencyModelBehavioralDistinctionTests {
 
         println("SC: ${scResult.report()}")
         println("Linearizability: ${linResult.report()}")
+
+        for (val in linResult.consistencyValidations) {
+            if (!val.isConsistent) {
+                println(val.getMismatchDetails())
+            }
+        }
+
+        @Assert(scResult.passed)
+        @Assert(!linResult.passed)
+    }
+
+    @TestCase
+    func testStoreBufferRegister_scAccepts_linearizabilityRejects3(): Unit {
+
+        let scResult = scenario("storebuffer_sc")
+            .consistencyModel(SequentialConsistency)
+            .reset { => storeBufferReg.reset() }
+            .actorWithOps([
+                operation("write", { => storeBufferReg.write(1) }),
+                operation("write", { => storeBufferReg.write(2) }),
+                operation("read", { => storeBufferReg.read() }),
+                operation("write", { => storeBufferReg.write(3) }),
+            ])
+            .actorWithOps([
+                operation("read", { => storeBufferReg.read() }),
+                operation("read", { => storeBufferReg.read() }),
+            ])
+            .actorWithOps([operation("read", { => storeBufferReg.read() })])
+            .iterations(500)
+            .build()
+            .run()
+
+        let linResult = scenario("storebuffer_lin")
+            .consistencyModel(Linearizability)
+            .reset { => storeBufferReg.reset() }
+            .actorWithOps([
+                operation("write", { => storeBufferReg.write(1) }),
+                operation("write", { => storeBufferReg.write(2) }),
+                operation("read", { => storeBufferReg.read() }),
+                operation("write", { => storeBufferReg.write(3) }),
+            ])
+            .actorWithOps([
+                operation("read", { => storeBufferReg.read() }),
+                operation("read", { => storeBufferReg.read() }),
+            ])
+            .actorWithOps([operation("read", { => storeBufferReg.read() })])
+            .iterations(500)
+            .build()
+            .run()
+
+        println("SC: ${scResult.report()}")
+        println("Linearizability: ${linResult.report()}")
+
+        for (val in linResult.consistencyValidations) {
+            if (!val.isConsistent) {
+                println(val.getMismatchDetails())
+            }
+        }
 
         @Assert(scResult.passed)
         @Assert(!linResult.passed)
