@@ -1,0 +1,41 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// DEPENDENCE: ../test.toml test.h
+// EXEC: ObjCInteropGen test.toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+@ObjCMirror
+public open class A {
+    @ForeignName["f1"] public static func f1Static(): Unit
+    public open func f1(): Unit
+    public open mut prop f2: Int32
+    public open func f3(): Unit
+    @ForeignName["f4:"] public open func f4(x: Float64): ?A
+    @ForeignName["f5:"] public static func f5(x: Float64): ?A
+    public open mut prop f6: Int32
+    public open mut prop f7: Int32
+    @ForeignName["f7"] public static mut prop f7Static: Int32
+    public open func f8(): Int32
+    public open mut prop f9: Int32
+    @ForeignName["setF10:"] public open func setF10(x: Int32): Unit
+    @ForeignGetterName["get_f11"] public open mut prop f11: Int32
+    @ForeignGetterName["get_f12"] public open prop f12: Int32
+}
+
+@ObjCMirror
+public open class M <: A {
+    public static func f1Static(): Unit
+    public open func f4(x: ?A): ?A
+    public static func f5(x: ?A): ?A
+    public open func setF9(x: Int32): Unit
+    public open mut prop f10: Int32
+    public open func get_f11(): Int32
+    public open func get_f12(): Int32
+}
+*/
