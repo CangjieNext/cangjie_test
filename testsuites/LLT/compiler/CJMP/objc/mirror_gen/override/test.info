@@ -20,7 +20,7 @@ public open class A {
     @ForeignName["f5:"] public static func f5(x: Float64): ?A
     public open mut prop f6: Int32
     public open mut prop f7: Int32
-    @ForeignName["f7"] public static mut prop f7Static: Int32
+    @ForeignGetterName["f7"] @ForeignSetterName["setF7:"] public static mut prop f7Static: Int32
     public open func f8(): Int32
     public open mut prop f9: Int32
     @ForeignName["setF10:"] public open func setF10(x: Int32): Unit
