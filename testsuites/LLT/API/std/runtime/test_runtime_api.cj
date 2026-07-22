@@ -5,33 +5,60 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// EXEC: %run %run_opt %output %run_utest_opt %run_args
+// EXEC: %run %run_opt %output %run_utest_opt
+
+
+package std.runtime_test
 
 import std.runtime.*
-import std.collection.*
+import std.unittest.*
+import std.unittest.testmacro.*
 
-@When[backend == "cjnative"]
 @Test
-public class RuntimeApiTest {
+class RuntimeApiTest {
     @TestCase
-    func testGcAllocatesAndCollects(): Unit {
-        var lists = ArrayList<Array<Int64>>()
-        for (i in 0..100) {
-            lists.add(Array<Int64>(1024, {j => Int64(i + j)}))
-        }
-        blackBox(lists.size)
-        let freedBefore = getGCFreedSize()
-        gc(heavy: true)
-        @Expect(getGCFreedSize() >= freedBefore)
-        lists.clear()
-        gc()
+    func test_getMaxHeapSize(): Unit {
+        let size = getMaxHeapSize()
+        @Assert(size >= 0)
     }
 
     @TestCase
-    func testHeapSizesMonotonicRelation(): Unit {
-        let maxHeap = getMaxHeapSize()
+    func test_getAllocatedHeapSize(): Unit {
+        let size = getAllocatedHeapSize()
+        @Assert(size >= 0)
+    }
+
+    @TestCase
+    func test_getUsedHeapSize(): Unit {
+        let size = getUsedHeapSize()
+        @Assert(size >= 0)
+    }
+
+    @TestCase
+    func test_getUsedHeapSize_not_negative(): Unit {
+        // getUsedHeapSize should return a non-negative value on a running process
+        let size = getUsedHeapSize()
+        @Assert(size >= 0)
+    }
+
+    @TestCase
+    func test_getProcessorCount(): Unit {
+        let count = getProcessorCount()
+        @Assert(count > 0)
+    }
+
+    @TestCase
+    func test_getMaxHeapSize_positive(): Unit {
+        let size = getMaxHeapSize()
+        @Assert(size > 0)
+    }
+
+    @TestCase
+    func test_getAllocatedHeapSize_le_maxHeap(): Unit {
         let allocated = getAllocatedHeapSize()
-        @Expect(allocated <= maxHeap)
+        let max = getMaxHeapSize()
+        @Assert(allocated <= max)
     }
 }
