@@ -330,7 +330,7 @@ public class CoreEdgeBranchTest {
     @TestCase
     func test_range_iterator_forward(): Unit {
         var sum = 0
-        for (i in 1..6) {
+        for (i in 1..=5) {
             sum += i
         }
         @Expect(sum, 15)
@@ -339,7 +339,7 @@ public class CoreEdgeBranchTest {
     @TestCase
     func test_range_iterator_single(): Unit {
         var count = 0
-        for (i in 5..6) {
+        for (i in 5..=5) {
             count++
         }
         @Expect(count, 1)
