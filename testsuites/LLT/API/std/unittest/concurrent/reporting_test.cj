@@ -10,10 +10,10 @@
 // DEPENDENCE: helpers
 // EXEC: %compiler %cmp_opt -p helpers %compile_lib_opt --output p.%middle
 // EXEC: %compiler %cmp_opt p.%middle %f %cmp_utest_opt -o %output
-// EXEC-PIPE-1: %run %run_opt %output %run_utest_opt --no-color --show-all-output 2>&1 | compare %f
+// EXEC-PIPE-1: %export cjHeapSize=4GB && %run %run_opt %output %run_utest_opt --no-color --show-all-output 2>&1 | compare %f
 
 // ASSERT: scan iteration 0
-// ASSERT: scan with randomSeed
+// ASSERT: scan-not with randomSeed
 // ASSERT: scan Concurrent test iteration 0 failed: verify assertion failed
 
 // ASSERT: scan consistency validation failed
@@ -93,6 +93,7 @@ import std.unittest.concurrent.*
 import std.concurrent_test_util.*
 import std.sync.*
 import std.collection.ArrayList
+import std.collection.concurrent.ConcurrentLinkedQueue
 
 @TestBuilder
 func testVerifyFailure(): TestSuite {

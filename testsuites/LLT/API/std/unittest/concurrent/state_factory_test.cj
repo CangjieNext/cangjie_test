@@ -97,12 +97,17 @@ class StateFactoryTests {
         // Because each iteration gets a fresh counter, the data race is
         // contained to a single iteration and the validator can reliably
         // detect non-linearizability.
+        //
+        // Runs in the default parallel mode (withState => parallel). The pool
+        // size leaves threadCount processors idle so they can steal actors
+        // from the spawning processor's local queue, preserving hardware-level
+        // race detection sensitivity close to sequential mode.
         let result = scenario("data_race_state_factory")
             .withState { => Box() }
             .consistencyModel(Linearizability)
             .actor { b => b.v += 1; b.v }
             .actor { b => b.v -= 1; b.v }
-            .iterations(100)
+            .iterations(2000)
             .build()
             .run()
 
