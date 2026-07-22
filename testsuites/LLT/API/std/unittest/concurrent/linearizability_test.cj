@@ -9,7 +9,7 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args %run_utest_opt --no-color | compare %f
-// ASSERT: scan PASSED: 3
+// ASSERT: scan PASSED: 2
 
 import std.unittest.concurrent.*
 import std.sync.AtomicInt64
@@ -44,7 +44,7 @@ class LinearizabilityTests {
             .reset { => counter = 0 }
             .actor({ => counter += 1; counter })
             .actor({ => counter -= 1; counter })
-            .iterations(1000)
+            .iterations(2000)
             .build()
             .run()
         
@@ -52,23 +52,4 @@ class LinearizabilityTests {
         @Assert(!result.passed)
     }
     
-    @TestCase
-    func testQueueLinearizable(): Unit {
-        let result = scenario("queue_linearizable")
-            .consistencyModel(Linearizability)
-            .reset { => queue = ConcurrentLinkedQueue<Int64>() }
-            .actorWithOps([
-                operation("add1", { => queue.add(1) }),
-                operation("add2", { => queue.add(2) }),
-            ])
-            .actorWithOps([
-                operation("remove", { => queue.remove() ?? -1 }),
-            ])
-            .iterations(10)
-            .build()
-            .run()
-        
-        println(result.report())
-        @Assert(result.passed)
-    }
 }

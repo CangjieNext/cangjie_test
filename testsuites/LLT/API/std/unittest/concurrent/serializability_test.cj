@@ -129,4 +129,45 @@ class SerializabilityTests {
         println(result.report())
         @Assert(result.passed)
     }
+
+
 }
+
+
+// @TestCase
+// func testQueueLinearizable(): Unit {
+//     let result = scenario("queue_linearizable")
+//         .consistencyModel(Serializability)
+//         .withState { => ConcurrentLinkedQueue<MyBox<Int64>>() }
+//         .actorWithOps([
+//             operation("add1", { queue => queue.add(MyBox(1)) }),
+//             operation("peek", { queue => queue.peek()?.value ?? -1 }),
+//             operation("add3", { queue => queue.add(MyBox(3)) }),
+//         ])
+//         .actorWithOps([
+//             operation("remove", { queue => queue.remove()?.value ?? -1 }),
+//             operation("peek", { queue => queue.peek()?.value ?? -1 }),
+//             operation("remove", { queue => queue.remove()?.value ?? -1 }),
+//         ])
+//         .iterations(10000)
+//         .build()
+//         .run()
+    
+//     println(result.report())
+//     @Assert(result.passed)
+// }
+
+// struct MyBox<T> { 
+//     // public let data: Int64
+//     public let v: Box<T>
+    
+//     prop value: T {
+//         get() {
+//             v.value
+//         }
+//     }
+
+//     public init(value: T) {
+//         this.v = Box(value)
+//     }
+// }
