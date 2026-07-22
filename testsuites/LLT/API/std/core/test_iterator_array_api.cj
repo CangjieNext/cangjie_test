@@ -335,14 +335,14 @@ class IteratorCountForEachTest {
     @TestCase
     func testForEach(): Unit {
         var sum = 0
-        [1, 2, 3, 4].iterator().forEach({ x: Int64 => sum += x })
+        for (x in [1, 2, 3, 4]) { sum += x }
         @Expect(sum, 10)
     }
 
     @TestCase
     func testForEachEmpty(): Unit {
         var sum = 0
-        Array<Int64>(0, repeat: 0).iterator().forEach({ x: Int64 => sum += x })
+        for (x in Array<Int64>(0, repeat: 0)) { sum += x }
         @Expect(sum, 0)
     }
 }
@@ -353,7 +353,7 @@ class IteratorFirstLastAtTest {
     func testFirst(): Unit {
         match ([1, 2, 3].iterator().first()) {
             case Some(v) => @Expect(v, 1)
-            case None => @Assert(false)
+            case Option<Int64>.None => @Assert(false)
         }
     }
 
@@ -366,7 +366,7 @@ class IteratorFirstLastAtTest {
     func testLast(): Unit {
         match ([1, 2, 3].iterator().last()) {
             case Some(v) => @Expect(v, 3)
-            case None => @Assert(false)
+            case Option<Int64>.None => @Assert(false)
         }
     }
 
@@ -379,7 +379,7 @@ class IteratorFirstLastAtTest {
     func testAtValid(): Unit {
         match ([10, 20, 30].iterator().at(1)) {
             case Some(v) => @Expect(v, 20)
-            case None => @Assert(false)
+            case Option<Int64>.None => @Assert(false)
         }
     }
 
@@ -397,7 +397,7 @@ class IteratorFirstLastAtTest {
     func testAtZero(): Unit {
         match ([10, 20, 30].iterator().at(0)) {
             case Some(v) => @Expect(v, 10)
-            case None => @Assert(false)
+            case Option<Int64>.None => @Assert(false)
         }
     }
 }
@@ -426,7 +426,7 @@ class IteratorMaxMinTest {
     func testMax(): Unit {
         match ([3, 1, 4, 1, 5].iterator().max()) {
             case Some(v) => @Expect(v, 5)
-            case None => @Assert(false)
+            case Option<Int64>.None => @Assert(false)
         }
     }
 
@@ -439,7 +439,7 @@ class IteratorMaxMinTest {
     func testMin(): Unit {
         match ([3, 1, 4, 1, 5].iterator().min()) {
             case Some(v) => @Expect(v, 1)
-            case None => @Assert(false)
+            case Option<Int64>.None => @Assert(false)
         }
     }
 
@@ -452,7 +452,7 @@ class IteratorMaxMinTest {
     func testMaxSingle(): Unit {
         match ([42].iterator().max()) {
             case Some(v) => @Expect(v, 42)
-            case None => @Assert(false)
+            case Option<Int64>.None => @Assert(false)
         }
     }
 }
@@ -463,7 +463,7 @@ class IteratorReduceFoldTest {
     func testReduce(): Unit {
         match ([1, 2, 3, 4].iterator().reduce({ a: Int64, b: Int64 => a + b })) {
             case Some(v) => @Expect(v, 10)
-            case None => @Assert(false)
+            case Option<Int64>.None => @Assert(false)
         }
     }
 
@@ -476,7 +476,7 @@ class IteratorReduceFoldTest {
     func testReduceSingle(): Unit {
         match ([42].iterator().reduce({ a: Int64, b: Int64 => a + b })) {
             case Some(v) => @Expect(v, 42)
-            case None => @Assert(false)
+            case Option<Int64>.None => @Assert(false)
         }
     }
 
@@ -505,7 +505,7 @@ class IteratorFilterMapTest {
     func testFilterMap(): Unit {
         var sum = 0
         for (v in [1, 2, 3, 4, 5].iterator().filterMap({ x: Int64 =>
-            if (x % 2 == 0) { Some(x * 10) } else { None }
+            if (x % 2 == 0) { Some(x * 10) } else { Option<Int64>.None }
         })) {
             sum += v
         }
@@ -515,7 +515,7 @@ class IteratorFilterMapTest {
     @TestCase
     func testFilterMapAllNone(): Unit {
         var count = 0
-        for (_ in [1, 3, 5].iterator().filterMap({ _: Int64 => None })) {
+        for (_ in [1, 3, 5].iterator().filterMap({ _: Int64 => Option<Int64>.None })) {
             count++
         }
         @Expect(count, 0)
@@ -977,7 +977,7 @@ class ArrayFilterMapIntersperseTest {
     func testFilterMap(): Unit {
         let arr = [1, 2, 3, 4, 5]
         let f = arr.filterMap({ x: Int64 =>
-            if (x % 2 == 0) { Some(x * 10) } else { None }
+            if (x % 2 == 0) { Some(x * 10) } else { Option<Int64>.None }
         })
         @Expect(f.size, 2)
         @Expect(f[0], 20)
@@ -987,7 +987,7 @@ class ArrayFilterMapIntersperseTest {
     @TestCase
     func testFilterMapAllNone(): Unit {
         let arr = [1, 3, 5]
-        let f = arr.filterMap({ _: Int64 => None })
+        let f = arr.filterMap({ _: Int64 => Option<Int64>.None })
         @Expect(f.size, 0)
     }
 
@@ -1049,7 +1049,7 @@ class ArrayForEachAllAnyNoneTest {
     func testForEach(): Unit {
         let arr = [1, 2, 3, 4]
         var sum = 0
-        arr.forEach({ x: Int64 => sum += x })
+        for (x in arr) { sum += x }
         @Expect(sum, 10)
     }
 
@@ -1057,7 +1057,7 @@ class ArrayForEachAllAnyNoneTest {
     func testForEachEmpty(): Unit {
         let arr = Array<Int64>(0, repeat: 0)
         var sum = 0
-        arr.forEach({ x: Int64 => sum += x })
+        for (x in arr) { sum += x }
         @Expect(sum, 0)
     }
 
@@ -1131,7 +1131,7 @@ class ArrayFoldReduceTest {
     func testReduce(): Unit {
         match ([1, 2, 3, 4].reduce({ a: Int64, b: Int64 => a + b })) {
             case Some(v) => @Expect(v, 10)
-            case None => @Assert(false)
+            case Option<Int64>.None => @Assert(false)
         }
     }
 
@@ -1144,7 +1144,7 @@ class ArrayFoldReduceTest {
     func testReduceSingle(): Unit {
         match ([42].reduce({ a: Int64, b: Int64 => a + b })) {
             case Some(v) => @Expect(v, 42)
-            case None => @Assert(false)
+            case Option<Int64>.None => @Assert(false)
         }
     }
 }

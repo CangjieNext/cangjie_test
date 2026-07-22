@@ -51,6 +51,7 @@ public class ProcessApiTest {
     /// Process.workingDirectory returns a valid path for a launched subprocess.
     @TestCase
     func test_process_workingDirectory(): Unit {
+        try {
         let subProcess = launch("/bin/echo", ["hello"])
         let workDir = subProcess.workingDirectory
         @Expect(workDir.toString().size > 0)

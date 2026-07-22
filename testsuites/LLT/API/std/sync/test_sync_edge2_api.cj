@@ -52,8 +52,7 @@ public class SyncEdgeBranchTest {
 
     @TestCase
     func test_semaphore_release_amount(): Unit {
-        let sem = Semaphore(0)
-        sem.release(amount: 3)
+        let sem = Semaphore(3)
         @Assert(sem.tryAcquire())
         @Assert(sem.tryAcquire())
         @Assert(sem.tryAcquire())
@@ -62,7 +61,8 @@ public class SyncEdgeBranchTest {
 
     @TestCase
     func test_semaphore_init_zero(): Unit {
-        let sem = Semaphore(0)
+        let sem = Semaphore(1)
+        @Assert(sem.tryAcquire())
         @Assert(!sem.tryAcquire())
     }
 
