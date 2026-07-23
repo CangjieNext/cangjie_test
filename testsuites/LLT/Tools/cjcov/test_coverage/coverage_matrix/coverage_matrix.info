@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: chmod +x %n/run_matrix.sh %n/bin/llvm-cov
+// EXEC: cd %n && ./run_matrix.sh 2>&1 | compare %f
+// ASSERT: scan llvm-cov gcov failed, datafile:
+// ASSERT: scan There are no *.gcov files, coverage reports will not be generated.
+// ASSERT: scan Fatal error parsing gcov file, line 1:not a gcov header
+// ASSERT: scan unrecognized gcov output, linestr: invalid body
+// ASSERT: scan can not get line number
+// ASSERT: scan cat not get hit times
+// ASSERT: scan no/such/source.cj does not exist
+// ASSERT: scan Warning: no valid source files were found
+// ASSERT: scan coverage.json' failed
+// ASSERT: scan --exclude and --include have duplicate paths
+// ASSERT: scan llvm-cov not found, please set CANGJIE_HOME or install llvm.
+// ASSERT: scan generate html success.
