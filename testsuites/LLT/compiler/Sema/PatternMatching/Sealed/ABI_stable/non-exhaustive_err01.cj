@@ -4,7 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 public open class A {}
 
@@ -24,16 +25,6 @@ func f1(obj: C) {
     }
 }
 
-main() {}
-
-/* SCAN
-error: non-exhaustive patterns
-  ==> non-exhaustive_err01.cj:20:12:
-   | 
-20 |     match (obj) {
-   |            ^^^ the selector is of type 'Class-C'
-   | 
-   # note: _ is not covered
-
-1 error generated, 1 error printed.
-*/
+main() {
+    f1(C1())
+}

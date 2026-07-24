@@ -20,7 +20,7 @@ func f(c: Color) {
         case _: Red => 0
         case _: Green => 1
         case _: Blue => 2
-        case _ => -1 // reachable
+        case _ => -1 // unreachable
     }
 }
 
@@ -29,4 +29,13 @@ main() {
 }
 
 /* SCAN
+warning: unreachable pattern
+  ==> simple_unreachable.cj:23:14:
+   | 
+23 |         case _ => -1 // unreachable
+   |              ^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+1 warning generated, 1 warning printed.
 */ 

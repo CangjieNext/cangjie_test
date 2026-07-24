@@ -28,13 +28,13 @@ warning: unused variable:'a'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-warning: unreachable 'call'
-  ==> testDCEApply08.cj:18:5:
+warning: unreachable expression
+  ==> testDCEApply08.cj:19:5:
    | 
 18 |     test()(return 0)
-   |     ^^^^^^ ~~~~~~~~ any code following this expression is unreachable
-   |     |
-   |     unreachable 'call'
+   |     ~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+19 |     return 0
+   |     ^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 

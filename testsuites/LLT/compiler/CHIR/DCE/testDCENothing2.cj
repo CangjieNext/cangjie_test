@@ -33,15 +33,5 @@ warning: unused variable:'a'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-warning: unreachable expression
-  ==> testDCENothing2.cj:16:13:
-   | 
-16 |     var a = A(return)
-   |             ^^^^^^^^^any code following this expression is unreachable
-   |             |
-   |             unreachable expression
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-3 warnings generated, 3 warnings printed.
+2 warnings generated, 2 warnings printed.
 */

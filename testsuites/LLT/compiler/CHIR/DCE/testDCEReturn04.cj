@@ -30,4 +30,20 @@ main() {
 }
 
 /* SCAN
+warning: unreachable expression
+  ==> testDCEReturn04.cj:11:5:
+   | 
+11 |        return try {
+   |  ______^______~
+   | | _____|
+12 | ||         return 0
+   | || ...
+15 | ||     }
+   | |______^ any code following this expression is unreachable
+   |  |_____|
+   |        
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+1 warning generated, 1 warning printed.
 */
