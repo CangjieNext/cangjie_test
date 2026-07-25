@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../../script/cjprof_api_test.py ../../data/heap_depth_5.data
+// EXEC: python3 cjprof_api_test.py heap_depth_5_by_type_01.info
+
+test#
+heap_depth_5,/api/dominance/tree-by-type,class_name:default::Level1,regex,"instance_count":1
+heap_depth_5,/api/dominance/tree-by-type,class_name:default::BackRef1,regex,"is_clustered":false

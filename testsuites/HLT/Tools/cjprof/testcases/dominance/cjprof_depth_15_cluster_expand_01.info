@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../../script/cjprof_api_test.py ../../data/cjprof_depth_15.data
+// EXEC: python3 cjprof_api_test.py cjprof_depth_15_cluster_expand_01.info
+
+test#
+cjprof_depth_15,/api/dominance/cluster-expand?instance_ids=8992,has_children,regex,"has_children":true,"id":8992
+cjprof_depth_15,/api/dominance/cluster-expand?instance_ids=8992,retained_size,regex,"retained_size":912
