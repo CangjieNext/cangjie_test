@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../../script/cjprof_api_test.py ../../data/large_heap.data
+// EXEC: python3 cjprof_api_test.py large_heap_cutoff_01.info
+
+test#
+large_heap,/api/dominance/tree,is_cutoff":true,scan,"... (1 instances)","cutoff_count":13
+large_heap,/api/dominance/tree,class_name:default::Level1,regex,"is_cutoff":false
