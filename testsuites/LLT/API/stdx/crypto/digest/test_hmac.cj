@@ -5,13 +5,14 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- // EXEC:  %compiler %import-cangjie-stdx  %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC:  %compiler %import-cangjie-stdx  %cmp_opt %f -o %output %cmp_utest_opt
 // EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 import stdx.crypto.digest.*
 import stdx.encoding.hex.*
 import std.time.*
 import std.convert.*
 import std.crypto.digest.*
+import std.sync.*
 import stdx.crypto.common.*
 
 @Test
@@ -125,7 +126,7 @@ class HMACTest {
         var md: Array<Byte> = hmac.finish()
         @Expect(toHexString(md), "9f2db16a60e93df5bbe22021b81018281f122c21e5d871a699953bce91fd7e59e1f0f0efd04bf5eadaafdaf8372aa6297bf3b2a51fc8f86c3e25caca0f15b5fa")
     }
-    
+
     /*
      * Test API:
      * public func write(buffer: Array<Byte>): Unit
@@ -203,6 +204,66 @@ class HMACTest {
 
     /*
      * Test API:
+     * public func finish(): Array<Byte>
+     * public func reset(): Unit
+     */
+    @TestCase
+    func testResetAfterRepeatedFinish(): Unit {
+        let expected = "2bafeb53b60a119d38793a886c7744f5027d7eaa3702351e75e4ff9bf255e3ce296bf41f80adda2861e81bd8efc52219df821852d84a17fb625e3965ebf2fdd9"
+        let hmac = HMAC("cangjie".toArray(), HashType.SHA512)
+        hmac.write("123456789".toArray())
+        @Expect(toHexString(hmac.finish()), expected)
+
+        var actualException: ?Exception = None
+        try {
+            hmac.finish()
+        } catch (e: CryptoException) {
+            actualException = e
+        }
+        anomalyAssert(
+            "testResetAfterRepeatedFinish",
+            actualException,
+            "HMAC finish failed, digest calculation has been completed."
+        )
+
+        hmac.reset()
+        hmac.write("123456789".toArray())
+        @Expect(toHexString(hmac.finish()), expected)
+    }
+
+    /*
+     * Test API:
+     * public func finish(): Array<Byte>
+     */
+    @TestCase
+    func testConcurrentFinish(): Unit {
+        let expected = "2bafeb53b60a119d38793a886c7744f5027d7eaa3702351e75e4ff9bf255e3ce296bf41f80adda2861e81bd8efc52219df821852d84a17fb625e3965ebf2fdd9"
+        let expectedFailure = "HMAC finish failed, digest calculation has been completed."
+        let hmac = HMAC("cangjie".toArray(), HashType.SHA512)
+        hmac.write("123456789".toArray())
+        let ready = AtomicInt64(0)
+        let start = AtomicBool(false)
+        let future1 = spawn {
+            finishAfterStart(hmac, ready, start)
+        }
+        let future2 = spawn {
+            finishAfterStart(hmac, ready, start)
+        }
+        while (ready.load() < 2) {
+            sleep(Duration.millisecond)
+        }
+        start.store(true)
+
+        let result1 = future1.get()
+        let result2 = future2.get()
+        @Expect(
+            (result1 == expected && result2 == expectedFailure) ||
+            (result2 == expected && result1 == expectedFailure)
+        )
+    }
+
+    /*
+     * Test API:
      * public func reset(): Unit
      */
     @TestCase
@@ -266,6 +327,19 @@ class HMACTest {
         @Expect(HashType.MD5.toString(), "MD5")
     }
 }
+
+func finishAfterStart(hmac: HMAC, ready: AtomicInt64, start: AtomicBool): String {
+    ready.fetchAdd(1)
+    while (!start.load()) {
+        sleep(Duration.millisecond)
+    }
+    try {
+        return toHexString(hmac.finish())
+    } catch (e: CryptoException) {
+        return e.message
+    }
+}
+
 class TextDigest01 <: Digest {
     public init() {
     }
@@ -291,7 +365,6 @@ class TextDigest01 <: Digest {
         []
     }
     public func finish(to!: Array<Byte>): Unit {
-
     }
 
     public func reset(): Unit {
