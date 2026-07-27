@@ -12,6 +12,7 @@
 box ref of i32: true
 box ref of bool: false
 plain ref not box ref: false
+nonRef not box ref: false
 */
 
 import stdx.chir.*
@@ -22,4 +23,5 @@ main() {
     println("box ref of i32: ${rb.isBoxRefTypeOf(i32)}")
     println("box ref of bool: ${rb.isBoxRefTypeOf(BoolType.get())}")
     println("plain ref not box ref: ${RefType.get(i32).isBoxRefTypeOf(i32)}")
+    println("nonRef not box ref: ${i32.isBoxRefTypeOf(i32)}")
 }

@@ -13,7 +13,11 @@ internal
 protected
 public
 eq same: true
-eq diff: false
+eq diff: true
+eq internal: true
+eq protected: true
+eq protected public: false
+eq internal protected: false
 */
 
 import stdx.chir.*
@@ -23,5 +27,9 @@ main() {
     println(AccessLevel.Protected.toString())
     println(AccessLevel.Public.toString())
     println("eq same: ${AccessLevel.Public == AccessLevel.Public}")
-    println("eq diff: ${AccessLevel.Public == AccessLevel.Internal}")
+    println("eq diff: ${AccessLevel.Public != AccessLevel.Internal}")
+    println("eq internal: ${AccessLevel.Internal == AccessLevel.Internal}")
+    println("eq protected: ${AccessLevel.Protected == AccessLevel.Protected}")
+    println("eq protected public: ${AccessLevel.Protected == AccessLevel.Public}")
+    println("eq internal protected: ${AccessLevel.Internal == AccessLevel.Protected}")
 }
