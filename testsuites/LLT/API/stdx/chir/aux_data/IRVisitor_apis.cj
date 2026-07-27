@@ -7,7 +7,7 @@
  */
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_args | compare %f
-// IRActionMode、CHIRVisitor.walk(Function/BlockGroup/Block) 与 action 控制流
+// IRActionMode、CHIRVisitor.walk Continue/Stop/Skip 与多 block
 
 /* SCAN
 mode continue eq: true

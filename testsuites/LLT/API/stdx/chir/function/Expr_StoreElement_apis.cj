@@ -15,6 +15,7 @@ get elem by name: val
 get elem ref path: 0
 store elem ref ops: 2
 store elem by name ops: 2
+store elem props: true
 */
 
 import std.collection.*
@@ -64,4 +65,5 @@ main() {
     let sebn = StoreElementByName.create(p, sAlloc.result, names)
     bb.appendExpr(sebn)
     println("store elem by name ops: ${sebn.operands.size}")
+    println("store elem props: ${sebn.fieldNames[0] == "x" && ser.path[0] == 0u64}")
 }
