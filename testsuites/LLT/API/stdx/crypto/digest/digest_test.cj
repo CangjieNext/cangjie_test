@@ -15,6 +15,7 @@ import stdx.crypto.common.*
 import stdx.encoding.hex.*
 import std.runtime.*
 import std.io.*
+import std.collection.ArrayList
 
 @Test
 class Test_digest {
@@ -316,6 +317,45 @@ class Test_digest {
             "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e"
         )
         test_digest_empty(SM3(), "1ab21d8355cfa17f8e61194831e81a8f22bec8c728fefb747ed035eb5082aa2b")
+    }
+
+    @TestCase
+    func test_sm3_repeated_finish_reset(): Unit {
+        let digestInstance = SM3()
+        let input = "helloworld".toArray()
+        let expected = "c70c5f73da4e8b8b73478af54241469566f6497e16c053a03a0170fa00078283"
+
+        for (_ in 0..100) {
+            digestInstance.write(input)
+            @Assert(toHexString(digestInstance.finish()), expected)
+            digestInstance.reset()
+        }
+
+        digestInstance.write(input)
+        @Assert(toHexString(digestInstance.finish()), expected)
+    }
+
+    @TestCase
+    func test_sm3_concurrent_reset(): Unit {
+        let digestInstance = SM3()
+        let futures = ArrayList<Future<Unit>>()
+
+        for (_ in 0..16) {
+            futures.add(spawn {
+                for (_ in 0..100) {
+                    digestInstance.reset()
+                }
+            })
+        }
+        for (future in futures) {
+            future.get()
+        }
+
+        digestInstance.write("helloworld".toArray())
+        @Assert(
+            toHexString(digestInstance.finish()),
+            "c70c5f73da4e8b8b73478af54241469566f6497e16c053a03a0170fa00078283"
+        )
     }
 
     @TestCase
