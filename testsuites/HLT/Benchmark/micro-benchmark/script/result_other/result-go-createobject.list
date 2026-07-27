@@ -1,0 +1,6 @@
+BenchmarkCreateObject_S8 27
+BenchmarkCreateObject_S16 50
+BenchmarkCreateObject_S32 83
+BenchmarkCreateObject_S64 102
+BenchmarkCreateObject_S128 124
+BenchmarkCreateObject_S512 699

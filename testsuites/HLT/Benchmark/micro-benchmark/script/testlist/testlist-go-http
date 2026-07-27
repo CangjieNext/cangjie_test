@@ -1,0 +1,57 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkDelete
+BenchmarkHead
+BenchmarkGet0_32
+BenchmarkGet0_256
+BenchmarkGet0_2K
+BenchmarkGet0_16K
+BenchmarkGet0_128K
+BenchmarkGet0_1M
+BenchmarkGet0_8M
+BenchmarkGet0_64M
+BenchmarkPutForm32_0
+BenchmarkPutForm256_0
+BenchmarkPutForm2K_0
+BenchmarkPutForm16K_0
+BenchmarkPutForm128K_0
+BenchmarkPutForm1M_0
+BenchmarkPut0_32
+BenchmarkPut0_256
+BenchmarkPut0_2K
+BenchmarkPut0_16K
+BenchmarkPut0_128K
+BenchmarkPut0_1M
+BenchmarkPut0_8M
+BenchmarkPut0_64M
+BenchmarkPut32_0
+BenchmarkPut256_0
+BenchmarkPut2K_0
+BenchmarkPut16K_0
+BenchmarkPut128K_0
+BenchmarkPut1M_0
+BenchmarkPostForm32_0
+BenchmarkPostForm256_0
+BenchmarkPostForm2K_0
+BenchmarkPostForm16K_0
+BenchmarkPostForm128K_0
+BenchmarkPostForm1M_0
+BenchmarkPost0_32
+BenchmarkPost0_256
+BenchmarkPost0_2K
+BenchmarkPost0_16K
+BenchmarkPost0_128K
+BenchmarkPost0_1M
+BenchmarkPost0_8M
+BenchmarkPost0_64M
+BenchmarkPost32_0
+BenchmarkPost256_0
+BenchmarkPost2K_0
+BenchmarkPost16K_0
+BenchmarkPost128K_0
+BenchmarkPost1M_0

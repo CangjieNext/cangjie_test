@@ -1,0 +1,57 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/atomic
+BenchmarkAtomicLoadInt32-128                     	1000000000	         0.7706 ns/op
+BenchmarkAtomicLoadUInt32-128                    	1000000000	         0.7773 ns/op
+BenchmarkAtomicLoadInt64-128                     	1000000000	         0.7718 ns/op
+BenchmarkAtomicLoadUInt64-128                    	1000000000	         0.7775 ns/op
+BenchmarkAtomicLoadReference-128                 	1000000000	         0.7764 ns/op
+BenchmarkAtomicStoreInt32-128                    	306537768	         3.869 ns/op
+BenchmarkAtomicStoreUInt32-128                   	306304801	         3.876 ns/op
+BenchmarkAtomicStoreInt64-128                    	305019940	         3.870 ns/op
+BenchmarkAtomicStoreUInt64-128                   	310802974	         3.868 ns/op
+BenchmarkAtomicStoreReference-128                	207227994	         5.792 ns/op
+BenchmarkAtomicSwapInt32-128                     	44493090	        22.74 ns/op
+BenchmarkAtomicSwapUInt32-128                    	128469019	        11.42 ns/op
+BenchmarkAtomicSwapInt64-128                     	129528698	        22.76 ns/op
+BenchmarkAtomicSwapUInt64-128                    	79000744	        14.90 ns/op
+BenchmarkAtomicSwapReference-128                 	32119776	        66.71 ns/op
+BenchmarkAtomicCompareAndSwapInt32-128           	14640346	       150.7 ns/op
+BenchmarkAtomicCompareAndSwapUInt32-128          	19250554	        92.89 ns/op
+BenchmarkAtomicCompareAndSwapInt64-128           	13627256	       129.1 ns/op
+BenchmarkAtomicCompareAndSwapUInt64-128          	14055008	       132.3 ns/op
+BenchmarkAtomicCompareAndSwapReference-128       	21794072	        55.65 ns/op
+BenchmarkAtomicAddInt32-128                      	14212735	        72.10 ns/op
+BenchmarkAtomicAddUInt32-128                     	15837260	        77.11 ns/op
+BenchmarkAtomicAddInt64-128                      	15180898	        75.56 ns/op
+BenchmarkAtomicAddUInt64-128                     	14509303	        77.09 ns/op
+BenchmarkConcurrencyLoadInt32-128                	 1175736	      1041 ns/op
+BenchmarkConcurrencyLoadUInt32-128               	 1000000	      1045 ns/op
+BenchmarkConcurrencyLoadInt64-128                	 1072767	      1159 ns/op
+BenchmarkConcurrencyLoadUInt64-128               	 1000000	      1122 ns/op
+BenchmarkConcurrencyAtomicReferenceLoad-128      	 1000000	      1068 ns/op
+BenchmarkConcurrencyStoreInt32-128               	   11205	    102581 ns/op
+BenchmarkConcurrencyStoreUInt32-128              	   11586	    103775 ns/op
+BenchmarkConcurrencyStoreInt64-128               	   11572	    103461 ns/op
+BenchmarkConcurrencyStoreUInt64-128              	   11536	    103401 ns/op
+BenchmarkConcurrencyAtomicReferenceStore-128     	   10407	    114725 ns/op
+BenchmarkConcurrencySwapInt32-128                	    4032	    298182 ns/op
+BenchmarkConcurrencySwapUInt32-128               	    4113	    296279 ns/op
+BenchmarkConcurrencySwapInt64-128                	    3952	    295539 ns/op
+BenchmarkConcurrencySwapUInt64-128               	    4047	    297086 ns/op
+BenchmarkConcurrencyAtomicReferenceSwap-128      	    4069	    296183 ns/op
+BenchmarkConcurrencyCasInt32-128                 	    1992	    606287 ns/op
+BenchmarkConcurrencyCasUInt32-128                	    1854	    664576 ns/op
+BenchmarkConcurrencyCasInt64-128                 	    1875	    599744 ns/op
+BenchmarkConcurrencyCasUInt64-128                	    1933	    585563 ns/op
+BenchmarkConcurrencyAtomicReferenceCas-128       	    2042	    594373 ns/op
+BenchmarkConcurrencyAddInt32-128                 	    3991	    300536 ns/op
+BenchmarkConcurrencyAddUInt32-128                	    4005	    297920 ns/op
+BenchmarkConcurrencyAddInt64-128                 	    4039	    297091 ns/op
+BenchmarkConcurrencyAddUInt64-128                	    4044	    295880 ns/op
+BenchmarkConcurrencySubInt32-128                 	    4087	    293483 ns/op
+BenchmarkConcurrencySubUInt32-128                	    4036	    295702 ns/op
+BenchmarkConcurrencySubInt64-128                 	    4113	    293107 ns/op
+BenchmarkConcurrencySubUInt64-128                	    4047	    295744 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/atomic	96.738s

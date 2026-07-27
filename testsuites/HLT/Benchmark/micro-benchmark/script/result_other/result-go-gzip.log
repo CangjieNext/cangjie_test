@@ -1,0 +1,22 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/gzip
+BenchmarkCompress_64-128         	1000000000	         0.001120 ns/op
+BenchmarkCompress_256-128        	1000000000	         0.001263 ns/op
+BenchmarkCompress_2k-128         	1000000000	         0.001439 ns/op
+BenchmarkCompress_16k-128        	1000000000	         0.001766 ns/op
+BenchmarkCompress_128k-128       	1000000000	         0.009882 ns/op
+BenchmarkCompress_1M-128         	1000000000	         0.06686 ns/op
+BenchmarkCompress_8M-128         	1000000000	         0.5248 ns/op
+BenchmarkCompress_64M-128        	       1	4286988320 ns/op
+BenchmarkCompress_512M-128       	       1	34169446920 ns/op
+BenchmarkUnCompress_64-128       	1000000000	         0.0001446 ns/op
+BenchmarkUnCompress_256-128      	1000000000	         0.0001552 ns/op
+BenchmarkUnCompress_2k-128       	1000000000	         0.0001873 ns/op
+BenchmarkUnCompress_16k-128      	1000000000	         0.0007647 ns/op
+BenchmarkUnCompress_128k-128     	1000000000	         0.0005880 ns/op
+BenchmarkUnCompress_1M-128       	1000000000	         0.001626 ns/op
+BenchmarkUnCompress_8M-128       	1000000000	         0.002340 ns/op
+BenchmarkUnCompress_64M-128      	1000000000	         0.01594 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/gzip	105.525s
