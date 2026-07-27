@@ -12,6 +12,8 @@ import stdx.crypto.keys.*
 import stdx.crypto.digest.*
 import std.convert.*
 import std.crypto.digest.*
+import std.collection.*
+import std.sync.SyncCounter
 
 @Test
 class Test_ecdsa_sign {
@@ -84,5 +86,54 @@ class Test_ecdsa_sign {
     @TestCase
     func test_ecdsa_sign_08(): Unit {
         test_ecdsa_sign_successfully(BP512, SHA384())
+    }
+
+    @TestCase
+    func test_ecdsa_sign_09(): Unit {
+        let ecPri = ECDSAPrivateKey(P256)
+        let ecPub = ECDSAPublicKey(ecPri)
+        let md = digest(SHA256(), "concurrent sign")
+        let futures = ArrayList<Future<Array<Byte>>>()
+        let barrier = SyncCounter(32)
+
+        for (_ in 0..32) {
+            futures.add(spawn {
+                barrier.dec()
+                barrier.waitUntilZero()
+                ecPri.sign(md)
+            })
+        }
+
+        for (future in futures) {
+            @Expect(ecPub.verify(md, future.get()))
+        }
+    }
+
+    @TestCase
+    func test_ecdsa_sign_10(): Unit {
+        let ecPri = ECDSAPrivateKey(P256)
+        let ecPub = ECDSAPublicKey(ecPri)
+        let md = digest(SHA256(), "concurrent verify")
+        let sig = ecPri.sign(md)
+        let futures = ArrayList<Future<Bool>>()
+        let barrier = SyncCounter(32)
+
+        for (_ in 0..32) {
+            futures.add(spawn {
+                barrier.dec()
+                barrier.waitUntilZero()
+                var verified = true
+                for (_ in 0..64) {
+                    if (!ecPub.verify(md, sig)) {
+                        verified = false
+                    }
+                }
+                verified
+            })
+        }
+
+        for (future in futures) {
+            @Expect(future.get())
+        }
     }
 }
