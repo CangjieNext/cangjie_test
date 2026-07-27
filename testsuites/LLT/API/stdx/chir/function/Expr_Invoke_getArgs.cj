@@ -30,8 +30,9 @@ main() {
     bb.appendExpr(caller)
     let arg = Constant.create(IntLiteral.get(i32, 8u64)).result
     let mty = FuncType.get([i32], UnitType.get())
-    let vir = FuncSigInfo("bar", mty, Array<GenericType>())
-    let ic = InvokeCallContext(caller.result, vir, FuncCallContext([arg], Array<Type>(), None))
+    let methodFn = pkg.addFunction(mty, "bar", "bar", "pkg.ivga")
+    methodFn.setStatic(true)
+    let ic = InvokeCallContext(caller.result, FuncCallContext([arg], Array<Type>(), None), methodFn)
     let inv = Invoke.create(UnitType.get(), ic)
     bb.appendExpr(inv)
     println("invoke getArgs: ${inv.getArgs().size}")

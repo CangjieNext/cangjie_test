@@ -1,0 +1,15 @@
+BenchmarkDoWhile_N_1B: 3.689 ns/op
+BenchmarkDoWhile_N_1k: 3.687 ns/op
+BenchmarkDoWhile_N_1M: 3.688 ns/op
+BenchmarkForinIteratorArrayList_N_2048: 3379 ns/op
+BenchmarkForinIteratorArrayList_N_256: 423.4 ns/op
+BenchmarkForinIteratorArrayList_N_32: 47.30 ns/op
+BenchmarkForinIteratorHashmap_N_2048: 6141 ns/op
+BenchmarkForinIteratorHashmap_N_256: 806.4 ns/op
+BenchmarkForinIteratorHashmap_N_32: 76.50 ns/op
+BenchmarkForinIteratorHashset_N_2048: 2077067 ns/op
+BenchmarkForinIteratorHashset_N_256: 255677 ns/op
+BenchmarkForinIteratorHashset_N_32: 28893 ns/op
+BenchmarkWhile_N_1B: 0.312 ns/op
+BenchmarkWhile_N_1k: 0.312 ns/op
+BenchmarkWhile_N_1M: 0.317 ns/op

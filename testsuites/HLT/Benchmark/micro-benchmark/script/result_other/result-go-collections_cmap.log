@@ -1,0 +1,17 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/collections_cmap
+BenchmarkCHM_PutElement_Thread_4-128           	      15	  69667687 ns/op
+BenchmarkCHM_PutElement_Thread_8-128           	       7	 161412139 ns/op
+BenchmarkCHM_PutElement_Thread_16-128          	       3	 370033677 ns/op
+BenchmarkCHM_PutElement_Thread_32-128          	       2	 816912165 ns/op
+BenchmarkCHM_PutElement_Thread_256-128         	       1	7948738530 ns/op
+BenchmarkCHM_PutElement_Thread_1024-128        	       1	37773767380 ns/op
+BenchmarkCHM_UpdateElement_Thread_4-128        	       1	2241474680 ns/op
+BenchmarkCHM_UpdateElement_Thread_8-128        	       1	1590998880 ns/op
+BenchmarkCHM_UpdateElement_Thread_16-128       	       1	1196125350 ns/op
+BenchmarkCHM_UpdateElement_Thread_32-128       	       1	1135413680 ns/op
+BenchmarkCHM_UpdateElement_Thread_256-128      	       1	1855735950 ns/op
+BenchmarkCHM_UpdateElement_Thread_1024-128     	       1	1414984160 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/collections_cmap	63.437s

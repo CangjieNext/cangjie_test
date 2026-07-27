@@ -1,0 +1,53 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkCffiCallback1
+BenchmarkCffiCallback2
+BenchmarkCffiCallback3
+BenchmarkCffiCallback4
+BenchmarkCffiCpointer1
+BenchmarkCffiCpointer2
+BenchmarkCffiCpointer3
+BenchmarkCffiCpointer4
+BenchmarkCffiCpointer5
+BenchmarkCffiCpointer6
+BenchmarkCffiCpointer7
+BenchmarkCffiCString1
+BenchmarkCffiCString2
+BenchmarkCffiCString3
+BenchmarkCffiCString4
+BenchmarkCffiExtra1
+BenchmarkCffiExtra2
+BenchmarkCffiPrimitive1
+BenchmarkCffiPrimitive2
+BenchmarkCffiPrimitive3
+BenchmarkCffiPrimitive4
+BenchmarkCffiPrimitive5
+BenchmarkCffiPrimitive6
+BenchmarkCffiPrimitive7
+BenchmarkCffiReturn1
+BenchmarkCffiReturn2
+BenchmarkCffiReturn3
+BenchmarkCffiReturn4
+BenchmarkCffiReturn5
+BenchmarkCffiReturn6
+BenchmarkCffiReturn7
+BenchmarkCffiReturn8
+BenchmarkCffiReturn9
+BenchmarkCffiReturn10
+BenchmarkCffiReturn11
+BenchmarkCffiReturn12
+BenchmarkCffiReturn13
+BenchmarkCffiReturn14
+BenchmarkCffiStruct1
+BenchmarkCffiStruct2
+BenchmarkCffiStruct3
+BenchmarkCffiStruct4
+BenchmarkCffiStruct5
+BenchmarkCffiStruct6
+BenchmarkCffiStruct7
+BenchmarkCffiStruct8

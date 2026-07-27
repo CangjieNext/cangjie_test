@@ -1,0 +1,39 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkRescheduleThread1
+BenchmarkRescheduleThread2
+BenchmarkRescheduleThread4
+BenchmarkRescheduleThread8
+BenchmarkRescheduleThread16
+BenchmarkRescheduleThread32
+BenchmarkRescheduleThread64
+BenchmarkRescheduleThread128
+BenchmarkSubmit1ProcessorThread1000
+BenchmarkRunning1ProcessorThread1000
+BenchmarkRunningNProcessorThread1000
+BenchmarkIOInstensiveThread1
+BenchmarkIOInstensiveThread10
+BenchmarkIOInstensiveThread100
+BenchmarkIOInstensiveThread1000
+BenchmarkCPUIntensiveThread1
+BenchmarkCPUIntensiveThread10
+BenchmarkCPUIntensiveThread100
+BenchmarkCPUIntensiveThread1000
+BenchmarkLockThread1
+BenchmarkLockThread10
+BenchmarkLockThread100
+BenchmarkThreadCreateThread64
+BenchmarkThreadCreateThread128
+BenchmarkThreadCreateThread256
+BenchmarkThreadCreateThread512
+BenchmarkThreadCreateThread1024
+BenchmarkThreadCreateThread2048
+BenchmarkThreadCreateThread4096
+BenchmarkThreadCreateThread8192
+BenchmarkThreadCreateThread10000
+BenchmarkConditionThread1

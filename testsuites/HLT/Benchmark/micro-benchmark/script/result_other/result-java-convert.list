@@ -1,0 +1,14 @@
+BenchmarkStr2Bool_false: 5.094506556838853 ns/op
+BenchmarkStr2Bool_true: 5.087645780422506 ns/op
+BenchmarkStr2Char: 5.793047558593431 ns/op
+BenchmarkStr2Float16: 55.633014656416 ns/op
+BenchmarkStr2Float32: 64.14684902497444 ns/op
+BenchmarkStr2Float64: 69.40567334726906 ns/op
+BenchmarkStr2Int16: 13.966768973506625 ns/op
+BenchmarkStr2Int32: 13.778268297044905 ns/op
+BenchmarkStr2Int64: 14.289585778131725 ns/op
+BenchmarkStr2Int8: 13.085296601699747 ns/op
+BenchmarkStr2UInt16: 13.871396356400025 ns/op
+BenchmarkStr2UInt32: 13.83253242971217 ns/op
+BenchmarkStr2UInt64: 14.39308502776182 ns/op
+BenchmarkStr2UInt8: 13.063226967325372 ns/op

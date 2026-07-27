@@ -1,0 +1,31 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/json
+BenchmarkJsonReadString_G10_4-128           	  222622	      5655 ns/op
+BenchmarkJsonReadString_G10_8-128           	  223040	      5861 ns/op
+BenchmarkJsonReadString_G10_16-128          	  219784	      5432 ns/op
+BenchmarkJsonReadString_G10_64-128          	  107480	     11427 ns/op
+BenchmarkJsonReadString_G10_256-128         	   38323	     31262 ns/op
+BenchmarkJsonReadString_G10_1024-128        	   10814	    111496 ns/op
+BenchmarkJsonReadString_G10_4096-128        	    2619	    427040 ns/op
+BenchmarkJsonReadString_G10_16384-128       	     700	   1674124 ns/op
+BenchmarkJsonReadString_G10_131072-128      	      93	  13326927 ns/op
+BenchmarkJsonWriteString_G10_4-128          	  344786	      3204 ns/op
+BenchmarkJsonWriteString_G10_8-128          	  356515	      3283 ns/op
+BenchmarkJsonWriteString_G10_16-128         	  331357	      3419 ns/op
+BenchmarkJsonWriteString_G10_64-128         	  245264	      5050 ns/op
+BenchmarkJsonWriteString_G10_256-128        	  112956	     10160 ns/op
+BenchmarkJsonWriteString_G10_1024-128       	   34551	     36307 ns/op
+BenchmarkJsonWriteString_G10_4096-128       	    7698	    131172 ns/op
+BenchmarkJsonWriteString_G10_16384-128      	    2436	    466777 ns/op
+BenchmarkJsonWriteString_G10_131072-128     	     301	   3867467 ns/op
+BenchmarkJsonWriteInt64_G10-128             	  541444	      2230 ns/op
+BenchmarkJsonReadInt64_G10-128              	  235717	      5242 ns/op
+BenchmarkJsonWriteFloat64_G10-128           	  317728	      3522 ns/op
+BenchmarkJsonReadFloat64_G10-128            	  249106	      5006 ns/op
+BenchmarkJsonWriteBool_G10-128              	  616639	      1912 ns/op
+BenchmarkJsonReadBool_G10-128               	  304352	      4046 ns/op
+BenchmarkJsonWriteNull_G10-128              	  888871	      1340 ns/op
+BenchmarkJsonReadNull_G10-128               	  327781	      3965 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/json	40.062s

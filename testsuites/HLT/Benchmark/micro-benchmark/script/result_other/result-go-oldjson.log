@@ -1,0 +1,37 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/oldjson
+BenchmarkJsonArray2JsonStrN8-128         	  724492	      1403 ns/op
+BenchmarkJsonArray2JsonStrN64-128        	  175395	      6697 ns/op
+BenchmarkJsonArray2JsonStrN512-128       	   25010	     48524 ns/op
+BenchmarkJsonArray2JsonStrN4096-128      	    2540	    457650 ns/op
+BenchmarkJsonBool2JsonStr-128            	 3506448	       336.9 ns/op
+BenchmarkJsonFloat2JsonStr-128           	 2064592	       581.0 ns/op
+BenchmarkJsonInt2JsonStr-128             	 3602168	       333.6 ns/op
+BenchmarkJsonNull2JsonStr-128            	 3406116	       342.4 ns/op
+BenchmarkJsonObject2JsonStr-128          	 2497015	       482.6 ns/op
+BenchmarkJsonString2JsonStr-128          	 2411505	       509.9 ns/op
+BenchmarkJsonValue2JsonStrn8d1-128       	  154999	      6765 ns/op
+BenchmarkJsonValue2JsonStrn8d2-128       	   87795	     14819 ns/op
+BenchmarkJsonValue2JsonStrn8d4-128       	   38948	     30683 ns/op
+BenchmarkJsonValue2JsonStrn8d8-128       	   20311	     60883 ns/op
+BenchmarkJsonValue2JsonStrn64d1-128      	   22194	     54846 ns/op
+BenchmarkJsonValue2JsonStrn64d2-128      	    9897	    121931 ns/op
+BenchmarkJsonValue2JsonStrn64d4-128      	    4369	    237854 ns/op
+BenchmarkJsonValue2JsonStrn64d8-128      	    2259	    493774 ns/op
+BenchmarkJsonValue2JsonStrn512d1-128     	    2306	    481605 ns/op
+BenchmarkJsonValue2JsonStrn512d2-128     	    1142	   1039603 ns/op
+BenchmarkJsonValue2JsonStrn512d4-128     	     534	   2182723 ns/op
+BenchmarkStr2JsonValuen8d1-128           	  227683	      5304 ns/op
+BenchmarkStr2JsonValuen8d2-128           	  100292	     12538 ns/op
+BenchmarkStr2JsonValuen8d4-128           	   39277	     30209 ns/op
+BenchmarkStr2JsonValuen8d8-128           	   17427	     67801 ns/op
+BenchmarkStr2JsonValuen64d1-128          	   28864	     41308 ns/op
+BenchmarkStr2JsonValuen64d2-128          	    9085	    116953 ns/op
+BenchmarkStr2JsonValuen64d4-128          	    5312	    250120 ns/op
+BenchmarkStr2JsonValuen64d8-128          	    2608	    566687 ns/op
+BenchmarkStr2JsonValuen512d1-128         	    3439	    360507 ns/op
+BenchmarkStr2JsonValuen512d2-128         	    1250	    951633 ns/op
+BenchmarkStr2JsonValuen512d4-128         	     574	   2096311 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/oldjson	46.635s
