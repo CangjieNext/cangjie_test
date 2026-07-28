@@ -1,0 +1,45 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// DEPENDENCE: ../test.toml test.h
+// EXEC: ObjCInteropGen test.toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+public type T1 = Int32
+
+public type T2 = Int32
+
+public type T3 = Int32
+
+public type T4 = Int32
+
+public type T5 = Int32
+
+public type T6 = Int32
+
+public type T7 = Int32
+
+@C
+public struct S {
+    public var T1: T1 = 0
+    public var T2: CPointer<T2> = CPointer<T2>()
+}
+
+@ObjCMirror
+public open class M {
+    // protected var S: S
+    // protected var T1: ObjCPointer<T1>
+    // public open func T2(): T2
+    // public open func T3(): ObjCPointer<T3>
+    @ForeignName["foo:"] public open func foo(T3: T3): Unit
+    // @ForeignName["T4:"] public open func T4(x: T4): Unit
+    // @ForeignName["T5:"] public open func T5(x: ObjCPointer<T5>): Unit
+    // public open mut prop T6: T6
+    // public open mut prop T7: ObjCPointer<T7>
+}
+*/
