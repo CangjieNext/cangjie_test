@@ -13,6 +13,10 @@ typedef int T4;
 typedef int T5;
 typedef int T6;
 typedef int T7;
+typedef int T8;
+typedef int T9;
+typedef int T10;
+typedef int T11;
 
 struct S {
     T1 T1;
@@ -30,4 +34,12 @@ struct S {
 - (void)T5:(T5*)x;
 @property T6 T6;
 @property T7* T7;
+
++ (T8)T8;
+- (T9)T9;
++ (T9)T9;
+
+@property (class) T10 T10;
+@property T11 T11;
+@property (class) T11 T11;
 @end
