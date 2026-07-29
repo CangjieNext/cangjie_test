@@ -24,6 +24,14 @@ public type T6 = Int32
 
 public type T7 = Int32
 
+public type T8 = Int32
+
+public type T9 = Int32
+
+public type T10 = Int32
+
+public type T11 = Int32
+
 @C
 public struct S {
     public var T1: T1 = 0
@@ -41,5 +49,11 @@ public open class M {
     // @ForeignName["T5:"] public open func T5(x: ObjCPointer<T5>): Unit
     // public open mut prop T6: T6
     // public open mut prop T7: ObjCPointer<T7>
+    // public static func T8(): T8
+    // public open func T9(): T9
+    @ForeignName["T9"] public static func T9Static(): T9
+    // public static mut prop T10: T10
+    // public open mut prop T11: T11
+    @ForeignName["T11"] public static mut prop T11Static: T11
 }
 */
