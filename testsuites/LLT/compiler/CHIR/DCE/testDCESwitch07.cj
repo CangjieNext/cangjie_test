@@ -31,5 +31,19 @@ warning: unreachable pattern
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-1 warning generated, 1 warning printed.
+warning: unreachable expression
+  ==> testDCESwitch07.cj:16:9:
+   | 
+12 |           match (1) {
+   |  _________~
+13 | |             case 1 | 2 | 3 => return 1
+   | | ...
+15 | |         }
+   | |_________~ any code following this expression is unreachable
+16 |           return 1
+   |           ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+2 warnings generated, 2 warnings printed.
 */
