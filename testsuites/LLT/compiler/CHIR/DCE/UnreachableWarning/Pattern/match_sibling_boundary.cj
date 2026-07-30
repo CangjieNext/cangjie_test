@@ -10,14 +10,33 @@
 main() {
     let selector = 1
     match (selector) {
-        case 1 | 2 => 0
+        case 1 | 2 => ()
         case value where value > 0 =>
             match (true) {
-                case true => 0
-                case false => 1
+                case true => ()
+                case false => ()
             }
-        case 3 => 0
-        case _ => 0
+        case 3 => ()
+        case _ => ()
+    }
+
+    let missing = 4
+    match (missing) {
+        case 2 | 3 where true => ()
+        case _ => ()
+    }
+
+    let sibling = 1
+    match (sibling) {
+        case 1 => ()
+        case 2 | 3 where true => ()
+        case _ => ()
+    }
+
+    let tupleSelector = (5, 6)
+    match (tupleSelector) {
+        case (1, 2) | (3, 4) where true => ()
+        case _ => ()
     }
 }
 
@@ -26,14 +45,14 @@ warning: unreachable pattern
   ==> match_sibling_boundary.cj:14:14:
    | 
 14 |         case value where value > 0 =>
-   |              ^^^^^ 
+   |              ^^^^^^^^^^^^^^^^^^^^^ 
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unreachable pattern
   ==> match_sibling_boundary.cj:19:14:
    | 
-19 |         case 3 => 0
+19 |         case 3 => ()
    |              ^ 
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
@@ -41,10 +60,50 @@ warning: unreachable pattern
 warning: unreachable pattern
   ==> match_sibling_boundary.cj:20:14:
    | 
-20 |         case _ => 0
+20 |         case _ => ()
    |              ^ 
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-3 warnings generated, 3 warnings printed.
+warning: unreachable pattern
+  ==> match_sibling_boundary.cj:25:14:
+   | 
+25 |         case 2 | 3 where true => ()
+   |              ^^^^^^^^^^^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable pattern
+  ==> match_sibling_boundary.cj:32:14:
+   | 
+32 |         case 2 | 3 where true => ()
+   |              ^^^^^^^^^^^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable pattern
+  ==> match_sibling_boundary.cj:33:14:
+   | 
+33 |         case _ => ()
+   |              ^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable pattern
+  ==> match_sibling_boundary.cj:38:14:
+   | 
+38 |         case (1, 2) | (3, 4) where true => ()
+   |              ^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable pattern
+  ==> match_sibling_boundary.cj:38:23:
+   | 
+38 |         case (1, 2) | (3, 4) where true => ()
+   |                       ^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+8 warnings generated, 8 warnings printed.
 */
