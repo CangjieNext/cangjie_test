@@ -89,5 +89,16 @@ warning: unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-6 warnings generated, 6 warnings printed.
+warning: unreachable expression
+  ==> testUnusedOp03.cj:31:5:
+   | 
+29 |     test(return 0, foo() + 1)
+   |     ~~~~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+30 | 
+31 |     return 0
+   |     ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+7 warnings generated, 7 warnings printed.
 */

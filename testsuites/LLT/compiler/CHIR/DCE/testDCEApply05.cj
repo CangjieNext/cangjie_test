@@ -30,13 +30,13 @@ warning: unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-warning: unreachable expression
+warning: unreachable 'call'
   ==> testDCEApply05.cj:11:5:
    | 
 11 |     1..2 : (return 0)
    |     ^^^^^^^^^^^^^^^^^any code following this expression is unreachable
    |     |
-   |     unreachable expression
+   |     unreachable 'call'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
@@ -48,6 +48,16 @@ warning: unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
+warning: unreachable expression
+  ==> testDCEApply05.cj:12:5:
+   | 
+11 |     1..2 : (return 0)
+   |     ~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+12 |     return 1
+   |     ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 warning: unused expression
   ==> testDCEApply05.cj:16:5:
    | 
@@ -56,13 +66,13 @@ warning: unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-warning: unreachable expression
+warning: unreachable 'call'
   ==> testDCEApply05.cj:16:5:
    | 
 16 |     1..=2 : (return 0)
    |     ^^^^^^^^^^^^^^^^^^any code following this expression is unreachable
    |     |
-   |     unreachable expression
+   |     unreachable 'call'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
@@ -74,5 +84,15 @@ warning: unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-6 warnings generated, 6 warnings printed.
+warning: unreachable expression
+  ==> testDCEApply05.cj:17:5:
+   | 
+16 |     1..=2 : (return 0)
+   |     ~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+17 |     return 1
+   |     ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+8 warnings generated, 8 warnings printed.
 */
