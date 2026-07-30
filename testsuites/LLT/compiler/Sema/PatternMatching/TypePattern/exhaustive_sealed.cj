@@ -4,7 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// EXEC-PIPE: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC: %run %run_opt %output %run_args
 
 public interface H {}
 
@@ -29,13 +30,13 @@ main() {
 }
 
 /* SCAN
-error: non-exhaustive patterns
-  ==> exhaustive_sealed.cj:20:12:
+warning: unreachable pattern
+  ==> exhaustive_sealed.cj:24:14:
    | 
-20 |     match (x) {
-   |            ^ the selector is of type 'Interface-I'
+24 |         case _: ToString => -1 // unreachable
+   |              ^^^^^^^^^^^ 
    | 
-   # note: _ is not covered
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-1 error generated, 1 error printed.
+1 warning generated, 1 warning printed.
 */
