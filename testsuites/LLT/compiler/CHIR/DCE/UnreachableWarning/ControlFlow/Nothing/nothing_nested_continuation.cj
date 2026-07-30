@@ -8,6 +8,7 @@
 func nestedArtificialContinuation(): Int64 {
     return 1
     if (true) {
+        return 2
         if (false) {
             println("unreachable nested branch")
         }
@@ -27,9 +28,9 @@ warning: unreachable expression
    |       ~~~~~~~~ any code following this expression is unreachable
 10 |       if (true) {
    |  _____^
-11 | |         if (false) {
+11 | |         return 2
    | | ...
-14 | |     }
+15 | |     }
    | |_____^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
