@@ -4,7 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 sealed interface Color {}
 
@@ -27,15 +28,3 @@ func f(c: Color) {
 main() {
     f(Red())
 }
-
-/* SCAN
-error: non-exhaustive patterns
-  ==> sealed_sealed_exhaustive.cj:20:12:
-   | 
-20 |     match (c) {
-   |            ^ the selector is of type 'Interface-Color'
-   | 
-   # note: _ is not covered
-
-1 error generated, 1 error printed.
-*/

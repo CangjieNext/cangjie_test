@@ -70,5 +70,13 @@ warning: unused function:'main'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-5 warnings generated, 5 warnings printed.
+warning: unreachable pattern
+  ==> usertype_00.cj:22:14:
+   | 
+22 |         case B => 1
+   |              ^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+6 warnings generated, 6 warnings printed.
 */
