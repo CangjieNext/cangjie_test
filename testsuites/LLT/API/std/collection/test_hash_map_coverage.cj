@@ -465,4 +465,29 @@ class HashMapCoverageTest {
             @Expect(true, true)
         }
     }
+
+    @TestCase
+    func testValuesIteratorTraversalAndConcurrentModification(): Unit {
+        let map = HashMap<Int64, Int64>([(1, 10), (2, 20), (3, 30), (4, 40)])
+        map.remove(2)
+
+        var count: Int64 = 0
+        var sum: Int64 = 0
+        for (value in map.values()) {
+            count++
+            sum += value
+        }
+        @Expect(count, 3)
+        @Expect(sum, 80)
+
+        var it = map.values().iterator()
+        @Expect(it.next().isSome(), true)
+        map.add(5, 50)
+        try {
+            it.next()
+            @Expect(false, true)
+        } catch (_: ConcurrentModificationException) {
+            @Expect(true, true)
+        }
+    }
 }
