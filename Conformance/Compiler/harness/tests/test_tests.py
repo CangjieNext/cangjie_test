@@ -13,6 +13,7 @@ Unit tests for Test class from core
 
 import unittest
 from os import remove, path
+from subprocess import CompletedProcess
 
 from drivers.test import test
 from drivers.test import base_test
@@ -135,6 +136,14 @@ class TestTests(unittest.TestCase):
     for invalid_name in ('valid/name', 'valid:name', 'valid*name'):
       self.correct_test.name = invalid_name
       self.assertEqual(self.correct_test.name, self.custom_name, 'Invalid name was accepted')
+
+  def test_execute_res_failed_completed_process_sets_errored(self):
+    '''Setting execute_res with a failed CompletedProcess must mark result as ERRORED'''
+    failed = test.Test(self.correctly_test_path)
+    failed.execute_res = CompletedProcess(args='', returncode=2, stderr=b'dependencies compile failed')
+    self.assertEqual(failed.execute_res.returncode, 2, 'execute_res was not stored')
+    self.assertEqual(failed.result, test.TestResult.ERRORED,
+                     'Failed CompletedProcess should set result to ERRORED')
 
   def test_set_correctly_value_assertion(self):
     '''Make sure the custom value of assertion could be set and read from real test'''
