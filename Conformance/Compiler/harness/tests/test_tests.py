@@ -130,6 +130,12 @@ class TestTests(unittest.TestCase):
     value = self.correct_test.name
     self.assertEqual(value, custom_value, 'Custom value of name is wrong')
 
+  def test_rejects_name_with_invalid_character(self):
+    '''Make sure an invalid character anywhere in name is rejected'''
+    for invalid_name in ('valid/name', 'valid:name', 'valid*name'):
+      self.correct_test.name = invalid_name
+      self.assertEqual(self.correct_test.name, self.custom_name, 'Invalid name was accepted')
+
   def test_set_correctly_value_assertion(self):
     '''Make sure the custom value of assertion could be set and read from real test'''
     custom_value = self.custom_assertion
