@@ -13,7 +13,3 @@ public common class A {
     init() {}
 }
 public specific class B {}
-
-
-
-
