@@ -10,7 +10,7 @@
 // (Linux and CJNATIVE) ASSERT: scan-not TypeCastWithException
 // (Linux and CJNATIVE) ASSERT: scan-not AddWithException
 // (Linux and CJNATIVE) ASSERT: scan Int8 = DivWithException(
-// (Linux and CJNATIVE) ASSERT: scan Int8 = TypeCast(
+// (Linux and CJNATIVE) ASSERT: scan Int8 = NumericCast(
 // (Linux and CJNATIVE) ASSERT: scan Int8 = Add(
 
 @OverflowWrapping
