@@ -237,12 +237,12 @@ class TestPooledDatasource {
         try {
             conn.prepareStatement("select 2")
         } catch (e: SqlException) {
-            @Expect(e.message, "Connection closed, errorCode: 0")
+            @Expect(e.message, "Cannot call prepareStatement(): connection is closed., errorCode: 0")
         }
         try {
             conn.createTransaction()
         } catch (e: SqlException) {
-            @Expect(e.message, "Connection closed, errorCode: 0")
+            @Expect(e.message, "Cannot call createTransaction(): connection is closed., errorCode: 0")
         }
 
         conn = pool.connect()
