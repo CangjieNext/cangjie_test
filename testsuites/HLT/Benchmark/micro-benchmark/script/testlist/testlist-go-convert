@@ -1,0 +1,21 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkStr2Int8
+BenchmarkStr2Int16
+BenchmarkStr2Int32
+BenchmarkStr2Int64
+BenchmarkStr2UInt8
+BenchmarkStr2UInt16
+BenchmarkStr2UInt32
+BenchmarkStr2UInt64
+BenchmarkStr2Float16
+BenchmarkStr2Float32
+BenchmarkStr2Float64
+BenchmarkStr2Bool_true
+BenchmarkStr2Bool_false
+BenchmarkStr2Char

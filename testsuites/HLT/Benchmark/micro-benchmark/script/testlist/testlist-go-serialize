@@ -1,0 +1,27 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkSerializable_8_1
+BenchmarkSerializable_8_2
+BenchmarkSerializable_8_4
+BenchmarkSerializable_8_8
+BenchmarkSerializable_8_32
+BenchmarkSerializable_64_1
+BenchmarkSerializable_64_2
+BenchmarkSerializable_64_4
+BenchmarkSerializable_64_8
+BenchmarkSerializable_64_32
+BenchmarkDeserializable_8_1
+BenchmarkDeserializable_8_2
+BenchmarkDeserializable_8_4
+BenchmarkDeserializable_8_8
+BenchmarkDeserializable_8_32
+BenchmarkDeserializable_64_1
+BenchmarkDeserializable_64_2
+BenchmarkDeserializable_64_4
+BenchmarkDeserializable_64_8
+BenchmarkDeserializable_64_32

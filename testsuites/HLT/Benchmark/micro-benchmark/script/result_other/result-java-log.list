@@ -1,0 +1,5 @@
+BenchmarkLog_DEBUG: 10332.934949981345 ns/op
+BenchmarkLog_ERROR: 10188.70886958081 ns/op
+BenchmarkLog_INFO: 10416.589176436275 ns/op
+BenchmarkLog_Trace: 9868.01217076569 ns/op
+BenchmarkLog_WARN: 10191.293929533385 ns/op

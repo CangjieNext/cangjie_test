@@ -1,0 +1,14 @@
+BenchmarkStr2Int8 20.23
+BenchmarkStr2Int16 19.86
+BenchmarkStr2Int32 20.11
+BenchmarkStr2Int64 19.98
+BenchmarkStr2UInt8 14.31
+BenchmarkStr2UInt16 14.04
+BenchmarkStr2UInt32 14.28
+BenchmarkStr2UInt64 14.02
+BenchmarkStr2Float16 46.73
+BenchmarkStr2Float32 47.06
+BenchmarkStr2Float64 46.66
+BenchmarkStr2Bool_true 0.5420
+BenchmarkStr2Bool_false 0.5403
+BenchmarkStr2Char 35.92

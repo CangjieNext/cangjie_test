@@ -1,0 +1,19 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/convert
+BenchmarkStr2Int8-128           	59358441	        20.23 ns/op
+BenchmarkStr2Int16-128          	59968164	        19.86 ns/op
+BenchmarkStr2Int32-128          	59244283	        20.11 ns/op
+BenchmarkStr2Int64-128          	60246553	        19.98 ns/op
+BenchmarkStr2UInt8-128          	83605318	        14.31 ns/op
+BenchmarkStr2UInt16-128         	85135172	        14.04 ns/op
+BenchmarkStr2UInt32-128         	83799758	        14.28 ns/op
+BenchmarkStr2UInt64-128         	85116450	        14.02 ns/op
+BenchmarkStr2Float16-128        	22750596	        46.73 ns/op
+BenchmarkStr2Float32-128        	23055170	        47.06 ns/op
+BenchmarkStr2Float64-128        	23962068	        46.66 ns/op
+BenchmarkStr2Bool_true-128      	1000000000	         0.5420 ns/op
+BenchmarkStr2Bool_false-128     	1000000000	         0.5403 ns/op
+BenchmarkStr2Char-128           	31863225	        35.92 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/convert	22.748s

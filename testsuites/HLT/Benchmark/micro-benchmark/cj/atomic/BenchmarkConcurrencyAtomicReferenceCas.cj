@@ -1,0 +1,87 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args
+
+import std.sync.*
+import std.time.*
+import std.convert.*
+
+var reps = 1000
+
+class WaitGroup {
+    var m: Monitor = Monitor()
+    private var cnt: Int64
+
+    public init(cnt: Int64) {
+        this.cnt = cnt
+    }
+
+    public func add(n: Int64) {
+        m.lock()
+        cnt += n
+        if (cnt == 0) {
+            m.notifyAll()
+        } else if (cnt < 0) {
+            throw Exception("negative WaitGroup counter")
+        }
+        m.unlock()
+    }
+
+    public func done() {
+        this.add(-1)
+    }
+
+    public func wait() {
+        m.lock()
+        while (cnt > 0) {
+            m.wait()
+        }
+        m.unlock()
+    }
+}
+
+class A {
+    var num: Int32 = 0
+
+    init(num: Int32) {
+        this.num = num
+    }
+}
+
+func benchmarkConcurrencyAtomicReferenceCas(): Unit {
+    let wg = WaitGroup(0)
+    wg.add(reps)
+
+    let x = A(1)
+    let y = A(2)
+    let test = AtomicReference<A>(x)
+
+    var startTime = DateTime.now()
+    for (i in 0..reps) {
+        let thread: Future<Unit> = spawn {
+            for (j in 0..10000) {
+                test.compareAndSwap(x, y)
+                test.compareAndSwap(y, x)
+            }
+            wg.done()
+        }
+    }
+    wg.wait()
+    var endTime = DateTime.now()
+
+    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
+    println("BenchmarkConcurrencyAtomicReferenceCas: " + perTime.format(".2") + " ns/op")
+}
+
+main(): Int64 {
+    benchmarkConcurrencyAtomicReferenceCas()
+    return 0
+}

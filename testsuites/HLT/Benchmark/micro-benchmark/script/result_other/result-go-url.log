@@ -1,0 +1,35 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/url
+BenchmarkParse_N0                	 2664781	       453.1 ns/op
+BenchmarkParse_N1                	 2562574	       468.3 ns/op
+BenchmarkParse_Path_N1           	 2497206	       481.7 ns/op
+BenchmarkParse_Path_N10          	 1828021	       656.4 ns/op
+BenchmarkParse_Protocol_Https    	 2622120	       456.5 ns/op
+BenchmarkParse_Protocol_File     	 2536026	       472.6 ns/op
+BenchmarkParse_Protocol_Ftp      	 1901584	       630.1 ns/op
+BenchmarkParse_Query_N1          	 2251957	       533.6 ns/op
+BenchmarkParse_Query_N5          	 2040794	       589.0 ns/op
+BenchmarkParse_HostName_N5       	 2218839	       539.7 ns/op
+BenchmarkParse_Chinese_N1        	 2149150	       558.9 ns/op
+BenchmarkParse_Chinese_N2        	  750978	      1560 ns/op
+BenchmarkParse_Chinese_N3        	 1588845	       748.6 ns/op
+BenchmarkParse_Character_N1      	 1980220	       603.7 ns/op
+BenchmarkParse_Long              	  282558	      4241 ns/op
+BenchmarkToString_N0             	 5332719	       213.3 ns/op
+BenchmarkToString_N1             	 4983136	       240.2 ns/op
+BenchmarkToString_Path_N1        	 4937224	       239.8 ns/op
+BenchmarkToString_Path_N10       	 3195685	       375.4 ns/op
+BenchmarkToString_Protocol_Https 	 5584359	       218.5 ns/op
+BenchmarkToString_Protocol_File  	 5229309	       229.3 ns/op
+BenchmarkToString_Protocol_Ftp   	 3565441	       327.5 ns/op
+BenchmarkToString_Query_N1       	 3697633	       329.5 ns/op
+BenchmarkToString_Query_N5       	 2885158	       417.2 ns/op
+BenchmarkToString_HostName_N5    	 4592722	       263.6 ns/op
+BenchmarkToString_Chinese_N1     	 1372004	       874.8 ns/op
+BenchmarkToString_Chinese_N2     	  895950	      1279 ns/op
+BenchmarkToString_Chinese_N3     	 1985719	       607.3 ns/op
+BenchmarkToString_Character_N1   	 2634364	       454.7 ns/op
+BenchmarkToString_Long           	  472352	      2507 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/url	48.150s
