@@ -104,6 +104,24 @@ class LinkedListTest {
     }
 
     @TestCase
+    func splitOffFromHead(): Unit {
+        var list1 = LinkedList<Int64>([1, 2, 3])
+        var list2 = list1.splitOff(list1.firstNode.getOrThrow())
+
+        @Expect(list1.size, 0)
+        @Expect(list1.isEmpty())
+        @Expect(list1.first, Option<Int64>.None)
+        @Expect(list1.last, Option<Int64>.None)
+        @Expect(list1.removeFirst(), Option<Int64>.None)
+        @Expect(list1.removeLast(), Option<Int64>.None)
+        @Expect(list1.size, 0)
+        @Expect(list1.toArray(), Array<Int64>())
+
+        @Expect(list2.size, 3)
+        @Expect(list2.toArray(), [1, 2, 3])
+    }
+
+    @TestCase
     func toString(): Unit {
         var list1: LinkedList<Int64> = LinkedList<Int64>()
         @Expect(list1.toString(), "[]")
