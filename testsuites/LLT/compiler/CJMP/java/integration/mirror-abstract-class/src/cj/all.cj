@@ -26,7 +26,7 @@ open class ImplAbstractMirror <: AbstractMirror {
 
 @JavaImpl
 class Impl <: JObject {
-    init() {
+    public init() {
         print("In CJ Impl: start\n", flush: true)
         let i = ImplAbstractMirror()
         let res: AbstractMirror = i.id(i)

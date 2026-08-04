@@ -20,7 +20,7 @@ public class Impl extends MyObject {
         loadLibrary("cj");
     }
 
-    long self;
+    private long $rid;
 
     public Impl() {
         super(1);
@@ -31,7 +31,7 @@ public class Impl extends MyObject {
         super(1);
     }
 
-    private native void initCJObject();
+    private final native void initCJObject();
 
     public Impl(long value) {
         super(superC1A0P0(value));
@@ -42,9 +42,9 @@ public class Impl extends MyObject {
         super(superC1A0P0(value));
     }
 
-    private native void initCJObjectl(long value);
+    private final native void initCJObjectl(long value);
 
-    private static native long superC1A0P0(long value);
+    private static final native long superC1A0P0(long value);
     public Impl(long x, long y) {
         super(superC2A0P0P1(x, y));
         initCJObjectll(x, y);
@@ -54,9 +54,9 @@ public class Impl extends MyObject {
         super(superC2A0P0P1(x, y));
     }
 
-    private native void initCJObjectll(long x, long y);
+    private final native void initCJObjectll(long x, long y);
 
-    private static native long superC2A0P0P1(long x, long y);
+    private static final native long superC2A0P0P1(long x, long y);
     public Impl(long x, long y, long z) {
         super(superC3A0P0P1P2(x, y, z));
         initCJObjectlll(x, y, z);
@@ -66,9 +66,9 @@ public class Impl extends MyObject {
         super(superC3A0P0P1P2(x, y, z));
     }
 
-    private native void initCJObjectlll(long x, long y, long z);
+    private final native void initCJObjectlll(long x, long y, long z);
 
-    private static native long superC3A0P0P1P2(long x, long y, long z);
+    private static final native long superC3A0P0P1P2(long x, long y, long z);
     public Impl(long x, long y, long z, long u) {
         super(superC4A0P0P1P2P3(x, y, z, u));
         initCJObjectllll(x, y, z, u);
@@ -78,29 +78,14 @@ public class Impl extends MyObject {
         super(superC4A0P0P1P2P3(x, y, z, u));
     }
 
-    private native void initCJObjectllll(long x, long y, long z, long u);
+    private final native void initCJObjectllll(long x, long y, long z, long u);
 
-    private static native long superC4A0P0P1P2P3(long x, long y, long z, long u);
-    @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
+    private static final native long superC4A0P0P1P2P3(long x, long y, long z, long u);
+    private final native void deleteCJObject(long $rid);
 
     @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
-
-    @Override
-    public void finalize() {
-        deleteCJObject(this.self);
+    protected void finalize() {
+        deleteCJObject(this.$rid);
     }
 }
 

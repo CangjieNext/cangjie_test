@@ -31,29 +31,3 @@ compiler/CJMP/objc/sema/objc_impl/ctor_arg_default.cj
 ## objc (weird parser fails)
 compiler/CJMP/objc/parser/class/objc_impl/can_be_open.cj
 compiler/CJMP/objc/parser/class/objc_impl/ctor.cj
-
-## objc (illegal instruction 4 failure)
-compiler/CJMP/objc/integration/cjmapping_open_class
-
-## "Objective-C uses Cangjie" interop (cjmapping) is disabled
-compiler/CJMP/objc/sema/cj_mapping_interop_lib_not_imported_class.cj
-compiler/CJMP/objc/sema/cjmapping_struct.cj
-compiler/CJMP/objc/integration/cj-mapping-generic-class-static/cj-mapping-generic-class-static.info
-compiler/CJMP/objc/integration/cj-mapping-generic-class/cj-mapping-generic-class.info
-compiler/CJMP/objc/integration/cj-mapping-generic-enum-prop/cj-mapping-generic-enum-prop.info
-compiler/CJMP/objc/integration/cj-mapping-generic-enum/cj-mapping-generic-enum.info
-compiler/CJMP/objc/integration/cj-mapping-generic-interface/cj-mapping-generic-interface.info
-compiler/CJMP/objc/integration/cj-mapping-generic-struct-prop/cj-mapping-generic-struct-prop.info
-compiler/CJMP/objc/integration/cj-mapping-mul-generic-class/cj-mapping-mul-generic-class.info
-compiler/CJMP/objc/integration/cj-mapping-mul-generic-struct/cj-mapping-mul-generic-struct.info
-compiler/CJMP/objc/integration/cjmapping_enum_1/cjmapping_enum_1.info
-compiler/CJMP/objc/integration/cjmapping_enum_2/cjmapping_enum_2.info
-compiler/CJMP/objc/integration/cjmapping_enum_dependencies/impl_enum_0021/impl_enum_0021.info
-compiler/CJMP/objc/integration/cjmapping_enum_dependencies/impl_enum_0022/impl_enum_0022.info
-compiler/CJMP/objc/integration/cjmapping_enum_dependencies/impl_enum_0025/impl_enum_0025.info
-compiler/CJMP/objc/integration/cjmapping_enum_dependencies/impl_enum_0026/impl_enum_0026.info
-compiler/CJMP/objc/integration/cjmapping_interface/cjmapping_interface.info
-compiler/CJMP/objc/integration/cjmapping_non_open_class/cjmapping_non_open_class.info
-compiler/CJMP/objc/integration/cjmapping_struct/cjmapping_struct.info
-compiler/CJMP/objc/integration/cjmapping_struct_with_param/cjmapping_struct_with_param.info
-compiler/CJMP/objc/integration/output_objcgen_dir/test_objc_uses_cj.info

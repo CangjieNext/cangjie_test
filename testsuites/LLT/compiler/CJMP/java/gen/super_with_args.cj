@@ -17,9 +17,9 @@ public class A extends M {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
-    A() {
+    public A() {
         super(1);
         initCJObject();
     }
@@ -28,9 +28,9 @@ public class A extends M {
         super(1);
     }
 
-    private native void initCJObject();
+    private final native void initCJObject();
 
-    A(long x) {
+    public A(long x) {
         super(x, x);
         initCJObjectl(x);
     }
@@ -39,28 +39,13 @@ public class A extends M {
         super(x, x);
     }
 
-    private native void initCJObjectl(long x);
+    private final native void initCJObjectl(long x);
+
+    private final native void deleteCJObject(long $rid);
 
     @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
-
-    @Override
-    public void finalize() {
-        deleteCJObject(this.self);
+    protected void finalize() {
+        deleteCJObject(this.$rid);
     }
 }
 
@@ -79,11 +64,11 @@ public open class M {
 
 @JavaImpl["A"]
 public class A <: M {
-    init() {
+    public init() {
         super(1)
         println("Hello from Cangjie!")
     }
-    init(x: Int) {
+    public init(x: Int) {
         super(x, x)
     }
 }
