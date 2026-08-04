@@ -8,7 +8,7 @@
 // (DEBUG_OPTION)EXEC-PIPE-0: %compiler %enableCompileDebug %dumpCHIRDebug  %f -o %n.%suffix
 // (DEBUG_OPTION)RUN-EXEC-0: %run %run_opt %output %run_args
 // (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/0\_AST\_CHIR.chir | compare %f
-// (not Windows and DEBUG_OPTION) ASSERT: regex Class-_CN7default2I3E& = TypeCast\(%[0-9]+, Class-_CN7default2I3E&\)
+// (not Windows and DEBUG_OPTION) ASSERT: regex Class-_CN7default2I3E& = ClassStaticCast\(%[0-9]+, Class-_CN7default2I3E&\)
 
 class CA<T> {
     var x: T

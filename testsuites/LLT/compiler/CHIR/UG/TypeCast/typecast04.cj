@@ -8,7 +8,7 @@
 // EXEC-PIPE-0: %compiler %cmp_opt %disInst %f %dumpCHIRDebug -o %n.%suffix
 // RUN-EXEC-0: %run %run_opt %output %run_args
 // (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/0\_AST\_CHIR.chir | compare %f
-// (not Windows) ASSERT: regex Class-_CN7default2CBIG_E<Class-_CN7default2CAIG_E<Int64>&>& = TransformToConcrete\(%[0-9]+, Class-_CN7default2CBIG_E<Class-_CN7default2CAIG_E<Int64>&>&\)
+// (not Windows) ASSERT: regex Class-_CN7default2CBIG_E<Class-_CN7default2CAIG_E<Int64>&>& = CastToConcrete\(%[0-9]+, Class-_CN7default2CBIG_E<Class-_CN7default2CAIG_E<Int64>&>&\)
 
 open class CA<T> {
     var abcd: T
