@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// Regression for the VArray total-size overflow (issue2.md).
+// Regression for the VArray total-size overflow.
 // N = 2305843009213693963 (= 2^61 + 11), element Int64 (8 bytes), so the total
 // byte size N * 8 = 2^64 + 88 overflows uint64. Before the fix, the overflow
 // silently produced a tiny 88-byte stack allocation, bypassing the backend's
