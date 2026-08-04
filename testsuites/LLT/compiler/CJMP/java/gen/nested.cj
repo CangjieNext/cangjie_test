@@ -12,12 +12,12 @@ import other.Cla$s;
 import static cangjie.lang.LibraryLoader.loadLibrary;
 import cangjie.lang.internal.$$NativeConstructorMarker;
 
-public class A extends Cla$s.Inner {
+public final class A extends Cla$s.Inner {
     static {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public A() {
         super();
@@ -31,31 +31,16 @@ public class A extends Cla$s.Inner {
     private native void initCJObject();
 
     public Clas$.Inner.InnerCla$s useTypes(Clas$ a1, Clas$.Inner a2, Cla$s a3, Cla$s.Inner.InnerCla$s a4) {
-        return useTypesCN16cjworld_theworld5OuterECN16cjworld_theworld5InnerECN16cjworld_theworld17OtherPackageOuterECN16cjworld_theworld15OtherInnerInnerE(this.self, a1, a2, a3, a4);
+        return useTypesCN16cjworld_theworld5OuterECN16cjworld_theworld5InnerECN16cjworld_theworld17OtherPackageOuterECN16cjworld_theworld15OtherInnerInnerE(this.$rid, a1, a2, a3, a4);
     }
 
-    private native Clas$.Inner.InnerCla$s useTypesCN16cjworld_theworld5OuterECN16cjworld_theworld5InnerECN16cjworld_theworld17OtherPackageOuterECN16cjworld_theworld15OtherInnerInnerE(long self, Clas$ a1, Clas$.Inner a2, Cla$s a3, Cla$s.Inner.InnerCla$s a4);
+    private native Clas$.Inner.InnerCla$s useTypesCN16cjworld_theworld5OuterECN16cjworld_theworld5InnerECN16cjworld_theworld17OtherPackageOuterECN16cjworld_theworld15OtherInnerInnerE(long $rid, Clas$ a1, Clas$.Inner a2, Cla$s a3, Cla$s.Inner.InnerCla$s a4);
 
-    @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
+    private native void deleteCJObject(long $rid);
 
     @Override
     public void finalize() {
-        deleteCJObject(this.self);
+        deleteCJObject(this.$rid);
     }
 }
 

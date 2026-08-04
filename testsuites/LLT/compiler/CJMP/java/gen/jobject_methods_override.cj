@@ -12,12 +12,12 @@
 import static cangjie.lang.LibraryLoader.loadLibrary;
 import cangjie.lang.internal.$$NativeConstructorMarker;
 
-public class A {
+public final class A {
     static {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public A() {
         super();
@@ -32,30 +32,30 @@ public class A {
 
     @Override
     public int hashCode() {
-        return hashCode(this.self);
+        return hashCode(this.$rid);
     }
 
-    private native int hashCode(long self);
+    private native int hashCode(long $rid);
 
     @Override
     public boolean equals(Object obj) {
-        return equalsNNat6OptionICN9java_lang7JObjectEE(this.self, obj);
+        return equalsNNat6OptionICN9java_lang7JObjectEE(this.$rid, obj);
     }
 
-    private native boolean equalsNNat6OptionICN9java_lang7JObjectEE(long self, Object obj);
+    private native boolean equalsNNat6OptionICN9java_lang7JObjectEE(long $rid, Object obj);
 
     @Override
     public String toString() {
-        return toString(this.self);
+        return toString(this.$rid);
     }
 
-    private native String toString(long self);
+    private native String toString(long $rid);
 
-    private native void deleteCJObject(long self);
+    private native void deleteCJObject(long $rid);
 
     @Override
     public void finalize() {
-        deleteCJObject(this.self);
+        deleteCJObject(this.$rid);
     }
 }
 
@@ -74,7 +74,7 @@ public class A {
     public override func equals(obj: ?JObject): Bool {
         return true
     }
-    
+
     public override func toJString(): JString {
         return JString("Hello, World!")
     }

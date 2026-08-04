@@ -7,7 +7,7 @@
 // (CJNATIVE and not Windows) EXEC: %mkdir java-gen
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop -L.
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./java-gen/C2.java | compare %f
-// (CJNATIVE and not Windows) ASSERT: regex public class C2 implements I2, I3 {|public class C2 implements I3, I2 {
+// (CJNATIVE and not Windows) ASSERT: regex public final class C2 implements I2, I3 {|public final class C2 implements I3, I2 {
 
 /* SCAN-IN
 import static cangjie.lang.LibraryLoader.loadLibrary;
@@ -20,7 +20,7 @@ import cangjie.lang.internal.$$NativeConstructorMarker;
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public C2() {
         super();
@@ -34,31 +34,16 @@ import cangjie.lang.internal.$$NativeConstructorMarker;
     private native void initCJObject();
 
     public boolean test() {
-        return test(this.self);
+        return test(this.$rid);
     }
 
-    private native boolean test(long self);
+    private native boolean test(long $rid);
 
-    @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
+    private native void deleteCJObject(long $rid);
 
     @Override
     public void finalize() {
-        deleteCJObject(this.self);
+        deleteCJObject(this.$rid);
     }
 }
 

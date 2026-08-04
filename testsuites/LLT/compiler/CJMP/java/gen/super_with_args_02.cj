@@ -15,12 +15,12 @@ import com.java.lib.MyObject;
 import static cangjie.lang.LibraryLoader.loadLibrary;
 import cangjie.lang.internal.$$NativeConstructorMarker;
 
-public class Impl extends MyObject {
+public final class Impl extends MyObject {
     static {
         loadLibrary("cj");
     }
 
-    long self;
+    private long $rid;
 
     public Impl() {
         super(superC0A0());
@@ -58,26 +58,11 @@ public class Impl extends MyObject {
     private native void initCJObjectll(long x, long y);
 
     private static native Impl superC2A0P0P1(long x, long y);
-    @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
+    private native void deleteCJObject(long $rid);
 
     @Override
     public void finalize() {
-        deleteCJObject(this.self);
+        deleteCJObject(this.$rid);
     }
 }
 

@@ -15,12 +15,12 @@ import java.cj.mirrors.String;
 import static cangjie.lang.LibraryLoader.loadLibrary;
 import cangjie.lang.internal.$$NativeConstructorMarker;
 
-public class A extends M {
+public final class A extends M {
     static {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public A() {
         super(1);
@@ -45,43 +45,28 @@ public class A extends M {
     private native void initCJObjectl(long x);
 
     public void f(String arg) {
-        fCN15java_cj_mirrors7JStringE(this.self, arg);
+        fCN15java_cj_mirrors7JStringE(this.$rid, arg);
     }
 
-    private native void fCN15java_cj_mirrors7JStringE(long self, String arg);
+    private native void fCN15java_cj_mirrors7JStringE(long $rid, String arg);
 
     public void oneArg(long x) {
-        oneArgl(this.self, x);
+        oneArgl(this.$rid, x);
     }
 
-    private native void oneArgl(long self, long x);
+    private native void oneArgl(long $rid, long x);
 
     public void twoArgs(long x, boolean y) {
-        twoArgslb(this.self, x, y);
+        twoArgslb(this.$rid, x, y);
     }
 
-    private native void twoArgslb(long self, long x, boolean y);
+    private native void twoArgslb(long $rid, long x, boolean y);
 
-    @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
+    private native void deleteCJObject(long $rid);
 
     @Override
     public void finalize() {
-        deleteCJObject(this.self);
+        deleteCJObject(this.$rid);
     }
 }
 
