@@ -1,0 +1,14 @@
+BenchmarkHttpSeverPost_N256: 166600.00000000038 ns/op
+BenchmarkHttpSeverGet_N2048: 141999.99999999997 ns/op
+BenchmarkHttpSeverPost_N2048: 267299.9999999988 ns/op
+BenchmarkHttpSeverPost_N1048576: 63639999.99999999 ns/op
+BenchmarkHttpSeverGet_N16384: 158600.00000000035 ns/op
+BenchmarkHttpSeverGet_N1048576: 1759999.9999999998 ns/op
+BenchmarkHttpSeverGet_N256: 128699.99999999975 ns/op
+BenchmarkHttpSeverGet_N8388608: 18600000.0 ns/op
+BenchmarkHttpSeverPost_N131072: 8770000.000000007 ns/op
+BenchmarkHttpSeverPost_N8388608: 551000000.0 ns/op
+BenchmarkHttpSeverPost_N32: 156399.9999999992 ns/op
+BenchmarkHttpSeverPost_N16384: 926199.9999999971 ns/op
+BenchmarkHttpSeverGet_N32: 192500.00000000032 ns/op
+BenchmarkHttpSeverGet_N131072: 298000.00000000047 ns/op

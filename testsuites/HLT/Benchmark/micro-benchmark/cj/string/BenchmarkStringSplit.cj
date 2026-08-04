@@ -1,0 +1,62 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
+
+import std.time.*
+
+var res : Array<String> = []
+
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Measure[TimeNow(Nanos)]
+@Configure[warmup: Duration.second]
+public class Test_suit { 
+    var str1 = "H" * 8
+    var str1_32 = "H" * 32
+    var str1_256 = "H" * 256
+    var str1k = "H" * 512 + "," + "H" * 511
+    var str1m = "H" * (1024 * 512) + "," + "H" * (1024 * 512 - 1)
+
+    @Bench
+    func BenchmarkStringSplit_N8(): Unit {
+        res = str1.split("")
+    }
+
+    @Bench
+    func BenchmarkStringSplit_N32(): Unit {
+        res = str1_32.split("")
+    }
+
+    @Bench
+    func BenchmarkStringSplit_N256(): Unit {
+        res = str1_256.split("")
+    }
+
+    @Bench
+    func BenchmarkStringSplit_N1k_one(): Unit {
+        res = str1k.split(",")
+    }
+
+    @Bench
+    func BenchmarkStringSplit_N1k_all(): Unit {
+        res = str1k.split("")
+    }
+
+    @Bench
+    func BenchmarkStringSplit_N1m_one(): Unit {
+        res = str1m.split(",")
+    }
+
+    @Bench
+    func BenchmarkStringSplit_N1m_all(): Unit {
+        res = str1m.split("")
+    }
+}

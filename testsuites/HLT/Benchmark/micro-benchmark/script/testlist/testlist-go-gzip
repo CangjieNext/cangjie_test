@@ -1,0 +1,24 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkCompress_64
+BenchmarkCompress_256
+BenchmarkCompress_2k
+BenchmarkCompress_16k
+BenchmarkCompress_128k
+BenchmarkCompress_1M
+BenchmarkCompress_8M
+BenchmarkCompress_64M
+BenchmarkCompress_512M
+BenchmarkUnCompress_64
+BenchmarkUnCompress_256
+BenchmarkUnCompress_2k
+BenchmarkUnCompress_16k
+BenchmarkUnCompress_128k
+BenchmarkUnCompress_1M
+BenchmarkUnCompress_8M
+BenchmarkUnCompress_64M

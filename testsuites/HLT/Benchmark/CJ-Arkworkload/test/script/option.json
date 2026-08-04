@@ -1,0 +1,21 @@
+[{
+    "mode": "发布态",
+    "cjOption": " -O2 -j16 ",
+    "swiftOption": " -O -wmo "
+},
+{
+    "mode": "开发态 无优化",
+    "cjOption": " -O0 -j16 --apc ",
+    "swiftOption": " -j16 "
+},
+{
+    "mode": "开发态 无优化 开调试",
+    "cjOption": " -O0 -g -j16 --apc ",
+    "swiftOption": " -j16 -g "
+},
+{
+    "mode": "开发态 有优化",
+    "cjOption": " -O2 -j16 --apc ",
+    "swiftOption": " -O -j16 "
+}
+]
