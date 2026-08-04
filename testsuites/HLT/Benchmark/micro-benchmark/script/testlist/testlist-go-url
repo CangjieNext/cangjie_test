@@ -1,0 +1,37 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkParse_N0
+BenchmarkParse_N1
+BenchmarkParse_Path_N1
+BenchmarkParse_Path_N10
+BenchmarkParse_Protocol_Https
+BenchmarkParse_Protocol_File
+BenchmarkParse_Protocol_Ftp
+BenchmarkParse_Query_N1
+BenchmarkParse_Query_N5
+BenchmarkParse_HostName_N5
+BenchmarkParse_Chinese_N1
+BenchmarkParse_Chinese_N2
+BenchmarkParse_Chinese_N3
+BenchmarkParse_Character_N1
+BenchmarkParse_Long
+BenchmarkToString_N0
+BenchmarkToString_N1
+BenchmarkToString_Path_N1
+BenchmarkToString_Path_N10
+BenchmarkToString_Protocol_Https
+BenchmarkToString_Protocol_File
+BenchmarkToString_Protocol_Ftp
+BenchmarkToString_Query_N1
+BenchmarkToString_Query_N5
+BenchmarkToString_HostName_N5
+BenchmarkToString_Chinese_N1
+BenchmarkToString_Chinese_N2
+BenchmarkToString_Chinese_N3
+BenchmarkToString_Character_N1
+BenchmarkToString_Long

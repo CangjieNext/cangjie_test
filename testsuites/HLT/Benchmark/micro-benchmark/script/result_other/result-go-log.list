@@ -1,0 +1,5 @@
+BenchmarkLog_Trace 14453
+BenchmarkLog_DEBUG 14450
+BenchmarkLog_INFO 10549
+BenchmarkLog_WARN 11223
+BenchmarkLog_ERROR 11301

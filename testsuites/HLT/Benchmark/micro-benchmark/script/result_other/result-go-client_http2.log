@@ -1,0 +1,19 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/client_http2
+BenchmarkHttp2ClientGet_N_0-128            	    5995	    201837 ns/op
+BenchmarkHttp2ClientGet_N_32-128           	    5510	    215499 ns/op
+BenchmarkHttp2ClientGet_N_256-128          	    5413	    217254 ns/op
+BenchmarkHttp2ClientGet_N_2048-128         	    5338	    223044 ns/op
+BenchmarkHttp2ClientGet_N_16384-128        	    2430	    506376 ns/op
+BenchmarkHttp2ClientGet_N_131072-128       	     842	   1449565 ns/op
+BenchmarkHttp2ClientGet_N_1048576-128      	     158	   7075091 ns/op
+BenchmarkHttp2ClientPost_N_0-128           	    5253	    221094 ns/op
+BenchmarkHttp2ClientPost_N_32-128          	    5245	    227815 ns/op
+BenchmarkHttp2ClientPost_N_256-128         	    4560	    222126 ns/op
+BenchmarkHttp2ClientPost_N_2048-128        	    7040	    240363 ns/op
+BenchmarkHttp2ClientPost_N_16384-128       	    4548	    235740 ns/op
+BenchmarkHttp2ClientPost_N_131072-128      	    2338	    475591 ns/op
+BenchmarkHttp2ClientPost_N_1048576-128     	     385	   2972696 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/client_http2	27.683s

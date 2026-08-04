@@ -1,0 +1,39 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/concurrency
+BenchmarkRescheduleThread1-128               	 8406733	       135.7 ns/op
+BenchmarkRescheduleThread2-128               	 1728315	       883.0 ns/op
+BenchmarkRescheduleThread4-128               	  459446	      2886 ns/op
+BenchmarkRescheduleThread8-128               	  227840	      5441 ns/op
+BenchmarkRescheduleThread16-128              	  140352	      7539 ns/op
+BenchmarkRescheduleThread32-128              	   86944	     13318 ns/op
+BenchmarkRescheduleThread64-128              	   19920	     56432 ns/op
+BenchmarkRescheduleThread128-128             	    6729	    175051 ns/op
+BenchmarkSubmit1ProcessorThread1000-128      	    1549	    807255 ns/op
+testing: BenchmarkSubmit1ProcessorThread1000-128 left GOMAXPROCS set to 1
+BenchmarkRunning1ProcessorThread1000-128     	    1791	    657145 ns/op
+testing: BenchmarkRunning1ProcessorThread1000-128 left GOMAXPROCS set to 1
+BenchmarkRunningNProcessorThread1000-128     	       7	 171104593 ns/op
+BenchmarkIOInstensiveThread1-128             	       9	 134289844 ns/op
+BenchmarkIOInstensiveThread10-128            	      13	  95655238 ns/op
+BenchmarkIOInstensiveThread100-128           	      13	  89838170 ns/op
+BenchmarkIOInstensiveThread1000-128          	      13	  88501691 ns/op
+BenchmarkCPUIntensiveThread1-128             	     616	   1945414 ns/op
+BenchmarkCPUIntensiveThread10-128            	    2406	    452603 ns/op
+BenchmarkCPUIntensiveThread100-128           	    3433	    295209 ns/op
+BenchmarkCPUIntensiveThread1000-128          	     902	   1158972 ns/op
+BenchmarkLockThread1-128                     	38238187	        30.77 ns/op
+BenchmarkLockThread10-128                    	  285615	      5306 ns/op
+BenchmarkLockThread100-128                   	   26586	     50758 ns/op
+BenchmarkThreadCreateThread64-128            	   31965	     54255 ns/op
+BenchmarkThreadCreateThread128-128           	   10000	    114381 ns/op
+BenchmarkThreadCreateThread256-128           	    8754	    195466 ns/op
+BenchmarkThreadCreateThread512-128           	    2889	    372919 ns/op
+BenchmarkThreadCreateThread1024-128          	    1533	    907065 ns/op
+BenchmarkThreadCreateThread2048-128          	     613	   1713664 ns/op
+BenchmarkThreadCreateThread4096-128          	     320	   4214782 ns/op
+BenchmarkThreadCreateThread8192-128          	     301	   8686127 ns/op
+BenchmarkThreadCreateThread10000-128         	     266	   7670958 ns/op
+BenchmarkConditionThread1-128                	 3682741	       311.1 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/concurrency	62.411s

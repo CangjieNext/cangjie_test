@@ -1,0 +1,6 @@
+BenchmarkCreateObject_S128: 109.15 ns/op
+BenchmarkCreateObject_S16: 67.31 ns/op
+BenchmarkCreateObject_S32: 75.99 ns/op
+BenchmarkCreateObject_S512: 279.55 ns/op
+BenchmarkCreateObject_S64: 88.27 ns/op
+BenchmarkCreateObject_S8: 64.48 ns/op

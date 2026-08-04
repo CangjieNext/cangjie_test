@@ -1,0 +1,23 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkLinkedList_addAfter
+BenchmarkLinkedList_addBefore
+BenchmarkLinkedList_addFirst
+BenchmarkLinkedList_addLast
+BenchmarkLinkedList_backward
+BenchmarkLinkedList_clear
+BenchmarkLinkedList_first
+BenchmarkLinkedList_forward
+BenchmarkLinkedList_Init
+BenchmarkLinkedList_iterator
+BenchmarkLinkedList_last
+BenchmarkLinkedList_nodeAt
+BenchmarkLinkedList_remove
+BenchmarkLinkedList_removeFirst
+BenchmarkLinkedList_removeLast
+BenchmarkLinkedList_toArray
