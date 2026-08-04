@@ -27,6 +27,9 @@ main() {
     } else if (mode == Some("small")) {
         printRead(4)
         printRead(4)
+    } else if (mode == Some("buffered")) {
+        println(getStdIn().readUntil(r'a'))
+        printRead(4096)
     } else if (mode == Some("mixed")) {
         println(getStdIn().readln())
         printRead(4096)
