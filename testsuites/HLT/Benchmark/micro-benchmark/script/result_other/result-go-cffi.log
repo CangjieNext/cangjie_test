@@ -1,0 +1,51 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/cffi
+BenchmarkCffiCallback1-128      	 3438850	       345.5 ns/op
+BenchmarkCffiCallback2-128      	 1208236	       990.0 ns/op
+BenchmarkCffiCallback3-128      	  653742	      1845 ns/op
+BenchmarkCffiCallback4-128      	  289324	      3572 ns/op
+BenchmarkCffiCpointer1-128      	 9433129	       121.3 ns/op
+BenchmarkCffiCpointer2-128      	 9327688	       122.0 ns/op
+BenchmarkCffiCpointer3-128      	 9565585	       120.8 ns/op
+BenchmarkCffiCpointer4-128      	 9278113	       122.8 ns/op
+BenchmarkCffiCpointer5-128      	 9612693	       118.5 ns/op
+BenchmarkCffiCpointer6-128      	 9255451	       125.4 ns/op
+BenchmarkCffiCpointer7-128      	 8462509	       136.6 ns/op
+BenchmarkCffiCString1-128       	 9470338	       119.2 ns/op
+BenchmarkCffiCString2-128       	 9713239	       120.8 ns/op
+BenchmarkCffiCString3-128       	 9557988	       124.2 ns/op
+BenchmarkCffiCString4-128       	 8814736	       130.3 ns/op
+BenchmarkCffiExtra1-128         	 9069967	       127.9 ns/op
+BenchmarkCffiExtra2-128         	 9742148	       119.4 ns/op
+BenchmarkCffiPrimitive1-128     	 9646832	       121.3 ns/op
+BenchmarkCffiPrimitive2-128     	 9744070	       118.5 ns/op
+BenchmarkCffiPrimitive3-128     	 9456352	       123.9 ns/op
+BenchmarkCffiPrimitive4-128     	 8894331	       133.2 ns/op
+BenchmarkCffiPrimitive5-128     	 9504849	       120.5 ns/op
+BenchmarkCffiPrimitive6-128     	 9694558	       120.6 ns/op
+BenchmarkCffiPrimitive7-128     	 9557290	       119.5 ns/op
+BenchmarkCffiReturn1-128        	10057230	       117.5 ns/op
+BenchmarkCffiReturn2-128        	 9828986	       118.4 ns/op
+BenchmarkCffiReturn3-128        	 9795351	       118.3 ns/op
+BenchmarkCffiReturn4-128        	 9803294	       118.3 ns/op
+BenchmarkCffiReturn5-128        	 9420069	       120.3 ns/op
+BenchmarkCffiReturn6-128        	 9463316	       121.6 ns/op
+BenchmarkCffiReturn7-128        	 9210608	       124.9 ns/op
+BenchmarkCffiReturn8-128        	 6925802	       168.7 ns/op
+BenchmarkCffiReturn9-128        	 6318471	       185.1 ns/op
+BenchmarkCffiReturn10-128       	 4871306	       243.9 ns/op
+BenchmarkCffiReturn11-128       	 6529078	       182.2 ns/op
+BenchmarkCffiReturn12-128       	 6309861	       183.1 ns/op
+BenchmarkCffiReturn13-128       	 9959605	       118.1 ns/op
+BenchmarkCffiReturn14-128       	 9611164	       118.4 ns/op
+BenchmarkCffiStruct1-128        	 8206029	       142.8 ns/op
+BenchmarkCffiStruct2-128        	 9082444	       127.4 ns/op
+BenchmarkCffiStruct3-128        	 8816107	       130.6 ns/op
+BenchmarkCffiStruct4-128        	 4687726	       249.0 ns/op
+BenchmarkCffiStruct5-128        	 3911530	       306.1 ns/op
+BenchmarkCffiStruct6-128        	 9174133	       126.5 ns/op
+BenchmarkCffiStruct7-128        	 7176674	       164.2 ns/op
+BenchmarkCffiStruct8-128        	 5404417	       214.3 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/cffi	62.278s

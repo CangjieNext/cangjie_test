@@ -1,0 +1,14 @@
+BenchmarkHttpsClientGet_N_0: 131507.73351919308 ns/op
+BenchmarkHttpsClientGet_N_32: 136788.9923127428 ns/op
+BenchmarkHttpsClientGet_N_256: 137006.2781712814 ns/op
+BenchmarkHttpsClientGet_N_2048: 175875.03666836672 ns/op
+BenchmarkHttpsClientGet_N_16384: 341372.0788530466 ns/op
+BenchmarkHttpsClientGet_N_131072: 1667574.295481074 ns/op
+BenchmarkHttpsClientGet_N_1048576: 13640679.114441417 ns/op
+BenchmarkHttpsClientPost_N_0: 1602160.4758090356 ns/op
+BenchmarkHttpsClientPost_N_32: 1588905.454401017 ns/op
+BenchmarkHttpsClientPost_N_256: 1641478.7707204989 ns/op
+BenchmarkHttpsClientPost_N_2048: 1661675.246718724 ns/op
+BenchmarkHttpsClientPost_N_16384: 22165880.486725662 ns/op
+BenchmarkHttpsClientPost_N_131072: 2444006.4076246335 ns/op
+BenchmarkHttpsClientPost_N_1048576: 7707461.394453005 ns/op

@@ -1,0 +1,21 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkHttpsClientGet_N_0
+BenchmarkHttpsClientGet_N_32
+BenchmarkHttpsClientGet_N_256
+BenchmarkHttpsClientGet_N_2048
+BenchmarkHttpsClientGet_N_16384
+BenchmarkHttpsClientGet_N_131072
+BenchmarkHttpsClientGet_N_1048576
+BenchmarkHttpsClientPost_N_0
+BenchmarkHttpsClientPost_N_32
+BenchmarkHttpsClientPost_N_256
+BenchmarkHttpsClientPost_N_2048
+BenchmarkHttpsClientPost_N_16384
+BenchmarkHttpsClientPost_N_131072
+BenchmarkHttpsClientPost_N_1048576
