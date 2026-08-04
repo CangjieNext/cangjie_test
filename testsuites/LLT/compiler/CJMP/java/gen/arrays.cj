@@ -17,7 +17,7 @@ public class A extends M {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public A() {
         super(1);
@@ -28,7 +28,7 @@ public class A extends M {
         super(1);
     }
 
-    private native void initCJObject();
+    private final native void initCJObject();
 
     public A(long x) {
         super(x, x);
@@ -39,40 +39,25 @@ public class A extends M {
         super(x, x);
     }
 
-    private native void initCJObjectl(long x);
+    private final native void initCJObjectl(long x);
 
-    public void p(A[] o) {
-        pCN9java_lang6JArrayICN16cjworld_theworld1AEE(this.self, o);
+    public final void p(A[] o) {
+        pCN9java_lang6JArrayICN16cjworld_theworld1AEE(this.$rid, o);
     }
 
-    private native void pCN9java_lang6JArrayICN16cjworld_theworld1AEE(long self, A[] o);
+    private final native void pCN9java_lang6JArrayICN16cjworld_theworld1AEE(long $rid, A[] o);
 
-    public void r(char[] o) {
-        rCN9java_lang6JArrayItE(this.self, o);
+    public final void r(char[] o) {
+        rCN9java_lang6JArrayItE(this.$rid, o);
     }
 
-    private native void rCN9java_lang6JArrayItE(long self, char[] o);
+    private final native void rCN9java_lang6JArrayItE(long $rid, char[] o);
+
+    private final native void deleteCJObject(long $rid);
 
     @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
-
-    @Override
-    public void finalize() {
-        deleteCJObject(this.self);
+    protected void finalize() {
+        deleteCJObject(this.$rid);
     }
 }
 */

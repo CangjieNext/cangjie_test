@@ -20,7 +20,7 @@ public class A extends M {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public A() {
         super(1);
@@ -31,7 +31,7 @@ public class A extends M {
         super(1);
     }
 
-    private native void initCJObject();
+    private final native void initCJObject();
 
     public A(long x) {
         super(x, x);
@@ -42,46 +42,31 @@ public class A extends M {
         super(x, x);
     }
 
-    private native void initCJObjectl(long x);
+    private final native void initCJObjectl(long x);
 
-    public void f(String arg) {
-        fCN15java_cj_mirrors7JStringE(this.self, arg);
+    public final void f(String arg) {
+        fCN15java_cj_mirrors7JStringE(this.$rid, arg);
     }
 
-    private native void fCN15java_cj_mirrors7JStringE(long self, String arg);
+    private final native void fCN15java_cj_mirrors7JStringE(long $rid, String arg);
 
-    public void oneArg(long x) {
-        oneArgl(this.self, x);
+    public final void oneArg(long x) {
+        oneArgl(this.$rid, x);
     }
 
-    private native void oneArgl(long self, long x);
+    private final native void oneArgl(long $rid, long x);
 
-    public void twoArgs(long x, boolean y) {
-        twoArgslb(this.self, x, y);
+    public final void twoArgs(long x, boolean y) {
+        twoArgslb(this.$rid, x, y);
     }
 
-    private native void twoArgslb(long self, long x, boolean y);
+    private final native void twoArgslb(long $rid, long x, boolean y);
+
+    private final native void deleteCJObject(long $rid);
 
     @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
-
-    @Override
-    public void finalize() {
-        deleteCJObject(this.self);
+    protected void finalize() {
+        deleteCJObject(this.$rid);
     }
 }
 
