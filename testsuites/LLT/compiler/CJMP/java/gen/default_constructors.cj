@@ -17,7 +17,7 @@ public class CangjieInvoke_Father {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public CangjieInvoke_Father() {
         super();
@@ -28,34 +28,19 @@ public class CangjieInvoke_Father {
         super();
     }
 
-    private native void initCJObject();
+    private final native void initCJObject();
 
-    public boolean test() {
-        return test(this.self);
+    public final boolean test() {
+        return test(this.$rid);
     }
 
-    private native boolean test(long self);
+    private final native boolean test(long $rid);
+
+    private final native void deleteCJObject(long $rid);
 
     @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
-
-    @Override
-    public void finalize() {
-        deleteCJObject(this.self);
+    protected void finalize() {
+        deleteCJObject(this.$rid);
     }
 }
 
