@@ -12,12 +12,12 @@
 import static cangjie.lang.LibraryLoader.loadLibrary;
 import cangjie.lang.internal.$$NativeConstructorMarker;
 
-public class A extends M {
+public final class A extends M {
     static {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public A() {
         super(1);
@@ -41,44 +41,29 @@ public class A extends M {
 
     private native void initCJObjectl(long x);
 
-    void f() {
-        f(this.self);
+    public void f() {
+        f(this.$rid);
     }
 
-    private native void f(long self);
+    private native void f(long $rid);
 
-    void oneArg(long x) {
-        oneArgl(this.self, x);
+    public void oneArg(long x) {
+        oneArgl(this.$rid, x);
     }
 
-    private native void oneArgl(long self, long x);
+    private native void oneArgl(long $rid, long x);
 
-    void twoArgs(long x, boolean y) {
-        twoArgslb(this.self, x, y);
+    public void twoArgs(long x, boolean y) {
+        twoArgslb(this.$rid, x, y);
     }
 
-    private native void twoArgslb(long self, long x, boolean y);
+    private native void twoArgslb(long $rid, long x, boolean y);
 
-    @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
+    private native void deleteCJObject(long $rid);
 
     @Override
     public void finalize() {
-        deleteCJObject(this.self);
+        deleteCJObject(this.$rid);
     }
 }
 
@@ -105,15 +90,15 @@ public class A <: M {
         super(x, x)
     }
 
-    func f() {
+    public func f() {
         println(1)
     }
 
-    func oneArg(x: Int) {
+    public func oneArg(x: Int) {
         println(x)
     }
 
-    func twoArgs(x: Int, y: Bool) {
+    public func twoArgs(x: Int, y: Bool) {
         println(x)
         println(y)
     }

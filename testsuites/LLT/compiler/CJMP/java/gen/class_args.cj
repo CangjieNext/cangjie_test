@@ -12,26 +12,26 @@
 import static cangjie.lang.LibraryLoader.loadLibrary;
 import cangjie.lang.internal.$$NativeConstructorMarker;
 
-public class A extends M {
+public final class A extends M {
     static {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public M getT() {
-        return getTImpl(this.self);
+        return getTImpl(this.$rid);
     }
 
-    private native M getTImpl(long self);
+    private native M getTImpl(long $rid);
 
     public void setT(M t) {
-        setTImpl(this.self, t);
+        setTImpl(this.$rid, t);
     }
 
-    private native void setTImpl(long self, M t);
+    private native void setTImpl(long $rid, M t);
 
-    A(long x, long y) {
+    public A(long x, long y) {
         super();
         initCJObjectll(x, y);
     }
@@ -42,7 +42,7 @@ public class A extends M {
 
     private native void initCJObjectll(long x, long y);
 
-    A() {
+    public A() {
         super(superC3A0(), superC3A1());
         initCJObject();
     }
@@ -55,7 +55,7 @@ public class A extends M {
 
     private static native A superC3A0();
     private static native M superC3A1();
-    A(int x) {
+    public A(int x) {
         super(superC4A0());
         initCJObjecti(x);
     }
@@ -68,31 +68,16 @@ public class A extends M {
 
     private static native A superC4A0();
     public void f(M arg) {
-        fCN16cjworld_theworld1ME(this.self, arg);
+        fCN16cjworld_theworld1ME(this.$rid, arg);
     }
 
-    private native void fCN16cjworld_theworld1ME(long self, M arg);
+    private native void fCN16cjworld_theworld1ME(long $rid, M arg);
 
-    @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
+    private native void deleteCJObject(long $rid);
 
     @Override
     public void finalize() {
-        deleteCJObject(this.self);
+        deleteCJObject(this.$rid);
     }
 }
 
@@ -113,7 +98,7 @@ public open class M {
 @JavaImpl["A"]
 public class A <: M {
     private var a: M = M()
-    mut prop t: M {
+    public mut prop t: M {
         get() {
             return a
         }
@@ -122,13 +107,13 @@ public class A <: M {
         }
     }
 
-    init (x: Int64, y: Int64) {}
+    public init(x: Int64, y: Int64) {}
 
-    init() {
+    public init() {
         super(A(1, 1), M())
     }
 
-    init(x: Int32) {
+    public init(x: Int32) {
         super(A())
     }
 

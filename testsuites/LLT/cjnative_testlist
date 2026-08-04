@@ -132,68 +132,6 @@ compiler/CJMP/java/sema/java-impl/parse.cj
 
 compiler/CJMP/java/sema/struct-with-return-option.cj
 
-## func is not hidden
-compiler/CJMP/java/integration/config-struct-public-func-hidden/config-struct-public-func-hidden.info
-compiler/CJMP/java/integration/config-struct-public-struct-hidden/config-struct-public-func-hidden.info
-
-## no files
-compiler/CJMP/java/integration/non-public-class-without-override/non-public-class-without-override.info
-compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
-compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
-
-## "Java calls Cangjie" interop (cjmapping) is disabled
-compiler/CJMP/java/sema/cj_mapping_interop_lib_not_imported.cj
-compiler/CJMP/java/sema/cj_mapping_struct_generic.cj
-compiler/CJMP/java/sema/cj_mapping_struct_inheritance_interface.cj
-compiler/CJMP/java/sema/cj_mapping_struct_with_arg_option.cj
-compiler/CJMP/java/sema/cj_mapping_struct_with_return_option.cj
-compiler/CJMP/java/sema/struct-with-return-option.cj
-compiler/CJMP/java/sema/cj_mapping_interop_lib_not_imported_class.cj
-compiler/CJMP/java/sema/cj_mapping_interop_lib_not_imported_struct.cj
-compiler/CJMP/java/sema/cj_mapping_match_without_jobject.cj
-compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
-compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
-compiler/CJMP/java/integration/protected-open-class-func/protected-open-class-func.info
-compiler/CJMP/java/integration/public-enum-mapping/public-enum-mapping.info
-compiler/CJMP/java/integration/public-enum-with-private/public-enum-with-private.info
-compiler/CJMP/java/integration/public-struct-mapping/public-struct-mapping.info
-compiler/CJMP/java/integration/public-struct-private-member/public-struct-private-member.info
-compiler/CJMP/java/integration/java2cj-exception-struct-01/java2cj-exception-struct-01.info
-compiler/CJMP/java/integration/java2cj-exception-struct/java2cj-exception-struct.info
-compiler/CJMP/java/integration/cj-mapping-protect-call-from-java/cj-mapping-protect-call-from-java.info
-compiler/CJMP/java/integration/config-struct-public-func-hidden/config-struct-public-func-hidden.info
-compiler/CJMP/java/integration/config-struct-public-struct-hidden/config-struct-public-func-hidden.info
-compiler/CJMP/java/integration/cj-mapping-tuple/cj-mapping-tuple.info
-compiler/CJMP/java/integration/public-class-with-override-as-param/public-class-with-override-as-param.info
-compiler/CJMP/java/integration/public-class-with-override/public-class-with-override.info
-compiler/CJMP/java/integration/non-public-class-without-override/non-public-class-without-override.info
-compiler/CJMP/java/integration/public-generic-enum-mapping/public-generic-enum-mapping.info
-compiler/CJMP/java/integration/support-lambda-as-params-with-generic/support-lambda-as-params-with-generic.info
-compiler/CJMP/java/integration/support-lambda-as-params/support-lambda-as-params.info
-compiler/CJMP/java/integration/cj-mapping-generic-class/cj-mapping-generic-class.info
-compiler/CJMP/java/integration/cj-mapping-generic-mul-class/cj-mapping-generic-mul-class.info
-compiler/CJMP/java/integration/cj-mapping-generic-normal-func/cj-mapping-generic-normal-func.info
-compiler/CJMP/java/integration/cj-mapping-generic-struct/cj-mapping-generic-struct.info
-compiler/CJMP/java/integration/cj-mapping-tuple-generic-interface/cj-mapping-tuple-generic-interface.info
-compiler/CJMP/java/integration/cj-mapping-tuple-generic/cj-mapping-tuple-generic.info
-compiler/CJMP/java/integration/config-struct-private-func-exposed/config-struct-private-func-exposed.info
-compiler/CJMP/java/integration/extend-class-public-func/extend-class-public-func.info
-compiler/CJMP/java/integration/extend-class-public-prop/extend-class-public-prop.info
-compiler/CJMP/java/integration/extend-enum-public-func/extend-enum-public-func.info
-compiler/CJMP/java/integration/extend-interface-func/extend-interface-func.info
-compiler/CJMP/java/integration/extend-struct-public-func/extend-struct-public-func.info
-compiler/CJMP/java/integration/interface-mapping-as-cjparam/interface-mapping-as-cjparam.info
-compiler/CJMP/java/integration/interface-mapping-default-with-param/interface-mapping-default-with-param.info
-compiler/CJMP/java/integration/interface-mapping-default-with-return-value/interface-mapping-default-with-return-value.info
-compiler/CJMP/java/integration/interface-mapping-default/interface-mapping-default.info
-compiler/CJMP/java/integration/interface-mapping-invalid/interface-mapping-invalid.info
-compiler/CJMP/java/integration/interface-mapping-with-generic-config-invalid/interface-mapping-with-generic-config-invalid.info
-compiler/CJMP/java/integration/interface-mapping-with-generic/interface-mapping-with-generic.info
-compiler/CJMP/java/integration/interface-mapping/interface-mapping.info
-compiler/CJMP/java/integration/public-class-without-override-extend-cj-class/public-class-without-override-extend-cj-class.info
-compiler/CJMP/java/integration/public-class-without-override-with-private-func/public-class-without-override-with-private-func.info
-compiler/CJMP/java/integration/public-class-without-override/public-class-without-override.info
-
 ## objc (objc.internal and objc.lang are missing)
 compiler/CJMP/objc/
 
@@ -213,7 +151,7 @@ compiler/Plugins/IRCheck/FoundError/found_error.cj
 API/stdx/net/tls/redesign/close_concur.cj
 
 
-# Tech deb of multi-phase multi-parent support 
+# Tech deb of multi-phase multi-parent support
 # https://gitcode.com/Cangjie/cangjie_test/issues/265
 compiler/CJMP/compilation/several_parents/merging_initializers_big_case.cj
 compiler/CJMP/multiphase_compilation/3step_generic.cj

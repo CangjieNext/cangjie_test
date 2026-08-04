@@ -12,12 +12,12 @@
 import static cangjie.lang.LibraryLoader.loadLibrary;
 import cangjie.lang.internal.$$NativeConstructorMarker;
 
-public class A extends M {
+public final class A extends M {
     static {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public A() {
         super(1);
@@ -42,37 +42,22 @@ public class A extends M {
     private native void initCJObjectl(long x);
 
     public void p(A[] o) {
-        pCN9java_lang6JArrayICN16cjworld_theworld1AEE(this.self, o);
+        pCN9java_lang6JArrayICN16cjworld_theworld1AEE(this.$rid, o);
     }
 
-    private native void pCN9java_lang6JArrayICN16cjworld_theworld1AEE(long self, A[] o);
+    private native void pCN9java_lang6JArrayICN16cjworld_theworld1AEE(long $rid, A[] o);
 
     public void r(char[] o) {
-        rCN9java_lang6JArrayItE(this.self, o);
+        rCN9java_lang6JArrayItE(this.$rid, o);
     }
 
-    private native void rCN9java_lang6JArrayItE(long self, char[] o);
+    private native void rCN9java_lang6JArrayItE(long $rid, char[] o);
 
-    @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
+    private native void deleteCJObject(long $rid);
 
     @Override
     public void finalize() {
-        deleteCJObject(this.self);
+        deleteCJObject(this.$rid);
     }
 }
 */
