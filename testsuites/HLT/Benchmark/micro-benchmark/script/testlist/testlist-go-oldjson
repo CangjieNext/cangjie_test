@@ -1,0 +1,39 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkJsonArray2JsonStrN8
+BenchmarkJsonArray2JsonStrN64
+BenchmarkJsonArray2JsonStrN512
+BenchmarkJsonArray2JsonStrN4096
+BenchmarkJsonBool2JsonStr
+BenchmarkJsonFloat2JsonStr
+BenchmarkJsonInt2JsonStr
+BenchmarkJsonNull2JsonStr
+BenchmarkJsonObject2JsonStr
+BenchmarkJsonString2JsonStr
+BenchmarkJsonValue2JsonStrn8d1
+BenchmarkJsonValue2JsonStrn8d2
+BenchmarkJsonValue2JsonStrn8d4
+BenchmarkJsonValue2JsonStrn8d8
+BenchmarkJsonValue2JsonStrn64d1
+BenchmarkJsonValue2JsonStrn64d2
+BenchmarkJsonValue2JsonStrn64d4
+BenchmarkJsonValue2JsonStrn64d8
+BenchmarkJsonValue2JsonStrn512d1
+BenchmarkJsonValue2JsonStrn512d2
+BenchmarkJsonValue2JsonStrn512d4
+BenchmarkStr2JsonValuen8d1
+BenchmarkStr2JsonValuen8d2
+BenchmarkStr2JsonValuen8d4
+BenchmarkStr2JsonValuen8d8
+BenchmarkStr2JsonValuen64d1
+BenchmarkStr2JsonValuen64d2
+BenchmarkStr2JsonValuen64d4
+BenchmarkStr2JsonValuen64d8
+BenchmarkStr2JsonValuen512d1
+BenchmarkStr2JsonValuen512d2
+BenchmarkStr2JsonValuen512d4

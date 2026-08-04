@@ -1,0 +1,12 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+-iter 2000000 -threadPairs 16
+-iter 2000000 -threadPairs 32
+-iter 2000000 -threadPairs 64
+-iter 2000000 -threadPairs 128
+-iter 2000000 -threadPairs 256

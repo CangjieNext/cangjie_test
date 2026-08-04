@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+import std.collection.*
+
+func test0() : Int32 {
+  var a: ArrayList<Int32> = ArrayList<Int32>(100000000) {i => Int32(2 * i)}
+  var b: ArrayList<Int32> = ArrayList<Int32>(100000000) {i => Int32(3 * i)}
+  var c: ArrayList<Int32> = ArrayList<Int32>(100000000) {i => Int32(2* i + 3) }
+  var outterLoopCnt = 10
+  var sum : ArrayList<Int32> = ArrayList<Int32>(outterLoopCnt) {i => Int32(0)};
+  while (outterLoopCnt > 0) {
+    outterLoopCnt--
+    for (i in 0.. a.size) {
+      a[i] = b[i] | c[i]
+    }
+
+    for (i in 0.. a.size) {
+      sum[Int64(outterLoopCnt)] += a[i] / 5 + Int32(outterLoopCnt)
+    }
+    println(sum[Int64(outterLoopCnt)])
+  }
+  println("====")
+  if ( (sum[9] != 1443218402)
+    || (sum[8] != 1343218402)
+    || (sum[7] != 1243218402)
+    || (sum[6] != 1143218402)
+    || (sum[5] != 1043218402)
+    || (sum[4] != 943218402)
+    || (sum[3] != 843218402)
+    || (sum[2] != 743218402)
+    || (sum[1] != 643218402)
+    || (sum[0] != 543218402)) {
+      return 1
+    }
+  return 0
+}
+
+main() {
+  var result0 = test0()
+  if (result0 != 0) {
+    return 1
+  }
+  return 0
+}

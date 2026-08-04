@@ -1,0 +1,8 @@
+BenchmarkGzipCompressInputStream_32: 8.76 ns/op
+BenchmarkGzipCompressInputStream_256: 9.93 ns/op
+BenchmarkGzipCompressInputStream_2M: 102.52 ns/op
+BenchmarkGzipCompressInputStream_16M: 3084.08 ns/op
+BenchmarkGzipCompressInputStream_128M: 134117.56 ns/op
+BenchmarkGzipCompressInputStream_1G: 1086580.78 ns/op
+BenchmarkGzipCompressInputStream_8G: 8710598.24 ns/op
+BenchmarkGzipCompressInputStream_64G: 69957872.07 ns/op

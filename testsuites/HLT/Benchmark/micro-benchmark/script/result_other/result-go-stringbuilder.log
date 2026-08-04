@@ -1,0 +1,46 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/stringbuilder
+BenchmarkStringBuilderInit_Empty_N32-128               	13371111	        82.21 ns/op
+BenchmarkStringBuilderInit_Empty_N1k-128               	 1000000	      1258 ns/op
+BenchmarkStringBuilderInit_Empty_N1m-128               	   16560	     70211 ns/op
+BenchmarkStringBuilderInit_From_str_N32-128            	12401739	       103.6 ns/op
+BenchmarkStringBuilderInit_From_str_N1k-128            	  753312	      1455 ns/op
+BenchmarkStringBuilderInit_From_str_N1m-128            	    2244	    533562 ns/op
+BenchmarkStringBuilderInit_Fromrune_N32-128            	 3019522	       383.1 ns/op
+BenchmarkStringBuilderInit_Fromrune_N1k-128            	  116116	     11575 ns/op
+BenchmarkStringBuilderInit_Fromrune_N1m-128            	      94	  11845852 ns/op
+BenchmarkStringBuilderInit_Fromarray_N32-128           	13679958	        85.22 ns/op
+BenchmarkStringBuilderInit_Fromarray_N1k-128           	  771765	      1533 ns/op
+BenchmarkStringBuilderInit_Fromarray_N1m-128           	    2084	    591824 ns/op
+BenchmarkStringBuilderAppend_Bool-128                  	21892108	        49.64 ns/op
+BenchmarkStringBuilderAppend_Int64-128                 	12760670	        85.70 ns/op
+BenchmarkStringBuilderAppend_Int32-128                 	19846375	        64.68 ns/op
+BenchmarkStringBuilderAppend_Int16-128                 	26953983	        45.29 ns/op
+BenchmarkStringBuilderAppend_Int8-128                  	21888247	        47.46 ns/op
+BenchmarkStringBuilderAppend_Float64-128               	17135346	        74.95 ns/op
+BenchmarkStringBuilderAppend_Float32-128               	24477127	        49.47 ns/op
+BenchmarkStringBuilderAppend_Rune-128                  	21160382	        52.04 ns/op
+BenchmarkStringBuilderAppend_String_N32-128            	10825638	       102.6 ns/op
+BenchmarkStringBuilderAppend_String_N1k-128            	  818785	      1593 ns/op
+BenchmarkStringBuilderAppend_String_N1m-128            	    2167	    547480 ns/op
+BenchmarkStringBuilderAppend_RuneArray_N32-128         	10209020	       104.8 ns/op
+BenchmarkStringBuilderAppend_RuneArray_N1k-128         	  800533	      1668 ns/op
+BenchmarkStringBuilderAppend_RuneArray_N1m-128         	    1948	    560109 ns/op
+BenchmarkStringBuilderAppend_StringBuilder_N32-128     	1000000000	         0.7770 ns/op
+BenchmarkStringBuilderAppend_StringBuilder_N1k-128     	1000000000	         0.7706 ns/op
+BenchmarkStringBuilderAppend_StringBuilder_N1m-128     	1000000000	         0.7776 ns/op
+BenchmarkStringBuilderAppendFromUtf8_N32-128           	12642562	        97.00 ns/op
+BenchmarkStringBuilderAppendFromUtf8_N1k-128           	 1000000	      1474 ns/op
+BenchmarkStringBuilderAppendFromUtf8_N1m-128           	    2340	    506560 ns/op
+BenchmarkStringBuilderToString_N32-128                 	1000000000	         1.065 ns/op
+BenchmarkStringBuilderToString_N1k-128                 	1000000000	         1.064 ns/op
+BenchmarkStringBuilderToString_N1m-128                 	1000000000	         1.064 ns/op
+BenchmarkStringBuilderReserve_N32-128                  	13712706	        83.82 ns/op
+BenchmarkStringBuilderReserve_N1k-128                  	 1000000	      1234 ns/op
+BenchmarkStringBuilderReserve_N1m-128                  	   16046	     65464 ns/op
+BenchmarkStringBuilderReset_N32-128                    	15384001	        87.04 ns/op
+BenchmarkStringBuilderReset_N1k-128                    	 1000000	      1134 ns/op
+BenchmarkStringBuilderReset_N1m-128                    	   19140	     61036 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/stringbuilder	54.087s
