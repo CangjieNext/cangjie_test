@@ -4,6 +4,7 @@
 
 // A selectorless wildcard is an unconditional true condition and covers every following sibling.
 // EXEC-PIPE-0: %frontendCompiler %cmp_opt %typecheck %f -Woff=unused-main 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 
 main() {
@@ -17,17 +18,17 @@ main() {
 
 /* SCAN
 warning: unreachable pattern
-  ==> selectorless_match_wildcard.cj:12:14:
+  ==> selectorless_match_wildcard.cj:13:14:
    | 
-12 |         case true => 1
+13 |         case true => 1
    |              ^^^^ 
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unreachable pattern
-  ==> selectorless_match_wildcard.cj:13:14:
+  ==> selectorless_match_wildcard.cj:14:14:
    | 
-13 |         case false => 2
+14 |         case false => 2
    |              ^^^^^ 
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
