@@ -113,6 +113,16 @@ class TupleTypeInfoTest {
     }
 
     @TestCase
+    func testGetByQualifiedName() {
+        let info = (TypeInfo.get("Tuple<Int64, String, Bool>") as TupleTypeInfo).getOrThrow()
+        @Expect(info, TupleTypeInfo.of<(Int64, String, Bool)>())
+        @Expect(info.elements.size, 3)
+        @Expect(info.elements[0], TypeInfo.of<Int64>())
+        @Expect(info.elements[1], TypeInfo.of<String>())
+        @Expect(info.elements[2], TypeInfo.of<Bool>())
+    }
+
+    @TestCase
     func testConstruct() {
         let tp = (1, S(0), C(1))
         let info = TupleTypeInfo.of(tp)
@@ -272,8 +282,19 @@ class TupleTypeInfoTest {
     @TestCase
     func testOptionElements() {
         let info = TupleTypeInfo.of<(Option<Int64>, ?String)>()
-        let constructed = (info.construct([Option<Int64>.Some(7), Option<String>.None])
-            as (Option<Int64>, ?String)).getOrThrow()
+        match (info.elements[0]) {
+            case optionInfo: OptionTypeInfo =>
+                @Expect(optionInfo.valueType, TypeInfo.of<Int64>())
+            case _ => @Assert(false)
+        }
+        match (info.elements[1]) {
+            case optionInfo: OptionTypeInfo =>
+                @Expect(optionInfo.valueType, TypeInfo.of<String>())
+            case _ => @Assert(false)
+        }
+        let someInt: Option<Int64> = Some(7)
+        let noneStr: Option<String> = None
+        let constructed = (info.construct([someInt, noneStr]) as (Option<Int64>, ?String)).getOrThrow()
         @Expect(constructed[0].getOrThrow(), 7)
         @Expect(constructed[1].isNone(), true)
         let destructed = info.destruct(constructed)
@@ -281,6 +302,28 @@ class TupleTypeInfoTest {
         @Expect(opt.getOrThrow(), 7)
         let optStr = (destructed[1] as ?String).getOrThrow()
         @Expect(optStr.isNone(), true)
+    }
+
+    @TestCase
+    func testTupleNestedInOptionElement() {
+        let info = TupleTypeInfo.of<(Option<(Int64, String)>, Bool)>()
+        match (info.elements[0]) {
+            case optionInfo: OptionTypeInfo =>
+                match (optionInfo.valueType) {
+                    case tupleInfo: TupleTypeInfo =>
+                        @Expect(tupleInfo.elements.size, 2)
+                        @Expect(tupleInfo.elements[0], TypeInfo.of<Int64>())
+                        @Expect(tupleInfo.elements[1], TypeInfo.of<String>())
+                    case _ => @Assert(false)
+                }
+            case _ => @Assert(false)
+        }
+
+        let nested: Option<(Int64, String)> = Some((9, "nine"))
+        let constructed = (info.construct([nested, true]) as (Option<(Int64, String)>, Bool)).getOrThrow()
+        let value = constructed[0].getOrThrow()
+        @Expect(value[0], 9)
+        @Expect(value[1], "nine")
     }
 
     @Skip // VArray is not support yet

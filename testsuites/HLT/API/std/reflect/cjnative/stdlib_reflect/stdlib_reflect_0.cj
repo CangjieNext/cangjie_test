@@ -92,6 +92,22 @@ class TestStdCoreReflection {
         let t = EnumTypeInfo.get("std.core.Option<std.core.Option<Box<String>>>")
         @Expect(t.toString(), "Option<Option<Box<String>>>")
     }
+    // option type.
+    @TestCase
+    func optionType(): Unit {
+        let t = OptionTypeInfo.get("std.core.Option<std.core.String>")
+        @Expect(t.toString(), "Option<String>")
+        @Expect(t.valueType, TypeInfo.of<String>())
+    }
+    // tuple type.
+    @TestCase
+    func tupleType(): Unit {
+        let t = (TypeInfo.get("Tuple<Int64, std.core.String>") as TupleTypeInfo).getOrThrow()
+        @Expect(t.toString(), "Tuple<Int64, String>")
+        @Expect(t.elements.size, 2)
+        @Expect(t.elements[0], TypeInfo.of<Int64>())
+        @Expect(t.elements[1], TypeInfo.of<String>())
+    }
     // function type.
     @TestCase
     func functionType(): Unit {
