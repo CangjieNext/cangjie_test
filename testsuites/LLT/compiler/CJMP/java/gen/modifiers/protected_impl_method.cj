@@ -7,8 +7,8 @@
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop -L. --output-javagen-dir=src/java/impl
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./src/java/impl/A.java | compare %f
 
-// ASSERT: scan protected void foo() {
-// ASSERT: scan private native void foo(long self);
+// ASSERT: scan-not void foo()
+// ASSERT: scan-not void foo(long $rid);
 
 package cjworld.theworld
 

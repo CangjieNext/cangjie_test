@@ -17,7 +17,7 @@ public class A extends M {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public A() {
         super(1);
@@ -28,7 +28,7 @@ public class A extends M {
         super(1);
     }
 
-    private native void initCJObject();
+    private final native void initCJObject();
 
     public A(long f, int x) {
         super(superC3A0P0P1(f, x));
@@ -39,9 +39,9 @@ public class A extends M {
         super(superC3A0P0P1(f, x));
     }
 
-    private native void initCJObjectli(long f, int x);
+    private final native void initCJObjectli(long f, int x);
 
-    private static native long superC3A0P0P1(long f, int x);
+    private static final native long superC3A0P0P1(long f, int x);
     public A(long f) {
         super(superC4A0P0(f));
         initCJObjectl(f);
@@ -51,41 +51,26 @@ public class A extends M {
         super(superC4A0P0(f));
     }
 
-    private native void initCJObjectl(long f);
+    private final native void initCJObjectl(long f);
 
-    private static native long superC4A0P0(long f);
-    public static long fieldInitStatic(long f, int x) {
+    private static final native long superC4A0P0(long f);
+    public static final long fieldInitStatic(long f, int x) {
         return fieldInitStaticli(f, x);
     }
 
-    private static native long fieldInitStaticli(long f, int x);
+    private static final native long fieldInitStaticli(long f, int x);
 
-    public static long fieldInitStatic(long f) {
+    public static final long fieldInitStatic(long f) {
         return fieldInitStaticl(f);
     }
 
-    private static native long fieldInitStaticl(long f);
+    private static final native long fieldInitStaticl(long f);
+
+    private final native void deleteCJObject(long $rid);
 
     @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
-
-    @Override
-    public void finalize() {
-        deleteCJObject(this.self);
+    protected void finalize() {
+        deleteCJObject(this.$rid);
     }
 }
 

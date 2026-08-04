@@ -20,7 +20,7 @@ public class Impl extends MyObject {
         loadLibrary("cj");
     }
 
-    long self;
+    private long $rid;
 
     public Impl() {
         super(superC0A0());
@@ -31,9 +31,9 @@ public class Impl extends MyObject {
         super(superC0A0());
     }
 
-    private native void initCJObject();
+    private final native void initCJObject();
 
-    private static native long superC0A0();
+    private static final native long superC0A0();
     public Impl(long value) {
         super(superC1A0P0(value));
         initCJObjectl(value);
@@ -43,9 +43,9 @@ public class Impl extends MyObject {
         super(superC1A0P0(value));
     }
 
-    private native void initCJObjectl(long value);
+    private final native void initCJObjectl(long value);
 
-    private static native MyObject superC1A0P0(long value);
+    private static final native MyObject superC1A0P0(long value);
     public Impl(long x, long y) {
         super(superC2A0P0P1(x, y));
         initCJObjectll(x, y);
@@ -55,29 +55,14 @@ public class Impl extends MyObject {
         super(superC2A0P0P1(x, y));
     }
 
-    private native void initCJObjectll(long x, long y);
+    private final native void initCJObjectll(long x, long y);
 
-    private static native Impl superC2A0P0P1(long x, long y);
-    @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
+    private static final native Impl superC2A0P0P1(long x, long y);
+    private final native void deleteCJObject(long $rid);
 
     @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
-
-    @Override
-    public void finalize() {
-        deleteCJObject(this.self);
+    protected void finalize() {
+        deleteCJObject(this.$rid);
     }
 }
 

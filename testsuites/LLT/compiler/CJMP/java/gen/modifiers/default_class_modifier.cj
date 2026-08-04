@@ -8,6 +8,8 @@
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop -L.
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./java-gen/A.java | compare %f
 
+// Checks that @JavaImpl class with default modifier is still exported to java.
+
 /* SCAN-IN
 import static cangjie.lang.LibraryLoader.loadLibrary;
 import cangjie.lang.internal.$$NativeConstructorMarker;
@@ -17,7 +19,7 @@ class A extends M {
         loadLibrary("cjworld.theworld");
     }
 
-    long self;
+    private long $rid;
 
     public A() {
         super();
@@ -28,28 +30,13 @@ class A extends M {
         super();
     }
 
-    private native void initCJObject();
+    private final native void initCJObject();
+
+    private final native void deleteCJObject(long $rid);
 
     @Override
-    public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("equals is not supported for java proxy object.");
-    }
-
-    @Override
-    public int hashCode() {
-        throw new UnsupportedOperationException("hashCode is not supported for java proxy object.");
-    }
-
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("toString is not supported for java proxy object.");
-    }
-
-    private native void deleteCJObject(long self);
-
-    @Override
-    public void finalize() {
-        deleteCJObject(this.self);
+    protected void finalize() {
+        deleteCJObject(this.$rid);
     }
 }
 
