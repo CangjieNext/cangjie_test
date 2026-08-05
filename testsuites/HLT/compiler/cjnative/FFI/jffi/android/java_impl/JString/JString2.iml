@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Jstring_API_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/Jstring_API_02" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/Jstring_inherit_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/Jstring_location_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/new" isTestSource="false" packagePrefix="com.example.myapplication" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="invoke2" />
+    <orderEntry type="module" module-name="java_impl" />
+    <orderEntry type="module" module-name="basic_case2" />
+    <orderEntry type="module" module-name="jarray-check-component-type" />
+    <orderEntry type="module" module-name="basic_case" />
+    <orderEntry type="module" module-name="java_call2" />
+    <orderEntry type="module" module-name="negative2" />
+    <orderEntry type="module" module-name="invoke" />
+    <orderEntry type="module" module-name="interface2" />
+    <orderEntry type="module" module-name="mixuse" />
+    <orderEntry type="module" module-name="abstract_class" />
+    <orderEntry type="module" module-name="JString" />
+    <orderEntry type="module" module-name="init" />
+    <orderEntry type="module" module-name="java_impl2" />
+    <orderEntry type="module" module-name="type_cast" />
+  </component>
+</module>

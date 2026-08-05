@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/test_array_in_array" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/test_impl_class" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/test_mirror_class" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/test_mirror_interface" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/test_primitive_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/test_primitive_01_wrong" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/test_primitive_02" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/test_string_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/test_string_02" isTestSource="false" packagePrefix="com.example.myapplication" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

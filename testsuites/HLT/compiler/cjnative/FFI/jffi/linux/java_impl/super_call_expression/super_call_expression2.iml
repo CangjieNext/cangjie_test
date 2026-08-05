@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_1" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_10" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_11" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_12" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_13" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_14" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_15" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_16" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_17" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_18" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_19" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_2" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_20" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_21" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_22" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_23" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_24" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_25" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_26" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_27" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_28" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_29" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_3" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_30" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_31" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_32" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_4" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_5" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_6" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_7" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_8" isTestSource="false" packagePrefix="java_entry" />
+      <sourceFolder url="file://$MODULE_DIR$/TestCase_9" isTestSource="false" packagePrefix="java_entry" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_inherit_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_inherit_02" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_init_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_init_02" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_init_02n" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_init_03" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_init_03_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_init_03n_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_init_03n_02" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_init_03n_03" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_init_04" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_init_04n" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_member_var_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_member_var_02" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_member_var_03" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_member_var_04" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_modifiers_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_modifiers_02" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_modifiers_03" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_param_type_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_return_type_01" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_return_type_02" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_return_type_03" isTestSource="false" packagePrefix="com.example.myapplication" />
+      <sourceFolder url="file://$MODULE_DIR$/cj_mirror_gen_test_return_type_04" isTestSource="false" packagePrefix="com.example.myapplication" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
