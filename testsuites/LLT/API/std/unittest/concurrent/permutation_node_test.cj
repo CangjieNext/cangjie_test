@@ -9,7 +9,7 @@
 // LEVEL: 0
 // DEPENDENCE: helpers
 // EXEC: %compiler %cmp_opt -p helpers %compile_lib_opt --output p.%middle
-// EXEC: %compiler %cmp_opt p.%middle %f %cmp_utest_opt -o %output
+// EXEC: %compiler %cmp_opt p.%middle %f %cmp_utest_opt %enableO2 -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args %run_utest_opt --no-color | compare %f
 // ASSERT: scan PASSED: 2
 
