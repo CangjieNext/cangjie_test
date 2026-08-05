@@ -6,13 +6,12 @@
 
 // Companion to varray_size_overflow_wrap01: N = 6442450959, element Int64
 // (8 bytes). The total byte size N * 8 = 51539607672 (~48GB) does NOT overflow
-// uint64, so the frontend overflow check does not fire; the oversized stack
-// allocation is rejected by the LLVM backend's stacksize guard instead, whose
-// limit is owned by the backend and may change independently of the frontend.
+// uint64, so the per-type overflow check does not fire; the oversized frame
+// is rejected by CJIRVerifier's cumulative stack frame check instead, which
+// enforces the cangjie 2GB stacksize limit at IR level on every target.
 // LEVEL: 1
 // ERRCHECK: %compiler %cmp_opt %f -o %output
-// (not iOS) ASSERT: scan The stacksize of default::main() exceeds cangjie max stacksize(2GB)
-// (iOS) ASSERT: scan The stacksize of default::cangjie_main() exceeds cangjie max stacksize(2GB)
+// ASSERT: scan stack frame exceeds cangjie max stacksize(2GB)
 
 main(): Int64 {
     var varr: VArray<Int64, $6442450959> = VArray<Int64, $6442450959> {i => i + 1}
