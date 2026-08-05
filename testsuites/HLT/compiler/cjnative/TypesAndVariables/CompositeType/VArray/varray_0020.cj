@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // ERRCHECK: %compiler %cmp_opt %f -o %output
-// ASSERT: scan the total size of VArray of 9223372036854775807 elements (8 bytes per element) is too large
+// ASSERT: scan allocated type is too large
 
 main(): Int64 {
     var varr: VArray<Int64, $9223372036854775807> = VArray<Int64, $9223372036854775807> {i => i + 1}
