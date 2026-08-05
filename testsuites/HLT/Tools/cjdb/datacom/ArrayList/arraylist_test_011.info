@@ -22,7 +22,7 @@ AOT r,r,-> 66
 Android c,c,66
 CJVM c,c,66
 p,p Arrlist_cls,\(std[.]collection(?:\.|::)ArrayList<default(?:\.|::)A>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*\[2\] = "                    Hello[\s\S]*                    CangJie![\s\S]*                    "[\s\S]*}
-p,p Arrlist_cls,\(std[.]collection(?:\.|::)ArrayList<default(?:\.|::)A>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
+p,p Arrlist_cls,\(std[.]collection(?:\.|::)ArrayList<default(?:\.|::)A>\)[\s\S]*{[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
 p,p Arrlist_cls,\(std[.]collection(?:\.|::)ArrayList<default(?:\.|::)A>\)[\s\S]*{[\s\S]*\[0\] = 'c'[\s\S]*\[1\] = 'a'[\s\S]*\[0\] = 'n'[\s\S]*\[1\] = 'g'[\s\S]*}
 p,p Arrlist_cls,\(std[.]collection(?:\.|::)ArrayList<default(?:\.|::)A>\)[\s\S]*{[\s\S]*key = true[\s\S]*value = "cangjie"[\s\S]*}
 q,q,
