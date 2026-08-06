@@ -4,7 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE: %compiler %f %cmp_opt 2>&1 | compare %f 
+// EXEC-PIPE: %compiler %f %cmp_opt %diag_json 2>&1 | compare %f
+
+// ASSERT: scan-1 "DiagKind": "chir_dce_unused_expression"
 
 main() {
     let a = Some(1)
@@ -16,15 +18,3 @@ main() {
     }
     0
 }
-
-/* SCAN
-warning: unused expression
-  ==> samename_conditionandelse.cj:12:9:
-   | 
-12 |         Some(0)
-   |         ^^^^^^^ unused expression
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-1 warning generated, 1 warning printed.
-*/
