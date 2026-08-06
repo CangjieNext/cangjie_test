@@ -20,15 +20,23 @@ main() {
 }
 
 /* SCAN
-warning: unreachable 'call'
+warning: unused expression
   ==> testDCEArray01.cj:18:5:
    | 
 18 |     a[return 1]
-   |     ^^^^^^^^^^^any code following this expression is unreachable
-   |     |
-   |     unreachable 'call'
+   |     ^^^^^^^^^^^ unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-1 warning generated, 1 warning printed.
+warning: unreachable expression
+  ==> testDCEArray01.cj:19:5:
+   | 
+18 |     a[return 1]
+   |     ~~~~~~~~~~~ any code following this expression is unreachable
+19 |     0
+   |     ^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+2 warnings generated, 2 warnings printed.
 */
