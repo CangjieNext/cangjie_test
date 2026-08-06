@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f  --output-type=obj  --compile-target=exe -o main.o --experimental
+// EXEC: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %f  --output-type=obj  --compile-target=exe -o main.o --experimental
 // EXEC: %ls
 // (!host_win) EXEC-1: test -f default.cjo.flag
 // (host_win) EXEC-1: if exist default.cjo.flag (exit 0) else (exit 1)
