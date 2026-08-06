@@ -4,7 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE: %frontendCompiler %cmp_opt %typecheck %f 2>&1 | compare %f
+// EXEC-PIPE: %frontendCompiler %cmp_opt %diag_json %typecheck %f 2>&1 | compare %f
+
+// ASSERT: scan-4 "DiagKind": "sema_unreachable_pattern"
+// ASSERT: scan-1 "DiagKind": "chir_unreachable_pattern"
 
 package myenum
 
@@ -24,51 +27,3 @@ main() {
         case E.B => 1
     }
 }
-
-/* SCAN
-warning: unreachable pattern
-  ==> usertype_00.cj:20:14:
-   | 
-20 |         case A => 0
-   |              ^ 
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-warning: unreachable pattern
-  ==> usertype_00.cj:21:14:
-   | 
-21 |         case E.A => 0
-   |              ^^^ 
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-warning: unreachable pattern
-  ==> usertype_00.cj:23:14:
-   | 
-23 |         case E.B => 1
-   |              ^^^ 
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-warning: unreachable pattern
-  ==> usertype_00.cj:24:14:
-   | 
-24 |         case E.B => 1
-   |              ^^^ 
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-warning: unused function:'main'
-  ==> usertype_00.cj:16:1:
-   | 
-16 |   main() {
-   |  _^
-17 | |     let x = A
-   | | ...
-26 | | }
-   | |_^ unused function
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-5 warnings generated, 5 warnings printed.
-*/
