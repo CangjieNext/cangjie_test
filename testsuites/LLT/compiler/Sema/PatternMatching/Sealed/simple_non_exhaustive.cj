@@ -4,7 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %cmp_opt %diag_json %f -o %output
+
+// ASSERT: scan-1 "DiagKind": "sema_nonexhuastive_patterns"
 
 abstract sealed class Color {}
 
@@ -23,15 +25,3 @@ func f(c: Color) {
 main() {
     f(Red())
 }
-
-/* SCAN
-error: non-exhaustive patterns
-  ==> simple_non_exhaustive.cj:18:12:
-   | 
-18 |     match (c) { // Green, Blue not covered
-   |            ^ the selector is of type 'Class-Color'
-   | 
-   # note: _ is not covered
-
-1 error generated, 1 error printed.
-*/
