@@ -12,7 +12,7 @@
 // (host_win) EXEC-1: if exist foo.cjo.flag (exit 0) else (exit 1)
 // (!host_win) EXEC: test -f foo.cjo
 // (host_win) EXEC: if exist foo.cjo (exit 0) else (exit 1)
-// EXEC: %compiler %cmp_opt %f --output-type=obj --compile-target=exe --experimental
+// EXEC: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %f --output-type=obj --compile-target=exe --experimental
 
 
 import foo.*
