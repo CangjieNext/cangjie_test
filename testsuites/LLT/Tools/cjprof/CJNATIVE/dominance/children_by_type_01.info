@@ -8,8 +8,8 @@
 # dom_multi_instance: Container(type id=1) clusters 3 Node instances into
 # type node id=2 (is_clustered=true, instance_count=3, object_ids=[17,18,19]).
 
-// DEPENDENCE: cjprof_api_test.py ../sample/dom_multi_instance.data
-// EXEC: python3 cjprof_api_test.py children_by_type_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/dom_multi_instance.data
+// EXEC: python3 cjprof_api_test.py children_by_type_01.info cjprof_http_config.json
 
 test#
 dom_multi_instance,/api/dominance/children-by-type?node_id=1,class_name:default::Node (3 instances),regex,"instance_count":3,"is_clustered":true

@@ -8,8 +8,8 @@
 # 3 Node instances under Container are clustered into one type node:
 # instance_count=3, retained=96, is_clustered=true.
 
-// DEPENDENCE: cjprof_api_test.py ../sample/dom_multi_instance.data
-// EXEC: python3 cjprof_api_test.py by_type_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/dom_multi_instance.data
+// EXEC: python3 cjprof_api_test.py by_type_01.info cjprof_http_config.json
 
 test#
 dom_multi_instance,/api/dominance/tree-by-type,class_name:default::Node (3 instances),regex,"instance_count":3,"is_clustered":true

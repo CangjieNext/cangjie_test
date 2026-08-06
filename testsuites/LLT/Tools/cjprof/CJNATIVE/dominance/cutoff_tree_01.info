@@ -10,8 +10,8 @@
 # cutoff node ("... (5 instances)", is_cutoff=true). Without this case the
 # cutoff push_back branch (~56 branches on L285 alone) is never executed.
 
-// DEPENDENCE: cjprof_api_test.py ../sample/heap.data
-// EXEC: python3 cjprof_api_test.py cutoff_tree_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/heap.data
+// EXEC: python3 cjprof_api_test.py cutoff_tree_01.info cjprof_http_config.json
 
 test#
 heap,/api/dominance/tree,is_cutoff":true,scan,"... (5 instances)","cutoff_count":5

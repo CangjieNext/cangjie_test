@@ -8,8 +8,8 @@
 # adjacent buckets have different categories -> exercises the segment-merge
 # loop and categoryToString() (every ObjectCategory case) in HttpHandlers.
 
-// DEPENDENCE: cjprof_api_test.py ../sample/dist_spread.data
-// EXEC: python3 cjprof_api_test.py fragment_dist_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/dist_spread.data
+// EXEC: python3 cjprof_api_test.py fragment_dist_01.info cjprof_http_config.json
 
 test#
 dist_spread,/api/fragment/layout,INSTANCE_OBJECT,regex,PRIMITIVE_ARRAY

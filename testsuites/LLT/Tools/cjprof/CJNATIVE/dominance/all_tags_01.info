@@ -9,8 +9,8 @@
 # Exercises HeapAnalyzer::AnalyzeArray category branches and the fragment
 # handlers (overview/summary/layout/distribution) + snapshot.
 
-// DEPENDENCE: cjprof_api_test.py ../sample/all_tags.data
-// EXEC: python3 cjprof_api_test.py all_tags_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/all_tags.data
+// EXEC: python3 cjprof_api_test.py all_tags_01.info cjprof_http_config.json
 
 test#
 all_tags,/api/fragment/summary,"instance_object_total":64,regex,"object_array_total":48

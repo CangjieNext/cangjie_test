@@ -7,8 +7,8 @@
 # Test: top10 with >10 dominance nodes. Exercises the top10 selection loop
 # (replace-smallest branch, line 786-788) that the 4-node diamond case can't.
 
-// DEPENDENCE: cjprof_api_test.py ../sample/top15.data
-// EXEC: python3 cjprof_api_test.py top10_multi_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/top15.data
+// EXEC: python3 cjprof_api_test.py top10_multi_01.info cjprof_http_config.json
 
 test#
 top15,/api/dominance/top10,"rank":1,regex,"percentage":100.0

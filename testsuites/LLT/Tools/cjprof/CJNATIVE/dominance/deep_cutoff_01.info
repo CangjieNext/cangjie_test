@@ -8,8 +8,8 @@
 # m_maxDepthLimit=5, so nodes beyond depth 5 are cutoff, exercising the
 # HttpHandlers cutoff/depth branches (skip-beyond-depth + cutoff aggregation).
 
-// DEPENDENCE: cjprof_api_test.py ../sample/deep_chain.data
-// EXEC: python3 cjprof_api_test.py deep_cutoff_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/deep_chain.data
+// EXEC: python3 cjprof_api_test.py deep_cutoff_01.info cjprof_http_config.json
 
 test#
 deep_chain,/api/dominance/tree,"depth":0,regex,"retained_size":288

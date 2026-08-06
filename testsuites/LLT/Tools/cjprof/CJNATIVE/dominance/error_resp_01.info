@@ -11,8 +11,8 @@
 #   /static/does_not_exist.txt              -> ifstream fail -> L240 Not Found (404)
 # fetch_api returns the 4xx body so we can grep it.
 
-// DEPENDENCE: cjprof_api_test.py ../sample/heap.data
-// EXEC: python3 cjprof_api_test.py error_resp_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/heap.data
+// EXEC: python3 cjprof_api_test.py error_resp_01.info cjprof_http_config.json
 
 test#
 heap,/api/dominance/children?parent_id=abc,parent_id,scan,Invalid parent_id

@@ -7,8 +7,8 @@
 # Test: top10 ranking and percentage (V2 format data)
 # Uses dom_diamond.data. Container retained=160 (100%), Node retained=40 (25%).
 
-// DEPENDENCE: cjprof_api_test.py ../sample/dom_diamond.data
-// EXEC: python3 cjprof_api_test.py top10_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/dom_diamond.data
+// EXEC: python3 cjprof_api_test.py top10_01.info cjprof_http_config.json
 
 test#
 dom_diamond,/api/dominance/top10,retained_size":160,regex,percentage":100

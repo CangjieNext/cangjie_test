@@ -14,8 +14,8 @@
 # without re-parsing — asserting them here proves the load path round-trips
 # the new fields.
 
-// DEPENDENCE: cjprof_api_test.py ../sample/all_tags.data ../sample/all_tags.data.cjprof.db
-// EXEC: python3 cjprof_api_test.py cache_load_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/all_tags.data ../sample/all_tags.data.cjprof.db
+// EXEC: python3 cjprof_api_test.py cache_load_01.info cjprof_http_config.json
 
 test#
 all_tags,/api/snapshot,"object_count":14,regex,"gc_root_count":3

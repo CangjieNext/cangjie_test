@@ -17,8 +17,8 @@
 #   - single-row grouping (total range < 64MB -> row_index 0)
 # Also asserts the address_range_start/end fields added by handleFragmentOverview.
 
-// DEPENDENCE: cjprof_api_test.py ../sample/fragment_dist.data
-// EXEC: python3 cjprof_api_test.py fragment_dist_all_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/fragment_dist.data
+// EXEC: python3 cjprof_api_test.py fragment_dist_all_01.info cjprof_http_config.json
 
 test#
 fragment_dist,/api/snapshot,"object_count":7,scan,"used_size":392

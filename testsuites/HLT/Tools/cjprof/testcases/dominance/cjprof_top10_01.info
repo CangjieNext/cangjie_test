@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// DEPENDENCE: ../../script/cjprof_api_test.py ../../data/cjprof.data
-// EXEC: python3 cjprof_api_test.py cjprof_top10_01.info
+// DEPENDENCE: ../../script/cjprof_api_test.py ../../script/cjprof_http_config.json ../../data/cjprof.data
+// EXEC: python3 cjprof_api_test.py cjprof_top10_01.info cjprof_http_config.json
 
 test#
 cjprof,/api/dominance/top10,rank,regex,"rank":1,"percentage":9.19

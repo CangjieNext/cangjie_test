@@ -13,8 +13,8 @@
 # is executed instead of the 64KB-bucket main path.
 # Also covers the handleFragmentOverview utilization=0 path (used_size=0).
 
-// DEPENDENCE: cjprof_api_test.py ../sample/empty_fragment.data
-// EXEC: python3 cjprof_api_test.py fragment_empty_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/empty_fragment.data
+// EXEC: python3 cjprof_api_test.py fragment_empty_01.info cjprof_http_config.json
 
 test#
 empty_fragment,/api/fragment/overview,"used_size":0,scan,"utilization":0.0

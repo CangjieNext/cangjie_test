@@ -10,8 +10,8 @@
 # instead of the always-taken "name non-empty" branch at L1202. Without this
 # case those branches stay at 0%.
 
-// DEPENDENCE: cjprof_api_test.py ../sample/noname.data
-// EXEC: python3 cjprof_api_test.py noname_01.info
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/noname.data
+// EXEC: python3 cjprof_api_test.py noname_01.info cjprof_http_config.json
 
 test#
 noname,/api/snapshot,object_count,scan,gc_root_count

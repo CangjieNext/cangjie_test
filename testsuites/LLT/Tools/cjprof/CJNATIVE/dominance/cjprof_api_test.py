@@ -40,6 +40,20 @@ import re
 import threading
 
 
+def load_config(config_file):
+    with open(config_file, encoding='UTF-8') as f:
+        config = json.load(f)
+    required = ['server_command', 'data_file_template', 'base_url', 'ready_endpoint']
+    missing = [key for key in required if key not in config]
+    if missing:
+        raise ValueError('missing config keys: ' + ', '.join(missing))
+    return config
+
+
+def expand(value, variables):
+    return value.format(**variables)
+
+
 def find_free_port(start=19000, stop=19999):
     """Find a free TCP port in the given range.
 
@@ -99,7 +113,7 @@ def parse_test_line(line):
     }
 
 
-def start_server(data_file, port):
+def start_server(config, variables):
     """Start cjprof HTTP server with the given *suggested* port and data file.
 
     cjprof does NOT guarantee to listen on `port`: if it is already in use,
@@ -108,8 +122,8 @@ def start_server(data_file, port):
     We read that line back from stdout to learn the *actual* port, so requests
     always hit the right server even when several cases run concurrently.
     cjprof must be in PATH (cjprof.exe on Windows, cjprof on Linux/Mac)."""
-    cjprof = 'cjprof.exe' if sys.platform == 'win32' else 'cjprof'
-    cmd = [cjprof, 'heap', '-i', data_file, '--dump-report=' + str(port)]
+    key = 'server_command_windows' if sys.platform == 'win32' and config.get('server_command_windows') else 'server_command'
+    cmd = [expand(arg, variables) for arg in config[key]]
     # start_new_session=True puts cjprof in its own process group so kill_server's
     # os.killpg only kills cjprof, not this test script. Harmless on Windows
     # (no process-group concept there; kill_server uses taskkill /PID instead).
@@ -118,7 +132,7 @@ def start_server(data_file, port):
     return proc
 
 
-def read_actual_port(proc, timeout=15):
+def read_actual_port(proc, port_pattern, timeout=15):
     """Read cjprof stdout until it logs the port it actually bound.
 
     Returns the real port number, or None if the process exited or no line
@@ -132,7 +146,7 @@ def read_actual_port(proc, timeout=15):
             return
         deadline = time.time() + timeout
         for line in proc.stdout:
-            m = re.search(r'localhost:(\d+)', line)
+            m = re.search(port_pattern, line) if port_pattern else None
             if m and actual['port'] is None:
                 actual['port'] = int(m.group(1))
                 return
@@ -149,15 +163,19 @@ def check_server_alive(proc):
     """Check if cjprof server process is still running."""
     if proc.poll() is not None:
         # Process has exited — read stderr for crash info
-        stderr = proc.stderr.read().decode('utf-8', errors='replace')
+        stderr = proc.stderr.read() if proc.stderr else ''
         return False, stderr
     return True, ""
 
 
-def wait_for_server(port, timeout=15):
+def join_url(base_url, endpoint):
+    return base_url.rstrip('/') + '/' + endpoint.lstrip('/')
+
+
+def wait_for_server(base_url, ready_endpoint, timeout=15):
     """Wait for HTTP server to become ready by sending an actual HTTP request."""
     import urllib.request, urllib.error
-    url = f'http://127.0.0.1:{port}/api/snapshot'
+    url = join_url(base_url, ready_endpoint)
     for i in range(timeout):
         try:
             urllib.request.urlopen(url, timeout=2)
@@ -182,16 +200,16 @@ def kill_server(proc):
         pass
 
 
-def fetch_api(port, endpoint):
+def fetch_api(base_url, endpoint, timeout=10):
     """Fetch body from HTTP API endpoint.
 
     Returns the response body even for 4xx/5xx (so error-response branches like
     'Invalid parent_id' / 'Bad Request' / 'Not Found' can be asserted on);
     only real transport failures (connection refused, timeout) return None."""
     import urllib.request, urllib.error
-    url = f'http://127.0.0.1:{port}{endpoint}'
+    url = join_url(base_url, endpoint)
     try:
-        raw = urllib.request.urlopen(url, timeout=10).read()
+        raw = urllib.request.urlopen(url, timeout=timeout).read()
         return raw.decode('utf-8', errors='replace')
     except urllib.error.HTTPError as e:
         # 4xx/5xx: the server responded — read the error body so the caller can
@@ -251,7 +269,14 @@ def run_assert(match_results, assert_type, assert_value):
     return False
 
 
-def run_tests(info_file):
+def cleanup_files(config, variables):
+    for template in config.get('cleanup_files', []):
+        path = expand(template, variables)
+        if os.path.isfile(path):
+            os.remove(path)
+
+
+def run_tests(info_file, config):
     """Main test runner."""
     test_lines = read_test_lines(info_file)
     tests = [parse_test_line(line) for line in test_lines]
@@ -263,7 +288,7 @@ def run_tests(info_file):
     # Group tests by data file — each data file needs its own server
     data_groups = {}
     for test in tests:
-        data_file = test['test_name'] + '.data'
+        data_file = expand(config['data_file_template'], test)
         if data_file not in data_groups:
             data_groups[data_file] = []
         data_groups[data_file].append(test)
@@ -273,12 +298,8 @@ def run_tests(info_file):
     for data_file, group_tests in data_groups.items():
         # Check if data file exists — search in multiple locations
         info_dir = os.path.dirname(os.path.abspath(info_file))
-        search_paths = [
-            data_file,                          # current working directory
-            os.path.join(info_dir, data_file),  # same dir as info file
-            os.path.join(info_dir, '..', 'sample', data_file),  # sibling sample directory
-            os.path.join(info_dir, 'sample', data_file),  # sample subdirectory
-        ]
+        search_paths = [expand(path, {'data_file': data_file, 'info_dir': info_dir})
+                        for path in config.get('data_search_paths', ['{data_file}'])]
         data_path = None
         for p in search_paths:
             if os.path.isfile(p):
@@ -312,8 +333,9 @@ def run_tests(info_file):
             work_data = data_path
 
         # Start server
-        print(f"Starting cjprof with {work_data} (suggested port {port})")
-        proc = start_server(work_data, port)
+        variables = {'data_file': work_data, 'test_name': group_tests[0]['test_name'], 'port': port}
+        print(f"Starting HTTP server with {work_data} (suggested port {port})")
+        proc = start_server(config, variables)
 
         # Wait for server to be ready
         alive, stderr = check_server_alive(proc)
@@ -324,11 +346,13 @@ def run_tests(info_file):
 
         # Read the actual port cjprof bound (it may differ from the suggestion
         # under -jN parallelism, since cjprof walks to the next free port).
-        actual_port = read_actual_port(proc)
+        actual_port = read_actual_port(proc, config.get('port_pattern'), config.get('startup_timeout', 15))
         if actual_port is not None:
             port = actual_port
+            variables['port'] = port
+        base_url = expand(config['base_url'], variables)
 
-        if not wait_for_server(port):
+        if not wait_for_server(base_url, config['ready_endpoint'], config.get('startup_timeout', 15)):
             alive, stderr = check_server_alive(proc)
             if not alive:
                 print(f"FAIL: cjprof process crashed during startup:\n{stderr}")
@@ -346,7 +370,7 @@ def run_tests(info_file):
                 all_pass = False
                 break
 
-            json_text = fetch_api(port, test['api_endpoint'])
+            json_text = fetch_api(base_url, test['api_endpoint'], config.get('request_timeout', 10))
             if json_text is None:
                 alive, stderr = check_server_alive(proc)
                 if not alive:
@@ -381,9 +405,7 @@ def run_tests(info_file):
             proc.kill()
 
         # Clean up cache
-        cache_file = work_data + '.cjprof.db'
-        if os.path.isfile(cache_file):
-            os.remove(cache_file)
+        cleanup_files(config, variables)
 
     if all_pass:
         print("ALL PASS")
@@ -394,7 +416,11 @@ def run_tests(info_file):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python3 cjprof_api_test.py <info_file>")
+    if len(sys.argv) != 3:
+        print("Usage: python3 cjprof_api_test.py <info_file> <server_config.json>")
         os._exit(1)
-    run_tests(sys.argv[1])
+    try:
+        run_tests(sys.argv[1], load_config(sys.argv[2]))
+    except (OSError, ValueError, KeyError, json.JSONDecodeError) as error:
+        print(f"FAIL: invalid server configuration: {error}")
+        os._exit(1)
