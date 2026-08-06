@@ -1,0 +1,5 @@
+[ALL-TEST-CASE]
+compiler/Sema/PatternMatching/Sealed
+compiler/Sema/PatternMatching/TypePattern/exhaustive_sealed.cj
+compiler/Sema/PatternMatching/UnreachablePattern
+compiler/IncrementalCompilation/DeclLevel/Sema/sealed_child_modifier_invalidation.cj

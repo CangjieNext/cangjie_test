@@ -4,8 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
 // EXEC: %run %run_opt %output %run_args
+
+// ASSERT: scan-1 "DiagKind": "sema_unreachable_pattern"
 
 sealed interface Color {}
 
@@ -20,13 +22,10 @@ func f(c: Color) {
         case _: Red => 0
         case _: Green => 1
         case _: Blue => 2
-        case _ => -1 // reachable
+        case _ => -1 // unreachable
     }
 }
 
 main() {
     f(Red())
 }
-
-/* SCAN
-*/ 
