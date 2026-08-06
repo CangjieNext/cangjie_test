@@ -26,5 +26,17 @@ warning: unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-1 warning generated, 1 warning printed.
+warning: unreachable block in 'if' expression
+  ==> samename_conditionandelse.cj:13:12:
+   | 
+13 |       } else {
+   |  ____________^
+14 | |         let b = a
+   | | ...
+16 | |     }
+   | |_____^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+2 warnings generated, 2 warnings printed.
 */
