@@ -31,7 +31,8 @@ error: non-exhaustive patterns
 18 |     match (c) { // Green, Blue not covered
    |            ^ the selector is of type 'Class-Color'
    | 
-   # note: _ is not covered
+   # note: Class-Blue is not covered
+   # note: Class-Green is not covered
 
 1 error generated, 1 error printed.
 */
