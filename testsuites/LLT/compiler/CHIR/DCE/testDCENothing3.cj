@@ -86,12 +86,12 @@ warning: unreachable expression
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unreachable expression
-  ==> testDCENothing3.cj:23:9:
+  ==> testDCENothing3.cj:18:5:
    | 
-23 |         test(1, throw Exception(), 2)
-   |         ^^^^    ~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
-   |         |
-   |         unreachable expression
+17 |     test(1, return num, 2)
+   |     ~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+18 |     return 1
+   |     ^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
@@ -103,5 +103,29 @@ warning: unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-8 warnings generated, 8 warnings printed.
+warning: unreachable expression
+  ==> testDCENothing3.cj:23:36:
+   | 
+23 |         test(1, throw Exception(), 2)
+   |                 ~~~~~~~~~~~~~~~~~  ^ unreachable expression
+   |                 |
+   |                 any code following this expression is unreachable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable expression
+  ==> testDCENothing3.cj:27:5:
+   | 
+22 |       try {
+   |  _____~
+23 | |         test(1, throw Exception(), 2)
+   | | ...
+26 | |     }
+   | |_____~ any code following this expression is unreachable
+27 |       return 1
+   |       ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+10 warnings generated, 10 warnings printed.
 */
