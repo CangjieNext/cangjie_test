@@ -32,13 +32,5 @@ warning: unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-warning: unused result of the operator:'+'
-  ==> testDCEThrow04.cj:17:11:
-   | 
-17 |         2 + 2
-   |           ^ unused result of the operator
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-2 warnings generated, 2 warnings printed.
+1 warning generated, 1 warning printed.
 */
