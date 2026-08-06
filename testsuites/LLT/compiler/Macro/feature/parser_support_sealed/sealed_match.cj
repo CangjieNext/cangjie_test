@@ -6,8 +6,8 @@
 
 // DEPENDENCE: decl_macro.cj
 // EXEC: %compiler %cmp_macro decl_macro.cj
-// ERRCHECK: %run_macro %compiler %cmp_opt %f -o %output
-// ASSERT: scan non-exhaustive patterns
+// EXEC: %run_macro %compiler %cmp_opt %f -o %output
+// ASSERT: scan-0 non-exhaustive patterns
 
 import decl_macro.*
 
