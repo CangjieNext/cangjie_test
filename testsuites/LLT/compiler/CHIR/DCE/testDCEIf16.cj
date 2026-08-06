@@ -30,27 +30,5 @@ warning: unreachable block in 'if' expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-warning: unreachable block in 'if' expression
-  ==> testDCEIf16.cj:12:22:
-   | 
-12 |       } else if (true) {
-   |  ______________________^
-13 | |         var b = 2
-14 | |     } else {
-   | |_____^ unreachable block in 'if' expression
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-warning: unreachable block in 'if' expression
-  ==> testDCEIf16.cj:14:12:
-   | 
-14 |       } else {
-   |  ____________^
-15 | |         var c = 3
-16 | |     }
-   | |_____^ unreachable block in 'if' expression
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-3 warnings generated, 3 warnings printed.
+1 warning generated, 1 warning printed.
 */
