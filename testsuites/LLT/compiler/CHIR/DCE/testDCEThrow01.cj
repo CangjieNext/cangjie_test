@@ -25,5 +25,17 @@ warning: unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-1 warning generated, 1 warning printed.
+warning: unreachable expression
+  ==> testDCEThrow01.cj:14:5:
+   | 
+12 |       try {throw try {throw A();A()} finally {}}
+   |  _____~
+13 | |     finally {}
+   | |______________~ any code following this expression is unreachable
+14 |       return 0
+   |       ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+2 warnings generated, 2 warnings printed.
 */
