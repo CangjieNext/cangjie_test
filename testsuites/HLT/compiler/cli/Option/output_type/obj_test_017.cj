@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt %f --output-type=obj --compile-target=dylib -o main.o --experimental
+// EXEC: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %f --output-type=obj --compile-target=dylib -o main.o --experimental
 // EXEC-PIPE-1: %compiler %cmp_opt main.o -lcangjie-std-core --output-type=exe --experimental -o %output 2>&1 | compare %f
 // (host_win and target_win)ASSERT: scan ld.lld: error: undefined symbol: WinMain
 // (host_mac and target_mac)ASSERT: scan undefined symbol: _main
