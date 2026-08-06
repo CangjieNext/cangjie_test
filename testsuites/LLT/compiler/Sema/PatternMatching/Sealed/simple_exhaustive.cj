@@ -4,7 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 abstract sealed class Color {}
 
@@ -25,15 +26,3 @@ func f(c: Color) {
 main() {
     f(Red())
 }
-
-/* SCAN
-error: non-exhaustive patterns
-  ==> simple_exhaustive.cj:18:12:
-   | 
-18 |     match (c) {
-   |            ^ the selector is of type 'Class-Color'
-   | 
-   # note: _ is not covered
-
-1 error generated, 1 error printed.
-*/

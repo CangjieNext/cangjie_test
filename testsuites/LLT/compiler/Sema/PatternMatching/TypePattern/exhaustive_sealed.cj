@@ -4,7 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// EXEC-PIPE: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+// EXEC: %run %run_opt %output %run_args
+
+// ASSERT: scan-1 "DiagKind": "sema_unreachable_pattern"
 
 public interface H {}
 
@@ -27,15 +30,3 @@ func f(x: I) {
 main() {
     f(A())
 }
-
-/* SCAN
-error: non-exhaustive patterns
-  ==> exhaustive_sealed.cj:20:12:
-   | 
-20 |     match (x) {
-   |            ^ the selector is of type 'Interface-I'
-   | 
-   # note: _ is not covered
-
-1 error generated, 1 error printed.
-*/
