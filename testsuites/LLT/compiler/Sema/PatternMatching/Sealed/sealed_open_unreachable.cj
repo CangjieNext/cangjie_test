@@ -13,7 +13,7 @@ class Red <: Color {}
 
 class Green <: Color {}
 
-open class Blue <: Color {}
+public open class Blue <: Color {}
 
 class DarkBlue <: Blue {}
 
