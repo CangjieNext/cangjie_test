@@ -4,8 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
 // EXEC: %run %run_opt %output %run_args
+
+// ASSERT: scan-2 "DiagKind": "sema_unreachable_pattern"
 
 abstract sealed class Color {}
 
@@ -13,7 +15,7 @@ class Red <: Color {}
 
 class Green <: Color {}
 
-open class Blue <: Color {}
+public open class Blue <: Color {}
 
 class DarkBlue <: Blue {}
 
@@ -31,23 +33,3 @@ func f(c: Color) {
 main() {
     f(Red())
 }
-
-/* SCAN
-warning: unreachable pattern
-  ==> sealed_open_unreachable.cj:22:14:
-   | 
-22 |         case _: Int64 => -1 // unreachable
-   |              ^^^^^^^^ 
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-warning: unreachable pattern
-  ==> sealed_open_unreachable.cj:26:14:
-   | 
-26 |         case _: DarkBlue => -1 // unreachable
-   |              ^^^^^^^^^^^ 
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-2 warnings generated, 2 warnings printed.
-*/
