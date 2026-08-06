@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// EXEC-PIPE-1: %compiler %cmp_opt %f  --output-type=obj  --compile-target=obj -o main.o --experimental 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %f  --output-type=obj  --compile-target=obj -o main.o --experimental 2>&1 | compare %f
 // ASSERT: scan invalid value: 'obj'
 
 main() {

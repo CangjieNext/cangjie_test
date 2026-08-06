@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f  --output-type=obj  -o main.o --experimental
+// EXEC: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %f  --output-type=obj  -o main.o --experimental
 // EXEC: %compiler %cmp_opt main.o -lcangjie-std-core --experimental -o %output
 // RUN-EXEC: %run %output  | compare %f
 // ASSERT: scan Hello cangjie!
