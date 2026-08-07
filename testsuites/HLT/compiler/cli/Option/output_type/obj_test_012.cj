@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f  --output-type=obj  --compile-target=exe -o main.o --experimental
+// EXEC: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %f  --output-type=obj  --compile-target=exe -o main.o --experimental
 // EXEC-PIPE-1: %compiler main.o -lcangjie-std-cored --experimental -o %output 2>&1 | compare %f
 // (host_win)ASSERT: scan unable to find library -lcangjie-std-cored
 // (host_linux)ASSERT: scan cannot find -lcangjie-std-cored
