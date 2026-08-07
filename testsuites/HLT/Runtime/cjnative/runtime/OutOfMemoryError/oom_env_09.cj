@@ -8,8 +8,7 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// (not Windows or OHOS) %export cjHeapDumpOnOOM=on && %run %run_opt %output %run_args && RUN-EXEC: ls cj_OOM_pid*.dat
-// (Windows and not OHOS) %export cjHeapDumpOnOOM=on && %run %run_opt %output %run_args && RUN-EXEC: %ls cj_OOM_pid*.dat
+// RUN-EXEC: %export cjHeapDumpOnOOM=on && %run %run_opt %output %run_args && %target_ls cj_OOM_pid*.dat
 
 import std.collection.*
 import std.sync.*
