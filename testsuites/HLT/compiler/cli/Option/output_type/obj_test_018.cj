@@ -6,14 +6,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: foo.cj
-// EXEC: %compiler %cmp_opt foo.cj --output-type=obj --compile-target=staticlib --experimental
+// EXEC: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options foo.cj --output-type=obj --compile-target=staticlib --experimental
 // (!host_win) EXEC-1: test -f foo.cjo.flag
 // (host_win) EXEC-1: if exist foo.cjo.flag (exit 0) else (exit 1)
 // EXEC-PIPE-1: %compiler %cmp_opt foo.%object_file_suffix -lcangjie-std-core --experimental -o %output 2>&1 | compare %f
 // (host_win and target_win)ASSERT: scan ld.lld: error: undefined symbol: WinMain
 // (host_mac and target_mac)ASSERT: scan undefined symbol: _main
-// (target_ios_simulator| target_android |target_ohos)ASSERT: scan undefined symbol: main
-// (host_linux and target_linux)ASSERT: scan undefined reference to `main'
+// (target_ios_simulator| target_android |target_ohos | lto)ASSERT: scan undefined symbol: main
+// (host_linux and target_linux & !lto)ASSERT: scan undefined reference to `main'
 
 
 import foo.*

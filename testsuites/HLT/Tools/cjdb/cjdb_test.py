@@ -51,6 +51,58 @@ def get_platform():
     return run_platform
 
 
+def ensure_windows_dll_path():
+    """
+    On Windows, cjdb.exe / liblldb.dll depends on python311.dll, but the
+    system may have a different Python version.  Search common locations
+    (Android NDK, Python 3.11 installs) and prepend the directory to PATH.
+    Also ensures cangjie tools\\bin is on PATH for LLVM/LLDB runtime DLLs.
+    """
+    if sys.platform != 'win32':
+        return
+
+    extra_paths = []
+
+    cangjie_home = os.environ.get('CANGJIE_HOME', '')
+    if cangjie_home:
+        tools_bin = os.path.join(cangjie_home, 'tools', 'bin')
+        if os.path.isdir(tools_bin):
+            extra_paths.append(tools_bin)
+
+    # Recursively walk well-known roots looking for python311.dll that is
+    # accompanied by a Lib\ directory (a complete embeddable Python tree).
+    search_roots = []
+    ndk_root = os.environ.get('NDK_ROOT', '')
+    if ndk_root:
+        search_roots.append(ndk_root)
+
+    local_appdata = os.environ.get('LOCALAPPDATA', '')
+    search_roots.extend([
+        os.path.join(local_appdata, 'Android', 'Sdk', 'ndk'),
+        os.path.join(os.environ.get('PROGRAMFILES', ''), 'Android', 'Android Studio',
+                     'plugins', 'android-ndk'),
+        os.path.join(local_appdata, 'Programs', 'Python', 'Python311'),
+        r'C:\Python311',
+    ])
+
+    for root in search_roots:
+        if not os.path.isdir(root):
+            continue
+        for dirpath, dirnames, filenames in os.walk(root):
+            if 'python311.dll' in filenames:
+                # Prefer a directory that also contains Lib\ (full Python)
+                if os.path.isdir(os.path.join(dirpath, 'Lib')):
+                    extra_paths.append(dirpath)
+                    break
+                # Otherwise accept bare DLL directory as fallback
+                elif dirpath not in extra_paths:
+                    extra_paths.append(dirpath)
+
+    if extra_paths:
+        existing = os.environ.get('PATH', '')
+        os.environ['PATH'] = ';'.join(extra_paths) + ';' + existing
+
+
 ANDROID_DEVICE_DIR = "/data/local/tmp/run/"
 ANDROID_RUNTIME_DIR = "linux_android_aarch64_cjnative"
 ANDROID_RUNTIME_MARKER = ANDROID_DEVICE_DIR + ".runtime_marker"
@@ -641,11 +693,20 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                 if "cjnative" in run_env:
                     if 'CJVM' in firstcmd:
                         continue
-                    process = pexpect.popen_spawn.PopenSpawn(doline, timeout=15,
+                    # On Windows, PopenSpawn does NOT split a string command line
+                    # (see pexpect popen_spawn.py: if ... sys.platform != 'win32').
+                    # Pass a list so subprocess.Popen receives correct argv.
+                    process = pexpect.popen_spawn.PopenSpawn(doline.strip().split(), timeout=15,
                                                              encoding='utf-8',
                                                              maxread=3000,
                                                              codec_errors='replace'
                                                              )
+                    # When cjdb is launched with a binary on the command line, it loads
+                    # the target during startup ("target create"). Under concurrent load
+                    # this may lag behind the first debug command. Wait for target create
+                    # to complete: match either "target create ... (cjdb)" or bare "(cjdb)".
+                    process.expect(['target create[\\s\\S]*\\(cjdb\\)', '\\(cjdb\\)',
+                                   pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
                 elif "cjti" in run_env:
                     pass
             elif run_platform == 'darwin' or run_platform == 'linux':
@@ -657,7 +718,7 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                         continue
                     elif 'CJVM' in firstcmd:
                         freeport = choose_free_port(start=3001, stop=20000)
-                        port_num = freeport.port    
+                        port_num = freeport.port
                         if "javaCallcj" not in test_case:
                             p = subprocess.Popen('cj ' + cmp_res + '.cbc', executable=None,
                                                  shell=True,
@@ -671,6 +732,8 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                                                  )
                         time.sleep(2)
                 process = pexpect.spawnu(doline, timeout=15, maxread=200000)
+                process.expect(['target create[\\s\\S]*\\(cjdb\\)', '\\(cjdb\\)',
+                               pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
             result = '[\\s\\S]*' + result + '[\\s\\S]*'
             continue
 
@@ -844,6 +907,7 @@ def debugging():
     """
     test_case, cmp_res, run_env, port_num = get_argv()
     run_platform = get_platform()
+    ensure_windows_dll_path()
     f_e, lines_e = read_execline(test_case)
 
     android_session = None
@@ -861,7 +925,7 @@ def debugging():
                 return
             
             if run_platform == 'darwin':
-                process = pexpect.popen_spawn.PopenSpawn('xcrun lldb', timeout=LLDB_STARTUP_TIMEOUT,
+                process = pexpect.popen_spawn.PopenSpawn(['xcrun', 'lldb'], timeout=LLDB_STARTUP_TIMEOUT,
                                                          encoding='utf-8',
                                                          maxread=200000,
                                                          codec_errors='replace'
@@ -900,7 +964,7 @@ def debugging():
             os.environ['ANDROID_SERIAL'] = android_session.device_id
 
             if run_platform == 'windows':
-                process = pexpect.popen_spawn.PopenSpawn('cjdb', timeout=LLDB_STARTUP_TIMEOUT,
+                process = pexpect.popen_spawn.PopenSpawn(['cjdb'], timeout=LLDB_STARTUP_TIMEOUT,
                                                          encoding='utf-8',
                                                          maxread=200000,
                                                          codec_errors='replace'
