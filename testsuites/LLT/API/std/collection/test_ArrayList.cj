@@ -90,6 +90,38 @@ class ArrayListTest {
     }
 
     @TestCase
+    func skipZeroUsesLogicalElements(): Unit {
+        let list = ArrayList<Int64>(32)
+        list.add(all: [1, 2, 3])
+        @Expect(list.capacity > list.size, true)
+
+        let skipped = list.skip(0)
+        @Expect(skipped.size, 3)
+        @Expect(skipped.toArray(), [1, 2, 3])
+
+        let empty = ArrayList<Int64>(8)
+        let emptySkipped = empty.skip(0)
+        @Expect(emptySkipped.size, 0)
+        @Expect(emptySkipped.toArray(), Array<Int64>())
+    }
+
+    @TestCase
+    func intersperseSmallListUsesLogicalElements(): Unit {
+        let empty = ArrayList<Int64>(24)
+        @Expect(empty.capacity > empty.size, true)
+        let emptyResult = empty.intersperse(0)
+        @Expect(emptyResult.size, 0)
+        @Expect(emptyResult.toArray(), Array<Int64>())
+
+        let single = ArrayList<Int64>(24)
+        single.add(7)
+        @Expect(single.capacity > single.size, true)
+        let singleResult = single.intersperse(0)
+        @Expect(singleResult.size, 1)
+        @Expect(singleResult.toArray(), [7])
+    }
+
+    @TestCase
     func insertAllEmptyArrayList(): Unit {
         var arr1 = ArrayList<Int64>([5, 4, 3])
         var res = ArrayList<Int64>([5, 4, 3])
