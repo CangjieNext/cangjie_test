@@ -641,11 +641,12 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                 if "cjnative" in run_env:
                     if 'CJVM' in firstcmd:
                         continue
-                    process = pexpect.popen_spawn.PopenSpawn(doline, timeout=15,
+                    process = pexpect.popen_spawn.PopenSpawn(doline, timeout=LLDB_STARTUP_TIMEOUT,
                                                              encoding='utf-8',
                                                              maxread=3000,
                                                              codec_errors='replace'
                                                              )
+                    process.expect(['\\(cjdb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
                 elif "cjti" in run_env:
                     pass
             elif run_platform == 'darwin' or run_platform == 'linux':
@@ -657,7 +658,7 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                         continue
                     elif 'CJVM' in firstcmd:
                         freeport = choose_free_port(start=3001, stop=20000)
-                        port_num = freeport.port    
+                        port_num = freeport.port
                         if "javaCallcj" not in test_case:
                             p = subprocess.Popen('cj ' + cmp_res + '.cbc', executable=None,
                                                  shell=True,
@@ -670,7 +671,8 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                                                  preexec_fn=os.setsid
                                                  )
                         time.sleep(2)
-                process = pexpect.spawnu(doline, timeout=15, maxread=200000)
+                process = pexpect.spawnu(doline, timeout=LLDB_STARTUP_TIMEOUT, maxread=200000)
+                process.expect(['\\(cjdb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
             result = '[\\s\\S]*' + result + '[\\s\\S]*'
             continue
 
