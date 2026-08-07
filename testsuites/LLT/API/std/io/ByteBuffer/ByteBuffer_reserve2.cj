@@ -17,6 +17,7 @@ main() {
     try {
         var bas = ByteBuffer()
         println(bas.capacity)
+        bas.writeByte(0)
         bas.reserve(Int64.Max)
         println(bas.capacity)
     } catch (e: Exception) {
