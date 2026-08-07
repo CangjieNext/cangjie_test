@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: foo.cj
-// EXEC: %compiler %cmp_opt foo.cj --output-type=obj --compile-target=staticlib --experimental
+// EXEC: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options foo.cj --output-type=obj --compile-target=staticlib --experimental
 // (!host_win) EXEC-1: test -f foo.cjo.flag
 // (host_win) EXEC-1: if exist foo.cjo.flag (exit 0) else (exit 1)
 // EXEC-PIPE-0: %compiler %cmp_opt foo.%object_file_suffix -lcangjie-std-core --output-type=staticlib --experimental -o %output

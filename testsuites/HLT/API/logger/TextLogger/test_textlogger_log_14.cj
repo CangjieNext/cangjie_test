@@ -8,8 +8,7 @@
 
 // LEVEL: 1
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
-// (not OHOS and not iOS)RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args  && %cat tloggertest14.txt| compare %f
-// (OHOS)RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args  && cat tloggertest14.txt| compare %f
+// (!(target_ios | target_ios_simulator)) RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args && %target_cat tloggertest14.txt | compare %f
 // ASSERT: regex time=.* level="INFO" msg="abc" age=2
 // ASSERT: regex time=.* level="WARN" msg=".*" age=2
 // ASSERT: regex time=.* level="ERROR" msg="aaaa.*aaaa" age=2
