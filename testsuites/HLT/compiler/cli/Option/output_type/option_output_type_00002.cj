@@ -8,7 +8,8 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %compile_lib_opt %f
-// EXEC: %ls *%n.%middle
+// (!lto) EXEC: %ls *%n.%middle
+// (lto) EXEC: %ls *%n.bc
 
 main(): Int64 {
     return run()

@@ -30,7 +30,7 @@ target平台上可执行文件的后缀名
 
 ## `test_suffix`
 
-静态库文件的后缀名
+动态库文件的后缀名
 
 ## `middle`
 
@@ -284,6 +284,14 @@ ldd 工具
 
 暂无介绍
 
+## `clang_link_core`
+
+暂无介绍
+
+## `clang_link_objc_interop`
+
+暂无介绍
+
 ## `optimization_options`
 
 暂无介绍
@@ -385,6 +393,14 @@ target 平台上的 cp 操作
 暂无介绍
 
 ## `cat`
+
+暂无介绍
+
+## `target_cat`
+
+暂无介绍
+
+## `target_shell`
 
 暂无介绍
 
