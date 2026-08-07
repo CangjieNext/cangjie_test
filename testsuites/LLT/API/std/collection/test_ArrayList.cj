@@ -101,6 +101,32 @@ class ArrayListTest {
     }
 
     @TestCase
+    func insertAllSelfWithGrowth(): Unit {
+        let middle = ArrayList<Int64>([1, 2, 3])
+        middle.add(all: middle, at: 1)
+        @Expect(middle.toArray(), [1, 1, 2, 3, 2, 3])
+        @Expect(middle.size, 6)
+        @Expect(middle.iterator().count(), 6)
+
+        let front = ArrayList<String>(["a", "b"])
+        front.add(all: front, at: 0)
+        @Expect(front.toArray(), ["a", "b", "a", "b"])
+        @Expect(front.iterator().count(), 4)
+
+        let end = ArrayList<Int64>([4, 5, 6])
+        end.add(all: end, at: end.size)
+        @Expect(end.toArray(), [4, 5, 6, 4, 5, 6])
+    }
+
+    @TestCase
+    func insertAllSelfWithoutGrowth(): Unit {
+        let list = ArrayList<Int64>(8)
+        list.add(all: [1, 2, 3])
+        list.add(all: list, at: 1)
+        @Expect(list.toArray(), [1, 1, 2, 3, 2, 3])
+    }
+
+    @TestCase
     func prependAllEmptyArrayList(): Unit {
         var arr1 = ArrayList<Int64>([5, 4, 3])
         var res = ArrayList<Int64>([5, 4, 3])
