@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// ((not Windows or OHOS) and not iOS)  mkdir -p test_6 && %export cjHeapDumpOnOOM=on && %export cjHeapDumpLog=./test_6 && %run %run_opt %output %run_args && RUN-EXEC: ls ./test_6/cj_OOM_pid*.dat
-// (Windows and not OHOS) mkdir -p test_6 && %export cjHeapDumpOnOOM=on && %export cjHeapDumpLog=./test_6 && %run %run_opt %output %run_args && RUN-EXEC: %ls ./test_6/cj_OOM_pid*.dat
+// ((not Windows or OHOS) and not iOS) RUN-EXEC: mkdir -p test_6 && %export cjHeapDumpOnOOM=on && %export cjHeapDumpLog=./test_6 && %run %run_opt %output %run_args && %target_ls ./test_6/cj_OOM_pid*.dat
+// (Windows and not OHOS) RUN-EXEC: mkdir -p test_6 && %export cjHeapDumpOnOOM=on && %export cjHeapDumpLog=./test_6 && %run %run_opt %output %run_args && %target_ls ./test_6/cj_OOM_pid*.dat
 
 import std.collection.*
 import std.sync.*
