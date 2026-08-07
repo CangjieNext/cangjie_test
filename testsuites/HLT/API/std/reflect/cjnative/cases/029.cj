@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../MyType
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt -o %output %f
-// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt -o %output %f
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 /* SCAN
 default.S0<Int64, Bool, Rune>
 Array<Int64>
