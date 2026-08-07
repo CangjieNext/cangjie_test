@@ -8,7 +8,7 @@
 // EXEC-PIPE-0: %compiler %cmp_opt -o %n.%suffix %f
 // EXEC-PIPE-0: %run %run_opt %n.%suffix %run_args | compare %f
 // ASSERT: scan 123
-// ASSERT: scan 353
+// ASSERT: scan 230
 
 internal import std.io.ByteBuffer
 

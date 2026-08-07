@@ -7,8 +7,8 @@
  */
 // EXEC-PIPE-0: %compiler %cmp_opt -o %n.%suffix %f
 // EXEC-PIPE-0: %run %run_opt %n.%suffix %run_args | compare %f
-// ASSERT: scan 230
-// ASSERT: scan 353
+// ASSERT: scan length: 230
+// ASSERT: scan capacity: 230
 
 internal import std.io.ByteBuffer
 
@@ -17,7 +17,7 @@ main() {
     var data = Array<Byte>(230, repeat: 1)
     bas.write(data)
     var bas2 = bas.clone()
-    println(bas2.length)
-    println(bas2.capacity)
+    println("length: ${bas2.length}")
+    println("capacity: ${bas2.capacity}")
     return 0
 }
