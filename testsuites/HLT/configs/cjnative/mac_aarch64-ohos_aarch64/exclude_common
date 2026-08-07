@@ -130,3 +130,12 @@ compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_enum_0031/test.info
 API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj
 
 API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
+
+# OHOS does not support reflection of enum type currently.
+API/std/reflect/cjnative/enum_type
+
+# OHOS does not support reflection of tuple type currently.
+API/std/reflect/cjnative/tuple_type
+
+# OHOS does not support reflection of function type currently.
+API/std/reflect/cjnative/function_type

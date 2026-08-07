@@ -8,10 +8,10 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// (not iOS) RUN-EXEC: %export cjHeapDumpOnOOM=off && %export cjHeapDumpLog=./ && %run %run_opt %output %run_args  2>&1 | compare %f
-// (not Windows and not MAC) RUN-EXEC-2: ls cj_OOM_pid*.dat
-// ((MAC or OHOS) and not iOS) RUN-EXEC-1: ls cj_OOM_pid*.dat
-// (Windows and not OHOS) RUN-EXEC-1: %ls cj_OOM_pid*.dat
+// (not iOS) RUN-EXEC: %export cjHeapDumpOnOOM=off && %export cjHeapDumpLog=./ && %run %run_opt %output %run_args 2>&1 | compare %f
+// (not Windows and not MAC) RUN-EXEC-2: %target_ls cj_OOM_pid*.dat
+// ((MAC or OHOS) and not iOS) RUN-EXEC-1: %target_ls cj_OOM_pid*.dat
+// (Windows and not OHOS) RUN-EXEC-1: %target_ls cj_OOM_pid*.dat
 // ASSERT: scan Out of memory
 
 import std.collection.*
