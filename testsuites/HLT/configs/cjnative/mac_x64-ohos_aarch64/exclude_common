@@ -78,3 +78,6 @@ compiler/cjnative/stable_abi/add_virtual_function
 API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj
 
 API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
+
+# OHOS does not support reflection of enum type currently.
+API/std/reflect/cjnative/enum_type

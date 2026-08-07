@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -o %output
-// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 // 对于一个被注解的对象，允许相同注解出现超过1次
 
