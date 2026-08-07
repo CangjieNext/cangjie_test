@@ -21,6 +21,19 @@ main() {
     for (_ in values where false) {
         println("iterator for where body")
     }
+
+    tryFinallyForInConditionalReturn(true)
+}
+
+func tryFinallyForInConditionalReturn(shouldReturn: Bool): Unit {
+    try {
+        for (_ in 0..10) {
+            if (shouldReturn) {
+                return
+            }
+        }
+    } finally {
+    }
 }
 
 /* SCAN
