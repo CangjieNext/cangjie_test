@@ -7,11 +7,11 @@
  */
 
 // LEVEL: 2
-// (not Mac and not OHOS)DEPENDENCE: zlib_1M.txt ZlibDecompress.java Cj_Compress.cj
-// (not Mac and not OHOS)EXEC: %compiler %import-cangjie-stdx %cmp_opt Cj_Compress.cj  %f -o %output
-// (not Mac and not OHOS)RUN-EXEC: %run_stdx %output %run_args
-// (not Mac and not OHOS)RUN-EXEC: javac ZlibDecompress.java && java ZlibDecompress zlib_1M_07_Cj_Compress
-// (not Mac and not OHOS)RUN-EXEC: %diff zlib_1M.txt zlib_1M_07_Cj_Compress_javaDe.txt
+// (!cross_compilation) DEPENDENCE: zlib_1M.txt ZlibDecompress.java Cj_Compress.cj
+// (!cross_compilation) EXEC: %compiler %import-cangjie-stdx %cmp_opt Cj_Compress.cj  %f -o %output
+// (!cross_compilation) RUN-EXEC: %run_stdx %output %run_args
+// (!cross_compilation) RUN-EXEC: javac ZlibDecompress.java && java ZlibDecompress zlib_1M_07_Cj_Compress
+// (!cross_compilation) RUN-EXEC: %diff zlib_1M.txt zlib_1M_07_Cj_Compress_javaDe.txt
 
 import std.io.*
 import stdx.compress.zlib.*

@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// EXEC-PIPE-1: %compiler %cmp_opt %f  --output-type=obj  --compile-target=exe -o main.o 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %f  --output-type=obj  --compile-target=exe -o main.o 2>&1 | compare %f
 // ASSERT: scan --output-type=obj is an experimental feature. "--experimental" option is required to enable experimental features.
 
 main() {

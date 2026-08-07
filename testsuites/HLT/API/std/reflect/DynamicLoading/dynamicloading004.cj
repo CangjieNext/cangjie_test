@@ -8,10 +8,10 @@
 
 // LEVEL: 0 
 // DEPENDENCE: module_case1
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: cd module_case1 && %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %compile_dylib_opt  test_dynamicloading.cj -o test.dynamicloading.%test_suffix
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: cd module_case1 && %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %compile_dylib_opt  test1_dynamicloading_1.cj -o test.dynamicloading_1.%test_suffix
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %f -o %output
-// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// EXEC: cd module_case1 && %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %compile_dylib_opt  test_dynamicloading.cj -o test.dynamicloading.%test_suffix
+// EXEC: cd module_case1 && %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %compile_dylib_opt  test1_dynamicloading_1.cj -o test.dynamicloading_1.%test_suffix
+// EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args
 
 import std.reflect.*
 
