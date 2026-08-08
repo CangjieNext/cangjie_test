@@ -11,7 +11,7 @@
 
   @Level:         1
 
-  @Assertion:    1.1(2) There are two kinds of of identifiers: ordinary
+  @Assertion:    1.1(2) There are two kinds of  identifiers: ordinary
                  identifiers and raw identifiers.
 
   @Description:  Check both kinds of identifier in the same function.
