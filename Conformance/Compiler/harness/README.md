@@ -233,7 +233,7 @@ general arguments:
   --java JAVA           Path to Java VM
   --javac JAVAC         Path to Javac compiler
   --test-output TEST_OUTPUT
-                        Path for artifacts form tests execution
+                        Path for artifacts from tests execution
   --test-root TEST_ROOT
                         Path to root directory with tests
   --tests TESTS [TESTS ...]
