@@ -371,7 +371,7 @@ general arguments:
   first                 First json report file for comparing
   second                Second json report file for comparing
   -o REPORT_FILE, --output-file REPORT_FILE
-                        Path to the file to save the comparsion result. If it was not set, then print to console
+                        Path to the file to save the comparison result. If it was not set, then print to console
   -t {plain,html}, --report-type {plain,html}
                         Test report type (default: plain) **html type is not supported yet**
   --test TEST           Show only test(s) details by name or path
