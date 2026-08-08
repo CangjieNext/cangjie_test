@@ -12,7 +12,7 @@
   @Level:         1
 
   @Assertion:       5.8(1) The mut function is a special kind of instance member function. Inside the mut function, 
-                    the semantics of this is special, and this this has the ability to modify the field in-place, 
+                    the semantics of this is special, and this has the ability to modify the field in-place, 
                     with the changes taking effect immediately.
 
   @Description:     Check that struct fields can be modified in place with immediately effect.
