@@ -387,7 +387,7 @@ format arguments:
 
 log diffs turning arguments:
   --include-same        Don't skip tests with same logs in log difference report
-  --compare-commands    Add compile and execute commands in the logs comparsion
+  --compare-commands    Add compile and execute commands in the logs comparison
   --unify-paths         Replace '\' to '/' in logs (useful to check results from different OSes)
 
 other arguments:
