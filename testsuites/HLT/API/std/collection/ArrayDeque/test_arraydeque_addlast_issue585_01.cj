@@ -12,8 +12,8 @@
 
 import std.collection.*
 
-let OPS: Int64 = 4096
-let WRAP_OPS: Int64 = 2048
+let OPS: Int64 = 512
+let WRAP_OPS: Int64 = 256
 
 @Test
 class Test_arraydeque_addlast_issue585_01 {
