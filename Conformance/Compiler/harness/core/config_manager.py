@@ -41,7 +41,7 @@ class ConfigManager:
     self._config = config.Config()
     self._config.replay = args.replay
 
-    # Check that local-settings.json is exists and parse it
+    # Check that local-settings.json exists and parse it
     if args.config_file is None:
       self._settings_file = self._get_settings_file_path()
     else:
