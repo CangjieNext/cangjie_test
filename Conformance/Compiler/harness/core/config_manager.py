@@ -100,7 +100,7 @@ class ConfigManager:
     self._config.execution_threads = self._get_option_value(args.execution_threads, 'execution_threads')
     self._config.base_timeout = self._get_option_value(args.base_timeout, 'base_timeout')
     self._config.is_jet = self._get_option_value(args.is_jet, 'is_jet')
-    self._config.filters = self._get_option_value(args.filters, 'filters')  # Not sure how to path them from command line argument
+    self._config.filters = self._get_option_value(args.filters, 'filters')  # Not sure how to pass them from command line argument
 
     # Processing of excluded tests list
     excluded_tests_list_file_path = self._get_option_value(args.excluded_tests_list, 'excluded_tests_list')
