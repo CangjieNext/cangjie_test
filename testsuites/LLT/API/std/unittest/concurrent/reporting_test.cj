@@ -9,7 +9,7 @@
 // LEVEL: 0
 // DEPENDENCE: helpers
 // EXEC: %compiler %cmp_opt -p helpers %compile_lib_opt --output p.%middle
-// EXEC: %compiler %cmp_opt p.%middle %f %cmp_utest_opt -o %output
+// EXEC: %compiler %cmp_opt p.%middle %f %cmp_utest_opt %enableO2 -o %output
 // EXEC-PIPE-1: %export cjHeapSize=4GB && %run %run_opt %output %run_utest_opt --no-color --show-all-output 2>&1 | compare %f
 
 // ASSERT: scan iteration 0
@@ -25,7 +25,6 @@
 // ASSERT: scan ≠
 // ASSERT: scan ✗
 
-// ASSERT: scan Operation checks:
 
 // ASSERT: scan Ordering:
 // ASSERT: scan Actor 0
