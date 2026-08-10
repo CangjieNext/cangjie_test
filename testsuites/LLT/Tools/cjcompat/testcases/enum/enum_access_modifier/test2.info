@@ -1,0 +1,23 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: mypkg_v0.cj mypkg_v2.cj
+
+// EXEC: %cpfile mypkg_v0.cj myPkgA.cj
+// EXEC: %cjc %staticlib myPkgA.cj
+// EXEC: %move myPkgA.cjo old.cjo
+
+// EXEC: %cpfile mypkg_v2.cj myPkgA.cj
+// EXEC: %cjc %staticlib myPkgA.cj
+// EXEC: %move myPkgA.cjo new.cjo
+
+// EXEC-PIPE-0: %cjcompat %old old.cjo %new new.cjo | compare %f
+
+/* SCAN-IN
+[API/ABI] Enum declaration visible outside the module made protected or internal.
+  enum_decl E1: [BEFORE] myPkgA/myPkgA.cj:9:1-11:2
+  enum_decl E1: [AFTER] myPkgA/myPkgA.cj:10:1-12:2
+*/

@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: mypkg_v0.cj mypkg_v1.cj
+// EXEC: %cjc mypkg_v0.cj
+// EXEC: %move myPkgA.cjo old.cjo
+// EXEC: %cjc mypkg_v1.cj
+// EXEC: %move myPkgA.cjo new.cjo
+// EXEC-PIPE-0: %cjcompat %old old.cjo %new new.cjo | compare %f
+
+/* SCAN-IN
+[API/ABI] Deleted interfaces that extend implemented.
+  extend_decl : [BEFORE] myPkgA/mypkg_v0.cj:17:1-19:2
+  extend_decl : [AFTER] myPkgA/mypkg_v1.cj:17:1-19:2
+*/
