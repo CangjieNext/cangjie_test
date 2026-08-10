@@ -643,7 +643,7 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                         continue
                     process = pexpect.popen_spawn.PopenSpawn(doline, timeout=15,
                                                              encoding='utf-8',
-                                                             maxread=3000,
+                                                             maxread=200000,
                                                              codec_errors='replace'
                                                              )
                 elif "cjti" in run_env:
@@ -781,10 +781,13 @@ def dotest(process, doline, result, f_e, run_env, run_platform, p=None):
             process.expect(['\(lldb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=3)
 
     else:
-        if run_platform == 'linux' or "android_aarch64" in run_env:
-            expected_pattern = '\n[\\s\\S]*' + result + '[\\s\\S]*\\(cjdb\\)'
+        step_commands = ['r', 'run', 'c', 'continue', 'n', 'next', 's', 'step', 'finish']
+        if doline.strip().split()[0] in step_commands:
+            expected_pattern = '\r?\n[\\s\\S]*stopped[\\s\\S]*' + result + '[\\s\\S]*'
+        elif run_platform == 'linux' or "android_aarch64" in run_env:
+            expected_pattern = '\r?\n[\\s\\S]*' + result + '[\\s\\S]*\\(cjdb\\)'
         else:
-            expected_pattern = '\n[\\s\\S]*' + result + '[\\s\\S]*'
+            expected_pattern = '\r?\n[\\s\\S]*' + result + '[\\s\\S]*'
         index = process.expect([expected_pattern, pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_CMD_TIMEOUT)
     
     indextest(process, doline, index, f_e, run_env, run_platform, p)
