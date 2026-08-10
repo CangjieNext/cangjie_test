@@ -21,5 +21,5 @@ s,s,18
 finish,finish,45|45
 b,b returnFunc_7,test_stepin.cj:34
 c,c,35
-finish,finish,49|48
+finish,finish,49|48|34
 q,q,

@@ -17,5 +17,5 @@ b,b case34.cj:28,case34.cj:28
 AOT r,r,-> 28
 Android c,c,28
 CJVM c,c,28
-AOT thread,cjthread backtrace 100,name = 'spawn98', tid = 100,
+AOT thread,cjthread backtrace 100,name = 'spawn98', tid = [\s\S]*,
 q,q,

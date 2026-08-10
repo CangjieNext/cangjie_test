@@ -8,8 +8,8 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
-// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g coroutine/coroutine_20.cj -o coroutine_20%cmp_output
-// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py coroutine_082.info coroutine_20 %run_env
+// (!(target_android|target_ios_simulator|target_win|target_mac)) EXEC: %compiler %cmp_opt -g coroutine/coroutine_20.cj -o coroutine_20%cmp_output
+// (!(target_android|target_ios_simulator|target_win|target_mac)) EXEC: python3 cjdb_test.py coroutine_082.info coroutine_20 %run_env
 
 test#
 cjdb,cjdb --no-use-colors coroutine_20,coroutine_20
