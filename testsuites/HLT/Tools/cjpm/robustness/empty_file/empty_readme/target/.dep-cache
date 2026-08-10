@@ -1,0 +1,22 @@
+{
+  "bin": {},
+  "pkg-build": {},
+  "pkg-test": {
+    "D:\\work\\6.11\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\robustness\\empty_file\\empty_readme\\src": {
+      "package": "test_org::test_case",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1786008364,
+      "dependencies": [],
+      "std-dependencies": [
+        {
+          "std.core": []
+        }
+      ],
+      "features": [],
+      "product": true,
+      "testUsed": false,
+      "mockUsed": false
+    }
+  }
+}

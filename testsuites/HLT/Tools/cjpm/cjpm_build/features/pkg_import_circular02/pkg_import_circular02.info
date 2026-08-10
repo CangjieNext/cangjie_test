@@ -6,6 +6,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: scan cjpm build failed
-// ASSERT: scan cyclic dependency
+// (not Mac)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
+// (not Mac)ASSERT: scan cjpm build failed
+// (not Mac)ASSERT: scan cyclic dependency

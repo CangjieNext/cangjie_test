@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 2
+// DEPENDENCE: ../%n
+// (not Windows)EXEC: cd %n && python3 -c "open('cjpm.toml','w',encoding='utf-8').write(open('cjpm_template.toml','r',encoding='utf-8').read().replace('  name = \"test_case\"','  name = \"test\u200bcase\"'))"
+// (Windows)EXEC: cd %n && python -c "open('cjpm.toml','w',encoding='utf-8').write(open('cjpm_template.toml','r',encoding='utf-8').read().replace('  name = \"test_case\"','  name = \"test\u200bcase\"'))"
+// ERRCHECK: cd %n && %cjpm build %cjpm_opt
+// ASSERT: scan Error:

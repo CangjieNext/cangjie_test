@@ -1,0 +1,29 @@
+{
+  "organization": "test_org",
+  "name": "test_case",
+  "version": "1.0.0",
+  "description": "A test case for cjpm robustness testing.",
+  "artifact-type": "src",
+  "executable": true,
+  "authors": [],
+  "repository": "",
+  "homepage": "",
+  "documentation": "",
+  "tag": [],
+  "category": [],
+  "license": [],
+  "cjc-version": "1.0.0",
+  "index": {
+    "organization": "test_org",
+    "name": "test_case",
+    "version": "1.0.0",
+    "dependencies": [],
+    "test-dependencies": [],
+    "script-dependencies": [],
+    "sha256sum": "b09c36e8a1f20ae23a49ae3cb80431e0972249d8ee799c761c8c1a493622e7f7",
+    "yanked": false,
+    "cjc-version": "1.0.0",
+    "index-version": 1
+  },
+  "meta-version": 1
+}

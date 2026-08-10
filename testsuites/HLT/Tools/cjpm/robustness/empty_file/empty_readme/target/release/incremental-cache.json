@@ -1,0 +1,40 @@
+{
+  "compile~test_org::test_case|x86_64-w64-mingw32|false|false|executable|": {
+    "value": [
+      {
+        "path": "D:\\work\\6.11\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\robustness\\empty_file\\empty_readme\\target\\release\\bin\\main.exe",
+        "checkKind": "check-exists"
+      },
+      {
+        "path": "D:\\work\\6.11\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\robustness\\empty_file\\empty_readme\\target\\release\\bin\\test_case@test_org.cjo",
+        "checkKind": "check-timestamp"
+      }
+    ],
+    "inputHash": -7013084585587407251,
+    "outputHash": -5189841079521102195
+  },
+  "compile~test_org::test_case|x86_64-w64-mingw32|false|false|static|": {
+    "value": [
+      {
+        "path": "D:\\work\\6.11\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\robustness\\empty_file\\empty_readme\\target\\release\\test_case@test_org\\libtest_case@test_org.a",
+        "checkKind": "check-exists"
+      },
+      {
+        "path": "D:\\work\\6.11\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\robustness\\empty_file\\empty_readme\\target\\release\\test_case@test_org\\test_case@test_org.cjo",
+        "checkKind": "check-timestamp"
+      }
+    ],
+    "inputHash": 2493192137114876976,
+    "outputHash": -5189841079520687313
+  },
+  "options~test_org::test_case|x86_64-w64-mingw32|false|false|": {
+    "value": -3603253489788346002,
+    "inputHash": 0,
+    "outputHash": -3603253489788346002
+  },
+  "read~test_org::test_case|": {
+    "value": "D:\\work\\6.11\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\robustness\\empty_file\\empty_readme\\src",
+    "inputHash": 0,
+    "outputHash": 3155947213420197817
+  }
+}
