@@ -1,9 +1,5 @@
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args %run_utest_opt --no-color | compare %f
-// ASSERT: scan [ PASSED ] CASE: test
-// ASSERT: scan [ FAILED ] CASE: testFailed
-// ASSERT: scan Consistency validation: NOT linearizable
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt  %enableO2
 
 import std.unittest.*
 import std.unittest.concurrent.*

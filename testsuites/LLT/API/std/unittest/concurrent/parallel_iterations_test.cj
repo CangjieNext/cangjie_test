@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
+// EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt %enableO2
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args %run_utest_opt --no-color | compare %f
 // ASSERT: scan PASSED: 5
 
