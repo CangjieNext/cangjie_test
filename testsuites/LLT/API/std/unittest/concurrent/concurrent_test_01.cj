@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt %enableO2
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args %run_utest_opt --no-color | compare %f
 // ASSERT: scan PASSED: 4
 
@@ -41,7 +41,7 @@ class ConcurrentTests {
         println("Testing basic counter data race scenario...")
                 
         let result = scenario("basic_counter_test")
-            .iterations(100)
+            .iterations(1000)
             .actor { => for (j in 0..1000) { counter += 1 } }
             .actor { => for (j in 0..1000) { counter -= 1 } }
             .verify { => counter == 0 }

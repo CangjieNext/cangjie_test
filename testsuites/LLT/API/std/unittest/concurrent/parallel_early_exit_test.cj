@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt
+// EXEC: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt %enableO2
 // EXEC-PIPE-1: %run %run_opt %output %run_utest_opt --no-color 2>&1 | compare %f
 
 // Verifies early-exit semantics under the default parallel iteration path

@@ -1,6 +1,6 @@
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args %run_utest_opt --no-color | compare %f
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt %enableO2
+// RUN-EXEC-PIPE-1: %export cjHeapSize=16gb && %run %run_opt %output %run_args %run_utest_opt --no-color | compare %f
 // ASSERT: scan FAILED: 1
 // ASSERT: scan consistency validation failed
 // ASSERT: scan NOT serializable
@@ -37,7 +37,7 @@ func testQueueSerializable(): TestSuite {
             operation("peek", { queue => queue.peek() ?? -1 }),
             operation("remove", { queue => queue.remove() ?? -1 }),
         ])
-        .iterations(5000)
+        .iterations(10000)
 
     let testCase = ConcurrentTestCase.createFromBuilder(
         "parallel_iter0_fails",
