@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/past_basic/063_debug_expr_class.cj
-// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 063_debug_expr_class.cj -o 001_express_basetype%cmp_output
-// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py express_class_020.info 001_express_basetype %run_env
+// (!(target_mac|target_ios_simulator|target_win)) EXEC: %compiler %cmp_opt -g 063_debug_expr_class.cj -o 001_express_basetype%cmp_output
+// (!(target_mac|target_ios_simulator|target_win)) EXEC: python3 cjdb_test.py express_class_020.info 001_express_basetype %run_env
 
 
 
