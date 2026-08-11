@@ -6,11 +6,13 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// DEPENDENCE: sub/test.toml test.h
+// DEPENDENCE: test.toml test.h
+// EXEC: mkdir sub && mv test.toml sub/
 // EXEC: ObjCInteropGen sub/test.toml
-// EXEC: %cat test.cj | compare %f
+// EXEC: %cat sub/test.cj | compare %f
 /* SCAN-IN
 @ObjCMirror
 public open class M {
 }
 */
+
