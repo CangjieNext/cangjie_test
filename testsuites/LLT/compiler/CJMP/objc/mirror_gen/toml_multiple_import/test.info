@@ -9,7 +9,7 @@
 // DEPENDENCE: test.toml test1.toml test2.toml test.h
 // EXEC: ObjCInteropGen test.toml 2>&1 | compare %f
 /* SCAN-IN
-test2.toml`: multiple import
+`test2.toml`: multiple import
   First import: `test.toml` -> `test1.toml` -> `test2.toml`
   Additional import (ignored): `test.toml` -> `test2.toml`
 */
