@@ -59,9 +59,36 @@ ANDROID_RUNTIME_PUSH_LOCK_PATH = os.path.join(LOCK_DIR, 'android_runtime_push_lo
 LLDB_SERVER_PORT_START = 12000
 LLDB_SERVER_PORT_END = 35000
 
-LLDB_STARTUP_TIMEOUT = int(os.environ.get('LLDB_STARTUP_TIMEOUT', 10))
-LLDB_ATTACH_TIMEOUT = int(os.environ.get('LLDB_ATTACH_TIMEOUT', 5))
-LLDB_CMD_TIMEOUT = int(os.environ.get('LLDB_CMD_TIMEOUT', 10))
+LLDB_STARTUP_TIMEOUT = int(os.environ.get('LLDB_STARTUP_TIMEOUT', 60))
+LLDB_ATTACH_TIMEOUT = int(os.environ.get('LLDB_ATTACH_TIMEOUT', 15))
+LLDB_CMD_TIMEOUT = int(os.environ.get('LLDB_CMD_TIMEOUT', 60))
+LLDB_ECHO_TIMEOUT = int(os.environ.get('LLDB_ECHO_TIMEOUT', 10))
+LLDB_QUIT_TIMEOUT = int(os.environ.get('LLDB_QUIT_TIMEOUT', 8))
+
+
+class CaseResources:
+    """Own per-test resources and release them in reverse acquisition order."""
+    def __init__(self):
+        self.items = []
+
+    def add(self, resource):
+        if resource is not None and resource not in self.items:
+            self.items.append(resource)
+        return resource
+
+    def cleanup(self):
+        errors = []
+        for resource in reversed(self.items):
+            try:
+                cleanup = getattr(resource, 'cleanup', None)
+                if cleanup:
+                    cleanup()
+                elif callable(resource):
+                    resource()
+            except Exception as exc:
+                errors.append(str(exc))
+        self.items[:] = []
+        return errors
 
 
 def get_android_paths():
@@ -514,9 +541,9 @@ def split_cmd(line_e, run_env):
             break
     if symbol is None:
         return line_e.replace("\n", ""), "", ""
-    firstcmd = line_e.split(symbol)[0]
-    doline = line_e.split(symbol)[1]
-    result = symbol.join(line_e.split(symbol)[2:]).replace("\n", "")
+    firstcmd = line_e.split(symbol)[0].strip()
+    doline = line_e.split(symbol)[1].strip()
+    result = symbol.join(line_e.split(symbol)[2:]).replace("\n", "").strip()
     if "android_aarch64" in run_env and "cjdb" in firstcmd:
         doline = "cjdb"
     if ("cjnative" in run_env and "android_aarch64" not in run_env and "ios_simulator" not in run_env and 'AOT' in firstcmd) or ("cjti" in run_env and 'CJVM' in firstcmd) or (
@@ -550,21 +577,21 @@ class check_free_port(object):
                 continue
 
     def release(self):
-        if self.port is not None:
+        if self.sock is not None:
             self.sock.close()
+            self.sock = None
 
 
 class choose_free_port(object):
     def __init__(self, start, stop):  # port choose range
         self.lock = None
-        self.bind = None
         self.port = None
-        while self.port == None:
+        for _ in range(max(1, stop - start)):
             bind = check_free_port(start, stop)
             if bind.port is None:
                 bind.release()
                 continue
-            lock = InterProcessLock(path=os.path.join(LOCK_DIR, 'port_{}.lock'.format(bind.port)))  # Lock the Port
+            lock = InterProcessLock(path=os.path.join(LOCK_DIR, 'port_{}.lock'.format(bind.port)))
             success = lock.acquire(blocking=False)
             if success:
                 self.lock = lock
@@ -572,11 +599,15 @@ class choose_free_port(object):
                 bind.release()
                 break
             bind.release()
+        if self.port is None:
+            raise RuntimeError('No free port available in range {}-{}'.format(start, stop - 1))
         print("")
         print("----CHOOSE CJVM-PORT: {}----".format(self.port))
 
     def release(self):
-        self.lock.release()
+        if self.lock is not None:
+            self.lock.release()
+            self.lock = None
 
 
 def choose_lldb_server_port():
@@ -600,90 +631,274 @@ def choose_lldb_server_port():
     return None, None
 
 
-def send_and_expect(process, cmd, timeout=None):
-    """
-    send_and_expect: Send command to cjdb, consume command echo, then wait for prompt.
-    Returns the command output (between echo and prompt).
-    """
+def wait_for_prompt(process, prompt='cjdb', timeout=None):
+    """Wait until the debugger is ready for the next command."""
+    if timeout is None:
+        timeout = LLDB_CMD_TIMEOUT
+    pattern = '\\(lldb\\)' if prompt == 'lldb' else '\\(cjdb\\)'
+    return process.expect([pattern, pexpect.EOF, pexpect.TIMEOUT], timeout=timeout)
+
+
+def expect_initial_prompt(process, prompt='cjdb'):
+    index = wait_for_prompt(process, prompt=prompt, timeout=LLDB_STARTUP_TIMEOUT)
+    if index == 1:
+        raise DebugTestFailed('{} exited before initial prompt'.format(prompt.upper()))
+    if index == 2:
+        raise DebugTestFailed('{} initial prompt timed out'.format(prompt.upper()))
+
+
+def command_output(process, cmd, prompt='cjdb', timeout=None):
+    """Send one command and return only the output before its next prompt."""
     if timeout is None:
         timeout = LLDB_CMD_TIMEOUT
     process.sendline(cmd)
-    process.expect_exact(cmd, timeout=5)
-    process.expect(['\\(cjdb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=timeout)
-    return process.before
+    prompt_pattern = '\\(lldb\\)' if prompt == 'lldb' else '\\(cjdb\\)'
+    patterns = [prompt_pattern, pexpect.EOF, pexpect.TIMEOUT]
+    if not isinstance(process, popen_spawn.PopenSpawn):
+        patterns.insert(0, re.escape(cmd.strip()))
+    index = process.expect(patterns, timeout=timeout)
+    if isinstance(process, popen_spawn.PopenSpawn):
+        prompt_index, eof_index, timeout_index = 0, 1, 2
+    else:
+        prompt_index, eof_index, timeout_index = 1, 2, 3
+        if index == 0:
+            index = process.expect(
+                [prompt_pattern, pexpect.EOF, pexpect.TIMEOUT],
+                timeout=timeout
+            )
+            prompt_index, eof_index, timeout_index = 0, 1, 2
+    output = process.before or ''
+    if index == eof_index:
+        raise DebugTestFailed(
+            'Debugger exited while running {}. Received: {}'.format(
+                cmd, summarize_output(output)
+            )
+        )
+    if index == timeout_index:
+        raise DebugTestFailed(
+            'Debugger command timed out: {}. Received: {}'.format(
+                cmd, summarize_output(output)
+            )
+        )
+    if index != prompt_index:
+        raise DebugTestFailed('Unexpected debugger state while running ' + cmd)
+    return output
+
+
+def summarize_output(output, limit=4000):
+    output = str(output).replace('\r', '')
+    if len(output) > limit:
+        return '...<{} characters omitted>...{}'.format(
+            len(output) - limit, output[-limit:]
+        )
+    return output
+
+
+def send_and_expect(process, cmd, timeout=None):
+    """Send a cjdb command and return its prompt-delimited output."""
+    return command_output(process, cmd, timeout=timeout)
 
 
 def send_and_expect_lldb(process, cmd, timeout=None):
-    """
-    send_and_expect_lldb: Send command to lldb, wait for echo and prompt.
-    Returns the command output.
-    """
-    if timeout is None:
-        timeout = LLDB_CMD_TIMEOUT
-    process.sendline(cmd)
-    process.expect([re.escape(cmd.strip()), pexpect.EOF, pexpect.TIMEOUT], timeout=5)
-    process.expect(['\(lldb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=timeout)
-    return process.before
+    """Send an lldb command and return its prompt-delimited output."""
+    return command_output(process, cmd, prompt='lldb', timeout=timeout)
 
 
-def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_num, android_session=None, process=None):
+def debugger_is_alive(process):
+    if process is None:
+        return False
+    proc = getattr(process, 'proc', None)
+    if proc is not None:
+        return proc.poll() is None
+    try:
+        return process.isalive()
+    except (AttributeError, OSError, pexpect.ExceptionPexpect):
+        return False
+
+
+def quit_debugger(process, prompt='cjdb'):
+    """Request debugger exit; forced termination is left to final cleanup."""
+    if not debugger_is_alive(process):
+        return
+    try:
+        process.sendline('q')
+        index = process.expect(
+            [r'(?i)(?:quit|terminate|process).*\?',
+             '\\(lldb\\)' if prompt == 'lldb' else '\\(cjdb\\)',
+             pexpect.EOF, pexpect.TIMEOUT],
+            timeout=LLDB_QUIT_TIMEOUT
+        )
+        if index == 0:
+            process.sendline('y')
+            process.expect([pexpect.EOF, pexpect.TIMEOUT],
+                           timeout=LLDB_QUIT_TIMEOUT)
+    except (OSError, pexpect.ExceptionPexpect):
+        pass
+
+
+def cleanup_debugger(process, prompt='cjdb'):
+    if process is None:
+        return
+    quit_debugger(process, prompt=prompt)
+    if not debugger_is_alive(process):
+        # pexpect.isalive() already performs a non-blocking waitpid and records
+        # the exit status. Calling spawn.wait() here can block indefinitely on
+        # macOS while the debugger is in its final exit transition.
+        return
+    try:
+        proc = getattr(process, 'proc', None)
+        if proc is not None:
+            proc.terminate()
+            try:
+                proc.wait(timeout=LLDB_QUIT_TIMEOUT)
+            except subprocess.TimeoutExpired:
+                proc.kill()
+                proc.wait(timeout=LLDB_QUIT_TIMEOUT)
+        else:
+            # terminate(force=True) polls and reaps a pexpect.spawn child.
+            process.terminate(force=True)
+    except (AttributeError, OSError, pexpect.ExceptionPexpect,
+            subprocess.TimeoutExpired):
+        try:
+            process.kill(signal.SIGKILL)
+        except (AttributeError, OSError, pexpect.ExceptionPexpect):
+            pass
+
+
+def cleanup_subprocess(process, run_platform='linux'):
+    if process is None:
+        return
+    if process.poll() is not None:
+        process.wait()
+        return
+    try:
+        if run_platform == 'windows':
+            process.terminate()
+        else:
+            os.killpg(os.getpgid(process.pid), signal.SIGTERM)
+        process.wait(timeout=LLDB_QUIT_TIMEOUT)
+    except (ProcessLookupError, OSError, subprocess.TimeoutExpired):
+        try:
+            if run_platform == 'windows':
+                process.kill()
+            else:
+                os.killpg(os.getpgid(process.pid), signal.SIGKILL)
+            process.wait(timeout=LLDB_QUIT_TIMEOUT)
+        except (ProcessLookupError, OSError, subprocess.TimeoutExpired):
+            pass
+
+
+def debugger_environment():
+    """Build the debugger environment from the active Cangjie SDK."""
+    environment = os.environ.copy()
+    sdk_home = environment.get('CANGJIE_HOME')
+    if not sdk_home:
+        return environment
+    library_paths = [
+        os.path.join(sdk_home, 'third_party', 'llvm', 'lib'),
+        os.path.join(sdk_home, 'tools', 'lib'),
+    ]
+    existing = environment.get('DYLD_LIBRARY_PATH', '')
+    if existing:
+        library_paths.append(existing)
+    environment['DYLD_LIBRARY_PATH'] = os.pathsep.join(
+        path for path in library_paths if path
+    )
+    return environment
+
+
+def is_quit_command(firstcmd):
+    tokens = firstcmd.strip().lower().split()
+    return bool(tokens) and tokens[-1] in ('q', 'quit', 'exit')
+
+
+def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_num, android_session=None, process=None,
+                 resources=None):
     """
     launch_debug method: based on different run_platform & run_env
     """
     p = None
+    last_firstcmd = ''
+    own_resources = resources is None or isinstance(resources, list)
+    if resources is None:
+        resources = CaseResources()
+    elif isinstance(resources, list):
+        registry = CaseResources()
+        for resource in resources:
+            registry.add(resource)
+        resources = registry
     for line_e in lines_e:
         firstcmd, doline, result = split_cmd(line_e, run_env)
+        last_firstcmd = firstcmd
         # 'cjdb' in firstcmd: lanunch cjdb - start debugging
         if "cjdb" in firstcmd:
             if process is not None:
                 continue
+            skip_launch = False
             if run_platform == 'windows':
                 if "cjnative" in run_env:
                     if 'CJVM' in firstcmd:
-                        continue
-                    process = pexpect.popen_spawn.PopenSpawn(doline, timeout=15,
-                                                             encoding='utf-8',
-                                                             maxread=3000,
-                                                             codec_errors='replace'
-                                                             )
+                        skip_launch = True
+                    else:
+                        process = pexpect.popen_spawn.PopenSpawn(
+                            ["cmd", "/c", doline],
+                            timeout=LLDB_STARTUP_TIMEOUT,
+                            encoding='utf-8', maxread=200000,
+                            codec_errors='replace', env=debugger_environment()
+                        )
                 elif "cjti" in run_env:
-                    pass
+                    skip_launch = True
             elif run_platform == 'darwin' or run_platform == 'linux':
-                if "cjnative" in run_env:
-                    if 'CJVM' in firstcmd:
-                        continue
-                elif "cjti" in run_env:
-                    if 'AOT' in firstcmd:
-                        continue
-                    elif 'CJVM' in firstcmd:
+                if "cjnative" in run_env and 'CJVM' in firstcmd:
+                    skip_launch = True
+                elif "cjti" in run_env and 'AOT' in firstcmd:
+                    skip_launch = True
+                else:
+                    if "cjti" in run_env and 'CJVM' in firstcmd:
                         freeport = choose_free_port(start=3001, stop=20000)
-                        port_num = freeport.port    
+                        resources.add(freeport)
+                        port_num = freeport.port
                         if "javaCallcj" not in test_case:
-                            p = subprocess.Popen('cj ' + cmp_res + '.cbc', executable=None,
-                                                 shell=True,
-                                                 preexec_fn=os.setsid
-                                                 )
+                            p = subprocess.Popen(
+                                'cj ' + cmp_res + '.cbc', shell=True,
+                                start_new_session=True
+                            )
                         else:
-                            p = subprocess.Popen(cmp_res + '.cbc -classpath . Main',
-                                                 executable=None,
-                                                 shell=True,
-                                                 preexec_fn=os.setsid
-                                                 )
+                            p = subprocess.Popen(
+                                cmp_res + '.cbc -classpath . Main', shell=True,
+                                start_new_session=True
+                            )
+                        resources.add(
+                            lambda proc=p: cleanup_subprocess(proc, run_platform)
+                        )
                         time.sleep(2)
-                process = pexpect.spawnu(doline, timeout=15, maxread=200000)
-            result = '[\\s\\S]*' + result + '[\\s\\S]*'
+                    process = pexpect.spawnu(
+                        doline, timeout=LLDB_STARTUP_TIMEOUT, maxread=200000,
+                        env=debugger_environment()
+                    )
+            if skip_launch:
+                continue
+            if process is None:
+                raise DebugTestFailed(
+                    "Debugger is not supported for {} on {}".format(
+                        run_env, run_platform
+                    )
+                )
+            resources.add(lambda proc=process: cleanup_debugger(proc))
+            expect_initial_prompt(process)
+            # cjdb emits asynchronous symbol-loading output after its first
+            # prompt. Give it a short settling window before sending commands,
+            # otherwise the first command can be consumed during startup.
+            time.sleep(1)
             continue
 
         # stop cjdb process using quit-cmd
-        elif "quit" in firstcmd or "q" in firstcmd or "exit" in firstcmd:
-            process.sendline(doline)
-            process.expect(['proc', pexpect.EOF, pexpect.TIMEOUT], timeout=5)
-            try:
-                process.sendline("y")
-            except OSError:
-                pass
-            if run_platform != 'darwin':
-                process.wait()
+        elif is_quit_command(firstcmd):
+            if process is None:
+                raise DebugTestFailed('No debugger process for quit command')
+            quit_debugger(
+                process, prompt='lldb' if "ios_simulator" in run_env else 'cjdb'
+            )
             break
 
         # AOT-cmd only run on cjnative (non-Android/iOS) backend
@@ -710,8 +925,7 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
         # Android remote debugging
         elif "android_aarch64" in run_env and "cjdb" not in firstcmd:
             if android_session is None:
-                print("Error: Android session not initialized")
-                os._exit(1)
+                raise DebugTestFailed("Android session not initialized")
             dotest(process, doline, result, f_e, run_env, run_platform, p)
 
         # iOS simulator debugging
@@ -735,9 +949,9 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
         elif "rerun" in firstcmd:
             if "cjnative" in run_env:
                 process.sendline(doline)
-                # Input 'n' after rerun to cancel
+                # Input 'n' after rerun to cancel.
                 if result == "n":
-                    process.sendline(result)
+                    command_output(process, result)
                 else:
                     dotest(process, "y", result, f_e, run_env, run_platform)
             # rerun not support on cjti
@@ -747,48 +961,63 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
         else:
             dotest(process, doline, result, f_e, run_env, run_platform, p)
 
-    # Auto quit cjdb process using command "quit"
-    if not ("quit" in firstcmd or "q" in firstcmd or "exit" in firstcmd):
-        process.sendline("q")
-        process.expect(['proc', pexpect.EOF, pexpect.TIMEOUT], timeout=5)
-        try:
-            process.sendline("y")
-        except OSError:
-            pass
-        if run_platform != 'darwin':
-            process.wait()
+    if process is not None and not is_quit_command(last_firstcmd):
+        quit_debugger(
+            process, prompt='lldb' if "ios_simulator" in run_env else 'cjdb'
+        )
 
+    if own_resources:
+        errors = resources.cleanup()
+        if errors:
+            raise DebugTestFailed('Cleanup failed: ' + '; '.join(errors))
     return process, p
 
 
 def dotest(process, doline, result, f_e, run_env, run_platform, p=None):
-    """
-    dotest: send debug command and match expected result
-    """
-    process.sendline(doline)
-    
-    if "ios_simulator" in run_env:
-        process.expect([re.escape(doline.strip()), pexpect.EOF, pexpect.TIMEOUT], timeout=5)
-        
-        if doline.strip() in ['c', 'continue']:
-            expected_pattern = '[\\s\\S]*' + result + '[\\s\\S]*stopped'
-        else:
-            expected_pattern = '[\\s\\S]*' + result + '[\\s\\S]*'
-        
-        index = process.expect([expected_pattern, pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_CMD_TIMEOUT)
-        
-        if index == 0:
-            process.expect(['\(lldb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=3)
+    """Run one debugger command and verify the expected output appears."""
+    del f_e, run_platform, p
+    prompt = 'lldb' if "ios_simulator" in run_env else 'cjdb'
+    prompt_pattern = '\\(lldb\\)' if prompt == 'lldb' else '\\(cjdb\\)'
+    expected = result
+    if "ios_simulator" in run_env and doline.strip() in ['c', 'continue']:
+        expected = '[\\s\\S]*' + result + '[\\s\\S]*stopped'
+    try:
+        re.compile(expected)
+    except re.error as exc:
+        raise DebugTestFailed(
+            'Invalid expected pattern for {}: {}'.format(doline, exc)
+        )
 
-    else:
-        if run_platform == 'linux' or "android_aarch64" in run_env:
-            expected_pattern = '\n[\\s\\S]*' + result + '[\\s\\S]*\\(cjdb\\)'
-        else:
-            expected_pattern = '\n[\\s\\S]*' + result + '[\\s\\S]*'
-        index = process.expect([expected_pattern, pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_CMD_TIMEOUT)
-    
-    indextest(process, doline, index, f_e, run_env, run_platform, p)
-    return
+    process.sendline(doline)
+    patterns = [expected, pexpect.EOF, pexpect.TIMEOUT]
+    if not isinstance(process, popen_spawn.PopenSpawn):
+        patterns.insert(0, re.escape(doline.strip()))
+    index = process.expect(patterns, timeout=LLDB_CMD_TIMEOUT)
+    if not isinstance(process, popen_spawn.PopenSpawn) and index == 0:
+        index = process.expect(
+            [expected, pexpect.EOF, pexpect.TIMEOUT],
+            timeout=LLDB_CMD_TIMEOUT
+        )
+    if index == 0:
+        prompt_index = process.expect(
+            [prompt_pattern, pexpect.EOF, pexpect.TIMEOUT],
+            timeout=LLDB_CMD_TIMEOUT
+        )
+        if prompt_index == 0:
+            return
+        index = prompt_index + 1
+
+    output = summarize_output(process.before or '')
+    reason = 'exited' if index == 1 else 'timed out'
+    print("--------------------------")
+    print("\033[31mFail: \033[0m")
+    print("ERROR: " + doline)
+    print("EXPECTED: " + result)
+    print("RECEIVED: " + output)
+    print("--------------------------")
+    raise DebugTestFailed(
+        "Debug command {} while waiting for result: {}".format(reason, doline)
+    )
 
 
 class DebugTestFailed(Exception):
@@ -798,160 +1027,92 @@ class DebugTestFailed(Exception):
     pass
 
 
-def indextest(process, doline, index, f_e, run_env, run_platform, p):
-    """
-    index: pass testcase or report error info 
-    """
-    if index == 0:
-        pass
-    else:
-        error_log = str(process.before.strip()).replace('\\r', '').replace('\\n', r'\n')
-        print("--------------------------")
-        print("\033[31mFail: \033[0m")
-        print("ERROR: " + doline)
-        print("RECEIVED: " + error_log)
-        print("--------------------------")
-        if p:
-            clean_process(p, run_platform)
-
-        process.sendline("q")
-        process.sendline("y")
-        if run_platform != 'darwin':
-            process.wait()
-        f_e.close()
-        process.kill(0)
-
-        raise DebugTestFailed("Debug command failed: " + doline)
-    return
-
-
 def clean_process(p, run_platform='linux'):
-    """
-    clean_process: kill cjti on pid to ensure next textcase can run
-    """
-    try:
-        if run_platform == 'windows':
-            p.terminate()
-        else:
-            os.killpg(os.getpgid(p.pid), signal.SIGTERM)
-    except (ProcessLookupError, OSError):
-        pass
+    """Terminate and reap a cjti debuggee."""
+    cleanup_subprocess(p, run_platform)
 
 
 def debugging():
-    """
-    start debugging: compare actual_result and expect_result 
-    """
+    """Start debugging and return a framework-compatible exit status."""
     test_case, cmp_res, run_env, port_num = get_argv()
     run_platform = get_platform()
     f_e, lines_e = read_execline(test_case)
-
+    resources = CaseResources()
     android_session = None
     ios_session = None
     process = None
-    test_failed = False
-    
+    p = None
+    status = 1
     try:
         if "ios_simulator" in run_env:
-            ios_session = IOSDebugSession()
-            
+            ios_session = resources.add(IOSDebugSession())
             if not ios_session.setup(test_case, cmp_res):
-                print("Failed to setup iOS simulator debug environment")
-                test_failed = True
-                return
-            
+                raise DebugTestFailed("Failed to setup iOS simulator debug environment")
             if run_platform == 'darwin':
-                process = pexpect.popen_spawn.PopenSpawn('xcrun lldb', timeout=LLDB_STARTUP_TIMEOUT,
-                                                         encoding='utf-8',
-                                                         maxread=200000,
-                                                         codec_errors='replace'
-                                                         )
+                process = pexpect.popen_spawn.PopenSpawn(
+                    'xcrun lldb', timeout=LLDB_STARTUP_TIMEOUT,
+                    encoding='utf-8', maxread=200000, codec_errors='replace',
+                    env=debugger_environment()
+                )
             else:
-                process = pexpect.spawnu('xcrun lldb', timeout=LLDB_STARTUP_TIMEOUT, maxread=200000)
-            process.expect(['\(lldb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
-            
+                process = pexpect.spawnu(
+                    'xcrun lldb', timeout=LLDB_STARTUP_TIMEOUT, maxread=200000,
+                    env=debugger_environment()
+                )
+            resources.add(lambda proc=process: cleanup_debugger(proc, prompt='lldb'))
+            expect_initial_prompt(process, prompt='lldb')
             cangjie_home = os.environ.get('CANGJIE_HOME')
             cjdb_script_path = os.path.join(cangjie_home, 'tools', 'script', 'cangjie_cjdb.py')
-            send_and_expect_lldb(process, f'command script import {cjdb_script_path}')
-            
-            ios_pid, ios_app_path = ios_session.run_ios_simulator(ios_session.exec_file)
+            send_and_expect_lldb(process, 'command script import ' + cjdb_script_path)
+            ios_pid, _ = ios_session.run_ios_simulator(ios_session.exec_file)
             if not ios_pid:
-                print("Failed to get iOS simulator process PID")
-                ios_session.cleanup()
-                test_failed = True
-                return
-            
-            send_and_expect_lldb(process, f'attach {ios_pid}', timeout=LLDB_ATTACH_TIMEOUT)
-           
+                raise DebugTestFailed("Failed to get iOS simulator process PID")
+            send_and_expect_lldb(process, 'attach ' + ios_pid, timeout=LLDB_ATTACH_TIMEOUT)
         elif "android_aarch64" in run_env:
-            android_session = AndroidDebugSession()
+            android_session = resources.add(AndroidDebugSession())
             if not android_session.setup(test_case, cmp_res):
-                print("Failed to setup Android debug environment")
-                test_failed = True
-                return
-            
+                raise DebugTestFailed("Failed to setup Android debug environment")
             android_session.start_lldb_server()
-            
-            subprocess.run(build_adb_cmd('forward', f'tcp:{android_session.lldb_port}', f'tcp:{android_session.lldb_port}', device_id=android_session.device_id),
-                          capture_output=True)
-
-            time.sleep(2)
-
+            subprocess.run(build_adb_cmd(
+                'forward', 'tcp:{}'.format(android_session.lldb_port),
+                'tcp:{}'.format(android_session.lldb_port),
+                device_id=android_session.device_id
+            ), capture_output=True)
             os.environ['ANDROID_SERIAL'] = android_session.device_id
-
             if run_platform == 'windows':
-                process = pexpect.popen_spawn.PopenSpawn('cjdb', timeout=LLDB_STARTUP_TIMEOUT,
-                                                         encoding='utf-8',
-                                                         maxread=200000,
-                                                         codec_errors='replace'
-                                                         )
+                process = pexpect.popen_spawn.PopenSpawn(
+                    'cjdb', timeout=LLDB_STARTUP_TIMEOUT, encoding='utf-8',
+                    maxread=200000, codec_errors='replace',
+                    env=debugger_environment()
+                )
             else:
-                process = pexpect.spawnu('cjdb', timeout=LLDB_STARTUP_TIMEOUT, maxread=200000)
-            process.expect(['\\(cjdb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
+                process = pexpect.spawnu(
+                    'cjdb', timeout=LLDB_STARTUP_TIMEOUT, maxread=200000,
+                    env=debugger_environment()
+                )
+            resources.add(lambda proc=process: cleanup_debugger(proc))
+            expect_initial_prompt(process)
             send_and_expect(process, 'platform select remote-android')
             send_and_expect(process, 'settings set target.default-arch aarch64')
-            send_and_expect(process, f'file {cmp_res}')
-            send_and_expect(process, f'platform connect connect://localhost:{android_session.lldb_port}')
-
+            send_and_expect(process, 'file ' + cmp_res)
+            send_and_expect(process, 'platform connect connect://localhost:{}'.format(android_session.lldb_port))
             if not android_session.start_app(android_session.exec_file):
-                print("Failed to start application on Android")
-                android_session.cleanup()
-                test_failed = True
-                return
-
-            if android_session and android_session.android_pid:
-                send_and_expect(process, f'attach {android_session.android_pid}', timeout=LLDB_ATTACH_TIMEOUT)
-
-        process, p = on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_num, android_session, process)
-
-        if p:
-            clean_process(p, run_platform)
-
-        if android_session:
-            android_session.cleanup()
-        
-        if ios_session:
-            ios_session.cleanup()
-
+                raise DebugTestFailed("Failed to start application on Android")
+            if android_session.android_pid:
+                send_and_expect(process, 'attach ' + android_session.android_pid, timeout=LLDB_ATTACH_TIMEOUT)
+        process, p = on_debugging(
+            f_e, lines_e, test_case, cmp_res, run_platform, run_env,
+            port_num, android_session, process, resources
+        )
+        status = 0
+    except Exception as exc:
+        print("Test failed: {}".format(exc))
+    finally:
         f_e.close()
-        process.kill(0)
-    except DebugTestFailed as e:
-        print(f"Test failed: {e}")
-        if android_session:
-            android_session.cleanup()
-        if ios_session:
-            ios_session.cleanup()
-        if process:
-            process.kill(0)
-        if f_e:
-            f_e.close()
-        test_failed = True
-    
-    if test_failed:
-        os._exit(1)
-    
-    os._exit(0)
+        for error in resources.cleanup():
+            print("Cleanup warning: {}".format(error))
+    return status
 
 
 if __name__ == "__main__":
-    debugging()
+    sys.exit(debugging())
