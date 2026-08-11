@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// DEPENDENCE: test.toml sub1/sub2/test.h
-// EXEC: ObjCInteropGen -Dworkspace="sub1/sub2" -Dgeneratedtoml="generated.toml" -Doptimization_level=2 -Doutput="." test.toml
+// DEPENDENCE: test.toml generated.toml test.h
+// EXEC: mkdir sub1 && mkdir sub1/sub2 && mv test.h sub1/sub2/
+// EXEC: ObjCInteropGen -Dgeneratedtoml=generated.toml -Dworkspace=sub1/sub2 -Doptimization_level=2 -Doutput=. test.toml
 // EXEC: %cat test.cj | compare %f
 /* SCAN-IN
 @ObjCMirror
