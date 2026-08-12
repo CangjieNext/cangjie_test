@@ -4,9 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
-// (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %enableConstPropagation %cmp_opt %enableCompileDebug %f -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)RUN-EXEC: %run %output
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableConstPropagation %dumpCHIRDebug -Woff unused %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_ConstantPropagation.chirtxt "Func @_CN7default8global01Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Load(@_CN7default2g3E)
+// ASSERT: scan Load(@_CN7default2g4E)
+// ASSERT: scan Load(@_CN7default2g5E)
+// ASSERT: scan Load(@_CN7default2g6E)
 
 let g1 = 1
 var g2 = g1
@@ -50,6 +55,3 @@ func global01(): Int64 {
 main(): Int64 {
     return global01()
 }
-
-// ASSERT: regex-not \[ConstPropagation\] The Load at \[24,.*\] has been rewrited to a constant
-// ASSERT: regex-not \[ConstPropagation\] The Load at \[37,.*\] has been rewrited to a constant
