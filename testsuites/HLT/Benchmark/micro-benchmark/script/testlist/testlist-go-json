@@ -1,0 +1,33 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkJsonReadString_G10_4
+BenchmarkJsonReadString_G10_8
+BenchmarkJsonReadString_G10_16
+BenchmarkJsonReadString_G10_64
+BenchmarkJsonReadString_G10_256
+BenchmarkJsonReadString_G10_1024
+BenchmarkJsonReadString_G10_4096
+BenchmarkJsonReadString_G10_16384
+BenchmarkJsonReadString_G10_131072
+BenchmarkJsonWriteString_G10_4
+BenchmarkJsonWriteString_G10_8
+BenchmarkJsonWriteString_G10_16
+BenchmarkJsonWriteString_G10_64
+BenchmarkJsonWriteString_G10_256
+BenchmarkJsonWriteString_G10_1024
+BenchmarkJsonWriteString_G10_4096
+BenchmarkJsonWriteString_G10_16384
+BenchmarkJsonWriteString_G10_131072
+BenchmarkJsonWriteInt64_G10
+BenchmarkJsonReadInt64_G10
+BenchmarkJsonWriteFloat64_G10
+BenchmarkJsonReadFloat64_G10
+BenchmarkJsonWriteBool_G10
+BenchmarkJsonReadBool_G10
+BenchmarkJsonWriteNull_G10
+BenchmarkJsonReadNull_G10

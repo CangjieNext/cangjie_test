@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_enum_with_args06,generic_enum_with_args06
+cjdb,cjdb --no-use-colors generic_enum_with_args06,generic_enum_with_args06
 b,b 10, generic_enum_with_args06.cj:10
 r,r,-> 10
  ~p a~\(default.E1<Int64>\) \$\d+ = A

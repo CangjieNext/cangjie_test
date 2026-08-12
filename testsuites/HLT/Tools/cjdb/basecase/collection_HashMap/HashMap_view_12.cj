@@ -20,6 +20,7 @@ class Rectangle {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let aaa = HashMap<String, Rectangle>([("aa", Rectangle()), ("bb", Rectangle())])
     let lambda = {a:HashMap<String, Rectangle> =>
         println("lamdda.....")

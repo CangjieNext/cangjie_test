@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb static_variable_struct,static_variable_struct
+cjdb,cjdb --no-use-colors static_variable_struct,static_variable_struct
 b,b 24,static_variable_struct.cj:24
 r,r,-> 24
  ,expr Rect.var1,\(Int8\) \$\d+ = -128

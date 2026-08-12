@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb localvar3,localvar3
+cjdb,cjdb --no-use-colors localvar3,localvar3
 b,b 20,localvar3.cj:20
 r,r,-> 20
  ,expr a,\(std.core.Option<std.core.String>\) \$\d+ = None

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_class_member_func04,generic_class_member_func04
+cjdb,cjdb --no-use-colors generic_class_member_func04,generic_class_member_func04
 b,b 16, generic_class_member_func04.cj:16
 r,r,-> 16
  ~expr a.test({i => i}, 1)~\(Int64\) \$\d+ = 1

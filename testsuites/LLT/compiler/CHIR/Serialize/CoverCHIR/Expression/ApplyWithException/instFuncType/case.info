@@ -3,7 +3,7 @@
 // EXEC: %compiler %cmp_opt case.cj %dumpCHIRDebug %emitOptCHIR
 // EXEC: %chirDis default.chir
 // EXEC: %cat *_Emit_Debug.chirtxt | compare %f
-// ASSERT: regex ApplyWithException
+// ASSERT: regex TryApply
 // EXEC: diff *_Emit_Debug.chirtxt default.chirtxt
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

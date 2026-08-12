@@ -20,6 +20,7 @@ struct Rectangle {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var aaa = ArrayList<Rectangle>.of(Rectangle(), Rectangle())
     return 0
 }

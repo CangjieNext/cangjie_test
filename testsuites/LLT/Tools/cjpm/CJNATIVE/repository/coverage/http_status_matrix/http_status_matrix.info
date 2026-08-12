@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: chmod +x %n/run_matrix.sh
+// EXEC: cd %n && ./run_matrix.sh 2>&1 | compare %f
+// ASSERT: scan index of module 'idx400' load failed with status 400: invalid parameters: local error
+// ASSERT: scan index of module 'idx403' load failed with status 403: permission denied
+// ASSERT: scan index of module 'idx500' load failed with status 500: server error
+// ASSERT: scan index of module 'idx418' load failed, unknown error with status 418
+// ASSERT: scan dl400-1.0.0 load failed with status 400: invalid parameters: local error
+// ASSERT: scan dl403-1.0.0 load failed with status 403: permission denied
+// ASSERT: scan dl429-1.0.0 load failed with status 429: rate limit exceeded
+// ASSERT: scan dl500-1.0.0 load failed with status 500: server error
+// ASSERT: scan dl418-1.0.0 load failed, unknown error with status 418
+// ASSERT: scan pub403-1.0.0 publish failed with status 403: permission denied
+// ASSERT: scan pub404-1.0.0 publish failed with status 404: file does not exist
+// ASSERT: scan pub409-1.0.0 publish failed with status 409: artifact with the same name and verison already exists
+// ASSERT: scan pub429-1.0.0 publish failed with status 429: rate limit exceeded
+// ASSERT: scan pub500-1.0.0 publish failed with status 500: server error
+// ASSERT: scan pub418-1.0.0 publish failed, unknown error with status 418
+// ASSERT: scan Error: cjpm publish failed

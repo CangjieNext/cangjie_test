@@ -64,6 +64,9 @@ def check_and_start_simulator(udid):
         for device in data['devices'][runtime]:
             if device['udid'] == udid:
                 if device['state'] == 'Booted':
+                    pid = get_simulator_pid()
+                    if pid:
+                        print_log(f"Simulator process ID: {pid}")
                     return True
                 print_log(f"Starting simulator {udid}...")
                 run_cmd(['xcrun', 'simctl', 'boot', udid])
@@ -75,6 +78,9 @@ def check_and_start_simulator(udid):
                     status = json.loads(output)
                     current_state = status['devices'][runtime][0]['state']
                     if current_state == 'Booted':
+                        pid = get_simulator_pid()
+                        if pid:
+                            print_log(f"Simulator process ID: {pid}")
                         return True
                     time.sleep(1)
                 raise Exception("Error: Simulator failed to boot within 30 seconds.")
@@ -98,6 +104,52 @@ def uninstall_app(device_type, udid, bundle_id):
 def print_log(str):
     if IS_DEBUG:
         print(str)
+
+def get_simulator_pid():
+    try:
+        result = subprocess.run(['pgrep', '-f', 'Simulator'], capture_output=True, text=True)
+        if result.returncode == 0:
+            return result.stdout.strip()
+    except:
+        pass
+    return None
+
+def get_app_pid_by_bundle_id(udid, bundle_id):
+    try:
+        result = subprocess.run(
+            ['xcrun', 'simctl', 'spawn', udid, 'launchctl', 'list'],
+            capture_output=True, text=True, timeout=10
+        )
+        if result.returncode == 0:
+            for line in result.stdout.split('\n'):
+                if bundle_id in line:
+                    parts = line.split()
+                    if parts:
+                        return parts[0]
+    except Exception as e:
+        print_log(f"Error getting app pid: {e}")
+    return None
+
+def launch_app_and_get_pid(udid, bundle_id, workspace):
+    try:
+        result = subprocess.run(
+            ['xcrun', 'simctl', 'launch', udid, bundle_id],
+            capture_output=True, text=True, timeout=30
+        )
+        match = re.search(rf'{re.escape(bundle_id)}:\s*(\d+)', result.stdout)
+        if match:
+            pid = match.group(1)
+            print_log(f"App launched with PID: {pid}")
+            return pid
+        
+        time.sleep(1)
+        pid = get_app_pid_by_bundle_id(udid, bundle_id)
+        if pid:
+            print_log(f"Found app PID via launchctl: {pid}")
+        return pid
+    except Exception as e:
+        print_log(f"Error launching app: {e}")
+    return None
 
 def check_output(command):
     print_log(f'command: {command}')
@@ -137,6 +189,8 @@ def main():
     parser.add_argument("--clean", action="store_true", help="Clean before building")
     parser.add_argument("--uninstall", action="store_true", help="Uninstall app after running")
     parser.add_argument("--objcffi", action="store_true", help="objcffi test")
+    parser.add_argument("--launch", action="store_true", help="Build, install, launch app and print PID for debugging")
+    parser.add_argument("--skip-build", action="store_true", help="Skip build, only install and launch")
     args = parser.parse_args()
     global IS_DEBUG
     IS_DEBUG = args.configuration == "Debug"
@@ -167,23 +221,24 @@ def main():
     derived_data = os.path.join(workspace, "build_output")
     is_workspace = args.project_path.endswith(".xcworkspace")
 
-    # Build
-    build_cmd = ["xcodebuild"]
-    if args.clean:
-        build_cmd.append("clean")
-    build_cmd += [
-        "build",
-        "-scheme", args.scheme,
-        "-configuration", args.configuration,
-        "-derivedDataPath", derived_data
-    ]
-    if is_workspace:
-        build_cmd += ["-workspace", args.project_path]
-    else:
-        build_cmd += ["-project", args.project_path]
-    build_cmd += ["-destination", f"id={udid}"] if args.device_type == "simulator" else ["-destination", f"platform=iOS,id={args.udid}"]
-    build_cmd += ["LD_RUNPATH_SEARCH_PATHS='@executable_path/Frameworks'"]
-    run_cmd(build_cmd)
+    # Build (skip if --skip-build)
+    if not args.skip_build:
+        build_cmd = ["xcodebuild"]
+        if args.clean:
+            build_cmd.append("clean")
+        build_cmd += [
+            "build",
+            "-scheme", args.scheme,
+            "-configuration", args.configuration,
+            "-derivedDataPath", derived_data
+        ]
+        if is_workspace:
+            build_cmd += ["-workspace", args.project_path]
+        else:
+            build_cmd += ["-project", args.project_path]
+        build_cmd += ["-destination", f"id={udid}"] if args.device_type == "simulator" else ["-destination", f"platform=iOS,id={args.udid}"]
+        build_cmd += ["LD_RUNPATH_SEARCH_PATHS='@executable_path/Frameworks'"]
+        run_cmd(build_cmd)
 
     # Install and run
     is_simulator = args.device_type == "simulator"
@@ -192,6 +247,17 @@ def main():
     if is_simulator:
         # Install to simulator
         run_cmd(["xcrun", "simctl", "install", udid, app_path])
+        
+        # Handle --launch mode: launch app and return PID for debugging
+        if args.launch:
+            app_pid = launch_app_and_get_pid(udid, args.bundle_id, workspace)
+            if app_pid:
+                print(f"IOS_PID:{app_pid}")
+                print(f"IOS_APP_PATH:{app_path}")
+                sys.exit(0)
+            else:
+                print("Error: Failed to get app PID after launch")
+                sys.exit(1)
         
         # The cmd with console output
         # old version:

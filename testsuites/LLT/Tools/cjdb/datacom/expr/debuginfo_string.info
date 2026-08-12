@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_string.info %n %run_env
 
 test#
-cjdb,cjdb string,string
+cjdb,cjdb --no-use-colors string,string
 b,b foo,string.cj:11
 r,r,-> 11
 expr a,expr a,\(std.core.String\) \$\d+ = "aaa"

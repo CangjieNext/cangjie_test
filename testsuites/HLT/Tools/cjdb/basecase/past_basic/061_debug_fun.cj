@@ -56,6 +56,7 @@ func test_fun2(a:Int64, b:Int64) {
     return c
 }
 main() {
+    sleep(Duration.millisecond*3000)
     var bbb=123.toString()
     let arr:Array<Int64>=[1,2,3]
     var eee=arr.isEmpty()

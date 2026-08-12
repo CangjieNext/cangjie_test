@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../gcov_parser_matrix
+// EXEC: chmod +x gcov_parser_matrix/run_report_matrix.sh gcov_parser_matrix/bin/llvm-cov
+// EXEC: cd gcov_parser_matrix && ./run_report_matrix.sh 2>&1 | compare ../%f
+// ASSERT: scan generate html success.
+// ASSERT: scan Error: create
+// ASSERT: scan coverage.json' failed
+// ASSERT: scan --exclude and --include have duplicate paths

@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 182,"jsonrpc": "2.0","result": [{"range": {"end": {"character": 20,"line":26},"start": {"character": 18,"line":26}},"uri": "cangjiesource/src/Class/class00106.cj"},{"range": {"end": {"character": 17,"line":31},"start": {"character": 12,"line":31}},"uri": "cangjiesource/src/Class/class00106.cj"}]}
+{"id": 182,"jsonrpc": "2.0","result": [{"range": {"end": {"character": 20,"line": 26},"start": {"character": 18,"line": 26}},"uri": "cangjiesource/src/Class/class00106.cj"},{"range": {"end": {"character": 10,"line": 29},"start": {"character": 8,"line": 29}},"uri": "cangjiesource/src/Class/class00106.cj"},{"range": {"end": {"character": 17,"line": 31},"start": {"character": 12,"line": 31}},"uri": "cangjiesource/src/Class/class00106.cj"}]}

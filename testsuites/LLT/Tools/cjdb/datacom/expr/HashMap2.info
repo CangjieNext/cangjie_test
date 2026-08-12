@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb HashMap2,HashMap2
+cjdb,cjdb --no-use-colors HashMap2,HashMap2
 b,b 36,HashMap2.cj:36
 r,r,-> 36
  ,expr basic1,\(std.collection.HashMap<Int64,std.core.String>\) \$\d+ = {\s+\[121 -> "a30"\] = {(\r|\n|\r\n)    key = 121(\r|\n|\r\n)    value = "a30"

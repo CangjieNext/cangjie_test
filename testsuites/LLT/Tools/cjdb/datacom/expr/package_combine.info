@@ -11,7 +11,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb package_combine,package_combine
+cjdb,cjdb --no-use-colors package_combine,package_combine
 b,b 14,package_combine.cj:14
 r,r,-> 14
  ,expr struct1.printMembersize() + Str().str_member,\(Int64\) \$\d+ = 2

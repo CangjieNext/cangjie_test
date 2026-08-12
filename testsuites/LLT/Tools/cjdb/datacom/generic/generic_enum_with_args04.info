@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_enum_with_args04,generic_enum_with_args04
+cjdb,cjdb --no-use-colors generic_enum_with_args04,generic_enum_with_args04
 b,b 17, generic_enum_with_args04.cj:17
 r,r,-> 17
  ~expr TimeUnit<Int32>.TwoUnit(TimeUnit<Int32>.Year(2020), TimeUnit<Int32>.Month(9, 19))~\(test2.pkga.TimeUnit<Int32>\) \$\d+ = {\s+constructor = TwoUnit\s+arg_1 = {\s+constructor = Year\s+arg_1 = 2020\s+}\s+arg_2 = {\s+constructor = Month\s+arg_1 = 9\s+arg_2 = 19

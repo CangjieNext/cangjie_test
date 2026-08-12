@@ -11,7 +11,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb package_func,package_func
+cjdb,cjdb --no-use-colors package_func,package_func
 b,b 13,package_func.cj:13
 r,r,-> 13
  ,expr f1,error: unsupported expression

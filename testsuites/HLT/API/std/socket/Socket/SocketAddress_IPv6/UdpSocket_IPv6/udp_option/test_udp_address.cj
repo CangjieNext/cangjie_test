@@ -29,19 +29,13 @@ class Test_Udp_Address {
     func test_not_connect(): Unit {
         var udpsocket = UdpSocket(bindAt: IPSocketAddress("::1", 0))
         @Expect(udpsocket.localAddress, IPSocketAddress("::1", 0))
-        try {
-            udpsocket.remoteAddress
-            @Expect(1, 2)
-        } catch (e: SocketException) {
-        }
+        // unconnected UdpSocket.remoteAddress returns None
+        @Expect(udpsocket.remoteAddress, None)
 
         udpsocket.bind()
         udpsocket.localAddress
-        try {
-            udpsocket.remoteAddress
-            @Expect(1, 2)
-        } catch (e: SocketException) {
-        }
+        // still unconnected, remoteAddress still None
+        @Expect(udpsocket.remoteAddress, None)
 
         udpsocket.close()
         var sum = 0
@@ -64,23 +58,17 @@ class Test_Udp_Address {
         var udpsocket1 = UdpSocket(bindAt: IPSocketAddress("::1", 0))
         @Expect(udpsocket.localAddress, IPSocketAddress("::1", 0))
         @Expect(udpsocket1.localAddress, IPSocketAddress("::1", 0))
-        try {
-            udpsocket.remoteAddress
-            udpsocket1.remoteAddress
-            @Expect(1, 2)
-        } catch (e: SocketException) {
-        }
+        // unconnected UdpSocket.remoteAddress returns None
+        @Expect(udpsocket.remoteAddress, None)
+        @Expect(udpsocket1.remoteAddress, None)
 
         udpsocket.bind()
         udpsocket1.bind()
         var addr = udpsocket.localAddress
         var addr1 = udpsocket1.localAddress
-        try {
-            udpsocket.remoteAddress
-            udpsocket1.remoteAddress
-            @Expect(1, 2)
-        } catch (e: SocketException) {
-        }
+        // still unconnected, remoteAddress still None
+        @Expect(udpsocket.remoteAddress, None)
+        @Expect(udpsocket1.remoteAddress, None)
 
         udpsocket1.connect(addr)
         udpsocket.connect(addr1)

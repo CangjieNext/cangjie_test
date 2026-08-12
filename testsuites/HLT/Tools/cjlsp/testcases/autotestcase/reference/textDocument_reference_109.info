@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 668,"jsonrpc": "2.0","result": null}
+{"id": 668,"jsonrpc": "2.0","result": [{"range": {"end": {"character": 13,"line": 19},"start": {"character": 10,"line": 19}},"uri": "cangjiesource/src/Struct/record11.cj"},{"range": {"end": {"character": 14,"line": 20},"start": {"character": 11,"line": 20}},"uri": "cangjiesource/src/Struct/record11.cj"}]}

@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-1: cd %n && (%cjpm build --target; %cjpm install demo-1.0.0 --path .; %cjpm test --no-feature-deduce; %cjpm test --progress-entries-limit=bad) 2>&1 | compare %f
+// ASSERT: scan the '--target' option needs a value
+// ASSERT: scan cjpm install can have at most one type of configuration
+// ASSERT: scan `--no-feature-deduce` is part of experimental Cangjie Multiplatform feature
+// ASSERT: scan the '--progress-entries-limit' option requires a positive integer argument

@@ -110,4 +110,31 @@ public class CheckedShiftTest {
         @Expect(u64.checkedShr(UInt64(63)), 1)
         @Expect(u64.checkedShr(UInt64(64)), Option<UInt64>.None)
     }
+
+    @TestCase
+    func nativeCheckedShiftTest(): Unit {
+        let bit: UInt64 = if (UInt64(!UIntNative(0)) == UInt64.Max) {
+            64
+        } else {
+            32
+        }
+
+        @Expect(IntNative(1).checkedShl(0), Some(IntNative(1)))
+        @Expect(IntNative(1).checkedShl(1), Some(IntNative(2)))
+        @Expect(IntNative(1).checkedShl(bit - 1), Some(IntNative.Min))
+        @Expect(IntNative(1).checkedShl(bit), Option<IntNative>.None)
+
+        @Expect(IntNative.Min.checkedShr(0), Some(IntNative.Min))
+        @Expect(IntNative.Min.checkedShr(bit - 1), Some(IntNative(-1)))
+        @Expect(IntNative.Min.checkedShr(bit), Option<IntNative>.None)
+
+        @Expect(UIntNative(1).checkedShl(0), Some(UIntNative(1)))
+        @Expect(UIntNative(1).checkedShl(1), Some(UIntNative(2)))
+        @Expect(UIntNative(1).checkedShl(bit - 1), Some(UIntNative(1) << (bit - 1)))
+        @Expect(UIntNative(1).checkedShl(bit), Option<UIntNative>.None)
+
+        @Expect(UIntNative.Max.checkedShr(0), Some(UIntNative.Max))
+        @Expect(UIntNative.Max.checkedShr(bit - 1), Some(UIntNative(1)))
+        @Expect(UIntNative.Max.checkedShr(bit), Option<UIntNative>.None)
+    }
 }

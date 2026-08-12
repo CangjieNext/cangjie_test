@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_func_global_base02,generic_func_global_base02
+cjdb,cjdb --no-use-colors generic_func_global_base02,generic_func_global_base02
 b,b 12, generic_func_global_base02.cj:12
 r,r,-> 12
  ,expr a,\(default.A\) \$\d+ = {\s+a = 1

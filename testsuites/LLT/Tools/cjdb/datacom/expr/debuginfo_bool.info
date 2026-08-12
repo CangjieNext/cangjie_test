@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_bool.info %n %run_env
 
 test#
-cjdb,cjdb bool,bool
+cjdb,cjdb --no-use-colors bool,bool
 b,b foo,bool.cj:10
 r,r,-> 10
 expr a,expr a,\(Bool\) \$\d+ = true

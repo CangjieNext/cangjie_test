@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb funcCallExpr1, funcCallExpr1
+cjdb,cjdb --no-use-colors funcCallExpr1, funcCallExpr1
 b,b 19, funcCallExpr1.cj:19
 r,r,-> 19
  ,expr f1(),\(default.AA\) \$\d+ = {}

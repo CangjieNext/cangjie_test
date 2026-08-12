@@ -188,4 +188,43 @@ public class ThrowingShiftTest {
             @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
         }
     }
+
+    @TestCase
+    func nativeThrowingShiftTest(): Unit {
+        let bit: UInt64 = if (UInt64(!UIntNative(0)) == UInt64.Max) {
+            64
+        } else {
+            32
+        }
+
+        @Expect(IntNative(1).throwingShl(0), 1)
+        @Expect(IntNative(1).throwingShl(1), 2)
+        @Expect(IntNative(1).throwingShl(bit - 1), IntNative.Min)
+        try {
+            IntNative(1).throwingShl(bit)
+            @Expect(false)
+        } catch (_: OvershiftException) {}
+
+        @Expect(IntNative.Min.throwingShr(0), IntNative.Min)
+        @Expect(IntNative.Min.throwingShr(bit - 1), -1)
+        try {
+            IntNative.Min.throwingShr(bit)
+            @Expect(false)
+        } catch (_: OvershiftException) {}
+
+        @Expect(UIntNative(1).throwingShl(0), 1)
+        @Expect(UIntNative(1).throwingShl(1), 2)
+        @Expect(UIntNative(1).throwingShl(bit - 1), UIntNative(1) << (bit - 1))
+        try {
+            UIntNative(1).throwingShl(bit)
+            @Expect(false)
+        } catch (_: OvershiftException) {}
+
+        @Expect(UIntNative.Max.throwingShr(0), UIntNative.Max)
+        @Expect(UIntNative.Max.throwingShr(bit - 1), 1)
+        try {
+            UIntNative.Max.throwingShr(bit)
+            @Expect(false)
+        } catch (_: OvershiftException) {}
+    }
 }

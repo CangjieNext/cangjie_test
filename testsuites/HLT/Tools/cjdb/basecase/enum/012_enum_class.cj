@@ -28,6 +28,7 @@ class C<T> {
 let top_time = TimeUnit1<Int8>.Year(8)
 
 main() {
+    sleep(Duration.millisecond*3000)
     var m_newc1 = C<C<Int64>>(1,2)
     let m_time2 = TimeUnit1<C<C<Int64>>>.Year(m_newc1)
 

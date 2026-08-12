@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_class01,generic_class01
+cjdb,cjdb --no-use-colors generic_class01,generic_class01
 b,b 28, generic_class.cj:28
 r,r,-> 28
  ,expr ss,\(default.cls<std.core.String,std.core.String>\) \$\d+ = {\s+m1 = "ppp"\s+m2 = "qqq"

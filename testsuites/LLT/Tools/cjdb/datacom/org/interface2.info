@@ -6,10 +6,10 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/org/interface2.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug interface2.cj -o interface2
-// EXEC: python3 cjdb_test.py interface2.info
+// EXEC: python3 cjdb_test.py interface2.info %n %run_env
 
 test#
-cjdb,cjdb interface2,interface2
+cjdb,cjdb --no-use-colors interface2,interface2
 b,b 30,interface2.cj:30
 r,r,-> 30
  ;p a5;\(a_b.default.C1\) \$\d+ = {\s+a = 1\s+}

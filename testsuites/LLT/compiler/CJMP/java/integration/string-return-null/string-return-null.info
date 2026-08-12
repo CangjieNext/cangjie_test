@@ -9,9 +9,4 @@
 // (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/com/java/lib/Exe.java src/java/com/java/lib/Main.java src/java/cj/CjExe.java -h ./ -d ./
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE-1: %cd %n && %java %cp_cj_loader_java_interop -Djava.library.path=. com.java.lib.Main 2>& 1 | compare %f
 
-/* SCAN-IN
-Exception in thread "main" java.lang.Exception: Unexpected `null` has come from java
-	at cj.CjExe.PassStringsToJava(Native Method)
-	at cj.CjExe.PassStringsToJava(CjExe.java:26)
-	at com.java.lib.Main.main(Main.java:16)
-*/
+// ASSERT: scan Exception in thread "main" java.lang.Exception: Unexpected `null` has come from java

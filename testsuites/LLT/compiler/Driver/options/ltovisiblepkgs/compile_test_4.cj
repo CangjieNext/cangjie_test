@@ -15,4 +15,4 @@ main(): Int64 {
     return 0
 }
 
-// ASSERT: scan --lto-keep-pkg-visibility only takes effect when outputting a dylib
+// ASSERT: scan --lto-keep-pkg-visibility does not take effect under the current configuration

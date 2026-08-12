@@ -18,6 +18,7 @@ let timetop = TimeUnit.Year(5)
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let timemain = timetop
     var howManyYears: Int8 = match (timetop) {
         case Year(x) => x * 24 // matched

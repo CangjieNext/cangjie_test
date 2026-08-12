@@ -24,6 +24,7 @@ interface I1{
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     var a1 = C1()
     var a2 = a1.a
     var a3 = a1.f1()

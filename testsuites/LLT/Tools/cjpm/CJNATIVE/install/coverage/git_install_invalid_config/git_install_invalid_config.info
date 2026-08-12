@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../../git/git_02
+// EXEC: cd git_02/demo && git init && git add . && git -c user.name='name' -c user.email='' commit -am "foo"
+// EXEC: (cd git_02 && GIT_DIR=../git_install_invalid_config %cjpm install --git demo -V) 2>&1 | compare %f
+// ASSERT: scan Error: there is no valid cjpm config in --git demo
+// ASSERT: scan Error: cjpm install failed

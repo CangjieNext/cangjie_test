@@ -1,0 +1,44 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+<Project>
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>11</LangVersion>
+        <ServerGarbageCollection>true</ServerGarbageCollection>
+        <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+        <!-- .NET Publish options -->
+        <SelfContained>true</SelfContained>
+        <RuntimeIdentifiers>win10-x64;linux-x64;linux-arm64</RuntimeIdentifiers>
+        <!-- .NET Publish more aggressive executable trimming options -->
+        <PublishTrimmed>true</PublishTrimmed>
+        <TrimMode>full</TrimMode>
+        <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+        <DebuggerSupport>false</DebuggerSupport>
+        <EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
+        <EnableUnsafeUTF7Encoding>false</EnableUnsafeUTF7Encoding>
+        <EventSourceSupport>false</EventSourceSupport>
+        <HttpActivityPropagationSupport>false</HttpActivityPropagationSupport>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <MetadataUpdaterSupport>false</MetadataUpdaterSupport>
+        <!-- Ready2Run (crossgen) aggressive options -->
+        <PublishReadyToRunCrossgen2ExtraArgs>--Ot</PublishReadyToRunCrossgen2ExtraArgs>
+        <PublishReadyToRunComposite>true</PublishReadyToRunComposite>
+        <!-- Native AOT aggressive options -->
+        <IlcOptimizationPreference>Speed</IlcOptimizationPreference>
+    </PropertyGroup>
+
+    <!-- .NET Publish options incompatible with Native AOT mode -->
+    <PropertyGroup Condition="'$(PublishAot)' != 'true'">
+        <PublishSingleFile>true</PublishSingleFile>
+        <PublishReadyToRun>true</PublishReadyToRun>
+    </PropertyGroup>
+
+</Project>

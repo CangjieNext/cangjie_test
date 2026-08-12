@@ -42,6 +42,7 @@ struct R4<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var r10 = R3<Bool, String>(1, true, v: 2, z: "abcde")
     var r11 = R4<Int8, Int8, Int8, Int16, Int16, Int32, Int32, Int64, Int64, Unit>(num1: 1, num2: 2, num3: 3, num4: 4,
         num5: 5, num6: 6, num7: 7, num8: 8, num9: 9, num10: ())

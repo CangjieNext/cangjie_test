@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb member,member
+cjdb,cjdb --no-use-colors member,member
 b,b 63,member.cj:63
 r,r,-> 63
 expr,expr rr,\(default.Rect\) \$\d+ = {\s+i64 = 10\s+

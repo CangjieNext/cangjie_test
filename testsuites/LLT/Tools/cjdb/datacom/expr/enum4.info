@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb enum4,enum4
+cjdb,cjdb --no-use-colors enum4,enum4
 b,b 16,enum4.cj:16
 r,r,-> 16
  ,expr EE.AB.f1(),\(Int64\) \$\d+ = 6

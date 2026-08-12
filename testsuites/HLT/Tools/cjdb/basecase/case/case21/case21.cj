@@ -13,6 +13,7 @@ public class CC {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var a1 = CC.c1 //expr aa;expr CC.c1
     return 0
 }

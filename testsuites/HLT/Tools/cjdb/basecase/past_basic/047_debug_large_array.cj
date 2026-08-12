@@ -10,6 +10,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
 
     var arrayInt64 : Array<Int64> = [
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9,

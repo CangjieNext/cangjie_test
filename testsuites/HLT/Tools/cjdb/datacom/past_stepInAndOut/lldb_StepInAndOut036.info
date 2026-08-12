@@ -9,24 +9,28 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/039_debuginfun_return.cj
 //  EXEC: %compiler %cmp_opt -g 039_debuginfun_return.cj -o 039_debuginfun_return%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut036.info 039_debuginfun_return %run_env
+// (target_ios_simulator) EXEC: mv 039_debuginfun_return%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut036.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut036.info 039_debuginfun_return %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 039_debuginfun_return,039_debuginfun_return
-CJVM b main,b main,039_debuginfun_return.cj:12
-CJVM c,c,-> 12
-b,b 17,039_debuginfun_return.cj:17
-b,b 26,039_debuginfun_return.cj:26
-b,b 28,039_debuginfun_return.cj:28
-AOT r,r,-> 17
-CJVM c,c,-> 17
-s,s,-> 25
-finish,finish,-> 28
-finish,finish,-> 17
-AOT n,n,-> 19
-CJVM n,n,-> 18|19
+CJVM b main,b main,039_debuginfun_return.cj:13
+CJVM c,c,13
+b,b 039_debuginfun_return.cj:18,039_debuginfun_return.cj:18
+b,b 039_debuginfun_return.cj:27,039_debuginfun_return.cj:27
+b,b 039_debuginfun_return.cj:29,039_debuginfun_return.cj:29
+AOT r,r,-> 18
+Android c,c,18
+CJVM c,c,18
+s,s,26
+finish,finish,29
+finish,finish,18
+AOT n,n,20
+CJVM n,n,19|19
 locals,locals,varreturnexpr = 20
 q,q,

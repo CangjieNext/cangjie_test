@@ -8,8 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler  %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
-// (OHOS)RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args && cat jloggertest16.txt| compare %f
-// (not OHOS and not iOS)RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args && %cat jloggertest16.txt| compare %f
+// (!(target_ios | target_ios_simulator)) RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args && %target_cat jloggertest16.txt | compare %f
 // ASSERT: regex {"time":".*","level":"DEBUG","msg":"abc","name":"cangjietest","age":2}
 
 import std.time.*

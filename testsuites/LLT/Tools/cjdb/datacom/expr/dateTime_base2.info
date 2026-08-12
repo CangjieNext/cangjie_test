@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb dateTime_base2,dateTime_base2
+cjdb,cjdb --no-use-colors dateTime_base2,dateTime_base2
 b,b 17,dateTime_base2.cj:17
 r,r,-> 17
  ,expr dateTime,\(std.time.DateTime\) \$\d+ = 2023-04-10T00:00:00Z

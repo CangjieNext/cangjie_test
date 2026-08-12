@@ -11,6 +11,7 @@ enum RGB<T> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let op1 = RGB.red(1)
     let op2 = RGB<Float64>.blue(4)
     let lambda1 = { a:RGB<Int64>,b:RGB<Float64> =>

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb HashMap3,HashMap3
+cjdb,cjdb --no-use-colors HashMap3,HashMap3
 b,b 11,HashMap3.cj:11
 r,r,-> 11
  ,expr map_1,\(std.collection.HashMap<Int8,UInt8>\) \$\d+ = {\s+\[-3 -> 42\] = {\s+key = -3\s+value = 42\s+}\s+\[2 -> 12\] = {\s+key = 2\s+value = 12\s+}\s+\[-76 -> 165\]

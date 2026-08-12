@@ -1,0 +1,2209 @@
+[
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_construct.Benchmark_ClassTypeInfo_construct_basetype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 153.1375250474839,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 153.1375250474839,
+                "50.0" : 153.1375250474839,
+                "90.0" : 153.1375250474839,
+                "95.0" : 153.1375250474839,
+                "99.0" : 153.1375250474839,
+                "99.9" : 153.1375250474839,
+                "99.99" : 153.1375250474839,
+                "99.999" : 153.1375250474839,
+                "99.9999" : 153.1375250474839,
+                "100.0" : 153.1375250474839
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    153.1375250474839
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_construct.Benchmark_ClassTypeInfo_construct_commontype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 151.9099605993672,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 151.9099605993672,
+                "50.0" : 151.9099605993672,
+                "90.0" : 151.9099605993672,
+                "95.0" : 151.9099605993672,
+                "99.0" : 151.9099605993672,
+                "99.9" : 151.9099605993672,
+                "99.99" : 151.9099605993672,
+                "99.999" : 151.9099605993672,
+                "99.9999" : 151.9099605993672,
+                "100.0" : 151.9099605993672
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    151.9099605993672
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_construct.Benchmark_ClassTypeInfo_construct_generic_basetype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 160.84877571410397,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 160.84877571410397,
+                "50.0" : 160.84877571410397,
+                "90.0" : 160.84877571410397,
+                "95.0" : 160.84877571410397,
+                "99.0" : 160.84877571410397,
+                "99.9" : 160.84877571410397,
+                "99.99" : 160.84877571410397,
+                "99.999" : 160.84877571410397,
+                "99.9999" : 160.84877571410397,
+                "100.0" : 160.84877571410397
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    160.84877571410397
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_construct.Benchmark_ClassTypeInfo_construct_generic_commontype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 151.32080371759398,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 151.32080371759398,
+                "50.0" : 151.32080371759398,
+                "90.0" : 151.32080371759398,
+                "95.0" : 151.32080371759398,
+                "99.0" : 151.32080371759398,
+                "99.9" : 151.32080371759398,
+                "99.99" : 151.32080371759398,
+                "99.999" : 151.32080371759398,
+                "99.9999" : 151.32080371759398,
+                "100.0" : 151.32080371759398
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    151.32080371759398
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_construct.Benchmark_ClassTypeInfo_construct_inherittype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 144.89051908801886,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 144.89051908801886,
+                "50.0" : 144.89051908801886,
+                "90.0" : 144.89051908801886,
+                "95.0" : 144.89051908801886,
+                "99.0" : 144.89051908801886,
+                "99.9" : 144.89051908801886,
+                "99.99" : 144.89051908801886,
+                "99.999" : 144.89051908801886,
+                "99.9999" : 144.89051908801886,
+                "100.0" : 144.89051908801886
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    144.89051908801886
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getConstructor.Benchmark_ClassTypeInfo_getConstructor_basetype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 125.2067591229834,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 125.2067591229834,
+                "50.0" : 125.2067591229834,
+                "90.0" : 125.2067591229834,
+                "95.0" : 125.2067591229834,
+                "99.0" : 125.2067591229834,
+                "99.9" : 125.2067591229834,
+                "99.99" : 125.2067591229834,
+                "99.999" : 125.2067591229834,
+                "99.9999" : 125.2067591229834,
+                "100.0" : 125.2067591229834
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    125.2067591229834
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getConstructor.Benchmark_ClassTypeInfo_getConstructor_commontype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 125.9049445957105,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 125.9049445957105,
+                "50.0" : 125.9049445957105,
+                "90.0" : 125.9049445957105,
+                "95.0" : 125.9049445957105,
+                "99.0" : 125.9049445957105,
+                "99.9" : 125.9049445957105,
+                "99.99" : 125.9049445957105,
+                "99.999" : 125.9049445957105,
+                "99.9999" : 125.9049445957105,
+                "100.0" : 125.9049445957105
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    125.9049445957105
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getConstructor.Benchmark_ClassTypeInfo_getConstructor_generic_basetype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 125.62019936493482,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 125.62019936493482,
+                "50.0" : 125.62019936493482,
+                "90.0" : 125.62019936493482,
+                "95.0" : 125.62019936493482,
+                "99.0" : 125.62019936493482,
+                "99.9" : 125.62019936493482,
+                "99.99" : 125.62019936493482,
+                "99.999" : 125.62019936493482,
+                "99.9999" : 125.62019936493482,
+                "100.0" : 125.62019936493482
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    125.62019936493482
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getConstructor.Benchmark_ClassTypeInfo_getConstructor_generic_commontype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 135.67362844361423,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 135.67362844361423,
+                "50.0" : 135.67362844361423,
+                "90.0" : 135.67362844361423,
+                "95.0" : 135.67362844361423,
+                "99.0" : 135.67362844361423,
+                "99.9" : 135.67362844361423,
+                "99.99" : 135.67362844361423,
+                "99.999" : 135.67362844361423,
+                "99.9999" : 135.67362844361423,
+                "100.0" : 135.67362844361423
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    135.67362844361423
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getConstructor.Benchmark_ClassTypeInfo_getConstructor_inherittype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 124.6684961762285,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 124.6684961762285,
+                "50.0" : 124.6684961762285,
+                "90.0" : 124.6684961762285,
+                "95.0" : 124.6684961762285,
+                "99.0" : 124.6684961762285,
+                "99.9" : 124.6684961762285,
+                "99.99" : 124.6684961762285,
+                "99.999" : 124.6684961762285,
+                "99.9999" : 124.6684961762285,
+                "100.0" : 124.6684961762285
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    124.6684961762285
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getFunction.Benchmark_ClassTypeInfo_getFunction_commontype_Instance",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 540.9181024271319,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 540.9181024271319,
+                "50.0" : 540.9181024271319,
+                "90.0" : 540.9181024271319,
+                "95.0" : 540.9181024271319,
+                "99.0" : 540.9181024271319,
+                "99.9" : 540.9181024271319,
+                "99.99" : 540.9181024271319,
+                "99.999" : 540.9181024271319,
+                "99.9999" : 540.9181024271319,
+                "100.0" : 540.9181024271319
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    540.9181024271319
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getFunction.Benchmark_ClassTypeInfo_getFunction_commontype_Static",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 546.8515365105368,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 546.8515365105368,
+                "50.0" : 546.8515365105368,
+                "90.0" : 546.8515365105368,
+                "95.0" : 546.8515365105368,
+                "99.0" : 546.8515365105368,
+                "99.9" : 546.8515365105368,
+                "99.99" : 546.8515365105368,
+                "99.999" : 546.8515365105368,
+                "99.9999" : 546.8515365105368,
+                "100.0" : 546.8515365105368
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    546.8515365105368
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getFunction.Benchmark_ClassTypeInfo_getFunction_generic_commontype_Instance",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 548.0802341477093,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 548.0802341477093,
+                "50.0" : 548.0802341477093,
+                "90.0" : 548.0802341477093,
+                "95.0" : 548.0802341477093,
+                "99.0" : 548.0802341477093,
+                "99.9" : 548.0802341477093,
+                "99.99" : 548.0802341477093,
+                "99.999" : 548.0802341477093,
+                "99.9999" : 548.0802341477093,
+                "100.0" : 548.0802341477093
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    548.0802341477093
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getFunction.Benchmark_ClassTypeInfo_getFunction_generic_commontype_Static",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 545.4511222879001,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 545.4511222879001,
+                "50.0" : 545.4511222879001,
+                "90.0" : 545.4511222879001,
+                "95.0" : 545.4511222879001,
+                "99.0" : 545.4511222879001,
+                "99.9" : 545.4511222879001,
+                "99.99" : 545.4511222879001,
+                "99.999" : 545.4511222879001,
+                "99.9999" : 545.4511222879001,
+                "100.0" : 545.4511222879001
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    545.4511222879001
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getFunction.Benchmark_ClassTypeInfo_getFunction_inherittype_Instance",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 561.6973290994077,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 561.6973290994077,
+                "50.0" : 561.6973290994077,
+                "90.0" : 561.6973290994077,
+                "95.0" : 561.6973290994077,
+                "99.0" : 561.6973290994077,
+                "99.9" : 561.6973290994077,
+                "99.99" : 561.6973290994077,
+                "99.999" : 561.6973290994077,
+                "99.9999" : 561.6973290994077,
+                "100.0" : 561.6973290994077
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    561.6973290994077
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getFunction.Benchmark_ClassTypeInfo_getFunction_inherittype_Static",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 552.7570724307218,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 552.7570724307218,
+                "50.0" : 552.7570724307218,
+                "90.0" : 552.7570724307218,
+                "95.0" : 552.7570724307218,
+                "99.0" : 552.7570724307218,
+                "99.9" : 552.7570724307218,
+                "99.99" : 552.7570724307218,
+                "99.999" : 552.7570724307218,
+                "99.9999" : 552.7570724307218,
+                "100.0" : 552.7570724307218
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    552.7570724307218
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getVariable.Benchmark_ClassTypeInfo_getVariable_Instance_basetype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1952.2880868704,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1952.2880868704,
+                "50.0" : 1952.2880868704,
+                "90.0" : 1952.2880868704,
+                "95.0" : 1952.2880868704,
+                "99.0" : 1952.2880868704,
+                "99.9" : 1952.2880868704,
+                "99.99" : 1952.2880868704,
+                "99.999" : 1952.2880868704,
+                "99.9999" : 1952.2880868704,
+                "100.0" : 1952.2880868704
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    1952.2880868704
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getVariable.Benchmark_ClassTypeInfo_getVariable_Instance_commontype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 256.6047610112662,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 256.6047610112662,
+                "50.0" : 256.6047610112662,
+                "90.0" : 256.6047610112662,
+                "95.0" : 256.6047610112662,
+                "99.0" : 256.6047610112662,
+                "99.9" : 256.6047610112662,
+                "99.99" : 256.6047610112662,
+                "99.999" : 256.6047610112662,
+                "99.9999" : 256.6047610112662,
+                "100.0" : 256.6047610112662
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    256.6047610112662
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getVariable.Benchmark_ClassTypeInfo_getVariable_Instance_generic_basetype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1956.2305217611677,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1956.2305217611677,
+                "50.0" : 1956.2305217611677,
+                "90.0" : 1956.2305217611677,
+                "95.0" : 1956.2305217611677,
+                "99.0" : 1956.2305217611677,
+                "99.9" : 1956.2305217611677,
+                "99.99" : 1956.2305217611677,
+                "99.999" : 1956.2305217611677,
+                "99.9999" : 1956.2305217611677,
+                "100.0" : 1956.2305217611677
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    1956.2305217611677
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getVariable.Benchmark_ClassTypeInfo_getVariable_Instance_generic_commontype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 256.525086476507,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 256.525086476507,
+                "50.0" : 256.525086476507,
+                "90.0" : 256.525086476507,
+                "95.0" : 256.525086476507,
+                "99.0" : 256.525086476507,
+                "99.9" : 256.525086476507,
+                "99.99" : 256.525086476507,
+                "99.999" : 256.525086476507,
+                "99.9999" : 256.525086476507,
+                "100.0" : 256.525086476507
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    256.525086476507
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getVariable.Benchmark_ClassTypeInfo_getVariable_Instance_inherittype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1971.0498214876454,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1971.0498214876454,
+                "50.0" : 1971.0498214876454,
+                "90.0" : 1971.0498214876454,
+                "95.0" : 1971.0498214876454,
+                "99.0" : 1971.0498214876454,
+                "99.9" : 1971.0498214876454,
+                "99.99" : 1971.0498214876454,
+                "99.999" : 1971.0498214876454,
+                "99.9999" : 1971.0498214876454,
+                "100.0" : 1971.0498214876454
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    1971.0498214876454
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getVariable.Benchmark_ClassTypeInfo_getVariable_Static_basetype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1991.5985674079407,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1991.5985674079407,
+                "50.0" : 1991.5985674079407,
+                "90.0" : 1991.5985674079407,
+                "95.0" : 1991.5985674079407,
+                "99.0" : 1991.5985674079407,
+                "99.9" : 1991.5985674079407,
+                "99.99" : 1991.5985674079407,
+                "99.999" : 1991.5985674079407,
+                "99.9999" : 1991.5985674079407,
+                "100.0" : 1991.5985674079407
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    1991.5985674079407
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getVariable.Benchmark_ClassTypeInfo_getVariable_Static_commontype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 255.55543735985646,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 255.55543735985646,
+                "50.0" : 255.55543735985646,
+                "90.0" : 255.55543735985646,
+                "95.0" : 255.55543735985646,
+                "99.0" : 255.55543735985646,
+                "99.9" : 255.55543735985646,
+                "99.99" : 255.55543735985646,
+                "99.999" : 255.55543735985646,
+                "99.9999" : 255.55543735985646,
+                "100.0" : 255.55543735985646
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    255.55543735985646
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getVariable.Benchmark_ClassTypeInfo_getVariable_Static_generic_basetype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 1992.1107927223422,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1992.1107927223422,
+                "50.0" : 1992.1107927223422,
+                "90.0" : 1992.1107927223422,
+                "95.0" : 1992.1107927223422,
+                "99.0" : 1992.1107927223422,
+                "99.9" : 1992.1107927223422,
+                "99.99" : 1992.1107927223422,
+                "99.999" : 1992.1107927223422,
+                "99.9999" : 1992.1107927223422,
+                "100.0" : 1992.1107927223422
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    1992.1107927223422
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getVariable.Benchmark_ClassTypeInfo_getVariable_Static_generic_commontype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 256.8621371583692,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 256.8621371583692,
+                "50.0" : 256.8621371583692,
+                "90.0" : 256.8621371583692,
+                "95.0" : 256.8621371583692,
+                "99.0" : 256.8621371583692,
+                "99.9" : 256.8621371583692,
+                "99.99" : 256.8621371583692,
+                "99.999" : 256.8621371583692,
+                "99.9999" : 256.8621371583692,
+                "100.0" : 256.8621371583692
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    256.8621371583692
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getVariable.Benchmark_ClassTypeInfo_getVariable_Static_inherittype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 2003.413837749014,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2003.413837749014,
+                "50.0" : 2003.413837749014,
+                "90.0" : 2003.413837749014,
+                "95.0" : 2003.413837749014,
+                "99.0" : 2003.413837749014,
+                "99.9" : 2003.413837749014,
+                "99.99" : 2003.413837749014,
+                "99.999" : 2003.413837749014,
+                "99.9999" : 2003.413837749014,
+                "100.0" : 2003.413837749014
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    2003.413837749014
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getset.Benchmark_ClassTypeInfo_getset_commontype_Instance_getValue",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 56.70594900028149,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 56.70594900028149,
+                "50.0" : 56.70594900028149,
+                "90.0" : 56.70594900028149,
+                "95.0" : 56.70594900028149,
+                "99.0" : 56.70594900028149,
+                "99.9" : 56.70594900028149,
+                "99.99" : 56.70594900028149,
+                "99.999" : 56.70594900028149,
+                "99.9999" : 56.70594900028149,
+                "100.0" : 56.70594900028149
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    56.70594900028149
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getset.Benchmark_ClassTypeInfo_getset_commontype_Instance_setValue",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 47.539397595936826,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 47.539397595936826,
+                "50.0" : 47.539397595936826,
+                "90.0" : 47.539397595936826,
+                "95.0" : 47.539397595936826,
+                "99.0" : 47.539397595936826,
+                "99.9" : 47.539397595936826,
+                "99.99" : 47.539397595936826,
+                "99.999" : 47.539397595936826,
+                "99.9999" : 47.539397595936826,
+                "100.0" : 47.539397595936826
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    47.539397595936826
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getset.Benchmark_ClassTypeInfo_getset_commontype_Static_getValue",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 44.2579988357185,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 44.2579988357185,
+                "50.0" : 44.2579988357185,
+                "90.0" : 44.2579988357185,
+                "95.0" : 44.2579988357185,
+                "99.0" : 44.2579988357185,
+                "99.9" : 44.2579988357185,
+                "99.99" : 44.2579988357185,
+                "99.999" : 44.2579988357185,
+                "99.9999" : 44.2579988357185,
+                "100.0" : 44.2579988357185
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    44.2579988357185
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getset.Benchmark_ClassTypeInfo_getset_commontype_Static_setValue",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 49.14656908246744,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 49.14656908246744,
+                "50.0" : 49.14656908246744,
+                "90.0" : 49.14656908246744,
+                "95.0" : 49.14656908246744,
+                "99.0" : 49.14656908246744,
+                "99.9" : 49.14656908246744,
+                "99.99" : 49.14656908246744,
+                "99.999" : 49.14656908246744,
+                "99.9999" : 49.14656908246744,
+                "100.0" : 49.14656908246744
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    49.14656908246744
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getset.Benchmark_ClassTypeInfo_getset_generic_commontype_Instance_getValue",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 49.208757061709996,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 49.208757061709996,
+                "50.0" : 49.208757061709996,
+                "90.0" : 49.208757061709996,
+                "95.0" : 49.208757061709996,
+                "99.0" : 49.208757061709996,
+                "99.9" : 49.208757061709996,
+                "99.99" : 49.208757061709996,
+                "99.999" : 49.208757061709996,
+                "99.9999" : 49.208757061709996,
+                "100.0" : 49.208757061709996
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    49.208757061709996
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getset.Benchmark_ClassTypeInfo_getset_generic_commontype_Instance_setValue",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 52.44461349244698,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 52.44461349244698,
+                "50.0" : 52.44461349244698,
+                "90.0" : 52.44461349244698,
+                "95.0" : 52.44461349244698,
+                "99.0" : 52.44461349244698,
+                "99.9" : 52.44461349244698,
+                "99.99" : 52.44461349244698,
+                "99.999" : 52.44461349244698,
+                "99.9999" : 52.44461349244698,
+                "100.0" : 52.44461349244698
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    52.44461349244698
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getset.Benchmark_ClassTypeInfo_getset_generic_commontype_Static_getValue",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 57.401689450450085,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 57.401689450450085,
+                "50.0" : 57.401689450450085,
+                "90.0" : 57.401689450450085,
+                "95.0" : 57.401689450450085,
+                "99.0" : 57.401689450450085,
+                "99.9" : 57.401689450450085,
+                "99.99" : 57.401689450450085,
+                "99.999" : 57.401689450450085,
+                "99.9999" : 57.401689450450085,
+                "100.0" : 57.401689450450085
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    57.401689450450085
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_getset.Benchmark_ClassTypeInfo_getset_generic_commontype_Static_setValue",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 50.328191716602284,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 50.328191716602284,
+                "50.0" : 50.328191716602284,
+                "90.0" : 50.328191716602284,
+                "95.0" : 50.328191716602284,
+                "99.0" : 50.328191716602284,
+                "99.9" : 50.328191716602284,
+                "99.99" : 50.328191716602284,
+                "99.999" : 50.328191716602284,
+                "99.9999" : 50.328191716602284,
+                "100.0" : 50.328191716602284
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    50.328191716602284
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_invokeFunction.Benchmark_ClassTypeInfo_invokeFunction_commontype_Instance_apply",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 76.88224832506744,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 76.88224832506744,
+                "50.0" : 76.88224832506744,
+                "90.0" : 76.88224832506744,
+                "95.0" : 76.88224832506744,
+                "99.0" : 76.88224832506744,
+                "99.9" : 76.88224832506744,
+                "99.99" : 76.88224832506744,
+                "99.999" : 76.88224832506744,
+                "99.9999" : 76.88224832506744,
+                "100.0" : 76.88224832506744
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    76.88224832506744
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_invokeFunction.Benchmark_ClassTypeInfo_invokeFunction_commontype_Static_apply",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 78.46300216744795,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 78.46300216744795,
+                "50.0" : 78.46300216744795,
+                "90.0" : 78.46300216744795,
+                "95.0" : 78.46300216744795,
+                "99.0" : 78.46300216744795,
+                "99.9" : 78.46300216744795,
+                "99.99" : 78.46300216744795,
+                "99.999" : 78.46300216744795,
+                "99.9999" : 78.46300216744795,
+                "100.0" : 78.46300216744795
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    78.46300216744795
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_invokeFunction.Benchmark_ClassTypeInfo_invokeFunction_generic_commontype_Instance_apply",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 63.33834134615385,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 63.33834134615385,
+                "50.0" : 63.33834134615385,
+                "90.0" : 63.33834134615385,
+                "95.0" : 63.33834134615385,
+                "99.0" : 63.33834134615385,
+                "99.9" : 63.33834134615385,
+                "99.99" : 63.33834134615385,
+                "99.999" : 63.33834134615385,
+                "99.9999" : 63.33834134615385,
+                "100.0" : 63.33834134615385
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    63.33834134615385
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_invokeFunction.Benchmark_ClassTypeInfo_invokeFunction_generic_commontype_Static_apply",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 72.3090543196222,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 72.3090543196222,
+                "50.0" : 72.3090543196222,
+                "90.0" : 72.3090543196222,
+                "95.0" : 72.3090543196222,
+                "99.0" : 72.3090543196222,
+                "99.9" : 72.3090543196222,
+                "99.99" : 72.3090543196222,
+                "99.999" : 72.3090543196222,
+                "99.9999" : 72.3090543196222,
+                "100.0" : 72.3090543196222
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    72.3090543196222
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_invokeFunction.Benchmark_ClassTypeInfo_invokeFunction_inherittype_Instance_apply",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 84.73726266869947,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 84.73726266869947,
+                "50.0" : 84.73726266869947,
+                "90.0" : 84.73726266869947,
+                "95.0" : 84.73726266869947,
+                "99.0" : 84.73726266869947,
+                "99.9" : 84.73726266869947,
+                "99.99" : 84.73726266869947,
+                "99.999" : 84.73726266869947,
+                "99.9999" : 84.73726266869947,
+                "100.0" : 84.73726266869947
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    84.73726266869947
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_invokeFunction.Benchmark_ClassTypeInfo_invokeFunction_inherittype_Static_apply",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 81.50105328076413,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 81.50105328076413,
+                "50.0" : 81.50105328076413,
+                "90.0" : 81.50105328076413,
+                "95.0" : 81.50105328076413,
+                "99.0" : 81.50105328076413,
+                "99.9" : 81.50105328076413,
+                "99.99" : 81.50105328076413,
+                "99.999" : 81.50105328076413,
+                "99.9999" : 81.50105328076413,
+                "100.0" : 81.50105328076413
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    81.50105328076413
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_of.Benchmark_ClassTypeInfo_of_basetype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 5.064851366971522,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 5.064851366971522,
+                "50.0" : 5.064851366971522,
+                "90.0" : 5.064851366971522,
+                "95.0" : 5.064851366971522,
+                "99.0" : 5.064851366971522,
+                "99.9" : 5.064851366971522,
+                "99.99" : 5.064851366971522,
+                "99.999" : 5.064851366971522,
+                "99.9999" : 5.064851366971522,
+                "100.0" : 5.064851366971522
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    5.064851366971522
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_of.Benchmark_ClassTypeInfo_of_commontype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 4.732351756768775,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4.732351756768775,
+                "50.0" : 4.732351756768775,
+                "90.0" : 4.732351756768775,
+                "95.0" : 4.732351756768775,
+                "99.0" : 4.732351756768775,
+                "99.9" : 4.732351756768775,
+                "99.99" : 4.732351756768775,
+                "99.999" : 4.732351756768775,
+                "99.9999" : 4.732351756768775,
+                "100.0" : 4.732351756768775
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    4.732351756768775
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_of.Benchmark_ClassTypeInfo_of_generic_basetype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 5.039124176966108,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 5.039124176966108,
+                "50.0" : 5.039124176966108,
+                "90.0" : 5.039124176966108,
+                "95.0" : 5.039124176966108,
+                "99.0" : 5.039124176966108,
+                "99.9" : 5.039124176966108,
+                "99.99" : 5.039124176966108,
+                "99.999" : 5.039124176966108,
+                "99.9999" : 5.039124176966108,
+                "100.0" : 5.039124176966108
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    5.039124176966108
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_of.Benchmark_ClassTypeInfo_of_generic_commontype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 5.07634944060487,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 5.07634944060487,
+                "50.0" : 5.07634944060487,
+                "90.0" : 5.07634944060487,
+                "95.0" : 5.07634944060487,
+                "99.0" : 5.07634944060487,
+                "99.9" : 5.07634944060487,
+                "99.99" : 5.07634944060487,
+                "99.999" : 5.07634944060487,
+                "99.9999" : 5.07634944060487,
+                "100.0" : 5.07634944060487
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    5.07634944060487
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.29",
+        "benchmark" : "reflect.Benchmark_ClassTypeInfo_of.Benchmark_ClassTypeInfo_of_inherittype",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/home/jenkins2/workspace/important_package/jdk8u362-b09/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms512m",
+            "-Xmx16g"
+        ],
+        "jdkVersion" : "1.8.0_362",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.362-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 4.7327566265168235,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4.7327566265168235,
+                "50.0" : 4.7327566265168235,
+                "90.0" : 4.7327566265168235,
+                "95.0" : 4.7327566265168235,
+                "99.0" : 4.7327566265168235,
+                "99.9" : 4.7327566265168235,
+                "99.99" : 4.7327566265168235,
+                "99.999" : 4.7327566265168235,
+                "99.9999" : 4.7327566265168235,
+                "100.0" : 4.7327566265168235
+            },
+            "scoreUnit" : "ns/op",
+            "rawData" : [
+                [
+                    4.7327566265168235
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+

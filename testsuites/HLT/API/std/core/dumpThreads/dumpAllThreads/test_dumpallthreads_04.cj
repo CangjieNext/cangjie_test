@@ -13,8 +13,9 @@
 import std.unittest.*
 import std.unittest.testmacro.*
 
-main():Unit {
-    let _thread = spawn { 
+main(): Unit {
+    let beforeThreadCreation = ThreadSnapshot.dumpAllThreads().size
+    let _thread = spawn {
         while (true) {
             if (Thread.currentThread.hasPendingCancellation) {
                 println("Thread.currentThread.hasPendingCancellation")
@@ -26,9 +27,9 @@ main():Unit {
     sleep(Duration.second)
     _thread.cancel()
     sleep(Duration.second)
-    let _thread_infos = ThreadSnapshot.dumpAllThreads()
     // 这里线程被回收无法获取
-    @Assert(_thread_infos.size, 1)
+    let afterThreadCancellation = ThreadSnapshot.dumpAllThreads().size
+    @Assert(beforeThreadCreation, afterThreadCancellation)
     @Assert(_thread.thread.state.toString(), "Terminated")
     @Assert(_thread.get(), 0)
 }

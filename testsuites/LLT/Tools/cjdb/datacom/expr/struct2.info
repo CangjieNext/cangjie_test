@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb struct2,struct2
+cjdb,cjdb --no-use-colors struct2,struct2
 b,b 21,struct.cj:21
 r,r,-> 21
  ,expr aa,\(default.AA\) \$\d+ = {\s+a = 1\s+b = "abc"

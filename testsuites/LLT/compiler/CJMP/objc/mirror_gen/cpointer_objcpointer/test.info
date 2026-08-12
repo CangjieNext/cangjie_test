@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// DEPENDENCE: ../test.toml test.h
+// EXEC: ObjCInteropGen test.toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+@C
+public struct CType {
+    public var a: CPointer<CType> = CPointer<CType>()
+    public var b: Int32 = 0
+}
+
+/* @ObjCMirror */
+public struct ObjCCompat {
+    public var a: ObjCPointer<?M> = ObjCPointer<?M>(CPointer<Unit>())
+    public var b: Int32 = 0
+}
+
+@ObjCMirror
+public open class M {
+    protected var a: ObjCPointer<Int32>
+    protected var b: ObjCPointer<?M>
+    protected var c: ObjCPointer<CType>
+    // protected var d: ObjCPointer<ObjCCompat>
+}
+*/

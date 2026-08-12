@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb range,range
+cjdb,cjdb --no-use-colors range,range
 b,b 16,range.cj:16
 r,r,-> 16
  ,expr c,\(std.core.Range<Int16>\) \$\d+ = 0..10 : 1

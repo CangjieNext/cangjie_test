@@ -18,6 +18,7 @@ func run(): Int64 {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let pkg_enum_m = TimeUnit1<Int8>.Month(3)
     var pkg_r1_m = R1<Int32>(30, 30)
     var pkg_c1_m = C1<Float64>(30.0)

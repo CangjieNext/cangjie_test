@@ -6,11 +6,11 @@
 
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/macro/ut2.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug ut2.cj -o ut2 %cmp_utest_opt
-// EXEC: python3 cjdb_test.py debuginfo_ut2.info
+// EXEC: python3 cjdb_test.py debuginfo_ut2.info ut2 %run_env
 
 
 test#
-cjdb,cjdb ut2,ut2
+cjdb,cjdb --no-use-colors ut2,ut2
 b,b test,ut2.cj:22
 r,r,-> 22
 n,n,-> 23

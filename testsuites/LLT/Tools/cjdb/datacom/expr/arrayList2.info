@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb arrayList2,arrayList2
+cjdb,cjdb --no-use-colors arrayList2,arrayList2
 b,b 11,arrayList2.cj:11
 r,r,-> 11
  expression~expr ArrayList<String>(2, {x: Int64 => x.toString()})~\(std.collection.ArrayList<std.core.String>\) \$\d+ = {\s+\[0\] = "0"\s+\[1\] = "1"

@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var Functioncall008: Int64 = demofun001(5, 5) //函数重载  Functioncall008=10
     return Functioncall008
 }

@@ -5,43 +5,38 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f
-// (not O2)RUN-EXEC-PIPE: %run %run_opt %n.%suffix %run_args 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt -o %output %f
+// (not O2) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan handle error: OutOfMemoryError
 // ASSERT: scan handler finished
 // ASSERT: scan quit normally
 
-
 import std.unittest.*
 import std.unittest.testmacro.*
 
-
 main() {
+    func handler_01(err: Error): Unit { // easy handler。will all print log
+        println("handle error: ${err}")
+        println("handler finished")
+    }
 
-  func handler_01(err: Error): Unit { // easy handler。will all print log
-    println("handle error: ${err}")  
-    println("handler finished")
-  }
+    Thread.handleUncaughtErrorBy(handler_01)
 
-  Thread.handleUncaughtErrorBy(handler_01)
+    spawn {
+        consumeMemory()
+    }
 
-  spawn {
-    consumeMemory()
-  }
+    sleep(Duration.second * 10)
+    println("quit normally")
 
-  sleep(Duration.second * 10)
-  println("quit normally")
-
-  return 0
+    return 0
 }
-
 
 public func consumeMemory() {
-  let array = Array(1024*1024*1024*1024, repeat: 10)
-  for (i in 0..array.size) {
-    array[i] = i
-  }
+    let array = Array(1024 * 1024 * 1024 * 1024, repeat: 10)
+    for (i in 0..array.size) {
+        array[i] = i
+    }
 }
-

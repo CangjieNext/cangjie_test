@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb class12,class12
+cjdb,cjdb --no-use-colors class12,class12
 b,b 18,class_generic.cj:18
 r,r,-> 18
  ,expr aa,\(default.GenericTest\) \$\d+ = {(\r|\n|\r\n)  arr = {}

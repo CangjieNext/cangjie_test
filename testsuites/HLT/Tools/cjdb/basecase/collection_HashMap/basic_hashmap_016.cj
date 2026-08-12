@@ -16,6 +16,7 @@ var map_c: HashMap<C1, cla> = HashMap<C1, cla>([(cla(1), cla(3)), (cla(2), cla(4
 var map_d: HashMap<cla, cla> = HashMap<C1, C1>([(cla(1), cla(1)), (cla(3), cla(1)), (cla(2), cla(1))])
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var map_a: HashMap<C1, cla> = HashMap<C1, cla>([(C1(1), cla(2)), (cla(3), cla(4))])
     var map_b: HashMap<cla, C1> = HashMap<cla, C1>([(C1(1), C1(2)), (C1(2), cla(4))])
     var map_c: HashMap<C1, C1> = HashMap<cla, cla>([(cla(1), C1(3)), (cla(2), C1(4)), (C1(3), cla(3))])

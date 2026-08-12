@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: chmod +x %n/run_archive_matrix.sh
+// EXEC: cd %n && ./run_archive_matrix.sh 2>&1 | compare %f
+// ASSERT: scan Warning: extra contents will be ignored in package 'goodpkg-1.0.0'
+// ASSERT: scan cjpm install success
+// ASSERT: scan archive-ok
+// ASSERT: scan wrongpkg-1.0.0 load failed with incorrect content in cjp package
+// ASSERT: scan invalidpkg-1.0.0 load failed with error while uncompressing and saving repository cache
+// ASSERT: scan package was broken while downloading hashbad-1.0.0
+// ASSERT: scan index was broken while downloading badindex-1.0.0
+// ASSERT: scan cannot find index data while downloading noversion-1.0.0
+// ASSERT: scan Error: cjpm install failed

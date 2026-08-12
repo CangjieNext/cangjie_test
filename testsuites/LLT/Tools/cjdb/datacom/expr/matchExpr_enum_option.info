@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb matchExpr_enum_option,matchExpr_enum_option
+cjdb,cjdb --no-use-colors matchExpr_enum_option,matchExpr_enum_option
 b,b 28,matchExpr_enum_option.cj:28
 r,r,-> 28
  ,expr match (v1) {case Some(v) => v  case None => 0 },\(Int64\) \$\d+ = 100

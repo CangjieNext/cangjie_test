@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb lambda,lambda
+cjdb,cjdb --no-use-colors lambda,lambda
 b,b 18,lambda.cj:18
 r,r,-> 18
  ,expr f1,\(default.\(Int64,Int64\)->Int64\) 

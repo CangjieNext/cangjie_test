@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb parenthesizedExpr,parenthesizedExpr
+cjdb,cjdb --no-use-colors parenthesizedExpr,parenthesizedExpr
 b,b 11,parenthesizedExpr.cj:11
 r,r,-> 11
  ,expr (a+b)*2,\(Int64\) \$\d+ = 6

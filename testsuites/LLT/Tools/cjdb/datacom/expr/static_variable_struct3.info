@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb static_variable_struct3,static_variable_struct3
+cjdb,cjdb --no-use-colors static_variable_struct3,static_variable_struct3
 b,b 24,static_variable_struct.cj:24
 r,r,-> 24
  ,expr Rect2<UInt32>.vlist2,\(std.collection.ArrayList<Int64>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = 2

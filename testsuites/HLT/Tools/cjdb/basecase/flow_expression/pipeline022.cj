@@ -26,6 +26,7 @@ var a = 1|> b1.f
 var a2 = 1 |> {x:Int64 => b1.f2(x, b:3)}
 
 main() {
+    sleep(Duration.millisecond*3000)
     var x = 1 |> {x:Int64 => b1.f(a:x)}
     var a = 1|> b1.f
     var a2 = 1 |> {x:Int64 => b1.f2(x, b:3)}

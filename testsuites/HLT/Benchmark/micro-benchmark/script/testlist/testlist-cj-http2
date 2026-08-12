@@ -1,0 +1,16 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkHttp2Delete
+BenchmarkHttp2Get
+BenchmarkHttp2Head
+BenchmarkHttp2PostForm
+BenchmarkHttp2PostRequestBody
+BenchmarkHttp2PostResponseBody
+BenchmarkHttp2PutForm
+BenchmarkHttp2PutRequestBody
+BenchmarkHttp2PutResponseBody

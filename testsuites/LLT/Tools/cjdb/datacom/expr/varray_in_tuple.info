@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb varray_in_tuple,varray_in_tuple
+cjdb,cjdb --no-use-colors varray_in_tuple,varray_in_tuple
 b,b 11,varray_in_tuple.cj:11
 r,r,-> 11
  ,expr ccc,\(Tuple<Tuple<Bool,Int64,Float64,std.core.String,std.core.String,Rune,std.core.Array<Int64>>,VArray<Int64,\$3>>\) \$\d+ = {

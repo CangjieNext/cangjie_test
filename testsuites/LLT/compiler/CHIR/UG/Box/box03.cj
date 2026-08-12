@@ -9,7 +9,7 @@
 // RUN-EXEC-0: %run %run_opt %output %run_args
 // (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/0\_AST\_CHIR.chir | compare %f
 // (not Windows and DEBUG_OPTION) ASSERT: regex Class-_CN7default1IE& = Box\(%[0-9]+, Class-_CN7default1IE&\)
-// (not Windows and DEBUG_OPTION) ASSERT: regex Struct-_CN7default1SE = UnBox\(%[0-9]+, Struct-_CN7default1SE\)
+// (not Windows and DEBUG_OPTION) ASSERT: regex Struct-_CN7default1SE = UnBoxToValue\(%[0-9]+, Struct-_CN7default1SE\)
 
 // Strunct In parameter -> I
 interface I {

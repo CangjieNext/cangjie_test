@@ -26,6 +26,7 @@ enum E2 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
 
     let time1 = TimeUnit.Year(3)
     let howManyYears: Int32 = match (time1) {

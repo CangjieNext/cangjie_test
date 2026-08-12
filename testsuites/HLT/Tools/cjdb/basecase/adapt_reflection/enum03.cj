@@ -19,6 +19,7 @@ enum E3 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = E1.B(E2.C(E1.A))
     var a2 = E1.B(E2.D(2))
     var a3 = B(E2.D(2))

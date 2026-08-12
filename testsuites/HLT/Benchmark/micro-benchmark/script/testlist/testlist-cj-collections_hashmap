@@ -1,0 +1,28 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkHashMapClone
+BenchmarkHashMapContains_Float64
+BenchmarkHashMapContains_Float64_NonExist
+BenchmarkHashMapContains_Int64
+BenchmarkHashMapContains_Int64_NonExist
+BenchmarkHashMapContains_String
+BenchmarkHashMapContains_String_NonExist
+BenchmarkHashMapGet_Float64
+BenchmarkHashMapGet_Int64
+BenchmarkHashMapGet_Operator_Int64
+BenchmarkHashMapGet_String
+BenchmarkHashMapInit
+BenchmarkHashMapInitCollection
+BenchmarkHashMapPut_Float64
+BenchmarkHashMapPut_Float64_Reserve
+BenchmarkHashMapPut_Int64
+BenchmarkHashMapPut_Int64_Reserve
+BenchmarkHashMapPut_Operator_Int64
+BenchmarkHashMapPut_String
+BenchmarkHashMapPut_String_Reserve
+BenchmarkHashMapRemove

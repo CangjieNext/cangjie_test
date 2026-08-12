@@ -80,6 +80,7 @@ var top_c1 = C1<Int32>(10)
 let top_c2 = CHC1(10)
 
 main() {
+    sleep(Duration.millisecond*3000)
     let mc_1 = C1<UInt32>(100)
     let mc_2 = C1<Float64>(100.0)
     let mc_3 = C1<Rune>(r'5', r'5')

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_int16.info %n %run_env
 
 test#
-cjdb,cjdb int16,int16
+cjdb,cjdb --no-use-colors int16,int16
 b,b foo,int16.cj:10
 r,r,-> 10
 expr a,expr a,\(Int16\) \$\d+ = 1

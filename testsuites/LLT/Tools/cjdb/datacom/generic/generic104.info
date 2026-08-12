@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic104,generic104
+cjdb,cjdb --no-use-colors generic104,generic104
 b,b 17,generic104.cj:17
 r,r,-> 17
  ,p para,\(std.core.String\) \$\d+ = "abcd"

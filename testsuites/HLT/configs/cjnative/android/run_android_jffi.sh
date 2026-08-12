@@ -91,11 +91,11 @@ adb -s "${DEVICE_ID}" install -r "$ANDROID_PROJ_PATH/app/build/outputs/apk/andro
 # run tests.
 timestamp=$(date +%s)
 TEMP_LOG_FILE=$(mktemp /tmp/adb_logs_${timestamp}.txt)
-adb logcat -c
+adb -s "${DEVICE_ID}" logcat -c
 LOG_TAG="APP_OUTPUT"
-adb logcat -s "$LOG_TAG" > "$TEMP_LOG_FILE" &
+adb -s "${DEVICE_ID}" logcat -s "$LOG_TAG" > "$TEMP_LOG_FILE" &
 LOG_PID=$!
-adb -s "$DEVICE_ID" shell am instrument -w -e junitXml "/sdcard/report.xml" "com.example.myapplication.test/androidx.test.runner.AndroidJUnitRunner" 2>&1 > result.txt
+adb -s "${DEVICE_ID}" shell am instrument -w -e junitXml "/sdcard/report.xml" "com.example.myapplication.test/androidx.test.runner.AndroidJUnitRunner" 2>&1 > result.txt
 sleep 0.5
 kill $LOG_PID 2>/dev/null
 wait $LOG_PID 2>/dev/null

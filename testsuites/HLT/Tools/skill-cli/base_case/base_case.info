@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: cd %n && rm -rf Skill-CLI
+// (target_win)EXEC:set PYTHONUTF8=1
+// (target_win)EXEC: set PYTHONIOENCODING=utf-8
+// (target_linux)EXEC: PYTHONUTF8=1
+// (target_linux)EXEC: PYTHONIOENCODING=utf-8
+// (target_win | target_linux)EXEC: cd %n && git clone https://gitcode.com/cjse/Skill-CLI.git -b main
+// (target_win | target_linux)EXEC-PIPE-0: cd %n/Skill-CLI && python -m pytest -q 2>&1 | compare %f
+// (target_win)ASSERT: scan 210 passed
+// (target_linux)ASSERT: scan 207 passed
+
+

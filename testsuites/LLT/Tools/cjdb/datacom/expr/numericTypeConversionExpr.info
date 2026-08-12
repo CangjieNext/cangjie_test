@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb numericTypeConversionExpr,numericTypeConversionExpr
+cjdb,cjdb --no-use-colors numericTypeConversionExpr,numericTypeConversionExpr
 b,b 42,numericTypeConversionExpr.cj:42
 r,r,-> 42
  ,expr Int64(i8),\(Int64\) \$\d+ = 1

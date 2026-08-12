@@ -20,4 +20,4 @@ main() {
         test()
     }
 }
-// ASSERT: scan sema_unsafe_func_can_only_be_called
+// ASSERT: scan sema_func_can_only_be_called
