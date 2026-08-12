@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// EXEC: %frontendCompiler %disableCodegen %cmp_opt %f
+// EXEC: %compiler %cmp_opt %f
 
 class CA {
     var m: SA = SA()

@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// (DEBUG_OPTION)EXEC: %frontendCompiler %disableCodegen %cmp_opt %f
+// EXEC: %compiler %cmp_opt %f
 
 open class CA {
     public let member: Int32 = 111

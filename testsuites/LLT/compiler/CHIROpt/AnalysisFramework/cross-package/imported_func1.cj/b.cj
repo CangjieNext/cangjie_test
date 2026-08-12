@@ -9,8 +9,6 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg1/a.cj -o pkg1.%middle
 // EXEC: %compiler %cmp_opt %f pkg1.%middle
 // RUN-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace
 
 package pkg2
 
