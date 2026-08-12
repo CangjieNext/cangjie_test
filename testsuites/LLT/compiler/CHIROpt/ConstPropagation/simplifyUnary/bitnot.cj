@@ -4,10 +4,12 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %enableConstPropagation %debugCHIROpt %enableCompileDebug %f -o %n.%suffix 2>&1 | compare %f
-// ASSERT: scan [ConstPropagation] The result of the trivial BitNot at [15,17] has been optimised
-// ASSERT: scan [ConstPropagation] The result of the trivial BitNot at [15,13] has been optimised
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableConstPropagation %dumpCHIRDebug -Woff unused %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_ConstantPropagation.chirtxt "Func @_CN7default3fooHv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// Double BitNot cancels: Store uses Load(b).
+// ASSERT: regex %(\d+): Int64 = Load\(@_CN7default1bE\)[\s\S]*?Store\(%\1, %1\)
 
 var b = 10
 

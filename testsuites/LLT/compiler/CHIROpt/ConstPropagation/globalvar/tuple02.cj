@@ -4,9 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
-// (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %enableConstPropagation %cmp_opt %enableCompileDebug %f -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)RUN-EXEC: %run %output
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableConstPropagation %dumpCHIRDebug -Woff unused %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_ConstantPropagation.chirtxt "Func @_CN7default3fooHv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Load(@_CN7default1yE)
+// ASSERT: scan Constant(1i)
+// ASSERT: scan Constant(2i)
 
 let x = (1, 2)
 var y = x[0]
@@ -27,9 +31,3 @@ func foo() {
 main() {
     foo()
 }
-
-// ASSERT: scan [ConstPropagation] The Field at [tuple02.cj,12,9] has been rewrited to a constant
-// ASSERT: scan [ConstPropagation] The Field at [tuple02.cj,14,15] has been rewrited to a constant
-// ASSERT: regex-not \[ConstPropagation\] The Load at [tuple02\.cj,17,.*] has been rewrited to a constant
-// ASSERT: scan [ConstPropagation] The Load at [tuple02.cj,18,14] has been rewrited to a constant
-// ASSERT: regex-not \[ConstPropagation\] The Load at [tuple02\.cj,19,.*] has been rewrited to a constant
