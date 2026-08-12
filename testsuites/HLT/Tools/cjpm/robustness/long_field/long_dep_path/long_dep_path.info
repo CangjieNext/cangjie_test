@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 2
+// DEPENDENCE: ../%n
+// (not Windows)EXEC: cd %n && python3 -c "q=chr(34);L=['# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.','# This source file is part of the Cangjie project, licensed under Apache-2.0','# with Runtime Library Exception.','# ','# See https://cangjie-lang.cn/pages/LICENSE for license information.','','[dependencies]','  dep = { path = '+q+'/tmp/'+'a'*4000+q+' }','','[package]','  cjc-version = '+q+'1.0.0'+q,'  compile-option = '+q+q,'  description = '+q+'A test case for cjpm robustness testing.'+q,'  link-option = '+q+q,'  name = '+q+'test_case'+q,'  output-type = '+q+'executable'+q,'  src-dir = '+q+'src'+q,'  target-dir = '+q+q,'  version = '+q+'1.0.0'+q,'  package-configuration = {}'];open('cjpm.toml','w').write('\n'.join(L)+'\n')"
+// (Windows)EXEC: cd %n && python -c "q=chr(34);L=['# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.','# This source file is part of the Cangjie project, licensed under Apache-2.0','# with Runtime Library Exception.','# ','# See https://cangjie-lang.cn/pages/LICENSE for license information.','','[dependencies]','  dep = { path = '+q+'C:'+chr(92)+chr(92)+'a'*4000+q+' }','','[package]','  cjc-version = '+q+'1.0.0'+q,'  compile-option = '+q+q,'  description = '+q+'A test case for cjpm robustness testing.'+q,'  link-option = '+q+q,'  name = '+q+'test_case'+q,'  output-type = '+q+'executable'+q,'  src-dir = '+q+'src'+q,'  target-dir = '+q+q,'  version = '+q+'1.0.0'+q,'  package-configuration = {}'];open('cjpm.toml','w').write('\n'.join(L)+'\n')"
+// ERRCHECK: cd %n && %cjpm check
+// ASSERT: scan Error:

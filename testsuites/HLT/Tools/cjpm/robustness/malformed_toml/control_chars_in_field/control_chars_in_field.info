@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 2
+// DEPENDENCE: ../%n
+// (not Windows)EXEC: cd %n && python3 -c "open('cjpm.toml','wb').write(b'# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.\n# This source file is part of the Cangjie project, licensed under Apache-2.0\n# with Runtime Library Exception.\n# \n# See https://cangjie-lang.cn/pages/LICENSE for license information.\n\n[dependencies]\n\n[package]\n  cjc-version = \"1.0.0\"\n  name = \"test\x01\x02\x03_case\"\n  version = \"1.0.0\"\n  description = \"A test case for cjpm robustness testing.\"\n  output-type = \"executable\"\n  src-dir = \"src\"\n')"
+// (Windows)EXEC: cd %n && python -c "open('cjpm.toml','wb').write(b'# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.\n# This source file is part of the Cangjie project, licensed under Apache-2.0\n# with Runtime Library Exception.\n# \n# See https://cangjie-lang.cn/pages/LICENSE for license information.\n\n[dependencies]\n\n[package]\n  cjc-version = \"1.0.0\"\n  name = \"test\x01\x02\x03_case\"\n  version = \"1.0.0\"\n  description = \"A test case for cjpm robustness testing.\"\n  output-type = \"executable\"\n  src-dir = \"src\"\n')"
+// ERRCHECK: cd %n && %cjpm build %cjpm_opt
+// ASSERT: scan Error:

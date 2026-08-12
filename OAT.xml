@@ -32,6 +32,11 @@
                 <filteritem type="filepath" name="testsuites/LLT/API/stdx/syntax/testType/sourceFile/.*" desc="syntax库暂不支持注释信息解析，测试用例会对输入文件和syntax解析出的内容做文本匹配"/>
                 <filteritem type="filename" name="test_file_input.cj" desc="syntax库暂不支持注释信息解析，测试用例会对输入文件和syntax解析出的内容做文本匹配"/>
                 <filteritem type="filename" name="*.dylib|*.obfmap|*.expect|*.tsv|*.csv|*.der|*.text|*.key|*.zoneinfo.tar.g|errorTimeZone|*.expect|*.csr|*.der|Shanghai|*.info|*.dll|*.so|*.out|*.gz|TyKind.inc|*.base|*.test|*.list|*.pem|*.bin|*.tar|*.data" desc="desc files"/>
+                <filteritem type="filepath" name="testsuites/HLT/Tools/cjpm/robustness/empty_file/empty_build_cj/build.cj" desc="empty_file健壮性测试夹具：空文件，无需许可头"/>
+                <filteritem type="filepath" name="testsuites/HLT/Tools/cjpm/robustness/empty_file/empty_cjpm_toml/cjpm.toml" desc="empty_file健壮性测试夹具：空文件，无需许可头"/>
+                <filteritem type="filepath" name="testsuites/HLT/Tools/cjpm/robustness/empty_file/empty_source_cj/src/main.cj" desc="empty_file健壮性测试夹具：空文件，无需许可头"/>
+                <filteritem type="filepath" name="testsuites/HLT/Tools/cjpm/robustness/empty_file/empty_repo_config/cangjie-repo.toml" desc="empty_file健壮性测试夹具：空文件，无需许可头"/>
+                <filteritem type="filepath" name="testsuites/HLT/Tools/cjpm/robustness/empty_file/empty_cjpm_lock/cjpm.lock" desc="empty_cjpm_lock健壮性测试夹具：空cjpm.lock文件，无需许可头"/>
             </filefilter>
             <filefilter name="licenseFileNamePolicyFilter" desc="Filters for LICENSE file policies">
                 <filteritem type="filepath" name="doc/.*" desc="doc目录过滤"/>
