@@ -4,9 +4,15 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
-// (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %enableConstPropagation %cmp_opt %enableCompileDebug %f -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)RUN-EXEC: %run %output
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableConstPropagation %dumpCHIRDebug -Woff unused %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_ConstantPropagation.chirtxt "Func @_CN7default8global01Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// let g1/g2 folded; var g3 remains Load.
+// ASSERT: scan Load(@_CN7default2g3E)
+// ASSERT: scan-not Load(@_CN7default2g1E)
+// ASSERT: scan-not Load(@_CN7default2g2E)
+// ASSERT: scan Constant(1i)
 
 let g1 = 1
 let g2 = g1
@@ -37,13 +43,3 @@ func global02(): Int64 {
 main(): Int64 {
     return global01() + global02()
 }
-
-// ASSERT: regex \[ConstPropagation\] The Load at \[global01.cj,12.* has been rewrited to a constant
-// ASSERT: regex \[ConstPropagation\] The Load at \[global01.cj,13.* has been rewrited to a constant
-// ASSERT: regex-not \[ConstPropagation\] The Load at \[global01\.cj,14,.*\] has been rewrited to a constant
-// ASSERT: regex \[ConstPropagation\] The Load at \[global01.cj,17.* has been rewrited to a constant
-// ASSERT: regex \[ConstPropagation\] The Load at \[global01.cj,18.* has been rewrited to a constant
-// ASSERT: regex-not \[ConstPropagation\] The Load at \[global01\.cj,19,.*\] has been rewrited to a constant
-// ASSERT: regex \[ConstPropagation\] The Field at \[global01.cj,30,9] has been rewrited to a constant
-// ASSERT: regex \[ConstPropagation\] The Field at \[global01.cj,30,22] has been rewrited to a constant
-// ASSERT: regex \[ConstPropagation\] The Field at \[global01.cj,30,35] has been rewrited to a constant
