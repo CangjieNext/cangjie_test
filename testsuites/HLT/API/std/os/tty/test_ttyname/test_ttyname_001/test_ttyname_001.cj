@@ -8,10 +8,9 @@
 
 // LEVEL: 0
 // DEPENDENCE: getpath.sh path.txt
-// (not Windows) EXEC-PIPE: %compiler %cmp_opt %f -o %output
-// (not OHOS and not Windows)RUN-EXEC-PIPE: bash getpath.sh && %run %run_opt %output %run_args | compare %f
-// (OHOS)RUN-EXEC-PIPE: sh getpath.sh && %run %run_opt %output %run_args | compare %f
-// (not Windows) ASSERT: scan-not Exception
+// (!host_win) EXEC: %compiler %cmp_opt %f -o %output
+// (!host_win) RUN-EXEC-PIPE: %target_shell getpath.sh && %run %run_opt %output %run_args | compare %f
+// (!host_win) ASSERT: scan-not Exception
 
 import std.posix.*
 

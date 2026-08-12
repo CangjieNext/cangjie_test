@@ -10,7 +10,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb package_interop,package_interop
+cjdb,cjdb --no-use-colors package_interop,package_interop
 b,b 57,main.cj:57
 r,r,-> 57
  expression~expr var g1: (Int64, Int64) -> Int64 = {a, b => a + b};g1(c.vc1+arr1[0],list1[0]-Int64(vi8))~\(Int64\) \$\d+ = 4

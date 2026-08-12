@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb flowExpr_composition,flowExpr_composition
+cjdb,cjdb --no-use-colors flowExpr_composition,flowExpr_composition
 b,b 14,flowExpr_composition.cj:14
 r,r,-> 14
  ,expr f ~> g,\(default.\(Int32\)->Int32\) \$\d+ = 0x

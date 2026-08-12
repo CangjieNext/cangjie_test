@@ -7,7 +7,7 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_args | compare %f
 
 /* SCAN
-apply invoke: true true true true
+apply invoke: true true true true true
 spawn: true true true true
 */
 
@@ -33,10 +33,11 @@ main() {
     let tap = b.createTryApply(fn, fcc, bn, be)
     let rtti = b.createGetRTTIStatic(i32)
     let mty = FuncType.get(Array<Type>(1, { _ => i32 }), UnitType.get())
-    let ic = InvokeCallContext(rtti.result, FuncSigInfo("foo", mty, Array<GenericType>()), fcc)
+    let methodFn = pkg.addFunction(mty, "foo", "foo", "pkg.cb.call")
+    let ic = InvokeCallContext(rtti.result, fcc, methodFn)
     let inv = b.createInvoke(UnitType.get(), ic)
     let tinv = b.createTryInvoke(i32, ic, bn, be)
-    println("apply invoke: ${ap.callee == fn} ${tap.errorBranch == be} ${inv.methodName == "foo"} ${tinv.normalBranch == bn}")
+    println("apply invoke: ${ap.callee == fn} ${tap.errorBranch == be} ${inv.methodName == "foo"} ${inv.callee == methodFn} ${tinv.normalBranch == bn}")
 
     let lv = b.createLambda(FuncType.get(Array<Type>(1, { _ => i32 }), UnitType.get()), "L0", "L0").result
     let sp1 = b.createSpawn(UnitType.get(), lv)

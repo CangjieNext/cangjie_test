@@ -15,6 +15,7 @@ func f2(a:Int64, b!: Int64 = 2): Int64 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var x = 1 |> {x:Int64 => f(a:x)}
     var a = 1|> f2
     var a2 = 1 |> {x:Int64 => f2(x, b:3)}

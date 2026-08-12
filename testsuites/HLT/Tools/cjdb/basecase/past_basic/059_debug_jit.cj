@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     var var_int8: Int8 = 1
     var f_int8: Int8 = var_int8 + 12
     var var_int16: Int16 = 1

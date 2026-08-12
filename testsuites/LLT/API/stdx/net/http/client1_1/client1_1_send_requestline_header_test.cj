@@ -55,7 +55,7 @@ class TestClient1_1RequestLine {
         let port = (serverSocket.localAddress as IPSocketAddress)?.port ?? 0
         let buf = Array<UInt8>(500, repeat: 0)
         let i = server.read(buf)
-        @Expect(String.fromUtf8(buf[0..i]).contains("GET /a?q#f HTTP/1.1\r\nhost: huawei.com\r\nuser-agent: CANGJIEUSERAGENT_1_1\r\n"))
+        @Expect(String.fromUtf8(buf[0..i]).contains("GET /a?q HTTP/1.1\r\nhost: huawei.com\r\nuser-agent: CANGJIEUSERAGENT_1_1\r\n"))
         server.write("HTTP/1.1 204 ok\r\nContent-Length: 10\r\na: b\r\nb: c\r\n\r\n".toArray())
         server.close()
     }

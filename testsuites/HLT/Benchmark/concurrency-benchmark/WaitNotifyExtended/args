@@ -1,0 +1,11 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+base s=0 p=16 c=16 v=4
+base s=0 p=32 c=32 v=4
+base s=0 p=64 c=64 v=4
+base s=0 p=128 c=128 v=4

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb class8,class8
+cjdb,cjdb --no-use-colors class8,class8
 b,b 30,class_member_array.cj:30
 r,r,-> 30
  ,expr r,\(default.Rectangle\) \$\d+ = {(\r|\n|\r\n)  width = 4(\r|\n|\r\n)  height = 5(\r|\n|\r\n)  arr1 = {\s+\[0\] = 0\s+\[1\] = 1\s+\[2\] = 2

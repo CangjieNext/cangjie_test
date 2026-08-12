@@ -10,7 +10,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb package_combine2,package_combine2
+cjdb,cjdb --no-use-colors package_combine2,package_combine2
 b,b 11,package_combine2.cj:11
 r,r,-> 11
 

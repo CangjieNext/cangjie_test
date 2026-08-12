@@ -7,10 +7,10 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/org/pkga/orga.cj ../../basecase/org/orgname.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %compile_lib_opt orga.cj -o pkga.%middle
 // EXEC: %compiler %cmp_opt %enableCompileDebug pkga.%middle orgname.cj -o orgname12
-// EXEC: python3 cjdb_test.py orgname12.info
+// EXEC: python3 cjdb_test.py orgname12.info %n %run_env
 
 test#
-cjdb,cjdb orgname12,orgname12
+cjdb,cjdb --no-use-colors orgname12,orgname12
 b,b testa,orga.cj:10
 r,r,-> 10
  ;expr aaa;\(org.pkga.EE1\) \$\d+ = EB

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb matchExpr_tuple_pattern2,matchExpr_tuple_pattern2
+cjdb,cjdb --no-use-colors matchExpr_tuple_pattern2,matchExpr_tuple_pattern2
 b,b 15,matchExpr_tuple_pattern2.cj:15
 r,r,-> 15
  #expr match (scoreTuple) {case ((allen, num80), (bob, num90)) => "${bob} got ${num90}"  case (_, _) => ""}#\(std.core.String\) \$\d+ = "Bob got 90"

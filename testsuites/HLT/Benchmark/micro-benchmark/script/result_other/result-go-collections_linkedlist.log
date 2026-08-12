@@ -1,0 +1,49 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/collections_linkedlist
+BenchmarkLinkedList_AddFirst_Blank-128           	 8044448	       141.9 ns/op
+BenchmarkLinkedList_AddFirst_Int64-128           	 4036213	       287.7 ns/op
+BenchmarkLinkedList_AddFirst_UInt8-128           	 4507306	       273.3 ns/op
+BenchmarkLinkedList_AddFirst_Float64-128         	 5579347	       222.8 ns/op
+BenchmarkLinkedList_AddFirst_String-128          	 6081534	       202.2 ns/op
+BenchmarkLinkedList_AddFirst_Int64_G16-128       	  623176	      1783 ns/op
+BenchmarkLinkedList_AddFirst_Int64_G128-128      	   89041	     12955 ns/op
+BenchmarkLinkedList_AddFirst_Int64_G1024-128     	    7948	    136779 ns/op
+BenchmarkLinkedList_addLast_Blank-128            	11143334	       101.4 ns/op
+BenchmarkLinkedList_addLast_Int64-128            	 5968834	       200.4 ns/op
+BenchmarkLinkedList_addLast_UInt8-128            	 5660794	       210.4 ns/op
+BenchmarkLinkedList_addLast_Float64-128          	 5879217	       211.8 ns/op
+BenchmarkLinkedList_addLast_String-128           	 5862090	       213.5 ns/op
+BenchmarkLinkedList_addLast_Int64_G16-128        	  548289	      2054 ns/op
+BenchmarkLinkedList_addLast_Int64_G128-128       	   74653	     16038 ns/op
+BenchmarkLinkedList_addLast_Int64_G1024-128      	    7630	    159023 ns/op
+BenchmarkLinkedList_first_Int64_N8-128           	818102145	         1.449 ns/op
+BenchmarkLinkedList_first_Int64_N128-128         	749270538	         1.545 ns/op
+BenchmarkLinkedList_first_Int64_N1024-128        	807907638	         1.445 ns/op
+BenchmarkLinkedList_first_UInt8_N8-128           	775127751	         1.548 ns/op
+BenchmarkLinkedList_first_String_N8-128          	816924218	         1.447 ns/op
+BenchmarkLinkedList_last_Int64_N8-128            	752230740	         1.549 ns/op
+BenchmarkLinkedList_last_Int64_N128-128          	807757596	         1.444 ns/op
+BenchmarkLinkedList_last_Int64_N1024-128         	752814018	         1.545 ns/op
+BenchmarkLinkedList_last_UInt8_N8-128            	804781312	         1.446 ns/op
+BenchmarkLinkedList_last_String_N8-128           	754498081	         1.544 ns/op
+BenchmarkLinkedList_addAfter_N16_p1-128          	11188746	       127.9 ns/op
+BenchmarkLinkedList_addAfter_N16_p2-128          	 9075537	       116.6 ns/op
+BenchmarkLinkedList_addAfter_N16_p3-128          	10379679	       119.0 ns/op
+BenchmarkLinkedList_addAfter_N256_p1-128         	10040757	       121.0 ns/op
+BenchmarkLinkedList_addAfter_N256_p2-128         	10307905	       110.1 ns/op
+BenchmarkLinkedList_addAfter_N256_p3-128         	 9322530	       114.3 ns/op
+BenchmarkLinkedList_addBefore_N16_p1-128         	 9705142	       147.4 ns/op
+BenchmarkLinkedList_addBefore_N16_p2-128         	10588854	       123.7 ns/op
+BenchmarkLinkedList_addBefore_N16_p3-128         	 9969690	       110.6 ns/op
+BenchmarkLinkedList_addBefore_N256_p1-128        	10778384	       132.6 ns/op
+BenchmarkLinkedList_addBefore_N256_p2-128        	 9419151	       123.8 ns/op
+BenchmarkLinkedList_addBefore_N256_p3-128        	 9773112	       125.4 ns/op
+BenchmarkLinkedList_remove_N16_p1-128            	  553588	      2051 ns/op
+BenchmarkLinkedList_remove_N16_p2-128            	  588908	      1912 ns/op
+BenchmarkLinkedList_remove_N16_p3-128            	  589263	      1930 ns/op
+BenchmarkLinkedList_remove_N256_p1-128           	   38863	     28469 ns/op
+BenchmarkLinkedList_remove_N256_p2-128           	   41650	     29024 ns/op
+BenchmarkLinkedList_remove_N256_p3-128           	   40498	     29018 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/collections_linkedlist	62.377s

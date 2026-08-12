@@ -26,6 +26,7 @@ func name(x1: Bool, y1: Int32, z1!: Float64) {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var a = name(1)
     name<Bool>({aa => true}, 6)
     name(true, 1, z1: 2.2)

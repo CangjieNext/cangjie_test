@@ -1,0 +1,17 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/collections_blockingqueue
+BenchmarkLinkedBlockingQueue_struct_SingleWorker_IntEvent-128     	     550	   2121453 ns/op
+BenchmarkLinkedBlockingQueue_struct_SingleWorker_StrEvent-128     	     366	   3404746 ns/op
+BenchmarkLinkedBlockingQueue_struct_Int_Worker_N8-128             	      10	 125302961 ns/op
+BenchmarkLinkedBlockingQueue_struct_Str_Worker_N16-128            	       9	 135610040 ns/op
+BenchmarkLinkedBlockingQueue_struct_Int_Worker_N32-128            	       9	 142195542 ns/op
+BenchmarkLinkedBlockingQueue_struct_Str_Worker_N64-128            	       6	 248659830 ns/op
+BenchmarkLinkedBlockingQueue_struct_Str_EventSize_S8-128          	       8	 170432382 ns/op
+BenchmarkLinkedBlockingQueue_struct_Str_EventSize_S1024-128       	       7	 153311983 ns/op
+BenchmarkLinkedBlockingQueue_struct_Str_EventSize_S65536-128      	       9	 143973606 ns/op
+BenchmarkLinkedBlockingQueue_struct_Str_QueueSize_N16-128         	       7	 143775177 ns/op
+BenchmarkLinkedBlockingQueue_struct_Int_QueueSize_N256-128        	       6	 246338773 ns/op
+BenchmarkLinkedBlockingQueue_struct_Str_QueueSize_N1024-128       	       6	 269135718 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/collections_blockingqueue	18.302s

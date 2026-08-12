@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb lambda7,lambda7
+cjdb,cjdb --no-use-colors lambda7,lambda7
 b,b 12,lambda7.cj:12
 r,r,-> 12
 expression~expr {=>[1,2,3]}~\(default.\(\)->std.core.Array<Int64>\) \$[\d] = 0[xX][0-9a-fA-F]+

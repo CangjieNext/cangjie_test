@@ -108,4 +108,31 @@ public class WrappingShiftTest {
         @Expect(u64.wrappingShr(63), 1)
         @Expect(u64.wrappingShr(64), u64)
     }
+
+    @TestCase
+    func nativeWrappingShiftTest(): Unit {
+        let bit: UInt64 = if (UInt64(!UIntNative(0)) == UInt64.Max) {
+            64
+        } else {
+            32
+        }
+
+        @Expect(IntNative(1).wrappingShl(0), 1)
+        @Expect(IntNative(1).wrappingShl(1), 2)
+        @Expect(IntNative(1).wrappingShl(bit - 1), IntNative.Min)
+        @Expect(IntNative(1).wrappingShl(bit), 1)
+
+        @Expect(IntNative.Min.wrappingShr(0), IntNative.Min)
+        @Expect(IntNative.Min.wrappingShr(bit - 1), -1)
+        @Expect(IntNative.Min.wrappingShr(bit), IntNative.Min)
+
+        @Expect(UIntNative(1).wrappingShl(0), 1)
+        @Expect(UIntNative(1).wrappingShl(1), 2)
+        @Expect(UIntNative(1).wrappingShl(bit - 1), UIntNative(1) << (bit - 1))
+        @Expect(UIntNative(1).wrappingShl(bit), 1)
+
+        @Expect(UIntNative.Max.wrappingShr(0), UIntNative.Max)
+        @Expect(UIntNative.Max.wrappingShr(bit - 1), 1)
+        @Expect(UIntNative.Max.wrappingShr(bit), UIntNative.Max)
+    }
 }

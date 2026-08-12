@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb localvar2,localvar2
+cjdb,cjdb --no-use-colors localvar2,localvar2
 b,b 18,localvar2.cj:18
 r,r,-> 18
  ,expr width,\(Int64\) \$\d+ = 3

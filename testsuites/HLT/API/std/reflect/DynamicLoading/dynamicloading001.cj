@@ -8,9 +8,9 @@
 
 // LEVEL: 0 
 // DEPENDENCE: module_case1
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: cd module_case1 && %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %compile_dylib_opt  test_dynamicloading.cj -o test.dynamicloading.so
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %f -o %output
-// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// EXEC: cd module_case1 && %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %compile_dylib_opt  test_dynamicloading.cj -o test.dynamicloading.so
+// EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %f -o %output
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan IllegalArgumentException
 
 import std.reflect.*

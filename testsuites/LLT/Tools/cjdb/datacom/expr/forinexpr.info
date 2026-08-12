@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb for_in,for_in
+cjdb,cjdb --no-use-colors for_in,for_in
 b,b 15,dowhile.cj:15
 r,r,-> 15
  ,expr for(i in arr) {i64+=i};i64,\(Int64\) \$\d+ = 5

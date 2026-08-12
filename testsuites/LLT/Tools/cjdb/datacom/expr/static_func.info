@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb static_func,static_func
+cjdb,cjdb --no-use-colors static_func,static_func
 b,b 40,static_func.cj:40
 r,r,-> 40
  ,expr Cuboid.test(1),\(Int64\) \$\d+ = 1

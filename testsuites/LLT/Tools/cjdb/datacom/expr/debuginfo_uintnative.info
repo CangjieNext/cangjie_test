@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_uintnative.info %n %run_env
 
 test#
-cjdb,cjdb uintnative,uintnative
+cjdb,cjdb --no-use-colors uintnative,uintnative
 b,b foo,uintnative.cj:10
 r,r,-> 10
 expr a,expr a,\(UIntNative\) \$\d+ = 1

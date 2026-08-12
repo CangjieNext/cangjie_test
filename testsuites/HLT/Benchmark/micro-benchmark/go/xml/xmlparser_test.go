@@ -1,0 +1,58 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package xml
+
+import (
+	"testing"
+	"encoding/xml"
+	"io/ioutil"
+	"fmt"
+)
+
+func benchmarkXmlParser(b *testing.B, filepart string) {
+	filename := "xml" + filepart + ".xml"
+	xmlFile, err := ioutil.ReadFile(filename)
+	if err != nil {
+        fmt.Println("Error opening file:", err)
+        return
+    }
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		var result interface{}
+		xml.Unmarshal(xmlFile, &result)
+	}
+}
+
+func BenchmarkXmlParser_A512D2N512(b *testing.B)   { benchmarkXmlParser(b, "A512D2N512") }
+func BenchmarkXmlParser_A512D8N512(b *testing.B)   { benchmarkXmlParser(b, "A512D8N512") }
+func BenchmarkXmlParser_A512D32N512(b *testing.B)   { benchmarkXmlParser(b, "A512D32N512") }
+func BenchmarkXmlParser_A512D2N4096(b *testing.B)   { benchmarkXmlParser(b, "A512D2N4096") }
+func BenchmarkXmlParser_A512D8N4096(b *testing.B)   { benchmarkXmlParser(b, "A512D8N4096") }
+func BenchmarkXmlParser_A512D32N4096(b *testing.B)   { benchmarkXmlParser(b, "A512D32N4096") }
+func BenchmarkXmlParser_A512D2N32768(b *testing.B)   { benchmarkXmlParser(b, "A512D2N32768") }
+func BenchmarkXmlParser_A512D8N32768(b *testing.B)   { benchmarkXmlParser(b, "A512D8N32768") }
+func BenchmarkXmlParser_A512D32N32768(b *testing.B)   { benchmarkXmlParser(b, "A512D32N32768") }
+func BenchmarkXmlParser_A4096D2N512(b *testing.B)   { benchmarkXmlParser(b, "A4096D2N512") }
+func BenchmarkXmlParser_A4096D8N512(b *testing.B)   { benchmarkXmlParser(b, "A4096D8N512") }
+func BenchmarkXmlParser_A4096D32N512(b *testing.B)   { benchmarkXmlParser(b, "A4096D32N512") }
+func BenchmarkXmlParser_A4096D2N4096(b *testing.B)   { benchmarkXmlParser(b, "A4096D2N4096") }
+func BenchmarkXmlParser_A4096D8N4096(b *testing.B)   { benchmarkXmlParser(b, "A4096D8N4096") }
+func BenchmarkXmlParser_A4096D32N4096(b *testing.B)   { benchmarkXmlParser(b, "A4096D32N4096") }
+func BenchmarkXmlParser_A4096D2N32768(b *testing.B)   { benchmarkXmlParser(b, "A4096D2N32768") }
+func BenchmarkXmlParser_A4096D8N32768(b *testing.B)   { benchmarkXmlParser(b, "A4096D8N32768") }
+func BenchmarkXmlParser_A4096D32N32768(b *testing.B)   { benchmarkXmlParser(b, "A4096D32N32768") }
+func BenchmarkXmlParser_A32768D2N512(b *testing.B)   { benchmarkXmlParser(b, "A32768D2N512") }
+func BenchmarkXmlParser_A32768D8N512(b *testing.B)   { benchmarkXmlParser(b, "A32768D8N512") }
+func BenchmarkXmlParser_A32768D32N512(b *testing.B)   { benchmarkXmlParser(b, "A32768D32N512") }
+func BenchmarkXmlParser_A32768D2N4096(b *testing.B)   { benchmarkXmlParser(b, "A32768D2N4096") }
+func BenchmarkXmlParser_A32768D8N4096(b *testing.B)   { benchmarkXmlParser(b, "A32768D8N4096") }
+func BenchmarkXmlParser_A32768D32N4096(b *testing.B)   { benchmarkXmlParser(b, "A32768D32N4096") }
+func BenchmarkXmlParser_A32768D2N32768(b *testing.B)   { benchmarkXmlParser(b, "A32768D2N32768") }
+func BenchmarkXmlParser_A32768D8N32768(b *testing.B)   { benchmarkXmlParser(b, "A32768D8N32768") }
+func BenchmarkXmlParser_A32768D32N32768(b *testing.B)   { benchmarkXmlParser(b, "A32768D32N32768") }

@@ -429,6 +429,7 @@ Tools\cjcov\cjcov_special_filename\cjcov_special_filename_017
 Tools\cjcov\cjcov_special_filename\cjcov_special_filename_018
 
 API\compress\ParamCheck\test_archive_param_check.cj
+API\std\ast\API\Expr\Parse\047MacroDecl\expr_parser_04704n.cj
 API\syntax\parseFunc\parseText\Expr\LitConstStrExpr\parseText_litconststrexpr003.cj
 API\syntax\parseFunc\parseTokens\Expr\LitConstStrExpr\parseTokens_litconststrexpr003.cj
 Tools\cjcov\cjcov_special_filename\cjcov_special_filename_017\cjcov_special_filename_017.info

@@ -43,5 +43,6 @@ let t6 = TimeUnit4<Int64>.Year(C1())
 let t7 = TimeUnit4<Int64>.Year(S1(), S2<Int64>())
 
 main() {
+    sleep(Duration.millisecond*3000)
     0
 }

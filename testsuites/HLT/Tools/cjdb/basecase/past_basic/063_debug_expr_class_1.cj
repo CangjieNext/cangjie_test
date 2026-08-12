@@ -36,6 +36,7 @@ let globals_arrh: Array<HashSet<Int64>> = [globals_hashset, globals_hashset]
 let globals_arrlah: ArrayList<Array<HashSet<Int64>>> = ArrayList<Array<HashSet<Int64>>>([globals_arrh, globals_arrh])
 var globals_hm:HashMap<String, Float64> = HashMap<String, Float64>([("aaaa", 11.11), ("bbb", 22.22)])
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let s10 = HashMap<String, Int64>([("a", 0), ("b", 1), ("c", 2)])
     let s09 = HashSet<Int64>([0, 1, 2])
     let s09s = HashSet<String>(["aa", "bb"])

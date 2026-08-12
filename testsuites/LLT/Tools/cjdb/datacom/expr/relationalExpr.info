@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb relationalExpr,relationalExpr
+cjdb,cjdb --no-use-colors relationalExpr,relationalExpr
 b,b 46,relationalExpr.cj:46
 r,r,-> 46
  ,expr a==b,\(Bool\) \$\d+ = false

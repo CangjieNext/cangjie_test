@@ -9,13 +9,14 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/case/case14/case14_2.cj
 // EXEC: %compiler %cmp_opt -g case14_2.cj -o case14_4%cmp_output
-// RUN-EXEC: python3 cjdb_test.py case14_4.info case14_4 %run_env
+// EXEC: python3 cjdb_test.py case14_4.info case14_4 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case14_4,case14_4
-b,b 23,Breakpoint 1:
-AOT r,r,-> 23
+b,b 24,Breakpoint 1:
+AOT r,r,-> 24
+Android c,c,24
 CJVM c,c,
-s,s,-> 14
-finish,finish,-> 23
+s,s,15
+finish,finish,24
 q,q,

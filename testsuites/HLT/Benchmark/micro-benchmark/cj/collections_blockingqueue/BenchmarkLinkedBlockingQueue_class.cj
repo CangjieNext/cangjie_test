@@ -1,0 +1,248 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
+
+import std.collection.concurrent.*
+import std.convert.*
+import std.time.*
+import std.sync.*
+
+interface Event {
+    func isExit(): Bool
+    func clone(): Event
+    func name(): String
+}
+
+class IntEvent <: Event & ToString {
+    let value: Int64
+
+    public init(value: Int64) {
+        this.value = value
+    }
+
+    public func isExit(): Bool {
+        this.value == -1
+    }
+
+    public func clone(): IntEvent {
+        IntEvent(this.value)
+    }
+
+    public func toString(): String {
+        "IntEvent(${this.value})"
+    }
+
+    public func name(): String {
+        "int"
+    }
+}
+
+class StrEvent <: Event & ToString {
+    let value: String
+
+    public init(value: Int64) {
+        this.value = "A" * value
+    }
+    public init(value: String) {
+        this.value = value
+    }
+
+    public func isExit(): Bool {
+        this.value == "exit"
+    }
+
+    public func clone(): StrEvent {
+        StrEvent(this.value)
+    }
+    public func toString(): String {
+        "StrEvent(${this.value})"
+    }
+
+    public func name(): String {
+        "str"
+    }
+}
+
+class StrCloneEvent <: Event & ToString {
+    let value: String
+
+    public init(value: Int64) {
+        this.value = "A" * value
+    }
+    public init(value: String) {
+        this.value = value
+    }
+
+    public func isExit(): Bool {
+        this.value == "exit"
+    }
+
+    public func clone(): StrEvent {
+        StrEvent(this.value.clone())
+    }
+    public func toString(): String {
+        "StrEvent(${this.value})"
+    }
+
+    public func name(): String {
+        "str_clone"
+    }
+}
+
+func worker(queue: LinkedBlockingQueue<Event>, done: LinkedBlockingQueue<Int64>, doneTarget: Int64) {
+    var n = 0
+    for (_ in 0..doneTarget) {
+        let e = queue.remove()
+        if (!e.isExit()) {
+            n += 1
+        }
+    }
+    done.add(n)
+}
+
+func dispatchTo(event: Event, events: Int64, addr: LinkedBlockingQueue<Event>) {
+    for (_ in 0..events) {
+        addr.add(event.clone())
+    }
+}
+
+func newEvent(eventType: Int64, eventSize: Int64): Event {
+    if (eventType == 0) {
+        IntEvent(eventSize)
+    } else if (eventType == 1) {
+        StrEvent(eventSize)
+    } else {
+        StrCloneEvent(eventSize)
+    }
+}
+
+@Test
+@Configure[minDuration: Duration.second * 5]
+@Measure[TimeNow(Nanos)]
+@Configure[warmup: Duration.second]
+public class Test_LinkedBlockingQueue_class {
+    let testgroups: Array<(Int64, Int64, Int64, Int64, Int64)> = [
+        (1, 10000, 0, 64, 64), // SingleWorker
+        (1, 10000, 1, 64, 64), // SingleWorker
+        (8, 100000, 0, 64, 64), // Worker_N8 --baseline
+        (16, 100000, 1, 64, 64), // Worker_N16
+        (32, 100000, 2, 64, 64), // Worker_N32
+        (64, 100000, 1, 64, 64), // Worker_N64
+        (8, 100000, 0, 8, 64), // EventSize_S8
+        (8, 100000, 1, 1024, 64), // EventSize_S1024
+        (8, 100000, 2, 65536, 64), // EventSize_S65536
+        (8, 100000, 0, 64, 16), // QueueSize_N16
+        (8, 100000, 1, 64, 256), // QueueSize_N256
+        (8, 100000, 2, 64, 1024), // QueueSize_N1024
+        (5000, 100000, 0, 64, 128) // Worker_N5000 --stress
+    ]
+
+    func benchmark_LinkedBlockingQueue_class(workers: Int64, events: Int64, eventType: Int64, eventSize: Int64,
+        queueSize: Int64) {
+        let address = Array<LinkedBlockingQueue<Event>>(workers) {_ => LinkedBlockingQueue<Event>(queueSize)}
+        let event = newEvent(eventType, eventSize)
+        let done = LinkedBlockingQueue<Int64>(events)
+        for (i in 0..workers) {
+            spawn {
+                worker(address[i], done, events)
+            }
+        }
+        for (i in 0..workers) {
+            spawn {
+                dispatchTo(event, events, address[i])
+            }
+        }
+
+        var totalEvents = 0
+        for (_ in 0..workers) {
+            let n = done.remove()
+            totalEvents += n
+        }
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_SingleWorker_IntEvent() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[0]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_SingleWorker_StrEvent() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[1]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_Worker_N8() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[2]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_Worker_N16() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[3]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_Worker_N32() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[4]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_Worker_N64() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[5]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_EventSize_S8() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[6]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_EventSize_S1024() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[7]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_EventSize_S65536() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[8]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_QueueSize_N16() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[9]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_QueueSize_N256() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[10]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    @Bench
+    func BenchmarkLinkedBlockingQueue_class_QueueSize_N1024() {
+        let (workers, events, eventType, eventSize, queueSize) = testgroups[11]
+        benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    }
+
+    // @Bench
+    // func BenchmarkLinkedBlockingQueue_class_Worker_N5000() {
+    //     let (workers, events, eventType, eventSize, queueSize) = testgroups[12]
+    //     benchmark_LinkedBlockingQueue_class(workers, events, eventType, eventSize, queueSize)
+    // }
+}

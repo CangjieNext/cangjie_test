@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb metadsl,metadsl
+cjdb,cjdb --no-use-colors metadsl,metadsl
 b,b 157,metadsl.cj:157
 r,r,-> 157
 p,p yctmp,"hi"

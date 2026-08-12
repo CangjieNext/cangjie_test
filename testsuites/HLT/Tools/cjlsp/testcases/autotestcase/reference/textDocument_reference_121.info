@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 739,"jsonrpc": "2.0","result": [{"range": {"end": {"character": 11,"line":18},"start": {"character": 8,"line":18}},"uri": "cangjiesource/src/Struct/record6.cj"}]}
+{"id": 739,"jsonrpc": "2.0","result": [{"range": {"end": {"character": 11,"line": 18},"start": {"character": 8,"line": 18}},"uri": "cangjiesource/src/Struct/record6.cj"},{"range": {"end": {"character": 17,"line": 18},"start": {"character": 14,"line": 18}},"uri": "cangjiesource/src/Struct/record6.cj"},{"range": {"end": {"character": 12,"line": 19},"start": {"character": 9,"line": 19}},"uri": "cangjiesource/src/Struct/record6.cj"}]}

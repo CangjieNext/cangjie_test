@@ -14,6 +14,7 @@ var y = match {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let x = -1
     var a = match {
         case x > 0 => print("x > 0")

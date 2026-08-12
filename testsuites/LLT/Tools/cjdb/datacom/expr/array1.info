@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb array1,array1
+cjdb,cjdb --no-use-colors array1,array1
 b,b 55,array1.cj:55
 r,r,-> 55
  ,expr arrt,\(std.core.Array<std.collection.ArrayList<Int64>>\) \$\d+ = {\s+\[0\] = {\s+\[0\] = 0\s+\[1\] = 1\s+\[2\] = 2

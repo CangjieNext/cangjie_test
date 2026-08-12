@@ -23,6 +23,7 @@ func test_arraylist(a:ArrayList<UInt8>) {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var arraylistUInt8: ArrayList<UInt8> = ArrayList<UInt8>([11, 12, 13])
     var arraylistUInt16: ArrayList<UInt16> = ArrayList<UInt16>([21, 22, 23])
     var arraylistUInt32: ArrayList<UInt32> = ArrayList<UInt32>([31, 32, 33])

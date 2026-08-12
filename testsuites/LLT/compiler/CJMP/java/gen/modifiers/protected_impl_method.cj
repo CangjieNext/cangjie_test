@@ -7,8 +7,10 @@
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop -L. --output-javagen-dir=src/java/impl
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./src/java/impl/A.java | compare %f
 
-// ASSERT: scan protected void foo() {
-// ASSERT: scan protected native void foo(long self);
+// ASSERT: scan protected final void foo()
+// ASSERT: scan final native void foo(long $rid);
+
+// This test checks that protected method of @JavaImpl is exported to java.
 
 package cjworld.theworld
 

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_func_global_base01,generic_func_global_base01
+cjdb,cjdb --no-use-colors generic_func_global_base01,generic_func_global_base01
 b,b 20, generic_func_global_base01.cj:20
 r,r,-> 20
  ,expr fun1<Int64>(1),\(Int64\) \$\d+ = 1

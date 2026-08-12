@@ -67,6 +67,7 @@ class C1 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let m_c = C1()
 
     return 0

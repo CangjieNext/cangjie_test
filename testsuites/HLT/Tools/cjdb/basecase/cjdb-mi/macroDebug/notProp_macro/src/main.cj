@@ -48,6 +48,7 @@ enum TimeUnit<T1, T2> {
 
 
 main(){
+    sleep(Duration.millisecond*3000)
     @M_class
     var claIns1:Cla = Cla()
     

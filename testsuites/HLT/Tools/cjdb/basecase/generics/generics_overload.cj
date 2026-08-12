@@ -13,6 +13,7 @@ class A<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a = A<Int64>()
     let b: Int64 = a[1, "2"]
 }

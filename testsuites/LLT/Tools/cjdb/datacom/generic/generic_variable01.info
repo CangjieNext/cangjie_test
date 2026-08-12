@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_variable01,generic_variable01
+cjdb,cjdb --no-use-colors generic_variable01,generic_variable01
 b,b 17, generic_variable01.cj:17
 r,r,-> 17
  ,expr a1,\(default.\(default.A2\)->default.A2\) \$\d+ = 0[xX][0-9a-fA-F]+

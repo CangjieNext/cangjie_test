@@ -26,6 +26,7 @@ class A{
 }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var x1 = A()
     var x2 = x1.mixtuple01
     var x3 = x1.mixtuple02

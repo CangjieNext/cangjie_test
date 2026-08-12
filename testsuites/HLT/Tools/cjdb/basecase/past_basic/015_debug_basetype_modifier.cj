@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     let var1: Int8 = 10
     var var2: Int16 = 20
     let var3: UInt8 = 30

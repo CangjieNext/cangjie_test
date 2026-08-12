@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = try {
         throw NegativeArraySizeException("I am an Exception!")
     } catch (e: NegativeArraySizeException) {

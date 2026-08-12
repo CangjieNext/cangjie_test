@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic007,generic007
+cjdb,cjdb --no-use-colors generic007,generic007
 b,b 9,generic007.cj:9
 r,r,-> 9
  ,p para,\(std.core.Array<Int32>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = 2

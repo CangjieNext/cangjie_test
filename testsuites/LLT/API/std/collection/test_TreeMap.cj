@@ -329,6 +329,12 @@ class TreeMapTest {
         @Expect(treemap.get(1), 1)
         @Expect(view.value, 1)
         @Expect(sum, 0)
+
+        let treemap3: TreeMap<Int64, Int64> = TreeMap<Int64, Int64>((1, 1))
+        let view3 = treemap3.entryView(1)
+        view3.value = None
+        view3.value = Some(11)
+        @Expect(view3.value, Some(11))
     }
 
     @TestCase

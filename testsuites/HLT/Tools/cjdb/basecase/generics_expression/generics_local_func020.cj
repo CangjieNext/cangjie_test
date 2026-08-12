@@ -21,6 +21,7 @@ enum TimeUnit1<T> {
 class C1<T>{}
 
 main() {
+    sleep(Duration.millisecond*3000)
     var b1:C1<Float64> = C1<Float64>()
     var a1 = TimeUnit1<Int64>.foo1(2)
     var a2 = TimeUnit1<Bool>.Year(true).funcdemo2(1, true)

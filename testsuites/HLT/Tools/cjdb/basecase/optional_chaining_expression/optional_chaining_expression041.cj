@@ -15,6 +15,7 @@ func func2(a:Int64){
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var f1 = Option<()->Int64>.Some(func1)
     var f2 = Option<()->Int64>.None
     var f3 = Option<(Int64)->Int64>.Some(func2)

@@ -7,6 +7,7 @@
  */
 
 main(){
+    sleep(Duration.millisecond*3000)
 	var test_var = 0
 	let intRange = 0..3
 

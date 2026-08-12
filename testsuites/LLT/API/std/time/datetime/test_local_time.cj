@@ -11,6 +11,8 @@
 
 import std.time.*
 
+foreign func CJ_TIME_GetLocalTimeOffset(): Int64
+
 @Test
 public class LocalTimeTest {
     @TestCase
@@ -97,5 +99,14 @@ public class LocalTimeTest {
         // Convert to UTC and verify
         let utcDt = dt.inUTC()
         @Expect(utcDt.toUnixTimeStamp() == dt.toUnixTimeStamp())
+    }
+
+    @TestCase
+    func localTimeOffsetNative(): Unit {
+        let offsetMin = unsafe { CJ_TIME_GetLocalTimeOffset() }
+        @Expect(offsetMin >= -12 * 60)
+        @Expect(offsetMin <= 14 * 60)
+        let local = TimeZone.Local
+        @Expect(local.id.size > 0)
     }
 }

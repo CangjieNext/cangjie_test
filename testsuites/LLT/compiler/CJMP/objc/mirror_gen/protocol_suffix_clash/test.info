@@ -10,7 +10,7 @@
 // EXEC: ObjCInteropGen test.toml
 // EXEC: %cat test.cj | compare %f
 /* SCAN-IN
-@ObjCMirror
+@ObjCMirror["M"]
 public interface MProtocolProtocol {
 }
 

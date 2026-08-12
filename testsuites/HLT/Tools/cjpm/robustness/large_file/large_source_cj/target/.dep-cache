@@ -1,0 +1,22 @@
+{
+  "bin": {},
+  "pkg-build": {
+    "D:\\work\\6.11\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\robustness\\large_file\\large_source_cj\\src": {
+      "package": "test_case",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1786518887,
+      "dependencies": [],
+      "std-dependencies": [
+        {
+          "std.core": []
+        }
+      ],
+      "features": [],
+      "product": true,
+      "testUsed": false,
+      "mockUsed": false
+    }
+  },
+  "pkg-test": {}
+}

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_interface_base07,generic_interface_base07
+cjdb,cjdb --no-use-colors generic_interface_base07,generic_interface_base07
 b,b 18, generic_interface_base07.cj:18
 r,r,-> 18
  ,expr aa,\(default.A1\) \$\d+ = {}

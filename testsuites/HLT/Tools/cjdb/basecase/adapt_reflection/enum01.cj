@@ -28,6 +28,7 @@ var time_2 = TimeUnit2.Year(19)
 var time_3 = TimeUnit3.Month(1, 2)
 
 main() {
+    sleep(Duration.millisecond*3000)
     let time1 = TimeUnit1.Year
     var time2 = TimeUnit2.Year(19)
     var time3 = TimeUnit3.Month(1, 2)

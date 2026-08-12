@@ -20,6 +20,7 @@ class CB{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = CB()
     0
 }

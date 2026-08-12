@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic019,generic019
+cjdb,cjdb --no-use-colors generic019,generic019
 b,b 14,generic019.cj:14
 r,r,-> 14
  ,p para,\(default.RGBColor\) \$\d+ = {(\r|\n|\r\n)  constructor = Blue

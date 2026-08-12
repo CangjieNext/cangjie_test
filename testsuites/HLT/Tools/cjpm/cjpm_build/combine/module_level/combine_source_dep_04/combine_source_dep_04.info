@@ -7,4 +7,9 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // (target_linux | target_win | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
-// ASSERT: scan Error: field 'profile.build.combined' must be configured to combine module 'dep'
+// ASSERT: regex Compiling package `b`: .*-L .* -lcoo .*
+// ASSERT: regex Compiling package `b`: .*-L .* -laoo .*
+// ASSERT: regex Compiling package `b`: .*-L .* -ldep .*
+// ASSERT: regex-not Compiling package `b`: .*-L .* -ldep.aoo.*
+// ASSERT: regex Compiling package `b`: [\s\S]*libb.(so|dll)
+// ASSERT: scan cjpm build success

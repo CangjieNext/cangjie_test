@@ -8,19 +8,20 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_0o.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_relationaloperator_004.info 057_debug_0o %run_env
+// (!(target_mac|target_ios_simulator)) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
+// (!(target_mac|target_ios_simulator)) EXEC: python3 cjdb_test.py expression_relationaloperator_004.info 057_debug_0o %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
-CJVM b,b main,057_debug_0o.cj:12
-CJVM c,c,-> 12
-b,b 63,057_debug_0o.cj:63
-AOT r,r,-> 63
-expression, expression var1x<=var1x,\(Bool\) \$[\d] = true
-expression, expression var2x<=var2x,\(Bool\) \$[\d] = true
-expression, expression var3x<=var3x,\(Bool\) \$[\d] = true
-expression, expression var4x<=var4x,\(Bool\) \$[\d] = true
-expression, expression var5x<=var5x,\(Bool\) \$[\d] = true
+CJVM b,b main,057_debug_0o.cj:13
+CJVM c,c,13
+b,b 057_debug_0o.cj:64,057_debug_0o.cj:64
+AOT r,r,-> 64
+Android c,c,64
+expression, expression var1x<=var1x,\(Bool\)[\s\S]*true
+expression, expression var2x<=var2x,\(Bool\)[\s\S]*true
+expression, expression var3x<=var3x,\(Bool\)[\s\S]*true
+expression, expression var4x<=var4x,\(Bool\)[\s\S]*true
+expression, expression var5x<=var5x,\(Bool\)[\s\S]*true
 q,q,

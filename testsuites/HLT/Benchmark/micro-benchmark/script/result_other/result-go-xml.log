@@ -1,0 +1,194 @@
+Error opening file: open xmlA512D2N512.xml: no such file or directory
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/xml
+BenchmarkXmlParser_A512D2N512-128          	Error opening file: open xmlA512D2N512.xml: no such file or directory
+Error opening file: open xmlA512D2N512.xml: no such file or directory
+Error opening file: open xmlA512D2N512.xml: no such file or directory
+Error opening file: open xmlA512D2N512.xml: no such file or directory
+Error opening file: open xmlA512D2N512.xml: no such file or directory
+1000000000	         0.0000980 ns/op
+Error opening file: open xmlA512D8N512.xml: no such file or directory
+BenchmarkXmlParser_A512D8N512-128          	Error opening file: open xmlA512D8N512.xml: no such file or directory
+Error opening file: open xmlA512D8N512.xml: no such file or directory
+Error opening file: open xmlA512D8N512.xml: no such file or directory
+Error opening file: open xmlA512D8N512.xml: no such file or directory
+Error opening file: open xmlA512D8N512.xml: no such file or directory
+1000000000	         0.0000505 ns/op
+Error opening file: open xmlA512D32N512.xml: no such file or directory
+BenchmarkXmlParser_A512D32N512-128         	Error opening file: open xmlA512D32N512.xml: no such file or directory
+Error opening file: open xmlA512D32N512.xml: no such file or directory
+Error opening file: open xmlA512D32N512.xml: no such file or directory
+Error opening file: open xmlA512D32N512.xml: no such file or directory
+Error opening file: open xmlA512D32N512.xml: no such file or directory
+1000000000	         0.0000806 ns/op
+Error opening file: open xmlA512D2N4096.xml: no such file or directory
+BenchmarkXmlParser_A512D2N4096-128         	Error opening file: open xmlA512D2N4096.xml: no such file or directory
+Error opening file: open xmlA512D2N4096.xml: no such file or directory
+Error opening file: open xmlA512D2N4096.xml: no such file or directory
+Error opening file: open xmlA512D2N4096.xml: no such file or directory
+Error opening file: open xmlA512D2N4096.xml: no such file or directory
+1000000000	         0.0000961 ns/op
+Error opening file: open xmlA512D8N4096.xml: no such file or directory
+BenchmarkXmlParser_A512D8N4096-128         	Error opening file: open xmlA512D8N4096.xml: no such file or directory
+Error opening file: open xmlA512D8N4096.xml: no such file or directory
+Error opening file: open xmlA512D8N4096.xml: no such file or directory
+Error opening file: open xmlA512D8N4096.xml: no such file or directory
+Error opening file: open xmlA512D8N4096.xml: no such file or directory
+1000000000	         0.0000800 ns/op
+Error opening file: open xmlA512D32N4096.xml: no such file or directory
+BenchmarkXmlParser_A512D32N4096-128        	Error opening file: open xmlA512D32N4096.xml: no such file or directory
+Error opening file: open xmlA512D32N4096.xml: no such file or directory
+Error opening file: open xmlA512D32N4096.xml: no such file or directory
+Error opening file: open xmlA512D32N4096.xml: no such file or directory
+Error opening file: open xmlA512D32N4096.xml: no such file or directory
+1000000000	         0.0000730 ns/op
+Error opening file: open xmlA512D2N32768.xml: no such file or directory
+BenchmarkXmlParser_A512D2N32768-128        	Error opening file: open xmlA512D2N32768.xml: no such file or directory
+Error opening file: open xmlA512D2N32768.xml: no such file or directory
+Error opening file: open xmlA512D2N32768.xml: no such file or directory
+Error opening file: open xmlA512D2N32768.xml: no such file or directory
+Error opening file: open xmlA512D2N32768.xml: no such file or directory
+1000000000	         0.0000751 ns/op
+Error opening file: open xmlA512D8N32768.xml: no such file or directory
+BenchmarkXmlParser_A512D8N32768-128        	Error opening file: open xmlA512D8N32768.xml: no such file or directory
+Error opening file: open xmlA512D8N32768.xml: no such file or directory
+Error opening file: open xmlA512D8N32768.xml: no such file or directory
+Error opening file: open xmlA512D8N32768.xml: no such file or directory
+Error opening file: open xmlA512D8N32768.xml: no such file or directory
+1000000000	         0.0000820 ns/op
+Error opening file: open xmlA512D32N32768.xml: no such file or directory
+BenchmarkXmlParser_A512D32N32768-128       	Error opening file: open xmlA512D32N32768.xml: no such file or directory
+Error opening file: open xmlA512D32N32768.xml: no such file or directory
+Error opening file: open xmlA512D32N32768.xml: no such file or directory
+Error opening file: open xmlA512D32N32768.xml: no such file or directory
+Error opening file: open xmlA512D32N32768.xml: no such file or directory
+1000000000	         0.0000618 ns/op
+Error opening file: open xmlA4096D2N512.xml: no such file or directory
+BenchmarkXmlParser_A4096D2N512-128         	Error opening file: open xmlA4096D2N512.xml: no such file or directory
+Error opening file: open xmlA4096D2N512.xml: no such file or directory
+Error opening file: open xmlA4096D2N512.xml: no such file or directory
+Error opening file: open xmlA4096D2N512.xml: no such file or directory
+Error opening file: open xmlA4096D2N512.xml: no such file or directory
+1000000000	         0.0000573 ns/op
+Error opening file: open xmlA4096D8N512.xml: no such file or directory
+BenchmarkXmlParser_A4096D8N512-128         	Error opening file: open xmlA4096D8N512.xml: no such file or directory
+Error opening file: open xmlA4096D8N512.xml: no such file or directory
+Error opening file: open xmlA4096D8N512.xml: no such file or directory
+Error opening file: open xmlA4096D8N512.xml: no such file or directory
+Error opening file: open xmlA4096D8N512.xml: no such file or directory
+1000000000	         0.0000889 ns/op
+Error opening file: open xmlA4096D32N512.xml: no such file or directory
+BenchmarkXmlParser_A4096D32N512-128        	Error opening file: open xmlA4096D32N512.xml: no such file or directory
+Error opening file: open xmlA4096D32N512.xml: no such file or directory
+Error opening file: open xmlA4096D32N512.xml: no such file or directory
+Error opening file: open xmlA4096D32N512.xml: no such file or directory
+Error opening file: open xmlA4096D32N512.xml: no such file or directory
+1000000000	         0.0000734 ns/op
+Error opening file: open xmlA4096D2N4096.xml: no such file or directory
+BenchmarkXmlParser_A4096D2N4096-128        	Error opening file: open xmlA4096D2N4096.xml: no such file or directory
+Error opening file: open xmlA4096D2N4096.xml: no such file or directory
+Error opening file: open xmlA4096D2N4096.xml: no such file or directory
+Error opening file: open xmlA4096D2N4096.xml: no such file or directory
+Error opening file: open xmlA4096D2N4096.xml: no such file or directory
+1000000000	         0.0000846 ns/op
+Error opening file: open xmlA4096D8N4096.xml: no such file or directory
+BenchmarkXmlParser_A4096D8N4096-128        	Error opening file: open xmlA4096D8N4096.xml: no such file or directory
+Error opening file: open xmlA4096D8N4096.xml: no such file or directory
+Error opening file: open xmlA4096D8N4096.xml: no such file or directory
+Error opening file: open xmlA4096D8N4096.xml: no such file or directory
+Error opening file: open xmlA4096D8N4096.xml: no such file or directory
+1000000000	         0.0000802 ns/op
+Error opening file: open xmlA4096D32N4096.xml: no such file or directory
+BenchmarkXmlParser_A4096D32N4096-128       	Error opening file: open xmlA4096D32N4096.xml: no such file or directory
+Error opening file: open xmlA4096D32N4096.xml: no such file or directory
+Error opening file: open xmlA4096D32N4096.xml: no such file or directory
+Error opening file: open xmlA4096D32N4096.xml: no such file or directory
+Error opening file: open xmlA4096D32N4096.xml: no such file or directory
+1000000000	         0.0001065 ns/op
+Error opening file: open xmlA4096D2N32768.xml: no such file or directory
+BenchmarkXmlParser_A4096D2N32768-128       	Error opening file: open xmlA4096D2N32768.xml: no such file or directory
+Error opening file: open xmlA4096D2N32768.xml: no such file or directory
+Error opening file: open xmlA4096D2N32768.xml: no such file or directory
+Error opening file: open xmlA4096D2N32768.xml: no such file or directory
+Error opening file: open xmlA4096D2N32768.xml: no such file or directory
+1000000000	         0.0000919 ns/op
+Error opening file: open xmlA4096D8N32768.xml: no such file or directory
+BenchmarkXmlParser_A4096D8N32768-128       	Error opening file: open xmlA4096D8N32768.xml: no such file or directory
+Error opening file: open xmlA4096D8N32768.xml: no such file or directory
+Error opening file: open xmlA4096D8N32768.xml: no such file or directory
+Error opening file: open xmlA4096D8N32768.xml: no such file or directory
+Error opening file: open xmlA4096D8N32768.xml: no such file or directory
+1000000000	         0.0000566 ns/op
+Error opening file: open xmlA4096D32N32768.xml: no such file or directory
+BenchmarkXmlParser_A4096D32N32768-128      	Error opening file: open xmlA4096D32N32768.xml: no such file or directory
+Error opening file: open xmlA4096D32N32768.xml: no such file or directory
+Error opening file: open xmlA4096D32N32768.xml: no such file or directory
+Error opening file: open xmlA4096D32N32768.xml: no such file or directory
+Error opening file: open xmlA4096D32N32768.xml: no such file or directory
+1000000000	         0.0000948 ns/op
+Error opening file: open xmlA32768D2N512.xml: no such file or directory
+BenchmarkXmlParser_A32768D2N512-128        	Error opening file: open xmlA32768D2N512.xml: no such file or directory
+Error opening file: open xmlA32768D2N512.xml: no such file or directory
+Error opening file: open xmlA32768D2N512.xml: no such file or directory
+Error opening file: open xmlA32768D2N512.xml: no such file or directory
+Error opening file: open xmlA32768D2N512.xml: no such file or directory
+1000000000	         0.0000993 ns/op
+Error opening file: open xmlA32768D8N512.xml: no such file or directory
+BenchmarkXmlParser_A32768D8N512-128        	Error opening file: open xmlA32768D8N512.xml: no such file or directory
+Error opening file: open xmlA32768D8N512.xml: no such file or directory
+Error opening file: open xmlA32768D8N512.xml: no such file or directory
+Error opening file: open xmlA32768D8N512.xml: no such file or directory
+Error opening file: open xmlA32768D8N512.xml: no such file or directory
+1000000000	         0.0000652 ns/op
+Error opening file: open xmlA32768D32N512.xml: no such file or directory
+BenchmarkXmlParser_A32768D32N512-128       	Error opening file: open xmlA32768D32N512.xml: no such file or directory
+Error opening file: open xmlA32768D32N512.xml: no such file or directory
+Error opening file: open xmlA32768D32N512.xml: no such file or directory
+Error opening file: open xmlA32768D32N512.xml: no such file or directory
+Error opening file: open xmlA32768D32N512.xml: no such file or directory
+1000000000	         0.0000728 ns/op
+Error opening file: open xmlA32768D2N4096.xml: no such file or directory
+BenchmarkXmlParser_A32768D2N4096-128       	Error opening file: open xmlA32768D2N4096.xml: no such file or directory
+Error opening file: open xmlA32768D2N4096.xml: no such file or directory
+Error opening file: open xmlA32768D2N4096.xml: no such file or directory
+Error opening file: open xmlA32768D2N4096.xml: no such file or directory
+Error opening file: open xmlA32768D2N4096.xml: no such file or directory
+1000000000	         0.0000835 ns/op
+Error opening file: open xmlA32768D8N4096.xml: no such file or directory
+BenchmarkXmlParser_A32768D8N4096-128       	Error opening file: open xmlA32768D8N4096.xml: no such file or directory
+Error opening file: open xmlA32768D8N4096.xml: no such file or directory
+Error opening file: open xmlA32768D8N4096.xml: no such file or directory
+Error opening file: open xmlA32768D8N4096.xml: no such file or directory
+Error opening file: open xmlA32768D8N4096.xml: no such file or directory
+1000000000	         0.0000603 ns/op
+Error opening file: open xmlA32768D32N4096.xml: no such file or directory
+BenchmarkXmlParser_A32768D32N4096-128      	Error opening file: open xmlA32768D32N4096.xml: no such file or directory
+Error opening file: open xmlA32768D32N4096.xml: no such file or directory
+Error opening file: open xmlA32768D32N4096.xml: no such file or directory
+Error opening file: open xmlA32768D32N4096.xml: no such file or directory
+Error opening file: open xmlA32768D32N4096.xml: no such file or directory
+1000000000	         0.0001194 ns/op
+Error opening file: open xmlA32768D2N32768.xml: no such file or directory
+BenchmarkXmlParser_A32768D2N32768-128      	Error opening file: open xmlA32768D2N32768.xml: no such file or directory
+Error opening file: open xmlA32768D2N32768.xml: no such file or directory
+Error opening file: open xmlA32768D2N32768.xml: no such file or directory
+Error opening file: open xmlA32768D2N32768.xml: no such file or directory
+Error opening file: open xmlA32768D2N32768.xml: no such file or directory
+1000000000	         0.0000735 ns/op
+Error opening file: open xmlA32768D8N32768.xml: no such file or directory
+BenchmarkXmlParser_A32768D8N32768-128      	Error opening file: open xmlA32768D8N32768.xml: no such file or directory
+Error opening file: open xmlA32768D8N32768.xml: no such file or directory
+Error opening file: open xmlA32768D8N32768.xml: no such file or directory
+Error opening file: open xmlA32768D8N32768.xml: no such file or directory
+Error opening file: open xmlA32768D8N32768.xml: no such file or directory
+1000000000	         0.0000843 ns/op
+Error opening file: open xmlA32768D32N32768.xml: no such file or directory
+BenchmarkXmlParser_A32768D32N32768-128     	Error opening file: open xmlA32768D32N32768.xml: no such file or directory
+Error opening file: open xmlA32768D32N32768.xml: no such file or directory
+Error opening file: open xmlA32768D32N32768.xml: no such file or directory
+Error opening file: open xmlA32768D32N32768.xml: no such file or directory
+Error opening file: open xmlA32768D32N32768.xml: no such file or directory
+1000000000	         0.0000794 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/xml	0.443s

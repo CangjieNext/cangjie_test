@@ -1,0 +1,31 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: handleFragmentDistribution main path on a dump whose seven objects
+# each occupy a distinct 64KB address bucket with a different ObjectCategory.
+# Exercises (HttpHandlers.cpp):
+#   - the 64KB bucketing loop (bucketCount = 7)
+#   - per-bucket dominant-category selection (largest cumulative size wins)
+#   - the segment-merge loop: adjacent buckets all differ -> no merge -> 7 segments
+#   - categoryToString() for every ObjectCategory (INSTANCE/OBJECT_ARRAY/
+#     STRUCT_ARRAY/PRIMITIVE_ARRAY/PINNED/LARGE/UNMOVABLE)
+#   - UNMOVABLE_OBJECT is emitted as an independent segment
+#   - percentage rounding (each segment = 14.29%)
+#   - single-row grouping (total range < 64MB -> row_index 0)
+# Also asserts the address_range_start/end fields added by handleFragmentOverview.
+
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/fragment_dist.data
+// EXEC: python3 cjprof_api_test.py fragment_dist_all_01.info cjprof_http_config.json
+
+test#
+fragment_dist,/api/snapshot,"object_count":7,scan,"used_size":392
+fragment_dist,/api/fragment/overview,"address_range_start":4096,scan,"address_range_end":462848
+fragment_dist,/api/fragment/distribution,"address_range_start":"0x1000",scan,"address_range_end":"0x71000"
+fragment_dist,/api/fragment/distribution,"total_address_range":458752,scan,"type":"INSTANCE_OBJECT"
+fragment_dist,/api/fragment/distribution,"type":"PRIMITIVE_ARRAY",scan,"type":"OBJECT_ARRAY"
+fragment_dist,/api/fragment/distribution,"type":"STRUCT_ARRAY",scan,"type":"PINNED_OBJECT"
+fragment_dist,/api/fragment/distribution,"type":"LARGE_OBJECT",scan,"percentage":14.29
+fragment_dist,/api/fragment/distribution,"type":"UNMOVABLE_OBJECT",scan,"percentage":14.29

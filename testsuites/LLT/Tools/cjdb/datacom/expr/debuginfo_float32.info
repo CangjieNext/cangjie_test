@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_float32.info %n %run_env
 
 test#
-cjdb,cjdb float32,float32
+cjdb,cjdb --no-use-colors float32,float32
 b,b foo,float32.cj:10
 r,r,-> 10
 expr a,expr a,\(Float32\) \$\d+ = 1

@@ -11,6 +11,7 @@ func foo() {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var y0 = foo
     
     let f1 = { a: Int64, b: Int64 => a + b }

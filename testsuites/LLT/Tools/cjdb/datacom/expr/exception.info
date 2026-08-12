@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb exception,exception
+cjdb,cjdb --no-use-colors exception,exception
 b,b 18,exception.cj:18
 r,r,-> 18
  ,expr arr[33],IndexOutOfBoundsException

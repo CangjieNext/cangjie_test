@@ -13,6 +13,7 @@ import pkgs.*
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var main_str: String = top_str
     var arraymainrec01 : Array<String> =[main_str]
 

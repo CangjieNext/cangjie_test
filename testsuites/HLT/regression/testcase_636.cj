@@ -9,8 +9,8 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// (!target_mac) ASSERT: regex OverflowException: mul
-// (target_mac) ASSERT: regex StackOverflowError
+// (!(target_mac | target_ohos)) ASSERT: regex OverflowException: mul
+// (target_mac | target_ohos) ASSERT: regex StackOverflowError
 
 // The actual result could either be OverflowException or StackOverflowError,
 // depends on the stack size, so it's better to fix stack size and make the

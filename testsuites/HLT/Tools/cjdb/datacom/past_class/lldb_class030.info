@@ -9,17 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/002_debug_class_top_mod_open.cj
 //  EXEC: %compiler %cmp_opt -g 002_debug_class_top_mod_open.cj -o 002_debug_class_top_mod_open%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_class030.info 002_debug_class_top_mod_open %run_env
+// (target_ios_simulator) EXEC: mv 002_debug_class_top_mod_open%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class030.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class030.info 002_debug_class_top_mod_open %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_class_top_mod_open,002_debug_class_top_mod_open
-b,b 56,002_debug_class_top_mod_open.cj:56
-AOT r,r,-> 56
-CJVM c,c,-> 56
-s,s,-> 40
-n,n,-> 41
+b,b 002_debug_class_top_mod_open.cj:57,002_debug_class_top_mod_open.cj:57
+AOT r,r,-> 57
+Android c,c,57
+CJVM c,c,57
+s,s,41
+n,n,42
 locals,locals,\(Int64\) x = 1
 q,q,

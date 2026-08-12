@@ -7,7 +7,7 @@
 // LEVEL: 0
 // (DEBUG_OPTION)EXEC-PIPE-0: %compiler %enableConstPropagation %debugCHIROpt %f -o %n.%suffix 2>&1 | compare %f
 // (DEBUG_OPTION)RUN-EXEC: %run %run_opt %output %run_args
-// ASSERT: scan [ConstPropagation] The terminator TypeCastWithException at [16,9] has been optimised
+// ASSERT: scan [ConstPropagation] The terminator NumericCastException at [16,9] has been optimised
 
 let gv: Int16 = 127
 

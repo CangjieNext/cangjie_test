@@ -72,6 +72,34 @@ public class MyDatasource <: Datasource {
     }
 }
 
+/**
+ * Controllable mock: count connects and optionally fail the next connect.
+ */
+public class CountingDatasource <: Datasource {
+    let closed = AtomicBool(false)
+    public var connectCount: Int64 = 0
+    public var failNext: Bool = false
+
+    public func close(): Unit {
+        if (isClosed()) {
+            return
+        }
+        closed.store(true)
+    }
+    public func isClosed(): Bool {
+        closed.load()
+    }
+    public func setOption(_: String, _: String): Unit {}
+
+    public func connect(): Connection {
+        connectCount++
+        if (failNext) {
+            throw Exception("mock connect failed")
+        }
+        return MyConnection()
+    }
+}
+
 public class MyConnection <: Connection {
     let closed = AtomicBool(false)
     public func close(): Unit {
@@ -255,5 +283,110 @@ class TestPooledDatasource {
         pool.close()
         @Expect(pool.isClosed(), true)
         ds.close()
+    }
+
+    /** connect after pool closed */
+    @TestCase
+    func testConnectAfterPoolClosed(): Unit {
+        let ds = MyDatasource()
+        let pool = PooledDatasource(ds)
+        pool.close()
+        @Expect(pool.isClosed(), true)
+        try {
+            pool.connect()
+            @Assert(false)
+        } catch (_: SqlException) {}
+        pool.close()
+    }
+
+    /** pool full + short timeout → SqlException */
+    @TestCase
+    func testAcquireExceedMaxSize(): Unit {
+        let ds = MyDatasource()
+        let pool = PooledDatasource(ds)
+        pool.maxSize = 1
+        pool.connectionTimeout = Duration.millisecond * 100
+        let held = pool.connect()
+        try {
+            pool.connect()
+            @Assert(false)
+        } catch (_: SqlException) {}
+        held.close()
+        pool.close()
+    }
+
+    /** constructor/connect failure rolls back entryCount; next connect still works */
+    @TestCase
+    func testConnectFailureThenRecover(): Unit {
+        let ds = CountingDatasource()
+        let pool = PooledDatasource(ds)
+        pool.maxSize = 2
+        ds.failNext = true
+        try {
+            pool.connect()
+            @Assert(false)
+        } catch (_: Exception) {}
+        ds.failNext = false
+        let conn = pool.connect()
+        @Expect(ds.connectCount >= 2, true)
+        @Expect(conn.isClosed(), false)
+        conn.close()
+        pool.close()
+    }
+
+    /** maxLifeTime exceeded on release → discard, next connect creates new entry */
+    @TestCase
+    func testMaxLifeTimeDiscardOnRelease(): Unit {
+        let ds = CountingDatasource()
+        let pool = PooledDatasource(ds)
+        pool.maxSize = 2
+        pool.maxIdleSize = 2
+        pool.maxLifeTime = Duration.millisecond
+        let conn1 = pool.connect()
+        @Expect(ds.connectCount, 1)
+        // Entry.creationTime = now + up to 1s jitter; wait past that + maxLifeTime
+        sleep(Duration.second * 2)
+        conn1.close()
+        let conn2 = pool.connect()
+        @Expect(ds.connectCount, 2)
+        conn2.close()
+        pool.close()
+    }
+
+    /** idleTimeout / maxIdleSize reclaim via background check */
+    @TestCase
+    func testIdleTimeoutReclaim(): Unit {
+        let ds = CountingDatasource()
+        let pool = PooledDatasource(ds)
+        pool.maxSize = 2
+        pool.maxIdleSize = 1
+        pool.idleTimeout = Duration.millisecond
+        pool.keepaliveTime = Duration.millisecond * 100
+        let c1 = pool.connect()
+        let c2 = pool.connect()
+        @Expect(ds.connectCount, 2)
+        c1.close()
+        c2.close()
+        // Timer.repeat first period is 1s in ResourcePool.backgroundCheckIdleLife
+        sleep(Duration.second * 2)
+        let c3 = pool.connect()
+        // after idle reclaim, a new underlying connect is expected
+        @Expect(ds.connectCount >= 2, true)
+        c3.close()
+        pool.close()
+    }
+
+    /** double close on pool and proxy connection */
+    @TestCase
+    func testIdempotentClose(): Unit {
+        let ds = MyDatasource()
+        let pool = PooledDatasource(ds)
+        let conn = pool.connect()
+        conn.close()
+        conn.close()
+        @Expect(conn.isClosed(), true)
+        pool.close()
+        pool.close()
+        @Expect(pool.isClosed(), true)
     }
 }

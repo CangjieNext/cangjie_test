@@ -13,6 +13,7 @@ var mixtuple01 = (true, 18, vara)
 var mixtuple02: VArray<(Int64, Int64), $2> = [(11, 10), (9, 8)]
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var vara = VArray<Int64, $3>({i => i})
     var mixtuple01 = (true, 18, vara)
     var mixtuple02: VArray<(Int64, Int64), $2> = [(11, 10), (9, 8)]

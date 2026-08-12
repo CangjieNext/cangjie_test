@@ -11,6 +11,7 @@
 
 var arrayInt32 : Array<Int32> = [321, 322, 10]
 main() {
+    sleep(Duration.millisecond*3000)
     let class_sub_ins = Class_sub_1()
     var v_main_1  =class_sub_ins.arrayUInt64_d //子类非静态成员变量:数组
     var v_main_2  =class_sub_ins.fun_sub01(20) //子类自有实例函数 Array<Array<UInt64>>

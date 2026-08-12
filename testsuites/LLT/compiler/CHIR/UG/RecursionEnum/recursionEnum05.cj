@@ -34,6 +34,6 @@ main() {
     return 1
 }
 
-// ASSERT: regex-begin %\d+: Tuple<UInt32,Bool,Box<Struct-_CN7default1SE>&,Class-\$Cg0_<Bool>&> = TypeCast\(%\d+, Tuple<UInt32,Bool,Box<Struct-_CN7default1SE>&,Class-\$Cg0_<Bool>&>\)
+// ASSERT: regex-begin %\d+: Tuple<UInt32,Bool,Box<Struct-_CN7default1SE>&,Class-\$Cg0_<Bool>&> = ClassStaticCast\(%\d+, Tuple<UInt32,Bool,Box<Struct-_CN7default1SE>&,Class-\$Cg0_<Bool>&>\)
 // ASSERT: regex-next %\d+: Bool = Field\(%\d+, 1\)
 // ASSERT: regex-next %\d+: Box<Struct-_CN7default1SE>& = Field\(%\d+, 2\)

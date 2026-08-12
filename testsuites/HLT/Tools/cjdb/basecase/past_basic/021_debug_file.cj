@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     //变量初始化
     var file1_num: Int64
 

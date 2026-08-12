@@ -10,10 +10,18 @@
 
 /* SCAN
 customAnnoInstances empty: 0
+anno location valid default: false
+anno location start line: 0
+anno location file empty: true
+anno location str size: 0
+anno with loc valid: false
+anno with loc start line: 0
 customAnnoInstances size after set: 1
 annotation class name: FlagAnno
 annotation str has At: true
 anno field kind: flag flag
+stored anno location valid: false
+stored anno location start line: 0
 */
 
 import stdx.chir.*
@@ -26,6 +34,17 @@ main() {
     println("customAnnoInstances empty: ${nullary.customAnnoInstances.size}")
 
     let flag = CustomAnnoInstance("FlagAnno")
+    println("anno location valid default: ${flag.location.isValid()}")
+    println("anno location start line: ${flag.location.start.line}")
+    println("anno location file empty: ${flag.location.filePath.isEmpty()}")
+    println("anno location str size: ${flag.location.toString().size}")
+
+    let st = pkg.addStruct("mLocSrc", "LocSrc")
+    let anchor = st.appendInstanceMemberVar("anchor", IntType.getInt32())
+    let locAnno = CustomAnnoInstance("LocAnno", anchor.location)
+    println("anno with loc valid: ${locAnno.location.isValid()}")
+    println("anno with loc start line: ${locAnno.location.start.line}")
+
     nullary.customAnnoInstances = Array<CustomAnnoInstance>(1, { _ => flag })
     println("customAnnoInstances size after set: ${nullary.customAnnoInstances.size}")
     println("annotation class name: ${nullary.customAnnoInstances[0].classSrcCodeName}")
@@ -39,4 +58,7 @@ main() {
     } else {
         println("anno field kind: missing")
     }
+
+    println("stored anno location valid: ${ann0.location.isValid()}")
+    println("stored anno location start line: ${ann0.location.start.line}")
 }
