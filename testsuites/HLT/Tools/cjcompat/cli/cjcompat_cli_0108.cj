@@ -6,11 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// EXEC: %cp a.cjo old.cjo
-// EXEC-PIPE: %cjcpl --old old.cjo --new a.cjo --api 2>&1 | compare %f
-// ASSERT: scan-full Compatible!\n
+// EXEC: %cp %f new.cjo
+// ERRCHECK: %cjcompat --old a.cjo --new new.cjo
+// ASSERT: scan validation of ast file 'PACKAGE' failed
+// ASSERT: scan Cannot load file new.cjo
 package a
 main() {
     0

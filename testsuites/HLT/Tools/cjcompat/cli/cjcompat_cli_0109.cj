@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// ERRCHECK: %cjcpl --old a.cjo --new a.cjo --old a.cjo
-// ASSERT: scan Argument: --old, used more than once!
+// ERRCHECK: %cjcompat --old a.cjo --new %f
+// ASSERT: scan Essential argument --new wrong or missing!
 package a
 main() {
     0

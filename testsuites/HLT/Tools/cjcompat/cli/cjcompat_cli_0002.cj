@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// ERRCHECK: %cjcpl --new default.cjo
-// ASSERT: scan Essential argument --old wrong or missing!
+// ERRCHECK: %cjcompat --old default.cjo
+// ASSERT: scan Essential argument --new wrong or missing!
 main() {
     0
 }

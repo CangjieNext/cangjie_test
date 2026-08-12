@@ -8,9 +8,8 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// ERRCHECK: %cjcpl --old a.cjo --new
-// ASSERT: scan Option that requires an argument: --new
-package a
+// EXEC-PIPE: %cjcompat --old default.cjo --new default.cjo 2>&1 | compare %f
+// ASSERT: scan-full Compatible!\n
 main() {
     0
 }

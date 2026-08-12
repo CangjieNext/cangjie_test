@@ -8,10 +8,8 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// EXEC: %cp %f new.cjo
-// ERRCHECK: %cjcpl --old a.cjo --new new.cjo
-// ASSERT: scan validation of ast file 'PACKAGE' failed
-// ASSERT: scan Cannot load file new.cjo
+// ERRCHECK: %cjcompat --old a.cjo --new a.cjo --new a.cjo
+// ASSERT: scan Argument: --new, used more than once!
 package a
 main() {
     0

@@ -8,8 +8,9 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// ERRCHECK: %cjcpl --old a.cjo --new %f
-// ASSERT: scan Essential argument --new wrong or missing!
+// ERRCHECK: %cjcompat --old old.cjo --new a.cjo
+// ASSERT: scan read file 'old.cjo' failed, reason: 'open file failed'
+// ASSERT: scan Cannot load file old.cjo
 package a
 main() {
     0

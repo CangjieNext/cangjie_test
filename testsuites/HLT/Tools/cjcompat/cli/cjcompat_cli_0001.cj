@@ -7,12 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output
-// EXEC: %cp %f old.cjo
-// ERRCHECK: %cjcpl --old old.cjo --new a.cjo
-// ASSERT: scan validation of ast file 'PACKAGE' failed
-// ASSERT: scan Cannot load file old.cjo
-package a
-main() {
-    0
-}
+// EXEC-PIPE: %cjcompat -h 2>&1 | compare %f
+// ASSERT: scan Usage:
+// ASSERT: scan cjcompat --old /path/to/old.cjo --new /path/to/new.cjo [--api] [--abi]
+// ASSERT: scan Options:

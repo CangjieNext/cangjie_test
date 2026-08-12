@@ -8,9 +8,8 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// EXEC: %touch new.cjo
-// ERRCHECK: %cjcpl --old a.cjo --new new.cjo
-// ASSERT: scan read file 'new.cjo' failed, reason: 'empty binary file'
+// ERRCHECK: %cjcompat --old a.cjo --new new.cjo
+// ASSERT: scan read file 'new.cjo' failed, reason: 'open file failed'
 // ASSERT: scan Cannot load file new.cjo
 package a
 main() {

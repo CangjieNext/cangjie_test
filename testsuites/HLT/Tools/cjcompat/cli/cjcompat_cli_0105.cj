@@ -7,7 +7,11 @@
  */
 
 // LEVEL: 0
-// EXEC-PIPE: %cjcpl -h 2>&1 | compare %f
-// ASSERT: scan Usage:
-// ASSERT: scan cjcpl --old /path/to/old.cjo --new /path/to/new.cjo [--api] [--abi]
-// ASSERT: scan Options:
+// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %cp a.cjo old.txt
+// ERRCHECK: %cjcompat --old old.txt --new a.cjo
+// ASSERT: scan Essential argument --old wrong or missing!
+package a
+main() {
+    0
+}
