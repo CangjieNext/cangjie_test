@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     var arr: VArray<Int64, $3> = [1, 2, 3]
     let a1 = Option<VArray<Int64, $3>>.Some(arr)
     let a2 = Option<VArray<Int64, $3>>.None

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb class5,class5
+cjdb,cjdb --no-use-colors class5,class5
 b,b 42,class.cj:42
 r,r,-> 42
  ,expr r,\(default.Rectangle\) \$\d+ = {\s+aaa = 1\s+bbb = 2\s+width = 2\s+height = 4

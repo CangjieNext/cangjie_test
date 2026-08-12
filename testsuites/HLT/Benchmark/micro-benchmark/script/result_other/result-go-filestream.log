@@ -1,0 +1,34 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/filestream
+BenchmarkWriteStringN64-128            	  725049	      1634 ns/op
+BenchmarkWriteStringN512-128           	  722311	      1658 ns/op
+BenchmarkWriteStringN4096-128          	  674109	      1756 ns/op
+BenchmarkWriteStringN32768-128         	  161535	      6657 ns/op
+BenchmarkWriteStringN262144-128        	   23181	     52231 ns/op
+BenchmarkWriteStringN2097152-128       	    2258	    511443 ns/op
+BenchmarkWriteStringN16777216-128      	     172	   6277735 ns/op
+BenchmarkWriteArrayN64-128             	  761648	      1565 ns/op
+BenchmarkWriteArrayN512-128            	  764931	      1575 ns/op
+BenchmarkWriteArrayN4096-128           	  696141	      1719 ns/op
+BenchmarkWriteArrayN32768-128          	  170301	      6633 ns/op
+BenchmarkWriteArrayN262144-128         	   23919	     51757 ns/op
+BenchmarkWriteArrayN2097152-128        	    2330	    614996 ns/op
+BenchmarkWriteArrayN16777216-128       	     199	   5818938 ns/op
+BenchmarkBufferWriteArrayN256-128      	  223918	      4886 ns/op
+BenchmarkBufferWriteArrayN512-128      	  223551	      4828 ns/op
+BenchmarkBufferWriteArrayN1024-128     	  227516	      4856 ns/op
+BenchmarkBufferWriteArrayN2048-128     	  228604	      4637 ns/op
+BenchmarkReadAllBytesN64-128           	  443092	      2698 ns/op
+BenchmarkReadAllBytesN512-128          	  265171	      4357 ns/op
+BenchmarkReadAllBytesN4096-128         	   40393	     31667 ns/op
+BenchmarkReadAllBytesN32768-128        	    6566	    203538 ns/op
+BenchmarkReadAllBytesN262144-128       	     848	   1291310 ns/op
+BenchmarkReadAllBytesN2097152-128      	     126	   9527497 ns/op
+BenchmarkReadAllBytesN16777216-128     	      22	  53745575 ns/op
+BenchmarkBufferReadN256-128            	  701163	      1714 ns/op
+BenchmarkBufferReadN512-128            	  678164	      1503 ns/op
+BenchmarkBufferReadN1024-128           	  838994	      1425 ns/op
+BenchmarkBufferReadN2048-128           	  867259	      1393 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/filestream	48.921s

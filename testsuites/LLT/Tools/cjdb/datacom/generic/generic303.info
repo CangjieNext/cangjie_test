@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic303,generic303
+cjdb,cjdb --no-use-colors generic303,generic303
 b,b 11,generic303.cj:11
 r,r,-> 11
  ,p a,\(UInt8\) \$\d+ = 3

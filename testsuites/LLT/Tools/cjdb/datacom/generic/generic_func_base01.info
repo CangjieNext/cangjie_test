@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_func_base01,generic_func_base01
+cjdb,cjdb --no-use-colors generic_func_base01,generic_func_base01
 b,b 27,generic_func_base01.cj:27
 r,r,-> 27
  ,expr g1(),unable to infer generic argument of this function

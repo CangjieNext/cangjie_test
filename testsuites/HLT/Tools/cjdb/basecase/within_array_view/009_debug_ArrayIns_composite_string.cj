@@ -12,6 +12,7 @@ var top_str2:String = "string_test_002"
 
 var arrayTopString : Array<String> =[top_str1, top_str2]
 main() {
+    sleep(Duration.millisecond*3000)
     let cla_ins = Clazz_1()
     var array_str_1 : Array<String> =[cla_ins.arr_str1, cla_ins.arr_str16, cla_ins.arr_str2, cla_ins.arr_str3, cla_ins.arr_str4, cla_ins.arr_str5, cla_ins.arr_str6]
     var array_str_2 : Array<String> =[cla_ins.arr_str7, cla_ins.arr_str8, cla_ins.arr_str9, cla_ins.arr_str10, cla_ins.arr_str11, cla_ins.arr_str12, cla_ins.arr_str13]
@@ -37,7 +38,6 @@ main() {
 
 
 
-
     return 1
 }
 
@@ -54,7 +54,7 @@ var length : String = arrayTopString[1]
     public var arr_str3:String = "abcdxyz"
     public var arr_str4:String = "!@#$%"
     public var arr_str5:String = "1 a #"
-    public var arr_str6:String = "仓颉字符串测试"
+    public var arr_str6:String = "仓颉字符串测串"
     public var arr_str7:String = "1 + 1"  //打印 1 + 1
     public var arr_str8:String = "\"Hello Cangjie Lang\"" //打印 "Hello Cangjie Lang"
     public var arr_str9:String = "Hello Cangjie Lang\nHello Cangjie Lang"   //打印 Hello Cangjie Lang 然后换行打印 Hello Cangjie Lang

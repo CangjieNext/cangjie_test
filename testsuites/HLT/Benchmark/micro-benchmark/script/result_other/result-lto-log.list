@@ -1,0 +1,5 @@
+BenchmarkLog_DEBUG: 501.7 ns/op
+BenchmarkLog_ERROR: 489.4 ns/op
+BenchmarkLog_INFO: 461.0 ns/op
+BenchmarkLog_Trace: 475.1 ns/op
+BenchmarkLog_WARN: 516.8 ns/op

@@ -35,7 +35,7 @@ class IImpl <: I {
 
 @JavaImpl
 class Impl <: T {
-    init() {
+    public init() {
         print("CJ: started\n", flush: true)
         let x = IImpl().foo()
         print("CJ: got x from IImpl().foo()\n", flush: true)

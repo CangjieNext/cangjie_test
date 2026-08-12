@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_struct_multi_params02,generic_struct_multi_params02
+cjdb,cjdb --no-use-colors generic_struct_multi_params02,generic_struct_multi_params02
 b,b 19, generic_struct_multi_params02.cj:19
 r,r,-> 19
  ,expr a,\(default.Pair<Int16,Int8>\) \$\d+ = {\s+x = 1\s+y = 2

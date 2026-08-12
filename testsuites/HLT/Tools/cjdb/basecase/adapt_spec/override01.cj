@@ -45,6 +45,7 @@ class C2 <: C1 & I {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var r1 = C2().f()
     var r2 = C2().f1()
     var r3 = C2().f2<Int64>(2)

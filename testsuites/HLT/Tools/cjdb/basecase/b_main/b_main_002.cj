@@ -8,6 +8,7 @@
 
 var input_var = ["hello","world"]
 main() {
+    sleep(Duration.millisecond*3000)
     for (arg in input_var) {
         println(arg)
     }

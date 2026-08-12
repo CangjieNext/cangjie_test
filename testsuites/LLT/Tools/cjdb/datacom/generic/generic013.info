@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic013,generic013
+cjdb,cjdb --no-use-colors generic013,generic013
 b,b 10,generic013.cj:10
 r,r,-> 10
  ,p para,\(VArray<Int64,\$3>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = 2\s+\[2\] = 3

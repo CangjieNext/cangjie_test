@@ -9,6 +9,7 @@
 
 
 main() { //设置断点：4/5/6/7 第7行设置断点后，显示失败图标
+    sleep(Duration.millisecond*3000)
     var hundred: Int64 = 0
     while (hundred < 10) { // until hundred < 10
         hundred++

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb compoundExpr_memberAccess2, compoundExpr_memberAccess2
+cjdb,cjdb --no-use-colors compoundExpr_memberAccess2, compoundExpr_memberAccess2
 b,b 47,compoundExpr_memberAccess2.cj:47
 r,r,-> 47
  ,expr st.member + cla.member,\(Int64\) \$\d+ = 2

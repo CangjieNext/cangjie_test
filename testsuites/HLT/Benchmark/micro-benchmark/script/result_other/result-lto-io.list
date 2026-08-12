@@ -1,0 +1,9 @@
+BenchmarkReadUTF8_count_by_1_galsworthy: 212764630.90 ns/op
+BenchmarkReadUTF8_count_all_galsworthy: 5143287.40 ns/op
+BenchmarkReadUTF8_count_lines_galsworthy: 26116445.60 ns/op
+BenchmarkReadUTF8_count_by_1_guanzhongluo: 107444302.50 ns/op
+BenchmarkReadUTF8_count_all_guanzhongluo: 5678559.60 ns/op
+BenchmarkReadUTF8_count_lines_guanzhongluo: 17860342.80 ns/op
+BenchmarkReadUTF8_count_by_1_tolstoy: 277041060.00 ns/op
+BenchmarkReadUTF8_count_all_tolstoy: 11449220.80 ns/op
+BenchmarkReadUTF8_count_lines_tolstoy: 20985501.90 ns/op

@@ -69,6 +69,7 @@ func func6(): Int64 {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     func1("aaa")
     0
 }

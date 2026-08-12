@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb matchExpr_binding_pattern,matchExpr_binding_pattern
+cjdb,cjdb --no-use-colors matchExpr_binding_pattern,matchExpr_binding_pattern
 b,b 14,matchExpr_binding_pattern.cj:14
 r,r,-> 14
  ,expr failScore,\(Int64\) \$\d+ = 90

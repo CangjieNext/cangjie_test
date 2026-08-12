@@ -9,6 +9,7 @@
 import std.collection.*
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let num: UInt32 = 99
     let arraylist1:ArrayList<Int64> = ArrayList<Int64>([1, 2, 3])
     let array01:Array<Int64>=[1, 2, 3]

@@ -337,8 +337,8 @@ class MathExtensionTest {
     @TestCase
     func testMathExtensionCountOne(): Unit {
         @Expect(countOnes(Int8(-99)),5)
-        @Expect(countOnes(Int16(-99)),5)
-        @Expect(countOnes(Int32(-99)),5)
+        @Expect(countOnes(Int16(-99)),13)
+        @Expect(countOnes(Int32(-99)),29)
 
         @Expect(countOnes(UInt8(99)),4)
         @Expect(countOnes(UInt16(99)),4)

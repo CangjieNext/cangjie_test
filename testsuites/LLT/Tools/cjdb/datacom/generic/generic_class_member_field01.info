@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_class_member_field01,generic_class_member_field01
+cjdb,cjdb --no-use-colors generic_class_member_field01,generic_class_member_field01
 b,b 22, generic_class_member_field01.cj:22
 r,r,-> 22
  ,expr A<UInt16>(1),\(default.A<UInt16>\) \$\d+ = {\s+value = 1

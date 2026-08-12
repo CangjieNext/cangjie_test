@@ -243,6 +243,55 @@ public class TestEndianConvert {
     }
 
     @TestCase
+    func testSwapI64(): Unit {
+        let n = 0x1234567890123456i64
+        let m = n.swapBytes()
+        @Expect(m == 0x5634129078563412i64)
+    }
+
+    @TestCase
+    func testSwapU32(): Unit {
+        let n = 0x12345678u32
+        let m = n.swapBytes()
+        @Expect(m == 0x78563412u32)
+    }
+
+    @TestCase
+    func testSwapI32(): Unit {
+        let n = 0x12345678i32
+        let m = n.swapBytes()
+        @Expect(m == 0x78563412i32)
+    }
+
+    @TestCase
+    func testSwapU16(): Unit {
+        let n = 0x1234u16
+        let m = n.swapBytes()
+        @Expect(m == 0x3412u16)
+    }
+
+    @TestCase
+    func testSwapI16(): Unit {
+        let n = 0x1234i16
+        let m = n.swapBytes()
+        @Expect(m == 0x3412i16)
+    }
+
+    @TestCase
+    func testSwapU8(): Unit {
+        let n = 0x12u8
+        let m = n.swapBytes()
+        @Expect(m == 0x12u8)
+    }
+
+    @TestCase
+    func testSwapI8(): Unit {
+        let n = 0x12i8
+        let m = n.swapBytes()
+        @Expect(m == 0x12i8)
+    }
+
+    @TestCase
     func testF32ToBeBytes(): Unit {
         let n = 12.5f32
         let m = Array<Byte>(4, repeat: 0)
@@ -286,8 +335,8 @@ public class TestEndianConvert {
             let n = 12.5f64
             let m = Array<Byte>(4, repeat: 0)
             n.writeBigEndian(m)
+            @Expect(false)
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -318,8 +367,8 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             UInt8(0x12).writeLittleEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -328,8 +377,8 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             UInt8(0x12).writeBigEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -338,8 +387,8 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             UInt8.readBigEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -348,8 +397,8 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             UInt8.readLittleEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -358,8 +407,8 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             Int8(0x12).writeLittleEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -368,8 +417,8 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             Int8(0x12).writeBigEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -378,8 +427,8 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             Int8.readBigEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -388,8 +437,8 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             Int8.readLittleEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -398,8 +447,8 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             true.writeLittleEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -408,8 +457,8 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             true.writeBigEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -418,8 +467,8 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             Bool.readBigEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
     }
 
@@ -428,8 +477,365 @@ public class TestEndianConvert {
         try {
             let emptyBuffer: Array<Byte> = []
             Bool.readLittleEndian(emptyBuffer)
+            @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("too small"))
         }
+    }
+
+    @TestCase
+    func testUInt64WriteLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(4, repeat: 0)
+            UInt64(0x1234567890abcdef).writeLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testUInt64WriteBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(4, repeat: 0)
+            UInt64(0x1234567890abcdef).writeBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testUInt64ReadBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(4, repeat: 0)
+            UInt64.readBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testUInt64ReadLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(4, repeat: 0)
+            UInt64.readLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt64WriteLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(4, repeat: 0)
+            Int64(0x1234567890abcdef).writeLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt64WriteBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(4, repeat: 0)
+            Int64(0x1234567890123456).writeBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt64ReadBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(4, repeat: 0)
+            Int64.readBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt64ReadLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(4, repeat: 0)
+            Int64.readLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testUInt32WriteLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(2, repeat: 0)
+            UInt32(0x12345678).writeLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testUInt32WriteBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(2, repeat: 0)
+            UInt32(0x12345678).writeBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testUInt32ReadBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(2, repeat: 0)
+            UInt32.readBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testUInt32ReadLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(2, repeat: 0)
+            UInt32.readLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt32WriteLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(2, repeat: 0)
+            Int32(0x12345678).writeLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt32WriteBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(2, repeat: 0)
+            Int32(0x12345678).writeBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt32ReadBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(2, repeat: 0)
+            Int32.readBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt32ReadLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(1, repeat: 0)
+            Int32.readLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testUInt16WriteLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(1, repeat: 0)
+            UInt16(0x1234).writeLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testUInt16WriteBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(1, repeat: 0)
+            UInt16(0x1234).writeBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testUInt16ReadBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(1, repeat: 0)
+            UInt16.readBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testUInt16ReadLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(0, repeat: 0)
+            UInt16.readLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt16WriteLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(1, repeat: 0)
+            Int16(0x1234).writeLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt16WriteBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(1, repeat: 0)
+            Int16(0x1234).writeBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt16ReadBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(1, repeat: 0)
+            Int16.readBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testInt16ReadLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(0, repeat: 0)
+            Int16.readLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testFloat32WriteLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(2, repeat: 0)
+            12.5f32.writeLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testFloat32WriteBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(2, repeat: 0)
+            12.5f32.writeBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testFloat32ReadBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(2, repeat: 0)
+            Float32.readBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testFloat32ReadLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(1, repeat: 0)
+            Float32.readLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testFloat16WriteLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(1, repeat: 0)
+            Float16.fromBits(0x1f20).writeLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testFloat16WriteBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(1, repeat: 0)
+            Float16.fromBits(0x1f20).writeBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testFloat16ReadBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(0, repeat: 0)
+            Float16.readBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testFloat16ReadLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(1, repeat: 0)
+            Float16.readLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testFloat64WriteLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(4, repeat: 0)
+            12.5f64.writeLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testFloat64ReadBigEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(4, repeat: 0)
+            Float64.readBigEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testFloat64ReadLittleEndianWithSmallBuffer(): Unit {
+        try {
+            let smallBuffer = Array<Byte>(4, repeat: 0)
+            Float64.readLittleEndian(smallBuffer)
+            @Expect(false)
+        } catch (e: IndexOutOfBoundsException) {
+        }
+    }
+
+    @TestCase
+    func testBoolReadNonZeroAsTrue(): Unit {
+        let buffer: Array<Byte> = [0x02]
+        @Expect(Bool.readBigEndian(buffer) == true)
+        @Expect(Bool.readLittleEndian(buffer) == true)
     }
 }

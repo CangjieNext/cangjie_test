@@ -7,6 +7,7 @@
  */
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let v1 = Option<Int64>.Some(100)
     let v2 = Option<Int64>.None
     let r1 = v1 ?? 0

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic008,generic008
+cjdb,cjdb --no-use-colors generic008,generic008
 b,b 9,generic008.cj:9
 r,r,-> 9
  ,p para,\(std.core.Range<Int64>\) \$\d+ = 0..10 : 1

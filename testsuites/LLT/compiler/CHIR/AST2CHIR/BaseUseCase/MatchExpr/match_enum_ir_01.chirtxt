@@ -6,6 +6,6 @@
 
 // NOTE: 'TypeCast' should in the same block with 'Field'
 // ASSERT: regex-begin Block #\d+: // preds: #\d+ .* ".*\.cj"-\d+-14
-// ASSERT: regex-after (?P<num0>%\d+): Tuple<Bool,Int64> = TypeCast\(%\d+\) // .*, checkTypeCast: true
+// ASSERT: regex-after (?P<num0>%\d+): Tuple<Bool,Int64> = ClassStaticCast\(%\d+\) // .*, checkTypeCast: true
 // ASSERT: regex-after \[readOnly\] %\d+: Int64 = Field\((?P=num0), 1\)
 // ASSERT: regex-after GoTo\(#\d+\)

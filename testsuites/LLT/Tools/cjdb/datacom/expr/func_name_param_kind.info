@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb func_name_param_kind, func_name_param_kind
+cjdb,cjdb --no-use-colors func_name_param_kind, func_name_param_kind
 b,b 27, func_name_param_kind.cj:27
 r,r,-> 27
  ,expr fUnit,error: unsupported expression

@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: V2 (1.0.2) format heap dump parsed with -V verbose. Exercises every
+# HprofParserV2 if(verbose) printf branch: STRING/CLASS/STACK_FRAME/STACK_TRACE
+# /START_THREAD/CLASS_DUMP/INSTANCE_DUMP/OBJECT_ARRAY_DUMP/STRUCT_ARRAY_DUMP.
+
+// DEPENDENCE: ../sample
+// EXEC: %copy sample/all_tags.data .
+// EXEC: %cjprof heap -i all_tags.data -V 2>&1 | compare %f
+// ASSERT: scan [STRING@0x23]
+// ASSERT: scan [STACK FRAME@
+// ASSERT: scan [STACK TRACE@
+// ASSERT: scan [START THREAD@
+// ASSERT: scan [LOAD CLASS@
+// ASSERT: scan [CLASS DUMP@
+// ASSERT: scan [INSTANCE DUMP@
+// ASSERT: scan [OBJECT ARRAY DUMP@
+// ASSERT: scan [STRUCT ARRAY DUMP@

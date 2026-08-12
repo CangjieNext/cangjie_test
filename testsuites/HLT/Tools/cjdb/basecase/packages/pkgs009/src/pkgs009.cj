@@ -13,6 +13,7 @@ func fun001(a:Int8, b:Int8): Int8 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var res1: Int8 = fun001()
     var res2: Int8 = fun001(20, 20)
 

@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb if_letExpr,if_letExpr
+cjdb,cjdb --no-use-colors if_letExpr,if_letExpr
 b,b 14,if_letExpr.cj:14
 r,r,-> 14
  ,expr result,\(std.core.Option<Int64>\) \$\d+ = 2023

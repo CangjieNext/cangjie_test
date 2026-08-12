@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 427,"jsonrpc": "2.0","result": [{"range": {"end": {"character": 10,"line":11},"start": {"character": 7,"line":11}},"uri": "cangjiesource/src/Extend/extend002.cj"}]}
+{"id": 427,"jsonrpc": "2.0","result": [{"range": {"end": {"character": 10,"line": 11},"start": {"character": 7,"line": 11}},"uri": "cangjiesource/src/Extend/extend002.cj"},{"range": {"end": {"character": 22,"line": 15},"start": {"character": 19,"line": 15}},"uri": "cangjiesource/src/Extend/extend002.cj"}]}

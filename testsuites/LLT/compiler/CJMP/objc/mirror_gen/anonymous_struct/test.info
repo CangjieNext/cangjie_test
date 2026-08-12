@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// DEPENDENCE: ../test.toml test.h
+// EXEC: ObjCInteropGen test.toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+@C
+public struct M {
+    public var a: Int32 = 0
+    public var c: __test_1 = __test_1()
+    public var e: __test_2 = 0
+}
+
+@C
+public struct __test_1 {
+    public var b: Int32 = 0
+}
+
+public type __test_2 = Int32
+public const d: __test_2 = 0
+*/

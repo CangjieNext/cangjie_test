@@ -18,6 +18,8 @@ a readonly: true
 a public: true
 a str has name: true
 b is internal: true
+a private: true
+[private][readOnly][pluginAdded]let a: Int32
 */
 
 import stdx.chir.*
@@ -48,4 +50,8 @@ main() {
 
     vb.setInternal()
     println("b is internal: ${vb.isInternal()}")
+
+    va.setPrivate()
+    println("a private: ${va.isPrivate()}")
+    va.dump()
 }

@@ -1,0 +1,20 @@
+{
+  "organization": "",
+  "name": "b",
+  "description": "nothing here",
+  "version": "1.0.0",
+  "requires": {
+    "aaa": {
+      "organization": "a",
+      "version": "a",
+      "path": "a"
+    }
+  },
+  "packageRequires": {},
+  "arr": [
+    "this is arr[0]",
+    "this is arr[1]",
+    "this is arr[2]"
+  ],
+  "arr2": []
+}

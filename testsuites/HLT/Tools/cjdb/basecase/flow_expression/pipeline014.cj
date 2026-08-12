@@ -23,6 +23,7 @@ func f3<T>(a: T) {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var b1 = 1+1 |> {x: Int64 => x + 1}
     var b3 = 1.0+2.0 |> {x: Float64 => x + 1.0}
     var b4 = true |> {x: Bool => x}

@@ -21,6 +21,7 @@ func son_thread():Future<Unit>{
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
 
     var fut = son_thread()
     sleep(Duration.second)

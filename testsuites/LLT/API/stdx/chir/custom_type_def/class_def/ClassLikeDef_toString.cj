@@ -13,12 +13,15 @@ class str has class: true
 class str has srcCodeName: true
 iface str has interface: true
 class str has brace: true
+class methods count: 1
+class str has func: true
 */
 
 import stdx.chir.*
 
 main() {
-    let pkg = Package("pkg.class.str", AccessLevel.Public)
+    let pkgName = "pkg.class.str"
+    let pkg = Package(pkgName, AccessLevel.Public)
     let cls = pkg.addClass("mC", "MyClass", true)
     let iface = pkg.addClass("mI", "MyIface", false)
 
@@ -28,4 +31,9 @@ main() {
     println("class str has srcCodeName: ${cs.contains("srcCodeName: MyClass")}")
     println("iface str has interface: ${ifaceStr.contains("interface")}")
     println("class str has brace: ${cs.contains("{")}")
+
+    let mf = pkg.addFunction(FuncType.get(Array<Type>(), UnitType.get()), "mC.dummy", "dummy", pkgName)
+    cls.appendMethod(mf)
+    println("class methods count: ${cls.methods.size}")
+    println("class str has func: ${cls.toString().contains("func @mC.dummy")}")
 }

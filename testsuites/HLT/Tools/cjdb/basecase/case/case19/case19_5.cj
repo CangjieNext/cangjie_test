@@ -24,6 +24,7 @@ class C1 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = C1().f1(6)
     var b = C1().f3<Int64>(2)
 }

@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 439,"jsonrpc": "2.0","result": [{"range": {"end": {"character": 19,"line":22},"start": {"character": 15,"line":22}},"uri": "cangjiesource/src/Extend/extend004.cj"},{"range": {"end": {"character": 27,"line":23},"start": {"character": 23,"line":23}},"uri": "cangjiesource/src/Extend/extend004.cj"}]}
+{"id": 439,"jsonrpc": "2.0","result": [{"range": {"end": {"character": 19,"line": 22},"start": {"character": 15,"line": 22}},"uri": "cangjiesource/src/Extend/extend004.cj"},{"range": {"end": {"character": 27,"line": 23},"start": {"character": 23,"line": 23}},"uri": "cangjiesource/src/Extend/extend004.cj"},{"range": {"end": {"character": 17,"line": 29},"start": {"character": 13,"line": 29}},"uri": "cangjiesource/src/Extend/extend004.cj"}]}

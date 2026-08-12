@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb matchExpr_type_pattern2,matchExpr_type_pattern2
+cjdb,cjdb --no-use-colors matchExpr_type_pattern2,matchExpr_type_pattern2
 b,b 28,matchExpr_type_pattern2.cj:28
 r,r,-> 28
  ,expr match (colorPt) {case cpt: Point => cpt.x * cpt.y case _ => 0},\(Int64\) \$\d+ = 192

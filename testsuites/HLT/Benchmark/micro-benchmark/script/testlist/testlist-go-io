@@ -1,0 +1,16 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkReadUTF8_count_by_1_galsworthy
+BenchmarkReadUTF8_count_by_1_guanzhongluo
+BenchmarkReadUTF8_count_by_1_tolstoy
+BenchmarkReadUTF8_count_lines_galsworthy
+BenchmarkReadUTF8_count_lines_guanzhongluo
+BenchmarkReadUTF8_count_lines_tolstoy
+BenchmarkReadUTF8_count_all_galsworthy
+BenchmarkReadUTF8_count_all_guanzhongluo
+BenchmarkReadUTF8_count_all_tolstoy

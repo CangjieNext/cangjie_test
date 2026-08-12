@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info generic_option %run_env
 
 test#
-cjdb,cjdb generic_option,generic_option
+cjdb,cjdb --no-use-colors generic_option,generic_option
 b,b 30, generic_option.cj:30
 r,r,-> 30
  ,expr str.get(1),\(std.core.Option<UInt8>\) \$\d+ = 97

@@ -9,16 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/011_debug_class_main_parameter.cj
 //  EXEC: %compiler %cmp_opt -g 011_debug_class_main_parameter.cj -o 011_debug_class_main_parameter%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_class040.info 011_debug_class_main_parameter %run_env
+// (target_ios_simulator) EXEC: mv 011_debug_class_main_parameter%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class040.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_class040.info 011_debug_class_main_parameter %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_class_main_parameter,011_debug_class_main_parameter
-b,b 55,011_debug_class_main_parameter.cj:55
-AOT r,r,-> 55
-CJVM c,c,-> 55
-n,n,-> 56
+b,b 011_debug_class_main_parameter.cj:56,011_debug_class_main_parameter.cj:56
+AOT r,r,-> 56
+Android c,c,56
+CJVM c,c,56
+n,n,57
 locals,locals,C1\) newc = {(\r|\n|\r\n)  pro = 5(\r|\n|\r\n)  name = "afdoaidfad"(\r|\n|\r\n)  num = 11
 q,q,

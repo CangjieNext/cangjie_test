@@ -15,6 +15,7 @@ var top_R_1 = Rectangle_ex1(12,-69)
 var top_Rg_1 = R1<Float32>(1.02)
 
 main() {
+    sleep(Duration.millisecond*3000)
     var cla_ins_1 = Exter_Cla1(100, 200)
     let cla_ins_2 = Exter_Cla1(-69, 360)
     var arr_mc_1 : Array<Exter_Cla1> = [top_C_1, cla_ins_2]

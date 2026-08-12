@@ -19,6 +19,7 @@ func f_001(): Int8 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var newc = Exter_C1(100, 200)
     var main_c_area: Int32 = newc.area()
     var mian_year = newc.year

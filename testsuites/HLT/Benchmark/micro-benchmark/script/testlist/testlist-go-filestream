@@ -1,0 +1,36 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkBufferWriteArrayN256
+BenchmarkBufferWriteArrayN512
+BenchmarkBufferWriteArrayN1024
+BenchmarkBufferWriteArrayN2048
+BenchmarkWriteStringN64
+BenchmarkWriteStringN512
+BenchmarkWriteStringN4096
+BenchmarkWriteStringN32768
+BenchmarkWriteStringN262144
+BenchmarkWriteStringN2097152
+BenchmarkWriteStringN16777216
+BenchmarkWriteArrayN64
+BenchmarkWriteArrayN512
+BenchmarkWriteArrayN4096
+BenchmarkWriteArrayN32768
+BenchmarkWriteArrayN262144
+BenchmarkWriteArrayN2097152
+BenchmarkWriteArrayN16777216
+BenchmarkReadAllBytesN64
+BenchmarkReadAllBytesN512
+BenchmarkReadAllBytesN4096
+BenchmarkReadAllBytesN32768
+BenchmarkReadAllBytesN262144
+BenchmarkReadAllBytesN2097152
+BenchmarkReadAllBytesN16777216
+BenchmarkBufferReadN256
+BenchmarkBufferReadN512
+BenchmarkBufferReadN1024
+BenchmarkBufferReadN2048

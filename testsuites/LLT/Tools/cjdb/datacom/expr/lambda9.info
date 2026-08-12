@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb lambda9,lambda9
+cjdb,cjdb --no-use-colors lambda9,lambda9
 b,b 18,lambda9.cj:18
 r,r,-> 18
 expression~expr lambda1(op1,op2)~\(Unit\) \$[\d] = ()

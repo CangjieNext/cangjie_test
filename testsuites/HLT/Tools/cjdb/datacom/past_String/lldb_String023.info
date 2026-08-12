@@ -9,19 +9,23 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/067_debug_string_literal.cj
 // EXEC: %compiler %cmp_opt -g 067_debug_string_literal.cj -o 067_debug_string_literal%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_String023.info 067_debug_string_literal %run_env
+// (target_ios_simulator) EXEC: mv 067_debug_string_literal%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_String023.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_String023.info 067_debug_string_literal %run_env
 
 
 
 test#
 cjdb,cjdb --no-use-colors 067_debug_string_literal,067_debug_string_literal
-AOT b,b 11,067_debug_string_literal.cj:14
-CJVM b,b 11,no code at [\s\S]*067_debug_string_literal.cj:11
-CJVM b,b 14,067_debug_string_literal.cj:14
-AOT r,r,-> 14
+b,b 067_debug_string_literal.cj:15,067_debug_string_literal.cj:15
+CJVM b,b 12,no code at [\s\S]*067_debug_string_literal.cj:12
+CJVM b,b 067_debug_string_literal.cj:15,067_debug_string_literal.cj:15
+AOT r,r,-> 15
+Android c,c,15
 CJVM c,c,
-s,s,-> 21
-CJVM finish,finish,-> 14
-AOT finish,finish,-> 15
-b,b 15,067_debug_string_literal.cj:15
+s,s,22
+CJVM finish,finish,15
+finish,finish,16
+b,b 067_debug_string_literal.cj:16,067_debug_string_literal.cj:16
 q,q,

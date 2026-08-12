@@ -14,6 +14,7 @@ let top_c = CHC1<Int64>(20)
 let topc_f = top_c.foo1(0)
 
 main() {
+    sleep(Duration.millisecond*3000)
     // 单类型泛型class实现两个泛型接口，调用其中一个接口的泛型方法
     let m_1 = C1<Int64>(19,11)
     m_1.foo1(0)

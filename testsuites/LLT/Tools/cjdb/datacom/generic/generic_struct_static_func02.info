@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_struct_static_func02,generic_struct_static_func02
+cjdb,cjdb --no-use-colors generic_struct_static_func02,generic_struct_static_func02
 b,b 24, generic_struct_static_func02.cj:24
 r,r,-> 24
  ,expr aa.f1(1),\s+object cannot access static member 'f1'

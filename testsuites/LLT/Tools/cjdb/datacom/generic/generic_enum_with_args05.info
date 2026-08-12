@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_enum_with_args05,generic_enum_with_args05
+cjdb,cjdb --no-use-colors generic_enum_with_args05,generic_enum_with_args05
 b,b 20, generic_enum_with_args05.cj:20
 r,r,-> 20
  ~expr EE<Int64>.A([1, 2])~\(default.EE<Int64>\) \$\d+ = {\s+constructor = A\s+arg_1 = {\s+\[0\] = 1\s+\[1\] = 2

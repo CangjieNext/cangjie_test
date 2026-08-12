@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_tuple,generic_tuple
+cjdb,cjdb --no-use-colors generic_tuple,generic_tuple
 b,b 15, generic_tuple.cj:15
 r,r,-> 15
 ~expr tup~\(Tuple<Int32,default.Time<Int32>>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = {\s+constructor = Day\s+arg_1 = 2

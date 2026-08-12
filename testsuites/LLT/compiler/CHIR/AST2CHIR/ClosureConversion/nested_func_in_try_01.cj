@@ -6,9 +6,9 @@
 // (not Windows and CJNATIVE) ASSERT: scan-1 Func @_CN7default4foo13gooS9a0a0a0a_aEv([readOnly]
 
 // (not Windows and CJNATIVE) ASSERT: scan-1 Func @_CN7default4foo1HvE3gooHv([readOnly]
-// (not Windows and CJNATIVE) ASSERT: scan-1 ApplyWithException(ThisType: Class-$ClN7default4foo1HvE3gooHv$0&, @_CCN7default4foo1HvE3gooHv$i,
+// (not Windows and CJNATIVE) ASSERT: scan-1 TryApply(ThisType: Class-$ClN7default4foo1HvE3gooHv$0&, @_CCN7default4foo1HvE3gooHv$i,
 
-// (not Windows and CJNATIVE) ASSERT: scan-1 ApplyWithException(ThisType: Class-$ClN7default4foo2HvE3gooHv$0&, @_CCN7default4foo2HvE3gooHv$i,
+// (not Windows and CJNATIVE) ASSERT: scan-1 TryApply(ThisType: Class-$ClN7default4foo2HvE3gooHv$0&, @_CCN7default4foo2HvE3gooHv$i,
 // (not Windows and CJNATIVE) ASSERT: scan-1 Apply(ThisType: Class-$ClN7default4foo2HvE3gooHv$1&, @_CCN7default4foo2HvE3gooHv$1$i,
 // (not Windows and CJNATIVE) ASSERT: scan-1 Apply(ThisType: Class-$ClN7default4foo2HvE3gooHv$2&, @_CCN7default4foo2HvE3gooHv$2$i,
 // (not Windows and CJNATIVE) ASSERT: scan-1 Func @_CN7default4foo2HvE3gooHv([readOnly]
@@ -38,7 +38,7 @@ func foo2() {
         func goo() { // 闭包之后提升成Func @_CN7default4foo23gooS9a0b0a0b_aEv([readOnly] ...)
             println(1)
         }
-        goo() // 翻译成ApplyWithException(@_CN7default4foo23gooS9a0b0a0b_aEv, ...)
+        goo() // 翻译成TryApply(@_CN7default4foo23gooS9a0b0a0b_aEv, ...)
     } finally {
         func goo() { // 闭包之后提升成Func @_CN7default4foo23gooS9a0b0a0c_bEv$1([readOnly] ...)
             println(1)

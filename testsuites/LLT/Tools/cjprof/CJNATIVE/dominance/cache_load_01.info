@@ -1,0 +1,23 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: DatabaseCache v2 load path. A committed all_tags.data.cjprof.db
+# (cache-format version 2, matching current code) ships alongside the data
+# file (declared in DEPENDENCE); the framework copies both to a fresh temp
+# dir, and cjprof_api_test.py no longer deletes the cache before startup, so
+# the server hits isCacheValid()->load() instead of parse. The v2
+# SnapshotEntry carries address_range_start/end (added by the memory-fragment
+# feature), so /api/fragment/overview returns them straight from the cache
+# without re-parsing — asserting them here proves the load path round-trips
+# the new fields.
+
+// DEPENDENCE: cjprof_api_test.py cjprof_http_config.json ../sample/all_tags.data ../sample/all_tags.data.cjprof.db
+// EXEC: python3 cjprof_api_test.py cache_load_01.info cjprof_http_config.json
+
+test#
+all_tags,/api/snapshot,"object_count":14,regex,"gc_root_count":3
+all_tags,/api/fragment/overview,"used_size":520,regex,"utilization"
+all_tags,/api/fragment/overview,"address_range_start":64,scan,"address_range_end":272

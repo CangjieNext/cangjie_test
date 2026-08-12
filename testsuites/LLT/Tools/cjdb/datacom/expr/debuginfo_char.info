@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_char.info %n %run_env
 
 test#
-cjdb,cjdb char,char
+cjdb,cjdb --no-use-colors char,char
 b,b foo,char.cj:10
 r,r,-> 10
 expr a,expr a,\(Rune\) \$\d+ = 'a'

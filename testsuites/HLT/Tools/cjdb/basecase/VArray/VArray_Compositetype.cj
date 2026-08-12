@@ -38,6 +38,7 @@ struct A<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var v1: V1 = V1()
     var v2: V2 = V2()
 }

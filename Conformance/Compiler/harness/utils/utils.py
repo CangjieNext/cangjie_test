@@ -218,7 +218,7 @@ def unify_tests(tests, cfg, unify_path = False, skip_non_spec = False) -> list:
     item['compile_log'] = item['compile_log'].replace(binary_output_path, '.')
     item['compile_log'] = item['compile_log'].replace(test_run_output_path, '.')
     item['compile_log'] = item['compile_log'].replace(cjc, 'cjc')
-    item['compile_log'] = item['compile_log'].replace(cc, 'сс')
+    item['compile_log'] = item['compile_log'].replace(cc, 'cc')
     item['compile_log'] = item['compile_log'].replace(cxx, 'cxx')
     item['compile_log'] = item['compile_log'].replace(work_directory, '.')
 
@@ -227,7 +227,7 @@ def unify_tests(tests, cfg, unify_path = False, skip_non_spec = False) -> list:
     item['execute_log'] = item['execute_log'].replace(binary_output_path, '.')
     item['execute_log'] = item['execute_log'].replace(test_run_output_path, '.')
     item['execute_log'] = item['execute_log'].replace(cjc, 'cjc')
-    item['execute_log'] = item['execute_log'].replace(cc, 'сс')
+    item['execute_log'] = item['execute_log'].replace(cc, 'cc')
     item['execute_log'] = item['execute_log'].replace(cxx, 'cxx')
     item['execute_log'] = item['execute_log'].replace(work_directory, '.')
 

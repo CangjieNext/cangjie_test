@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb assignExpr2,assignExpr2
+cjdb,cjdb --no-use-colors assignExpr2,assignExpr2
 b,b 15,assignExpr.cj:15
 r,r,-> 15
  ,expr a=2;a,\(Int64\) \$\d+ = 2

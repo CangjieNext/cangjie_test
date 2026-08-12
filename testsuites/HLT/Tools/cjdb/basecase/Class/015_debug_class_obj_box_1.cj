@@ -15,6 +15,7 @@ class Box<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let b1 = Box(1)
     var b2 = Box(2)
 

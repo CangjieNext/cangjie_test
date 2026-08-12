@@ -22,6 +22,7 @@ class Rectangle {
 let aaa = ArrayList<Rectangle>.of(Rectangle(), Rectangle())
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     println("hello world")
     return 0
 }

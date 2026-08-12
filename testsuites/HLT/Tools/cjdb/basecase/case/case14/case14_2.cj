@@ -19,6 +19,7 @@ class Coo {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var a = Coo.foo<Int32>(2)
     var d = Coo.foo<Bool>({aa => true}, 2)
     return 0

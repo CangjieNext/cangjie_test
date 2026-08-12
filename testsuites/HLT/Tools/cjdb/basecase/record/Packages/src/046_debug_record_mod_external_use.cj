@@ -17,6 +17,7 @@ let top_R = Rectangle_ex(5, 6)
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var time = TimeUnit.Year(19)
     let newRectangle1 = Rectangle_ex(100, 200)
     let main_area: Int32 = newRectangle1.area()

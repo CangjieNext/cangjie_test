@@ -42,6 +42,7 @@ class C3 <: I2<Int32> & I2<Int64> { //类继承，泛型接口 多次
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var data1 = C1().fc1()
     var data2 = C2().fc2()
     var data3 = C3().fc3()

@@ -37,6 +37,7 @@ class C1 <: I1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a: I1 = C1()
     let b: C1 = C1()
     return 0

@@ -1,0 +1,14 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/io
+BenchmarkReadUTF8_count_by_1_galsworthy-128        	     100	  11530239 ns/op
+BenchmarkReadUTF8_count_by_1_guanzhongluo-128      	     144	   8523929 ns/op
+BenchmarkReadUTF8_count_by_1_tolstoy-128           	      52	  22917897 ns/op
+BenchmarkReadUTF8_count_lines_galsworthy-128       	     135	   8471101 ns/op
+BenchmarkReadUTF8_count_lines_guanzhongluo-128     	     234	   5206957 ns/op
+BenchmarkReadUTF8_count_lines_tolstoy-128          	     163	   6963636 ns/op
+BenchmarkReadUTF8_count_all_galsworthy-128         	      99	  10434405 ns/op
+BenchmarkReadUTF8_count_all_guanzhongluo-128       	     160	   8522671 ns/op
+BenchmarkReadUTF8_count_all_tolstoy-128            	      87	  12431633 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/io	16.893s

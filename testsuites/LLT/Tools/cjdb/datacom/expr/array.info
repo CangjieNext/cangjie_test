@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb array,array
+cjdb,cjdb --no-use-colors array,array
 b,b 21,array.cj:21
 r,r,-> 21
  ,expr la,\(std.core.Array<Int64>\) \$\d+ = {}

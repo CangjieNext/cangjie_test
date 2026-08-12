@@ -8,5 +8,6 @@
 // DEPENDENCE: class_impl_interface.d.ts
 // EXEC: %hle_arkts -i class_impl_interface.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/class_impl_interface/src/class_impl_interface.cj | compare %f
-// ASSERT: scan protected I(public var p: Float64)
+// ASSERT: scan public var p: Float64
+// ASSERT: scan protected init(p: Float64)
 // ASSERT: scan protected C(var arkts_object: JSObject) {

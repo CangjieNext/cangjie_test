@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb enum5,enum5
+cjdb,cjdb --no-use-colors enum5,enum5
 b,b 16,enum5.cj:16
 r,r,-> 16
  ,expr b,\(E1\) \$\d+ = {\s+constructor = B\s+arg_1 = {\s+constructor = C\s+arg_1 = {\s+constructor = A

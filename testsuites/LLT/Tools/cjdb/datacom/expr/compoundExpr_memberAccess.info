@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb compoundExpr_memberAccess, compoundExpr_memberAccess
+cjdb,cjdb --no-use-colors compoundExpr_memberAccess, compoundExpr_memberAccess
 b,b 20,compoundExpr_memberAccess.cj:20
 r,r,-> 20
  ,expr a[strB().b[1] + strB().memberFunc()],\(std.core.String\) \$\d+ = "cd"

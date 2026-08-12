@@ -25,10 +25,10 @@ main() {
     bb.appendExpr(gs)
 
     let mty = FuncType.get([i32], UnitType.get())
-    let vir = FuncSigInfo("bar", mty, Array<GenericType>())
+    let methodFn = pkg.addFunction(mty, "bar", "bar", "pkg.ser16")
     let arg = Constant.create(IntLiteral.get(i32, 7u64))
     bb.appendExpr(arg)
-    let ic = InvokeCallContext(gs.result, vir, FuncCallContext([arg.result], Array<Type>(), None))
+    let ic = InvokeCallContext(gs.result, FuncCallContext([arg.result], Array<Type>(), None), methodFn)
 
     let inv = Invoke.create(UnitType.get(), ic)
     bb.appendExpr(inv)

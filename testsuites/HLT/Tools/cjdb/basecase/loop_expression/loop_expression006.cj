@@ -16,6 +16,7 @@ enum E1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a1 = [(C1().a, E1.A), (C1().b, E1.B)]
     for ((x, y) in a1) {
         println("${x}")

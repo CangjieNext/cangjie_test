@@ -660,6 +660,18 @@ public class TestArgParser {
 
         args1 = ["-abg", "gval", "-c"]
         parseArguments(args1, argSpecs)
+
+        // RequiredValue option followed by exactly one char in combined short options
+        // a,b are NoValue; g is RequiredValue; c is NoValue but consumed as g's value
+        args1 = ["-abgc"]
+        arguments = parseArguments(args1, argSpecs)
+        @Expect(arguments.options.contains("a"))
+        @Expect(arguments.options["a"] == "")
+        @Expect(arguments.options.contains("b"))
+        @Expect(arguments.options["b"] == "")
+        @Expect(arguments.options.contains("g"))
+        @Expect(arguments.options["g"] == "c")
+        @Expect(!arguments.options.contains("c"))
     }
 
     @TestCase

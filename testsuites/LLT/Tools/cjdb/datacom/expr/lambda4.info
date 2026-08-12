@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb lambda4,lambda4
+cjdb,cjdb --no-use-colors lambda4,lambda4
 b,b 22,lambda4.cj:22
 r,r,-> 22
  ,p gg,\(default.AC\) \$\d+ = {\s+ aa = 0x

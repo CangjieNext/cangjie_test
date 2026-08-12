@@ -1,0 +1,14 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: heap analyze with assorted options to cover option-parsing branches:
+# -D invalid depth (ParseDepth warning), -o output, -t show-thread,
+# -r show-reference, -V verbose, --incoming-reference.
+
+// DEPENDENCE: ../sample
+// EXEC: %copy sample/heap.data .
+// EXEC: %cjprof heap -D abc -i heap.data -o /tmp/cjprof_out.data -t -r -V --incoming-reference 2>&1 | compare %f
+// ASSERT: scan warning: Invalid depth value

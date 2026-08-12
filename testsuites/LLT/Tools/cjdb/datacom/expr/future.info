@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb future,future
+cjdb,cjdb --no-use-colors future,future
 b,b main,future.cj:11
 r,r,-> 11
 n,n,-> 18

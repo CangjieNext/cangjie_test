@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_option01,generic_option01
+cjdb,cjdb --no-use-colors generic_option01,generic_option01
 b,b 15, generic_option01.cj:15
 r,r,-> 15
  ,expr c1,\(std.core.Option<default.C>\) \$\d+ = {\s+item = 100

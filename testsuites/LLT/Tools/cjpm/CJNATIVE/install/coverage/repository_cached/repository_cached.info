@@ -1,0 +1,10 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-0: cd %n && mkdir -p home && HOME=%n/home %cjpm install cached-1.0.0 --verbose 2>&1 | compare %f
+// ASSERT: scan cjpm install skip downloading cached-1.0.0: local files exist
+// ASSERT: scan cjpm install success

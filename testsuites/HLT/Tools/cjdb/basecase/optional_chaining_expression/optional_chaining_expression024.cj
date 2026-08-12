@@ -13,6 +13,7 @@ class C1<T>{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var f1 = Option<(Int64)->Int64>.Some(C1<Int64>().func1<Int64>)
     var f2 = Option<(Int64)->Int64>.None
     var f3 = Option<(String)->String>.Some(C1<String>().func1<String>)

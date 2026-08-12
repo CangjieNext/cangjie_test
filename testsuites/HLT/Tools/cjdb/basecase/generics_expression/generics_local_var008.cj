@@ -73,6 +73,7 @@ struct S4<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var ai8 = C1<S3<Int8>>(S3<Int8>(8))
     var ai16 = C1<S3<Int16>>(S3<Int16>(16))
     var ai32 = C1<S3<Int32>>(S3<Int32>(32))

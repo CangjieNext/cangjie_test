@@ -1,0 +1,7 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+{"copyright":"Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.","organization":"","name":"depb","version":"1.0.0","dependencies":[{"name":"shared","require":"2.0.0","target":null,"type":null,"output-type":null}],"test-dependencies":[],"script-dependencies":[],"sha256sum":"","yanked":false,"cjc-version":"1.0.0","index-version":1}

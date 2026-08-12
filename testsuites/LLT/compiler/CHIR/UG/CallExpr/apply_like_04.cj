@@ -7,8 +7,8 @@
 // EXEC-PIPE-0: %compiler %enableCompileDebug %disInst %dumpCHIRDebug  %f -o %n.%suffix
 // RUN-EXEC-0: %run %run_opt %output %run_args
 // (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/0\_AST\_CHIR.chir | compare %f
-// (not Windows) ASSERT: regex ApplyWithException\(ThisType: Struct-_CN7default2S1IG_E<Generic-_CN7default2S1IG_E1TE>, @_CN7default2S1IG_E10staticFoo1Hv, normal: #5, exception \[ Class-_CNat9ExceptionE \]: #3\)
-// (not Windows) ASSERT: regex ApplyWithException\(ThisType: Struct-_CN7default2S1IG_E<Generic-_CN7default5test3IG_HG_E1TE>, @_CN7default2S1IG_E10staticFoo1Hv, normal: #5, exception \[ Class-_CNat9ExceptionE \]: #3\)
+// (not Windows) ASSERT: regex TryApply\(ThisType: Struct-_CN7default2S1IG_E<Generic-_CN7default2S1IG_E1TE>, @_CN7default2S1IG_E10staticFoo1Hv, normal: #5, exception \[ Class-_CNat9ExceptionE \]: #3\)
+// (not Windows) ASSERT: regex TryApply\(ThisType: Struct-_CN7default2S1IG_E<Generic-_CN7default5test3IG_HG_E1TE>, @_CN7default2S1IG_E10staticFoo1Hv, normal: #5, exception \[ Class-_CNat9ExceptionE \]: #3\)
 
 struct S1<T> {
     var x: T
@@ -22,7 +22,7 @@ struct S1<T> {
         1
     }
     public func foo() {
-        // ApplyWithException(@_CN7default2S1IG_E10staticFoo1Hv, normal: #5, exception [ Class-_CNat9ExceptionE ]: #3)(Struct-_CN7default2S1IG_EE<Generic-_CN7default2S1IG_E1TS5a0a_aE>, [], Int64)
+        // TryApply(@_CN7default2S1IG_E10staticFoo1Hv, normal: #5, exception [ Class-_CNat9ExceptionE ]: #3)(Struct-_CN7default2S1IG_EE<Generic-_CN7default2S1IG_E1TS5a0a_aE>, [], Int64)
         try {
             staticFoo1()
         } catch (_: Exception) {
@@ -39,7 +39,7 @@ struct S2 {
 }
 
 func test3<T>(x: T) {
-    // ApplyWithException(@_CN7default2S1IG_E10staticFoo1Hv, normal: #5, exception [ Class-_CNat9ExceptionE ]: #3)(Struct-_CN7default2S1IG_EE<Generic-_CN7default5test3IG_E1TS5a0c_aE>, [], Int64)
+    // TryApply(@_CN7default2S1IG_E10staticFoo1Hv, normal: #5, exception [ Class-_CNat9ExceptionE ]: #3)(Struct-_CN7default2S1IG_EE<Generic-_CN7default5test3IG_E1TS5a0c_aE>, [], Int64)
     try {
         S1<T>.staticFoo1()
     } catch (_: Exception) {

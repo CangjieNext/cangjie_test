@@ -11,6 +11,7 @@ import std.sync.*
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     var count: Int64 = 0
 
     for (i in 0..100) {

@@ -1,0 +1,14 @@
+BenchmarkStr2Int8: 26.40 ns/op
+BenchmarkStr2Int16: 26.39 ns/op
+BenchmarkStr2Int32: 26.19 ns/op
+BenchmarkStr2Int64: 26.25 ns/op
+BenchmarkStr2UInt8: 25.71 ns/op
+BenchmarkStr2UInt16: 26.15 ns/op
+BenchmarkStr2UInt32: 26.17 ns/op
+BenchmarkStr2UInt64: 26.17 ns/op
+BenchmarkStr2Float16: 61.60 ns/op
+BenchmarkStr2Float32: 73.89 ns/op
+BenchmarkStr2Float64: 61.83 ns/op
+BenchmarkStr2Bool_true: 3.87 ns/op
+BenchmarkStr2Bool_false: 3.98 ns/op
+BenchmarkStr2Char: 67.82 ns/op

@@ -38,13 +38,8 @@ main(): Int64 {
     sleep(Duration.second)
 
     try (unixSocket = UnixDatagramSocket(bindAt: clientPath)) {
-        var sum = 0
-        try {
-            unixSocket.remoteAddress
-        } catch (e: SocketException) {
-            sum += 1
-        }
-        if (sum != 1) {
+        // unconnected UnixDatagramSocket.remoteAddress returns None
+        if (unixSocket.remoteAddress != None) {
             return 2
         }
         unixSocket.bind()

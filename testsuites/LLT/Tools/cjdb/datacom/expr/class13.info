@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb class13,class13
+cjdb,cjdb --no-use-colors class13,class13
 b,b 42,class.cj:42
 r,r,-> 42
  ,expr c.default.Rectangle.aaa,\s+'default' is not a member of class 'Cuboid'

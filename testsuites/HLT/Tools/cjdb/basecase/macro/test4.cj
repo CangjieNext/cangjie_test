@@ -17,5 +17,6 @@ class A {
 
 @M2
 main() {
+    sleep(Duration.millisecond*3000)
     A().testA()
 }

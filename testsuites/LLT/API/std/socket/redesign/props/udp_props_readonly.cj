@@ -15,14 +15,8 @@ internal import std.sync.*
 main(): Int64 {
     let localPort: UInt16 = 43563
     try (udpSocket = UdpSocket(bindAt: localPort)) {
-        // remote address
-        var sum = 0
-        try {
-            udpSocket.remoteAddress
-        } catch (e: SocketException) {
-            sum += 1
-        }
-        if (sum != 1) {
+        // remote address: unconnected UdpSocket returns None
+        if (udpSocket.remoteAddress != None) {
             return 2
         }
 

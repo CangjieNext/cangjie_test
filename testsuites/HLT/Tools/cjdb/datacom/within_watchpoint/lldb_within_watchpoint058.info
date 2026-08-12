@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/051_debug_watchpoint_within_func.cj
-// (not arm) EXEC: %compiler %cmp_opt -g 051_debug_watchpoint_within_func.cj -o 051_debug_watchpoint_within_func%cmp_output
-// (not arm) EXEC: python3 cjdb_test.py lldb_within_watchpoint058.info 051_debug_watchpoint_within_func %run_env
+// (!target_aarch64) EXEC: %compiler %cmp_opt -g 051_debug_watchpoint_within_func.cj -o 051_debug_watchpoint_within_func%cmp_output
+// (!target_aarch64) EXEC: python3 cjdb_test.py lldb_within_watchpoint058.info 051_debug_watchpoint_within_func %run_env
 
 test#
 cjdb,cjdb --no-use-colors 051_debug_watchpoint_within_func,051_debug_watchpoint_within_func
-b ,b 14,051_debug_watchpoint_within_func.cj:14
-r , r,-> 14
-s,s,-> 23
-watchpoint,watchpoint set variable -w read_write b1,051_debug_watchpoint_within_func.cj:24
-c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 25|24[\s\S]*
+b ,b 15,051_debug_watchpoint_within_func.cj:15
+AOT r,r,-> 15
+Android c,c,15
+s,s,24
+watchpoint,watchpoint set variable -w read_write b1,051_debug_watchpoint_within_func.cj:25
+c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*26|25[\s\S]*
 q,q,

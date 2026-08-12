@@ -17,6 +17,7 @@ type BB1 = B1
 type BB2 = B2
 
 main() {
+    sleep(Duration.millisecond*3000)
     var map_main_1: HashMap<Rune, cla<HashMap<String, String>>> = HashMap<Rune, BB1>([(r'K', cla(10)), (r'Q', cla(12))])
     var map_main_2: HashMap<Bool, BB1> = HashMap<Bool, BB1>([(true, cla(4)), (true, cla(4)), (true, cla(6))])
     var map_main_3: HashMap<Rune, B2> = HashMap<Rune, str<HashMap<String, String>>>([(r'K', str(10)), (r'Q', str(12))])

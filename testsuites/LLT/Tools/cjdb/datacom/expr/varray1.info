@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb varray1,varray1
+cjdb,cjdb --no-use-colors varray1,varray1
 b,b 13,varray1.cj:13
 r,r,-> 13
 expression:expr mergeArray([1, 2], [1, 2, 3]):\(VArray<Int64,\$5>\) \$\d+ = {\s+\[0\] = 1

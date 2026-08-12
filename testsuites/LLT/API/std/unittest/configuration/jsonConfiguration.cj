@@ -6,11 +6,13 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// EXEC: %run %run_opt %output %run_utest_opt %run_args --json-configuration="{\"noColor\": true, \"randomSeed\": 42, \"bench\": true}" --no-color=false --random-seed=44
+// EXEC: %run %run_opt %output %run_utest_opt %run_args --json-configuration="{\"noColor\": true, \"randomSeed\": 42, \"bench\": true, \"baseline\": \"baseline\", \"abstractPuppiesThreshold\": 4.0 }" --no-color=false --random-seed=44
 
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.fs.*
+
+@UnittestOption[Float64](abstractPuppiesThreshold)
 
 @Test
 public class ModuleJsonConfigurationForUnittest {
@@ -21,5 +23,7 @@ public class ModuleJsonConfigurationForUnittest {
         @Expect(config.get<Bool>(KeyNoColor.noColor), false)
         @Expect(config.get<Bool>(KeyBench.bench), true)
         @Expect(config.get<Int64>(KeyRandomSeed.randomSeed), 44)
+        @Expect(config.get<String>(KeyBaseline.baseline), "baseline")
+        @Expect(config.get<Float64>(KeyAbstractPuppiesThreshold.abstractPuppiesThreshold), 4.0)
     }
 }
