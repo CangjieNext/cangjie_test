@@ -18,7 +18,26 @@ compiler/CHIR/ComputeAnnotations
 compiler/CHIR/InvokeNodetest
 compiler/CHIR/RemoveRedundantRet
 compiler/CHIR/ScalarReplacementOfArray
-compiler/CHIROpt
+compiler/CHIROpt/DeadCodeElimination
+compiler/CHIROpt/Devirtualization
+compiler/CHIROpt/FlatForInExpr
+compiler/CHIROpt/FunctionInline
+compiler/CHIROpt/MarkClassHasInited
+compiler/CHIROpt/MergeBlocks
+compiler/CHIROpt/NoSideEffectMarker
+compiler/CHIROpt/NonVisibleWrapperClear
+compiler/CHIROpt/O2Optimization
+compiler/CHIROpt/Optimizations
+compiler/CHIROpt/RedundantFuture
+compiler/CHIROpt/RedundantGetOrThrowElimination
+compiler/CHIROpt/RedundantLoadElimination
+compiler/CHIROpt/SanCovPass
+compiler/CHIROpt/UnitUnify
+compiler/CHIROpt/UselessAllocateElimination
+compiler/CHIROpt/ValueRangeAnalysis
+compiler/CHIROpt/VarInitCheck
+compiler/CHIROpt/lambda_reduce
+compiler/CHIROpt/match
 compiler/Parser/declFile
 compiler/FFI/ffi_python
 
