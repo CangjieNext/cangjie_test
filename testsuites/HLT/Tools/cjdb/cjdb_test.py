@@ -674,7 +674,7 @@ def send_and_expect_lldb(process, cmd, timeout=None):
         timeout = LLDB_CMD_TIMEOUT
     process.sendline(cmd)
     process.expect([re.escape(cmd.strip()), pexpect.EOF, pexpect.TIMEOUT], timeout=5)
-    process.expect(['\(lldb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=timeout)
+    process.expect(['\\(lldb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=timeout)
     return process.before
 
 
@@ -698,7 +698,7 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                     # Pass a list so subprocess.Popen receives correct argv.
                     process = pexpect.popen_spawn.PopenSpawn(doline.strip().split(), timeout=15,
                                                              encoding='utf-8',
-                                                             maxread=3000,
+                                                             maxread=200000,
                                                              codec_errors='replace'
                                                              )
                     # When cjdb is launched with a binary on the command line, it loads
@@ -841,13 +841,20 @@ def dotest(process, doline, result, f_e, run_env, run_platform, p=None):
         index = process.expect([expected_pattern, pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_CMD_TIMEOUT)
         
         if index == 0:
-            process.expect(['\(lldb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=3)
+            process.expect(['\\(lldb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=3)
 
     else:
-        if run_platform == 'linux' or "android_aarch64" in run_env:
-            expected_pattern = '\n[\\s\\S]*' + result + '[\\s\\S]*\\(cjdb\\)'
+        step_commands = ['r', 'run', 'c', 'continue', 'n', 'next', 's', 'step', 'finish']
+        if doline.strip().split()[0] in step_commands:
+            skip_keywords = ['Watchpoint', 'watchpoint', 'Process', 'exited', 'stopped', 'error', 'Command requires', 'resuming']
+            if any(kw in result for kw in skip_keywords):
+                expected_pattern = '\r?\n[\\s\\S]*' + result + '[\\s\\S]*'
+            else:
+                expected_pattern = '\r?\n[\\s\\S]*(stopped|exited)[\\s\\S]*' + result + '[\\s\\S]*'
+        elif run_platform == 'linux' or "android_aarch64" in run_env:
+            expected_pattern = '\r?\n[\\s\\S]*' + result + '[\\s\\S]*\\(cjdb\\)'
         else:
-            expected_pattern = '\n[\\s\\S]*' + result + '[\\s\\S]*'
+            expected_pattern = '\r?\n[\\s\\S]*' + result + '[\\s\\S]*'
         index = process.expect([expected_pattern, pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_CMD_TIMEOUT)
     
     indextest(process, doline, index, f_e, run_env, run_platform, p)
@@ -932,7 +939,7 @@ def debugging():
                                                          )
             else:
                 process = pexpect.spawnu('xcrun lldb', timeout=LLDB_STARTUP_TIMEOUT, maxread=200000)
-            process.expect(['\(lldb\)', pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
+            process.expect(['\\(lldb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
             
             cangjie_home = os.environ.get('CANGJIE_HOME')
             cjdb_script_path = os.path.join(cangjie_home, 'tools', 'script', 'cangjie_cjdb.py')
