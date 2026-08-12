@@ -19,6 +19,7 @@ struct R {
     }
 }
 main() {
+    sleep(Duration.millisecond*3000)
     let r1 = R(item1: 1, item2: 1.2, item3: "a")
     let r2 = R(item3: "a", item2: 1.2, item1: 1)
     let r3 = R(item1: 1)

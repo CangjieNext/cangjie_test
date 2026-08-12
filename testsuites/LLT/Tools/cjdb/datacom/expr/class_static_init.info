@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb class_static_init,class_static_init
+cjdb,cjdb --no-use-colors class_static_init,class_static_init
 b,b 13,class_static_init.cj:13
 r,r,-> 13
  ,expr x,\(Int64\) \$\d+ = 2

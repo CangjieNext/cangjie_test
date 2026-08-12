@@ -1,0 +1,12 @@
+{
+  "server_command": ["cjprof", "heap", "-i", "{data_file}", "--dump-report={port}"],
+  "server_command_windows": ["cjprof.exe", "heap", "-i", "{data_file}", "--dump-report={port}"],
+  "data_file_template": "{test_name}.data",
+  "data_search_paths": ["{data_file}", "{info_dir}/{data_file}", "{info_dir}/../sample/{data_file}", "{info_dir}/sample/{data_file}"],
+  "base_url": "http://127.0.0.1:{port}",
+  "ready_endpoint": "/api/snapshot",
+  "port_pattern": "localhost:(\\d+)",
+  "startup_timeout": 15,
+  "request_timeout": 10,
+  "cleanup_files": ["{data_file}.cjprof.db"]
+}

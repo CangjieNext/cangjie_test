@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_class_inherit_constraint,generic_class_inherit_constraint
+cjdb,cjdb --no-use-colors generic_class_inherit_constraint,generic_class_inherit_constraint
 b,b 19, generic_class_inherit_constraint.cj:19
 r,r,-> 19
  ,expr f,\(default.A\) \$\d+ = {}

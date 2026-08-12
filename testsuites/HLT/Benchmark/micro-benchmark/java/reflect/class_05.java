@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package reflect;
+
+public class class_05<T> {
+    public T v1;
+    public static long v2 = 0;
+
+    public class_05(T value) {
+        this.v1 = value;
+    }
+
+    public T foo1() {
+        return v1;
+    }
+
+    public void foo2(T value) throws Exception {
+        if (false) {
+            throw new Exception();
+        }
+    }
+}

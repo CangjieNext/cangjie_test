@@ -1,0 +1,107 @@
+#!/bin/sh
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+if [ "$1" = "--version" ]; then
+    echo "LLVM fake coverage tool 1.0"
+    exit 0
+fi
+
+if [ "$1" != "gcov" ]; then
+    echo "unsupported llvm-cov invocation" >&2
+    exit 1
+fi
+
+case "${CJCOV_FAKE_SCENARIO}" in
+    fail)
+        echo "injected llvm-cov failure" >&2
+        exit 1
+        ;;
+    no_gcov)
+        exit 0
+        ;;
+    invalid_head)
+        printf '%s\n' 'not a gcov header' > invalid-head.gcov
+        ;;
+    invalid_body)
+        {
+            printf '%s\n' '        -:    0:Source:src/main.cj'
+            printf '%s\n' 'invalid body'
+        } > invalid-body.gcov
+        ;;
+    bad_lineno)
+        {
+            printf '%s\n' '        -:    0:Source:src/main.cj'
+            printf '%s\n' '    #####:  bad:invalid line number'
+        } > bad-lineno.gcov
+        ;;
+    bad_hit)
+        {
+            printf '%s\n' '        -:    0:Source:src/main.cj'
+            printf '%s\n' '       1x:    1:invalid hit count'
+        } > bad-hit.gcov
+        ;;
+    missing_source)
+        {
+            printf '%s\n' '        -:    0:Source:no/such/source.cj'
+            printf '%s\n' '        1:    1:missing source'
+        } > missing-source.gcov
+        ;;
+    directory_source)
+        {
+            printf '%s\n' '        -:    0:Source:src'
+            printf '%s\n' '        1:    1:directory source'
+        } > directory-source.gcov
+        ;;
+    source_fallback)
+        {
+            printf '%s\n' '        -:    0:Source:nested/main.cj'
+            printf '%s\n' '        1:    1:package nested'
+        } > source-fallback.gcov
+        ;;
+    empty)
+        {
+            printf '%s\n' '        -:    0:Source:src/empty.cj'
+            printf '%s\n' '        -:    1:'
+        } > empty.gcov
+        ;;
+    valid)
+        {
+            printf '%s\n' '        -:    0:Source:src/main.cj'
+            printf '%s\n' '        1:    1:package coverage_matrix'
+            printf '%s\n' '    #####:    2:func uncovered() {}'
+        } > valid.gcov
+        ;;
+    merge)
+        {
+            printf '%s\n' '        -:    0:Source:src/main.cj'
+            printf '%s\n' '        -:    1:package coverage_matrix'
+            printf '%s\n' '    #####:    2:func coveredLater() {}'
+            printf '%s\n' '        1:    3:func coveredFirst() {}'
+            printf '%s\n' 'branch 0 taken 1'
+            printf '%s\n' 'branch 1 never executed'
+            printf '%s\n' 'function ignored'
+            printf '%s\n' 'call ignored'
+            printf '%s\n' '================'
+        } > merge-first.gcov
+        {
+            printf '%s\n' '        -:    0:Source:src/main.cj'
+            printf '%s\n' '        1:    1:package coverage_matrix'
+            printf '%s\n' '        2:    2:func coveredLater() {}'
+            printf '%s\n' '    #####:    3:func coveredFirst() {}'
+            printf '%s\n' 'branch 0 taken 2'
+            printf '%s\n' 'branch 2 taken 1'
+            printf '%s\n' '        -:    4:@Test'
+            printf '\n'
+        } > merge-second.gcov
+        ;;
+    *)
+        echo "unknown fake scenario: ${CJCOV_FAKE_SCENARIO}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0

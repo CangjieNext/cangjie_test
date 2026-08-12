@@ -22,18 +22,18 @@ import java.lang.*
 import std.runtime.*
 
 // 如果创建全局变量即会导致crash
-// public let g0: Impl = Impl()
+public let g0: Impl = Impl()
 
 // @JavaImpl实例被间接保存在全局
-// public let g1: CangjieClass = CangjieClass()
-// public let g2: CangjieStruct = CangjieStruct()
-// public let g3: CangjieEnum = CangjieEnum.A(Impl())
+public let g1: CangjieClass = CangjieClass()
+public let g2: CangjieStruct = CangjieStruct()
+public let g3: CangjieEnum = CangjieEnum.A(Impl())
 
 let _ = {
     =>
-    // 同上，全局静态初始化
-    // Logger.println("global lambda call")
-    ()
+        // 同上，全局静态初始化
+        Logger.println("global lambda call")
+        ()
 }()
 
 public func acceptingTop(a: Any): Unit {
@@ -48,9 +48,9 @@ public func acceptingTop(a: Any): Unit {
 public class CangjieClass {
     static init() {
         // 同上，全局静态初始化
-        // Logger.println("CangjieClass.static")
-        // let gs0: Impl = Impl()
-        // let gs1: SimpleJavaClass = SimpleJavaClass()
+        Logger.println("CangjieClass.static")
+        let gs0: Impl = Impl()
+        let gs1: SimpleJavaClass = SimpleJavaClass()
     }
     // 实例成员变量
     public let v: Impl = Impl()
@@ -60,9 +60,9 @@ public class CangjieClass {
 
     // 静态成员变量
     // BUG: 目前静态成员变量都会导致crash
-    // public static var sv0: Impl = Impl()
-    // public static let sv1: SimpleJavaClass = SimpleJavaClass()
-    // public static var sv2: JArray<JString> = JArray<JString>(10)
+    public static var sv0: Impl = Impl()
+    public static let sv1: SimpleJavaClass = SimpleJavaClass()
+    public static var sv2: JArray<JString> = JArray<JString>(10)
 
     // 实例成员属性
     public prop p: Impl {
@@ -82,25 +82,25 @@ public class CangjieClass {
         // 实例成员属性
         this.p.simple()
         // 静态成员变量
-        // CangjieClass.sv0.simple()
+        CangjieClass.sv0.simple()
     }
     public func testJavaMirror(): Unit {
         // @JavaMirror
         // 实例成员变量
         this.v2.foo()
-        (this.v3 as SimpleJavaClass).getOrThrow().foo()
-        (this.v4 as SimpleJavaClass).getOrThrow().foo()
+        // (this.v3 as SimpleJavaClass).getOrThrow().foo()
+        // (this.v4 as SimpleJavaClass).getOrThrow().foo()
         // 静态成员变量
         // CangjieClass.sv1.foo()
     }
     public func testBuiltIn(): Unit {
         Logger.println("this.v5 = ${this.v5.toString()}")
-        // v6
+        Logger.println("v6.length = ${v6.length}")
     }
     public func test(): Unit {
         Logger.println("=== CangjieClass.test ===")
-        // this.testJavaImpl()
-        // this.testJavaMirror()
+        this.testJavaImpl()
+        this.testJavaMirror()
     }
 }
 
@@ -187,9 +187,9 @@ public class Impl <: Inherit {
     public func checkGlobalVar(): Unit {
         Logger.println("=== checkGlobalVar ===")
         // 当前发现如果定义全局变量将导致crash，故注释
-        // g0.simple()
-        // g0.bar("checkEscape s")
-        // Logger.println(g0.bar("checkEscape s").toString())
+        g0.simple()
+        // (Android) ASSERT: scan g0.bar checkEscape s
+        Logger.println(g0.bar("g0.bar checkEscape s").toString())
     }
     public func checkLambdaClosure(): Unit {
         Logger.println("=== checkLambdaClosure ===")

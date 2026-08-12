@@ -16,6 +16,7 @@ struct Foo<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = Foo<Int64>()
     var a2 = Foo<Int64>()
     var a3 = a1.f<Int64>(1)

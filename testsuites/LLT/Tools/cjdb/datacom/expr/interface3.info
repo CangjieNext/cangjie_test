@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb interface3,interface3
+cjdb,cjdb --no-use-colors interface3,interface3
 b,b 47,interface3.cj:47
 r,r,-> 47
  ,expr a,\(default.C1\) \$\d+ = {\s+fl = 16.156\s+b1 = true\s+s1 = "aaab"\s+r1 = 'A'

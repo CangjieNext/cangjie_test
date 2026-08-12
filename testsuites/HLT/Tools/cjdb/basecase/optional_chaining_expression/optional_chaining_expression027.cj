@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     let ab1 = [0,1,2]
     let item1 = ArrayList<Array<Int64>>([ab1])
     let d1 = [(1,2),("3",4),(true,r'a')]

@@ -61,6 +61,6 @@ main() {
     0
 }
 
-// ASSERT: regex-begin %\d+: Tuple<UInt32,Bool,Box<Struct-_CN7default1SE>&,Class-\$Cg0_<Bool>&> = TypeCast\(%\d+, Tuple<UInt32,Bool,Box<Struct-_CN7default1SE>&,Class-\$Cg0_<Bool>&>\) // loc: "recursionEnum05.cj"-14-11
+// ASSERT: regex-begin %\d+: Tuple<UInt32,Bool,Box<Struct-_CN7default1SE>&,Class-\$Cg0_<Bool>&> = ClassStaticCast\(%\d+, Tuple<UInt32,Bool,Box<Struct-_CN7default1SE>&,Class-\$Cg0_<Bool>&>\) // loc: "recursionEnum05.cj"-14-11
 // ASSERT: regex-next %\d+: Bool = Field\(%\d+, 1\)
 // ASSERT: regex-next %\d+: Box<Struct-_CN7default1SE>& = Field\(%\d+, 2\)

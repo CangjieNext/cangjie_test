@@ -32,3 +32,9 @@ func shrink_helpers_tuple2<T>(x: T) where T <: IndexAccess {
     }
     println(i)
 }
+
+@Test
+func func_wrapper() {
+    let fw = Function0Wrapper<Int64> { 2 }
+    @Assert(fw(), fw.function())
+}

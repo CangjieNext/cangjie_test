@@ -41,11 +41,8 @@ public specific func foo() {3}
 // EXEC: %compiler %noColor --experimental child/child.cj --common-part-chir=p1/cmp.chir --common-part-chir=p2/cmp.chir --common-part-cjo=p1/cmp.cjo --common-part-cjo=p2/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-/* SCAN
-error: function 'foo' has overload conflicts
- ==> (package cmp)p1.cj:7:22:
-note: conflict with the declaration
- ==> (package cmp)p2.cj:7:22:
-
-1 error generated, 1 error printed.
-*/
+// ASSERT: scan function 'foo' has overload conflicts
+// ASSERT: scan conflict with the declaration
+// ASSERT: scan p1.cj:7:22
+// ASSERT: scan p2.cj:7:22
+// ASSERT: scan 1 error generated, 1 error printed.

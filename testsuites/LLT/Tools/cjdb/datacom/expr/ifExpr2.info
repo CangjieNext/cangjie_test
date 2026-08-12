@@ -6,10 +6,10 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
-
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb ifExpr2,ifExpr2
+cjdb,cjdb --no-use-colors ifExpr2,ifExpr2
 b,b 35,ifExpr2.cj:35
 r,r,-> 35
  ,expr if (1>2) {r1 = 11..20 } else if ((a.classarrInt64[2]+5)*2>0){r1 = 0..10 };r1,\(std.core.Range<Int64>\) \$\d+ = 0..10 : 1

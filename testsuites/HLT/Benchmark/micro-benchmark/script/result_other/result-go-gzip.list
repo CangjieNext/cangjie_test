@@ -1,0 +1,16 @@
+BenchmarkCompress_64 0.001120
+BenchmarkCompress_256 0.001263
+BenchmarkCompress_2k 0.001439
+BenchmarkCompress_16k 0.001766
+BenchmarkCompress_128k 0.009882
+BenchmarkCompress_1M 0.06686
+BenchmarkCompress_8M 0.5248
+BenchmarkCompress_64M 4286988320
+BenchmarkCompress_512M 34169446920
+BenchmarkUnCompress_64 0.0001446
+BenchmarkUnCompress_256 0.0001552
+BenchmarkUnCompress_2k 0.0001873
+BenchmarkUnCompress_16k 0.0007647
+BenchmarkUnCompress_128k 0.0005880
+BenchmarkUnCompress_1M 0.001626
+BenchmarkUnCompress_8M 0.002340

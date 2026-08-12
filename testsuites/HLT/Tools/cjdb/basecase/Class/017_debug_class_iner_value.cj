@@ -34,6 +34,7 @@ public class class01 { // Object
 }
  
 main() {
+    sleep(Duration.millisecond*3000)
    var classvar01=class01(2)
    var  intvar01:Int64=10
    return 1

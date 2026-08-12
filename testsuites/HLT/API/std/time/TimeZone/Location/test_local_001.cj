@@ -8,9 +8,9 @@
 
 // LEVEL: 1
 // DEPENDENCE: %n.sh
-// (not Windows) EXEC-PIPE: %compiler %cmp_opt   %f -o %output
-// (not Windows) RUN-EXEC-PIPE: a=`bash %n.sh` && b=`%run %run_opt %output %run_args` && if [ "$a" = "$b" ]; then echo "pass"; else echo "a: ${a} b: ${b}"; fi | compare %f
-// (not Windows) ASSERT: scan pass
+// (native_compilation & !host_win) EXEC: %compiler %cmp_opt %f -o %output
+// (native_compilation & !host_win) RUN-EXEC-PIPE: a=`%target_shell %n.sh` && b=`%run %run_opt %output %run_args` && if [ "$a" = "$b" ]; then echo "pass"; else echo "a: ${a} b: ${b}"; fi | compare %f
+// (native_compilation & !host_win) ASSERT: scan pass
 
 import std.time.*
 

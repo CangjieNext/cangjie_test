@@ -40,6 +40,7 @@ extend E1<Rune>{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C1<UInt8>()
     var a2 = E1<Rune>.AB
     var b1 = 1 |> a1.f1

@@ -1,0 +1,19 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkLinkedBlockingQueue_struct_SingleWorker_IntEvent
+BenchmarkLinkedBlockingQueue_struct_SingleWorker_StrEvent
+BenchmarkLinkedBlockingQueue_struct_Int_Worker_N8
+BenchmarkLinkedBlockingQueue_struct_Str_Worker_N16
+BenchmarkLinkedBlockingQueue_struct_Int_Worker_N32
+BenchmarkLinkedBlockingQueue_struct_Str_Worker_N64
+BenchmarkLinkedBlockingQueue_struct_Str_EventSize_S8
+BenchmarkLinkedBlockingQueue_struct_Str_EventSize_S1024
+BenchmarkLinkedBlockingQueue_struct_Str_EventSize_S65536
+BenchmarkLinkedBlockingQueue_struct_Str_QueueSize_N16
+BenchmarkLinkedBlockingQueue_struct_Int_QueueSize_N256
+BenchmarkLinkedBlockingQueue_struct_Str_QueueSize_N1024

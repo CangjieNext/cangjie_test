@@ -15,6 +15,7 @@ func test(a:Option<Int64>){
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C()
     let b1 = Option<C>.Some(a1)
     let b2 = Option<C>.None

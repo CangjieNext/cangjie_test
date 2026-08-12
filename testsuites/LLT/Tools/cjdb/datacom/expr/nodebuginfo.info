@@ -8,7 +8,7 @@
 // EXEC: %compiler %cmp_opt %enableCompileDebug any.cj -o any
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 test#
-cjdb,cjdb any,any
+cjdb,cjdb --no-use-colors any,any
 b,b 19,any.cj:19
 r,r,-> 19
 frame,frame select 1,

@@ -1,0 +1,13 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: V2 STRING record whose declared strLen exceeds remaining file bytes.
+# Exercises HprofParserV2::ParseString "StringRecord data truncated" path.
+
+// DEPENDENCE: ../sample
+// EXEC: %copy sample/v2_str_data_trunc.data .
+// EXEC: %cjprof heap -i v2_str_data_trunc.data 2>&1 | compare %f
+// ASSERT: scan error: StringRecord data truncated

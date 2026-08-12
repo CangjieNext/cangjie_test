@@ -31,23 +31,17 @@ class Test_Udp_Address {
         var udpsocket1 = UdpSocket(bindAt: 0)
         @Expect(udpsocket.localAddress, IPSocketAddress("127.0.0.1", 0))
         @Expect(udpsocket1.localAddress, IPSocketAddress("0.0.0.0", 0))
-        try {
-            udpsocket.remoteAddress
-            udpsocket1.remoteAddress
-            @Expect(1, 2)
-        } catch (e: SocketException) {
-        }
+        // unconnected UdpSocket.remoteAddress returns None
+        @Expect(udpsocket.remoteAddress, None)
+        @Expect(udpsocket1.remoteAddress, None)
 
         udpsocket.bind()
         udpsocket1.bind()
         udpsocket.localAddress
         udpsocket1.localAddress
-        try {
-            udpsocket.remoteAddress
-            udpsocket1.remoteAddress
-            @Expect(1, 2)
-        } catch (e: SocketException) {
-        }
+        // still unconnected, remoteAddress still None
+        @Expect(udpsocket.remoteAddress, None)
+        @Expect(udpsocket1.remoteAddress, None)
 
         udpsocket.close()
         udpsocket1.close()
@@ -71,23 +65,17 @@ class Test_Udp_Address {
         var udpsocket1 = UdpSocket(bindAt: 0)
         @Expect(udpsocket.localAddress, IPSocketAddress("127.0.0.1", 0))
         @Expect(udpsocket1.localAddress, IPSocketAddress("0.0.0.0", 0))
-        try {
-            udpsocket.remoteAddress
-            udpsocket1.remoteAddress
-            @Expect(1, 2)
-        } catch (e: SocketException) {
-        }
+        // unconnected UdpSocket.remoteAddress returns None
+        @Expect(udpsocket.remoteAddress, None)
+        @Expect(udpsocket1.remoteAddress, None)
 
         udpsocket.bind()
         udpsocket1.bind()
         var addr = udpsocket.localAddress
         var addr1 = udpsocket1.localAddress
-        try {
-            udpsocket.remoteAddress
-            udpsocket1.remoteAddress
-            @Expect(1, 2)
-        } catch (e: SocketException) {
-        }
+        // still unconnected, remoteAddress still None
+        @Expect(udpsocket.remoteAddress, None)
+        @Expect(udpsocket1.remoteAddress, None)
 
         udpsocket1.connect(addr)
         udpsocket.connect(addr1)
@@ -119,23 +107,17 @@ class Test_Udp_Address {
         var udpsocket1 = UdpSocket(bindAt: 0)
         @Expect(udpsocket.localAddress, IPSocketAddress("127.0.0.1", 0))
         @Expect(udpsocket1.localAddress, IPSocketAddress("0.0.0.0", 0))
-        try {
-            udpsocket.remoteAddress
-            udpsocket1.remoteAddress
-            @Expect(1, 2)
-        } catch (e: SocketException) {
-        }
+        // unconnected UdpSocket.remoteAddress returns None
+        @Expect(udpsocket.remoteAddress, None)
+        @Expect(udpsocket1.remoteAddress, None)
 
         udpsocket.bind()
         udpsocket1.bind()
         var addr = udpsocket.localAddress
         var addr1 = udpsocket1.localAddress
-        try {
-            udpsocket.remoteAddress
-            udpsocket1.remoteAddress
-            @Expect(1, 2)
-        } catch (e: SocketException) {
-        }
+        // still unconnected, remoteAddress still None
+        @Expect(udpsocket.remoteAddress, None)
+        @Expect(udpsocket1.remoteAddress, None)
 
         udpsocket1.connect(addr)
         udpsocket.connect(addr1)

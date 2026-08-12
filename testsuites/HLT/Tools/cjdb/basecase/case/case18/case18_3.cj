@@ -10,6 +10,7 @@ import std.sync.*
 import std.time.*
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
       let fut1: Future<Int64> = spawn { =>
         println("当前fut1线程ID为：${Thread.currentThread.id},name为：${Thread.currentThread.name}")
         var f14=1.11

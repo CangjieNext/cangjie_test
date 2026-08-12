@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: unknown record tag with a valid length field. Exercises the Hprof.cpp
+# "skip unknown tag" path (line 113-117, verbose SKIPED).
+
+// DEPENDENCE: ../sample
+// EXEC: %copy sample/bad_tag.data .
+// EXEC: %cjprof heap -i bad_tag.data -V 2>&1 | compare %f
+// ASSERT: scan [SKIPED

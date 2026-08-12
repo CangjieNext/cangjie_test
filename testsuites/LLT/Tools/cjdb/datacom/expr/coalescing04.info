@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb coalescing04,coalescing04
+cjdb,cjdb --no-use-colors coalescing04,coalescing04
 b,b 37,coalescing04.cj:37
 r,r,-> 37
  ,expr Option<Option<Int64>>.Some(Option<Int64>.Some(100)) ?? v1,\(std.core.Option<Int64>\) \$\d+ = 100

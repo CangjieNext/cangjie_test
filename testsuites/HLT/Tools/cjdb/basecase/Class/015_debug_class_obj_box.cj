@@ -23,6 +23,7 @@ class Box<T> {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a : Object = A() // OK, class `A` is a subtype of `Object`.
     var c : I = A()
     let a1 = 1

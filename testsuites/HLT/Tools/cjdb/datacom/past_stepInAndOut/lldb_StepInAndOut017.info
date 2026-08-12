@@ -9,19 +9,23 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/010_debug_func_default_arg.cj
 //  EXEC: %compiler %cmp_opt -g 010_debug_func_default_arg.cj -o 010_debug_func_default_arg%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_StepInAndOut017.info 010_debug_func_default_arg %run_env
+// (target_ios_simulator) EXEC: mv 010_debug_func_default_arg%cmp_output %output
+// (target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut017.info %output %run_env
+// (!target_ios_simulator) EXEC: python3 cjdb_test.py lldb_StepInAndOut017.info 010_debug_func_default_arg %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 010_debug_func_default_arg,010_debug_func_default_arg
-CJVM b main,b main,010_debug_func_default_arg.cj:12
-CJVM c,c,-> 12
-b,b 12,010_debug_func_default_arg.cj:12
-AOT r,r,-> 12
-s,s,-> 19
-finish,finish,-> 12
-n,n,-> 13
+CJVM b main,b main,010_debug_func_default_arg.cj:13
+CJVM c,c,13
+b,b 010_debug_func_default_arg.cj:13,010_debug_func_default_arg.cj:13
+AOT r,r,-> 13
+Android c,c,13
+s,s,20
+finish,finish,13
+n,n,14
 locals,locals,Functioncall006 = 4
 q,q,

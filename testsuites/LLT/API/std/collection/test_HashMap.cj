@@ -210,6 +210,12 @@ class HashMapTest {
         @Expect(!view2_3_2.value.isNone())
         @Expect(view2_3_2.key, 3)
         @Expect(view2_3_2.value, Some("33"))
+
+        let map3: HashMap<Int64, String> = HashMap<Int64, String>([(1, "1")])
+        let view = map3.entryView(1)
+        view.value = None
+        view.value = Some("11")
+        @Expect(view.value, Some("11"))
     }
 
     @TestCase

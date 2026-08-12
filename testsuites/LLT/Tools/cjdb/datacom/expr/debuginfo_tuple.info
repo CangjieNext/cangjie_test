@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_tuple.info %n %run_env
 
 test#
-cjdb,cjdb tuple,tuple
+cjdb,cjdb --no-use-colors tuple,tuple
 b,b main,tuple.cj:10
 r,r,-> 10
 n,n,-> 11

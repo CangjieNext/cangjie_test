@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb decimal_base2,decimal_base2
+cjdb,cjdb --no-use-colors decimal_base2,decimal_base2
 b,b 22,decimal_base2.cj:22
 r,r,-> 22
  ,expr d1,\(std.math.numeric.Decimal\) \$\d+ = 465131.0000

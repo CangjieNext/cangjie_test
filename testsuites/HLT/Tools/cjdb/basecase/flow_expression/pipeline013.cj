@@ -11,6 +11,7 @@ class C1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1: Int8 = 0
     var a2: Int32 = 1
     var a3: Float32 = 2.0

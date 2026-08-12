@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb unittest,unittest
+cjdb,cjdb --no-use-colors unittest,unittest
 b,b 24,unittest.cj:24
 r,r,-> 24
  ,expr a,\(default.TestA\) \$\d+ = {}

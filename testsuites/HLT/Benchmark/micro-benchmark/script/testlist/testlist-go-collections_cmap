@@ -1,0 +1,19 @@
+#!/bin/bash
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+BenchmarkCHM_PutElement_Thread_4
+BenchmarkCHM_PutElement_Thread_8
+BenchmarkCHM_PutElement_Thread_16
+BenchmarkCHM_PutElement_Thread_32
+BenchmarkCHM_PutElement_Thread_256
+BenchmarkCHM_PutElement_Thread_1024
+BenchmarkCHM_UpdateElement_Thread_4
+BenchmarkCHM_UpdateElement_Thread_8
+BenchmarkCHM_UpdateElement_Thread_16
+BenchmarkCHM_UpdateElement_Thread_32
+BenchmarkCHM_UpdateElement_Thread_256
+BenchmarkCHM_UpdateElement_Thread_1024

@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: heap dump with an unknown sub-tag (0x99). Exercises the Hprof.cpp
+# ParseHeapDump error path "Unknown sub-tag" + truncated-record path.
+
+// DEPENDENCE: ../sample
+// EXEC: %copy sample/bad_subtag.data .
+// EXEC: %cjprof heap -i bad_subtag.data 2>&1 | compare %f
+// ASSERT: scan error: Unknown sub-tag

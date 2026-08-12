@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb enum3,enum3
+cjdb,cjdb --no-use-colors enum3,enum3
 b,b 15,enum3.cj:15
 r,r,-> 15
  ,expr Color.Green(7),\(default.Color\) \$\d+ = {\s+constructor = Green\s+arg_1 = 7

@@ -29,6 +29,7 @@ extend String {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a: Int8 = 1
     var a2 = "aaa"
     var b = a.printIntAndArg(6)

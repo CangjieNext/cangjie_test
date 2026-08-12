@@ -86,6 +86,7 @@ public open class test_C4{
 }
 
 main(): Int32{
+    sleep(Duration.millisecond*3000)
     var testclass_a=test_C4().add(9)
     var subclass_a=sub_C1().add(1, 2, 3)
     return 0

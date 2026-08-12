@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 971,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "_Ad","range": {"end": {"character": 13,"line":16},"start": {"character": 11,"line":16}}},{"newText": "_Ad","range": {"end": {"character": 14,"line":20},"start": {"character": 12,"line":20}}},{"newText": "_Ad","range": {"end": {"character": 6,"line":25},"start": {"character": 4,"line":25}}}],"textDocument": {"uri": "renameProject/src/pkg/interface00103.cj","version": 0}}]}}
+{"id": 971,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "_Ad","range": {"end": {"character": 13,"line": 16},"start": {"character": 11,"line": 16}}},{"newText": "_Ad","range": {"end": {"character": 8,"line": 20},"start": {"character": 6,"line": 20}}},{"newText": "_Ad","range": {"end": {"character": 14,"line": 20},"start": {"character": 12,"line": 20}}},{"newText": "_Ad","range": {"end": {"character": 6,"line": 25},"start": {"character": 4,"line": 25}}}],"textDocument": {"uri": "renameProject/src/pkg/interface00103.cj","version": 0}}]}}

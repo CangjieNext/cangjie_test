@@ -7,8 +7,10 @@
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop -L. --output-javagen-dir=src/java/impl
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./src/java/impl/A.java | compare %f
 
-// ASSERT: scan protected A(int i) {
-// ASSERT: scan private native void initCJObjecti(int i);
+// ASSERT: scan protected A(int i)
+// ASSERT: scan initCJObjecti(int i);
+
+// This test checks that protected constructor of @JavaImpl is exported to java.
 
 package cjworld.theworld
 

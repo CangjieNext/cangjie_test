@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb class9,class9
+cjdb,cjdb --no-use-colors class9,class9
 b,b 24,class_member_struct.cj:24
 r,r,-> 24
  ,expr aa,\(default.AA\) \$\d+ = {(\r|\n|\r\n)  arr = {(\r|\n|\r\n)    value = 1\s+}(\r|\n|\r\n)  arr2 = {(\r|\n|\r\n)    value = 3\s+}(\r|\n|\r\n)  range = 0..10 : 1

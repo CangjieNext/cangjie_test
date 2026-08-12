@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     let str = "cangjie"
     let tuple1: (String, String) = ("String", "cangjie")
     var tuple2 = (b'a', b'b')

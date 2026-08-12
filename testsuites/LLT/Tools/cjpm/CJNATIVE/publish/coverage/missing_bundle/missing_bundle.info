@@ -1,0 +1,11 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-1: cd %n && %cjpm publish 2>&1 | compare %f
+// ASSERT: scan Warning: cannot find meta-data.json or missing_bundle-1.0.0.cjp in target directory
+// ASSERT: scan Error: cjpm publish failed
+

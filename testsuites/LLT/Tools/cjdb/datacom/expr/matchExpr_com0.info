@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb matchExpr_com0,matchExpr_com0
+cjdb,cjdb --no-use-colors matchExpr_com0,matchExpr_com0
 b,b 22,matchExpr_com0.cj:22
 r,r,-> 22
  ,expr match (rType) {case Red | Green => match(rType){case Red =>  0 case _ =>  2}case Green =>  2 case Blue =>  2} ,\(Int64\) \$\d+ = 0

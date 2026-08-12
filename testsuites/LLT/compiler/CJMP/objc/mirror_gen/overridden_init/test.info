@@ -1,0 +1,52 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// DEPENDENCE: ../test.toml test.h
+// EXEC: ObjCInteropGen test.toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+@ObjCMirror
+public open class A {
+    public open func foo1(): ?A
+    public open func foo2(): ?A
+    @ForeignName["foo3:"] public open func foo3(x: Int32): ?A
+    @ForeignName["foo4:"] public open func foo4(x: Int32): ?A
+    @ObjCInit public static func init1(): A
+    @ObjCInit public static func init2(): A
+    @ObjCInit @ForeignName["init3:"] public static func init3(x: Int32): A
+    @ObjCInit @ForeignName["init4:"] public static func init4(x: Int32): A
+    public open func init5(): ?A
+    public open func init6(): ?A
+    @ForeignName["init7:"] public open func init7(x: Int32): ?A
+    @ForeignName["init8:"] public open func init8(x: Int32): ?A
+    @ObjCInit public static func foo5(): A
+    @ObjCInit public static func foo6(): A
+    @ObjCInit @ForeignName["foo7:"] public static func foo7(x: Int32): A
+    @ObjCInit @ForeignName["foo8:"] public static func foo8(x: Int32): A
+}
+
+@ObjCMirror
+public open class M <: A {
+    public open func foo1(): ?A
+    public open func foo2(): ?A
+    public open func foo3(x: Int32): ?A
+    public open func foo4(x: Int32): ?A
+    @ObjCInit public static func init1(): M
+    @ObjCInit public static func init2(): M
+    @ObjCInit public static func init3(x: Int32): M
+    @ObjCInit public static func init4(x: Int32): M
+    public open func init5(): ?A
+    public open func init6(): ?A
+    public open func init7(x: Int32): ?A
+    public open func init8(x: Int32): ?A
+    @ObjCInit public static func foo5(): M
+    @ObjCInit public static func foo6(): M
+    @ObjCInit public static func foo7(x: Int32): M
+    @ObjCInit public static func foo8(x: Int32): M
+}
+*/

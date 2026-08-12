@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic_enum_with_args_ctor03,generic_enum_with_args_ctor03
+cjdb,cjdb --no-use-colors generic_enum_with_args_ctor03,generic_enum_with_args_ctor03
 b,b 24, generic_enum_with_args_ctor03.cj:24
 r,r,-> 24
  ,expr a,\(default.E1<Int64>\) \$\d+ = {\s+constructor = XY\s+arg_1 = 5

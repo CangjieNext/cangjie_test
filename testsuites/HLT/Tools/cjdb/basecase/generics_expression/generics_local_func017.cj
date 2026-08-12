@@ -21,6 +21,7 @@ interface I2<U> <: I1<U> {
 class A<U> <: I2<U> {}
 
 main() {
+    sleep(Duration.millisecond*3000)
     let call_ca1 = A<Int64>().foo1(2)
     return 0
 }

@@ -10,7 +10,7 @@
 // DEPENDENCE: ../util/run.sh ../util/test.c ../util/cstr2int.c
 // (not MAC and not Windows) EXEC: %clang %clang_opt cstr2int.c -o %cffi_output
 // (not MAC and not Windows) EXEC: %compiler %cmp_opt %ffic_opt -o %output
-// (not MAC and not Windows) RUN-EXEC-PIPE: bash run.sh "%run %run_opt %output %run_args" | compare %f
+// (not MAC and not Windows) RUN-EXEC-PIPE: %target_shell run.sh "%run %run_opt %output %run_args" | compare %f
 // (not MAC and not Windows) ASSERT: scan pass1
 // (not MAC and not Windows) ASSERT: scan pass2
 

@@ -15,6 +15,7 @@ public func test3(par_1: Rune): HashMap<Int32, Rune> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = test3(r'A')
     0
 }

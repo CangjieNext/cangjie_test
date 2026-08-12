@@ -13,7 +13,7 @@ main() {
     0
 }
 
-/* SCAN
+/* SCAN-IN
 warning: possibly confusing line terminator
   ==> opt_expr.cj:11:6:
    | 
@@ -24,6 +24,4 @@ warning: possibly confusing line terminator
    | |_________~ possibly confusing line terminator between '4' and '>>'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff parser`
-
-1 warning generated, 1 warning printed.
 */

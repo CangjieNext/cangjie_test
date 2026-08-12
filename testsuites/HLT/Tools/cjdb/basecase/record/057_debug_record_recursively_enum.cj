@@ -18,6 +18,7 @@ enum E1 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     //let r1 = R1()
 
 

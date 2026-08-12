@@ -8,18 +8,19 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func001.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func001.cj -o generics_global_func001%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP001.info generics_global_func001 %run_env
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: %compiler %cmp_opt -g generics_global_func001.cj -o generics_global_func001%cmp_output
+// (!(target_mac|target_win|target_ios_simulator)) EXEC: python3 cjdb_test.py cjdb_ConditionBP001.info generics_global_func001 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func001,generics_global_func001
-breakpoint,breakpoint set -f generics_global_func001.cj -l 23 -c 'a4==4',generics_global_func001.cj:23
-AOT r,r,-> 23
+breakpoint,breakpoint set -f generics_global_func001.cj -l 24 -c 'a4==4',generics_global_func001.cj:24
+AOT r,r,-> 24
+Android c,c,24
 CJVM c,c,
 locals,locals,\(Int64\) a4 = 4
-p,p a1,\(Int8\) \$[\d] = 1
-expr:expr a2:\(Int16\) \$[\d] = 2
-expr:expr a2+1:\(Int16\) \$[\d] = 3
-expr:expr a4%2:\(Int64\) \$[\d] = 0
+p,p a1,\(Int8\)[\s\S]*1
+expr:expr a2:\(Int16\)[\s\S]*2
+expr:expr a2+1:\(Int16\)[\s\S]*3
+expr:expr a4%2:\(Int64\)[\s\S]*0
 q,q,

@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt -o %output %f
-// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt -o %output %f
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // 由于继承interface而带来的成员。
 
 import std.reflect.*

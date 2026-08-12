@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../../git/git_01
+// EXEC: cd git_01 && %cjpm init --path default
+// EXEC: cd git_01/default && git init && git checkout -b coverage-branch && git add . && git -c user.name='name' -c user.email='' commit -am "foo" && git tag coverage-tag
+// EXEC: (cd git_01 && GIT_DIR=../git_install_options %cjpm install --git default --branch coverage-branch --root root_branch -V) 2>&1 | compare %f
+// ASSERT: scan cjpm install: installing module from 'default'
+// ASSERT: scan cjpm install success
+// EXEC: cd git_01 && GIT_DIR=../git_install_options %cjpm install --git default --tag coverage-tag --root root_tag
+// EXEC: cd git_01 && GIT_DIR=../git_install_options %cjpm install --git default --commit $(git -C default rev-parse HEAD) --root root_commit
+// EXEC: cd git_01 && ./root_branch/bin/default%exe
+// EXEC: cd git_01 && ./root_tag/bin/default%exe
+// EXEC: cd git_01 && ./root_commit/bin/default%exe

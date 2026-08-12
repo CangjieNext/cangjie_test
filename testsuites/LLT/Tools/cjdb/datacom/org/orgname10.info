@@ -7,10 +7,10 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/org/pkga/orga.cj ../../basecase/org/orgname.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %compile_lib_opt orga.cj -o pkga.%middle
 // EXEC: %compiler %cmp_opt %enableCompileDebug pkga.%middle orgname.cj -o orgname10
-// EXEC: python3 cjdb_test.py orgname10.info
+// EXEC: python3 cjdb_test.py orgname10.info %n %run_env
 
 test#
-cjdb,cjdb orgname10,orgname10
+cjdb,cjdb --no-use-colors orgname10,orgname10
 b,b testa,orga.cj:10
 r,r,-> 10
  ;expr ff;\(std.core.Array<IntNative>\) \$\d+ = {\s+\[0\] = 5\s+\[1\] = 5\s+}

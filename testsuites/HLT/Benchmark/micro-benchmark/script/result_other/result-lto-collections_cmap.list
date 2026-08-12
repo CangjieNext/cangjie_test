@@ -1,0 +1,12 @@
+BenchmarkCHM_PutElement_Thread_4: 107702670 ns/op
+BenchmarkCHM_PutElement_Thread_8: 191421410 ns/op
+BenchmarkCHM_PutElement_Thread_16: 400202550 ns/op
+BenchmarkCHM_PutElement_Thread_32: 1001591740 ns/op
+BenchmarkCHM_PutElement_Thread_256: 10881743960 ns/op
+BenchmarkCHM_PutElement_Thread_1024: 43453082800 ns/op
+BenchmarkCHM_UpdateElement_Thread_4: 37299208470 ns/op
+BenchmarkCHM_UpdateElement_Thread_8: 44845396600 ns/op
+BenchmarkCHM_UpdateElement_Thread_16: 68839492980 ns/op
+BenchmarkCHM_UpdateElement_Thread_32: 73943066600 ns/op
+BenchmarkCHM_UpdateElement_Thread_256: 71126379520 ns/op
+BenchmarkCHM_UpdateElement_Thread_1024: 71011146340 ns/op

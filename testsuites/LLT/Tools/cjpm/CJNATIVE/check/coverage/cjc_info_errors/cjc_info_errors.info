@@ -1,0 +1,15 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: chmod +x %n/fake_fail/cjc %n/fake_no_version/cjc %n/fake_no_target/cjc %n/fake_bad_target/cjc
+// EXEC: (cd %n; PATH=$(pwd)/fake_fail:$PATH %cjpm check; PATH=$(pwd)/fake_no_version:$PATH %cjpm check; PATH=$(pwd)/fake_no_target:$PATH %cjpm check; PATH=$(pwd)/fake_bad_target:$PATH %cjpm check) 2>&1 | compare %f
+// ASSERT: scan Error: failed to run 'cjc -v'
+// ASSERT: scan Error: no target info in output of command 'cjc -v':
+// ASSERT: scan fake compiler without version
+// ASSERT: scan Cangjie Compiler: 1.2.0
+// ASSERT: scan invalid target triple

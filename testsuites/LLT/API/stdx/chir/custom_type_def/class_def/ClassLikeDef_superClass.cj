@@ -13,8 +13,10 @@ sub super initially none: true
 sub super equals base: true
 sub super cleared: true
 sub super reattached: true
+sub str super only has colon_lt: true
 mid super equals base: true
 leaf super equals mid: true
+leaf str super iface has amp: true
 */
 
 import stdx.chir.*
@@ -25,6 +27,7 @@ main() {
     let mid = pkg.addClass("Mid", "Mid", true)
     let leaf = pkg.addClass("Leaf", "Leaf", true)
     let sub = pkg.addClass("Sub", "Sub", true)
+    let i1 = pkg.addClass("I1", "I1", false)
 
     println("sub super initially none: ${sub.superClass.isNone()}")
 
@@ -37,10 +40,15 @@ main() {
 
     sub.superClass = Some(base.classType)
     println("sub super reattached: ${sub.superClass.getOrThrow() == base.classType}")
+    let baseTyStr = base.classType.toString()
+    println("sub str super only has colon_lt: ${sub.toString().contains(baseTyStr + " <: ")}")
 
     mid.superClass = Some(base.classType)
     println("mid super equals base: ${mid.superClass.getOrThrow() == base.classType}")
 
     leaf.superClass = Some(mid.classType)
     println("leaf super equals mid: ${leaf.superClass.getOrThrow() == mid.classType}")
+    leaf.implementedInterfaceTypes = Array<ClassLikeType>(1, { _ => i1.classType })
+    let midTyStr = mid.classType.toString()
+    println("leaf str super iface has amp: ${leaf.toString().contains(midTyStr + " & ")}")
 }

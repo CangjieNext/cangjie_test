@@ -377,6 +377,26 @@ class ArrayListTest {
     }
 
     @TestCase
+    func removeByOpenEndRangeWithEndLessThanStart(): Unit {
+        // hasEnd==false, end<=start: should ignore end and remove from start to list end
+        var arr1 = ArrayList<Int64>([0, 1, 2, 3, 4])
+        arr1.remove(Range<Int64>(3, 0, 1, true, false, false))
+        var res1 = ArrayList<Int64>([0, 1, 2])
+        @Expect(arr1, res1)
+
+        // hasEnd==false, end>start: same behavior, remove from start to list end
+        var arr2 = ArrayList<Int64>([0, 1, 2, 3, 4])
+        arr2.remove(Range<Int64>(3, 6, 1, true, false, false))
+        var res2 = ArrayList<Int64>([0, 1, 2])
+        @Expect(arr2, res2)
+
+        // hasEnd==false, hasStart==false: remove all elements (0 to end)
+        var arr3 = ArrayList<Int64>([0, 1, 2])
+        arr3.remove(Range<Int64>(0, 0, 1, false, false, false))
+        @Expect(arr3.isEmpty())
+    }
+
+    @TestCase
     func removeByEmptyRange(): Unit {
         var arr1 = ArrayList<Int64>()
         var res1 = ArrayList<Int64>()

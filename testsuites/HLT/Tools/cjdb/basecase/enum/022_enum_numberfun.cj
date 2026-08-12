@@ -18,6 +18,7 @@ enum TimeUnit2<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var x1 = TimeUnit2<Int64>.Month.name()
     0
 }

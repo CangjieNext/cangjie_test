@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_parameter_init.info %n %run_env
 
 test#
-cjdb,cjdb parameter_init,parameter_init
+cjdb,cjdb --no-use-colors parameter_init,parameter_init
 b,b 31,parameter_init.cj:31
 r,r,-> 31
  ,expr b1.f(1),\(Int64\) \$\d+ = 1

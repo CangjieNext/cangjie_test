@@ -1,0 +1,25 @@
+goos: linux
+goarch: arm64
+pkg: Cangjie-test/testsuites/Benchmark/micro-benchmark/go/serialize
+BenchmarkSerializable_8_1-128         	  244234	      5683 ns/op
+BenchmarkSerializable_8_2-128         	   90124	     12840 ns/op
+BenchmarkSerializable_8_4-128         	   44954	     25932 ns/op
+BenchmarkSerializable_8_8-128         	   23766	     49834 ns/op
+BenchmarkSerializable_8_32-128        	    5066	    207448 ns/op
+BenchmarkSerializable_64_1-128        	   28863	     41536 ns/op
+BenchmarkSerializable_64_2-128        	   12651	     94591 ns/op
+BenchmarkSerializable_64_4-128        	    6165	    188361 ns/op
+BenchmarkSerializable_64_8-128        	    3231	    383045 ns/op
+BenchmarkSerializable_64_32-128       	     726	   1642566 ns/op
+BenchmarkDeserializable_8_1-128       	  246448	      5210 ns/op
+BenchmarkDeserializable_8_2-128       	   95002	     12054 ns/op
+BenchmarkDeserializable_8_4-128       	   39560	     29897 ns/op
+BenchmarkDeserializable_8_8-128       	   17785	     67638 ns/op
+BenchmarkDeserializable_8_32-128      	    2731	    371566 ns/op
+BenchmarkDeserializable_64_1-128      	   29196	     41379 ns/op
+BenchmarkDeserializable_64_2-128      	   10000	    114170 ns/op
+BenchmarkDeserializable_64_4-128      	    4960	    255478 ns/op
+BenchmarkDeserializable_64_8-128      	    1994	    568155 ns/op
+BenchmarkDeserializable_64_32-128     	     405	   2815253 ns/op
+PASS
+ok  	Cangjie-test/testsuites/Benchmark/micro-benchmark/go/serialize	29.435s

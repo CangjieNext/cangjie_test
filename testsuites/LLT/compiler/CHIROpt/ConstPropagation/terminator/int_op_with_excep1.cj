@@ -25,6 +25,6 @@ main() {
     0
 }
 
-// ASSERT: scan [ConstPropagation] The terminator IntOpWithException at [16,9] has been optimised
-// ASSERT: scan [ConstPropagation] The terminator IntOpWithException at [17,9] has been optimised
-// ASSERT: scan [ConstPropagation] The terminator IntOpWithException at [18,9] has been optimised
+// ASSERT: scan [ConstPropagation] The terminator TryAdd at [16,9] has been optimised
+// ASSERT: scan [ConstPropagation] The terminator TrySub at [17,9] has been optimised
+// ASSERT: scan [ConstPropagation] The terminator TryRShift at [18,9] has been optimised

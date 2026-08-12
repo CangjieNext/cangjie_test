@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: V2 STACK_TRACE record declaring 70000 frames, exceeding the 65536 cap.
+# Exercises HprofParserV2::ParseStackTrace MAX_FRAME_NUM clamp branch. Verifies
+# the parser does not crash on an oversized frame count.
+
+// DEPENDENCE: ../sample
+// EXEC: %copy sample/v2_big_frames.data .
+// EXEC: %cjprof heap -i v2_big_frames.data 2>&1 | compare %f
+// ASSERT: scan [perf] SetData

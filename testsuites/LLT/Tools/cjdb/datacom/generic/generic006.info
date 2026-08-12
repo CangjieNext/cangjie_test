@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb generic006,generic006
+cjdb,cjdb --no-use-colors generic006,generic006
 b,b 9,generic006.cj:9
 r,r,-> 9
  ,p para,\(Tuple<Int64,Int32,Int16>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = 2\s+\[2\] = 3

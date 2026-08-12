@@ -9,7 +9,7 @@
 // EXEC: python3 cjdb_test.py debuginfo_int8.info %n %run_env
 
 test#
-cjdb,cjdb int8,int8
+cjdb,cjdb --no-use-colors int8,int8
 b,b foo,int8.cj:10
 r,r,-> 10
 expr a,expr a,\(Int8\) \$\d+ = 1

@@ -10,7 +10,7 @@
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb package_main1,package_main1
+cjdb,cjdb --no-use-colors package_main1,package_main1
 b,b 26,package_main1.cj:26
 r,r,-> 26
  ,expr enum1.printMembersize(),three colors\s+\(Unit\) \$\d+ = ()

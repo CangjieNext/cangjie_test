@@ -1,0 +1,11 @@
+Benchmark_ClassTypeInfo_invokeFunction_commontype_Instance_apply: 2909 ns/op
+Benchmark_ClassTypeInfo_invokeFunction_commontype_Static_apply: 2704 ns/op
+Benchmark_ClassTypeInfo_invokeFunction_generic_commontype_Instance_apply: 2937 ns/op
+Benchmark_ClassTypeInfo_invokeFunction_generic_commontype_Static_apply: 2913 ns/op
+Benchmark_ClassTypeInfo_invokeFunction_inherittype_Instance_apply: 3187 ns/op
+Benchmark_ClassTypeInfo_invokeFunction_inherittype_Static_apply: 2551 ns/op
+Benchmark_ClassTypeInfo_of_basetype: 194.3 ns/op
+Benchmark_ClassTypeInfo_of_commontype: 195.4 ns/op
+Benchmark_ClassTypeInfo_of_generic_basetype: 196.0 ns/op
+Benchmark_ClassTypeInfo_of_generic_commontype: 195.0 ns/op
+Benchmark_ClassTypeInfo_of_inherittype: 196.0 ns/op

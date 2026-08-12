@@ -11,6 +11,7 @@ class CA<T> {
 }
  
 main() {
+    sleep(Duration.millisecond*3000)
     println(CA<Int64>.a)
     println(CA<Bool>.a)
  

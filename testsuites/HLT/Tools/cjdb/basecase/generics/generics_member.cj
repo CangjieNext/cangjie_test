@@ -125,6 +125,7 @@ struct Sect1<T, T3> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let rectint = Rect1<Int8, Int16, Int32, Int64, IntNative>.fint(8, 16, 32, 64, 100)
     let rectuint = Rect1<UInt8, UInt16, UInt32, UInt64, UIntNative>().fuint(8, 16, 32, 64, 100)
     let rectfloat = Rect1<Float16, Float32, Float64, Int8, Int64>().ffloat(16.16, 32.32, 64.64)

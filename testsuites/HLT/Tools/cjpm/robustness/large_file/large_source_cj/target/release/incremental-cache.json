@@ -1,0 +1,26 @@
+{
+  "compile~test_case|x86_64-w64-mingw32|false|false|executable|": {
+    "value": [
+      {
+        "path": "D:\\work\\6.11\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\robustness\\large_file\\large_source_cj\\target\\release\\bin\\main.exe",
+        "checkKind": "check-exists"
+      },
+      {
+        "path": "D:\\work\\6.11\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\robustness\\large_file\\large_source_cj\\target\\release\\bin\\test_case.cjo",
+        "checkKind": "check-timestamp"
+      }
+    ],
+    "inputHash": -7117101469309910596,
+    "outputHash": -5189841080836049645
+  },
+  "options~test_case|x86_64-w64-mingw32|false|false|": {
+    "value": 5014542653049390173,
+    "inputHash": 0,
+    "outputHash": 5014542653049390173
+  },
+  "read~test_case|": {
+    "value": "D:\\work\\6.11\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\robustness\\large_file\\large_source_cj\\src",
+    "inputHash": 0,
+    "outputHash": 3155947213455534941
+  }
+}

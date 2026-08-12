@@ -7,7 +7,7 @@
 // DEPENDENCE: define.cj
 // EXEC: %compiler %cmp_macro define.cj
 // ERRCHECK: %compiler %cmp_opt %diag_json %f -o %output
-// ASSERT: scan-2 sema_unsafe_func_can_only_be_called
+// ASSERT: scan-2 sema_func_can_only_be_called
 // ASSERT: scan the error originates in the macro `M1` (consider using `--debug-macro` for more info)
 // ASSERT: scan the error originates in the macro `M0` (consider using `--debug-macro` for more info)
 

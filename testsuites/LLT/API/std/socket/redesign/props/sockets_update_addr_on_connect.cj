@@ -33,33 +33,16 @@ class Test_Udp_Address {
         var udpsocket1 = UdpSocket(bindAt: localBindSA)
         @Expect(udpsocket.localAddress, localSA)
         @Expect(udpsocket1.localAddress, localBindSA)
-        var sum = 0
-        try {
-            udpsocket.remoteAddress
-        } catch (e: SocketException) {
-            sum += 1
-        }
-        try {
-            udpsocket1.remoteAddress
-        } catch (e: SocketException) {
-            sum += 1
-        }
-        @Expect(sum, 2)
+        // unconnected UdpSocket.remoteAddress returns None
+        @Expect(udpsocket.remoteAddress, None)
+        @Expect(udpsocket1.remoteAddress, None)
         udpsocket.bind()
         udpsocket1.bind()
         var addr = udpsocket.localAddress
         var addr1 = udpsocket1.localAddress
-        try {
-            udpsocket.remoteAddress
-        } catch (e: SocketException) {
-            sum += 1
-        }
-        try {
-            udpsocket1.remoteAddress
-        } catch (e: SocketException) {
-            sum += 1
-        }
-        @Expect(sum, 4)
+        // still unconnected, remoteAddress still None
+        @Expect(udpsocket.remoteAddress, None)
+        @Expect(udpsocket1.remoteAddress, None)
 
         udpsocket.close()
         udpsocket1.close()

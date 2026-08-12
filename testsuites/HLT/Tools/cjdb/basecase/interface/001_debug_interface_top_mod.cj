@@ -45,6 +45,7 @@ class C <: I3 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let call_ca =  A().foo1()
     let call_cb =  B().foo1()
     let call_cc =  C().foo1()

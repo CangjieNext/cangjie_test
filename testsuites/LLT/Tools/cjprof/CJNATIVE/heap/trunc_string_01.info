@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: truncated STRING record (length field too short) -> HprofParserV2
+# ParseString "StringRecord length truncated" error path.
+
+// DEPENDENCE: ../sample
+// EXEC: %copy sample/trunc_string.data .
+// EXEC: %cjprof heap -i trunc_string.data 2>&1 | compare %f
+// ASSERT: scan error: StringRecord length truncated

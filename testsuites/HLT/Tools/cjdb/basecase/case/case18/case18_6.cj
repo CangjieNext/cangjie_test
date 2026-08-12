@@ -34,6 +34,7 @@ let r7 = t1?[0]
 let r8 = t2?[0]
 
 main(): UInt64 {
+    sleep(Duration.millisecond*3000)
     test1()
     let foo = {i: Int64 => i + 1}
     let f1 = Option<(Int64) -> Int64>.Some(foo)
