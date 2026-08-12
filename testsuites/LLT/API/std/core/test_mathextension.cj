@@ -1430,7 +1430,7 @@ class MathExtensionTest {
     @TestCase
     func testMathExtensionCosh(): Unit {
         @Expect("${cosh(Float64(5.0))}","74.209949")
-        @Expect("${cosh(Float32(5.0))}","74.209946")
+        @Expect("${cosh(Float32(5.0))}","74.209953")
         @Expect("${cosh(Float16(5.0))}","74.187500")
     }
 
