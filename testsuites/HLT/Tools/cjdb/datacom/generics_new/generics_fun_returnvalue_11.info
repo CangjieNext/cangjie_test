@@ -26,9 +26,9 @@ p, p s1.varrs,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[
 p, p c1.vcarrc,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 AOT p, p default::S1::varr,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p globals_arr,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-locals, locals,\(std.core(?:\.|::)Array<Int64>\) larr = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-locals, locals,\(default(?:\.|::)S1\) s1 = {[\s\S]*varrs = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-locals, locals,\(default(?:\.|::)C1\) c1 = {[\s\S]*vcarrc = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p larr,\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p s1,\(default(?:\.|::)S1\)[\s\S]*{[\s\S]*varrs = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p c1,\(default(?:\.|::)C1\)[\s\S]*{[\s\S]*vcarrc = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 globals, globals,\(std.core(?:\.|::)Array<Int64>\) default(?:\.|::)S1::varr = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 globals, globals,\(std.core(?:\.|::)Array<Int64>\) default(?:\.|::)globals_arr = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 b, b genericsfun_return.cj:162,genericsfun_return.cj:162
