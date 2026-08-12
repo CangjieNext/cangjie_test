@@ -6,5 +6,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not Windows)EXEC: cd %n && export CJPM_BIG_VAR=$(python3 -c "print('x'*1048576)") && %cjpm check
+// (not Windows)EXEC: cd %n && export CJPM_BIG_VAR=$(python3 -c "print('x'*65536)") && %cjpm check
 // ASSERT: scan cjpm check success

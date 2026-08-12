@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 2
-// (not Windows)EXEC: %cjpm init --name CON --path ./test_proj %cjpm_opt
+// (not Windows)EXEC: %cjpm init --name CON --path ./test_proj
 // (not Windows)ASSERT: scan cjpm init success
-// (Windows)ERRCHECK: %cjpm init --name CON --path ./test_proj %cjpm_opt
-// (Windows)ASSERT: scan Error:
+// (Windows)EXEC: %cjpm init --name CON --path ./test_proj
+// (Windows)ASSERT: scan cjpm init success

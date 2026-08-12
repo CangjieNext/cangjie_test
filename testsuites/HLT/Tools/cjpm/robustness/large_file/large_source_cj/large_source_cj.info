@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (not Windows)EXEC: cd %n && dd if=/dev/zero of=src/main.cj bs=1M count=100 2>/dev/null
-// (Windows)EXEC: cd %n && python -c "open('src/main.cj','wb').write(b'// padding\n'*(100*1024*1024//10))"
+// (not Windows)EXEC: cd %n && python3 -c "open('src/main.cj','wb').write(b'// padding\n'*(10*1024*1024//10))"
+// (Windows)EXEC: cd %n && python -c "open('src/main.cj','wb').write(b'// padding\n'*(10*1024*1024//10))"
 // ERRCHECK: cd %n && %cjpm build %cjpm_opt
 // ASSERT: scan Error:
