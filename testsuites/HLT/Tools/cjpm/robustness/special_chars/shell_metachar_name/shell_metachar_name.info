@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 1
-// (not Windows)EXEC-PIPE-1: %cjpm init --name "$(echo injected)" --path ./test_proj 2>&1 | compare %f
+// (not Windows)EXEC-PIPE: %cjpm init --name "$(echo injected)" --path ./test_proj 2>&1 | compare %f
 // (not Windows)ASSERT: scan cjpm init success
 // (Windows)EXEC-PIPE-1: %cjpm init --name "$(echo injected)" --path ./test_proj 2>&1 | compare %f
 // (Windows)ASSERT: scan Error:
