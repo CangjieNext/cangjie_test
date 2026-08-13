@@ -7,9 +7,7 @@
  */
 
 // LEVEL: 3
-// DEPENDENCE:  ../../sourcecode/test.cj
-// EXEC: %compiler %cmp_opt test.cj -o test%cmp_output
-// EXEC: cjprof record test
-// EXEC: cjprof report
-// ASSERT: scan Children
-// ASSERT: scan libcangjie-runtime
+// DEPENDENCE:  ../../sourcecode/test.cj ../../script ../../data
+// (!(target_win|target_mac)) EXEC: %compiler %cmp_opt test.cj -o test%cmp_output
+// (!(target_win|target_mac)) EXEC: %python script/cjprof_report.py |compare %f
+// (!(target_win|target_mac)) ASSERT: scan cjprof_report.data
