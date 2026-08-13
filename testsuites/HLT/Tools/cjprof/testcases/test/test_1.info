@@ -7,9 +7,7 @@
  */
 
 // LEVEL: 3
-// DEPENDENCE:  ../../sourcecode/test.cj
+// DEPENDENCE:  ../../sourcecode/test.cj ../../script ../../data
 // EXEC: %compiler %cmp_opt test.cj -o test%cmp_output
-// EXEC: cjprof record -- ./test
-// EXEC: cjprof report
-// ASSERT: scan Children
-// ASSERT: scan libcangjie-runtime
+// EXEC: %python script/cjprof_report.py --input cjprof.data |compare %f
+// ASSERT: scan FlameGraph.svg
