@@ -24,11 +24,15 @@ def recording_launch(samplingfreq, inputfile, outputfile, run_env):
     """
     print("\n -------- cjprof record {0} {1} {2} -------- \n".format(inputfile, '-f ' + str(samplingfreq),
                                                                      '-o ' + outputfile))
+    pwd = os.environ['PASSWORD']
+    cangjie_home = os.environ['CANGJIE_HOME']
     cmd = "cjprof record {0} {1} {2}".format(inputfile, '-f ' + str(samplingfreq), '-o ' + outputfile)
-    cmd_list = shlex.split(cmd)
+    cmd = f'echo {pwd} | sudo -S bash -c "source {cangjie_home}/envsetup.sh ; {cmd}"'
+    print(f'cmd = {cmd}')
     if "cjnative" in run_env:
         p = subprocess.Popen(
-            cmd_list,
+            cmd,
+            shell=True,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             preexec_fn=os.setsid)
