@@ -2,23 +2,20 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 1
-// (not iOS and not Windows or OHOS) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not iOS and not Windows or OHOS) RUN-EXEC: mkdir testdir01
-// (not iOS and not Windows or OHOS) RUN-EXEC: touch testdir01/file
-// (not iOS and not Windows or OHOS) RUN-EXEC: touch testdir01/.file
-// (not iOS and not Windows or OHOS) RUN-EXEC: ln -s unexists symlink01
-// (not iOS and not Windows or OHOS) RUN-EXEC: ln -s testdir01/file symlink02
-// (not iOS and not Windows or OHOS) RUN-EXEC: ln -s testdir01/file symlink03
-// (not iOS and not Windows or OHOS) RUN-EXEC: ln -s testdir01 symlink04
-// (not iOS and not Windows or OHOS) RUN-EXEC: touch unexists
-// (not iOS and not Windows or OHOS) RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args | compare %f
-// (not iOS and not Windows or OHOS) ASSERT: scan-2 match success
-// (not iOS and not Windows or OHOS) RUN-EXEC: rm -rf testdir01 symlink01 symlink02 symlink03 symlink04 unexists
+// (!(target_ios | target_ios_simulator | target_win)) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (!(target_ios | target_ios_simulator | target_win)) RUN-EXEC: %mkdir testdir01 && %touch testdir01/file && %touch testdir01/.file
+// (!(target_ios | target_ios_simulator | target_win)) RUN-EXEC: ln -s unexists symlink01
+// (!(target_ios | target_ios_simulator | target_win)) RUN-EXEC: ln -s testdir01/file symlink02
+// (!(target_ios | target_ios_simulator | target_win)) RUN-EXEC: ln -s testdir01/file symlink03
+// (!(target_ios | target_ios_simulator | target_win)) RUN-EXEC: ln -s testdir01 symlink04
+// (!(target_ios | target_ios_simulator | target_win)) RUN-EXEC: %touch unexists
+// (!(target_ios | target_ios_simulator | target_win)) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (!(target_ios | target_ios_simulator | target_win)) RUN-EXEC: rm -rf testdir01 symlink01 symlink02 symlink03 symlink04 unexists
 
 /*
  * Test description: Test the basic function for FileInfo.apis
@@ -79,14 +76,10 @@ class Test_FileInfo {
 
     @TestCase
     func test_parentDirectory(): Unit {
-        match (FileInfo("/home").parentDirectory) {
-            case Some(FileInfo) => println("match success")
-            case None => @Expect("1", "2")
+        if (exists("/home")) {
+            @Expect(FileInfo("/home").parentDirectory.isSome())
         }
-        match (FileInfo("/").parentDirectory) {
-            case Some(FileInfo) => @Expect("1", "2")
-            case None => println("match success")
-        }
+        @Expect(FileInfo("/").parentDirectory.isNone())
     }
 
     @TestCase

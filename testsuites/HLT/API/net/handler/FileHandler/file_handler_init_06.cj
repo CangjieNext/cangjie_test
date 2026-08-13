@@ -7,10 +7,8 @@
  */
 
 // LEVEL: 1
-// DEPENDENCE: ./data
-// (not Windows) EXEC: %chmod -r ./data/unreadable.txt
 // (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output
-// (not Windows) RUN-EXEC: %run_stdx %output %run_args
+// (not Windows) RUN-EXEC: %mkdir ./data && %touch ./data/unreadable.txt && %chmod -r ./data/unreadable.txt && %run_stdx %output %run_args && %chmod +r ./data/unreadable.txt
 
 import std.fs.*
 import stdx.net.http.*

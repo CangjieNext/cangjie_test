@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ./test_xmlreport_content_01.cj
-// EXEC: %compiler %cmp_opt %cmp_utest_opt test_xmlreport_content_01.cj -o test_xmlreport_content_01.%suffix
-// RUN-EXEC-1: %run %run_opt test_xmlreport_content_01.%suffix %run_utest_opt %run_args --reportFormat=xml --reportPath=./
+// EXEC: %compiler %cmp_opt %cmp_utest_opt test_xmlreport_content_01.cj -o %output
+// RUN-EXEC-1: %run %run_opt %output %run_utest_opt %run_args --reportFormat=xml --reportPath=./
 // EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
 // RUN-EXEC: %run %output %run_utest_opt %run_args
 
