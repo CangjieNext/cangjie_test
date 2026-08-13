@@ -18,6 +18,7 @@ from pathlib import Path
 from textwrap import indent
 import uuid
 import re
+import shlex
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
@@ -86,15 +87,74 @@ def run(cmd, work_dir, timeout):
         process.terminate()
 
 
+def convert_windows_path_separators(cmd):
+    """Convert Windows path separators in cmd to '/', keeping shell escapes.
+
+    The command is executed by the POSIX shell on the remote device, where a
+    backslash can be either a Windows path separator (e.g. "C:\\dir\\file")
+    that has to become '/', or an escape sequence used by the shell or by a
+    tool (e.g. the "\\-" inside "grep '\\-\\-\\-'", or the "\\\"" inside
+    'grep "tests=\\"4\\""') that must be kept intact.
+    """
+    path_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._:"
+    result = []
+    i = 0
+    length = len(cmd)
+    while i < length:
+        ch = cmd[i]
+        if ch == "'":
+            # Inside single quotes every backslash is literal text for the
+            # remote shell, copy the quoted fragment unchanged.
+            end = cmd.find("'", i + 1)
+            if end == -1:
+                result.append(cmd[i:])
+                break
+            result.append(cmd[i:end + 1])
+            i = end + 1
+            continue
+        if ch == '"':
+            # Inside double quotes a backslash only escapes " \ $ ` for the
+            # remote shell, any other backslash is a Windows path separator.
+            result.append(ch)
+            i += 1
+            while i < length and cmd[i] != '"':
+                if cmd[i] == '\\' and i + 1 < length and cmd[i + 1] in ('"', '\\', '$', '`'):
+                    result.append(cmd[i:i + 2])
+                    i += 2
+                    continue
+                result.append('/' if cmd[i] == '\\' else cmd[i])
+                i += 1
+            if i < length:
+                result.append('"')
+                i += 1
+            continue
+        if ch == '\\':
+            prev = cmd[i - 1] if i > 0 else ''
+            nxt = cmd[i + 1] if i + 1 < length else ''
+            if prev in path_chars and (nxt == '' or nxt in path_chars):
+                result.append('/')
+            else:
+                result.append('\\')
+            i += 1
+            continue
+        result.append(ch)
+        i += 1
+    return ''.join(result)
+
+
 def construct_tool_shell_cmd(cmd: str):
-    if IS_WINDOWS:
-        symbol = '\"'
-    else:
-        symbol = '\''
     remote_temp_dir = '/data/local/tmp'
     h = '{}/{}'.format(remote_temp_dir, uuid.uuid4())
     shell_cmd = f'{cmd} 1> {h}_stdout.txt 2> {h}_stderr.txt ; echo exit_code_start$?exit_code_end > {h}_exit_code.txt ; cat {h}_stdout.txt ; cat {h}_exit_code.txt ; cat {h}_stderr.txt ; rm {h}_stdout.txt ; rm {h}_exit_code.txt ; rm {h}_stderr.txt'
-    cmd = f"{tool} shell {symbol}{shell_cmd}{symbol}"
+    if IS_WINDOWS:
+        # cmd.exe keeps single quotes and backslashes inside double quotes
+        # literally, so a double quoted argument is passed through unchanged.
+        shell_cmd = '"{}"'.format(shell_cmd)
+    else:
+        # Quote the whole command for the host shell without breaking any
+        # quoting that the command itself uses on the device.
+        shell_cmd = shlex.quote(shell_cmd)
+    cmd = f"{tool} shell {shell_cmd}"
     return cmd
 
 
@@ -197,16 +257,18 @@ def run_case(execute_cmd, work_dir, timeout):
                 for cmd in value:
                     run_cmd(stage, cmd, work_dir, timeout)
     except Exception as e:
-        raise RunError(str(e))
-    finally:
-        if "remove_file_on_remote" in execute_cmd and execute_cmd["remove_file_on_remote"]:
+        # Only clean up the remote dir when the case failed, so that a retry
+        # starts from a fresh upload. On success the dir must survive: this
+        # script is invoked once per RUN-EXEC line of a case, and everything
+        # created on the device by earlier lines (e.g. a directory made by a
+        # mkdir in one line) has to stay available for the later lines.
+        cleanup_cmd = execute_cmd.get("remove_file_on_remote")
+        if cleanup_cmd:
             try:
-                # logging.info("Cleaning up remote files...")
-                cleanup_cmd = execute_cmd["remove_file_on_remote"]
                 run_cmd("remove_file_on_remote", cleanup_cmd, work_dir, timeout)
-            except Exception as cleanup_error:
+            except Exception:
                 pass
-                # logging.warning("Cleanup failed but continuing: %s", cleanup_error)
+        raise RunError(str(e))
 
 
 def run_cmd(stage, cmd, work_dir, timeout):
@@ -250,7 +312,7 @@ def main():
     opts = parse_cli()
     timeout = opts.timeout
     execute_cmd = " ".join(opts.execute_cmd)
-    execute_cmd = execute_cmd.replace("\\", "/")
+    execute_cmd = convert_windows_path_separators(execute_cmd)
     tool = opts.tool
     if opts.device is not None:
         if tool == "hdc":

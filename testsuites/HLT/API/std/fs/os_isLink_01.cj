@@ -8,10 +8,10 @@
 
 // LEVEL: 0
 // DEPENDENCE: caserunner.cj test_fj.txt test_fj_notnull.txt
-// (not Windows) EXEC-PIPE: rm -rf a/b;mkdir -p a/b
-// (not Windows) EXEC-PIPE: rm -rf dir;mkdir dir
-// (not Windows) EXEC-PIPE: ln -s test_fj.txt  testlink
-// (not Windows) EXEC-PIPE: %compiler %cmp_opt caserunner.cj -o %output %f
+// (not Windows) EXEC: %compiler %cmp_opt caserunner.cj -o %output %f
+// (not Windows) RUN-EXEC: rm -rf a/b; mkdir -p a/b
+// (not Windows) RUN-EXEC: rm -rf dir; mkdir dir
+// (not Windows) RUN-EXEC: ln -s test_fj.txt testlink
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // (not Windows) ASSERT: scan-not AssertionError
 
