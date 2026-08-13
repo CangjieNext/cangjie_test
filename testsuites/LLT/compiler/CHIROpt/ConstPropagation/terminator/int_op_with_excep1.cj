@@ -4,9 +4,18 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %enableConstPropagation %debugCHIROpt %f -o %n.%suffix 2>&1 | compare %f
-// (DEBUG_OPTION)RUN-EXEC: %run %run_opt %output %run_args
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableConstPropagation %dumpCHIRDebug -Woff unused %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_ConstantPropagation.chirtxt "Func @_CN7default3fooHv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// Successful Try* with const operands folded to Constant + GoTo.
+// ASSERT: scan GoTo(#
+// ASSERT: scan-not TryAdd(
+// ASSERT: scan-not TrySub(
+// ASSERT: scan-not TryRShift(
+// ASSERT: scan Constant(27i)
+// ASSERT: scan Constant(125i)
+// ASSERT: scan Constant(31i)
 
 func foo() {
     try {
@@ -22,9 +31,6 @@ func foo() {
 }
 
 main() {
+    foo()
     0
 }
-
-// ASSERT: scan [ConstPropagation] The terminator TryAdd at [16,9] has been optimised
-// ASSERT: scan [ConstPropagation] The terminator TrySub at [17,9] has been optimised
-// ASSERT: scan [ConstPropagation] The terminator TryRShift at [18,9] has been optimised

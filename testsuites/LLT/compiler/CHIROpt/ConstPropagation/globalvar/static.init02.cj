@@ -4,9 +4,11 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
-// (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %enableConstPropagation %cmp_opt %enableCompileDebug %f -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)RUN-EXEC: %run %output
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableConstPropagation %dumpCHIRDebug -Woff unused %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_ConstantPropagation.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Constant(1i)
 
 class A {
     static let x: Int64
@@ -29,7 +31,3 @@ main() {
     A.x + A.y + A.z
     0
 }
-
-// ASSERT: scan [ConstPropagation] The Load at [static.init02.cj,18,13] has been rewrited to a constant
-// ASSERT: regex-not \[ConstPropagation\] The Load at [static\.init02\.cj,20,.*] has been rewrited to a constant
-// ASSERT: scan [ConstPropagation] The Load at [static.init02.cj,29,5] has been rewrited to a constant
