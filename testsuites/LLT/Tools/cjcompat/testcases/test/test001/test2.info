@@ -1,0 +1,29 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: mypkg_v0.cj mypkg_v1.cj
+// EXEC: %cjc mypkg_v1.cj
+// EXEC: %move myPkgA.cjo old.cjo
+// EXEC: %cjc mypkg_v0.cj
+// EXEC: %move myPkgA.cjo new.cjo
+// EXEC-PIPE-0: %cjcompat %old old.cjo %new new.cjo | compare %f
+
+/* SCAN-IN
+[API/ABI] Variable declaration visible outside the module deleted or made private.
+  var_decl globalVar5: [BEFORE] myPkgA/mypkg_v1.cj:23:1-23:29
+[API/ABI] Function declaration visible outside the module deleted or made private.
+  func_decl bar: [BEFORE] myPkgA/mypkg_v1.cj:30:1-30:22
+[API/ABI] Changed parameter type of function visible outside the module. The new param type is not a parent type of the old param type.
+  func_decl add: [BEFORE] myPkgA/mypkg_v1.cj:10:1-10:51
+  func_decl add: [AFTER] myPkgA/mypkg_v0.cj:10:1-10:44
+  func_param y: [BEFORE] myPkgA/mypkg_v1.cj:10:27-10:35
+  func_param y: [AFTER] myPkgA/mypkg_v0.cj:10:27-10:35
+[API/ABI] Changed number of parameters of function visible outside the module.
+  func_decl sub: [BEFORE] myPkgA/mypkg_v1.cj:11:1-11:34
+  func_decl sub: [AFTER] myPkgA/mypkg_v0.cj:11:1-11:44
+[ABI] Deleted instance non public variable member from the struct.
+  var_decl structS1_Field_y: [BEFORE] myPkgA/mypkg_v1.cj:14:5-14:39
+*/
