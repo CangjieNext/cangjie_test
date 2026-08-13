@@ -14,9 +14,9 @@ class heap_Analyze_04(heapAnalyzeTest):
         super().heap_running()
 
     def compare_heap_data(self, p_heap_stdouts):
-        p_heap_stdout_0 = p_heap_stdouts[8].decode('utf-8').strip()
+        p_heap_stdout_0 = p_heap_stdouts[0].decode('utf-8').strip()
 
-        if "STRING" in p_heap_stdout_0:
+        if "SetData" in p_heap_stdout_0:
             sys.exit(2)
         else:
             sys.exit(1)
