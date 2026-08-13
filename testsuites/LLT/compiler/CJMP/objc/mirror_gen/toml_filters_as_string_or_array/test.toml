@@ -28,5 +28,15 @@ filters = "C"
 package-name = "c"
 output-root = "c"
 
+[[packages]]
+filters = { union = ["D", "F"] }
+package-name = "df"
+output-root = "a"
+
+[[packages]]
+filters = { intersect = [ { union = ["E", "F"] }, { not = "F" } ] }
+package-name = "e"
+output-root = "a"
+
 [sources.all]
 paths = ["test.h"]

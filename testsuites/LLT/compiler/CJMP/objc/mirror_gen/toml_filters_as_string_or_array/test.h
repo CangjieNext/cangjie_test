@@ -14,3 +14,12 @@
 
 @interface C
 @end
+
+@interface D
+@end
+
+@interface E
+@end
+
+@interface F
+@end
