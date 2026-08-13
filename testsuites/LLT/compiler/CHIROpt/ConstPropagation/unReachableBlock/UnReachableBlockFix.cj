@@ -4,9 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %enableConstPropagation %debugCHIROpt %f -o %n.%suffix
-// (DEBUG_OPTION)RUN-EXEC: %run %run_opt %output %run_args
+// Compile/run only: const-false branch leaves nested funcs in unreachable block.
+// EXEC: %compiler %cmp_opt %enableConstPropagation -Woff unused %f -o %output
+// RUN-EXEC: %run %output
 
 func foo() {
     var a = 1
