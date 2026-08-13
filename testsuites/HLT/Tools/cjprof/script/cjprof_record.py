@@ -60,10 +60,14 @@ def recording_attach(samplingfreq, inputfile, outputfile, run_env):
     print("\n -------- cjprof {0} real_pid: {1} -------- \n".format(inputfile, real_pid))
     print("\n -------- cjprof record {0} {1} {2}-------- \n".format('-f ' + str(samplingfreq), '-o ' + outputfile,
                                                                     '-p ' + real_pid))
+    pwd = os.environ['PASSWORD']
+    cangjie_home = os.environ['CANGJIE_HOME']                                                                
     cmd = "cjprof record {0} {1} {2}".format('-f ' + str(samplingfreq), '-o ' + outputfile, '-p ' + real_pid)
-    cmd_list = shlex.split(cmd)
+    cmd = f'echo {pwd} | sudo -S bash -c "source {cangjie_home}/envsetup.sh ; {cmd}"'
+    print(f'cmd = {cmd}')
     p_record = subprocess.Popen(
-        cmd_list,
+        cmd,
+        shell=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         preexec_fn=os.setsid)
@@ -112,3 +116,4 @@ if __name__ == "__main__":
         recording_launch(options.samplingfreq, options.inputfile, options.outputfile, run_env)
     else:
         recording_attach(options.samplingfreq, options.inputfile, options.outputfile, run_env)
+

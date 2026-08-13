@@ -70,3 +70,6 @@ Tools/cjcpl
 Benchmark
 # Concurrent debug may fail randomly
 Tools/cjdb/datacom/coroutineCJ/
+
+# unsuppoted
+Tools/cjprof
