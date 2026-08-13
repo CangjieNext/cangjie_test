@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: mypkg_v14.cj mypkg_v15.cj
+// EXEC: %cjc mypkg_v14.cj %staticlib
+// EXEC: %move myPkgA.cjo old.cjo
+// EXEC: %cjc mypkg_v15.cj %staticlib
+// EXEC: %move myPkgA.cjo new.cjo
+// EXEC-PIPE-0: %cjcompat %old old.cjo %new new.cjo | compare %f
+
+// ASSERT: scan Incompatible!
+// ASSERT: scan-1 [API/ABI] Unnamed parameter cannot be made named parameter.
+// ASSERT: scan-1 [ABI] The body of a const function or function marked with @Frozen changed.

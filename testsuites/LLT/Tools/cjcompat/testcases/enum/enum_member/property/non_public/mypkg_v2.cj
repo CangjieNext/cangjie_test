@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+package myPkgA
+
+// V3
+public enum A {
+    i1
+    prop p1: Int32 {
+        get() {
+            0
+        }
+    }
+    @Frozen
+    public func f3() { p1 }
+}
