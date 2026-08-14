@@ -14,7 +14,7 @@
 // Translator::TranslateVArrayAssign creates for a compound assignment carried
 // no source location.
 
-// LEVEL: 2
+// LEVEL: 0
 // (O2) ERRCHECK: %compiler %cmp_opt %f -o %output
 // (O2) ASSERT: scan-1 chir_idx_out_of_bounds
 // (O2) ASSERT: scan-1 range of index 0 is (-8), however the size of varray is 10

@@ -21,7 +21,7 @@
 // TranslateVArrayAssign: `|=` and `+=` take the plain compound-assign branch,
 // `&&=` takes AND_ASSIGN and `||=` takes OR_ASSIGN.
 
-// LEVEL: 2
+// LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 // ASSERT: scan-4 chir_idx_out_of_bounds
 // ASSERT: scan-4 array index 4 is past the end of array (which contains 3 elements)
