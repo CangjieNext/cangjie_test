@@ -15,13 +15,16 @@
 // needs no particular optimization level. range_test_19.cj / range_test_20.cj
 // cover the other reporting path, where -O2 constant propagation is what makes
 // the index known and RangePropagation is the pass that reports.
-// One diagnostic per assignment, covering all three branches of
+// One diagnostic per assignment -- the VARRAY_GET and the VARRAY_SET of a
+// compound assignment now share the same loc, so their two identical reports
+// are deduplicated into one. Covering all three branches of
 // TranslateVArrayAssign: `|=` and `+=` take the plain compound-assign branch,
 // `&&=` takes AND_ASSIGN and `||=` takes OR_ASSIGN.
 
 // LEVEL: 2
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 // ASSERT: scan-4 chir_idx_out_of_bounds
+// ASSERT: scan-4 array index 4 is past the end of array (which contains 3 elements)
 
 func bitOrAssign() {
     var b = 4
