@@ -1,6 +1,6 @@
 # Harness for Cangjie Language
 
-Harness automates testing process and allows run the cangjie tests and generate the reports. 
+Harness automates testing process and allows run the Cangjie tests and generate the reports. 
 
 Harness was developed for testing Cangjie language, but can be easily modified and used for other languages and goals.
 
@@ -49,7 +49,7 @@ harness/
 |   |-- plain_text_reporter.py    Generates plain text format test reports
 |   |-- report_template
 |   |   `-- report_template.html    HTML report template file
-|   `-- tree_view.pyl    Tree structure processing class and methods
+|   `-- tree_view.py    Tree structure processing class and methods
 |-- run_diff.py    Report comparison execution script
 |-- sample_tests    Sample tests
 |-- tdm    tdm module
@@ -155,7 +155,7 @@ Test Example：testsuite/src/tests/01_lexical_structure/01_identifiers_and_keywo
 
   @Level:         1
 
-  @Assertion:    1.1(2) There are two kinds of of identifiers: ordinary
+  @Assertion:    1.1(2) There are two kinds of identifiers: ordinary
                  identifiers and raw identifiers.
 
   @Description:  Check both kinds of identifier in the same function.
@@ -233,7 +233,7 @@ general arguments:
   --java JAVA           Path to Java VM
   --javac JAVAC         Path to Javac compiler
   --test-output TEST_OUTPUT
-                        Path for artifacts form tests execution
+                        Path for artifacts from tests execution
   --test-root TEST_ROOT
                         Path to root directory with tests
   --tests TESTS [TESTS ...]
@@ -368,10 +368,10 @@ usage: run_diff.py [-o REPORT_FILE] [-t {plain,html}] [--test TEST] [-ho] [-hds]
 Diff for Cangjie Harness reports
 
 general arguments:
-  first                 First json report file for comparing
-  second                Second json report file for comparing
+  first                 First Json report file for comparing
+  second                Second Json report file for comparing
   -o REPORT_FILE, --output-file REPORT_FILE
-                        Path to the file to save the comparsion result. If it was not set, then print to console
+                        Path to the file to save the comparison result. If it was not set, then print to console
   -t {plain,html}, --report-type {plain,html}
                         Test report type (default: plain) **html type is not supported yet**
   --test TEST           Show only test(s) details by name or path
@@ -387,7 +387,7 @@ format arguments:
 
 log diffs turning arguments:
   --include-same        Don't skip tests with same logs in log difference report
-  --compare-commands    Add compile and execute commands in the logs comparsion
+  --compare-commands    Add compile and execute commands in the logs comparison
   --unify-paths         Replace '\' to '/' in logs (useful to check results from different OSes)
 
 other arguments:
