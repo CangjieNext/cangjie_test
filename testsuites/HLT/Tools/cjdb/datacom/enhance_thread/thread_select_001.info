@@ -19,7 +19,7 @@ test#
 cjdb,cjdb --no-use-colors 001_thread_select,001_thread_select
 CJVM b,breakpoint set -n main,pkgs001.cj:37
 CJVM c,c,-> 37
-b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:37
+b,b pkgs001.cj:37,Breakpoint 1: where[\s\S]*pkgs001.cj:37
 AOT r,r,-> 37
 AOT threadlist,thread list,\* thread #1[\s\S]*pkgs001.cj:37
 CJVM threadlist,thread list,\* thread #1[\s\S]*thread #3
