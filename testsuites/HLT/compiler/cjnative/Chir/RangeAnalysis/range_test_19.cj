@@ -13,8 +13,9 @@
 // location, so the out-of-bounds report aborted on the zero DebugLocation.
 // Hiding the index behind a const function keeps it opaque until -O2 constant
 // propagation folds it, which puts the report in RangePropagation rather than
-// in ConstAnalysis -- a different reporting path from range_test_21.cj, hence
-// the (O2) guard. `|=` takes the plain compound-assign branch.
+// in ConstAnalysis -- a different reporting path from
+// LLT/compiler/CHIR/ConstantSafetyCheck/VArrayIndexOutOfBounds/varrayAsg02.cj,
+// hence the (O2) guard. `|=` takes the plain compound-assign branch.
 // The index also has to stay opaque to Sema: a literal index is rejected
 // earlier with sema_builtin_index_in_bound and never reaches CHIR.
 
