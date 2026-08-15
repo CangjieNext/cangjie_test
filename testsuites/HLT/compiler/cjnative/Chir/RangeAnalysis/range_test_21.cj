@@ -22,7 +22,7 @@
 // `&&=` takes AND_ASSIGN and `||=` takes OR_ASSIGN.
 
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 1>/dev/null | compare %f
 // ASSERT: scan-4 chir_idx_out_of_bounds
 // ASSERT: scan-4 array index 4 is past the end of array (which contains 3 elements)
 
