@@ -228,7 +228,7 @@ def parse_cli():
 
     parser.add_argument(
         "execute_cmd",
-        nargs=argparse.ONE_OR_MORE,
+        nargs=argparse.ZERO_OR_MORE,
         metavar="command",
         help="execute command"
     )
@@ -239,6 +239,15 @@ def parse_cli():
         action="store_true",
         dest="verbose",
         help="enable verbose output",
+    )
+    connection_options.add_argument(
+        "--cleanup",
+        action="store_true",
+        dest="cleanup",
+        help="remove this case's directory on the remote device and exit; "
+             "invoked by the framework once a case finishes successfully so "
+             "that small-capacity devices (e.g. Android) are not filled by "
+             "leftover run directories",
     )
 
     opts = parser.parse_args()
@@ -311,8 +320,6 @@ def main():
     global tool
     opts = parse_cli()
     timeout = opts.timeout
-    execute_cmd = " ".join(opts.execute_cmd)
-    execute_cmd = convert_windows_path_separators(execute_cmd)
     tool = opts.tool
     if opts.device is not None:
         if tool == "hdc":
@@ -325,6 +332,26 @@ def main():
         level=logging.DEBUG if opts.verbose else logging.INFO,
         stream=sys.stderr,
     )
+
+    # Framework-invoked teardown: a case finished successfully and the host
+    # work directory (whose basename is the remote run directory name) is
+    # about to be removed. Remove the matching directory on the device so
+    # small-capacity devices are not filled by leftover run directories.
+    # This mirrors the remove stage built by construct_remote_cmd but runs
+    # on its own, with no case command to execute.
+    if opts.cleanup:
+        remote_path = os.path.basename(os.getcwd())
+        remove_cmd = construct_tool_shell_cmd("rm -rf /data/local/tmp/run/" + remote_path)
+        try:
+            run_cmd("remove_file_on_remote", remove_cmd, ".", timeout)
+        except RunError:
+            # Cleanup is best-effort: a missing or already-removed directory
+            # must not surface as a failure of the (already-passing) case.
+            pass
+        sys.exit(EXIT_CODE)
+
+    execute_cmd = " ".join(opts.execute_cmd)
+    execute_cmd = convert_windows_path_separators(execute_cmd)
 
     execute_stages = OrderedDict()
     for stage in STAGES:

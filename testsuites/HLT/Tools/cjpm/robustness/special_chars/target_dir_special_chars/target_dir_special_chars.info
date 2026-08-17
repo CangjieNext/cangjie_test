@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (not Windows)ERRCHECK: cd %n && %cjpm build %cjpm_opt
-// (not Windows)ASSERT: scan Error:
+// (not Windows)EXEC: cd %n && %cjpm build %cjpm_opt
+// (not Windows)ASSERT: scan cjpm build success:
 // (Windows)ERRCHECK: cd %n && %cjpm build %cjpm_opt
 // (Windows)ASSERT: scan Error:
