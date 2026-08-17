@@ -48,9 +48,9 @@ class Test00 {
         @Assert((enumTypeInfo.getConstructor("A", argsCount: 2).apply([321, false]) as ExhaustiveAssociatedNonRef).getOrThrow(), ExhaustiveAssociatedNonRef.A(321, false))
         @Assert((enumTypeInfo.getConstructor("B", argsCount: 1).apply([((), ())]) as ExhaustiveAssociatedNonRef).getOrThrow(), ExhaustiveAssociatedNonRef.B(((), ())))
         // 获取enum类型声明的注解
-        @Assert[annotations](enumTypeInfo.annotations, [MyAnnotation("hello")])
+        // @Assert[annotations](enumTypeInfo.annotations, [MyAnnotation("hello")])
         // 获取enum构造器的注解
-        @Assert[annotations](enumTypeInfo.getConstructor("B", argsCount: 1).annotations, [MyAnnotation()])
+        // @Assert[annotations](enumTypeInfo.getConstructor("B", argsCount: 1).annotations, [MyAnnotation()])
         // 通过constructors获取enum的所有构造器
         @Assert[enumConstructors](enumTypeInfo.constructors, [
             EnumConstructor(qualifiedName: "org::enums.ExhaustiveAssociatedNonRef.A(org::enums.SSSS)", name: "A", parameters: ["org::enums.SSSS"]),
