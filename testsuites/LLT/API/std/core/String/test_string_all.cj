@@ -788,6 +788,17 @@ class StringTest {
     }
 
     @TestCase
+    func testLines01() {
+        var str = "I\rlike\nCangjie\r"
+        var iter = str.lines()
+        
+        @Expect(iter.next(), Some("I"))
+        @Expect(iter.next(), Some("like"))
+        @Expect(iter.next(), Some("Cangjie"))
+        @Expect(iter.next(), None)
+    }
+
+    @TestCase
     func test_trimStart_byString(): Unit {
         var str = "12121131"
         var res = str.trimStart("12")
