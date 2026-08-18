@@ -6,15 +6,20 @@
 
 // DT whitebox#19 / feature-C FindGenericInstantiatedFunc fallback (returns fd itself when
 // no candidate implementation exists).
-// FindImplFuncForAbstractFunc falls back to &fd (L774) when no isInDiffDecl implementation is
-// hit among candidate funcs, i.e. the call goes to the interface default implementation.
-// This case: the class implements the interface but does NOT override foo, asserting the
-// interface default implementation is used instead of crashing.
-// This also covers the GetInstantiatedTarget empty-fallback semantics (after the issue #843
-// fix, the default implementation is correctly preserved).
-// Note: structurally this mirrors skip_branch2_interface_nonstatic.cj, but they exercise
-// different internals -- this one targets the FindImplFuncForAbstractFunc no-match fallback
-// to &fd (whitebox#19), while skip_branch2 targets the skip-policy branch2. Keep both.
+// FindImplFuncForAbstractFunc (GenericInstantiationManagerImpl.cpp:750) calls
+// ShouldSkipAbstractFuncResolution first; when none of its three skip-branches fire it enters
+// OverrideFunctionResolver to look for a real implementation. If no candidate satisfies
+// isInDiffDecl, the loop falls through and the function returns &fd (the interface default).
+//
+// This case drives exactly that no-skip + no-candidate path: the call target `foo` is an
+// interface instance method (virtual, so branch1's !IsVirtualMember is false; outerDecl=I1 is
+// non-null so !fd.outerDecl is false), the receiver is class C (ty.IsInterface() false ->
+// branch2 false), and C != I1 (branch3 DIFF -> false). All skip-branches false -> enter the
+// resolver. C does not override foo, so the only candidate is I1's own foo and isInDiffDecl is
+// false -> loop is empty -> return &fd -> the interface default runs. Verified via instrumented
+// cjc: this file reaches the resolver and returns &fd; it does NOT hit branch2 (unlike
+// skip_branch2_interface_nonstatic.cj, which now binds the receiver to the interface type and
+// hits branch2). The two files are genuinely distinct paths.
 // EXEC: %compiler %cmp_opt %enableO2 %f -o %output
 // EXEC: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan iface default

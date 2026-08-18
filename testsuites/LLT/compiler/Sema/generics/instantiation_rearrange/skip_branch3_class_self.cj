@@ -4,32 +4,51 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DT point#2 skip-policy branch3: class itself.
-// ShouldSkipAbstractFuncResolution returns true when ty.IsClass() and the type where
-// fd.outerDecl lives == ty. i.e. the class of the virtual function's call target is exactly
-// the class where fd is defined, so no upward rearrange is needed. This case calls C's own
-// virtual method from inside C, asserting C's own implementation (not the parent default).
+// DT point#2 skip-policy branch3: class itself (receiver type == the class defining the func).
+// ShouldSkipAbstractFuncResolution returns true at the last branch when
+// ty.IsClass() && Ty::GetDeclPtrOfTy(fd.outerDecl->GetTy()) == Ty::GetDeclPtrOfTy(&ty), i.e. the
+// receiver type (ty, = ma.baseExpr->GetTy()) is a class AND equals the class where fd is
+// defined, so no upward rearrange is needed.
+//
+// Important: ShouldSkipAbstractFuncResolution is only called from FindImplFuncForAbstractFunc,
+// which is reached only via the generic-instantiation rearrange path. A purely non-generic
+// program (the previous version of this file) never enters that path, so the function was
+// never called for this case (verified: called 0 times). This version routes the call through a
+// generic dispatch<T> where T <: B and instantiates with B() itself, so the receiver type is
+// exactly B -- the open class that defines the virtual `own`. ty.IsClass() is true and
+// fd.outerDecl (B) == ty (B) -> branch3 returns true (skip). Verified via instrumented cjc:
+// [BR3_SAME] is emitted during compilation here.
+//
+// Note: the class defining the virtual function MUST be open/abstract so IsVirtualMember(rule 4)
+// returns true -- otherwise branch1 (!IsVirtualMember) fires first and branch3 is unreachable.
+// That is why `B` is `open` here. The previous version used a non-open C, which made C.own
+// non-virtual and, combined with the lack of generics, never reached this code at all.
 // EXEC: %compiler %cmp_opt %enableO2 %f -o %output
 // EXEC: %run %run_opt %output 2>&1 | compare %f
-// ASSERT: scan own in C
-// ASSERT: scan-not base in B
+// ASSERT: scan base in B
+// ASSERT: scan-not own in C
 
 open class B {
-    public open func own() {
+    public open func own(): Int64 {
         println("base in B")
+        0
     }
 }
 
 class C <: B {
-    // Override the parent virtual method: the call-target class (C) == the class where
-    // `own` is defined (C), so the rearranger must skip and dispatch to C's own version.
-    public override func own() {
+    public override func own(): Int64 {
         println("own in C")
+        1
     }
 }
 
+// Generic dispatch constrained to B. Instantiated with B() (not a subclass), so the receiver's
+// static type is exactly B -- the class that defines `own` -- making branch3 (same-class) true.
+func dispatch<T>(x: T) where T <: B {
+    x.own()
+}
+
 main() {
-    let c = C()
-    c.own()
+    dispatch(B())   // receiver type == B (defining class) -> branch3 skip
     0
 }

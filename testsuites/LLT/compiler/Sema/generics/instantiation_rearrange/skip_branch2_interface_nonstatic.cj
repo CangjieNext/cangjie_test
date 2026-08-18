@@ -5,16 +5,18 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DT point#2 skip-policy branch2: interface non-static function.
-// ShouldSkipAbstractFuncResolution returns true when ty.IsInterface() and fd is not STATIC.
-// i.e. when the call target is a non-static (instance) function of the interface itself,
-// the call target does not need to be rearranged to an implementation version -- interface
-// dispatch is handled by vtable, the rearranger skips. This case calls an interface instance
-// method and asserts the interface default implementation is used.
-// Note: structurally this is the same dispatch shape as findfunc_fallback.cj (empty subclass
-// inherits an interface default and routes a generic call through it). They are kept
-// separate because this one targets the skip-policy branch2 (ty.IsInterface() &&
-// !STATIC), while findfunc_fallback.cj targets the FindImplFuncForAbstractFunc no-match
-// fallback to &fd (whitebox#19).
+// ShouldSkipAbstractFuncResolution(Ty& ty, const FuncDecl& fd) returns true when
+// ty.IsInterface() && !fd.TestAttr(STATIC). Here `ty` is the RECEIVER type (the type of the
+// base expression at the call site, passed in as ma.baseExpr->GetTy() at
+// GenericInstantiationManagerImpl.cpp:889/894), NOT the type of fd.outerDecl.
+//
+// To make ty.IsInterface() true, the receiver's static type must be an interface. A generic
+// dispatch func<T> where T <: I1 instantiated with a concrete class C leaves the receiver type
+// as class C (ty.IsInterface() == false -> branch2 NOT hit). So this case binds the receiver
+// to the interface type directly: `let i: I1<Int64> = C(); i.foo(1)`, making ty == I1<Int64>
+// (an interface) and foo a non-static instance member of I1 -> branch2 returns true (skip).
+// Verified via instrumented cjc: branch2 (L727 return true) is hit exactly once here, whereas
+// the class-receiver form hits zero.
 // EXEC: %compiler %cmp_opt %enableO2 %f -o %output
 // EXEC: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan iface default
@@ -27,11 +29,15 @@ interface I1<T> {
 
 class C <: I1<Int64> {}
 
+// Generic dispatch constrained to the interface; calling via the interface-typed binding below
+// keeps the receiver's static type as I1<Int64> (an interface), so the rearranger skips.
 func callViaInterface<T, U>(x: T, a: U) where T <: I1<U> {
     x.foo(a)
 }
 
 main() {
-    callViaInterface(C(), 1)
+    // Bind to the interface type so the receiver's static type is I1<Int64> (not class C).
+    let i: I1<Int64> = C()
+    i.foo(1)
     0
 }
