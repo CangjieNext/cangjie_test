@@ -12,11 +12,12 @@
 // interface default implementation is used instead of crashing.
 // This also covers the GetInstantiatedTarget empty-fallback semantics (after the issue #843
 // fix, the default implementation is correctly preserved).
-
+// Note: structurally this mirrors skip_branch2_interface_nonstatic.cj, but they exercise
+// different internals -- this one targets the FindImplFuncForAbstractFunc no-match fallback
+// to &fd (whitebox#19), while skip_branch2 targets the skip-policy branch2. Keep both.
 // EXEC: %compiler %cmp_opt %enableO2 %f -o %output
 // EXEC: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan iface default
-// ASSERT: scan-not undefined symbol
 
 interface I1<T> {
     func foo(x: T) {

@@ -6,7 +6,7 @@
 
 // DEPENDENCE: ./pkglib/pkglib.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkglib.cj -o pkglib.%middle %enableO2
-// EXEC: %compiler %cmp_opt %enableO2 %f pkglib.%middle --import-path pkglib -o %output
+// EXEC: %compiler %cmp_opt %enableO2 %f pkglib.%middle -o %output
 // EXEC: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan 1
 // ASSERT: scan hello

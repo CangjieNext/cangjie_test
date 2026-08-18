@@ -16,7 +16,7 @@
 // EXEC: %compiler %cmp_opt %enableO2 %f -o %output
 // EXEC: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan inst in I2
-// ASSERT: scan-not undefined symbol
+// ASSERT: scan-not inst in I1
 
 class A0 {}
 class B0 {}

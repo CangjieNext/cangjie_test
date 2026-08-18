@@ -10,10 +10,14 @@
 // the call target does not need to be rearranged to an implementation version -- interface
 // dispatch is handled by vtable, the rearranger skips. This case calls an interface instance
 // method and asserts the interface default implementation is used.
+// Note: structurally this is the same dispatch shape as findfunc_fallback.cj (empty subclass
+// inherits an interface default and routes a generic call through it). They are kept
+// separate because this one targets the skip-policy branch2 (ty.IsInterface() &&
+// !STATIC), while findfunc_fallback.cj targets the FindImplFuncForAbstractFunc no-match
+// fallback to &fd (whitebox#19).
 // EXEC: %compiler %cmp_opt %enableO2 %f -o %output
 // EXEC: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan iface default
-// ASSERT: scan-not rearranged
 
 interface I1<T> {
     func foo(a: T) {

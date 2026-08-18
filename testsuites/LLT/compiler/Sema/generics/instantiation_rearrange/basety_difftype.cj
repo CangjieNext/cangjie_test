@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DT point#2 skip-policy branch4: base type differs from the implementing class, so it
+// DT point#2 skip-policy branch4: base type DIFFERS from the implementing class, so it
 // enters the real rearrange (L729-730 returns false).
 // When ty.IsClass() but the type where fd.outerDecl lives != ty, ShouldSkipAbstractFuncResolution
 // returns false -- it does NOT skip, and enters OverrideFunctionResolver to actually query the
@@ -15,10 +15,6 @@
 // EXEC: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan rearranged to sub
 // ASSERT: scan-not base type
-
-interface I1 {
-    func who(): Int64
-}
 
 open class Base {
     public open func who(): Int64 {

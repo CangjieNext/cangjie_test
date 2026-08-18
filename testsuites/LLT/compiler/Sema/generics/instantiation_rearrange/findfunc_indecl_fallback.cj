@@ -14,7 +14,7 @@
 // EXEC: %compiler %cmp_opt %enableO2 %f -o %output
 // EXEC: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan fallback impl
-// ASSERT: scan-not wrong target
+// ASSERT: scan-not iface default
 
 interface I1<T> {
     func foo(x: T) {

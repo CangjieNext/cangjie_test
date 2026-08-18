@@ -13,7 +13,7 @@
 // overrides it, asserting only the subclass implementation is called once (single "child impl").
 // EXEC: %compiler %cmp_opt %enableO2 %f -o %output
 // EXEC: %run %run_opt %output 2>&1 | compare %f
-// ASSERT: scan child impl
+// ASSERT: scan-1 child impl
 // ASSERT: scan-not parentA default
 // ASSERT: scan-not parentB default
 
