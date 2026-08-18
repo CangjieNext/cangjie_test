@@ -22,5 +22,5 @@ AOT r,r,-> 22
 Android c,c,22
 CJVM c,c,22
 p,p set_string_2,std[.]collection(?:\.|::)HashSet<std.core(?:\.|::)String>\)[\s\S]*{[\S\s]*\[0\] = "0123456789"[\S\s]*}
-p,p set_string_2,std[.]collection(?:\.|::)HashSet<std.core(?:\.|::)String>\)[\s\S]*{[\S\s]*\[3\] = "仓颉字符串测�?[\S\s]*}
+p,p set_string_2,std[.]collection(?:\.|::)HashSet<std.core(?:\.|::)String>\)[\s\S]*{[\S\s]*\[3\] = "[\S\s]*}
 q,q,

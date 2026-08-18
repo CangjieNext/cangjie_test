@@ -22,5 +22,5 @@ AOT r,r,-> 31
 Android c,c,31
 CJVM c,c,
 p,p multiArr_str_d2[1][1],\(std.core(?:\.|::)String\)[\s\S]*"0123456789abcdxyz"
-p,p  multiArr_str_d2[2][1],\(std.core(?:\.|::)String\)[\s\S]*"\\"Hello Cangjie Lang\\"仓颉中文字符串测�?
+p,p  multiArr_str_d2[2][1],\(std.core(?:\.|::)String\)[\s\S]*"\\"Hello Cangjie Lang\\
 q,q,

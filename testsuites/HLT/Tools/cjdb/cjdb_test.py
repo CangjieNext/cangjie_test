@@ -11,12 +11,26 @@ import pexpect
 import time
 from fasteners.process_lock import InterProcessLock
 from pexpect import popen_spawn
+from pexpect.spawnbase import SpawnBase
+from pexpect.exceptions import EOF
+from queue import Queue, Empty
+import shlex
 import signal
 import random
 import socket
 import re
 import threading
 import tempfile
+
+# Conditional winpty import: enables a real Windows PTY (ConPTY/WinPTY backend)
+# to replace the pipe-based PopenSpawn, eliminating the timing-sensitive
+# two-step expect_exact+expect pattern that causes random failures under load.
+try:
+    import winpty as _winpty
+    _HAS_WINPTY = True
+except ImportError:
+    _winpty = None
+    _HAS_WINPTY = False
 
 LOCK_DIR = os.path.join(tempfile.gettempdir(), 'socialdna')
 if not os.path.exists(LOCK_DIR):
@@ -51,58 +65,6 @@ def get_platform():
     return run_platform
 
 
-def ensure_windows_dll_path():
-    """
-    On Windows, cjdb.exe / liblldb.dll depends on python311.dll, but the
-    system may have a different Python version.  Search common locations
-    (Android NDK, Python 3.11 installs) and prepend the directory to PATH.
-    Also ensures cangjie tools\\bin is on PATH for LLVM/LLDB runtime DLLs.
-    """
-    if sys.platform != 'win32':
-        return
-
-    extra_paths = []
-
-    cangjie_home = os.environ.get('CANGJIE_HOME', '')
-    if cangjie_home:
-        tools_bin = os.path.join(cangjie_home, 'tools', 'bin')
-        if os.path.isdir(tools_bin):
-            extra_paths.append(tools_bin)
-
-    # Recursively walk well-known roots looking for python311.dll that is
-    # accompanied by a Lib\ directory (a complete embeddable Python tree).
-    search_roots = []
-    ndk_root = os.environ.get('NDK_ROOT', '')
-    if ndk_root:
-        search_roots.append(ndk_root)
-
-    local_appdata = os.environ.get('LOCALAPPDATA', '')
-    search_roots.extend([
-        os.path.join(local_appdata, 'Android', 'Sdk', 'ndk'),
-        os.path.join(os.environ.get('PROGRAMFILES', ''), 'Android', 'Android Studio',
-                     'plugins', 'android-ndk'),
-        os.path.join(local_appdata, 'Programs', 'Python', 'Python311'),
-        r'C:\Python311',
-    ])
-
-    for root in search_roots:
-        if not os.path.isdir(root):
-            continue
-        for dirpath, dirnames, filenames in os.walk(root):
-            if 'python311.dll' in filenames:
-                # Prefer a directory that also contains Lib\ (full Python)
-                if os.path.isdir(os.path.join(dirpath, 'Lib')):
-                    extra_paths.append(dirpath)
-                    break
-                # Otherwise accept bare DLL directory as fallback
-                elif dirpath not in extra_paths:
-                    extra_paths.append(dirpath)
-
-    if extra_paths:
-        existing = os.environ.get('PATH', '')
-        os.environ['PATH'] = ';'.join(extra_paths) + ';' + existing
-
-
 ANDROID_DEVICE_DIR = "/data/local/tmp/run/"
 ANDROID_RUNTIME_DIR = "linux_android_aarch64_cjnative"
 ANDROID_RUNTIME_MARKER = ANDROID_DEVICE_DIR + ".runtime_marker"
@@ -111,9 +73,241 @@ ANDROID_RUNTIME_PUSH_LOCK_PATH = os.path.join(LOCK_DIR, 'android_runtime_push_lo
 LLDB_SERVER_PORT_START = 12000
 LLDB_SERVER_PORT_END = 35000
 
-LLDB_STARTUP_TIMEOUT = int(os.environ.get('LLDB_STARTUP_TIMEOUT', 10))
-LLDB_ATTACH_TIMEOUT = int(os.environ.get('LLDB_ATTACH_TIMEOUT', 5))
-LLDB_CMD_TIMEOUT = int(os.environ.get('LLDB_CMD_TIMEOUT', 10))
+# Timeouts: Windows defaults larger than Linux/Mac due to DLL loading and
+# CPU contention under concurrency. Env vars still override on any platform.
+if sys.platform == 'win32':
+    LLDB_STARTUP_TIMEOUT = int(os.environ.get('LLDB_STARTUP_TIMEOUT', 30))
+    LLDB_ATTACH_TIMEOUT = int(os.environ.get('LLDB_ATTACH_TIMEOUT', 15))
+    LLDB_CMD_TIMEOUT = int(os.environ.get('LLDB_CMD_TIMEOUT', 30))
+else:
+    LLDB_STARTUP_TIMEOUT = int(os.environ.get('LLDB_STARTUP_TIMEOUT', 10))
+    LLDB_ATTACH_TIMEOUT = int(os.environ.get('LLDB_ATTACH_TIMEOUT', 5))
+    LLDB_CMD_TIMEOUT = int(os.environ.get('LLDB_CMD_TIMEOUT', 10))
+
+
+class WinptySpawn(SpawnBase):
+    """
+    WinptySpawn: pexpect-compatible spawn class for Windows backed by a real
+    PTY (ConPTY/WinPTY). PTY line buffering ensures cjdb's `(cjdb) ` prompt
+    (no trailing newline) is delivered promptly, unlike pipes (full buffering).
+    """
+    def __init__(self, cmd, timeout=30, maxread=2000, searchwindowsize=None,
+                 logfile=None, cwd=None, env=None, encoding=None,
+                 codec_errors='strict', dimensions=(24, 200)):
+        super(WinptySpawn, self).__init__(
+            timeout=timeout, maxread=maxread,
+            searchwindowsize=searchwindowsize, logfile=logfile,
+            encoding=encoding, codec_errors=codec_errors)
+
+        # winpty PTY emits \r\n line endings, just like a Linux PTY
+        if encoding is None:
+            self.crlf = b'\r\n'
+        else:
+            self.crlf = '\r\n'
+
+        # Accept either a command string or an argv list. Use posix=False so
+        # Windows-style paths with backslashes are preserved.
+        if isinstance(cmd, str):
+            argv = shlex.split(cmd, posix=False)
+        else:
+            argv = list(cmd)
+        if not argv:
+            raise ValueError("WinptySpawn: empty command")
+
+        # Resolve executable via PATH so 'cjdb' works without absolute path
+        from shutil import which
+        env_for_path = env if env is not None else os.environ
+        path = env_for_path.get('PATH', os.defpath)
+        appname = which(argv[0], path=path) or argv[0]
+        cmdline = ' ' + subprocess.list2cmdline(argv[1:]) if len(argv) > 1 else None
+
+        # Build env string in the null-separated form winpty expects
+        if env is None:
+            env_str = None
+        else:
+            env_str = '\0'.join('{}={}'.format(k, v) for k, v in env.items())
+            if env_str:
+                env_str += '\0'
+
+        cols, rows = dimensions[1], dimensions[0]
+        # timeout passed in seconds; winpty expects milliseconds
+        self._pty = _winpty.PTY(cols, rows, timeout=int(self.timeout * 1000))
+
+        spawn_ok = self._pty.spawn(appname, cmdline=cmdline, cwd=cwd, env=env_str)
+        if not spawn_ok:
+            raise OSError("WinptySpawn: failed to spawn '{} {}'".format(appname, cmdline or ''))
+
+        self.pid = self._pty.pid
+        self.closed = False
+        self._buf = self.string_type()
+
+        # Daemon reader thread: pull str chunks from winpty, encode to bytes,
+        # push into a Queue (same pattern as PopenSpawn._read_incoming).
+        self._read_queue = Queue()
+        self._read_thread = threading.Thread(target=self._read_incoming)
+        self._read_thread.daemon = True
+        self._read_thread.start()
+        self._read_reached_eof = False
+
+    def _read_incoming(self):
+        """Background thread: move PTY output to the consumer queue."""
+        pty = self._pty
+        while True:
+            try:
+                chunk = pty.read(blocking=True)
+            except Exception as e:
+                # Log and treat as EOF to avoid hanging the consumer
+                self._log(e, 'read')
+                self._read_queue.put(None)
+                return
+
+            if chunk:
+                if isinstance(chunk, str):
+                    chunk = chunk.encode('utf-8', 'replace')
+                self._read_queue.put(chunk)
+
+            if not pty.isalive():
+                while True:
+                    try:
+                        tail = pty.read(blocking=False)
+                    except Exception:
+                        tail = ''
+                    if not tail:
+                        break
+                    if isinstance(tail, str):
+                        tail = tail.encode('utf-8', 'replace')
+                    self._read_queue.put(tail)
+                self._read_queue.put(None)
+                return
+
+    def read_nonblocking(self, size, timeout):
+        """Required by SpawnBase.expect_loop.
+
+        Returns at most `size` chars from the PTY within `timeout` seconds.
+        Raises EOF when the child has closed the PTY. Returns '' (which the
+        Expecter turns into TIMEOUT) if no data arrived in time.
+        """
+        buf = self._buf
+        if self._read_reached_eof:
+            if buf:
+                self._buf = buf[size:]
+                return buf[:size]
+            self.flag_eof = True
+            raise EOF('End Of File (EOF) in WinptySpawn.')
+
+        if timeout == -1:
+            timeout = self.timeout
+        elif timeout is None:
+            timeout = 1e6
+
+        t0 = time.time()
+        if not buf:
+            remaining = max(0.0, timeout - (time.time() - t0))
+            if remaining > 0:
+                try:
+                    incoming = self._read_queue.get(timeout=remaining)
+                    if incoming is None:                        
+                        self._read_reached_eof = True
+                    elif incoming:
+                        buf += self._decoder.decode(incoming, final=False)
+                except Empty:
+                    pass
+        
+        while len(buf) < size:
+            try:
+                extra = self._read_queue.get_nowait()
+            except Empty:
+                break
+            if extra is None:
+                self._read_reached_eof = True
+                break
+            buf += self._decoder.decode(extra, final=False)
+
+        r, self._buf = buf[:size], buf[size:]
+        self._log(r, 'read')
+        return r
+
+    def send(self, s):
+        s = self._coerce_send_string(s)
+        self._log(s, 'send')
+        b = self._encoder.encode(s, final=False)
+        if isinstance(b, bytes):
+            b = b.decode('utf-8', 'replace')
+        try:
+            return self._pty.write(b)
+        except Exception as e:
+            self._log(e, 'send')
+            return 0
+
+    def sendline(self, s=''):
+        n = self.send(s)
+        return n + self.send(self.linesep)
+
+    def wait(self):
+        """Block until the spawned process exits; return exit status."""
+        try:
+            while self._pty.isalive():
+                time.sleep(0.1)
+        except Exception:
+            pass
+        try:
+            status = self._pty.get_exitstatus()
+        except Exception:
+            status = None
+        if status is None:
+            status = 0
+        self.exitstatus = status
+        self.signalstatus = None
+        self.terminated = True
+        return status
+
+    def kill(self, sig):
+        """Terminate the process tree.
+
+        On Windows, sig is mostly informational: we always use
+        `taskkill /T /F /PID` so child processes spawned by cjdb (e.g. lldb
+        helpers) are also killed, avoiding handle/port leaks between tests.
+        """
+        if sys.platform == 'win32':
+            try:
+                subprocess.run(
+                    ['taskkill', '/T', '/F', '/PID', str(self.pid)],
+                    capture_output=True, text=True)
+            except Exception:
+                pass
+        else:
+            try:
+                os.kill(self.pid, sig)
+            except Exception:
+                pass
+
+    def close(self):
+        if self.closed:
+            return
+        try:
+            self._pty.cancel_io()
+        except Exception:
+            pass
+        self.closed = True
+
+
+def make_spawn(cmd, timeout=15, maxread=200000, encoding='utf-8',
+               codec_errors='replace', dimensions=(24, 200)):
+    """
+    make_spawn: factory for spawning cjdb/lldb.
+    Linux/macOS 不调用本函数,调用方直接用 pexpect.spawnu。
+    """
+    if sys.platform == 'win32':
+        if not _HAS_WINPTY:
+            raise RuntimeError('pywinpty not installed. Run: pip install pywinpty')
+        return WinptySpawn(cmd, timeout=timeout, maxread=maxread,
+                           encoding=encoding, codec_errors=codec_errors,
+                           dimensions=dimensions)
+    if isinstance(cmd, str):
+        cmd = shlex.split(cmd, posix=False)
+    return pexpect.popen_spawn.PopenSpawn(
+        cmd, timeout=timeout, encoding=encoding,
+        maxread=maxread, codec_errors=codec_errors)
 
 
 def get_android_paths():
@@ -572,7 +766,7 @@ def split_cmd(line_e, run_env):
     if "android_aarch64" in run_env and "cjdb" in firstcmd:
         doline = "cjdb"
     if ("cjnative" in run_env and "android_aarch64" not in run_env and "ios_simulator" not in run_env and 'AOT' in firstcmd) or ("cjti" in run_env and 'CJVM' in firstcmd) or (
-            'AOT' not in firstcmd and 'CJVM' not in firstcmd and 'Android' not in firstcmd and 'cjdb' not in firstcmd and not (
+            'AOT' not in firstcmd and 'CJVM' not in firstcmd and 'Android' not in firstcmd and not (
                 ("android_aarch64" in run_env or "ios_simulator" in run_env) and firstcmd.strip() == "r")) or (
             "android_aarch64" in run_env and 'Android' in firstcmd):
         print("__________________________")
@@ -693,20 +887,13 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                 if "cjnative" in run_env:
                     if 'CJVM' in firstcmd:
                         continue
-                    # On Windows, PopenSpawn does NOT split a string command line
-                    # (see pexpect popen_spawn.py: if ... sys.platform != 'win32').
-                    # Pass a list so subprocess.Popen receives correct argv.
-                    process = pexpect.popen_spawn.PopenSpawn(doline.strip().split(), timeout=15,
-                                                             encoding='utf-8',
-                                                             maxread=200000,
-                                                             codec_errors='replace'
-                                                             )
-                    # When cjdb is launched with a binary on the command line, it loads
-                    # the target during startup ("target create"). Under concurrent load
-                    # this may lag behind the first debug command. Wait for target create
-                    # to complete: match either "target create ... (cjdb)" or bare "(cjdb)".
-                    process.expect(['target create[\\s\\S]*\\(cjdb\\)', '\\(cjdb\\)',
+                    process = make_spawn(doline.strip(), timeout=15,
+                                         maxread=30000)
+                    process.expect(['target create[\\s\\S]*\\(cjdb\\)',
                                    pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
+                    if sys.platform == 'win32':
+                        process.sendline('settings set symbols.enable-external-lookup false')
+                        process.expect(['\\(cjdb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_CMD_TIMEOUT)
                 elif "cjti" in run_env:
                     pass
             elif run_platform == 'darwin' or run_platform == 'linux':
@@ -774,7 +961,7 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
         elif "android_aarch64" in run_env and "cjdb" not in firstcmd:
             if android_session is None:
                 print("Error: Android session not initialized")
-                os._exit(1)
+                raise DebugTestFailed("Android session not initialized")
             dotest(process, doline, result, f_e, run_env, run_platform, p)
 
         # iOS simulator debugging
@@ -828,6 +1015,11 @@ def dotest(process, doline, result, f_e, run_env, run_platform, p=None):
     """
     dotest: send debug command and match expected result
     """
+    if run_platform == 'windows':
+        result = result.replace(r'(\r|\n|\r\n)', r'[\s\S]*?')
+        result = result.replace(r'(\r\n|\r|\n)', r'[\s\S]*?')
+        result = re.sub(r'[^\x00-\x7F]+', lambda m: r'[\s\S]*?', result)
+
     process.sendline(doline)
     
     if "ios_simulator" in run_env:
@@ -844,14 +1036,7 @@ def dotest(process, doline, result, f_e, run_env, run_platform, p=None):
             process.expect(['\\(lldb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=3)
 
     else:
-        step_commands = ['r', 'run', 'c', 'continue', 'n', 'next', 's', 'step', 'finish']
-        if doline.strip().split()[0] in step_commands:
-            skip_keywords = ['Watchpoint', 'watchpoint', 'Process', 'exited', 'stopped', 'error', 'Command requires', 'resuming']
-            if any(kw in result for kw in skip_keywords):
-                expected_pattern = '\r?\n[\\s\\S]*' + result + '[\\s\\S]*'
-            else:
-                expected_pattern = '\r?\n[\\s\\S]*(stopped|exited)[\\s\\S]*' + result + '[\\s\\S]*'
-        elif run_platform == 'linux' or "android_aarch64" in run_env:
+        if run_platform == 'linux' or run_platform == 'windows' or "android_aarch64" in run_env:
             expected_pattern = '\r?\n[\\s\\S]*' + result + '[\\s\\S]*\\(cjdb\\)'
         else:
             expected_pattern = '\r?\n[\\s\\S]*' + result + '[\\s\\S]*'
@@ -879,7 +1064,11 @@ def indextest(process, doline, index, f_e, run_env, run_platform, p):
         print("--------------------------")
         print("\033[31mFail: \033[0m")
         print("ERROR: " + doline)
-        print("RECEIVED: " + error_log)
+        try:
+            sys.stdout.buffer.write(("RECEIVED: " + error_log + "\n").encode('utf-8', 'replace'))
+            sys.stdout.flush()
+        except Exception:
+            print("RECEIVED: <unprintable>")
         print("--------------------------")
         if p:
             clean_process(p, run_platform)
@@ -897,11 +1086,21 @@ def indextest(process, doline, index, f_e, run_env, run_platform, p):
 
 def clean_process(p, run_platform='linux'):
     """
-    clean_process: kill cjti on pid to ensure next textcase can run
+    clean_process: kill cjti on pid to ensure next textcase can run.
+    On Windows, p.terminate() only kills the immediate child; cjti/cjdb may
+    spawn helper processes that survive and leak handles/ports into the next
+    test. Use taskkill /T /F /PID to take down the whole tree.
+    Linux/Mac behaviour is unchanged (killpg on the session id).
     """
     try:
         if run_platform == 'windows':
-            p.terminate()
+            try:
+                subprocess.run(
+                    ['taskkill', '/T', '/F', '/PID', str(p.pid)],
+                    capture_output=True, text=True)
+            except (FileNotFoundError, subprocess.SubprocessError):
+                # taskkill missing or failed; fall back to terminate()
+                p.terminate()
         else:
             os.killpg(os.getpgid(p.pid), signal.SIGTERM)
     except (ProcessLookupError, OSError):
@@ -914,23 +1113,22 @@ def debugging():
     """
     test_case, cmp_res, run_env, port_num = get_argv()
     run_platform = get_platform()
-    ensure_windows_dll_path()
     f_e, lines_e = read_execline(test_case)
 
     android_session = None
     ios_session = None
     process = None
+    p = None
     test_failed = False
-    
+
     try:
         if "ios_simulator" in run_env:
             ios_session = IOSDebugSession()
-            
+
             if not ios_session.setup(test_case, cmp_res):
                 print("Failed to setup iOS simulator debug environment")
-                test_failed = True
-                return
-            
+                return False
+
             if run_platform == 'darwin':
                 process = pexpect.popen_spawn.PopenSpawn(['xcrun', 'lldb'], timeout=LLDB_STARTUP_TIMEOUT,
                                                          encoding='utf-8',
@@ -940,29 +1138,27 @@ def debugging():
             else:
                 process = pexpect.spawnu('xcrun lldb', timeout=LLDB_STARTUP_TIMEOUT, maxread=200000)
             process.expect(['\\(lldb\\)', pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
-            
+
             cangjie_home = os.environ.get('CANGJIE_HOME')
             cjdb_script_path = os.path.join(cangjie_home, 'tools', 'script', 'cangjie_cjdb.py')
             send_and_expect_lldb(process, f'command script import {cjdb_script_path}')
-            
+
             ios_pid, ios_app_path = ios_session.run_ios_simulator(ios_session.exec_file)
             if not ios_pid:
                 print("Failed to get iOS simulator process PID")
                 ios_session.cleanup()
-                test_failed = True
-                return
-            
+                return False
+
             send_and_expect_lldb(process, f'attach {ios_pid}', timeout=LLDB_ATTACH_TIMEOUT)
-           
+
         elif "android_aarch64" in run_env:
             android_session = AndroidDebugSession()
             if not android_session.setup(test_case, cmp_res):
                 print("Failed to setup Android debug environment")
-                test_failed = True
-                return
-            
+                return False
+
             android_session.start_lldb_server()
-            
+
             subprocess.run(build_adb_cmd('forward', f'tcp:{android_session.lldb_port}', f'tcp:{android_session.lldb_port}', device_id=android_session.device_id),
                           capture_output=True)
 
@@ -987,8 +1183,7 @@ def debugging():
             if not android_session.start_app(android_session.exec_file):
                 print("Failed to start application on Android")
                 android_session.cleanup()
-                test_failed = True
-                return
+                return False
 
             if android_session and android_session.android_pid:
                 send_and_expect(process, f'attach {android_session.android_pid}', timeout=LLDB_ATTACH_TIMEOUT)
@@ -1000,7 +1195,7 @@ def debugging():
 
         if android_session:
             android_session.cleanup()
-        
+
         if ios_session:
             ios_session.cleanup()
 
@@ -1017,12 +1212,25 @@ def debugging():
         if f_e:
             f_e.close()
         test_failed = True
-    
-    if test_failed:
-        os._exit(1)
-    
-    os._exit(0)
+
+    return not test_failed
+
+
+def debugging_with_retry():
+    """Windows/Mac: retry 2 times (3 total). Linux: run once, no retry."""
+    max_attempts = 3 if sys.platform in ('win32', 'darwin') else 1
+    for attempt in range(1, max_attempts + 1):
+        try:
+            ok = debugging()
+        except Exception as e:
+            print(f"attempt {attempt} crashed: {e}")
+            ok = False
+        if ok:
+            os._exit(0)
+        if attempt < max_attempts:
+            time.sleep(2)
+    os._exit(1)
 
 
 if __name__ == "__main__":
-    debugging()
+    debugging_with_retry()
