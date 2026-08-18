@@ -64,12 +64,4 @@ compiler/cjnative/FFI/jffi/android/native
 # To be fixed soon.
 Tools/hle/arkts/class/class_impl_interface.info
 
-# unsuppoted
-Tools/cjcpl
-
 Benchmark
-# Concurrent debug may fail randomly
-Tools/cjdb/datacom/coroutineCJ/
-
-# unsuppoted
-Tools/cjprof

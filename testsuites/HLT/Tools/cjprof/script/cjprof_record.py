@@ -61,7 +61,7 @@ def recording_attach(samplingfreq, inputfile, outputfile, run_env):
     print("\n -------- cjprof record {0} {1} {2}-------- \n".format('-f ' + str(samplingfreq), '-o ' + outputfile,
                                                                     '-p ' + real_pid))
     pwd = os.environ['PASSWORD']
-    cangjie_home = os.environ['CANGJIE_HOME']                                                                
+    cangjie_home = os.environ.get('CANGJIE_HOME', '')                                                                
     cmd = "cjprof record {0} {1} {2}".format('-f ' + str(samplingfreq), '-o ' + outputfile, '-p ' + real_pid)
     cmd = f'echo {pwd} | sudo -S bash -c "source {cangjie_home}/envsetup.sh ; {cmd}"'
     print(f'cmd = {cmd}')
