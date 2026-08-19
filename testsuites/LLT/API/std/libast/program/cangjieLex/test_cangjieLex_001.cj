@@ -1,7 +1,7 @@
 // DEPENDENCE: define.cj
 // EXEC: %compiler %cmp_macro define.cj
 // EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
-// EXEC: %run %run_opt %output %run_args
+// RUN-EXEC: %run %run_opt %output %run_args
 
 import define.*
 

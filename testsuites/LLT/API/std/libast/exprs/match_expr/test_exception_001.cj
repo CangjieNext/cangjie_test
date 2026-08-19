@@ -1,5 +1,5 @@
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan parsing expr error.
 // ASSERT: scan parsing expr error.
 // ASSERT: scan ASTException: Cannot construct the 'MatchExpr' node.

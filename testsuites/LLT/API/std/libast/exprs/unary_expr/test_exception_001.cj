@@ -1,5 +1,5 @@
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan parsing expr error.
 // ASSERT: scan ASTException: Cannot construct the 'UnaryExpr' node.
 // ASSERT: scan description: and, token_id: 16, token_literal_value: &&, fileID: 1, line: 44, column: 25

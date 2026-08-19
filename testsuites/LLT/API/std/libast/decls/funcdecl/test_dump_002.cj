@@ -1,6 +1,6 @@
 // DEPENDENCE: %f.expect
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output > %f.txt
+// RUN-EXEC: %run %run_opt %output > %f.txt
 // EXEC: %diff %f.txt %f.expect
 
 internal import std.ast.*

@@ -1,5 +1,5 @@
 // EXEC: %compiler %cmp_opt %f -o %output
-// EXEC: %run %run_opt %output %run_args
+// RUN-EXEC: %run %run_opt %output %run_args
 
 internal import std.ast.*
 internal import std.collection.*

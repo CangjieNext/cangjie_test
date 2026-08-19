@@ -7,7 +7,7 @@
  */
 
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args | compare %f
 
 internal import std.ast.*
 internal import std.collection.*

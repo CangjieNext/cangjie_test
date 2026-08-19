@@ -1,5 +1,5 @@
 // EXEC: %compiler %enableEH %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %set_stdx_path %run_opt %output
+// RUN-EXEC: %run %set_stdx_path %run_opt %output
 
 internal import std.ast.*
 internal import std.collection.*

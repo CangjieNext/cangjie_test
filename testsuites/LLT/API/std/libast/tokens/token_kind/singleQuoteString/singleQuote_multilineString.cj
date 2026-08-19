@@ -1,5 +1,5 @@
 // EXEC: %compiler %cmp_opt %f -o %output
-// EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan kind: MULTILINE_STRING
 // ASSERT: scan kind: MULTILINE_RAW_STRING
 

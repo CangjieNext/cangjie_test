@@ -1,5 +1,5 @@
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC-PIPE-1: %run %run_opt %output 2>&1 | compare %f
+// RUN-EXEC-PIPE-1: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan expected expression after '||', found keyword 'let'
 
 internal import std.ast.*

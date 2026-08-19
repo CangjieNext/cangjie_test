@@ -7,7 +7,7 @@
  */
 
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC-PIPE-1: %run %run_opt %output %run_args %noColor 2>&1 | compare %f
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args %noColor 2>&1 | compare %f
 // ASSERT: scan IllegalArgumentException:
 // ASSERT: scan expected identifier, found '2'
 
