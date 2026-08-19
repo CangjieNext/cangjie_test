@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: macro_definition.cj
-// EXEC: %compiler %cmp_opt %cmp_macro macro_definition.cj
+// EXEC: %compiler %cmp_macro macro_definition.cj
 // ERRCHECK: %compiler %cmp_opt  %f -o %output
 // ASSERT: scan "parse_diag_error"
 
