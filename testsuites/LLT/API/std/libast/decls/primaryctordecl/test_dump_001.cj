@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.expect
 // EXEC: %compiler %coverage_opt %cmp_opt_chir2hlir %f -o %output
-// RUN-EXEC: %run %run_opt %output > %n.txt
-// EXEC: %diff %n.expect %n.txt
+// RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
+//
 
 internal import std.ast.*
 
@@ -76,6 +76,174 @@ main(): Int64 {
 
     return 0
 }
+
+/* SCAN-IN
+PrimaryCtorDecl {
+  -annotations: 0, Annotation {
+    -identifier: When
+    -condition: BinaryExpr {
+      -leftExpr: RefExpr {
+        -identifier: Token {
+          value: "os"
+          kind: IDENTIFIER
+          pos: 25: 15
+        }
+      }
+      -op: Token {
+        value: "=="
+        kind: EQUAL
+        pos: 25: 18
+      }
+      -rightExpr: LitConstExpr {
+        -literal: Token {
+          value: "Linux"
+          kind: STRING_LITERAL
+          pos: 25: 21
+        }
+      }
+    }
+  }
+  -annotations: 1, Annotation {
+    -identifier: C
+  }
+  -modifiers: 0, Modifier {
+    -keyword: Token {
+      value: "private"
+      kind: PRIVATE
+      pos: 27: 9
+    }
+  }
+  -modifiers: 1, Modifier {
+    -keyword: Token {
+      value: "const"
+      kind: CONST
+      pos: 27: 17
+    }
+  }
+  -identifier: Token {
+    value: "Rectangle"
+    kind: IDENTIFIER
+    pos: 27: 23
+  }
+  -funcParams: 0, FuncParam {
+    -keyword: Token {
+      value: "let"
+      kind: LET
+      pos: 27: 33
+    }
+    -identifier: Token {
+      value: "width"
+      kind: IDENTIFIER
+      pos: 27: 37
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 27: 42
+    }
+    -paramType: PrimitiveType {
+      -keyword: Token {
+        value: "Int64"
+        kind: INT64
+        pos: 27: 44
+      }
+    }
+  }
+  -funcParams: 1, FuncParam {
+    -keyword: Token {
+      value: "let"
+      kind: LET
+      pos: 27: 51
+    }
+    -identifier: Token {
+      value: "height"
+      kind: IDENTIFIER
+      pos: 27: 55
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 27: 61
+    }
+    -paramType: PrimitiveType {
+      -keyword: Token {
+        value: "Int64"
+        kind: INT64
+        pos: 27: 63
+      }
+    }
+  }
+  -block: Block {
+    -nodes: 0, AssignExpr {
+      -leftExpr: MemberAccess {
+        -baseExpr: RefExpr {
+          -identifier: Token {
+            value: "this"
+            kind: THIS
+            pos: 28: 13
+          }
+        }
+        -dot: Token {
+          value: "."
+          kind: DOT
+          pos: 28: 17
+        }
+        -field: Token {
+          value: "width"
+          kind: IDENTIFIER
+          pos: 28: 18
+        }
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 28: 24
+      }
+      -rightExpr: LitConstExpr {
+        -literal: Token {
+          value: "10"
+          kind: INTEGER_LITERAL
+          pos: 28: 26
+        }
+      }
+    }
+    -nodes: 1, AssignExpr {
+      -leftExpr: MemberAccess {
+        -baseExpr: RefExpr {
+          -identifier: Token {
+            value: "this"
+            kind: THIS
+            pos: 29: 13
+          }
+        }
+        -dot: Token {
+          value: "."
+          kind: DOT
+          pos: 29: 17
+        }
+        -field: Token {
+          value: "height"
+          kind: IDENTIFIER
+          pos: 29: 18
+        }
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 29: 25
+      }
+      -rightExpr: LitConstExpr {
+        -literal: Token {
+          value: "10"
+          kind: INTEGER_LITERAL
+          pos: 29: 27
+        }
+      }
+    }
+  }
+}
+ */
+
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0

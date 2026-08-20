@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.expect
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// RUN-EXEC: %run %run_opt %output > %n.txt
-// EXEC: %diff %n.expect %n.txt
+// RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
+//
 
 internal import std.ast.*
 internal import std.collection.*
@@ -66,6 +66,136 @@ main(): Int64 {
     extendDecl.dump()
     return 0
 }
+
+/* SCAN-IN
+ExtendDecl {
+  -keyword: Token {
+    value: "extend"
+    kind: EXTEND
+    pos: 24: 9
+  }
+  -extendType: RefType {
+    -identifier: Token {
+      value: "Bar"
+      kind: IDENTIFIER
+      pos: 65: 43
+    }
+  }
+  -upperBound: Token {
+    value: "<:"
+    kind: UPPERBOUND
+    pos: 24: 20
+  }
+  -superTypes: 0, RefType {
+    -identifier: Token {
+      value: "I1"
+      kind: IDENTIFIER
+      pos: 24: 23
+    }
+  }
+  -superTypes: 1, RefType {
+    -identifier: Token {
+      value: "I2"
+      kind: IDENTIFIER
+      pos: 24: 28
+    }
+  }
+  -superTypes: 2, RefType {
+    -identifier: Token {
+      value: "I3"
+      kind: IDENTIFIER
+      pos: 24: 33
+    }
+  }
+  -body: Body {
+    -decls: 0, FuncDecl {
+      -modifiers: 0, Modifier {
+        -keyword: Token {
+          value: "public"
+          kind: PUBLIC
+          pos: 25: 13
+        }
+      }
+      -keyword: Token {
+        value: "func"
+        kind: FUNC
+        pos: 25: 20
+      }
+      -identifier: Token {
+        value: "f1"
+        kind: IDENTIFIER
+        pos: 25: 25
+      }
+      -declType: PrimitiveType {
+        -keyword: Token {
+          value: "Unit"
+          kind: UNIT
+          pos: 25: 31
+        }
+      }
+      -block: Block {
+      }
+    }
+    -decls: 1, FuncDecl {
+      -modifiers: 0, Modifier {
+        -keyword: Token {
+          value: "public"
+          kind: PUBLIC
+          pos: 26: 13
+        }
+      }
+      -keyword: Token {
+        value: "func"
+        kind: FUNC
+        pos: 26: 20
+      }
+      -identifier: Token {
+        value: "f2"
+        kind: IDENTIFIER
+        pos: 26: 25
+      }
+      -declType: PrimitiveType {
+        -keyword: Token {
+          value: "Unit"
+          kind: UNIT
+          pos: 26: 31
+        }
+      }
+      -block: Block {
+      }
+    }
+    -decls: 2, FuncDecl {
+      -modifiers: 0, Modifier {
+        -keyword: Token {
+          value: "public"
+          kind: PUBLIC
+          pos: 27: 13
+        }
+      }
+      -keyword: Token {
+        value: "func"
+        kind: FUNC
+        pos: 27: 20
+      }
+      -identifier: Token {
+        value: "f3"
+        kind: IDENTIFIER
+        pos: 27: 25
+      }
+      -declType: PrimitiveType {
+        -keyword: Token {
+          value: "Unit"
+          kind: UNIT
+          pos: 27: 31
+        }
+      }
+      -block: Block {
+      }
+    }
+  }
+}
+ */
+
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0

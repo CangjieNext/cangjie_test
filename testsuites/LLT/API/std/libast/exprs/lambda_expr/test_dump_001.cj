@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.expect
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// RUN-EXEC: %run %run_opt %output > %n.txt
-// EXEC: %diff %n.expect %n.txt
+// RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
+//
 
 internal import std.ast.*
 internal import std.collection.*
@@ -40,6 +40,76 @@ main(): Int64 {
     expr.dump()
     return 0
 }
+
+/* SCAN-IN
+LambdaExpr {
+  -funcParams: 0, FuncParam {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 21: 10
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 21: 11
+    }
+    -paramType: PrimitiveType {
+      -keyword: Token {
+        value: "Int64"
+        kind: INT64
+        pos: 21: 13
+      }
+    }
+  }
+  -funcParams: 1, FuncParam {
+    -identifier: Token {
+      value: "b"
+      kind: IDENTIFIER
+      pos: 21: 20
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 21: 21
+    }
+    -paramType: PrimitiveType {
+      -keyword: Token {
+        value: "Int64"
+        kind: INT64
+        pos: 21: 23
+      }
+    }
+  }
+  -doubleArrow: Token {
+    value: "=>"
+    kind: DOUBLE_ARROW
+    pos: 21: 29
+  }
+  -nodes: 0, BinaryExpr {
+    -leftExpr: RefExpr {
+      -identifier: Token {
+        value: "a"
+        kind: IDENTIFIER
+        pos: 21: 32
+      }
+    }
+    -op: Token {
+      value: "+"
+      kind: ADD
+      pos: 21: 34
+    }
+    -rightExpr: RefExpr {
+      -identifier: Token {
+        value: "b"
+        kind: IDENTIFIER
+        pos: 21: 36
+      }
+    }
+  }
+}
+ */
+
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
