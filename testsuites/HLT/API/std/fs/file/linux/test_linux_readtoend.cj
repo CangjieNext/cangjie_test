@@ -53,7 +53,7 @@ class Test_File_ReadToEnd {
         try {
             readToEnd(file)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` not opened, can not to read.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.+': file is not opened.$").matches(e.message))
             sum += 1
         }
         @Expect(sum, 1)

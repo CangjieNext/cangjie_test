@@ -30,28 +30,28 @@ class Test_parse_hour {
         try {
             let res5 = DateTime.parse("2023/04/20 -1:52:23 +00:00", "yyyy/MM/dd h:mm:ss OOOO")
         } catch (e5: TimeParseException) {
-            @Expect(e5.message, "Fail to parse at index 11: \"-\" should be integer.")
+            @Expect(e5.message, "Failed to parse at index 11: expected an integer, got '-'.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/04/20 24:52:23 +00:00", "yyyy/MM/dd h:mm:ss OOOO")
         } catch (e6: TimeParseException) {
-            @Expect(e6.message, "Hour value in format \"hh\" must be in [1, 12].")
+            @Expect(e6.message, "Invalid hour in 'hh' format: expected 1 to 12.")
             cnt += 1
         }
 
         try {
             let res7 = DateTime.parse("2023/04/20 001:52:23 +00:00", "yyyy/MM/dd h:mm:ss OOOO")
         } catch (e7: TimeParseException) {
-            @Expect(e7.message, "Hour value in format \"hh\" must be in [1, 12].")
+            @Expect(e7.message, "Invalid hour in 'hh' format: expected 1 to 12.")
             cnt += 1
         }
 
         try {
             let res8 = DateTime.parse("2023/04/20 hh:52:23 +00:00", "yyyy/MM/dd h:mm:ss OOOO")
         } catch (e8: TimeParseException) {
-            @Expect(e8.message, "Fail to parse at index 11: \"h\" should be integer.")
+            @Expect(e8.message, "Failed to parse at index 11: expected an integer, got 'h'.")
             cnt += 1
         }
 
@@ -71,28 +71,28 @@ class Test_parse_hour {
         try {
             let res5 = DateTime.parse("2023/04/20 -1:52:23 +00:00", "yyyy/MM/dd hh:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 11: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 11: expected an integer, got '-'.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/04/20 24:52:23 +00:00", "yyyy/MM/dd hh:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Hour value in format \"hh\" must be in [1, 12].")
+            @Expect(e.message, "Invalid hour in 'hh' format: expected 1 to 12.")
             cnt += 1
         }
 
         try {
             let res7 = DateTime.parse("2023/04/20 001:52:23 +00:00", "yyyy/MM/dd hh:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Hour value in format \"hh\" must be in [1, 12].")
+            @Expect(e.message, "Invalid hour in 'hh' format: expected 1 to 12.")
             cnt += 1
         }
 
         try {
             let res8 = DateTime.parse("2023/04/20 hh:52:23 +00:00", "yyyy/MM/dd hh:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 11: \"h\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 11: expected an integer, got 'h'.")
             cnt += 1
         }
 
@@ -114,28 +114,28 @@ class Test_parse_hour {
         try {
             let res5 = DateTime.parse("2023/04/20 -1:52:23 +00:00", "yyyy/MM/dd H:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 11: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 11: expected an integer, got '-'.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/04/20 24:52:23 +00:00", "yyyy/MM/dd H:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Hour value in format \"HH\" must be in [0, 23].")
+            @Expect(e.message, "Invalid hour in 'HH' format: expected 0 to 23.")
             cnt += 1
         }
 
         try {
             let res7 = DateTime.parse("2023/04/20 001:52:23 +00:00", "yyyy/MM/dd H:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 13: \"1\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 13: expected ':', got '1'.")
             cnt += 1
         }
 
         try {
             let res8 = DateTime.parse("2023/04/20 hh:52:23 +00:00", "yyyy/MM/dd H:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 11: \"h\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 11: expected an integer, got 'h'.")
             cnt += 1
         }
 
@@ -155,28 +155,28 @@ class Test_parse_hour {
         try {
             let res5 = DateTime.parse("2023/04/20 -1:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 11: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 11: expected an integer, got '-'.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/04/20 24:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Hour value in format \"HH\" must be in [0, 23].")
+            @Expect(e.message, "Invalid hour in 'HH' format: expected 0 to 23.")
             cnt += 1
         }
 
         try {
             let res7 = DateTime.parse("2023/04/20 001:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 13: \"1\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 13: expected ':', got '1'.")
             cnt += 1
         }
 
         try {
             let res8 = DateTime.parse("2023/04/20 hh:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 11: \"h\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 11: expected an integer, got 'h'.")
             cnt += 1
         }
 

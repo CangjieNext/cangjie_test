@@ -7,7 +7,7 @@
  */
 // EXEC-PIPE: %compiler %cmp_opt %f -o %output
 // EXEC-PIPE: %run %run_opt %output %run_args | compare %f
-// ASSERT: scan Failed to read data!
+// ASSERT: scan Failed to read data from input stream at index '0'.
 
 /*
  * Test the funcs for failing to read InputStream.

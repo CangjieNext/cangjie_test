@@ -57,14 +57,14 @@ class Test_Init_Open {
         try {
             var file = File("", ReadWrite)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input path is empty.")
+            @Expect(e.message, "Invalid argument 'path': cannot be empty.")
             sum += 1
         }
         for (str in illegal_str) {
             try {
                 var file = File(str, ReadWrite)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The input path value ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "Invalid argument 'path': value '${unsafe { str.rawData() }}' contains null character.")
                 sum += 1
             }
         }
@@ -80,7 +80,7 @@ class Test_Init_Open {
                 var file = File(Path(str), ReadWrite)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
+                @Expect(e.message, "Cannot open file: parent directory '${parpath}' does not exist.")
                 sum += 1
             }
         }
@@ -128,7 +128,7 @@ class Test_Init_Open {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` not opened, can not to read.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.+': file is not opened.$").matches(e.message))
             sum += 1
         }
         @Expect(sum, 1)

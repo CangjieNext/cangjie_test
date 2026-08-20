@@ -64,7 +64,7 @@ public class Test_serve {
             s.serve()
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message, "The socket is already bound")
+            @Expect(e.message, "Socket is already bound.")
         }
         s.close()
         @Expect(flag, true)
@@ -85,7 +85,7 @@ public class Test_serve {
             s.serve()
         } catch (e: SocketException) {
             flag = true
-            @Expect(e.message, "Socket is already closed")
+            @Expect(e.message, "Socket is already closed.")
         }
         @Expect(flag, true)
     }
@@ -105,7 +105,7 @@ public class Test_serve {
             let a = s.addr
         } catch (e: SocketException) {
             flag = true
-            @Expect(e.message, "Socket is already closed")
+            @Expect(e.message, "Socket is already closed.")
         }
         @Expect(flag, true)
     }

@@ -80,7 +80,7 @@ class Test_StringReader_readln {
             let ch = reader.read()
             println("读到字符: ${ch}")
         } catch (e: Exception) {
-            @Expect("Input stream finished in the middle of a UTF-8 sequence", e.message)
+            @Expect("Invalid UTF-8 sequence: input stream ended prematurely.", e.message)
         }
     }
 }

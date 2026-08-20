@@ -77,7 +77,7 @@ class Test_Unixdatagram_Transportbuffer {
             unixdatagramsocket2.receiveBufferSize = 0
         } catch (e: IllegalArgumentException) {
             sum += 1
-            @Expect(e.message.contains("Buffer size should be positive, got 0"), true)
+            @Expect(e.message.contains("Invalid receive buffer size: must be positive, got '0'"), true)
             println(e.message)
         }
 
@@ -85,7 +85,7 @@ class Test_Unixdatagram_Transportbuffer {
             unixdatagramsocket2.receiveBufferSize = -5
         } catch (e: IllegalArgumentException) {
             sum += 1
-            @Expect(e.message.contains("Buffer size should be positive, got -5"), true)
+            @Expect(e.message.contains("Invalid receive buffer size: must be positive, got '-5'"), true)
             println(e.message)
         }
 
@@ -93,7 +93,7 @@ class Test_Unixdatagram_Transportbuffer {
             unixdatagramsocket2.sendBufferSize = 0
         } catch (e: IllegalArgumentException) {
             sum += 1
-            @Expect(e.message.contains("Buffer size should be positive, got 0"), true)
+            @Expect(e.message.contains("Invalid send buffer size: must be positive, got '0'"), true)
             println(e.message)
         }
 
@@ -101,7 +101,7 @@ class Test_Unixdatagram_Transportbuffer {
             unixdatagramsocket2.sendBufferSize = -100
         } catch (e: IllegalArgumentException) {
             sum += 1
-            @Expect(e.message.contains("Buffer size should be positive, got -100"), true)
+            @Expect(e.message.contains("Invalid send buffer size: must be positive, got '-100'"), true)
             println(e.message)
         }
 

@@ -92,7 +92,7 @@ class DirectoryLinuxTest {
             remove(dirname01, recursive: true)
             Directory.isEmpty(FileInfo(dirname01).path)
         } catch (e: FSException) {
-            @Expect(e.message,"The input path `./data/directory/yur` does not exist.")
+            @Expect(e.message,"Invalid argument 'path': './data/directory/yur' does not exist.")
             countError++
         }
         try {
@@ -104,7 +104,7 @@ class DirectoryLinuxTest {
             remove(dirname02, recursive: true)
             Directory.isEmpty(dirname02)
         } catch (e: FSException) {
-            @Expect(e.message, "The input path `mytestdir0001` does not exist.")
+            @Expect(e.message, "Invalid argument 'path': 'mytestdir0001' does not exist.")
             countError++
         }
         @Expect(countError,2)
@@ -287,7 +287,7 @@ class DirectoryLinuxTest {
         try {
             Directory.create(path)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to create directory `${path}`, parent directory `./aaa` does not exist.")
+            @Expect(e.message,"Failed to create directory '${path}': parent directory './aaa' does not exist.")
             countError++
         }
         path = "./data/directory/qwe"
@@ -299,7 +299,7 @@ class DirectoryLinuxTest {
                 Directory.create(path)
             }
         } catch (e: FSException) {
-            @Expect(e.message,"The input path `${path}` is already exists.")
+            @Expect(e.message,"Cannot create directory: '${path}' already exists.")
             countError++
         } finally {
             if (exists(path)) {
@@ -310,42 +310,42 @@ class DirectoryLinuxTest {
         try {
             Directory.create(path)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
+            @Expect(e.message,"Invalid path '${path}': cannot create directory.")
             countError++
         }
         path = "./"
         try {
             Directory.create(path)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
+            @Expect(e.message,"Invalid path '${path}': cannot create directory.")
             countError++
         }
         path = "/"
         try {
             Directory.create(path)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
+            @Expect(e.message,"Invalid path '${path}': cannot create directory.")
             countError++
         }
         path = "./data/directory/qwe\0"
         try {
             Directory.create(path)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
+            @Expect(e.message,"Invalid path '${path}': cannot create directory.")
             countError++
         }
         path = "_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz"
         try {
             Directory.create(path)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to create directory `${path}` return -36: \"File name too long\".")
+            @Expect(e.message, "Failed to create directory '${path}': error code '-36', File name too long.")
             countError++
         }
         path = "//"
         try {
             Directory.create(path)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
+            @Expect(e.message,"Invalid path '${path}': cannot create directory.")
             countError++
         }
         @Expect(countError,8)
@@ -382,7 +382,7 @@ class DirectoryLinuxTest {
         try {
             Directory.createTemp(path)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to canonical: the input path `${path}` may not exist or permission denied!")
+            @Expect(e.message,"Failed to canonicalize path '${path}': path does not exist or permission denied.")
             countError++
         }
 
@@ -499,7 +499,7 @@ class DirectoryLinuxTest {
         try {
             Directory.create(path, recursive: true)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
+            @Expect(e.message,"Invalid path '${path}': cannot create directory.")
             countError++
         }
         path = "./data/directory/qwe"

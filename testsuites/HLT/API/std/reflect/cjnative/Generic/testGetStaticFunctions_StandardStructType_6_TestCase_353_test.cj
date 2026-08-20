@@ -34,7 +34,7 @@ class testGetStaticFunctions_StandardStructType_6 {
                     [GenericClassWith2TypeParameters<Float32, Float32>()])
             @Expect("assertion#10169: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -45,7 +45,7 @@ class testGetStaticFunctions_StandardStructType_6 {
                     [GenericClassWith2TypeParameters<Float32, Float32>()])
             @Expect("assertion#10170: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -55,7 +55,7 @@ class testGetStaticFunctions_StandardStructType_6 {
                 .apply(TypeInfo.of<Int64>(), [], [])
             @Expect("assertion#10171: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -65,7 +65,7 @@ class testGetStaticFunctions_StandardStructType_6 {
                 .apply(TypeInfo.of<StandardStructType<UInt8, Float32, UInt32>>(), [TypeInfo.of<Float32>()], [])
             @Expect("assertion#10172: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -75,7 +75,7 @@ class testGetStaticFunctions_StandardStructType_6 {
                 .apply(TypeInfo.of<StandardStructType<UInt8, Float32, UInt32>>(), [], [])
             @Expect("assertion#10173: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -85,7 +85,7 @@ class testGetStaticFunctions_StandardStructType_6 {
                 .apply(TypeInfo.of<Int64>(), [TypeInfo.of<Float32>()], [])
             @Expect("assertion#10174: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -96,7 +96,7 @@ class testGetStaticFunctions_StandardStructType_6 {
                     [GenericClassWith2TypeParameters<Float32, Float32>(), 114.514000f64])
             @Expect("assertion#10175: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -107,7 +107,7 @@ class testGetStaticFunctions_StandardStructType_6 {
                     [GenericClassWith2TypeParameters<Float32, Float32>(), 114.514000f64])
             @Expect("assertion#10176: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -117,7 +117,7 @@ class testGetStaticFunctions_StandardStructType_6 {
                 .apply(TypeInfo.of<StandardStructType<UInt8, Float32, UInt32>>(), [], [()])
             @Expect("assertion#10177: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -127,7 +127,7 @@ class testGetStaticFunctions_StandardStructType_6 {
                 .apply(TypeInfo.of<Int64>(), [TypeInfo.of<Float32>()], [()])
             @Expect("assertion#10178: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("成功调用")
         TypeInfo

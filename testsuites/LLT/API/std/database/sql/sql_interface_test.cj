@@ -185,7 +185,7 @@ main(): Int64 {
     try {
         throw SqlException("test ex", "00000", 0)
     } catch (e: SqlException) {
-        if (e.toString() != "SqlException: test ex, SqlState: 00000, errorCode: 0") {
+        if (e.toString() != "SqlException: test ex, SqlState: 00000, errorCode: 0.") {
             eprintln("err")
             return -1
         }

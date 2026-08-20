@@ -47,7 +47,7 @@ class TestDriverManager {
         try {
             DriverManager.register("driver1", driver1)
         } catch (e: SqlException) {
-            @Expect(e.message.startsWith("Duplicate database driver (driver1)"), true)
+            @Expect(e.message.startsWith("Duplicate database driver 'driver1'."), true)
         }
 
         DriverManager.register("driver2", driver2)

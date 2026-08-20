@@ -83,27 +83,27 @@ class FileLinuxTest {
         var countError = 0
 
         try (file = File("", Read)) {} catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input path is empty.")
+            @Expect(e.message, "Invalid argument 'path': cannot be empty.")
             countError++
             println("[testInputInValidInit] countError: ${countError}")
         }
         try (file = File(fileName3, Read)) {} catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input path value ${unsafe { fileName3.rawData() }} contains null character.")
+            @Expect(e.message, "Invalid argument 'path': value '${unsafe { fileName3.rawData() }}' contains null character.")
             countError++
             println("[testInputInValidInit] countError: ${countError}")
         }
         try (file = File(Path(fileName2), Read)) {} catch (e: FSException) {
-            @Assert(Regex("^The file `.*` does not exist or permission denied!$").matches(e.message))
+            @Assert(Regex("^Cannot open file '.*': file does not exist or permission denied\\.$").matches(e.message))
             countError++
             println("[testInputInValidInit] countError: ${countError}")
         }
         try (file = File.create(fileName1)) {} catch (e: FSException) {
-            @Expect(e.message, "The file `${fileName1}` is already exists.")
+            @Expect(e.message, "Cannot create file: '${fileName1}' already exists.")
             countError++
             println("[testInputInValidInit] countError: ${countError}")
         }
         try (file = File(fileName2 + "/xxx", Read)) {} catch (e: FSException) {
-            @Expect(e.message, "The input path 'parent' `${fileName2}` does not exist.")
+            @Expect(e.message, "Cannot open file: parent directory '${fileName2}' does not exist.")
             countError++
             println("[testInputInValidInit] countError: ${countError}")
         }
@@ -166,7 +166,7 @@ class FileLinuxTest {
             var readArr = Array<Byte>()
             file.read(readArr)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The buffer is empty.")
+            @Expect(e.message,"Invalid argument 'buffer': buffer is empty.")
             countError++
         }
         try {
@@ -174,7 +174,7 @@ class FileLinuxTest {
             file.close()
             file.read(readArr)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.*` not opened, can not to read.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.*': file is not opened\\.$").matches(e.message))
             countError++
         }
         try {
@@ -182,7 +182,7 @@ class FileLinuxTest {
             var readArr = Array<Byte>(101, repeat: 0)
             file.read(readArr)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.*` does not have the read permission.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.*': file does not have read permission\\.$").matches(e.message))
             countError++
             file.close()
             remove(fileName)
@@ -220,7 +220,7 @@ class FileLinuxTest {
             file.close()
             file.write(readArr)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.*` not opened, can not be written.$").matches(e.message))
+            @Assert(Regex("^Cannot write to file '.*': file is not opened\\.$").matches(e.message))
             countError++
         }
         try {
@@ -228,7 +228,7 @@ class FileLinuxTest {
             var readArr = Array<Byte>(101, repeat: 0)
             file.write(readArr)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.*` does not have the write permission.$").matches(e.message))
+            @Assert(Regex("^Cannot write to file '.*': file does not have write permission\\.$").matches(e.message))
             countError++
             file.close()
             remove(fileName)
@@ -360,7 +360,7 @@ class FileLinuxTest {
         try {
             readToEnd(file1)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.*` does not have the read permission.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.*': file does not have read permission\\.$").matches(e.message))
             countError++
         } finally {
             file1.close()
@@ -370,14 +370,14 @@ class FileLinuxTest {
             file2.close()
             readToEnd(file2)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.*` not opened, can not to read.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.*': file is not opened\\.$").matches(e.message))
             countError++
         }
         var file3 = File(".", Read)
         try {
             readToEnd(file3)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.*` read error return -1 bytes.$").matches(e.message))
+            @Assert(Regex("^Failed to read file '.*': read -1 bytes\\.$").matches(e.message))
             countError++
         } finally {
             file3.close()
@@ -439,7 +439,7 @@ class FileLinuxTest {
         try {
             copy(file1, to: file2)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.*` does not have the read permission.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.*': file does not have read permission\\.$").matches(e.message))
             countError++
         } finally {
             file1.close()
@@ -450,7 +450,7 @@ class FileLinuxTest {
             file3.close()
             copy(file3, to: file4)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.*` not opened, can not to read.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.*': file is not opened\\.$").matches(e.message))
             countError++
         } finally {
             file4.close()
@@ -550,31 +550,31 @@ class FileLinuxTest {
             try {
                 File.create(fileName1)
             } catch (e: FSException) {
-                @Expect(e.message,"The file `${fileName1}` is already exists.")
+                @Expect(e.message,"Cannot create file: '${fileName1}' already exists.")
                 countError++
             }
             try {
                 File.create(Path(fileName1))
             } catch (e: FSException) {
-                @Expect(e.message,"The file `${fileName1}` is already exists.")
+                @Expect(e.message,"Cannot create file: '${fileName1}' already exists.")
                 countError++
             }
             try {
                 File.create(fileName2)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message,"The input path is empty.")
+                @Expect(e.message,"Invalid argument 'path': cannot be empty.")
                 countError++
             }
             try {
                 File.create(Path(fileName2))
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message,"The input path is empty.")
+                @Expect(e.message,"Invalid argument 'path': cannot be empty.")
                 countError++
             }
             try {
                 File.create(Path(fileName3))
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message,"The input path value ${unsafe { fileName3.rawData() }} contains null character.")
+                @Expect(e.message,"Invalid argument 'path': value '${unsafe { fileName3.rawData() }}' contains null character.")
                 countError++
             }
             remove(fileName1)
@@ -613,7 +613,7 @@ class FileLinuxTest {
         try {
             File.createTemp(dirName1)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to canonical: the input path `${dirName1}` may not exist or permission denied!")
+            @Expect(e.message,"Failed to canonicalize path './testInputInValidCreateTemp': path does not exist or permission denied.")
             countError++
         }
         try {
@@ -660,19 +660,19 @@ class FileLinuxTest {
         try {
             File.readFrom(Path(fileName1))
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.*` does not exist or permission denied!$").matches(e.message))
+            @Assert(Regex("^Cannot open file '.*': file does not exist or permission denied\\.$").matches(e.message))
             countError++
         }
         try {
             File.readFrom(Path(fileName2))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The input path is empty.")
+            @Expect(e.message,"Invalid argument 'path': cannot be empty.")
             countError++
         }
         try {
             File.readFrom(Path(fileName3))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The input path value ${unsafe { fileName3.rawData() }} contains null character.")
+            @Expect(e.message,"Invalid argument 'path': value '${unsafe { fileName3.rawData() }}' contains null character.")
             countError++
         }
         @Expect(countError,3)
@@ -722,7 +722,7 @@ class FileLinuxTest {
         try {
             File.appendTo(Path(fileName02), Array<Byte>(100, repeat: 0))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The input path value ${unsafe { fileName02.rawData() }} contains null character.")
+            @Expect(e.message,"Invalid argument 'path': value '${unsafe { fileName02.rawData() }}' contains null character.")
             countError++
         }
         @Expect(countError, 1)
@@ -808,19 +808,19 @@ class FileLinuxTest {
         try {
             rename(Path(fileName1), to: Path(fileName2), overwrite: false)
         } catch (e: FSException) {
-            @Expect(e.message,"Destination path 'to' `${fileName2}` is already exists and overwrite is false.")
+            @Expect(e.message,"Cannot rename to './utils/testFile1.txt': destination path already exists and overwrite is false.")
             countError++
         }
         try {
             rename(Path(fileName3), to: Path(fileName1 + "noexist"), overwrite: false)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to rename `./utils/testFile3.txt` to `./testFile1.txtnoexist` return -2:\"No such file or directory\".")
+            @Expect(e.message,"Failed to rename './utils/testFile3.txt' to './testFile1.txtnoexist': error code '-2', No such file or directory.")
             countError++
         }
         try {
             rename(Path(fileName1), to: Path(""), overwrite: false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The input path 'to' is empty.")
+            @Expect(e.message,"Invalid argument 'to': cannot be empty.")
             countError++
         }
         var fileName4 = ""
@@ -984,7 +984,7 @@ class FileLinuxTest {
             dst.setWritable(false)
             copy(dirpaths[0], to: dirpaths[1], overwrite: true)
         } catch (e: FSException) {
-            @Expect(e.message,"The input path `./tmp/file1.txt` does not exist.")
+            @Expect(e.message,"Invalid argument 'path': './tmp/file1.txt' does not exist.")
             countError++
         }
         try {
@@ -998,7 +998,7 @@ class FileLinuxTest {
             dst.setWritable(true)
             copy(dirpaths[0], to: dirpaths[1], overwrite: true)
         } catch (e: FSException) {
-            @Expect(e.message,"The input path `./tmp/file1.txt` does not exist.")
+            @Expect(e.message,"Invalid argument 'path': './tmp/file1.txt' does not exist.")
             countError++
         } finally {
             if (exists(dirpath)) {

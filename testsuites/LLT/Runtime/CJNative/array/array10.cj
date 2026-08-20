@@ -13,7 +13,7 @@ main() {
         arr[1..3] = [2, 2, 2] // left size < right size
     } catch (e: Exception) {
         count++
-        if (!e.message.contains("The length of the value array is 3, which does not match the range length of 2.")) {
+        if (!e.message.contains("Array size '3' does not match range size '2'.")) {
             return 1
         }
     }
