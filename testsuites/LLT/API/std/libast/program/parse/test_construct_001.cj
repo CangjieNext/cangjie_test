@@ -1,5 +1,5 @@
 // DEPENDENCE: ./test_parse_dump_005_dep.cj
-// EXEC: %compiler %f -o %output
+// EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 internal import std.ast.*
