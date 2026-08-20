@@ -22,7 +22,7 @@ let x = { w: A<A<T>>=> w }
     0
 }
 
-/* SCAN
+/* SCAN-IN
 description: let, token_id: 91, token_literal_value: let, fileID: 0, line: 1, column: 1
 description: identifier, token_id: 137, token_literal_value: x, fileID: 0, line: 1, column: 5
 description: assign, token_id: 30, token_literal_value: =, fileID: 0, line: 1, column: 7

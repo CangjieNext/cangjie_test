@@ -12,7 +12,7 @@ main() {
     expr.dump()
 }
 
-/* SCAN
+/* SCAN-IN
 description: identifier, token_id: 137, token_literal_value: A, fileID: 1, line: 8, column: 9
 description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 8, column: 10
 description: l_curl, token_id: 6, token_literal_value: {, fileID: 1, line: 8, column: 11

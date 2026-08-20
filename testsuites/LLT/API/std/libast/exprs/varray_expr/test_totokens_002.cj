@@ -16,7 +16,7 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN
+/* SCAN-IN
 description: l_curl, token_id: 6, token_literal_value: {, fileID: 1, line: 8, column: 27
 description: identifier, token_id: 137, token_literal_value: i, fileID: 1, line: 8, column: 28
 description: double_arrow, token_id: 46, token_literal_value: =>, fileID: 1, line: 8, column: 30
