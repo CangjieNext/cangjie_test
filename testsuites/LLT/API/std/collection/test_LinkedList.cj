@@ -52,7 +52,7 @@ class LinkedListTest {
             var _ = LinkedList<String>(-10, {x: Int64 => x.toString()})
             @Expect("Should throw exception", "var _ = LinkedList<String>(-10, {x: Int64 => x.toString()})")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid size of LinkedList: -10."))
+            @Expect(e.message.contains("Invalid size '-10': expected a non-negative value"))
         }
     }
 
@@ -141,32 +141,32 @@ class LinkedListTest {
             node.value = 55
             @Expect("Should throw exception", "node.value = 55")
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "")
+            @Expect(e.message, "Node does not belong to any LinkedList.")
         }
         try {
             node.next
             @Expect("Should throw exception", "node.value = 55")
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "")
+            @Expect(e.message, "Node does not belong to any LinkedList.")
         }
         try {
             node.prev
             @Expect("Should throw exception", "node.value = 55")
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "")
+            @Expect(e.message, "Node does not belong to any LinkedList.")
         }
         try {
             list.forward(node)
             @Expect("Should throw exception", "node.value = 55")
         } catch (e: IllegalStateException) {
             println(e.message)
-            @Expect(e.message, "")
+            @Expect(e.message, "Node does not belong to any LinkedList.")
         }
         try {
             list.backward(node)
             @Expect("Should throw exception", "node.value = 55")
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "")
+            @Expect(e.message, "Node does not belong to any LinkedList.")
         }
     }
 

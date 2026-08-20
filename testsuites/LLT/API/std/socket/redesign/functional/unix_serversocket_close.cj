@@ -40,7 +40,7 @@ class TestUnixServer {
             server.accept()
             @Assert("", "shouldn't accept") // Server should be closed while client2 is waiting for connection
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is already closed")
+            @Expect(e.message, "Socket is already closed.")
         }
     }
 

@@ -95,28 +95,28 @@ class LoadFromPathsTest {
             TimeZone.loadFromPaths("a..b", [zoneinfoPath])
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone name.")
+            @Expect(e.message, "Invalid timezone name: name contains forbidden characters.")
         }
 
         try {
             TimeZone.loadFromPaths("a\0b", [zoneinfoPath])
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone name.")
+            @Expect(e.message, "Invalid timezone name: name contains forbidden characters.")
         }
 
         try {
             TimeZone.loadFromPaths("/ab", [zoneinfoPath])
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone name.")
+            @Expect(e.message, "Invalid timezone name: name contains forbidden characters.")
         }
 
         try {
             TimeZone.loadFromPaths("\\ab", [zoneinfoPath])
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone name.")
+            @Expect(e.message, "Invalid timezone name: name contains forbidden characters.")
         }
 
         try {

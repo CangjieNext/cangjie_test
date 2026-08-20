@@ -244,7 +244,7 @@ class FunctionTypeInfoNegativeTest {
         var e = @ExpectThrows[IllegalTypeException](FunctionTypeInfo.of(1)).getOrThrow()
         @Expect(e.message.contains("function type instance"))
         e = @ExpectThrows[IllegalTypeException](FunctionTypeInfo.of<Int64>()).getOrThrow()
-        @Expect(e.message.contains("function type for `T`"))
+        @Expect(e.message.contains("function type for 'T'"))
     }
 
     @TestCase

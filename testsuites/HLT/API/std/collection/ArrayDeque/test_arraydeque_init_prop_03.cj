@@ -18,7 +18,7 @@ class Test_arraydeque_init_prop_03 {
     @TestCase
     func test_init_notblank_01(): Unit {
         let e = @AssertThrows[IllegalArgumentException](ArrayDeque<Int64>(-1))
-        @Expect(e.message.contains("The capacity must be greater than or equal to 0"))
+        @Expect(e.message, "Invalid capacity '-1': expected a non-negative value.")
     }
 
     @TestCase

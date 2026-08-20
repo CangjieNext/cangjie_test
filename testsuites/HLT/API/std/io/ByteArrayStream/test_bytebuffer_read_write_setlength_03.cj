@@ -22,7 +22,7 @@ class Test_bytebuffer_read_write_setlength_03 {
         let arr: Array<Byte> = [1, 2, 3]
         bb.write(arr)
         let e = @AssertThrows[IllegalArgumentException](bb.setLength(-1))
-        @Expect(e.message, "The length must be greater than or equal to 0.")
+        @Expect(e.message, "Invalid argument 'length': expected a non-negative value, got '-1'.")
     }
 
     @TestCase

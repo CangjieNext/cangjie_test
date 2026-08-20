@@ -37,13 +37,13 @@ class Test_Path_Join {
         try {
             Path("").join("a")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The path is empty.")
+            @Expect(e.message, "Invalid argument 'path': path is empty.")
             sum += 1
         }
         try {
             Path("").join(Path("a"))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The path is empty.")
+            @Expect(e.message, "Invalid argument 'path': path is empty.")
             sum += 1
         }
         for (str in illegal_path_string) {
@@ -82,13 +82,13 @@ class Test_Path_Join {
             try {
                 Path("/a").join(str)
             } catch (e: FSException) {
-                @Expect(e.message, "The input path `${str}` cannot be an absolute path!")
+                @Expect(e.message, "Invalid argument 'path': '${str}' cannot be an absolute path.")
                 sum += 1
             }
             try {
                 Path("./a").join(Path(str))
             } catch (e: FSException) {
-                @Expect(e.message, "The input path `${str}` cannot be an absolute path!")
+                @Expect(e.message, "Invalid argument 'path': '${str}' cannot be an absolute path.")
                 sum += 1
             }
         }

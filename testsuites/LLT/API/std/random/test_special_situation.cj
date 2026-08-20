@@ -66,7 +66,7 @@ class SpecialSituationTest {
             rand.next(maxBits + 1)
             @Expect("", "65 bits need exception")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Bits must be less than or equal to 64.")
+            @Expect(e.message, "Bits must be less than or equal to 64, got '65'.")
         }
     }
 

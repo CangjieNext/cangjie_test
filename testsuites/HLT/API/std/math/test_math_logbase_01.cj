@@ -17,37 +17,37 @@ class Test_math_logbase_01 {
     @TestCase
     func test_logbase_float16_01(): Unit {
         let e = @AssertThrows[IllegalArgumentException](logBase(Float16(-1),Float16(9)))
-        @Expect(e.message, "The input parameter is invalid. Please enter a correct parameter.")
+        @Expect(e.message, "Invalid arguments 'x' and 'base': both must be positive and 'base' must not be 1.0.")
     }
 
     @TestCase
     func test_logbase_float16_02(): Unit {
         let e = @AssertThrows[IllegalArgumentException](logBase(Float16(0),Float16(9)))
-        @Expect(e.message, "The input parameter is invalid. Please enter a correct parameter.")
+        @Expect(e.message, "Invalid arguments 'x' and 'base': both must be positive and 'base' must not be 1.0.")
     }
 
     @TestCase
     func test_logbase_float16_03(): Unit {
         let e = @AssertThrows[IllegalArgumentException](logBase(Float16(1),Float16(-100)))
-        @Expect(e.message, "The input parameter is invalid. Please enter a correct parameter.")
+        @Expect(e.message, "Invalid arguments 'x' and 'base': both must be positive and 'base' must not be 1.0.")
     }
 
     @TestCase
     func test_logbase_float16_04(): Unit {
         let e = @AssertThrows[IllegalArgumentException](logBase(Float16(1),Float16(0)))
-        @Expect(e.message, "The input parameter is invalid. Please enter a correct parameter.")
+        @Expect(e.message, "Invalid arguments 'x' and 'base': both must be positive and 'base' must not be 1.0.")
     }
 
     @TestCase
     func test_logbase_float16_05(): Unit {
         let e = @AssertThrows[IllegalArgumentException](logBase(Float16(1),Float16(1)))
-        @Expect(e.message, "The input parameter is invalid. Please enter a correct parameter.")
+        @Expect(e.message, "Invalid arguments 'x' and 'base': both must be positive and 'base' must not be 1.0.")
     }
 
     @TestCase
     func test_logbase_float16_06(): Unit {
         let e = @AssertThrows[IllegalArgumentException](logBase(Float16(-100),Float16(1)))
-        @Expect(e.message, "The input parameter is invalid. Please enter a correct parameter.")
+        @Expect(e.message, "Invalid arguments 'x' and 'base': both must be positive and 'base' must not be 1.0.")
     }
 
     @TestCase

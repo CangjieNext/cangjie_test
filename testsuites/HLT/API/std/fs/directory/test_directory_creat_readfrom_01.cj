@@ -69,8 +69,8 @@ class Test_directory_creat_readfrom_01 {
         Directory.create("zpstest", recursive: false)
         let e = @AssertThrows[FSException](Directory.create("zpstest", recursive: false))
         let e1 = @AssertThrows[FSException](Directory.create(Path("zpstest"), recursive: false))
-        @Expect(e.message.contains("is already exists"))
-        @Expect(e1.message.contains("is already exists"))
+        @Expect(e.message.contains("already exists"))
+        @Expect(e1.message.contains("already exists"))
     }
 
     @TestCase
@@ -78,8 +78,8 @@ class Test_directory_creat_readfrom_01 {
         Directory.create("zpstest1/zpstest1", recursive: true)
         let e = @AssertThrows[FSException](Directory.create("zpstest", recursive: true))
         let e1 = @AssertThrows[FSException](Directory.create(Path("zpstest"), recursive: true))
-        @Expect(e.message.contains("is already exists"))
-        @Expect(e1.message.contains("is already exists"))
+        @Expect(e.message.contains("already exists"))
+        @Expect(e1.message.contains("already exists"))
         remove("zpstest", recursive: true)
         remove("zpstest1/zpstest1", recursive: true)
     }

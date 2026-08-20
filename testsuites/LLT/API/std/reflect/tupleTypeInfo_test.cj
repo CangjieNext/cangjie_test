@@ -336,9 +336,9 @@ class TupleTypeInfoNegativeTest {
     @TestCase
     func testOfNonTupleType() {
         var e = @ExpectThrows[IllegalTypeException](TupleTypeInfo.of(1)).getOrThrow()
-        @Expect(e.message.contains("Expected `instance` to be a tuple type"))
+        @Expect(e.message.contains("Expected 'instance' to be a tuple type"))
         e = @ExpectThrows[IllegalTypeException](TupleTypeInfo.of<Int64>()).getOrThrow()
-        @Expect(e.message.contains("Expected generic type `T` to be a tuple type"))
+        @Expect(e.message.contains("Expected generic type 'T' to be a tuple type"))
     }
 
     @TestCase
@@ -372,7 +372,7 @@ class TupleTypeInfoNegativeTest {
     @TestCase
     func testUnitIsNotTupleType() {
         let e = @ExpectThrows[IllegalTypeException](TupleTypeInfo.of(())).getOrThrow()
-        @Expect(e.message.contains("Expected `instance` to be a tuple type"))
+        @Expect(e.message.contains("Expected 'instance' to be a tuple type"))
     }
 
     @TestCase

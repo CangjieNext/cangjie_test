@@ -22,7 +22,7 @@ class TestTimeout {
                 mm.wait(id, timeout: Duration.Zero)
                 @Expect(false)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "Timeout cannot be less than or equal to `Duration.Zero`.")
+                @Expect(e.message, "Invalid argument 'timeout': must be positive, got '0s'.")
             }
         }
     }

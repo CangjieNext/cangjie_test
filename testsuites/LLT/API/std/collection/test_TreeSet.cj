@@ -60,13 +60,13 @@ class TreeSetTest {
             var _ = TreeSet<Int64>(-10, {K => K})
             @Expect("Should throw exception", "")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid size of TreeSet: -10.")
+            @Expect(e.message, "Invalid size '-10': expected a non-negative value.")
         }
         try {
             let _ = TreeSet<Int64>(-1, {i => i})
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid size of TreeSet: -1.")
+            @Expect(e.message,"Invalid size '-1': expected a non-negative value.")
         }
     }
 

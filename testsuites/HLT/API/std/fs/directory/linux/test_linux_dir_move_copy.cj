@@ -86,7 +86,7 @@ class Test_Dir_Move_Copy {
         try {
             rename(dirpaths[0], to: dirpaths[1], overwrite: false)
         } catch (e: FSException) {
-            @Expect(e.message, "Destination path 'to' `${dirpaths[1]}` is already exists and overwrite is false.")
+            @Expect(e.message, "Cannot rename to '${dirpaths[1]}': destination path already exists and overwrite is false.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -177,7 +177,7 @@ class Test_Dir_Move_Copy {
         try {
             copy(dirpath, to: dirpaths[0], overwrite: true)
         } catch (e: FSException) {
-            @Expect(e.message, "The destinationDirPath `${dirpaths[0]}` is in the sourceDirPath `${dirpath}`.")
+            @Expect(e.message, "Cannot copy: destination '${dirpaths[0]}' is a subdirectory of source '${dirpath}'.")
             sum += 1
         }
         @Expect(sum, 2)
@@ -195,7 +195,7 @@ class Test_Dir_Move_Copy {
         try {
             copy(dirpath, to: dirpaths[0], overwrite: true)
         } catch (e: FSException) {
-            @Expect(e.message, "The destinationDirPath `${dirpaths[0]}` is in the sourceDirPath `${dirpath}`.")
+            @Expect(e.message, "Cannot copy: destination '${dirpaths[0]}' is a subdirectory of source '${dirpath}'.")
             sum += 1
         }
         @Expect(sum, 2)

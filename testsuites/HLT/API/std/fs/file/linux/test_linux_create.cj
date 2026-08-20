@@ -71,14 +71,14 @@ class Test_File_Create {
                 File.create(str)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
+                @Expect(e.message, "Cannot open file: parent directory '${parpath}' does not exist.")
                 sum += 1
             }
             try {
                 File.create(Path(str))
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
+                @Expect(e.message, "Cannot open file: parent directory '${parpath}' does not exist.")
                 sum += 1
             }
         }
@@ -96,7 +96,7 @@ class Test_File_Create {
         try {
             File.create("./dir001/a.txt")
         } catch (e: FSException) {
-            @Expect(e.message, "The file `${path}` is already exists.")
+            @Expect(e.message, "Cannot create file: '${path}' already exists.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -131,7 +131,7 @@ class Test_File_Create {
         try {
             File.create("./dir002/a.txt")
         } catch (e: FSException) {
-            @Expect(e.message, "The input path 'parent' `./dir002` does not exist.")
+            @Expect(e.message, "Cannot open file: parent directory './dir002' does not exist.")
             sum += 1
         }
         @Expect(sum, 1)

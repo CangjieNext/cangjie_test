@@ -69,14 +69,14 @@ class BaseTest {
             TimeZone("Asia/Shanghai", 26 * Duration.hour)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid offset.")
+            @Expect(e.message, "Invalid offset '93600': must be between -89999 and 93599 seconds.")
         }
 
         try {
             TimeZone("Asia/Shanghai", -25 * Duration.hour)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid offset.")
+            @Expect(e.message, "Invalid offset '-90000': must be between -89999 and 93599 seconds.")
         }
         try {
             TimeZone("", (7 * Duration.hour) + (30 * Duration.minute))

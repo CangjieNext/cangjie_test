@@ -38,7 +38,7 @@ class Test_of_monthValue {
             let time = DateTime.ofUTC(year: 1000000000, month: January, dayOfMonth: 1, hour: 0, minute: 0, second: 0,
                 nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Year value must be in [-999,999,999, 999,999,999].")
+            @Assert(e.message, "Invalid year value '1000000000': expected -999,999,999 to 999,999,999.")
             flag = true
         }
         @Assert(flag, true)
@@ -51,7 +51,7 @@ class Test_of_monthValue {
             let time = DateTime.ofUTC(year: -1000000000, month: January, dayOfMonth: 1, hour: 0, minute: 0, second: 0,
                 nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Year value must be in [-999,999,999, 999,999,999].")
+            @Assert(e.message, "Invalid year value '1000000000': expected -999,999,999 to 999,999,999.")
             flag = true
         }
         @Assert(flag, true)

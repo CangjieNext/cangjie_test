@@ -469,7 +469,7 @@ class StringTest {
         try {
             string.padStart(-1, padding: "abc")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Negative totalWidth.")
+            @Expect(e.message, "Total width cannot be negative, got '-1'.")
         }
         @Expect(string.padStart(string.size -1, padding:"abc"), string)
         @Expect(string.padStart(string.size + 1, padding:"abc"), "abcCangJie仓颉")
@@ -479,7 +479,7 @@ class StringTest {
         try {
             string.padEnd(-1, padding: "abc")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Negative totalWidth.")
+            @Expect(e.message, "Total width cannot be negative, got '-1'.")
         }
         @Expect(string.padEnd(string.size + 1, padding:"abc"), "CangJie仓颉abc")
         @Expect(string.padEnd(string.size + 2, padding:"abc"), "CangJie仓颉abc")
@@ -535,7 +535,7 @@ class StringTest {
         try {
             string * (-6)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Negative count.")
+            @Expect(e.message, "Repeat count cannot be negative, got '-6'.")
         }
 
         @Expect(string * 0, "")
@@ -552,21 +552,21 @@ class StringTest {
             string[0..9 : 3]
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "the value of the step should be '1'")
+            @Expect(e.message, "String slice step must be 1, got '3'.")
         }
 
         try {
             string[..8]
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message.contains("Invalid UTF-8"), true)
         }
 
         try {
             string[9..]
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message.contains("Invalid UTF-8"), true)
         }
 
         try {
@@ -676,14 +676,14 @@ class StringTest {
             String.fromUtf8([147u8, 147u8, 136u8])
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message.contains("Invalid UTF-8"), true)
         }
 
         try {
             String.fromUtf8([0b11110100u8, 0b10111111u8, 0b10111111u8, 0b10111110u8])
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid unicode scalar value.")
+            @Expect(e.message.contains("Invalid UTF-8"), true)
         }
     }
 
@@ -700,7 +700,7 @@ class StringTest {
             }
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message.contains("Invalid UTF-8"), true)
         }
     }
 

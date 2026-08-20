@@ -34,7 +34,7 @@ class Test_parse {
             let res = DateTime.parse("0000-13-10T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Month value must be in [1, 12].")
+            @Expect(e.message, "Invalid month value: expected 1 to 12.")
         }
         @Expect(flag, true)
     }
@@ -46,7 +46,7 @@ class Test_parse {
             let res = DateTime.parse("0000-00-10T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Month value must be in [1, 12].")
+            @Expect(e.message, "Invalid month value: expected 1 to 12.")
         }
         @Expect(flag, true)
     }
@@ -58,7 +58,7 @@ class Test_parse {
             let res = DateTime.parse("0000-02-30T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of February in 0 must be in [1, 29].")
+            @Expect(e.message, "Invalid day '30' for February 0: expected 1 to 29.")
         }
         @Expect(flag, true)
     }
@@ -70,7 +70,7 @@ class Test_parse {
             let res = DateTime.parse("0000-02-00T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of February in 0 must be in [1, 29].")
+            @Expect(e.message, "Invalid day '30' for February 0: expected 1 to 29.")
         }
         @Expect(flag, true)
     }
@@ -82,7 +82,7 @@ class Test_parse {
             let res = DateTime.parse("0000-01-32T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of January in 0 must be in [1, 31].")
+            @Expect(e.message, "Invalid day '32' for January 0: expected 1 to 31.")
         }
         @Expect(flag, true)
     }
@@ -94,7 +94,7 @@ class Test_parse {
             let res = DateTime.parse("0000-01-00T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of January in 0 must be in [1, 31].")
+            @Expect(e.message, "Invalid day '32' for January 0: expected 1 to 31.")
         }
         @Expect(flag, true)
     }
@@ -106,7 +106,7 @@ class Test_parse {
             let res = DateTime.parse("0000-04-31T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of April in 0 must be in [1, 30].")
+            @Expect(e.message, "Invalid day '31' for April 0: expected 1 to 30.")
         }
         @Expect(flag, true)
     }
@@ -118,7 +118,7 @@ class Test_parse {
             let res = DateTime.parse("0000-04-00T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of April in 0 must be in [1, 30].")
+            @Expect(e.message, "Invalid day '31' for April 0: expected 1 to 30.")
         }
         @Expect(flag, true)
     }
@@ -130,7 +130,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-29T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of February in 2023 must be in [1, 28].")
+            @Expect(e.message, "Invalid day '29' for February 2023: expected 1 to 28.")
         }
         @Expect(flag, true)
     }
@@ -142,7 +142,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-00T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of February in 2023 must be in [1, 28].")
+            @Expect(e.message, "Invalid day '29' for February 2023: expected 1 to 28.")
         }
         @Expect(flag, true)
     }
@@ -178,7 +178,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-28T00:60:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Minute value must be in [0, 59].")
+            @Expect(e.message, "Invalid minute value: expected 0 to 59.")
         }
         @Expect(flag, true)
     }
@@ -202,7 +202,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-28T00:00:60+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Second value must be in [0, 59].")
+            @Expect(e.message, "Invalid second value: expected 0 to 59.")
         }
         @Expect(flag, true)
     }
@@ -286,7 +286,7 @@ class Test_parse {
             let res = DateTime.parse("2023-04-17T15:32:0000:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
         @Expect(flag, true)
     }
@@ -298,7 +298,7 @@ class Test_parse {
             let res = DateTime.parse("2023-04-17T15:32:00+0000").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
         @Expect(flag, true)
     }
@@ -478,7 +478,7 @@ class Test_parse {
             let res = DateTime.parse("1000-04-10T08:01:01+08:008").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Extar value, start at index 25.")
+            @Expect(e.message, "Extra value starting at index 25.")
         }
         @Expect(flag, true)
     }
@@ -502,7 +502,7 @@ class Test_parse {
             let res = DateTime.parse("2023-04-17T15:32:00+00:000").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Extar value, start at index 25.")
+            @Expect(e.message, "Extra value starting at index 25.")
         }
         @Expect(flag, true)
     }

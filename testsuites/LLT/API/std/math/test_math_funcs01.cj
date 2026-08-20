@@ -125,7 +125,7 @@ class MathTest {
         anomalyAssert(
             "testInvalidAbs_01",
             caseException01,
-            "The absolute value of the minimum Int64 value is out of range."
+            "The absolute value of Int64.Min overflows."
         )
         var caseException02: ?Exception = None
         try {
@@ -136,7 +136,7 @@ class MathTest {
         anomalyAssert(
             "testInvalidAbs_02",
             caseException02,
-            "The absolute value of the minimum Int32 value is out of range."
+            "The absolute value of Int32.Min overflows."
         )
         var caseException03: ?Exception = None
         try {
@@ -147,7 +147,7 @@ class MathTest {
         anomalyAssert(
             "testInvalidAbs_03",
             caseException03,
-            "The absolute value of the minimum Int32 value is out of range."
+            "The absolute value of Int32.Min overflows."
         )
     }
 
@@ -185,7 +185,7 @@ class MathTest {
         anomalyAssert(
             "testInvalidSqrt_01",
             caseException01,
-            "The input parameter must be greater than or equal to 0.0. Please enter a correct parameter."
+            "The input parameter must be greater than or equal to 0.0."
         )
         var caseException02: ?Exception = None
         try {
@@ -196,7 +196,7 @@ class MathTest {
         anomalyAssert(
             "testInvalidSqrt_02",
             caseException02,
-            "The input parameter must be greater than or equal to 0.0. Please enter a correct parameter."
+            "The input parameter must be greater than or equal to 0.0."
         )
         var caseException03: ?Exception = None
         try {
@@ -207,7 +207,7 @@ class MathTest {
         anomalyAssert(
             "testInvalidSqrt_03",
             caseException03,
-            "The input parameter must be greater than or equal to 0.0. Please enter a correct parameter."
+            "The input parameter must be greater than or equal to 0.0."
         )
     }
 

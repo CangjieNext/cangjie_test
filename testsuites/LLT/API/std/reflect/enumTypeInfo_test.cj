@@ -184,13 +184,13 @@ class EnumTypeInfoTest {
             let _: EnumTypeInfo = EnumTypeInfo.of(1) // must specific type here, otherwise it will call TypeInfo.of(Object): TypeInfo
             @Assert(false)
         } catch (e: IllegalTypeException) {
-            @Expect(e.message.contains("must be an Enum type"))
+            @Expect(e.message.contains("must be an enum type instance"))
         }
         try {
             let _: EnumTypeInfo = EnumTypeInfo.of(C1())
             @Assert(false)
         } catch (e: IllegalTypeException) {
-            @Expect(e.message.contains("must be an Enum type"))
+            @Expect(e.message.contains("must be an enum type instance"))
         }
     }
 

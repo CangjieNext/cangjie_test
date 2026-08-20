@@ -86,7 +86,7 @@ class Test_bigint_div {
             div_result = divnum_1 / divnum_2
             @Expect(1, 2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
         }
     }
 }

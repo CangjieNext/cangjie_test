@@ -76,14 +76,14 @@ class Test_File_ReadFrom_WriteTo {
                 File.readFrom(str)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
+                @Expect(e.message, "Cannot open file: parent directory '${parpath}' does not exist.")
                 sum += 1
             }
             try {
                 File.appendTo(str, data)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
+                @Expect(e.message, "Cannot open file: parent directory '${parpath}' does not exist.")
                 sum += 1
             }
         }

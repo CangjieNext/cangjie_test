@@ -190,7 +190,7 @@ class LoadFromTZDataTest {
                 try {
                     TimeZone.loadFromTZData("abc", tempTZif)
                 } catch (e: Exception) {
-                    @Expect(e.message.contains("Failed to parse the timezone file"), true)
+                    @Expect(e.message.contains("Failed to parse timezone file"), true)
                 }
             }
         }

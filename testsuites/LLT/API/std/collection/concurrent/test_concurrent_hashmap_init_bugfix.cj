@@ -50,7 +50,7 @@ class Test_concurrenthashmap_19 {
         try {
             ConcurrentHashMap<Int64, Int64>(-2, concurrencyLevel: Int64.Max)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid size of Concurrent HashMap"))
+            @Expect(e.message.contains("Invalid capacity '-2': expected a non-negative value"))
             println(e.message)
             sum += 1
         }

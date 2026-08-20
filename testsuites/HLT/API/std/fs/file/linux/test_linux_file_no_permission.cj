@@ -121,7 +121,7 @@ class Test_File_No_Permission {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` does not have the read permission.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.+': file does not have read permission.$").matches(e.message))
             sum += 1
         }
         file.close()
@@ -192,7 +192,7 @@ class Test_File_No_Permission {
         try {
             file.write(data)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` does not have the write permission.$").matches(e.message))
+            @Assert(Regex("^Cannot write to file '.+': file does not have write permission.$").matches(e.message))
             sum += 1
         }
         file.close()
