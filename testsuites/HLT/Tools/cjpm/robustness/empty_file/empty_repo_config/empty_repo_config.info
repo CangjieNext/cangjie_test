@@ -6,6 +6,5 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// ERRCHECK: cd %n && %cjpm bundle
-// ASSERT: scan Error:
-// ASSERT: scan cangjie-repo.toml
+// EXEC: cd %n && %cjpm bundle
+// ASSERT: scan cjpm bundle success
