@@ -4,35 +4,34 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// A finalizer object must stay alive while its methods are still being
-// called from a loop. If the optimizer lifts the loop-invariant read of
-// the object's field out of the loop, GC liveness reports the object dead,
-// the GC collects it mid-loop and runs its ~init(), which mutates the field
-// a later iteration still reads. This test pins that behavior under -O2.
+// test1.cj 清洗版回归用例（issue 1089）：finalizer 对象的字段读若被 LICM
+// 提升出循环，GC 活性分析会误判对象已死，GC 中途回收对象并执行 ~init()
+// 置空 m.s，后续 s.getOrThrow() 抛 NoneValueException。
+// 注意不能使用显式 gc() 驱动：gc() 是完整内存屏障会阻止 LICM 提升字段读，
+// 用例将无法抓住回归。这里用每轮字符串插值 "${i}" 的分配驱动 GC，分配不会
+// 阻止提升；checksum 累计防止循环被整体优化掉。
 //
 // EXEC: %compiler %cmp_opt %enableO2 %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-
-import std.runtime.*
 
 class M {
     var s: ?String = "x"
 
     func g(): Int64 {
-        // If T is finalized mid-loop, s becomes None and this throws.
+        // 若 T 被提前 finalize，s 变 None，这里抛 NoneValueException。
         s.getOrThrow()
         return 1
     }
 }
 
-class T {
+public class T {
     var m = M()
 
     ~init() {
         m.s = None
     }
 
-    func f(): Int64 {
+    public func f(): Int64 {
         return m.g()
     }
 }
@@ -40,11 +39,9 @@ class T {
 main(): Int64 {
     let t = T()
     var checksum: Int64 = 0
-    for (i in 0..200000) {
+    for (i in 0..1000000) {
         checksum += t.f()
-        if (i % 10000 == 0) {
-            gc()
-        }
+        checksum += "${i}".size
     }
     println("finalizer object liveness ok ${checksum}")
     return 0
