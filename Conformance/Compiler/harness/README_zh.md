@@ -155,7 +155,7 @@ Harness 会将名称以 `test` 字符串开头并以 `.cj` 扩展名结尾的任
 
   @Level:         1
 
-  @Assertion:    1.1(2) There are two kinds of of identifiers: ordinary
+  @Assertion:    1.1(2) There are two kinds of identifiers: ordinary
                  identifiers and raw identifiers.
 
   @Description:  Check both kinds of identifier in the same function.
@@ -371,7 +371,7 @@ general arguments:
   first                 First json report file for comparing
   second                Second json report file for comparing
   -o REPORT_FILE, --output-file REPORT_FILE
-                        Path to the file to save the comparsion result. If it was not set, then print to console
+                        Path to the file to save the comparison result. If it was not set, then print to console
   -t {plain,html}, --report-type {plain,html}
                         Test report type (default: plain) **html type is not supported yet**
   --test TEST           Show only test(s) details by name or path
@@ -387,7 +387,7 @@ format arguments:
 
 log diffs turning arguments:
   --include-same        Don't skip tests with same logs in log difference report
-  --compare-commands    Add compile and execute commands in the logs comparsion
+  --compare-commands    Add compile and execute commands in the logs comparison
   --unify-paths         Replace '\' to '/' in logs (useful to check results from different OSes)
 
 other arguments:
