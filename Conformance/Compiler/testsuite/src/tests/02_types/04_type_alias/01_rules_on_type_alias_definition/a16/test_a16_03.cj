@@ -11,7 +11,7 @@
 
   @Level:         1
 
-  @Assertion:    2.4.1(16) When using the the alias defined in this package in another package, the following two 
+  @Assertion:    2.4.1(16) When using the alias defined in this package in another package, the following two 
                  conditions must be met: (1) The accessibility of the original type is public,
                  and (2) The type definition is modified by public modifier.
 
