@@ -1,0 +1,15 @@
+[package]
+  cjc-version = "1.2.0"
+  name = "pkg_a"
+  organization = ""
+  description = "导出接口 I 与 class A"
+  version = "1.0.0"
+  target-dir = ""
+  script-dir = ""
+  output-type = "static"
+  compile-option = "-Woff=all"
+  override-compile-option = ""
+  link-option = ""
+  package-configuration = {}
+
+[dependencies]
