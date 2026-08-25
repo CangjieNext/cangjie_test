@@ -50,7 +50,7 @@ class Test {
     @StressTest[scenario in scenarios(
         maxActors: 2, maxOperationPerActor: 3,
     )]
-    func test(scenario: ScenarioBuilder<Test>) {
+    func test(scenario: ScopedScenarioBuilder) {
         scenario
             .iterations(1000)
             .consistencyModel(Linearizability)
@@ -73,7 +73,7 @@ class TestFailed {
     @StressTest[scenario in scenarios(
         maxActors: 2, maxOperationPerActor: 3,
     )]
-    func testFailed(scenario: ScenarioBuilder<TestFailed>) {
+    func testFailed(scenario: ScopedScenarioBuilder) {
         scenario
             .iterations(1000)
             .consistencyModel(Linearizability)

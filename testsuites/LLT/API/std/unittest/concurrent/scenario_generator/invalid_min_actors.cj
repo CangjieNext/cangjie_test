@@ -29,7 +29,7 @@ class TestAfterFail {
     @StressTest[scenario in scenarios(
         minActors: 2, maxActors: 2, maxOperationPerActor: 3,
     )]
-    func test(scenario: ScenarioBuilder<TestAfterFail>) {
+    func test(scenario: ScopedScenarioBuilder) {
         scenario
             .iterations(100)
             .consistencyModel(Linearizability)
@@ -37,5 +37,5 @@ class TestAfterFail {
 }
 
 /* SCAN-IN
-IllegalArgumentException: Maximal count of actors must be greater or equal to minimal count 2. Maximal count is limited by number of groups: 1. Due to absence of operations without groups
+IllegalArgumentException: Maximum count of actors must be greater than or equal to minimum count 2. Maximum count is limited by number of groups: 1, because there are no operations without groups
  */

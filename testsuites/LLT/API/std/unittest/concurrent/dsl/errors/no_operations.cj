@@ -20,14 +20,14 @@ class TestAfterFail {
     @StressTest[scenario in scenarios(
         maxActors: 2, maxOperationPerActor: 3,
     )]
-    func test(scenario: ScenarioBuilder<TestAfterFail>) {
+    func test(scenario: ScopedScenarioBuilder) {
         scenario
-            .iterations(iterations)
+            .iterations(100)
             .consistencyModel(Linearizability)
     }
 }
 
 /* SCAN-IN
 Test framework: macro failed to expand.
-Concurrent test must contains at least on @Operation annotated function
+Concurrent test must contain at least one @Operation annotated function
  */

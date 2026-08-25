@@ -48,7 +48,7 @@ class TestConcurrentLinkedQueue {
         maxActors: 2, maxOperationPerActor: 3
     ), iterations in [100, 20000]]
     @Configure[randomSeed: 1784806152831902714]
-    func test(scenario: ScenarioBuilder<TestConcurrentLinkedQueue>, iterations: Int) {
+    func test(scenario: ScopedScenarioBuilder, iterations: Int64) {
         scenario
             .iterations(iterations)
             .consistencyModel(Serializability)

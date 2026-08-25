@@ -31,7 +31,7 @@ class TestAfterFail {
     @StressTest[scenario in scenarios(
         maxActors: 2, maxOperationPerActor: 3,
     )]
-    func testAfterFail(scenario: ScenarioBuilder<TestAfterFail>) {
+    func testAfterFail(scenario: ScopedScenarioBuilder) {
         scenario
             .iterations(1000)
             .consistencyModel(Linearizability)
@@ -58,7 +58,7 @@ class TestVerifyFail {
     @StressTest[scenario in scenarios(
         maxActors: 2, maxOperationPerActor: 3,
     )]
-    func testVerifyFail(scenario: ScenarioBuilder<TestVerifyFail>) {
+    func testVerifyFail(scenario: ScopedScenarioBuilder) {
         scenario
             .iterations(1000)
             .consistencyModel(Linearizability)

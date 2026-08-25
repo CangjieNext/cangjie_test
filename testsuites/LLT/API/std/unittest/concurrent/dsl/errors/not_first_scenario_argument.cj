@@ -27,7 +27,7 @@ class TestAfterFail {
     @StressTest[scenario in scenarios(
         maxActors: 2, maxOperationPerActor: 3,
     ), iterations in [500, 1000]]
-    func test(iterations: Int, scenario: ScenarioBuilder<TestAfterFail>) {
+    func test(iterations: Int64, scenario: ScopedScenarioBuilder) {
         scenario
             .iterations(iterations)
             .consistencyModel(Linearizability)
@@ -36,5 +36,5 @@ class TestAfterFail {
 
 /* SCAN-IN
 Test framework: macro failed to expand.
-@StressTest declaration must have first parameter of type ScenarioBuilder
+@StressTest declaration must have first parameter of type ScopedScenarioBuilder
  */

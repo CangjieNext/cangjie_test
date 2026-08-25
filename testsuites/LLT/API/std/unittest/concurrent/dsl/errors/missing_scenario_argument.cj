@@ -36,5 +36,5 @@ class TestAfterFail {
 
 /* SCAN-IN
 Test framework: macro failed to expand.
-@StressTest declaration must have first parameter of type ScenarioBuilder
+@StressTest declaration must have first parameter of type ScopedScenarioBuilder
  */
