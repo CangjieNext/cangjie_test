@@ -1,7 +1,7 @@
 // DEPENDENCE: maybe_useful_001_define.cj
 // EXEC: %compiler %cmp_macro maybe_useful_001_define.cj
 // EXEC: %run_macro %compiler %cmp_opt %macro_lib %f -Woff unused -o %output
-// EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 
 import define.*
 

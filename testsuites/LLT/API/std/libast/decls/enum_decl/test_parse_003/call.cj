@@ -1,7 +1,7 @@
 // DEPENDENCE: define.cj
 // EXEC: %compiler %cmp_macro define.cj
 // EXEC: %run_macro %compiler %cmp_opt %macro_lib %f -o %output
-// EXEC: %run %run_opt %output %run_args
+// RUN-EXEC: %run %run_opt %output %run_args
 
 import CCC.*
 

@@ -16,7 +16,7 @@ main() : Int64 {
     return 0
 }
 
-/* SCAN
+/* SCAN-IN
 ResumeExpr {
   -keywordR: Token {
     value: "resume"

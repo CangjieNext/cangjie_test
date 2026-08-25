@@ -1,5 +1,5 @@
 // EXEC: %compiler %coverage_opt %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output > %n.txt
+// RUN-EXEC: %run %run_opt %output > %n.txt
 
 import std.ast.*
 

@@ -1,8 +1,8 @@
 
 // DEPENDENCE: define.cj
 // EXEC: %compiler %cmp_macro define.cj
-// EXEC: %compiler %macro_lib %n.cj -o %n.%suffix
-// EXEC: %run %run_opt %n.%suffix
+// EXEC: %compiler %cmp_opt %macro_lib %n.cj -o %n.%suffix
+// RUN-EXEC: %run %run_opt %n.%suffix
 
 import M.*
 import std.ast.*

@@ -7,7 +7,7 @@ main() {
     let parsed = parseProgram(tk)
     parsed.dump()
 }
-/* SCAN
+/* SCAN-IN
 Program {
   -featuresDirective: FeaturesDirective {
       -annotation: 0, Annotation {

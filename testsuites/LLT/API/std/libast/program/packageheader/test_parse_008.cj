@@ -1,6 +1,6 @@
 // DEPENDENCE: ./test_parse_008_dep.cj
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args
+// RUN-EXEC: %run %run_opt %output %run_args
 
 internal import std.ast.*
 internal import std.fs.*

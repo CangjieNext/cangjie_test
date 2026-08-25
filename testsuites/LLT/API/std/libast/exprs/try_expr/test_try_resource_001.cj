@@ -1,5 +1,5 @@
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// EXEC: %run %run_opt %output %run_utest_opt %run_args
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.unittest.*
 import std.unittest.testmacro.*

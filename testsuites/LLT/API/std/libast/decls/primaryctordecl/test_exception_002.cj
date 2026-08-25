@@ -1,5 +1,5 @@
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC-1: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC-1: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan unexpected modifier 'static' on variable declaration in primary constructor
 
 import std.ast.*

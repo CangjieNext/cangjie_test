@@ -1,7 +1,7 @@
 // DEPENDENCE: test_parse_001_define.cj
 // EXEC: %compiler %cmp_macro test_parse_001_define.cj
 // EXEC: %run_macro %compiler %cmp_opt %macro_lib %f -Woff unused -o %output 2>&1 | compare %f
-// EXEC: %run %run_opt %output %run_args
+// RUN-EXEC: %run %run_opt %output %run_args
 
 import macro_def.*
 

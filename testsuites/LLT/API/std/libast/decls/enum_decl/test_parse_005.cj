@@ -1,5 +1,5 @@
 // (not Windows) EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// (not Windows) EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// (not Windows) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 
 import std.ast.*
 import std.collection.*
