@@ -1,0 +1,40 @@
+{
+    "Diags":[
+            {
+                "DiagKind": "sema_property_must_have_accessors",
+                "Severity": "error",
+                "WarnGroup": "none",
+                "DiagCategory": "sema",
+                "Message": "property must have accessors",
+                "Location": {
+                    "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\relation_matrix\\25_getter_setter_independent\\main.cj",
+                    "Line": 29,
+                    "Column": 5
+                },
+                "MainHint": {
+                    "Content": "",
+                    "Range": {
+                        "Begin": {
+                            "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\relation_matrix\\25_getter_setter_independent\\main.cj",
+                            "Line": 29,
+                            "Column": 5
+                        },
+                        "End": {
+                            "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\relation_matrix\\25_getter_setter_independent\\main.cj",
+                            "Line": 31,
+                            "Column": 6
+                        }
+                    }
+                },
+                "OtherHints": [],
+                "Notes": [],
+                "Helps": []
+            }
+    ],
+    "Num":{
+        "Errors": 1,
+        "PrintedErrors": 1,
+        "Warnings": 0,
+        "PrintedWarnings": 0
+    }
+}

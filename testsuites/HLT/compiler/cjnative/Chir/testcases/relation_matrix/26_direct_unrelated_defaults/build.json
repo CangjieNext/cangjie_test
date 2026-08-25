@@ -1,0 +1,40 @@
+{
+    "Diags":[
+            {
+                "DiagKind": "sema_interface_member_must_be_implemented",
+                "Severity": "error",
+                "WarnGroup": "none",
+                "DiagCategory": "sema",
+                "Message": "interface function 'foo' must be implemented in 'C'",
+                "Location": {
+                    "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\relation_matrix\\26_direct_unrelated_defaults\\main.cj",
+                    "Line": 32,
+                    "Column": 1
+                },
+                "MainHint": {
+                    "Content": "",
+                    "Range": {
+                        "Begin": {
+                            "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\relation_matrix\\26_direct_unrelated_defaults\\main.cj",
+                            "Line": 32,
+                            "Column": 1
+                        },
+                        "End": {
+                            "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\relation_matrix\\26_direct_unrelated_defaults\\main.cj",
+                            "Line": 32,
+                            "Column": 2
+                        }
+                    }
+                },
+                "OtherHints": [],
+                "Notes": [],
+                "Helps": []
+            }
+    ],
+    "Num":{
+        "Errors": 1,
+        "PrintedErrors": 1,
+        "Warnings": 0,
+        "PrintedWarnings": 0
+    }
+}

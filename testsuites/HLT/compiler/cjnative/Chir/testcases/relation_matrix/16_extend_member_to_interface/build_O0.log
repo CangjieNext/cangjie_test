@@ -1,0 +1,9 @@
+warning[0m: unused import 'std.collection.*'
+  ==> E:\talkless\test_models\lang\model_generic_instantiation_opt\output\testcases\relation_matrix\16_extend_member_to_interface\main.cj:20:1:
+   | 
+20 | import std.collection.*
+   | ^^^^^^^^^^^^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+1 warning generated, 1 warning printed.

@@ -1,0 +1,77 @@
+{
+    "Diags":[
+            {
+                "DiagKind": "sema_unused_import",
+                "Severity": "warning",
+                "WarnGroup": "unused",
+                "DiagCategory": "sema",
+                "Message": "unused import 'std.collection.*'",
+                "Location": {
+                    "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\property_matrix\\27_diamond_default_conflict\\main.cj",
+                    "Line": 11,
+                    "Column": 1
+                },
+                "MainHint": {
+                    "Content": "unused import",
+                    "Range": {
+                        "Begin": {
+                            "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\property_matrix\\27_diamond_default_conflict\\main.cj",
+                            "Line": 11,
+                            "Column": 1
+                        },
+                        "End": {
+                            "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\property_matrix\\27_diamond_default_conflict\\main.cj",
+                            "Line": 11,
+                            "Column": 24
+                        }
+                    }
+                },
+                "OtherHints": [],
+                "Notes": [
+                    {
+                        "Message": "this warning can be suppressed by setting the compiler option `-Woff unused`",
+                        "MainHint": null,
+                        "OtherHints": [],
+                        "Help": null
+                    }
+                ],
+                "Helps": []
+            },
+            {
+                "DiagKind": "sema_interface_member_must_be_implemented",
+                "Severity": "error",
+                "WarnGroup": "none",
+                "DiagCategory": "sema",
+                "Message": "interface property 'x' must be implemented in 'C'",
+                "Location": {
+                    "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\property_matrix\\27_diamond_default_conflict\\main.cj",
+                    "Line": 42,
+                    "Column": 1
+                },
+                "MainHint": {
+                    "Content": "",
+                    "Range": {
+                        "Begin": {
+                            "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\property_matrix\\27_diamond_default_conflict\\main.cj",
+                            "Line": 42,
+                            "Column": 1
+                        },
+                        "End": {
+                            "File": "E:\\talkless\\test_models\\lang\\model_generic_instantiation_opt\\output\\testcases\\property_matrix\\27_diamond_default_conflict\\main.cj",
+                            "Line": 42,
+                            "Column": 2
+                        }
+                    }
+                },
+                "OtherHints": [],
+                "Notes": [],
+                "Helps": []
+            }
+    ],
+    "Num":{
+        "Errors": 1,
+        "PrintedErrors": 1,
+        "Warnings": 1,
+        "PrintedWarnings": 1
+    }
+}

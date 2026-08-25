@@ -1,0 +1,33 @@
+warning[0m: unused import 'std.collection.*'
+  ==> E:\talkless\test_models\lang\model_generic_instantiation_opt\output\testcases\property_matrix\08_parent_interface_abstract_to_child_interface\main.cj:12:1:
+   | 
+12 | import std.collection.*
+   | ^^^^^^^^^^^^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning[0m: unused variable:'v'
+  ==> E:\talkless\test_models\lang\model_generic_instantiation_opt\output\testcases\property_matrix\08_parent_interface_abstract_to_child_interface\main.cj:24:13:
+   | 
+24 |         set(v) {
+   |             ^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning[0m: unused variable:'v'
+  ==> E:\talkless\test_models\lang\model_generic_instantiation_opt\output\testcases\property_matrix\08_parent_interface_abstract_to_child_interface\main.cj:33:13:
+   | 
+33 |         set(v) {
+   |             ^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning[0m: unused variable:'v'
+  ==> E:\talkless\test_models\lang\model_generic_instantiation_opt\output\testcases\property_matrix\08_parent_interface_abstract_to_child_interface\main.cj:44:13:
+   | 
+44 |         set(v) {
+   |             ^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+4 warnings generated, 4 warnings printed.

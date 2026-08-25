@@ -1,0 +1,25 @@
+warning[0m: unused import 'std.collection.*'
+  ==> E:\talkless\test_models\lang\model_generic_instantiation_opt\output\testcases\property_matrix\06_interface_abstract_to_extend\main.cj:12:1:
+   | 
+12 | import std.collection.*
+   | ^^^^^^^^^^^^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning[0m: unused variable:'v'
+  ==> E:\talkless\test_models\lang\model_generic_instantiation_opt\output\testcases\property_matrix\06_interface_abstract_to_extend\main.cj:24:13:
+   | 
+24 |         set(v) {
+   |             ^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning[0m: unused variable:'v'
+  ==> E:\talkless\test_models\lang\model_generic_instantiation_opt\output\testcases\property_matrix\06_interface_abstract_to_extend\main.cj:40:13:
+   | 
+40 |         set(v) {
+   |             ^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+3 warnings generated, 3 warnings printed.
