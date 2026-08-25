@@ -1,5 +1,5 @@
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan-2 ASTException: Cannot construct the 'EnumDecl' node.
 
 import std.ast.*

@@ -2,7 +2,7 @@
 // DEPENDENCE: test_multistr_001_macro.cj
 // EXEC: %compiler %cmp_macro test_multistr_001_macro.cj
 // EXEC: %run_macro %compiler %cmp_opt  %f -o %output
-// EXEC: %run %run_opt %output %run_args
+// RUN-EXEC: %run %run_opt %output %run_args
 import mytest.*
 
 func getX(): Option<UInt64> {

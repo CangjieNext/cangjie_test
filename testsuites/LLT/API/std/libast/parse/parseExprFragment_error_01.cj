@@ -1,5 +1,5 @@
 // EXEC: %compiler %cmp_opt %f -o %output
-// EXEC-PIPE-1: %run %run_opt %output %noColor 2>&1 | compare %f
+// RUN-EXEC-PIPE-1: %run %run_opt %output %noColor 2>&1 | compare %f
 
 internal import std.ast.*
 

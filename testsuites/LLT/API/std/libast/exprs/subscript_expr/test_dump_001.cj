@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.expect
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output > %n.txt
-// EXEC: %diff %n.expect %n.txt
+// RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
+//
 
 internal import std.ast.*
 internal import std.collection.*
@@ -31,6 +31,68 @@ main(): Int64 {
     expr.dump()
     return 0
 }
+
+/* SCAN-IN
+SubscriptExpr {
+  -baseExpr: SubscriptExpr {
+    -baseExpr: RefExpr {
+      -identifier: Token {
+        value: "arr"
+        kind: IDENTIFIER
+        pos: 21: 9
+      }
+    }
+    -indexList: 0, RangeExpr {
+      -op: Token {
+        value: ".."
+        kind: RANGEOP
+        pos: 21: 13
+      }
+      -end: LitConstExpr {
+        -literal: Token {
+          value: "4"
+          kind: INTEGER_LITERAL
+          pos: 21: 15
+        }
+      }
+    }
+  }
+  -indexList: 0, RangeExpr {
+    -start: LitConstExpr {
+      -literal: Token {
+        value: "1"
+        kind: INTEGER_LITERAL
+        pos: 21: 18
+      }
+    }
+    -op: Token {
+      value: ".."
+      kind: RANGEOP
+      pos: 21: 19
+    }
+    -end: LitConstExpr {
+      -literal: Token {
+        value: "4"
+        kind: INTEGER_LITERAL
+        pos: 21: 21
+      }
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 21: 22
+    }
+    -step: LitConstExpr {
+      -literal: Token {
+        value: "2"
+        kind: INTEGER_LITERAL
+        pos: 21: 23
+      }
+    }
+  }
+}
+ */
+
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0

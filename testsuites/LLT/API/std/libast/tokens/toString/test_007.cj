@@ -1,5 +1,5 @@
 // DEPENDENCE: macro_define.cj
-// EXEC-0: %compiler %cmp_opt macro_define.cj %cmp_macro
+// EXEC-0: %compiler macro_define.cj %cmp_macro
 // EXEC-PIPE-0: %pwd_to_ld_path %compiler %cmp_opt -Woff unused %n.cj %macro_lib -o %output 2>&1 | compare %f
 import std.ast.*
 import macro_def.*

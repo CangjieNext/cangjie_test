@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.expect
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output > %n.txt
-// EXEC: %diff %n.expect %n.txt
+// RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
+//
 
 internal import std.ast.*
 internal import std.collection.*
@@ -37,6 +37,118 @@ main(): Int64 {
     re.dump()
     return 0
 }
+
+/* SCAN-IN
+SpawnExpr {
+  -keyword: Token {
+    value: "spawn"
+    kind: SPAWN
+    pos: 21: 9
+  }
+  -threadContext: RefExpr {
+    -identifier: Token {
+      value: "Main"
+      kind: IDENTIFIER
+      pos: 21: 16
+    }
+  }
+  -lambdaExpr: LambdaExpr {
+    -nodes: 0, CallExpr {
+      -callFunc: MemberAccess {
+        -baseExpr: RefExpr {
+          -identifier: Token {
+            value: "mtx"
+            kind: IDENTIFIER
+            pos: 22: 13
+          }
+        }
+        -dot: Token {
+          value: "."
+          kind: DOT
+          pos: 22: 16
+        }
+        -field: Token {
+          value: "lock"
+          kind: IDENTIFIER
+          pos: 22: 17
+        }
+      }
+    }
+    -nodes: 1, AssignExpr {
+      -leftExpr: RefExpr {
+        -identifier: Token {
+          value: "count"
+          kind: IDENTIFIER
+          pos: 23: 13
+        }
+      }
+      -assign: Token {
+        value: "+="
+        kind: ADD_ASSIGN
+        pos: 23: 19
+      }
+      -rightExpr: LitConstExpr {
+        -literal: Token {
+          value: "1"
+          kind: INTEGER_LITERAL
+          pos: 23: 22
+        }
+      }
+    }
+    -nodes: 2, CallExpr {
+      -callFunc: RefExpr {
+        -identifier: Token {
+          value: "println"
+          kind: IDENTIFIER
+          pos: 24: 13
+        }
+      }
+      -arguments: 0, Argument {
+        -expr: LitConstExpr {
+          -literal: Token {
+            value: "CangjieFunc: spawn (Main) ${i}, tid = ${gettid()}"
+            kind: STRING_LITERAL
+            pos: 24: 21
+          }
+        }
+      }
+    }
+    -nodes: 3, Block {
+      -nodes: 0, CallExpr {
+        -callFunc: RefExpr {
+          -identifier: Token {
+            value: "pthread_self"
+            kind: IDENTIFIER
+            pos: 25: 22
+          }
+        }
+      }
+    }
+    -nodes: 4, CallExpr {
+      -callFunc: MemberAccess {
+        -baseExpr: RefExpr {
+          -identifier: Token {
+            value: "mtx"
+            kind: IDENTIFIER
+            pos: 26: 13
+          }
+        }
+        -dot: Token {
+          value: "."
+          kind: DOT
+          pos: 26: 16
+        }
+        -field: Token {
+          value: "unlock"
+          kind: IDENTIFIER
+          pos: 26: 17
+        }
+      }
+    }
+  }
+}
+ */
+
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0

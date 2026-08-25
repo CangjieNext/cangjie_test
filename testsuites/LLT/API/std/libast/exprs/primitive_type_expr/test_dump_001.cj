@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.expect
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output > %n.txt
-// EXEC: %diff %n.expect %n.txt
+// RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
+//
 
 internal import std.ast.*
 internal import std.collection.*
@@ -39,6 +39,31 @@ main(): Int64 {
     expr.dump()
     return 0
 }
+
+/* SCAN-IN
+CallExpr {
+  -callFunc: MemberAccess {
+    -baseExpr: PrimitiveTypeExpr {
+      -keyword: Token {
+        value: "Float64"
+        kind: FLOAT64
+        pos: 20: 9
+      }
+    }
+    -dot: Token {
+      value: "."
+      kind: DOT
+      pos: 20: 16
+    }
+    -field: Token {
+      value: "toString"
+      kind: IDENTIFIER
+      pos: 20: 17
+    }
+  }
+}
+ */
+
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0

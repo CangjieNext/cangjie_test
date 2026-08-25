@@ -14,7 +14,7 @@ main() : Int64 {
     return 0
 }
 
-/* SCAN
+/* SCAN-IN
 PerformExpr {
   -keyword: Token {
     value: "perform"

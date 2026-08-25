@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.expect
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output > %n.txt
-// EXEC: %diff %n.expect %n.txt
+// RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
+//
 
 internal import std.ast.*
 internal import std.collection.*
@@ -28,6 +28,24 @@ main(): Int64 {
     ty.dump()
     return 0
 }
+
+/* SCAN-IN
+PrefixType {
+  -prefixOps: 0: Token {
+    value: "?"
+    kind: QUEST
+    pos: 21: 9
+  }
+  -baseType: PrimitiveType {
+    -keyword: Token {
+      value: "Int64"
+      kind: INT64
+      pos: 21: 10
+    }
+  }
+}
+ */
+
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
