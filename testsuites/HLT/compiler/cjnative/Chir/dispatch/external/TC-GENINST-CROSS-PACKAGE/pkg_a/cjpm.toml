@@ -1,0 +1,21 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[package]
+  cjc-version = "1.2.0"
+  name = "pkg_a"
+  organization = ""
+  description = "导出接口 I 与 class A"
+  version = "1.0.0"
+  target-dir = ""
+  script-dir = ""
+  output-type = "static"
+  compile-option = "-Woff=all"
+  override-compile-option = ""
+  link-option = ""
+  package-configuration = {}
+
+[dependencies]
