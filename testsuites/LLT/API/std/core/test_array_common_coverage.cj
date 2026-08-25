@@ -63,6 +63,7 @@ class ArrayCommonCoverageTest {
         @Expect(arr.lastIndexOf([2, 3], 2), Some(4))
         @Expect(arr.lastIndexOf([2, 3], 4), Some(4))
         @Expect(arr.lastIndexOf([2, 3], 5), None)
+        @ExpectThrows[IllegalArgumentException](arr.lastIndexOf([2, 3], -1))
         @Expect(arr.lastIndexOf([9, 10]), None)
         @Expect([1, 2].lastIndexOf([1, 2, 3]), None)
     }
