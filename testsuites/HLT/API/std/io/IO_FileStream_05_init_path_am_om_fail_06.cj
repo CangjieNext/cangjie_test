@@ -20,8 +20,8 @@ main(): Int64 {
         ()
     } catch (e: FSException) {
         println(e)
-        if (e.toString() == "FSException: The file `${path}` does not exist or permission denied!" || e.toString() ==
-            "FSException: The input path 'parent' `/nonexist_dir/just_for_test/nonexist/b` does not exist.") {
+        if (e.toString() == "FSException: Cannot open file: path '${path}' does not exist or permission denied." || e.toString() ==
+            "FSException: Cannot open file: parent directory '/nonexist_dir/just_for_test/nonexist/b' does not exist.") {
             return 0
         }
     }

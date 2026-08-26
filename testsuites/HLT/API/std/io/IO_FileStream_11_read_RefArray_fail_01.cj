@@ -21,7 +21,7 @@ main(): Int64 {
         var readnum5 = fs.read(b4)
         ()
     } catch (e: IllegalArgumentException) {
-        if (e.toString() != "IllegalArgumentException: The buffer is empty.") {
+        if (e.toString() != "IllegalArgumentException: Invalid argument 'buffer': buffer is empty.") {
             return 1
         }
     }

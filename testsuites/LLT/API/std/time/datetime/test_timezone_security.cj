@@ -58,7 +58,7 @@ public class TimezoneSecurityTest {
             let _ = TimeZone.load("")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message, "Invalid timezone ID.")
         }
     }
 
@@ -70,7 +70,7 @@ public class TimezoneSecurityTest {
             let _ = TimeZone.load(longName)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message, "Invalid timezone ID.")
         }
     }
 }

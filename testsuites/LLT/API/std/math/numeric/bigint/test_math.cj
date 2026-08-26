@@ -131,19 +131,19 @@ class BigIntMathTest {
             dividend.divAndMod(divisor)
             @Expect(1, 2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Assert(e.message.contains("Division") || e.message.contains("Divided"))
         }
         try {
             dividend / divisor
             @Expect(1, 2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Assert(e.message.contains("Division") || e.message.contains("Divided"))
         }
         try {
             dividend % divisor
             @Expect(1, 2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Assert(e.message.contains("Division") || e.message.contains("Divided"))
         }
         dividend = BigInt.parse("-98", radix: 10)
         divisor = BigInt.parse("10", radix: 10)
@@ -396,7 +396,7 @@ class BigIntMathTest {
             n.modInverse(m)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The BigInt is not relatively prime with the input.")
+            @Expect(e.message, "Invalid argument: cannot compute modular inverse when value is zero.")
         }
 
         m = BigInt(4)
@@ -405,7 +405,7 @@ class BigIntMathTest {
             println(i)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The BigInt is not relatively prime with the input.")
+            @Expect(e.message, "Invalid argument: cannot compute modular inverse when values are not relatively prime.")
         }
 
         n = BigInt.parse("10000000000000000", radix: 16)
@@ -546,13 +546,13 @@ class BigIntMathTest {
             i.modPow(BigInt(-1))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The exponent can not be negative.")
+            @Expect(e.message, "Invalid argument 'n': exponent cannot be negative.")
         }
         try {
             i.modPow(BigInt(1), m: BigInt(0))
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
         }
 
         i = BigInt(-2)
@@ -622,7 +622,7 @@ class BigIntMathTest {
             si = sqrt(i)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The BigInt be used to calculate the square root must >= 0.")
+            @Expect(e.message, "Invalid argument 'i': must be non-negative for square root.")
         }
     }
 

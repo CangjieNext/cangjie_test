@@ -70,7 +70,7 @@ class Test_Tcp_IPv4 {
         try {
             IPSocketAddress([127u8, 0u8, 0u8, 1u8, 1u8], 0)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "IPSocketAddress only support IPv4 and IPv6 address.")
+            @Expect(e.message, "IPSocketAddress only supports IPv4 and IPv6 address.")
             sum += 1
         }
         @Expect(sum, 9)

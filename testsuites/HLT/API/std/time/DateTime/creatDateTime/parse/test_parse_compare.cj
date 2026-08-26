@@ -53,21 +53,21 @@ class Test_parse_compare {
         try {
             let res1 = DateTime.parse("04/20 00:00:00 +00:00", "MM/dd HH:mm:ss OOOO")
         } catch (e1: TimeParseException) {
-            @Expect(e1.message, "Lack of year value.")
+            @Expect(e1.message, "Missing year value.")
             cnt += 1
         }
 
         try {
             let res2 = DateTime.parse("2023/20 00:00:00 +00:00", "yyyy/dd HH:mm:ss OOOO")
         } catch (e2: TimeParseException) {
-            @Expect(e2.message, "Lack of month value.")
+            @Expect(e2.message, "Missing month value.")
             cnt += 1
         }
 
         try {
             let res3 = DateTime.parse("2023/04 00:00:00 +00:00", "yyyy/MM HH:mm:ss OOOO")
         } catch (e3: TimeParseException) {
-            @Expect(e3.message, "Lack of dayOfMonth value.")
+            @Expect(e3.message, "Missing day of month value.")
             cnt += 1
         }
 
@@ -87,91 +87,91 @@ class Test_parse_compare {
         try {
             let res1 = DateTime.parse("2023/04/20/2023 00:00:00 +00:00", "yyyy/MM/dd/yyyy HH:mm:ss OOOO")
         } catch (e1: TimeParseException) {
-            @Expect(e1.message, "Extra year format.")
+            @Expect(e1.message, "Duplicate year format.")
             cnt += 1
         }
 
         try {
             let res2 = DateTime.parse("2023/04/20/04 00:00:00 +00:00", "yyyy/MM/dd/MM HH:mm:ss OOOO")
         } catch (e2: TimeParseException) {
-            @Expect(e2.message, "Extra month format.")
+            @Expect(e2.message, "Duplicate month format.")
             cnt += 1
         }
 
         try {
             let res3 = DateTime.parse("2023/04/20/20 00:00:00 +00:00", "yyyy/MM/dd/dd HH:mm:ss OOOO")
         } catch (e3: TimeParseException) {
-            @Expect(e3.message, "Extra dayOfMonth format.")
+            @Expect(e3.message, "Duplicate day of month format.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/20 00:00:00:00 +00:00", "yyyy/MM/dd HH:mm:ss:HH OOOO")
         } catch (e4: TimeParseException) {
-            @Expect(e4.message, "Extra hour format.")
+            @Expect(e4.message, "Duplicate hour format.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/04/20 00:00:00:00 +00:00", "yyyy/MM/dd HH:mm:ss:mm OOOO")
         } catch (e5: TimeParseException) {
-            @Expect(e5.message, "Extra minute format.")
+            @Expect(e5.message, "Duplicate minute format.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/04/20 00:00:00:00 +00:00", "yyyy/MM/dd HH:mm:ss:ss OOOO")
         } catch (e6: TimeParseException) {
-            @Expect(e6.message, "Extra second format.")
+            @Expect(e6.message, "Duplicate second format.")
             cnt += 1
         }
 
         try {
             let res7 = DateTime.parse("2023/04/20 00:00:00 +00:00 +00:00", "yyyy/MM/dd HH:mm:ss OOOO OOOO")
         } catch (e7: TimeParseException) {
-            @Expect(e7.message, "Extra zone offset format.")
+            @Expect(e7.message, "Duplicate zone offset format.")
             cnt += 1
         }
 
         try {
             let res8 = DateTime.parse("2023/04/20 00:00:00 Asia/Shanghai Asia/Shanghai", "yyyy/MM/dd HH:mm:ss zzzz zzzz")
         } catch (e8: TimeParseException) {
-            @Expect(e8.message, "Extra zone id format.")
+            @Expect(e8.message, "Duplicate zone ID format.")
             cnt += 1
         }
 
         try {
             let res9 = DateTime.parse("2023/04/20 00:00:00 GMT+00:00:00 GMT+00:00:00", "yyyy/MM/dd HH:mm:ss ZZZZ ZZZZ")
         } catch (e9: TimeParseException) {
-            @Expect(e9.message, "Extra zone offset format.")
+            @Expect(e9.message, "Duplicate zone offset format.")
             cnt += 1
         }
 
         try {
             let res10 = DateTime.parse("2023/01/01 00:00:00 001 001", "yyyy/MM/dd HH:mm:ss DD DD")
         } catch (e10: TimeParseException) {
-            @Expect(e10.message, "Extra dayOfYear format.")
+            @Expect(e10.message, "Duplicate day of year format.")
             cnt += 1
         }
 
         try {
             let res11 = DateTime.parse("2023/01/01 00:00:00 01 01", "yyyy/MM/dd HH:mm:ss WW WW")
         } catch (e11: TimeParseException) {
-            @Expect(e11.message, "Extra isoWeek format.")
+            @Expect(e11.message, "Duplicate ISO week format.")
             cnt += 1
         }
 
         try {
             let res12 = DateTime.parse("2023/01/01 00:00:00 A A", "yyyy/MM/dd HH:mm:ss G G")
         } catch (e12: TimeParseException) {
-            @Expect(e12.message, "Extra era value.")
+            @Expect(e12.message, "Duplicate era value.")
             cnt += 1
         }
 
         try {
             let res13 = DateTime.parse("2023/01/01 00:00:00 AM AM", "yyyy/MM/dd HH:mm:ss a a")
         } catch (e13: TimeParseException) {
-            @Expect(e13.message, "Extra AM/PM value.")
+            @Expect(e13.message, "Duplicate AM/PM value.")
             cnt += 1
         }
 

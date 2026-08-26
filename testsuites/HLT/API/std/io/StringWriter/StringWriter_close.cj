@@ -46,7 +46,7 @@ class Test_StringWriter_close {
             file.write([1u8, 2u8, 3u8])
         } catch (e: FSException) {
             cnt++
-            @Assert(Regex("^The file `.+` not opened, can not be written.$").matches(e.message))
+            @Assert(Regex("^Cannot write to file '.+': file is not opened\\.$").matches(e.message))
         }
         @Expect(cnt, 1)
 
@@ -75,7 +75,7 @@ class Test_StringWriter_close {
             file.write([1u8, 2u8, 3u8])
         } catch (e: FSException) {
             cnt++
-            @Assert(Regex("^The file `.+` not opened, can not be written.$").matches(e.message))
+            @Assert(Regex("^Cannot write to file '.+': file is not opened\\.$").matches(e.message))
         }
         @Expect(cnt, 1)
 

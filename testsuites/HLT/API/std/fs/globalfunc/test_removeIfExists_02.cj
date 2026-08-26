@@ -22,7 +22,7 @@ class Test_RemoveIfExists {
     @TestCase
     func remove_empty() {
         let e = @AssertThrows[IllegalArgumentException](removeIfExists(""))
-        @Expect(e.message, "The input path is empty.")
+        @Expect(e.message, "Invalid argument 'path': cannot be empty.")
     }
 
     @TestCase
@@ -35,7 +35,7 @@ class Test_RemoveIfExists {
     func remove_illegal() {
         let e = @AssertThrows[IllegalArgumentException](removeIfExists(Path("./a\0")))
         println(e.message.toString())
-        @Expect(e.message, "The input path value [46, 47, 97, 0] contains null character.")
+        @Expect(e.message, "Invalid argument 'path': value '[46, 47, 97, 0]' contains null character.")
     }
 
     @TestCase

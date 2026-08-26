@@ -8,7 +8,7 @@
 // EXEC-PIPE-0: %compiler %cmp_opt -o %n.%suffix %f
 // EXEC-PIPE-0: %run %run_opt %n.%suffix %run_args | compare %f
 // ASSERT: scan 32
-// ASSERT: scan OverflowException: The maximum value for capacity expansion cannot exceed the maximum value of Int64.
+// ASSERT: scan OverflowException: Capacity overflow: the maximum value cannot exceed 'Int64 max'.
 
 internal import std.io.ByteBuffer
 internal import std.math.*

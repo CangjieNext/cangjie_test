@@ -68,7 +68,7 @@ class DirectoryWindowsTest {
             remove(dirname, recursive: true)
             Directory.isEmpty(dirname)
         } catch (e: FSException) {
-            @Expect(e.message,"The input path `./data/directory/yur` does not exist.")
+            @Expect(e.message,"Invalid argument 'path': './data/directory/yur' does not exist.")
             countError++
         }
         @Expect(countError,1)
@@ -231,7 +231,7 @@ class DirectoryWindowsTest {
         try {
             Directory.create(path)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to create directory `${path}`, parent directory `./aaa` does not exist.")
+            @Expect(e.message,"Failed to create directory '${path}': parent directory './aaa' does not exist.")
             countError++
         }
         path = "./data/directory/qwe"
@@ -243,7 +243,7 @@ class DirectoryWindowsTest {
                 Directory.create(path)
             }
         } catch (e: FSException) {
-            @Expect(e.message,"The input path `${path}` is already exists.")
+            @Expect(e.message,"Cannot create directory: '${path}' already exists.")
             countError++
         } finally {
             if (exists(path)) {
@@ -254,21 +254,21 @@ class DirectoryWindowsTest {
         try {
             Directory.create(path)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
+            @Expect(e.message,"Invalid path '${path}': cannot create directory.")
             countError++
         }
         path = "/"
         try {
             Directory.create(path)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
+            @Expect(e.message,"Invalid path '${path}': cannot create directory.")
             countError++
         }
         path = "./data/directory/qwe\0"
         try {
             Directory.create(path)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
+            @Expect(e.message,"Invalid path '${path}': cannot create directory.")
             countError++
         }
         path = "C://aabcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyzaabcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz"
@@ -311,20 +311,20 @@ class DirectoryWindowsTest {
         try {
             Directory.createTemp(path)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to canonical: the input path `${path}` may not exist or permission denied!")
+            @Expect(e.message,"Failed to canonicalize path '${path}': path does not exist or permission denied.")
             countError++
         }
 
         try {
             Directory.createTemp("")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The input path is empty.")
+            @Expect(e.message,"Invalid argument 'path': cannot be empty.")
             countError++
         }
         try {
             Directory.createTemp("\0")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The input path value [0] contains null character.")
+            @Expect(e.message,"Invalid argument 'path': value '[0]' contains null character.")
             countError++
         }
         @Expect(countError,3)

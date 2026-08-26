@@ -19,7 +19,7 @@ main(): Int64 {
         var fs1 = File("./b/", ReadWrite) //Directory existed but can't open ,throw FSException
         ()
     } catch (e: FSException) {
-        if (!e.toString().contains("FSException: Failed to open the file")) {
+        if (!e.toString().contains("FSException: Failed to open file")) {
             return 1
         }
     }

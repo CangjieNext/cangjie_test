@@ -72,7 +72,7 @@ class Test_seek_current {
             bs.seek(Current(-1))
             @Expect(false)
         } catch (e: IOException) {
-            @Expect(e.message, "Can't move the position before the beginning of the stream.")
+            @Expect(e.message, "Failed to seek: position '-1' is before the beginning of the stream.")
         }
     }
 
@@ -85,7 +85,7 @@ class Test_seek_current {
             bs.read(arr)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Negative copy length.")
+            @Expect(e.message, "Invalid argument 'copyLen': expected a non-negative value, got '-5'.")
         }
     }
 }

@@ -22,14 +22,14 @@ public class StaticofEpochTest {
             DateTime.ofEpoch(second: 31536000, nanosecond: 31536000000000000)
             @Assert(false)
         } catch (exp1: IllegalArgumentException) {
-            @Expect(exp1.message, "The nanosecond value should be in the range [0, 999,999,999].")
+            @Expect(exp1.message, "Invalid nanosecond value '31536000000000000': expected 0 to 999,999,999.")
         }
 
         try {
             DateTime.ofEpoch(second: 31536000, nanosecond: -1)
             @Assert(false)
         } catch (exp2: IllegalArgumentException) {
-            @Expect(exp2.message, "The nanosecond value should be in the range [0, 999,999,999].")
+            @Expect(exp2.message, "Invalid nanosecond value '-1': expected 0 to 999,999,999.")
         }
 
         try {

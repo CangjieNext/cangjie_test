@@ -21,7 +21,7 @@ main(): Int64 {
         var readnum9 = fs.read(b.slice(10, 1))
         ()
     } catch (e: IndexOutOfBoundsException) {
-        if (e.toString() != "IndexOutOfBoundsException: The size of Array is 10, start is 10, length is 1.") {
+        if (e.toString() != "IndexOutOfBoundsException: Slice out of bounds: start is '10', length is '1', but array size is '10'.") {
             return 1
         }
     }

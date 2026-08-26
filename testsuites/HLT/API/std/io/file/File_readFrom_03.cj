@@ -24,6 +24,6 @@ class File_readFrom_03 {
         let fileName = "./readFrom_no_exit_12.txt"
         let filePath = getWorkingDirectory().join(fileName)
         let e = @AssertThrows[FSException](File.readFrom(fileName))
-        @Assert(e.toString(), "FSException: The file `${filePath}` does not exist or permission denied!")
+        @Expect(e.message, "Cannot open file '${filePath}': file does not exist or permission denied.")
     }
 }

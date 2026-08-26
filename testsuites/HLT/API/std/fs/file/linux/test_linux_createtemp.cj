@@ -75,7 +75,7 @@ class Test_File_CreateTemp {
             try {
                 File.createTemp(str)
             } catch (e: FSException) {
-                @Expect(e.message, "Failed to canonical: the input path `${str}` may not exist or permission denied!")
+                @Expect(e.message, "Failed to canonicalize path '${str}': path does not exist or permission denied.")
                 sum += 1
             }
         }
@@ -83,7 +83,7 @@ class Test_File_CreateTemp {
         try {
             File.createTemp("./file01")
         } catch (e: FSException) {
-            @Expect(e.message, "Failed to create the temporary file!")
+            @Expect(e.message, "Failed to create temporary file.")
             sum += 1
         }
         @Expect(sum, 3)

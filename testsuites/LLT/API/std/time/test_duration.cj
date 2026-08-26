@@ -40,7 +40,7 @@ public class DurationTest {
             dur.toNanoseconds()
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in nanosecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in nanoseconds exceeds 'Int64' range.")
         }
 
         dur = dur * 1000
@@ -48,7 +48,7 @@ public class DurationTest {
             dur.toMicroseconds()
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in microsecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in microseconds exceeds 'Int64' range.")
         }
 
         dur = dur * 1000
@@ -56,7 +56,7 @@ public class DurationTest {
             dur.toMilliseconds()
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in millisecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in milliseconds exceeds 'Int64' range.")
         }
     }
 
@@ -174,7 +174,7 @@ public class DurationTest {
         @Expect(durationMultiplyFloat64(Duration.Max, 1.000001), ARITHMETIC_EXCEPTION_OF_DURATION)
         @Expect(durationMultiplyFloat64(Duration.Min, -1.000001), ARITHMETIC_EXCEPTION_OF_DURATION)
 
-        @Expect(float64MultiplyDuration(Float64.NaN, Duration.nanosecond), "The value of operand cannot be Float64.NaN(not a number)!")
+        @Expect(float64MultiplyDuration(Float64.NaN, Duration.nanosecond), "Operand value cannot be 'Float64.NaN'.")
         @Expect(float64MultiplyDuration(Float64.Max, Duration.nanosecond), ARITHMETIC_EXCEPTION_OF_DURATION)
         @Expect(float64MultiplyDuration(Float64.Min, Duration.nanosecond), ARITHMETIC_EXCEPTION_OF_DURATION)
         @Expect(float64MultiplyDuration(1.000001, Duration.Max), ARITHMETIC_EXCEPTION_OF_DURATION)
@@ -222,19 +222,19 @@ public class DurationTest {
 
     @TestCase
     func operationDivideZero(): Unit {
-        @Expect(durationDivideInt64(Duration.Max, 0), "The value of right operand cannot be 0!")
-        @Expect(durationDivideFloat64(Duration.Max, Float64(0)), "The value of right operand cannot be 0.0!")
+        @Expect(durationDivideInt64(Duration.Max, 0), "Divisor value cannot be '0'.")
+        @Expect(durationDivideFloat64(Duration.Max, Float64(0)), "Divisor value cannot be '0.0'.")
         try {
             Duration.Max / Duration.Zero
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The value of right operand cannot be Duration.Zero!")
+            @Expect(e.message, "Divisor cannot be 'Duration.Zero'.")
         }
     }
 
     @TestCase
     func operationDivideOverFlow(): Unit {
         @Expect(durationDivideInt64(Duration.Min, -1), ARITHMETIC_EXCEPTION_OF_DURATION)
-        @Expect(durationDivideFloat64(Duration.Min, Float64.NaN), "The value of right operand cannot be Float64.NaN(not a number)!")
+        @Expect(durationDivideFloat64(Duration.Min, Float64.NaN), "Divisor value cannot be 'Float64.NaN'.")
     }
 
     @TestCase

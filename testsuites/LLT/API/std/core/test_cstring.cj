@@ -119,7 +119,7 @@ class CStringTest {
                 string.compare(rhs)
                 @Expect(false)
             } catch (e: Exception) {
-                @Expect(e.message, "The two CString values to be compared cannot be null.")
+                @Expect(e.message, "CString values to compare cannot be null.")
             }
 
             rhs = LibC.mallocCString("Hello World")
@@ -145,7 +145,7 @@ class CStringTest {
                 string.compare(rhs)
                 @Expect(false)
             } catch (e: Exception) {
-                @Expect(e.message, "The two CString values to be compared cannot be null.")
+                @Expect(e.message, "CString values to compare cannot be null.")
             }
 
             LibC.free(rhs)
