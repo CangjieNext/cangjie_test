@@ -28,21 +28,21 @@ class Test_parse_isoWeek {
         try {
             let res4 = DateTime.parse("2023/01/08 19:52:23 +00:00 s", "yyyy/MM/dd HH:mm:ss OOOO W")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: \"s\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 27: expected an integer, got 's'.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/01/08 19:52:23 +00:00 001", "yyyy/MM/dd HH:mm:ss OOOO W")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Extar value, start at index 29.")
+            @Expect(e.message, "Extra value starting at index 29.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/01/08 19:52:23 +00:00    ", "yyyy/MM/dd HH:mm:ss OOOO W")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: \" \" should be integer.")
+            @Expect(e.message, "Failed to parse at index 27: expected an integer, got ' '.")
             cnt += 1
         }
 
@@ -58,35 +58,35 @@ class Test_parse_isoWeek {
         try {
             let res2 = DateTime.parse("2023/01/09 19:52:23 +00:00 2", "yyyy/MM/dd HH:mm:ss OOOO WW")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: insufficient remaining length.")
+            @Expect(e.message, "Failed to parse at index 27: insufficient remaining length.")
             cnt += 1
         }
 
         try {
             let res3 = DateTime.parse("2023/01/08 19:52:23 +00:00 0", "yyyy/MM/dd HH:mm:ss OOOO WW")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: insufficient remaining length.")
+            @Expect(e.message, "Failed to parse at index 27: insufficient remaining length.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/01/08 19:52:23 +00:00 s", "yyyy/MM/dd HH:mm:ss OOOO WW")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: insufficient remaining length.")
+            @Expect(e.message, "Failed to parse at index 27: insufficient remaining length.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/01/08 19:52:23 +00:00 001", "yyyy/MM/dd HH:mm:ss OOOO WW")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Extar value, start at index 29.")
+            @Expect(e.message, "Extra value starting at index 29.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/01/08 19:52:23 +00:00    ", "yyyy/MM/dd HH:mm:ss OOOO WW")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: \" \" should be integer.")
+            @Expect(e.message, "Failed to parse at index 27: expected an integer, got ' '.")
             cnt += 1
         }
 

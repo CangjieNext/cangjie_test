@@ -24,7 +24,7 @@ main() {
     try {
         readLen = bufferedInputStream.read(buff)
     } catch (e: Exception) {
-        if (e.message != "The buffer cannot be empty: `buffer.size() = 0`!") {
+        if (e.message != "Invalid argument 'buffer': buffer size is 0.") {
             return 1
         }
     }

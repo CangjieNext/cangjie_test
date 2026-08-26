@@ -18,7 +18,7 @@ main() {
     try {
         var file1 = File(fileName, Read)
     } catch (e: IllegalArgumentException) {
-        if (e.toString() != "IllegalArgumentException: The input path is empty.") {
+        if (e.toString() != "IllegalArgumentException: Invalid argument 'path': cannot be empty.") {
             return 1
         }
     }

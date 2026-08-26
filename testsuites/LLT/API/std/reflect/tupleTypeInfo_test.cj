@@ -336,9 +336,9 @@ class TupleTypeInfoNegativeTest {
     @TestCase
     func testOfNonTupleType() {
         var e = @ExpectThrows[IllegalTypeException](TupleTypeInfo.of(1)).getOrThrow()
-        @Expect(e.message.contains("Expected `instance` to be a tuple type"))
+        @Expect(e.message.contains("Expected 'instance' to be a tuple type"))
         e = @ExpectThrows[IllegalTypeException](TupleTypeInfo.of<Int64>()).getOrThrow()
-        @Expect(e.message.contains("Expected generic type `T` to be a tuple type"))
+        @Expect(e.message.contains("Expected generic type 'T' to be a tuple type"))
     }
 
     @TestCase
@@ -358,7 +358,7 @@ class TupleTypeInfoNegativeTest {
         let info = TupleTypeInfo.of<(Int64, String)>()
         let e = @ExpectThrows[IllegalTypeException](info.construct([42, 3.14])).getOrThrow()
         @Expect(e.message.contains("Tuple argument type mismatch at index 1"))
-        @Expect(e.message.contains("expected String"))
+        @Expect(e.message.contains("expected 'String'"))
     }
 
     @TestCase
@@ -366,13 +366,13 @@ class TupleTypeInfoNegativeTest {
         let info = TupleTypeInfo.of<(Int64, String)>()
         let e = @ExpectThrows[IllegalTypeException](info.destruct((42, 3.14))).getOrThrow()
         @Expect(e.message.contains("Tuple instance type mismatch"))
-        @Expect(e.message.contains("expected Tuple<Int64, String>"))
+        @Expect(e.message.contains("expected 'Tuple<Int64, String>'"))
     }
 
     @TestCase
     func testUnitIsNotTupleType() {
         let e = @ExpectThrows[IllegalTypeException](TupleTypeInfo.of(())).getOrThrow()
-        @Expect(e.message.contains("Expected `instance` to be a tuple type"))
+        @Expect(e.message.contains("Expected 'instance' to be a tuple type"))
     }
 
     @TestCase
@@ -380,6 +380,6 @@ class TupleTypeInfoNegativeTest {
         let info = TupleTypeInfo.of<(S1, Int64)>()
         let e = @ExpectThrows[IllegalTypeException](info.destruct((S2(1), 2))).getOrThrow()
         @Expect(e.message.contains("Tuple instance type mismatch"))
-        @Expect(e.message.contains("expected Tuple<default.S1, Int64>"))
+        @Expect(e.message.contains("expected 'Tuple<default.S1, Int64>'"))
     }
 }

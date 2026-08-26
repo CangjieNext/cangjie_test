@@ -9,7 +9,7 @@
 // (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f
 // (not Windows) EXEC: %set_stdx_path %run %run_opt %n.%suffix | compare %f
 
-// ASSERT: scan Signal value must > 0 and < 32
+// ASSERT: scan Invalid argument 'sig': signal value '33' out of range 1–31.
 // ASSERT: scan handle signal: 2
 // ASSERT: scan handle signal: 13
 // ASSERT: scan handle signal: 6

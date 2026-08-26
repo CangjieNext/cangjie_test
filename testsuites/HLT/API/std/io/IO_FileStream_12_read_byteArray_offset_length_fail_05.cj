@@ -22,7 +22,7 @@ main(): Int64 {
         var readnum10 = fs2.read(b.slice(2, 3))
         ()
     } catch (e: FSException) {
-        if (!Regex("^FSException: The file `.+` does not have the read permission.$").matches(e.toString())) {
+        if (!Regex("^FSException: Cannot read file '.+': file does not have read permission\\.$").matches(e.toString())) {
             return 1
         }
     }

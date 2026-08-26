@@ -38,14 +38,14 @@ class Test_Path_IsRelative {
         try {
             Path("").isRelative()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The path is empty.")
+            @Expect(e.message, "Invalid argument 'path': cannot be empty.")
             sum += 1
         }
         for (str in illegal_path_string) {
             try {
                 Path(str).isRelative()
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The path value ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "Invalid argument 'path': value '${unsafe { str.rawData() }}' contains null character.")
                 sum += 1
             }
         }

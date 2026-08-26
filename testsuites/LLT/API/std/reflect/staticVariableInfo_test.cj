@@ -66,14 +66,14 @@ class staticVariablesTest {
             parm1.setValue(1)
             @Expect(false)
         } catch (e: IllegalSetException) {
-            @Expect(e.message, "Attempt to modify immutable variable 'parm1'.")
+            @Expect(e.message, "Cannot modify immutable variable 'parm1'.")
         }
 
         try {
             parm2.setValue(B(2))
             @Expect(false)
         } catch (e: IllegalSetException) {
-            @Expect(e.message, "Attempt to modify immutable variable 'parm2'.")
+            @Expect(e.message, "Cannot modify immutable variable 'parm2'.")
         }
 
         try {

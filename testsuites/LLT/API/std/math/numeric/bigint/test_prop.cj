@@ -77,7 +77,7 @@ class BigPropTest {
             i.testBit(-1)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The index must >= 0.")
+            @Expect(e.message, "Invalid argument 'index': must be non-negative.")
         }
         @Expect(i.testBit(0), false)
         @Expect(i.testBit(10), false)
@@ -142,7 +142,7 @@ class BigPropTest {
             i.setBit(-1)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The index must >= 0.")
+            @Expect(e.message, "Invalid argument 'index': must be non-negative.")
         }
         var ii = i.setBit(1)
         @Expect(ii.toString(), "2")
@@ -190,7 +190,7 @@ class BigPropTest {
             i.clearBit(-1)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The index must >= 0.")
+            @Expect(e.message, "Invalid argument 'index': must be non-negative.")
         }
         var ii = i.clearBit(1)
         @Expect(ii.toString(), "0")
@@ -243,7 +243,7 @@ class BigPropTest {
             i.setBit(-1)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The index must >= 0.")
+            @Expect(e.message, "Invalid argument 'index': must be non-negative.")
         }
         var ii = i.flipBit(1)
         @Expect(ii.toString(), "2")

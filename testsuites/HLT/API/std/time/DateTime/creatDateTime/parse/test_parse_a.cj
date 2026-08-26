@@ -26,28 +26,28 @@ class Test_parse_a {
         try {
             let res3 = DateTime.parse("2023/04/20 12:00:00 +00:00 AM", "yyyy/MM/dd HH:mm:ss OOOO a")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "The time is not in the morning.")
+            @Expect(e.message, "Invalid time: expected morning (AM).")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/20 23:59:59 +00:00 AM", "yyyy/MM/dd HH:mm:ss OOOO a")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "The time is not in the morning.")
+            @Expect(e.message, "Invalid time: expected morning (AM).")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/04/20 23:59:59 +00:00 A", "yyyy/MM/dd HH:mm:ss OOOO a")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Illegal AM/PM value.")
+            @Expect(e.message, "Invalid AM/PM value: insufficient length.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/04/20 23:59:59 +00:00 am", "yyyy/MM/dd HH:mm:ss OOOO a")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Illegal AM/PM value.")
+            @Expect(e.message, "Invalid AM/PM value.")
             cnt += 1
         }
 
@@ -65,28 +65,28 @@ class Test_parse_a {
         try {
             let res3 = DateTime.parse("2023/04/20 00:00:00 +00:00 PM", "yyyy/MM/dd HH:mm:ss OOOO a")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "The time is not in the afternoon.")
+            @Expect(e.message, "Invalid time: expected afternoon (PM).")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/20 11:59:59 +00:00 PM", "yyyy/MM/dd HH:mm:ss OOOO a")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "The time is not in the afternoon.")
+            @Expect(e.message, "Invalid time: expected afternoon (PM).")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/04/20 11:59:59 +00:00 P", "yyyy/MM/dd HH:mm:ss OOOO a")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Illegal AM/PM value.")
+            @Expect(e.message, "Invalid AM/PM value: insufficient length.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/04/20 11:59:59 +00:00 pm", "yyyy/MM/dd HH:mm:ss OOOO a")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Illegal AM/PM value.")
+            @Expect(e.message, "Invalid AM/PM value.")
             cnt += 1
         }
 

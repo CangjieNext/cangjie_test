@@ -32,14 +32,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("202/04/17 19:52:23 +00:00", "y/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 3: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 3: expected an integer, got '/'.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("20232/04/17 19:52:23 +00:00", "y/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 4: \"2\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 4: expected '/', got '2'.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -64,14 +64,14 @@ class Test_parse_year {
         try {
             let res7 = DateTime.parse("167/04/17 19:52:23 +00:00", "yy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 2: \"7\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 2: expected '/', got '7'.")
             cnt += 1
         }
 
         try {
             let res8 = DateTime.parse("7/04/17 19:52:23 +00:00", "yy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 1: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 1: expected an integer, got '/'.")
             cnt += 1
         }
 
@@ -89,14 +89,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("202/04/17 19:52:23 +00:00", "yyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 3: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 3: expected an integer, got '/'.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("20232/04/17 19:52:23 +00:00", "yyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 4: \"2\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 4: expected '/', got '2'.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -113,14 +113,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("202/04/17 19:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 3: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 3: expected an integer, got '/'.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("20232/04/17 19:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 4: \"2\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 4: expected '/', got '2'.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -137,14 +137,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("2022/04/17 19:52:23 +00:00", "yyyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 4: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 4: expected an integer, got '/'.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("120232/04/17 19:52:23 +00:00", "yyyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 5: \"2\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 5: expected '/', got '2'.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -161,14 +161,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("12022/04/17 19:52:23 +00:00", "yyyyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 5: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 5: expected an integer, got '/'.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("1120232/04/17 19:52:23 +00:00", "yyyyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 6: \"2\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 6: expected '/', got '2'.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -185,14 +185,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("112022/04/17 19:52:23 +00:00", "yyyyyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 6: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 6: expected an integer, got '/'.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("11120232/04/17 19:52:23 +00:00", "yyyyyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 7: \"2\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 7: expected '/', got '2'.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -209,14 +209,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("1112022/04/17 19:52:23 +00:00", "yyyyyyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 7: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 7: expected an integer, got '/'.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("111120232/04/17 19:52:23 +00:00", "yyyyyyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 8: \"2\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 8: expected '/', got '2'.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -233,14 +233,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("11112022/04/17 19:52:23 +00:00", "yyyyyyyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 8: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 8: expected an integer, got '/'.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("1111120232/04/17 19:52:23 +00:00", "yyyyyyyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 9: \"2\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 9: expected '/', got '2'.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -314,21 +314,21 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("2023/04/17 19:52:23 +00:00 202", "yyyy/MM/dd HH:mm:ss OOOO YYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: year value is not correct.")
+            @Expect(e.message, "Failed to parse at index 27: invalid year value.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/17 19:52:23 +00:00 20", "yyyy/MM/dd HH:mm:ss OOOO YYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: year value is not correct.")
+            @Expect(e.message, "Failed to parse at index 27: invalid year value.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/17 19:52:23 +00:00 SS", "yyyy/MM/dd HH:mm:ss OOOO YYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: year value is not correct.")
+            @Expect(e.message, "Failed to parse at index 27: invalid year value.")
             cnt += 1
         }
         @Expect(cnt, 3)
@@ -345,14 +345,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("2023/04/17 19:52:23 +00:00 202", "yyyy/MM/dd HH:mm:ss OOOO YYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: year value is not correct.")
+            @Expect(e.message, "Failed to parse at index 27: invalid year value.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/17 19:52:23 +00:00 20232", "yyyy/MM/dd HH:mm:ss OOOO YYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Extar value, start at index 31.")
+            @Expect(e.message, "Extra value starting at index 31.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -369,14 +369,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("12022/04/17 19:52:23 +00:00 2022", "yyyyy/MM/dd HH:mm:ss OOOO YYYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 28: year value is not correct.")
+            @Expect(e.message, "Failed to parse at index 28: invalid year value.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("12023/04/17 19:52:23 +00:00 120230", "YYYYY/MM/dd HH:mm:ss YYYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Extra year format.")
+            @Expect(e.message, "Duplicate year format.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -393,14 +393,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("112022/04/17 19:52:23 +00:00 12022", "yyyyyy/MM/dd HH:mm:ss OOOO YYYYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 29: year value is not correct.")
+            @Expect(e.message, "Failed to parse at index 29: invalid year value.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("112023/04/17 19:52:23 +00:00 1120231", "yyyyyy/MM/dd HH:mm:ss OOOO YYYYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Extar value, start at index 35.")
+            @Expect(e.message, "Extra value starting at index 35.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -417,14 +417,14 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("1112022/04/17 19:52:23 +00:00 112022", "yyyyyyy/MM/dd HH:mm:ss OOOO YYYYYYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 30: year value is not correct.")
+            @Expect(e.message, "Failed to parse at index 30: invalid year value.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("1120232/04/17 19:52:23 +00:00 11120232", "yyyyyyy/MM/dd HH:mm:ss OOOO YYYYYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Extar value, start at index 37.")
+            @Expect(e.message, "Extra value starting at index 37.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -441,7 +441,7 @@ class Test_parse_year {
         try {
             let res3 = DateTime.parse("11112022/04/17 19:52:23 +00:00 1111202", "yyyyyyyy/MM/dd HH:mm:ss OOOO YYYYYYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 31: year value is not correct.")
+            @Expect(e.message, "Failed to parse at index 31: invalid year value.")
             cnt += 1
         }
 
@@ -449,7 +449,7 @@ class Test_parse_year {
             let res4 = DateTime.parse("11120232/04/17 19:52:23 +00:00 111120232",
                 "yyyyyyyy/MM/dd HH:mm:ss OOOO YYYYYYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Extar value, start at index 39.")
+            @Expect(e.message, "Extra value starting at index 39.")
             cnt += 1
         }
         @Expect(cnt, 2)
@@ -468,7 +468,7 @@ class Test_parse_year {
             let res3 = DateTime.parse("111112022/04/17 19:52:23 +00:00 11112022",
                 "yyyyyyyyy/MM/dd HH:mm:ss OOOO YYYYYYYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 32: year value is not correct.")
+            @Expect(e.message, "Failed to parse at index 32: invalid year value.")
             cnt += 1
         }
 
@@ -476,7 +476,7 @@ class Test_parse_year {
             let res4 = DateTime.parse("111120232/04/17 19:52:23 +00:00 1111120232",
                 "yyyyyyyyy/MM/dd HH:mm:ss OOOO YYYYYYYYY")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Extar value, start at index 41.")
+            @Expect(e.message, "Extra value starting at index 41.")
             cnt += 1
         }
         @Expect(cnt, 2)

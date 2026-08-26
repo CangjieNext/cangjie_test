@@ -7,8 +7,8 @@
  */
 // EXEC: %compiler %cmp_opt -o %n.%suffix %f
 // EXEC: %run %run_opt %n.%suffix %run_args | compare %f
-// ASSERT: scan IllegalArgumentException: Invalid capacity size: capacity = 0.
-// ASSERT: scan IllegalArgumentException: Invalid capacity size: capacity = -1.
+// ASSERT: scan IllegalArgumentException: Invalid argument 'capacity': expected a positive value, got '0'.
+// ASSERT: scan IllegalArgumentException: Invalid argument 'capacity': expected a positive value, got '-1'.
 // ASSERT: scan ok
 
 internal import std.io.*
