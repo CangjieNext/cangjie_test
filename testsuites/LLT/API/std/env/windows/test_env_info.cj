@@ -76,7 +76,7 @@ public class Test_currentProcess_info {
             getVariable("\0")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The path cannot contain null character!")
+            @Expect(e.message, "Invalid argument 'key': contains null character.")
         }
     }
 }

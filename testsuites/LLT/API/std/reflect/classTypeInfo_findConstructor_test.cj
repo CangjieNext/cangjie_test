@@ -30,7 +30,7 @@ class parseSignatureTest {
         try {
             classInfo.getConstructor(parseParameterTypes(",,,Int64, String, default.Bar"))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("The value of parameterTypes does not comply with the specifications"))
+            @Expect(e.message.contains("Invalid value for 'parameterTypes': does not comply with the specifications"))
         }
 
         try {

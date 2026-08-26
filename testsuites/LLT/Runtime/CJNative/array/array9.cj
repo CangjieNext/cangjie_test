@@ -14,7 +14,7 @@ main() {
         arr[1..3 : 2].fill(1)
     } catch (e: IllegalArgumentException) {
         count++
-        if (e.message != "Illegal step 2, step should be 1.") {
+        if (e.message != "Array slice step must be 1, got '2'.") {
             return 1
         }
     }
@@ -23,7 +23,7 @@ main() {
         arr[1..3 : -1].fill(2)
     } catch (e: IllegalArgumentException) {
         count++
-        if (e.message != "Illegal step -1, step should be 1.") {
+        if (e.message != "Array slice step must be 1, got '-1'.") {
             return 2
         }
     }

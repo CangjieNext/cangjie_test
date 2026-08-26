@@ -38,7 +38,7 @@ class ResetTest {
             sb.reset(capacity: 0)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The capacity should be positive.")
+            @Expect(e.message.contains("Invalid argument 'capacity': must be positive, got"), true)
         }
     }
 }

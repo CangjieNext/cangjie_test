@@ -21,7 +21,7 @@ main(): Int64 {
         var readnum6 = fs.read(b4.slice(0, 0))
         ()
     } catch (e: IllegalArgumentException) {
-        if (e.toString() != "IllegalArgumentException: The buffer is empty.") {
+        if (e.toString() != "IllegalArgumentException: Invalid argument 'buffer': buffer is empty.") {
             return 1
         }
     }

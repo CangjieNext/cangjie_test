@@ -184,13 +184,13 @@ class EnumTypeInfoTest {
             let _: EnumTypeInfo = EnumTypeInfo.of(1) // must specific type here, otherwise it will call TypeInfo.of(Object): TypeInfo
             @Assert(false)
         } catch (e: IllegalTypeException) {
-            @Expect(e.message.contains("must be an Enum type"))
+            @Expect(e.message.contains("must be an enum type instance"))
         }
         try {
             let _: EnumTypeInfo = EnumTypeInfo.of(C1())
             @Assert(false)
         } catch (e: IllegalTypeException) {
-            @Expect(e.message.contains("must be an Enum type"))
+            @Expect(e.message.contains("must be an enum type instance"))
         }
     }
 
@@ -281,15 +281,15 @@ class EnumTypeInfoTest {
     func testConstructInvalid() {
         let e = EnumTypeInfo.get("default.E")
 
-        @Expect(@AssertThrows[InvocationTargetException](e.construct("M2(Int64)", [])).message.contains("Failed to construct enum `default.E` with constructor `M2(Int64)`"))
-        @Expect(@AssertThrows[InvocationTargetException](e.construct("M3(Int64, String)", [0])).message.contains("Failed to construct enum `default.E` with constructor `M3(Int64, String)`"))
-        @Expect(@AssertThrows[InvocationTargetException](e.construct("M4(default.C1)", [])).message.contains("Failed to construct enum `default.E` with constructor `M4(default.C1)`"))
-        @Expect(@AssertThrows[InvocationTargetException](e.construct("M5(default.E)", [])).message.contains("Failed to construct enum `default.E` with constructor `M5(default.E)`"))
+        @Expect(@AssertThrows[InvocationTargetException](e.construct("M2(Int64)", [])).message.contains("Failed to construct enum 'default.E' with constructor 'M2(Int64)'"))
+        @Expect(@AssertThrows[InvocationTargetException](e.construct("M3(Int64, String)", [0])).message.contains("Failed to construct enum 'default.E' with constructor 'M3(Int64, String)'"))
+        @Expect(@AssertThrows[InvocationTargetException](e.construct("M4(default.C1)", [])).message.contains("Failed to construct enum 'default.E' with constructor 'M4(default.C1)'"))
+        @Expect(@AssertThrows[InvocationTargetException](e.construct("M5(default.E)", [])).message.contains("Failed to construct enum 'default.E' with constructor 'M5(default.E)'"))
 
-        @Expect(@AssertThrows[InvocationTargetException](e.construct("M2(Int64)", ["abc"])).message.contains("Argument index 0 expected"))
-        @Expect(@AssertThrows[InvocationTargetException](e.construct("M3(Int64, String)", [0, 123])).message.contains("Argument index 1 expected"))
-        @Expect(@AssertThrows[InvocationTargetException](e.construct("M4(default.C1)", [E.M1])).message.contains("Argument index 0 expected"))
-        @Expect(@AssertThrows[InvocationTargetException](e.construct("M5(default.E)", [C1()])).message.contains("Argument index 0 expected"))
+        @Expect(@AssertThrows[InvocationTargetException](e.construct("M2(Int64)", ["abc"])).message.contains("Argument at index 0 type mismatch"))
+        @Expect(@AssertThrows[InvocationTargetException](e.construct("M3(Int64, String)", [0, 123])).message.contains("Argument at index 1 type mismatch"))
+        @Expect(@AssertThrows[InvocationTargetException](e.construct("M4(default.C1)", [E.M1])).message.contains("Argument at index 0 type mismatch"))
+        @Expect(@AssertThrows[InvocationTargetException](e.construct("M5(default.E)", [C1()])).message.contains("Argument at index 0 type mismatch"))
     }
 
     @TestCase
@@ -344,9 +344,9 @@ class EnumTypeInfoTest {
     @TestCase
     func testDestructInvalid() {
         let e = EnumTypeInfo.get("default.E")
-        @Expect(@AssertThrows[IllegalTypeException](e.destruct(E2.N1)).message.contains("Failed to destruct enum `default.E`: expected an instance of `default.E`"))
-        @Expect(@AssertThrows[IllegalTypeException](e.destruct(E2.N2(1))).message.contains("Failed to destruct enum `default.E`: expected an instance of `default.E`"))
-        @Expect(@AssertThrows[IllegalTypeException](e.destruct(C1())).message.contains("Failed to destruct enum `default.E`: expected an instance of `default.E`"))
+        @Expect(@AssertThrows[IllegalTypeException](e.destruct(E2.N1)).message.contains("Failed to destruct enum 'default.E': expected an instance of 'default.E'"))
+        @Expect(@AssertThrows[IllegalTypeException](e.destruct(E2.N2(1))).message.contains("Failed to destruct enum 'default.E': expected an instance of 'default.E'"))
+        @Expect(@AssertThrows[IllegalTypeException](e.destruct(C1())).message.contains("Failed to destruct enum 'default.E': expected an instance of 'default.E'"))
     }
 
     @TestCase
@@ -551,7 +551,7 @@ class EnumConstructorInfoTest {
         let countErr = @ExpectThrows[InvocationTargetException](ctorB.apply([1])).getOrThrow()
         @Expect(countErr.message.contains("expected 2"))
         let typeErr = @ExpectThrows[InvocationTargetException](ctorB.apply([1, 2])).getOrThrow()
-        @Expect(typeErr.message.contains("Argument index 1 expected String"))
+        @Expect(typeErr.message.contains("Argument at index 1 type mismatch"))
     }
 
     @TestCase

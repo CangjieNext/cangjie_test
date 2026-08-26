@@ -50,7 +50,7 @@ class Test_loadFromTZData {
             let zone = TimeZone.loadFromTZData("", mydata)
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message.contains("Invalid timezone id"))
+            @Expect(e.message.contains("Invalid timezone ID"))
         }
         @Expect(flag, true)
     }

@@ -37,7 +37,7 @@ class TestListen {
                 ipv4_socket.listen(0)
                 @Expect(1, 2)
             } catch (e: SocketException) {
-                @Expect(e.message.contains("Failed to listen 10022: An invalid argument was supplied"), true)
+                @Expect(e.message, "Failed to listen 10022: An invalid argument was supplied.")
             }
         }
         ipv4_socket.close()

@@ -34,7 +34,7 @@ class Test_parse {
             let res = DateTime.parse("0000-13-10T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Month value must be in [1, 12].")
+            @Expect(e.message, "Invalid month value: expected 1 to 12.")
         }
         @Expect(flag, true)
     }
@@ -46,7 +46,7 @@ class Test_parse {
             let res = DateTime.parse("0000-00-10T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Month value must be in [1, 12].")
+            @Expect(e.message, "Invalid month value: expected 1 to 12.")
         }
         @Expect(flag, true)
     }
@@ -58,7 +58,7 @@ class Test_parse {
             let res = DateTime.parse("0000-02-30T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of February in 0 must be in [1, 29].")
+            @Expect(e.message, "Invalid day '30' for February 0: expected 1 to 29.")
         }
         @Expect(flag, true)
     }
@@ -70,7 +70,7 @@ class Test_parse {
             let res = DateTime.parse("0000-02-00T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of February in 0 must be in [1, 29].")
+            @Expect(e.message, "Invalid day '0' for February 0: expected 1 to 29.")
         }
         @Expect(flag, true)
     }
@@ -82,7 +82,7 @@ class Test_parse {
             let res = DateTime.parse("0000-01-32T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of January in 0 must be in [1, 31].")
+            @Expect(e.message, "Invalid day '32' for January 0: expected 1 to 31.")
         }
         @Expect(flag, true)
     }
@@ -94,7 +94,7 @@ class Test_parse {
             let res = DateTime.parse("0000-01-00T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of January in 0 must be in [1, 31].")
+            @Expect(e.message, "Invalid day '0' for January 0: expected 1 to 31.")
         }
         @Expect(flag, true)
     }
@@ -106,7 +106,7 @@ class Test_parse {
             let res = DateTime.parse("0000-04-31T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of April in 0 must be in [1, 30].")
+            @Expect(e.message, "Invalid day '31' for April 0: expected 1 to 30.")
         }
         @Expect(flag, true)
     }
@@ -118,7 +118,7 @@ class Test_parse {
             let res = DateTime.parse("0000-04-00T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of April in 0 must be in [1, 30].")
+            @Expect(e.message, "Invalid day '0' for April 0: expected 1 to 30.")
         }
         @Expect(flag, true)
     }
@@ -130,7 +130,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-29T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of February in 2023 must be in [1, 28].")
+            @Expect(e.message, "Invalid day '29' for February 2023: expected 1 to 28.")
         }
         @Expect(flag, true)
     }
@@ -142,7 +142,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-00T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Day of February in 2023 must be in [1, 28].")
+            @Expect(e.message, "Invalid day '0' for February 2023: expected 1 to 28.")
         }
         @Expect(flag, true)
     }
@@ -154,7 +154,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-28T24:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Hour value in format \"HH\" must be in [0, 23].")
+            @Expect(e.message, "Invalid hour in 'HH' format: expected 0 to 23.")
         }
         @Expect(flag, true)
     }
@@ -166,7 +166,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-28T-01:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 11: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 11: expected an integer, got '-'.")
         }
         @Expect(flag, true)
     }
@@ -178,7 +178,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-28T00:60:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Minute value must be in [0, 59].")
+            @Expect(e.message, "Invalid minute value: expected 0 to 59.")
         }
         @Expect(flag, true)
     }
@@ -190,7 +190,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-28T00:-01:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 14: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 14: expected an integer, got '-'.")
         }
         @Expect(flag, true)
     }
@@ -202,7 +202,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-28T00:00:60+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Second value must be in [0, 59].")
+            @Expect(e.message, "Invalid second value: expected 0 to 59.")
         }
         @Expect(flag, true)
     }
@@ -214,7 +214,7 @@ class Test_parse {
             let res = DateTime.parse("2023-02-28T00:00:-01+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 17: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 17: expected an integer, got '-'.")
         }
         @Expect(flag, true)
     }
@@ -226,7 +226,7 @@ class Test_parse {
             let res = DateTime.parse("202304-17T15:32:00+00:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 4: \"0\" should be \"-\".")
+            @Expect(e.message, "Failed to parse at index 4: expected '-', got '0'.")
         }
         @Expect(flag, true)
     }
@@ -238,7 +238,7 @@ class Test_parse {
             let res = DateTime.parse("2023-0417T15:32:00+00:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 7: \"1\" should be \"-\".")
+            @Expect(e.message, "Failed to parse at index 7: expected '-', got '1'.")
         }
         @Expect(flag, true)
     }
@@ -250,7 +250,7 @@ class Test_parse {
             let res = DateTime.parse("2023-04-1715:32:00+00:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 10: \"1\" should be \"T\".")
+            @Expect(e.message, "Failed to parse at index 10: expected 'T', got '1'.")
         }
         @Expect(flag, true)
     }
@@ -262,7 +262,7 @@ class Test_parse {
             let res = DateTime.parse("2023-04-17T1532:00+00:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 13: \"3\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 13: expected ':', got '3'.")
         }
         @Expect(flag, true)
     }
@@ -274,7 +274,7 @@ class Test_parse {
             let res = DateTime.parse("2023-04-17T15:3200+00:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 16: \"0\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 16: expected ':', got '0'.")
         }
         @Expect(flag, true)
     }
@@ -286,7 +286,7 @@ class Test_parse {
             let res = DateTime.parse("2023-04-17T15:32:0000:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
         @Expect(flag, true)
     }
@@ -298,7 +298,7 @@ class Test_parse {
             let res = DateTime.parse("2023-04-17T15:32:00+0000").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
         @Expect(flag, true)
     }
@@ -310,7 +310,7 @@ class Test_parse {
             let res = DateTime.parse("10000-04-10T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 4: \"0\" should be \"-\".")
+            @Expect(e.message, "Failed to parse at index 4: expected '-', got '0'.")
         }
         @Expect(flag, true)
     }
@@ -322,7 +322,7 @@ class Test_parse {
             let res = DateTime.parse("-10000-04-10T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 5: \"0\" should be \"-\".")
+            @Expect(e.message, "Failed to parse at index 5: expected '-', got '0'.")
         }
         @Expect(flag, true)
     }
@@ -334,7 +334,7 @@ class Test_parse {
             let res = DateTime.parse("1000-4-10T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 6: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 6: expected an integer, got '-'.")
         }
         @Expect(flag, true)
     }
@@ -346,7 +346,7 @@ class Test_parse {
             let res = DateTime.parse("-1000-012-10T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 8: \"2\" should be \"-\".")
+            @Expect(e.message, "Failed to parse at index 8: expected '-', got '2'.")
         }
         @Expect(flag, true)
     }
@@ -358,7 +358,7 @@ class Test_parse {
             let res = DateTime.parse("1000-04-010T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 10: \"0\" should be \"T\".")
+            @Expect(e.message, "Failed to parse at index 10: expected 'T', got '0'.")
         }
         @Expect(flag, true)
     }
@@ -370,7 +370,7 @@ class Test_parse {
             let res = DateTime.parse("-1000-02-012T08:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 11: \"2\" should be \"T\".")
+            @Expect(e.message, "Failed to parse at index 11: expected 'T', got '2'.")
         }
         @Expect(flag, true)
     }
@@ -382,7 +382,7 @@ class Test_parse {
             let res = DateTime.parse("1000-04-10T8:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 12: \":\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 12: expected an integer, got ':'.")
         }
         @Expect(flag, true)
     }
@@ -394,7 +394,7 @@ class Test_parse {
             let res = DateTime.parse("-1000-02-12T008:00:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 14: \"8\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 14: expected ':', got '8'.")
         }
         @Expect(flag, true)
     }
@@ -406,7 +406,7 @@ class Test_parse {
             let res = DateTime.parse("1000-04-10T08:001:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 16: \"1\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 16: expected ':', got '1'.")
         }
         @Expect(flag, true)
     }
@@ -418,7 +418,7 @@ class Test_parse {
             let res = DateTime.parse("-1000-02-12T08:0:00+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 16: \":\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 16: expected an integer, got ':'.")
         }
         @Expect(flag, true)
     }
@@ -430,7 +430,7 @@ class Test_parse {
             let res = DateTime.parse("1000-04-10T08:01:001+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Zone offset should start with \"+\" or \"-\".")
+            @Expect(e.message, "Zone offset must start with '+' or '-'.")
         }
         @Expect(flag, true)
     }
@@ -442,7 +442,7 @@ class Test_parse {
             let res = DateTime.parse("-1000-02-12T08:00:1+08:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 19: \"+\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 19: expected an integer, got '+'.")
         }
         @Expect(flag, true)
     }
@@ -454,7 +454,7 @@ class Test_parse {
             let res = DateTime.parse("1000-04-10T08:01:01+008:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 22: \"8\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 22: expected ':', got '8'.")
         }
         @Expect(flag, true)
     }
@@ -466,7 +466,7 @@ class Test_parse {
             let res = DateTime.parse("-1000-02-12T08:00:1+8:00").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 19: \"+\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 19: expected an integer, got '+'.")
         }
         @Expect(flag, true)
     }
@@ -478,7 +478,7 @@ class Test_parse {
             let res = DateTime.parse("1000-04-10T08:01:01+08:008").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Extar value, start at index 25.")
+            @Expect(e.message, "Extra value starting at index 25.")
         }
         @Expect(flag, true)
     }
@@ -490,7 +490,7 @@ class Test_parse {
             let res = DateTime.parse("-1000-02-12T08:00:1+08:8").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 19: \"+\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 19: expected an integer, got '+'.")
         }
         @Expect(flag, true)
     }
@@ -502,7 +502,7 @@ class Test_parse {
             let res = DateTime.parse("2023-04-17T15:32:00+00:000").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Extar value, start at index 25.")
+            @Expect(e.message, "Extra value starting at index 25.")
         }
         @Expect(flag, true)
     }
@@ -514,7 +514,7 @@ class Test_parse {
             let res = DateTime.parse("1000-04-10T08:01:01+008:0").toString()
         } catch (e: TimeParseException) {
             flag = true
-            @Expect(e.message, "Fail to parse at index 22: \"8\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 22: expected ':', got '8'.")
         }
         @Expect(flag, true)
     }

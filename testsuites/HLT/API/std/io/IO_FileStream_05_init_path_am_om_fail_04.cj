@@ -20,7 +20,7 @@ main(): Int64 {
         var fs1 = File("./b/b_05_file_05_bcz.txt", Read)
         ()
     } catch (e: FSException) {
-        if (!Regex("^FSException: The file `.+` does not exist or permission denied!$").matches(e.toString())) {
+        if (!Regex("^FSException: Cannot open file '.+': file does not exist or permission denied\\.$").matches(e.toString())) {
             return 1
         }
     }

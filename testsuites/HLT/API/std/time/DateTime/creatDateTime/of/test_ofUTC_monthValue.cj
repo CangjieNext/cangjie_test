@@ -37,7 +37,7 @@ class Test_of_monthValue {
             let time = DateTime.ofUTC(year: 1000000000, month: 1, dayOfMonth: 1, hour: 0, minute: 0, second: 0,
                 nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Year value must be in [-999,999,999, 999,999,999].")
+            @Assert(e.message, "Invalid year value '1000000000': expected -999,999,999 to 999,999,999.")
             flag = true
         }
         @Assert(flag, true)
@@ -50,7 +50,7 @@ class Test_of_monthValue {
             let time = DateTime.ofUTC(year: -1000000000, month: 1, dayOfMonth: 1, hour: 0, minute: 0, second: 0,
                 nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Year value must be in [-999,999,999, 999,999,999].")
+            @Assert(e.message, "Invalid year value '-1000000000': expected -999,999,999 to 999,999,999.")
             flag = true
         }
         @Assert(flag, true)
@@ -86,7 +86,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 2008, month: 2, dayOfMonth: 30, hour: 0, minute: 0, second: 0, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Day of February in 2008 must be in [1, 29].")
+            @Assert(e.message, "Invalid day '30' for February 2008: expected 1 to 29.")
             flag = true
         }
         @Assert(flag, true)
@@ -105,7 +105,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 2000, month: 2, dayOfMonth: 30, hour: 0, minute: 0, second: 0, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Day of February in 2000 must be in [1, 29].")
+            @Assert(e.message, "Invalid day '30' for February 2000: expected 1 to 29.")
             flag = true
         }
         @Assert(flag, true)
@@ -124,7 +124,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 1900, month: 2, dayOfMonth: 29, hour: 0, minute: 0, second: 0, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Day of February in 1900 must be in [1, 28].")
+            @Assert(e.message, "Invalid day '29' for February 1900: expected 1 to 28.")
             flag = true
         }
         @Assert(flag, true)
@@ -143,7 +143,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 2023, month: 2, dayOfMonth: 29, hour: 0, minute: 0, second: 0, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Day of February in 2023 must be in [1, 28].")
+            @Assert(e.message, "Invalid day '29' for February 2023: expected 1 to 28.")
             flag = true
         }
         @Assert(flag, true)
@@ -162,7 +162,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 1900, month: 1, dayOfMonth: 32, hour: 0, minute: 0, second: 0, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Day of January in 1900 must be in [1, 31].")
+            @Assert(e.message, "Invalid day '32' for January 1900: expected 1 to 31.")
             flag = true
         }
         @Assert(flag, true)
@@ -181,7 +181,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 1900, month: 4, dayOfMonth: 31, hour: 0, minute: 0, second: 0, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Day of April in 1900 must be in [1, 30].")
+            @Assert(e.message, "Invalid day '31' for April 1900: expected 1 to 30.")
             flag = true
         }
         @Assert(flag, true)
@@ -197,7 +197,8 @@ class Test_of_monthValue {
                 let time = DateTime.ofUTC(year: 1900, month: monthArray[i], dayOfMonth: 0, hour: 0, minute: 0, second: 0,
                     nanosecond: 0)
             } catch (e: IllegalArgumentException) {
-                @Assert(e.message, "Day of ${monthArray[i]} in 1900 must be in [1, 31].")
+                @Assert(e.message.contains("Invalid day '0' for"), true)
+                @Assert(e.message.contains("1900: expected 1 to 31."), true)
                 count += 1
             }
         }
@@ -217,7 +218,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 2008, month: 1, dayOfMonth: 1, hour: -1, minute: 0, second: 0, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Hour must be in [0, 23].")
+            @Assert(e.message, "Invalid hour '-1': expected 0 to 23.")
             flag = true
         }
         @Assert(flag, true)
@@ -236,7 +237,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 2008, month: 1, dayOfMonth: 1, hour: 24, minute: 0, second: 0, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Hour must be in [0, 23].")
+            @Assert(e.message, "Invalid hour '24': expected 0 to 23.")
             flag = true
         }
         @Assert(flag, true)
@@ -255,7 +256,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 2008, month: 1, dayOfMonth: 1, hour: 0, minute: -1, second: 0, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Minute must be in [0, 59].")
+            @Assert(e.message, "Invalid minute '-1': expected 0 to 59.")
             flag = true
         }
         @Assert(flag, true)
@@ -274,7 +275,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 2008, month: 1, dayOfMonth: 1, hour: 0, minute: 60, second: 0, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Minute must be in [0, 59].")
+            @Assert(e.message, "Invalid minute '60': expected 0 to 59.")
             flag = true
         }
         @Assert(flag, true)
@@ -293,7 +294,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 2008, month: 1, dayOfMonth: 1, hour: 0, minute: 0, second: -1, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Second must be in [0, 59].")
+            @Assert(e.message, "Invalid second '-1': expected 0 to 59.")
             flag = true
         }
         @Assert(flag, true)
@@ -312,7 +313,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 2008, month: 1, dayOfMonth: 1, hour: 0, minute: 0, second: 60, nanosecond: 0)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Second must be in [0, 59].")
+            @Assert(e.message, "Invalid second '60': expected 0 to 59.")
             flag = true
         }
         @Assert(flag, true)
@@ -331,7 +332,7 @@ class Test_of_monthValue {
         try {
             let time = DateTime.ofUTC(year: 2008, month: 1, dayOfMonth: 1, hour: 0, minute: 0, second: 0, nanosecond: -1)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Nanosecond must be in [0, 999,999,999].")
+            @Assert(e.message, "Invalid nanosecond '-1': expected 0 to 999,999,999.")
             flag = true
         }
         @Assert(flag, true)
@@ -352,7 +353,7 @@ class Test_of_monthValue {
             let time = DateTime.ofUTC(year: 2008, month: 1, dayOfMonth: 1, hour: 0, minute: 0, second: 0,
                 nanosecond: 1000000000)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Nanosecond must be in [0, 999,999,999].")
+            @Assert(e.message, "Invalid nanosecond '1000000000': expected 0 to 999,999,999.")
             flag = true
         }
         @Assert(flag, true)

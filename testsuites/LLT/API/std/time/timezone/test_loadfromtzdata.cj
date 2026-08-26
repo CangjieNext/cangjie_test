@@ -179,7 +179,7 @@ class LoadFromTZDataTest {
             TimeZone.loadFromTZData("", baseTZif)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid timezone id"))
+            @Expect(e.message.contains("Invalid timezone ID"))
         }
 
         let testArr: Array<UInt8> = [0, 12, 20, 127, 128, 255]
@@ -190,7 +190,7 @@ class LoadFromTZDataTest {
                 try {
                     TimeZone.loadFromTZData("abc", tempTZif)
                 } catch (e: Exception) {
-                    @Expect(e.message.contains("Failed to parse the timezone file"), true)
+                    @Expect(e.message.contains("Failed to parse"), true)
                 }
             }
         }

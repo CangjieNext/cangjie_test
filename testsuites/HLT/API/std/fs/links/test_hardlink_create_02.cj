@@ -17,14 +17,14 @@ class Test_HardLink {
     @TestCase
     func create_illegal_01() {
         let e = @AssertThrows[FSException](HardLink.create("temp", to: "./tempfile"))
-        @Expect(e.message.contains("No such file or directory") || e.message.contains("Failed to create link"))
+        @Expect(e.message.contains("No such file or directory") || e.message.contains("Failed to create hard link"))
     }
 
     @TestCase
     func create_illegal_02() {
         File.create("./tempfile").close()
         let e = @AssertThrows[IllegalArgumentException](HardLink.create("temp", to: "./tempfile\0"))
-        @Expect(e.message, "The input path 'to' value [46, 47, 116, 101, 109, 112, 102, 105, 108, 101, 0] contains null character.")
+        @Expect(e.message, "Invalid argument 'to': value '[46, 47, 116, 101, 109, 112, 102, 105, 108, 101, 0]' contains null character.")
         remove("./tempfile")
     }
 
@@ -32,7 +32,7 @@ class Test_HardLink {
     func create_illegal_03() {
         File.create("./tempfile").close()
         let e = @AssertThrows[IllegalArgumentException](HardLink.create("", to: "./tempfile"))
-        @Expect(e.message, "The input path 'link' is empty.")
+        @Expect(e.message, "Invalid argument 'link': cannot be empty.")
         remove("./tempfile")
     }
 
@@ -40,7 +40,7 @@ class Test_HardLink {
     func create_illegal_04() {
         File.create("./tempfile").close()
         let e = @AssertThrows[FSException](HardLink.create("./dir/aa", to: "./tempfile"))
-        @Expect(e.message.contains("No such file or directory") || e.message.contains("Failed to create link"))
+        @Expect(e.message.contains("No such file or directory") || e.message.contains("Failed to create hard link"))
         remove("./tempfile")
     }
 
@@ -49,7 +49,7 @@ class Test_HardLink {
         Directory.create("./a/b/c/d", recursive: true)
         let e = @AssertThrows[FSException](HardLink.create("temp", to: "./a/b/c/d"))
         println(e.message)
-        @Expect(e.message.contains("Operation not permitted") || e.message.contains("Failed to create link"))
+        @Expect(e.message.contains("Operation not permitted") || e.message.contains("Access is denied") || e.message.contains("Failed to create hard link"))
         remove("./a", recursive: true)
     }
 

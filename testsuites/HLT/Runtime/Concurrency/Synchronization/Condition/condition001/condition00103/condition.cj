@@ -9,7 +9,7 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt  %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan IllegalArgumentException: Timeout cannot be less than or equal to `Duration.Zero`.
+// ASSERT: scan IllegalArgumentException: Invalid argument 'timeout': must be positive, got '0s'.
 
 import std.sync.*
 

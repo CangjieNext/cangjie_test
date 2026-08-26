@@ -30,21 +30,21 @@ class Test_parse_zone {
             let res3 = DateTime.parse("2023/04/17 19:52:23 +00:00 AAA", "yyyy/MM/dd HH:mm:ss OOOO z")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone name or zone id.")
+            @Expect(e.message, "Invalid zone name or zone ID.")
         }
 
         try {
             let res4 = DateTime.parse("2023/04/17 19:52:23 +00:00 GMTA", "yyyy/MM/dd HH:mm:ss OOOO z")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone name or zone id.")
+            @Expect(e.message, "Invalid zone name or zone ID.")
         }
 
         try {
             let res5 = DateTime.parse("2023/04/17 19:52:23 +00:00 GM", "yyyy/MM/dd HH:mm:ss OOOO z")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone name or zone id.")
+            @Expect(e.message, "Invalid zone name or zone ID.")
         }
 
         @Expect(cnt, 3)
@@ -62,21 +62,21 @@ class Test_parse_zone {
             let res3 = DateTime.parse("2023/04/17 19:52:23 +00:00 AAA", "yyyy/MM/dd HH:mm:ss OOOO zz")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone name or zone id.")
+            @Expect(e.message, "Invalid zone name or zone ID.")
         }
 
         try {
             let res4 = DateTime.parse("2023/04/17 19:52:23 +00:00 GMTA", "yyyy/MM/dd HH:mm:ss OOOO zz")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone name or zone id.")
+            @Expect(e.message, "Invalid zone name or zone ID.")
         }
 
         try {
             let res5 = DateTime.parse("2023/04/17 19:52:23 +00:00 GM", "yyyy/MM/dd HH:mm:ss OOOO zz")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone name or zone id.")
+            @Expect(e.message, "Invalid zone name or zone ID.")
         }
 
         @Expect(cnt, 3)
@@ -94,21 +94,21 @@ class Test_parse_zone {
             let res3 = DateTime.parse("2023/04/17 19:52:23 +00:00 AAA", "yyyy/MM/dd HH:mm:ss OOOO zzz")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone name or zone id.")
+            @Expect(e.message, "Invalid zone name or zone ID.")
         }
 
         try {
             let res4 = DateTime.parse("2023/04/17 19:52:23 +00:00 GMTA", "yyyy/MM/dd HH:mm:ss OOOO zzz")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone name or zone id.")
+            @Expect(e.message, "Invalid zone name or zone ID.")
         }
 
         try {
             let res5 = DateTime.parse("2023/04/17 19:52:23 +00:00 GM", "yyyy/MM/dd HH:mm:ss OOOO zzz")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone name or zone id.")
+            @Expect(e.message, "Invalid zone name or zone ID.")
         }
 
         @Expect(cnt, 3)
@@ -121,7 +121,7 @@ class Test_parse_zone {
             let res4 = DateTime.parse("2023/04/17 19:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO z")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "No value to match \" \".")
+            @Expect(e.message, "No value to match ' '.")
         }
     }
 
@@ -139,14 +139,14 @@ class Test_parse_zone {
             let res4 = DateTime.parse("2023/04/17 19:52:23 +00:00 Asia/Shanghai", "yyyy/MM/dd HH:mm:ss OOOO zzzz")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "The zone offset does not match.")
+            @Expect(e.message, "Zone offset does not match.")
         }
 
         try {
             let res5 = DateTime.parse("2023/04/17 19:52:23 +00:00 Asia", "yyyy/MM/dd HH:mm:ss OOOO zzzz")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone name or zone id.")
+            @Expect(e.message, "Invalid zone name or zone ID.")
         }
 
         @Expect(cnt, 2)

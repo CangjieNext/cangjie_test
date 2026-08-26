@@ -59,7 +59,7 @@ public class ToStringTest {
             dateTime.format("yyyyyyyyyy")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"y\" can not exceed 9.")
+            @Expect(e.message, "Invalid format string: character 'y' exceeds maximum length 9.")
         }
     }
 
@@ -79,7 +79,7 @@ public class ToStringTest {
             dateTime.format("MMMMM")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"M\" can not exceed 4.")
+            @Expect(e.message, "Invalid format string: character 'M' exceeds maximum length 4.")
         }
     }
 
@@ -97,7 +97,7 @@ public class ToStringTest {
             dateTime.format("ddd")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"d\" can not exceed 2.")
+            @Expect(e.message, "Invalid format string: character 'd' exceeds maximum length 2.")
         }
     }
 
@@ -129,13 +129,13 @@ public class ToStringTest {
             dateTime.format("hhh")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"h\" can not exceed 2.")
+            @Expect(e.message, "Invalid format string: character 'h' exceeds maximum length 2.")
         }
         try { // n > 2
             dateTime.format("HHH")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"H\" can not exceed 2.")
+            @Expect(e.message, "Invalid format string: character 'H' exceeds maximum length 2.")
         }
     }
 
@@ -161,7 +161,7 @@ public class ToStringTest {
             dateTime.format("mmm")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"m\" can not exceed 2.")
+            @Expect(e.message, "Invalid format string: character 'm' exceeds maximum length 2.")
         }
     }
 
@@ -187,7 +187,7 @@ public class ToStringTest {
             dateTime.format("sss")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"s\" can not exceed 2.")
+            @Expect(e.message, "Invalid format string: character 's' exceeds maximum length 2.")
         }
     }
 
@@ -216,7 +216,7 @@ public class ToStringTest {
             dateTime.format("SSSS")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"S\" can not exceed 3.")
+            @Expect(e.message, "Invalid format string: character 'S' exceeds maximum length 3.")
         }
     }
 
@@ -242,7 +242,7 @@ public class ToStringTest {
             dateTime.format("zzzzz")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"z\" can not exceed 4.")
+            @Expect(e.message, "Invalid format string: character 'z' exceeds maximum length 4.")
         }
     }
 
@@ -268,7 +268,7 @@ public class ToStringTest {
             dateTime.format("OOOOO")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"O\" can not exceed 4.")
+            @Expect(e.message, "Invalid format string: character 'O' exceeds maximum length 4.")
         }
     }
 
@@ -294,7 +294,7 @@ public class ToStringTest {
             dateTime.format("ZZZZZ")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"Z\" can not exceed 4.")
+            @Expect(e.message, "Invalid format string: character 'Z' exceeds maximum length 4.")
         }
     }
 
@@ -314,7 +314,7 @@ public class ToStringTest {
             dateTime.format("wwwww")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"w\" can not exceed 4.")
+            @Expect(e.message, "Invalid format string: character 'w' exceeds maximum length 4.")
         }
     }
 
@@ -338,7 +338,7 @@ public class ToStringTest {
             dateTime.format("DDD")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"D\" can not exceed 2.")
+            @Expect(e.message, "Invalid format string: character 'D' exceeds maximum length 2.")
         }
     }
 
@@ -357,7 +357,7 @@ public class ToStringTest {
             dateTime.format("GGGG")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"G\" can not exceed 3.")
+            @Expect(e.message, "Invalid format string: character 'G' exceeds maximum length 3.")
         }
     }
 
@@ -378,7 +378,7 @@ public class ToStringTest {
             dateTime.format("YYYYYYYYYY")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"Y\" can not exceed 9.")
+            @Expect(e.message, "Invalid format string: character 'Y' exceeds maximum length 9.")
         }
     }
 
@@ -396,7 +396,7 @@ public class ToStringTest {
             dateTime.format("WWW")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"W\" can not exceed 2.")
+            @Expect(e.message, "Invalid format string: character 'W' exceeds maximum length 2.")
         }
     }
 
@@ -415,7 +415,7 @@ public class ToStringTest {
             dateTime.format("aa")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of character \"a\" can not exceed 1.")
+            @Expect(e.message, "Invalid format string: character 'a' exceeds maximum length 1.")
         }
     }
 }

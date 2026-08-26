@@ -57,7 +57,7 @@ class Test_Connect_After_Failed_Build {
             udpsocket2.connect(addr)
             @Expect(false)
         } catch (e: SocketException) {
-            @Expect("The bind of the socket has failed.", e.message)
+            @Expect("Socket is already bound.", e.message)
         }
         udpsocket1.close()
         udpsocket2.close()

@@ -46,12 +46,12 @@ main() {
     try {
         ser.getOrThrow().sendBufferSize = -100
     } catch (e: IllegalArgumentException) {
-        assertEqual("Expected:", "Actual:", "Buffer size should be positive, got -100.", e.message)
+        assertEqual("Expected:", "Actual:", "Invalid send buffer size: must be positive, got '-100'.", e.message)
     }
 
     try {
         ser.getOrThrow().receiveBufferSize = -100
     } catch (e: IllegalArgumentException) {
-        assertEqual("Expected:", "Actual:", "Buffer size should be positive, got -100.", e.message)
+        assertEqual("Expected:", "Actual:", "Invalid receive buffer size: must be positive, got '-100'.", e.message)
     }
 }

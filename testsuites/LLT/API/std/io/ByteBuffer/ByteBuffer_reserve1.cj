@@ -8,7 +8,7 @@
 // EXEC-PIPE-0: %compiler %cmp_opt -o %n.%suffix %f
 // EXEC-PIPE-0: %run %run_opt %n.%suffix %run_args | compare %f
 // ASSERT: scan 32
-// ASSERT: scan IllegalArgumentException: The additional must be greater than or equal to 0.
+// ASSERT: scan IllegalArgumentException: Invalid argument 'additional': expected a non-negative value, got '-1'.
 
 internal import std.io.ByteBuffer
 

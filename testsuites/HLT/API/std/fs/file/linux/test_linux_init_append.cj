@@ -61,14 +61,14 @@ class Test_Init_Append {
         try {
             var file = File("", OpenMode.Append)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input path is empty.")
+            @Expect(e.message, "Invalid argument 'path': cannot be empty.")
             sum += 1
         }
         for (str in illegal_str) {
             try {
                 var file = File(str, OpenMode.Append)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The input path value ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "Invalid argument 'path': value '${unsafe { str.rawData() }}' contains null character.")
                 sum += 1
             }
         }
@@ -84,7 +84,7 @@ class Test_Init_Append {
                 var file = File(Path(str), OpenMode.Append)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
+                @Expect(e.message, "Cannot open file: parent directory '${parpath}' does not exist.")
                 sum += 1
             }
         }
@@ -98,7 +98,7 @@ class Test_Init_Append {
         try {
             file.seek(SeekPosition.Begin(0))
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` can not seek.$").matches(e.message))
+            @Assert(Regex("^Cannot seek in file '.+': file does not support seeking.$").matches(e.message))
             sum += 1
         }
         file.close()
@@ -130,7 +130,7 @@ class Test_Init_Append {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` does not have the read permission.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.+': file does not have read permission.$").matches(e.message))
             sum += 1
         }
         file.close()

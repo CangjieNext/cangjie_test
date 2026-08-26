@@ -110,7 +110,7 @@ class Test_File_No_Permission {
         try {
             var _ = File("permission_test_dir/dir_per1/file2", ReadWrite)
         } catch (e: FSException) {
-            @Expect(e.message.contains("Failed to open the file"))
+            @Expect(e.message.contains("Failed to open file"))
             sum += 1
         }
         var file = File("permission_test_dir/dir_per1/file2", Write)
@@ -121,7 +121,7 @@ class Test_File_No_Permission {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` does not have the read permission.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.+': file does not have read permission.$").matches(e.message))
             sum += 1
         }
         file.close()
@@ -129,7 +129,7 @@ class Test_File_No_Permission {
         try {
             File.readFrom("permission_test_dir/dir_per1/file2")
         } catch (e: FSException) {
-            @Expect(e.message.contains("Failed to open the file"))
+            @Expect(e.message.contains("Failed to open file"))
             sum += 1
         }
 
@@ -151,7 +151,7 @@ class Test_File_No_Permission {
         try {
             File("permission_test_dir/dir_init/file2", Read)
         } catch (e: FSException) {
-            @Expect(e.message.contains("Failed to open the file"))
+            @Expect(e.message.contains("Failed to open file"))
             sum += 1
         }
         dirinfo.setReadable(true)
@@ -182,7 +182,7 @@ class Test_File_No_Permission {
         try {
             var _ = File("permission_test_dir/dir_per1/file2", ReadWrite)
         } catch (e: FSException) {
-            @Expect(e.message.contains("Failed to open the file"))
+            @Expect(e.message.contains("Failed to open file"))
             sum += 1
         }
         var file = File("permission_test_dir/dir_per1/file2", Read)
@@ -192,7 +192,7 @@ class Test_File_No_Permission {
         try {
             file.write(data)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` does not have the write permission.$").matches(e.message))
+            @Assert(Regex("^Cannot write to file '.+': file does not have write permission.$").matches(e.message))
             sum += 1
         }
         file.close()
@@ -200,7 +200,7 @@ class Test_File_No_Permission {
         try {
             File.appendTo("permission_test_dir/dir_per1/file2", data)
         } catch (e: FSException) {
-            @Expect(e.message.contains("Failed to open the file"))
+            @Expect(e.message.contains("Failed to open file"))
             sum += 1
         }
 
@@ -223,7 +223,7 @@ class Test_File_No_Permission {
         try {
             File.appendTo("permission_test_dir/dir_init/file2", data)
         } catch (e: FSException) {
-            @Expect(e.message.contains("Failed to open the file"))
+            @Expect(e.message.contains("Failed to open file"))
             sum += 1
         }
         File.readFrom("permission_test_dir/dir_init/file2")
@@ -253,19 +253,19 @@ class Test_File_No_Permission {
         try {
             File("permission_test_dir/dir_init/file1", OpenMode.Append)
         } catch (e: FSException) {
-            @Expect(e.message.contains("Failed to open the file"))
+            @Expect(e.message.contains("Failed to open file"))
             sum += 1
         }
         try {
             File.create("permission_test_dir/dir_init/temp")
         } catch (e: FSException) {
-            @Expect(e.message.contains("Failed to open the file"))
+            @Expect(e.message.contains("Failed to open file"))
             sum += 1
         }
         try {
             File.writeTo("permission_test_dir/dir_init/file1", Array<Byte>())
         } catch (e: FSException) {
-            @Expect(e.message.contains("Failed to open the file"))
+            @Expect(e.message.contains("Failed to open file"))
             sum += 1
         }
         try {
@@ -334,7 +334,7 @@ class Test_File_No_Permission {
         try {
             File.create("permission_test_dir/dir_init/temp")
         } catch (e: FSException) {
-            @Expect(e.message.contains("Failed to open the file"))
+            @Expect(e.message.contains("Failed to open file"))
             sum += 1
         }
 

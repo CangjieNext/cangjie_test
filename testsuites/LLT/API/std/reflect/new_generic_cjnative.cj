@@ -222,7 +222,7 @@ class NewGenericTest {
             let cti: ClassTypeInfo = ClassTypeInfo.get("String")
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString().contains("not a Class Type"))
+            @Expect(e.toString().contains("not a class type"))
         }
     }
 
@@ -368,7 +368,7 @@ class NewGenericTest {
             fns[2].apply(ti, [TypeInfo.of<String>(), TypeInfo.of<Int64>()], ["foo", 123])
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("comply with the required quantity"))
+            @Expect(e.message.contains("Invalid argument count"))
         }
 
         @Expect(fns[2].apply(ti, [TypeInfo.of<String>(), TypeInfo.of<Int64>()], ["foo", "bar", 123]) as Int64, 9)
@@ -422,13 +422,13 @@ class NewGenericTest {
         try {
             fn.apply([TypeInfo.of<String>()], ["abc", "efg"])
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("required quantity"))
+            @Expect(e.message.contains("Invalid argument count"))
         }
 
         try {
             fn.apply([TypeInfo.of<String>()], [123])
         } catch (e: IllegalTypeException) {
-            @Expect(e.message.contains("does not match the type"))
+            @Expect(e.message.contains("Parameter type mismatch"))
         }
     }
 

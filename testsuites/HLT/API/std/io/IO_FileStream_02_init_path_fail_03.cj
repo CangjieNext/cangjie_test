@@ -19,7 +19,7 @@ main(): Int64 {
         var fs1 = File("./b/", Read)
         ()
     } catch (e: FSException) {
-        if (!e.toString().contains("Failed to open the file")) {
+        if (!e.toString().contains("Failed to open file")) {
             return 1
         }
     }
