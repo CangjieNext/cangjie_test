@@ -290,7 +290,7 @@ class BigLogicalTest {
             i << -1
             @Expect(1, 2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The parameter n must >= 0.")
+            @Expect(e.message, "Invalid argument 'n': must be non-negative.")
         }
         var ii = i << 0
         @Expect(ii.toString(radix: 16), "123456789ABCDEFFEDCBA9876543210")
@@ -361,7 +361,7 @@ class BigLogicalTest {
             i >> -1
             @Expect(1, 2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The parameter n must >= 0.")
+            @Expect(e.message, "Invalid argument 'n': must be non-negative.")
         }
         var ii = i >> 0
         @Expect(ii.toString(radix: 16), "123456789ABCDEFFEDCBA9876543210")

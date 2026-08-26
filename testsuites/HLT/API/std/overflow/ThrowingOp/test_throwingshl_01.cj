@@ -52,14 +52,14 @@ class Test_throwingshl_01 {
             int8_2.throwingShl(8)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
 
         try {
             int8_2.throwingShl(127)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
     }
 
@@ -76,14 +76,14 @@ class Test_throwingshl_01 {
             int16_2.throwingShl(16)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
 
         try {
             int16_2.throwingShl(100)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
     }
 
@@ -101,14 +101,14 @@ class Test_throwingshl_01 {
             int32_2.throwingShl(32)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
 
         try {
             int32_2.throwingShl(100)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
     }
 
@@ -126,14 +126,14 @@ class Test_throwingshl_01 {
             intNat_2.throwingShl(64)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
 
         try {
             intNat_2.throwingShl(100)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
     }
 
@@ -151,14 +151,14 @@ class Test_throwingshl_01 {
             uint8_1.throwingShl(8)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
 
         try {
             uint8_2.throwingShl(100)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
     }
 
@@ -176,14 +176,14 @@ class Test_throwingshl_01 {
             uint16_1.throwingShl(16)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
 
         try {
             uint16_2.throwingShl(100)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
     }
 
@@ -201,14 +201,14 @@ class Test_throwingshl_01 {
             uint32_1.throwingShl(32)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
 
         try {
             uint32_2.throwingShl(100)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
     }
 
@@ -226,14 +226,14 @@ class Test_throwingshl_01 {
             uintNat_1.throwingShl(64)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
 
         try {
             uintNat_2.throwingShl(100)
             @Expect(false)
         } catch (e: OvershiftException) {
-            @Expect(e.message, "The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.message, "Right operand exceeds bit width of left operand.")
         }
     }
 
@@ -251,7 +251,7 @@ class Test_throwingshl_01 {
         try {
             int64_2.throwingShl(100)
         } catch (e: OvershiftException) {
-            @Expect(e.toString(),"OvershiftException: The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.toString(),"OvershiftException: Right operand exceeds bit width of left operand.")
         }
     }
 
@@ -269,7 +269,7 @@ class Test_throwingshl_01 {
         try {
             uint64_2.throwingShl(100)
         } catch (e: OvershiftException) {
-            @Expect(e.toString(),"OvershiftException: The right operand must be less than the number of bits in the left operand.")
+            @Expect(e.toString(),"OvershiftException: Right operand exceeds bit width of left operand.")
         }
     }
 

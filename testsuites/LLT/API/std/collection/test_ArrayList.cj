@@ -62,7 +62,7 @@ class ArrayListTest {
             var _: ArrayList<Int64> = ArrayList<Int64>(-10, {i => i})
             @Assert("size is negative", "")
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Invalid size of ArrayList: -10.")
+            @Assert(e.message, "Invalid size '-10': expected a non-negative value.")
         }
     }
 
@@ -204,7 +204,7 @@ class ArrayListTest {
             var _ = arr.slice(range)
             @Expect("Should throw exception", "")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Illegal step 2, step should be 1.")
+            @Expect(e.message, "Invalid step '2': step must be 1.")
         }
     }
 
@@ -216,7 +216,7 @@ class ArrayListTest {
             var _ = arr.slice(range)
             @Expect("Should throw exception", "")
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "Range start -1 is less than 0.")
+            @Expect(e.message, "Range start '-1' is less than 0.")
         }
     }
 
@@ -228,7 +228,7 @@ class ArrayListTest {
             var _ = arr.slice(range)
             @Expect("Should throw exception", "")
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "The start 1 is greater than the end 0.")
+            @Expect(e.message, "Range start '1' is greater than end '0'.")
         }
     }
 
@@ -240,7 +240,7 @@ class ArrayListTest {
             var _ = arr.slice(range)
             @Expect("Should throw exception", "")
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "Range start 1 is greater than the size 0.")
+            @Expect(e.message, "Range start '1' is greater than size '0'.")
         }
     }
 
@@ -252,7 +252,7 @@ class ArrayListTest {
             var _ = arr.slice(range)
             @Expect("Should throw exception", "")
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "Range start 1 is greater than the size 0.")
+            @Expect(e.message, "Range start '1' is greater than size '0'.")
         }
     }
 
@@ -264,7 +264,7 @@ class ArrayListTest {
             var _ = arr.slice(range)
             @Expect("Should throw exception", "")
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "The closed end of the range 5 is greater than or equal to the size 1.")
+            @Expect(e.message, "Closed range end '5' is greater than size '1'.")
         }
     }
 
@@ -276,7 +276,7 @@ class ArrayListTest {
             var _ = arr.slice(range)
             @Expect("Should throw exception", "")
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "The opened end of the range 5 is greater than the size 1.")
+            @Expect(e.message, "Open range end '5' is greater than size '1'.")
         }
     }
 
@@ -296,28 +296,28 @@ class ArrayListTest {
             var _ = buf[1..1]
             @Expect("[][1..1]Should throw exception but not", "")
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "Range start 1 is greater than the size 0.")
+            @Expect(e.message, "Range start '1' is greater than size '0'.")
         }
 
         try {
             var _ = buf[0..1]
             @Expect("[][0..1]Should throw exception but not", "")
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "The opened end of the range 1 is greater than the size 0.")
+            @Expect(e.message, "Open range end '1' is greater than size '0'.")
         }
 
         try {
             var _ = buf[2..1]
             @Expect("[][2..1]Should throw exception but not", "")
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "Range start 2 is greater than the size 0.")
+            @Expect(e.message, "Range start '2' is greater than size '0'.")
         }
 
         try {
             var _ = buf[2..=1]
             @Expect("[][2..=1]Should throw exception but not", "")
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "Range start 2 is greater than the size 0.")
+            @Expect(e.message, "Range start '2' is greater than size '0'.")
         }
     }
 
@@ -415,19 +415,19 @@ class ArrayListTest {
         try {
             arr1.remove(0..10)
         } catch (e1: IndexOutOfBoundsException) {
-            @Expect(e1.message, "The size of ArrayList is 5, but the start is 0 and the end is 10.")
+            @Expect(e1.message, "Invalid range: start '0', end '10', size '5'.")
         }
 
         var arr2 = ArrayList<Int64>([0, 1, 2, 3, 4])
         try {
             arr2.remove(1..6)
         } catch (e2: IndexOutOfBoundsException) {
-            @Expect(e2.message, "The size of ArrayList is 5, but the start is 1 and the end is 6.")
+            @Expect(e2.message, "Invalid range: start '1', end '6', size '5'.")
         }
         try {
             arr2.remove(Int64.Min..1)
         } catch (e2: IndexOutOfBoundsException) {
-            @Expect(e2.message, "The size of ArrayList is 5, but the start is ${Int64.Min} and the end is 1.")
+            @Expect(e2.message, "Invalid range: start '-9223372036854775808', end '1', size '5'.")
         }
     }
 
@@ -456,7 +456,7 @@ class ArrayListTest {
             arr.remove(ran)
             @Expect("Should throw exception", "")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "the value of the step should be r'1'")
+            @Expect(e.message, "Invalid step value '2': step must be 1.")
         }
     }
 
@@ -810,7 +810,7 @@ class ArrayListTest {
             arr[1] = 110
             @Assert(false)
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "index: 1 cannot be less than 0 or greater than the arraylist size: 0.")
+            @Expect(e.message, "Invalid index '1': expected 0 to '0'.")
         }
     }
 

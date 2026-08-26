@@ -26,6 +26,6 @@ class TestFileInfo {
         let dirPath = sep * 2 + "my_dir" + sep * 2 + "my_dir_2"
         let filePath = dirPath + sep * 2 + "test.txt"
         let e = @AssertThrows[FSException](FileInfo(filePath))
-        @Expect(e.toString(), "FSException: The input path `${filePath}` does not exist.")
+        @Expect(e.toString(), "FSException: Invalid argument 'path': '${filePath}' does not exist.")
     }
 }

@@ -488,14 +488,14 @@ class DecimalArthmeticOperationTest {
             Decimal.parse("1") / Decimal.parse("0")
             @Assert(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
         }
 
         try {
             Decimal.parse("1") / Decimal.parse("0")
             @Assert(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
         }
 
         try {
@@ -504,7 +504,7 @@ class DecimalArthmeticOperationTest {
             decimal2.divAndMod(decimal1)
             @Assert(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
         }
     }
 

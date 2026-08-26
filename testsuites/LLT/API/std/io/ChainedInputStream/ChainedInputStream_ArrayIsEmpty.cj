@@ -7,7 +7,7 @@
  */
 // EXEC: %compiler %cmp_opt -o %n.%suffix %f
 // EXEC: %run %run_opt %n.%suffix %run_args | compare %f
-// ASSERT: scan IllegalArgumentException: The array of input streams cannot be empty!
+// ASSERT: scan IllegalArgumentException: Invalid argument 'input': the array of input streams cannot be empty.
 // ASSERT: scan ok
 
 internal import std.io.*

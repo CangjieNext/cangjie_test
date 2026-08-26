@@ -33,7 +33,7 @@ class MonoTimeTest {
             MonoTime.now() + Duration.Max
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The result exceeds the range of 'MonoTime'.")
+            @Expect(e.message, "Arithmetic overflow: result exceeds MonoTime range.")
         }
     }
 
@@ -50,7 +50,7 @@ class MonoTimeTest {
             MonoTime.now() - Duration.Max
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The result exceeds the range of 'MonoTime'.")
+            @Expect(e.message, "Arithmetic overflow: result exceeds MonoTime range.")
         }
     }
 
@@ -60,7 +60,7 @@ class MonoTimeTest {
             MonoTime.now() - Duration.Min
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The result exceeds the range of 'MonoTime'.")
+            @Expect(e.message, "Arithmetic overflow: result exceeds MonoTime range.")
         }
     }
 

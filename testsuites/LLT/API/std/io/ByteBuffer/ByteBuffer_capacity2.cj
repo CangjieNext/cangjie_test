@@ -7,7 +7,7 @@
  */
 // EXEC-PIPE-0: %compiler %cmp_opt -o %n.%suffix %f
 // EXEC-PIPE-0: %run %run_opt %n.%suffix %run_args | compare %f
-// ASSERT: scan IllegalArgumentException: The capacity must be greater than or equal to 0: -1.
+// ASSERT: scan IllegalArgumentException: Invalid argument 'capacity': expected a non-negative value, got '-1'.
 
 internal import std.io.ByteBuffer
 
