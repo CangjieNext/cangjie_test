@@ -60,14 +60,14 @@ class Test_File_CopyTo {
         try {
             copy(file, to: outputstream)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` does not have the read permission.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.+': file does not have read permission.$").matches(e.message))
             sum += 1
         }
         file.close()
         try {
             copy(file, to: outputstream)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` not opened, can not to read.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.+': file is not opened.$").matches(e.message))
             sum += 1
         }
         @Expect(sum, 2)

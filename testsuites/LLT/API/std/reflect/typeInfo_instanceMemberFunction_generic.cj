@@ -75,7 +75,7 @@ class ReflectTest {
         try {
             funcinfo[0].apply(TypeInfo.of<TestStaticFunction<Int64>>(), [TypeInfo.of<String>()], ["111"])
         } catch (e: IllegalTypeException) {
-            @Expect(e.message.contains("does not match the type"))
+            @Expect(e.message.contains("Parameter type mismatch"))
         }
     }
 }

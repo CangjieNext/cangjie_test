@@ -91,7 +91,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             let a = dec1 / dec2
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -99,7 +99,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             let a = dec1 / dec2
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 2)
@@ -107,7 +107,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             let a = dec1.divAndMod(dec2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 3)
@@ -115,7 +115,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             let a = dec2.divAndMod(dec1)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 4)
@@ -125,7 +125,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             (dec1 ** Int64.Min)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 5)
@@ -133,7 +133,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             (dec1 ** -10)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 6)
@@ -264,7 +264,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             let a = dec2.divAndMod(dec1)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -274,7 +274,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             (dec1 ** -1)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 2)
@@ -283,7 +283,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             dec1 ** (-1)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 3)
@@ -305,7 +305,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             dec1 / dec2
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -313,7 +313,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             dec1 / dec2
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 2)
@@ -321,7 +321,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             dec1.divAndMod(dec2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 3)
@@ -345,7 +345,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             dec2.divAndMod(dec1)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -354,7 +354,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             (dec1 ** -1)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 2)
@@ -363,7 +363,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             dec1 ** (-1)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 3)
@@ -384,7 +384,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             dec1 / dec2
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -392,7 +392,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             dec1 / dec2
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 2)
@@ -400,7 +400,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             dec1.divAndMod(dec2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 3)
@@ -478,7 +478,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             dec2.divAndMod(dec1)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -490,7 +490,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             (dec1 ** -10000)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 2)
@@ -499,7 +499,7 @@ class Test_decimal_math_operation_default_22 {
         try {
             (dec1 ** -30000)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
             sum += 1
         }
         @Expect(sum, 3)

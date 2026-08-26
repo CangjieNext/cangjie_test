@@ -21,7 +21,7 @@ main(): Int64 {
         fs.write(b4.slice(0, 1))
         ()
     } catch (e: IndexOutOfBoundsException) {
-        if (e.toString() != "IndexOutOfBoundsException: The size of Array is 0, start is 0, length is 1.") {
+        if (e.toString() != "IndexOutOfBoundsException: Slice out of bounds: start is '0', length is '1', but array size is '0'.") {
             return 1
         }
     }

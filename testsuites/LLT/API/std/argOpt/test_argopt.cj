@@ -64,7 +64,7 @@ class ArgOptTest {
         } catch (e: IllegalArgumentException) {
             exception = Some(e)
         }
-        anomalyAssert("testInvalidInitShortArgFormat", exception, "Invalid string, please check the parameter: 2\n")
+        anomalyAssert("testInvalidInitShortArgFormat", exception, "Invalid short option format: '2'.")
     }
 
     /*
@@ -95,7 +95,7 @@ class ArgOptTest {
         anomalyAssert(
             "testInvalidInitLongArgList_01",
             caseException01,
-            "Invalid string, please check the parameter: 123abc\n"
+            "Invalid long option format: '123abc'."
         )
 
         var caseException02: ?Exception = None
@@ -107,7 +107,7 @@ class ArgOptTest {
         anomalyAssert(
             "testInvalidInitLongArgList_02",
             caseException02,
-            "Invalid string, please check the parameter: ==\n"
+            "Invalid long option format: '=='."
         )
     }
 
@@ -138,7 +138,7 @@ class ArgOptTest {
         anomalyAssert(
             "testInValidInitShortArgFormatAndLongArgList",
             caseException,
-            "Invalid string, please check the parameter: !\n"
+            "Invalid short option format: '!'."
         )
     }
 
@@ -190,7 +190,7 @@ class ArgOptTest {
         anomalyAssert(
             "testInvalidInitArgsShortArgFormatAndLongArgList",
             caseException,
-            "Invalid string, please check the parameter: ??condition=\n"
+            "Invalid long option format: '??condition='."
         )
     }
 
@@ -227,7 +227,7 @@ class ArgOptTest {
         } catch (e: IllegalArgumentException) {
             caseException = e
         }
-        anomalyAssert("testInValidGetArg", caseException, "Invalid string, please check the parameter: ab:-~\n")
+        anomalyAssert("testInValidGetArg", caseException, "Invalid short option format: 'ab:-~'.")
     }
 
     /*
@@ -595,7 +595,7 @@ public class TestArgParser {
             parseArguments(args2, argSpecs)
             @Assert(false)
         } catch (e: ArgumentParseException) {
-            @Expect(e.message.contains('Unexcepted value'))
+            @Expect(e.message.contains('Unexpected value'))
         }
 
         args2 = ["--test1", "123"]
@@ -685,7 +685,7 @@ public class TestArgParser {
             parseArguments([], argSpecs)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains('Duplicated option'))
+            @Expect(e.message.contains('Duplicate option'))
         }
         argSpecs = [
             Short(r'd', OptionalValue) {v => println("Got d: `${v}`")},
@@ -696,7 +696,7 @@ public class TestArgParser {
             parseArguments([], argSpecs)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains('Duplicated option'))
+            @Expect(e.message.contains('Duplicate option'))
         }
         argSpecs = [
             Short(r'g', RequiredValue) {v => println("Got g: `${v}`")},
@@ -707,7 +707,7 @@ public class TestArgParser {
             parseArguments([], argSpecs)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains('Duplicated option'))
+            @Expect(e.message.contains('Duplicate option'))
         }
 
         argSpecs = [
@@ -719,7 +719,7 @@ public class TestArgParser {
             parseArguments([], argSpecs)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains('Duplicated option'))
+            @Expect(e.message.contains('Duplicate option'))
         }
 
         argSpecs = [
@@ -731,7 +731,7 @@ public class TestArgParser {
             parseArguments([], argSpecs)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains('Duplicated option'))
+            @Expect(e.message.contains('Duplicate option'))
         }
 
         argSpecs = [
@@ -743,7 +743,7 @@ public class TestArgParser {
             parseArguments([], argSpecs)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains('Duplicated option'))
+            @Expect(e.message.contains('Duplicate option'))
         }
     }
 

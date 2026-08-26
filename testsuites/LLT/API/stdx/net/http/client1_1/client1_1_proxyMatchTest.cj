@@ -23,7 +23,7 @@ import stdx.log.*
 // ASSERT: scan-next request target host:baidu.com port:80
 // ASSERT: scan-next request proxy host:127.0.0.1 port:65535
 // ASSERT: scan-next Client1_1 get conn new
-// ASSERT: scan-next url: http://baidu.com:80 msg: Failed to connect 111: Connection refused.
+// ASSERT: scan-next url: http://baidu.com:80 msg: Failed to connect 111: 'Connection refused'.
 // ASSERT: scan-next start send request
 // ASSERT: scan-next Using HTTP/1.1 client
 // ASSERT: scan-next send request:
@@ -33,7 +33,7 @@ import stdx.log.*
 // ASSERT: scan-next request target host:xiaomi.com port:80
 // ASSERT: scan-next request proxy host:127.0.0.1 port:65535
 // ASSERT: scan-next Client1_1 get conn new
-// ASSERT: scan-next url: http://xiaomi.com:80 msg: Failed to connect 111: Connection refused.
+// ASSERT: scan-next url: http://xiaomi.com:80 msg: Failed to connect 111: 'Connection refused'.
 // ASSERT: scan-next start send request
 // ASSERT: scan-next Using HTTP/1.1 client
 // ASSERT: scan-next send request:
@@ -43,7 +43,7 @@ import stdx.log.*
 // ASSERT: scan-next request target host:www.baidu.com port:80
 // ASSERT: scan-next request proxy host:127.0.0.1 port:65535
 // ASSERT: scan-next Client1_1 get conn new
-// ASSERT: scan-next url: http://www.baidu.com:80 msg: Failed to connect 111: Connection refused.
+// ASSERT: scan-next url: http://www.baidu.com:80 msg: Failed to connect 111: 'Connection refused'.
 // ASSERT: scan-next start send request
 // ASSERT: scan-next Using HTTP/1.1 client
 // ASSERT: scan-next send request:
@@ -53,7 +53,7 @@ import stdx.log.*
 // ASSERT: scan-next request target host:www.baidu.com port:80
 // ASSERT: scan-next request proxy host:127.0.0.1 port:65535
 // ASSERT: scan-next Client1_1 get conn new
-// ASSERT: scan-next url: http://www.baidu.com:80 msg: Failed to connect 111: Connection refused.
+// ASSERT: scan-next url: http://www.baidu.com:80 msg: Failed to connect 111: 'Connection refused'.
 
 func withEnv(key: String, value: String, f: () -> Unit): Unit {
     let old = getVariable(key)

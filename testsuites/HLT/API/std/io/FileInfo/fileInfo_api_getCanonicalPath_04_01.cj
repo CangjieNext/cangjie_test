@@ -27,6 +27,6 @@ class TestFileInfo {
         // 目录绝对路径不存在
         let dirPath = getcwd() + sep + "first" + sep + "second"
         let e = @AssertThrows[FSException](FileInfo(dirPath))
-        @Expect(e.toString(), "FSException: The input path `${dirPath}` does not exist.")
+        @Expect(e.toString(), "FSException: Invalid argument 'path': '${dirPath}' does not exist.")
     }
 }

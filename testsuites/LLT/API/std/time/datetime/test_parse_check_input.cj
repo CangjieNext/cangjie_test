@@ -21,7 +21,7 @@ public class DateTimeParseTest {
             DateTime.parse("1-04-12T20:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 1: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 1: expected an integer, got '-'.")
         }
         try {
             @Expect(DateTime.tryParse("1-04-12T20:17:30+08:00"), None)
@@ -32,7 +32,7 @@ public class DateTimeParseTest {
             DateTime.parse("11-04-12T20:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 2: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 2: expected an integer, got '-'.")
         }
         try {
             @Expect(DateTime.tryParse("11-04-12T20:17:30+08:00"), None)
@@ -43,7 +43,7 @@ public class DateTimeParseTest {
             DateTime.parse("-04-12T20:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 3: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 3: expected an integer, got '-'.")
         }
         try {
             @Expect(DateTime.tryParse("-04-12T20:17:30+08:00"), None)
@@ -54,7 +54,7 @@ public class DateTimeParseTest {
             DateTime.parse("11111-04-12T20:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 4: \"1\" should be \"-\".")
+            @Expect(e.message, "Failed to parse at index 4: expected '-', got '1'.")
         }
         try {
             @Expect(DateTime.tryParse("11111-04-12T20:17:30+08:00"), None)
@@ -69,7 +69,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-4-12T20:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 6: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 6: expected an integer, got '-'.")
         }
         try {
             @Expect(DateTime.tryParse("2023-4-12T20:17:30+08:00"), None)
@@ -80,7 +80,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023--4-12T20:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 5: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 5: expected an integer, got '-'.")
         }
         try {
             @Expect(DateTime.tryParse("2023--4-12T20:17:30+08:00"), None)
@@ -91,7 +91,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-13-12T20:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Month value must be in [1, 12].")
+            @Expect(e.message, "Invalid month value: expected 1 to 12.")
         }
         try {
             @Expect(DateTime.tryParse("2023-13-12T20:17:30+08:00"), None)
@@ -102,7 +102,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-April-12T20:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 5: \"A\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 5: expected an integer, got 'A'.")
         }
         try {
             @Expect(DateTime.tryParse("2023-April-12T20:17:30+08:00"), None)
@@ -117,7 +117,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-6T20:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 9: \"T\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 9: expected an integer, got 'T'.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-6T20:17:30+08:00"), None)
@@ -128,7 +128,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04--6T20:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 8: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 8: expected an integer, got '-'.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04--6T20:17:30+08:00"), None)
@@ -139,7 +139,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-02-29T20:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Day of February in 2023 must be in [1, 28].")
+            @Expect(e.message, "Invalid day '29' for February 2023: expected 1 to 28.")
         }
         try {
             @Expect(DateTime.tryParse("2023-02-29T20:17:30+08:00"), None)
@@ -154,7 +154,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T0:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 12: \":\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 12: expected an integer, got ':'.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T0:17:30+08:00"), None)
@@ -165,7 +165,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T-1:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 11: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 11: expected an integer, got '-'.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T-1:17:30+08:00"), None)
@@ -176,7 +176,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T24:17:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Hour value in format \"HH\" must be in [0, 23].")
+            @Expect(e.message, "Invalid hour in 'HH' format: expected 0 to 23.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T24:17:30+08:00"), None)
@@ -191,7 +191,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T20:1:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 15: \":\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 15: expected an integer, got ':'.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T20:1:30+08:00"), None)
@@ -202,7 +202,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T20:-1:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 14: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 14: expected an integer, got '-'.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T20:-1:30+08:00"), None)
@@ -213,7 +213,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T20:60:30+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Minute value must be in [0, 59].")
+            @Expect(e.message, "Invalid minute value: expected 0 to 59.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T20:60:30+08:00"), None)
@@ -228,7 +228,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T20:17:3+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 18: \"+\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 18: expected an integer, got '+'.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T20:17:3+08:00"), None)
@@ -239,7 +239,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T20:17:-1+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 17: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 17: expected an integer, got '-'.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T20:17:-1+08:00"), None)
@@ -250,7 +250,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T20:17:60+08:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Second value must be in [0, 59].")
+            @Expect(e.message, "Invalid second value: expected 0 to 59.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T20:17:60+08:00"), None)
@@ -265,7 +265,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T20:17:30+26:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "The hour in offset should be in [-24, 25].")
+            @Expect(e.message, "Invalid hour in offset: expected -24 to 25.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T20:17:30+26:00"), None)
@@ -276,7 +276,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T20:17:30-25:00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "The hour in offset should be in [-24, 25].")
+            @Expect(e.message, "Invalid hour in offset: expected -24 to 25.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T20:17:30-25:00"), None)
@@ -287,7 +287,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T20:17:30+00")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T20:17:30+00"), None)
@@ -298,7 +298,7 @@ public class DateTimeParseTest {
             DateTime.parse("2023-04-06T20:17:30+008:0")
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 22: \"8\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 22: expected ':', got '8'.")
         }
         try {
             @Expect(DateTime.tryParse("2023-04-06T20:17:30+008:0"), None)

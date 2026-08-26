@@ -27,14 +27,14 @@ class Test_parse_week {
         try {
             let res2 = DateTime.parse("2023/04/20 19:52:23 +00:00 0", "yyyy/MM/dd HH:mm:ss OOOO w")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "The day of week does not match.")
+            @Expect(e.message, "Day of week does not match.")
             cnt += 1
         }
 
         try {
             let res3 = DateTime.parse("2023/04/20 19:52:23 +00:00 s", "yyyy/MM/dd HH:mm:ss OOOO w")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: \"s\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 27: expected an integer, got 's'.")
             cnt += 1
         }
 
@@ -50,21 +50,21 @@ class Test_parse_week {
         try {
             let res2 = DateTime.parse("2023/04/20 19:52:23 +00:00 4", "yyyy/MM/dd HH:mm:ss OOOO ww")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: insufficient remaining length.")
+            @Expect(e.message, "Failed to parse at index 27: insufficient remaining length.")
             cnt += 1
         }
 
         try {
             let res3 = DateTime.parse("2023/04/20 19:52:23 +00:00 s", "yyyy/MM/dd HH:mm:ss OOOO ww")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: insufficient remaining length.")
+            @Expect(e.message, "Failed to parse at index 27: insufficient remaining length.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/20 19:52:23 +00:00 Thu", "yyyy/MM/dd HH:mm:ss OOOO ww")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: \"T\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 27: expected an integer, got 'T'.")
             cnt += 1
         }
 
@@ -80,28 +80,28 @@ class Test_parse_week {
         try {
             let res2 = DateTime.parse("2023/04/20 19:52:23 +00:00 4", "yyyy/MM/dd HH:mm:ss OOOO www")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 
         try {
             let res3 = DateTime.parse("2023/04/20 19:52:23 +00:00 04", "yyyy/MM/dd HH:mm:ss OOOO www")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/20 19:52:23 +00:00 004", "yyyy/MM/dd HH:mm:ss OOOO www")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/04/20 19:52:23 +00:00 Thursday", "yyyy/MM/dd HH:mm:ss OOOO www")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Extar value, start at index 30.")
+            @Expect(e.message, "Extra value starting at index 30.")
             cnt += 1
         }
 
@@ -117,28 +117,28 @@ class Test_parse_week {
         try {
             let res2 = DateTime.parse("2023/04/20 19:52:23 +00:00 4", "yyyy/MM/dd HH:mm:ss OOOO wwww")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 
         try {
             let res3 = DateTime.parse("2023/04/20 19:52:23 +00:00 04", "yyyy/MM/dd HH:mm:ss OOOO wwww")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/20 19:52:23 +00:00 004", "yyyy/MM/dd HH:mm:ss OOOO wwww")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/04/20 19:52:23 +00:00 Thu", "yyyy/MM/dd HH:mm:ss OOOO wwww")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 

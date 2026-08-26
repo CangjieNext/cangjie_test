@@ -244,7 +244,7 @@ class FunctionTypeInfoNegativeTest {
         var e = @ExpectThrows[IllegalTypeException](FunctionTypeInfo.of(1)).getOrThrow()
         @Expect(e.message.contains("function type instance"))
         e = @ExpectThrows[IllegalTypeException](FunctionTypeInfo.of<Int64>()).getOrThrow()
-        @Expect(e.message.contains("function type for `T`"))
+        @Expect(e.message.contains("function type for 'T'"))
     }
 
     @TestCase
@@ -252,7 +252,7 @@ class FunctionTypeInfoNegativeTest {
         let f2: (Int64, String) -> Bool = fn2
         let info = FunctionTypeInfo.of(f2)
         let e = @ExpectThrows[IllegalArgumentException](info.apply(f2, [1])).getOrThrow()
-        @Expect(e.message.contains("comply with the required quantity"))
+        @Expect(e.message.contains("Invalid argument count"))
     }
 
     @TestCase
@@ -260,7 +260,7 @@ class FunctionTypeInfoNegativeTest {
         let f0: () -> Int64 = fn0
         let info = FunctionTypeInfo.of(f0)
         let e = @ExpectThrows[IllegalArgumentException](info.apply(f0, [1])).getOrThrow()
-        @Expect(e.message.contains("comply with the required quantity"))
+        @Expect(e.message.contains("Invalid argument count"))
     }
 
     @TestCase
@@ -268,7 +268,7 @@ class FunctionTypeInfoNegativeTest {
         let f2: (Int64, String) -> Bool = fn2
         let info = FunctionTypeInfo.of(f2)
         let e = @ExpectThrows[IllegalArgumentException](info.apply(f2, [1, "a", 3])).getOrThrow()
-        @Expect(e.message.contains("comply with the required quantity"))
+        @Expect(e.message.contains("Invalid argument count"))
     }
 
     @TestCase

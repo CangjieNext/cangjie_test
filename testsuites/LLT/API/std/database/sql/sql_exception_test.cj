@@ -26,20 +26,20 @@ class TestSqlException {
         try {
             throw SqlException("test ex", "00000", 0)
         } catch (e: SqlException) {
-            @Expect(e.toString(), "SqlException: test ex, SqlState: 00000, errorCode: 0")
+            @Expect(e.toString(), "SqlException: test ex, SqlState: 00000, errorCode: 0.")
         }
         try {
             throw SqlException()
         } catch (e: SqlException) {
-            @Expect(e.toString(), "SqlException: errorCode: 0")
+            @Expect(e.toString(), "SqlException: errorCode: 0.")
         }
         try {
             throw SqlException("i am joker")
         } catch (e: SqlException) {
-            @Expect(e.toString(), "SqlException: i am joker, errorCode: 0")
+            @Expect(e.toString(), "SqlException: i am joker, errorCode: 0.")
         }
         var a25 = SqlException()
-        @Expect(a25.toString(), "SqlException: errorCode: 0")
+        @Expect(a25.toString(), "SqlException: errorCode: 0.")
 
         var se = SqlException("warning", "Connecting", 1)
         @Expect(se.sqlState, "Connecting")

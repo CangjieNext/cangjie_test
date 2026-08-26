@@ -39,7 +39,7 @@ class FileLinuxTest {
             try (file = File(fileName, Write)) {
                 file.seek(sp)
             } catch (e: FSException) {
-                @Assert(Regex("^Failed to seek file `.+`: errno is 22.$").matches(e.message))
+                @Assert(Regex("^Failed to seek in file '.+': error code .+\\.$").matches(e.message))
                 errCount++
             }
         }
@@ -47,7 +47,7 @@ class FileLinuxTest {
             file.close()
             file.seek(Begin(0))
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` can not seek.$").matches(e.message))
+            @Assert(Regex("^Cannot seek in file '.+': file does not support seeking.$").matches(e.message))
             errCount++
         }
         remove(fileName)
@@ -71,7 +71,7 @@ class FileLinuxTest {
                 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.txt"
             let file = File(oriFileName, Write)
         } catch (e: FSException) {
-            @Assert(Regex("^Failed to open the file `.+`. File name too long.$").matches(e.message))
+            @Assert(Regex("^Failed to open file '.+'\\. File name too long\\.$").matches(e.message))
             countError++
         }
         @Expect(countError,1)

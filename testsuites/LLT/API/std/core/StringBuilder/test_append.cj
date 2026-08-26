@@ -161,7 +161,7 @@ class AppendTest {
             sb.appendFromUtf8(byteArr)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message, "Invalid UTF-8: unexpected continuation byte '129' at index '0' (missing leading byte).")
         }
     }
 

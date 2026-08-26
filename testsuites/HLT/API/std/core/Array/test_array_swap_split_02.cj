@@ -17,7 +17,7 @@ class Test_array_swap_split_02 {
         let arr = Array(10, {i: Int64 => "${i}"})
         let arr1 = Array<String>(9, repeat: "0")
         let e = @AssertThrows[IllegalArgumentException](arr.copyTo(arr1))
-        @Expect(e.message, "Dst size is less than the size of this array.")
+        @Expect(e.message, "Destination array size '9' is less than source array size '10'.")
     }
 
     @TestCase
@@ -45,9 +45,9 @@ class Test_array_swap_split_02 {
         @Expect(arr2[0], arr1)
         @Expect(arr2[1], Array<String>())
         let e = @AssertThrows[IllegalArgumentException](arr2[1].swap(-1, 9))
-        @Expect(e.message, "Index1 is less than 0 or not less than the size of this array.")
+        @Expect(e.message, "Invalid argument 'index1': index '-1' is out of bounds, array size is '0'.")
         let e1 = @AssertThrows[IllegalArgumentException](arr2[0].swap(0, 12))
-        @Expect(e1.message, "Index2 is less than 0 or not less than the size of this array.")
+        @Expect(e1.message, "Invalid argument 'index2': index '12' is out of bounds, array size is '12'.")
     }
 
     @TestCase
@@ -88,8 +88,8 @@ class Test_array_swap_split_02 {
         let arr1 = Array<String>(12, repeat: "0")
         arr.copyTo(arr1)
         let e = @AssertThrows[IllegalArgumentException](arr1.splitAt(-1))
-        @Expect(e.message, "Mid is less than 0 or not less than the size of this array.")
+        @Expect(e.message, "Invalid argument 'mid': value '-1' is out of bounds, array size is '12'.")
         let e1 = @AssertThrows[IllegalArgumentException](arr1.splitAt(13))
-        @Expect(e1.message, "Mid is less than 0 or not less than the size of this array.")
+        @Expect(e1.message, "Invalid argument 'mid': value '13' is out of bounds, array size is '12'.")
     }
 }

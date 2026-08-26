@@ -64,7 +64,7 @@ class Test_init {
         try {
             let zone = TimeZone("", Duration.Zero)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message.contains("Invalid timezone id"))
+            @Assert(e.message.contains("Invalid timezone ID"))
             flag = true
         }
         @Assert(flag, true)
@@ -76,7 +76,7 @@ class Test_init {
         try {
             let zone = TimeZone("Asia/Shanghai", Duration.Max)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Invalid offset.")
+            @Assert(e.message, "Invalid offset '9223372036854775807': must be between -89999 and 93599 seconds.")
             flag = true
         }
         @Assert(flag, true)
@@ -88,7 +88,7 @@ class Test_init {
         try {
             let zone = TimeZone("Asia/Shanghai", Duration.Min)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Invalid offset.")
+            @Assert(e.message, "Invalid offset '-9223372036854775808': must be between -89999 and 93599 seconds.")
             flag = true
         }
         @Assert(flag, true)
@@ -115,7 +115,7 @@ class Test_init {
             let zone = TimeZone("Asia/Shanghai",
                 Duration.hour * 25 + Duration.minute * 59 + Duration.second * 59 + Duration.second)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Invalid offset.")
+            @Assert(e.message, "Invalid offset '93600': must be between -89999 and 93599 seconds.")
             flag = true
         }
         @Assert(flag, true)
@@ -128,7 +128,7 @@ class Test_init {
             let zone = TimeZone("Asia/Shanghai",
                 Duration.hour * -24 + Duration.minute * -59 + Duration.second * -59 - Duration.second)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Invalid offset.")
+            @Assert(e.message, "Invalid offset '-90000': must be between -89999 and 93599 seconds.")
             flag = true
         }
         @Assert(flag, true)

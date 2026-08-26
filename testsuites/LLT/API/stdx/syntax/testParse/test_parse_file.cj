@@ -56,7 +56,7 @@ class Test {
             let node = parseFile(path)
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: Failed to canonical: the input path `${path}` may not exist or permission denied!")
+            @Expect(e.message, "IOException: Failed to canonicalize path '${path}': path does not exist or permission denied.")
         }
         @Expect(count, 1)
     }
@@ -93,7 +93,7 @@ class Test {
             let node = parseFile(path)
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: Failed to canonical path `${path}` return -2: \"No such file or directory\".")
+            @Expect(e.message, "IOException: Failed to canonicalize path '${path}': error code '-2', No such file or directory.")
         }
         @Expect(count, 1)
     }
