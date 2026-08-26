@@ -25,5 +25,5 @@ expr:expr x4.size==2:\(Bool\)[\s\S]*true
 expr:expr x4["a"]:\(UInt32\)[\s\S]*1
 expr:expr x4["a"]+3:\(UInt32\)[\s\S]*4
 expr:expr x3[2]:\(Int8\)[\s\S]*3
-expr:expr x3[3]:IndexOutOfBoundsException: index: 3, size: 3
+expr:expr x3[3]:IndexOutOfBoundsException: Invalid index '3': size is '3'.
 q,q,

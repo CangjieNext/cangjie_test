@@ -93,21 +93,21 @@ class DynloadingTest {
             PackageInfo.load("dynloading_cjnative/a")
             @Expect(false)
         } catch (e: ReflectException) {
-            @Expect(e.message.contains("twice"))
+            @Expect(e.message.contains("already loaded"))
         }
 
         try {
             PackageInfo.load("a1")
             @Expect(false)
         } catch (e: ReflectException) {
-            @Expect(e.message.contains("twice"))
+            @Expect(e.message.contains("already loaded"))
         }
 
         try {
             PackageInfo.load("a1")
             @Expect(false)
         } catch (e: ReflectException) {
-            @Expect(e.message.contains("twice"))
+            @Expect(e.message.contains("already loaded"))
         }
     }
 
@@ -124,7 +124,7 @@ class DynloadingTest {
             PackageInfo.load("fake")
             @Expect(false)
         } catch (e: ReflectException) {
-            @Expect(e.message.contains("load failed"))
+            @Expect(e.message.contains("Failed to load package"))
         }
 
         try {

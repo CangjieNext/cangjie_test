@@ -7,7 +7,7 @@
  */
 // EXEC: %compiler %cmp_opt -o %n.%suffix %f
 // EXEC-PIPE: %run %run_opt %n.%suffix %run_args | compare %f
-// ASSERT: scan extra characters at the end of the address
+// ASSERT: scan extra characters at end of address
 
 /*
  * Test description: To verify the initialization () function of the socketAddress class.

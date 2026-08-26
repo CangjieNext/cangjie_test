@@ -55,7 +55,7 @@ class Test_terminate {
             subprocess.terminate()
         } catch (e: ProcessException) {
             cnt++
-            @Expect(e.message, "Process pid \"${subprocess.pid}\" not exist, not allow kill process.")
+            @Expect(e.message, "Process '${subprocess.pid}' does not exist.")
         }
         @Expect(cnt, 1)
     }

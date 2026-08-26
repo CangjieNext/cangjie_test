@@ -30,13 +30,13 @@ class Test_Dir_Create {
             try {
                 Directory.create(str, recursive: false)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "Invalid path `${str}`, failed to create directory.")
+                @Expect(e.message, "Invalid path '${str}': cannot create directory.")
                 sum += 1
             }
             try {
                 Directory.create(Path(str), recursive: true)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "Invalid path `${str}`, failed to create directory.")
+                @Expect(e.message, "Invalid path '${str}': cannot create directory.")
                 sum += 1
             }
         }
@@ -51,7 +51,7 @@ class Test_Dir_Create {
         try {
             Directory.create(dir)
         } catch (e: FSException) {
-            @Expect(e.message, "Failed to create directory `${dir}`, parent directory `tem_dir_02` does not exist.")
+            @Expect(e.message, "Failed to create directory '${dir}': parent directory 'tem_dir_02' does not exist.")
             sum += 1
         }
         @Expect(sum, 1)

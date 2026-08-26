@@ -69,7 +69,7 @@ class Test_seek_current {
             sr.seek(Current(-1))
             @Expect(false)
         } catch (e: IOException) {
-            @Expect(e.message, "Can't move the position before the beginning of the stream.")
+            @Expect(e.message, "Failed to seek: position '-1' is before the beginning of the stream.")
         }
     }
 }

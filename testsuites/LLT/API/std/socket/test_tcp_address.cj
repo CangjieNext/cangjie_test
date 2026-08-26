@@ -85,7 +85,7 @@ class Test_Tcp_Server_Address {
             // still can get 
             server.localAddress
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is already closed")
+            @Expect(e.message, "Socket is already closed.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -125,7 +125,7 @@ class Test_Tcp_Server_Address {
             // still can get 
             server.localAddress
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is already closed")
+            @Expect(e.message, "Socket is already closed.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -159,7 +159,7 @@ class Test_Tcp_Socket_Address {
             //----------only this throw exception---------
             client.localAddress
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is not bound")
+            @Expect(e.message, "Socket is not bound.")
             sum += 1
         }
 
@@ -188,13 +188,13 @@ class Test_Tcp_Socket_Address {
         try {
             client.remoteAddress
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is already closed")
+            @Expect(e.message, "Socket is already closed.")
             sum += 1
         }
         try {
             client.localAddress
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is already closed")
+            @Expect(e.message, "Socket is already closed.")
             sum += 1
         }
         @Expect(sum, 3)
@@ -239,13 +239,13 @@ class Test_Tcp_Socket_Address {
         try {
             client.remoteAddress
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is already closed")
+            @Expect(e.message, "Socket is already closed.")
             sum += 1
         }
         try {
             client.localAddress
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is already closed")
+            @Expect(e.message, "Socket is already closed.")
             sum += 1
         }
         @Expect(sum, 2)

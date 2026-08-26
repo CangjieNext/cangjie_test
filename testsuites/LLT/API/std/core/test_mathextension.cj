@@ -247,7 +247,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionClamp_01",
             caseException01,
-            "Check parameter min:'11.000000' or max:'-10.125000'."
+            "Invalid parameters 'min' and 'max': 'min' must not be greater than 'max' and neither can be NaN."
         )
         var caseException02: ?Exception = None
         try {
@@ -276,8 +276,9 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionClamp_03",
             caseException03,
-            "Check parameter min:'10.999000' or max:'-10.123000'."
+            "Invalid parameters 'min' and 'max': 'min' must not be greater than 'max' and neither can be NaN."
         )
+
         var caseException04: ?Exception = None
         try {
             var min: Float32 = Float32.NaN
@@ -290,7 +291,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionClamp_04",
             caseException04,
-            "Check parameter min:'nan' or max:'nan'."
+            "Invalid parameters 'min' and 'max': 'min' must not be greater than 'max' and neither can be NaN."
         )
 
         var caseException05: ?Exception = None
@@ -305,7 +306,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionClamp_05",
             caseException05,
-            "Check parameter min:'10.999000' or max:'-10.123000'."
+            "Invalid parameters 'min' and 'max': 'min' must not be greater than 'max' and neither can be NaN."
         )
         var caseException06: ?Exception = None
         try {
@@ -319,7 +320,7 @@ class MathExtensionTest {
         anomalyAssert(
             "testInvalidMathExtensionClamp_06",
             caseException06,
-            "Check parameter min:'nan' or max:'nan'."
+            "Invalid parameters 'min' and 'max': 'min' must not be greater than 'max' and neither can be NaN."
         )
     }
 

@@ -118,13 +118,13 @@ class HashMapTest {
             var _ = HashMap<Int64, Int64>(-10)
             @Expect("Should throw exception", "")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid size of HashMap: -10.")
+            @Expect(e.message, "Invalid capacity '-10': expected a non-negative value.")
         }
         try {
             var _ = HashMap<String, Int64>(-3)
             @Expect("Should throw exception", "")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid size of HashMap: -3.")
+            @Expect(e.message, "Invalid capacity '-3': expected a non-negative value.")
         }
     }
 
@@ -144,7 +144,7 @@ class HashMapTest {
             var _ = HashMap<Int64, Int64>(-10, {K => (K, K)})
             @Expect("Should throw exception", "")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid size of HashMap: -10.")
+            @Expect(e.message, "Invalid size '-10': expected a non-negative value.")
         }
     }
 
@@ -225,7 +225,7 @@ class HashMapTest {
             var _: String = map1[0]
             @Expect("Should throw exception", "")
         } catch (e: NoneValueException) {
-            @Expect(e.message, "Value does not exist!\n")
+            @Expect(e.message, "Value does not exist.")
         }
 
         var map2: HashMap<Int64, String> = HashMap<Int64, String>([(1, "1"), (8, "8"), (3, "3")])
@@ -233,7 +233,7 @@ class HashMapTest {
             var _: String = map2[0]
             @Expect("Should throw exception", "")
         } catch (e: NoneValueException) {
-            @Expect(e.message, "Value does not exist!\n")
+            @Expect(e.message, "Value does not exist.")
         }
         @Expect(map2[1], "1")
         @Expect(map2[3], "3")

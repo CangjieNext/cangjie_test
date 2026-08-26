@@ -30,28 +30,28 @@ class Test_parse_minute {
         try {
             let res5 = DateTime.parse("2023/04/17 19:-1:00 +00:00", "yyyy/MM/dd HH:m:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 14: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 14: expected an integer, got '-'.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/04/17 19:60:00 +00:00", "yyyy/MM/dd HH:m:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Minute value must be in [0, 59].")
+            @Expect(e.message, "Invalid minute value: expected 0 to 59.")
             cnt += 1
         }
 
         try {
             let res7 = DateTime.parse("2023/04/17 19:001:00 +00:00", "yyyy/MM/dd HH:m:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 16: \"1\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 16: expected ':', got '1'.")
             cnt += 1
         }
 
         try {
             let res8 = DateTime.parse("2023/04/17 19::00 +00:00", "yyyy/MM/dd HH:m:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 14: \":\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 14: expected an integer, got ':'.")
             cnt += 1
         }
 
@@ -71,28 +71,28 @@ class Test_parse_minute {
         try {
             let res5 = DateTime.parse("2023/04/17 19:-1:00 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 14: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 14: expected an integer, got '-'.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/04/17 19:60:00 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Minute value must be in [0, 59].")
+            @Expect(e.message, "Invalid minute value: expected 0 to 59.")
             cnt += 1
         }
 
         try {
             let res7 = DateTime.parse("2023/04/17 19:001:00 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 16: \"1\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 16: expected ':', got '1'.")
             cnt += 1
         }
 
         try {
             let res8 = DateTime.parse("2023/04/17 19::00 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 14: \":\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 14: expected an integer, got ':'.")
             cnt += 1
         }
 

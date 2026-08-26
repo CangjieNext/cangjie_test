@@ -61,21 +61,21 @@ public class SeekAbleTest {
             bs.seek(Begin(-1))
             @Assert(false)
         } catch (e: IOException) {
-            @Expect(e.message, "Can't move the position before the beginning of the stream.")
+            @Expect(e.message, "Failed to seek: position '-1' is before the beginning of the stream.")
         }
 
         try {
             bs.seek(Current(-13))
             @Assert(false)
         } catch (e: IOException) {
-            @Expect(e.message, "Can't move the position before the beginning of the stream.")
+            @Expect(e.message, "Failed to seek: position '-1' is before the beginning of the stream.")
         }
 
         try {
             bs.seek(End(-25))
             @Assert(false)
         } catch (e: IOException) {
-            @Expect(e.message, "Can't move the position before the beginning of the stream.")
+            @Expect(e.message, "Failed to seek: position '-1' is before the beginning of the stream.")
         }
 
         //流内部有数据不为空
