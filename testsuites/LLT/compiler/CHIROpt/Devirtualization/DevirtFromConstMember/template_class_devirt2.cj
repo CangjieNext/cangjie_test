@@ -4,11 +4,12 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// EXEC-PIPE-0: %run %run_opt %output %run_args
-// ASSERT: scan [Devirtualization] The function call to foo at [30,5] was optimized.
-// ASSERT: scan [Devirtualization] The function call to foo at [37,5] was optimized.
-// ASSERT: scan [Devirtualization] The function call to foo at [41,5] was optimized.
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(@_CIN7default2BBIG_E3fooHv$l
+// ASSERT: scan-not Invoke(@_CIN7default2BBIG_E3fooHv$l
 
 open class AA<T> {
     public open func foo() {}

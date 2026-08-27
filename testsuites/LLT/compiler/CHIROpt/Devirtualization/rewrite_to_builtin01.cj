@@ -4,8 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization %enableFuncInlining %f -o %n.%suffix 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC-0:%run %run_opt %output %run_args
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan NotEqual(
+// ASSERT: scan LE(
+// ASSERT: scan Apply(Class-_CN7default1AE&->@_CN7defaultXCNY_1AEneHY1_
+// ASSERT: scan-not Invoke(Class-_CN7default1AE&->@_CN7defaultXCNY_1AEneHY1_
 
 func TestNotEqual<T>(a: Equatable<T>, b: T) {
     return a != b
@@ -32,7 +38,3 @@ main() {
     TestNotEqual(A(), A())
     0
 }
-
-// ASSERT: scan [Devirtualization] The function call to != at [32,5] was optimized.
-// ASSERT: scan [Devirtualization] The function call to <= at [31,5] was optimized to builtin op LE.
-// ASSERT: scan [Devirtualization] The function call to != at [30,5] was optimized to builtin op NotEqual.

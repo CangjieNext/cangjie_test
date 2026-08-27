@@ -4,10 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// EXEC-PIPE-0: %run %run_opt %output %run_args
-// ASSERT: scan [Devirtualization] The function call to foo at [37,9] was optimized.
-// ASSERT: scan [Devirtualization] The function call to foo at [43,5] was optimized.
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(Struct-_CN7default2CBE->@_CN7default2CB3fooHv
+// ASSERT: scan-not Invoke(Struct-_CN7default2CBE->@_CN7default2CB3fooHv
+// ASSERT: scan Apply(Struct-_CN7default2CBE->@_CN7default2CB3fooHv
+// ASSERT: scan-not Invoke(Struct-_CN7default2CBE->@_CN7default2CB3fooHv
 
 interface CA {
     open func foo(): Unit {}

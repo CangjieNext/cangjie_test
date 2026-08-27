@@ -4,13 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE: pkg1.cj
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization pkg1.cj %compile_lib_opt -o test0.%middle
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization test0.%middle main.cj -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args
-// ASSERT: scan-not Devirtualization
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace
+// DEPENDENCE: ../../../pick_defination.py pkg1.cj
+// EXEC: %compiler %cmp_opt %enableDevirtualization pkg1.cj %compile_lib_opt -o test0.%middle
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all test0.%middle %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "WHOLE" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Invoke(Class-_CN4pkg12I1E&->@_CN4pkg12I14foo1Hv
+// ASSERT: scan-not Apply(Class-_CN4pkg12I1E&->@_CN4pkg12I14foo1Hv
 
 internal import pkg1.*
 
