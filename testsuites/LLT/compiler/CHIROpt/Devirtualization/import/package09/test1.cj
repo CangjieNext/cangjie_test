@@ -4,32 +4,34 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE: p1
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization p1/test0.cj %compile_lib_opt -o test0.%middle
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization test0.%middle test1.cj -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC-PIPE-0: %run %run_opt %output %run_args
-// ASSERT: scan [Devirtualization] The function call to Foo at [30,5] was optimized.
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace
+// LEVEL: 0
+// DEPENDENCE: ../../../pick_defination.py p1
+// EXEC: %compiler %cmp_opt %enableDevirtualization p1/test0.cj %compile_lib_opt -o test0.%middle
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all test0.%middle %n.cj
+// Negative: I-typed parameter stays Invoke even when B overrides Foo.
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7defaultUtest1\$4TestHCNY_1IE" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Invoke(Class-_CN7defaultUtest1$1IE&->@_CN7defaultUtest1$1I3FooHv
+// ASSERT: scan-not Apply(Class-_CN7defaultUtest1$1IE&->@_CN7defaultUtest1$1I3FooHv
 
 internal import test0.*
 
 private interface I {
-    func Foo() {
-        println("Foo from I")
+    func Foo(): Int64 {
+        1
     }
 }
 
 private class B <: A & I {
-    public func Foo() {
-        println("Foo from B")
+    public func Foo(): Int64 {
+        0
     }
 }
 
-private func Test(i: I) {
+private func Test(i: I): Int64 {
     i.Foo()
 }
 
 main() {
-    Test(B())
+    Test(B()) - 0
 }

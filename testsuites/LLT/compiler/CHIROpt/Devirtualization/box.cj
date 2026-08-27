@@ -4,9 +4,15 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %cmp_opt %f -o %output -O2
-// RUN-EXEC: %run %run_opt %output %run_args
-
+// LEVEL: 0
+// Positive: Callable locals with exact runtime types -> invoke devirtualized to Apply.
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7defaultXCNY_4BaseIG_E3barHG_" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(Class-_CN7default6TargetE&->@_CN7default6Target6invokeHl
+// ASSERT: scan Apply(Class-_CN7default3TamE&->@_CN7default3Tam6invokeHNNat6OptionIlE
+// ASSERT: scan-not Invoke(Class-_CN7default8CallableIG_G0_E&->@_CN7default8CallableIG_G0_E6invokeHG_
 
 interface Callable<A, R> { func invoke(a: A): R }
 class Target <: Callable<Int64, Int64> { public func invoke(a: Int64): Int64 { a + 1 } }
@@ -32,4 +38,4 @@ extend<T> Base<T> <: I<T> {
 }
 
 func f<T>(a: I<T>, b: T): T { a.bar(b) }
-main(): Int64 { f(Base<Int64>(), 42); 0 }
+main(): Int64 { f(Base<Int64>(), 42) - 42 }
