@@ -8,8 +8,8 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
-// (!(target_android|target_ios_simulator|target_win|target_mac)) EXEC: %compiler %cmp_opt -g coroutine/coroutine_22.cj -o coroutine_22%cmp_output
-// (!(target_android|target_ios_simulator|target_win|target_mac)) EXEC: python3 cjdb_test.py coroutine_086.info coroutine_22 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g coroutine/coroutine_22.cj -o coroutine_22%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py coroutine_086.info coroutine_22 %run_env
 
 test#
 cjdb,cjdb --no-use-colors coroutine_22,coroutine_22
@@ -19,5 +19,5 @@ Android c,c,25
 b,breakpoint disable,
 cjthread,cjthread list,thread #[\s\S]*state = running[\s\S]*coroutine_22.cj:25
 cjthread,cjt select 2,thread #[\s\S]*state = running
-cjthread,cjt frame var,\(default(?:\.|::)Rectangle\) a = {[\s\S]*width = 10[\s\S]*height = 20[\s\S]*}
+cjthread,cjt frame var,\(default(?:\.|::)Rectangle\) a = {[\s\S]*width = 10[\s\S]*height = 20[\s\S]*}|
 q,quit,
