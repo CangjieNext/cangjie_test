@@ -7,7 +7,7 @@
 package test0
 
 public open class A {
-    public open func Foo() {
-        println("Foo from I")
+    public open func Foo(): Int64 {
+        1
     }
 }
