@@ -7,7 +7,7 @@
 package test0
 
 public interface I {
-    func Foo() {
-        println("Foo from I")
+    func Foo(): Int64 {
+        1
     }
 }

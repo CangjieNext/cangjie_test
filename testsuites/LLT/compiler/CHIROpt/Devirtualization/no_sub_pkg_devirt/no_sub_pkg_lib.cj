@@ -1,11 +1,15 @@
 package no_sub_pkg_lib
  
 public interface II<T> {
-    func foo() {}
+    func foo(): Int64 {
+        1
+    }
 }
  
 open class A<T> <: II<T> {
-    public func foo() {}
+    public func foo(): Int64 {
+        0
+    }
 }
  
 @Frozen

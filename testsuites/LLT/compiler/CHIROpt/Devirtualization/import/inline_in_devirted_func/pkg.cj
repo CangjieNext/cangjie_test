@@ -7,17 +7,19 @@
 package pkg
 
 @Frozen
-func foo<T>() {
-    print(1)
+func foo<T>(): Int64 {
+    1
 }
 
 public interface II<T> {
-    func a() {}
+    func a(): Int64 {
+        0
+    }
 }
 
 public class A<T> <: II<T> {
     @Frozen
-    public func a() {
+    public func a(): Int64 {
         foo<T>()
     }
 }
