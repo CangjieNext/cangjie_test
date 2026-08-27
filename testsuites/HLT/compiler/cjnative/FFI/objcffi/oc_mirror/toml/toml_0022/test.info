@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h
 // (iOSNative) ERRCHECK: %mirror_gen test.toml
-// ASSERT: scan `sources-mixins` entry `default` has no `sources` entry
+// ASSERT: scan `sources-mixins` entry `default` must have `sources` filter string or TOML array property
