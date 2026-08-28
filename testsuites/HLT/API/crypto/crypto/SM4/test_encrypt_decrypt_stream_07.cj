@@ -85,8 +85,8 @@ class Test_encrypt_decrypt_stream_07 {
             paddingMode: PaddingMode.NoPadding, tagSize: 12)
         let e = @AssertThrows[CryptoException](func_encrypt_decrypt_stream(sm4_1))
         let e1 = @AssertThrows[CryptoException](func_encrypt_decrypt_stream(sm4_2))
-        @Expect(e.message, "Encrypt failed.")
-        @Expect(e1.message, "Encrypt failed.")
+        @Expect(e.message, "Encryption finalization failed.")
+        @Expect(e1.message, "Encryption finalization failed.")
     }
 
     @TestCase
@@ -104,7 +104,7 @@ class Test_encrypt_decrypt_stream_07 {
         let sm4_2 = SM4(OperationMode.ECB, '1234567891234567'.toArray(), paddingMode: PaddingMode.NoPadding, tagSize: 12)
         let e = @AssertThrows[CryptoException](func_encrypt_decrypt_stream(sm4_1))
         let e1 = @AssertThrows[CryptoException](func_encrypt_decrypt_stream(sm4_2))
-        @Expect(e.message, "Encrypt failed.")
-        @Expect(e1.message, "Encrypt failed.")
+        @Expect(e.message, "Encryption finalization failed.")
+        @Expect(e1.message, "Encryption finalization failed.")
     }
 }

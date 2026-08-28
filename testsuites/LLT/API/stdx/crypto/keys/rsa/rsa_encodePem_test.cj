@@ -92,7 +92,7 @@ class Test_rsa_encodePem {
             file.close()
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Password shouldn't be empty"))
+            @Expect(e.message, "Password is empty.")
         }
         @Expect(sum, 1)
     }

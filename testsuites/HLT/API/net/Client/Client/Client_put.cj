@@ -58,7 +58,7 @@ public class Test_put {
         try {
             let res = client.put("")
         } catch (e: Exception) {
-            @Expect(e.message.contains("Not HTTP protocol scheme:"), true)
+            @Expect(e.message.contains("Invalid protocol scheme"), true)
         }
     }
 
@@ -74,7 +74,7 @@ public class Test_put {
         try {
             let res = client.put("http://127.0.0.1:${s.port}/wrong")
         } catch (e: Exception) {
-            @Expect(e.message.contains("Not HTTP protocol scheme:"), true)
+            @Expect(e.message.contains("Invalid protocol scheme"), true)
         }
 
         try {

@@ -200,7 +200,7 @@ public class Test_autoRedirect {
             let res_true = client_Redirec_true.send(request)
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "Response missing Location header, status code: 300.")
+            @Expect(e.message, "Response missing Location header, status code: '300'.")
         }
         @Expect(flag, true)
     }
@@ -348,7 +348,7 @@ public class Test_autoRedirect {
             let res_true = client_Redirec_true.send(request)
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "Redirect loop exceed 10 times.")
+            @Expect(e.message, "Redirect loop exceeded 10 times.")
         }
         @Expect(flag, true)
     }

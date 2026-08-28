@@ -62,7 +62,7 @@ class Test_updateCA {
             server.updateCA("files/root_ecdsa.cer")
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "The TLS certificate is not configured.")
+            @Expect(e.message, "TLS certificate is not configured.")
         }
         @Expect(flag, true)
         server.close()

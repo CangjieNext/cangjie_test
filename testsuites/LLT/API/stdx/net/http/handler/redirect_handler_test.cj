@@ -78,7 +78,7 @@ class TestRedirectHandler {
         try {
             server.distributor.register("/", RedirectHandler("/b", 304))
         } catch (e: HttpException) {
-            @Assert(e.message, "Status code should be 3xx besides 304.")
+            @Assert(e.message, "Invalid status code '304': expected a 3xx redirect code except '304'.")
         }
     }
 

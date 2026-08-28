@@ -28,6 +28,6 @@ class Test_rsa_keys_004 {
         var sha256Instance = SHA256()
         var sh: Array<Byte> = digest(sha224Instance, str)
         let e = @AssertThrows[CryptoException](rsaPri.sign(sha256Instance, sh, padType: PKCS1))
-        @Expect(e.message, "Sign error.")
+        @Expect(e.message, "Failed to sign data.")
     }
 }

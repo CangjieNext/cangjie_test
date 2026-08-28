@@ -52,7 +52,7 @@ class TestContentLengthWithLeadingZeros {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The content-length has leading zeros.")
+            @Expect(e.message, "Invalid content-length: contains leading zeros.")
         }
         
         println("testContentLengthWithLeadingZeros_ok")
@@ -101,7 +101,7 @@ class TestContentLengthWithLeadingZeros {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The content-length has leading zeros.")
+            @Expect(e.message, "Invalid content-length: contains leading zeros.")
         }
         
         println("testInvalidContentLengthWithLeadingZeros_ok")

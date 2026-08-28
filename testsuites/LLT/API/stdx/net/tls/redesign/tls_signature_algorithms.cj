@@ -128,7 +128,7 @@ class TlsSignatureAlgorithmsTest {
                 client.handshake()
             } catch (e: TlsException) {
                 num++
-                @Expect(e.message, "Failed to set client signature algorithms, hash type is not supported.")
+                @Expect(e.message, "Unsupported hash type 'MD5'.")
             }
         }
         @Expect(num, 1)

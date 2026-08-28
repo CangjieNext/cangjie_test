@@ -60,7 +60,7 @@ class TestServer11WriterStatus {
                         writer.write("hello".toArray())
                         @Expect(1, 2)
                     } catch (e: HttpException) {
-                        @Expect(e.message, "The body is not allowed in this scenario.")
+                        @Expect(e.message, "Response body is not allowed for status '102'.")
                     }
                 }
             )
@@ -79,7 +79,7 @@ class TestServer11WriterStatus {
                         writer.write("hello".toArray())
                         @Expect(1, 2)
                     } catch (e: HttpException) {
-                        @Expect(e.message, "The body is not allowed in this scenario.")
+                        @Expect(e.message, "Response body is not allowed for status '204'.")
                     }
                 }
             )
@@ -98,7 +98,7 @@ class TestServer11WriterStatus {
                         writer.write("hello".toArray())
                         @Expect(1, 2)
                     } catch (e: HttpException) {
-                        @Expect(e.message, "The body is not allowed in this scenario.")
+                        @Expect(e.message, "Response body is not allowed for status '304'.")
                     }
                 }
             )

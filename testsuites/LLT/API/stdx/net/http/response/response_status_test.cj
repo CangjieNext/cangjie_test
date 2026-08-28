@@ -60,7 +60,7 @@ class TestReaponseStatus {
                 .build()
             throw Exception("status test fail")
         } catch (e: HttpException) {
-            let expect = "HttpException: Valid status codes are within the range of 100 to 599."
+            let expect = "HttpException: Invalid status code: 666, but valid range is 100 to 599."
             @Expect(e.toString(), expect)
         }
     }
@@ -74,7 +74,7 @@ class TestReaponseStatus {
             var _ = HttpResponseBuilder().version(HTTP1_1).status(18).addHeaders(headers).body("status test 2").build()
             throw Exception("status test fail")
         } catch (e: HttpException) {
-            let expect = "HttpException: Valid status codes are within the range of 100 to 599."
+            let expect = "HttpException: Invalid status code: 18, but valid range is 100 to 599."
             @Expect(e.toString(), expect)
         }
     }

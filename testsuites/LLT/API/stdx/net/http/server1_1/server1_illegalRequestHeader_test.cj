@@ -123,5 +123,5 @@ class TestServer11IllegalHeader {
     }
 }
 
-// ASSERT:scan-3 Invalid field line
+// ASSERT:scan-3 Invalid header field line
 // ASSERT:scan Invalid line contains bare CR

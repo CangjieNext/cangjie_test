@@ -45,7 +45,7 @@ class TestRequestCheck {
         try {
             client.send(req)
         } catch (e: HttpException) {
-            @Assert(e.message.contains("Not HTTP protocol scheme: pulsar"))
+            @Assert(e.message.contains("Invalid protocol scheme: 'pulsar'"))
         }
     }
 
@@ -55,7 +55,7 @@ class TestRequestCheck {
         try {
             client.send(req)
         } catch (e: HttpException) {
-            @Assert(e.message.contains("No host in request URL"))
+            @Assert(e.message.contains("URL is missing host"))
         }
     }
 

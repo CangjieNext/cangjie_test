@@ -71,7 +71,7 @@ class TestClient1_1CheckRequest1_1 {
             client.send(r)
             @Expect(1, 2)
         } catch (e: Exception) {
-            @Expect(e.message, "The content-length is wrong.")
+            @Expect(e.message, "Invalid content-length: expected '22', but body size is '0'.")
         }
     }
 
@@ -118,7 +118,7 @@ class TestClient1_1CheckRequest1_1 {
             client.send(r)
             @Expect(1, 2)
         } catch (e: Exception) {
-            @Expect(e.message, "The content-length is wrong.")
+            @Expect(e.message, "Invalid content-length: expected '7', but body size is '5'.")
         }
     }
 
@@ -160,7 +160,7 @@ class TestClient1_1CheckRequest1_1 {
             client.send(r)
             @Expect(1, 2)
         } catch (e: Exception) {
-            @Expect(e.message, "The content-length or transfer-encoding should be set if there is a body.")
+            @Expect(e.message, "Content-length or transfer-encoding is required for request body.")
         }
         client.close()
         serverSocket.close()

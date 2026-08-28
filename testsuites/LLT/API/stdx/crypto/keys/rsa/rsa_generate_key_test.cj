@@ -21,7 +21,7 @@ class Test_rsa_generate_key {
             RSAPrivateKey(10)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Key size too small"))
+            @Expect(e.message, "Key size is too small: '10' bits, minimum is '512' bits.")
         }
         @Expect(sum, 1)
     }
@@ -33,7 +33,7 @@ class Test_rsa_generate_key {
             RSAPrivateKey(16385)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Key size too long"))
+            @Expect(e.message, "Key size is too large: '16385' bits, maximum is '16384' bits.")
         }
         @Expect(sum, 1)
     }
@@ -45,7 +45,7 @@ class Test_rsa_generate_key {
             RSAPrivateKey(2048, BigInt(6))
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Public exponent value is invalid because it is an even number."))
+            @Expect(e.message, "Invalid public exponent '6': must be odd.")
         }
         @Expect(sum, 1)
     }
@@ -57,7 +57,7 @@ class Test_rsa_generate_key {
             RSAPrivateKey(2048, BigInt(1))
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Public exponent value is too small."))
+            @Expect(e.message, "Invalid public exponent '1': expected at least '3'.")
         }
         @Expect(sum, 1)
     }
@@ -72,7 +72,7 @@ class Test_rsa_generate_key {
             RSAPrivateKey(2048, e)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Public exponent value is too large."))
+            @Expect(e.message, "Invalid public exponent '115792089237316195423570985008687907853269984665640564039457584007913129639937': expected at most '115792089237316195423570985008687907853269984665640564039457584007913129639935'.")
         }
         @Expect(sum, 1)
     }

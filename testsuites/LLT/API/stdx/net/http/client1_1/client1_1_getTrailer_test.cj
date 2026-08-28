@@ -59,7 +59,7 @@ class TestConnNodeGetTrailer {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Malformed trailer field in header.")
+            @Expect(e.message, "Invalid trailer header: contains forbidden field.")
         }
 
         client.close()

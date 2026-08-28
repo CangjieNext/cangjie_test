@@ -44,19 +44,19 @@ class TestReqLimitCtl {
     @TestCase
     func invalidCapacityConfigTest(): Unit {
         invalidConfigTest(ServicePoolConfig(capacity: -1, queueCapacity: 1, preheat: 1),
-            "capacity should greater than 0, but got -1")
+            "Invalid argument 'capacity': expected a positive value, got '-1'.")
     }
 
     @TestCase
     func invalidQueueCapacityConfigTest(): Unit {
         invalidConfigTest(ServicePoolConfig(capacity: 1, queueCapacity: -1, preheat: 1),
-            "queue capacity should greater than 0, but got -1")
+            "Invalid argument 'queueCapacity': expected a positive value, got '-1'.")
     }
 
     @TestCase
     func invalidPreheatConfigTest(): Unit {
         invalidConfigTest(ServicePoolConfig(capacity: 1, queueCapacity: 1, preheat: -1),
-            "preheat size should between 0 and 1, but got -1")
+            "Invalid argument 'preheatSize': expected 0-'1', got '-1'.")
     }
 
     func invalidConfigTest(cfg: ServicePoolConfig, msg: String): Unit {

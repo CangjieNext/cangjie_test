@@ -87,5 +87,5 @@ class TestServer11WriterTrailer {
 }
 
 /* SCAN-IN
-Malformed trailer field in header.
+Invalid trailer header: contains forbidden field.
  */

@@ -30,13 +30,13 @@ class TestClientProxy {
         try {
             ClientBuilder().httpProxy("127.0.0.1:80").build()
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Proxy must have http scheme.")
+            @Assert(e.message, "Invalid proxy '127.0.0.1:80': must use 'http' scheme.")
         }
         Process.current.setEnv("http_proxy", "https://127.0.0.1:8080")
         try {
             ClientBuilder().build()
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Proxy must have http scheme.")
+            @Assert(e.message, "Invalid proxy 'https://127.0.0.1:8080': must use 'http' scheme.")
         }
         Process.current.setEnv("http_proxy", "")
     }
@@ -46,7 +46,7 @@ class TestClientProxy {
         try {
             ClientBuilder().httpsProxy("wss://127.0.0.1:443").build()
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Proxy must have http scheme.")
+            @Assert(e.message, "Invalid proxy 'wss://127.0.0.1:443': must use 'http' scheme.")
         }
     }
 

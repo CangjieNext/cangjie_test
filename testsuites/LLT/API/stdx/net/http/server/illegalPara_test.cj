@@ -35,7 +35,7 @@ class IllegalParaTest {
             let _ = ServerBuilder().listener(listener).maxRequestHeaderSize(-1).build()
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Headers size shouldn't be negative"))
+            @Expect(e.message.contains("Invalid argument 'size': expected a non-negative value"))
         }
     }
 
@@ -45,7 +45,7 @@ class IllegalParaTest {
             let _ = ServerBuilder().listener(listener).maxRequestBodySize(-1).build()
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Body size shouldn't be negative"))
+            @Expect(e.message.contains("Invalid argument 'size': expected a non-negative value"))
         }
     }
 
@@ -55,7 +55,7 @@ class IllegalParaTest {
             let _ = ServerBuilder().listener(listener).initialWindowSize(UInt32(2 ** 31)).build()
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Initial window size should not exceed 2^31-1"))
+            @Expect(e.message.contains("Invalid argument 'initialWindowSize'"))
         }
     }
 
@@ -65,7 +65,7 @@ class IllegalParaTest {
             let _ = ServerBuilder().listener(listener).maxFrameSize(2 ^ 24).build()
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Max frame size should not be under 2^14 or over 2^24-1"))
+            @Expect(e.message.contains("Invalid argument 'maxFrameSize'"))
         }
     }
 }

@@ -166,7 +166,7 @@ class Test_X509_certificate_parser {
         try {
             X509Certificate.decodeFromPem(pem)
         } catch (e: X509Exception) {
-            @Expect(e.message.contains("No CERTIFICATE entry found in PEM file"))
+            @Expect(e.message.contains("No 'CERTIFICATE' entry found in PEM file"))
         }
     }
 

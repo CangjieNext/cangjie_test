@@ -50,7 +50,7 @@ class TestPath {
                 )
             server.distributor.register("*", handle)
         } catch (e: HttpException) {
-            @Assert(e.message, "Invalid path.")
+            @Assert(e.message, "Invalid path: '*'.")
         }
 
         try {

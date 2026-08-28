@@ -115,7 +115,7 @@ vmsHmSKA0KbXWjuopibM/ldBtOufAGstgnen4FOLarSC46OFm/hsFNbqiA==
         try {
             sm2Pri.decrypt([1u8, 2u8, 3u8])
         } catch (e: Exception) {
-            @Expect(e.message.contains("Decrypt prepare failed."))
+            @Expect(e.message.contains("Failed to prepare decryption."))
             sum += 1
         }
         try {
@@ -137,13 +137,13 @@ vmsHmSKA0KbXWjuopibM/ldBtOufAGstgnen4FOLarSC46OFm/hsFNbqiA==
         try {
             SM2PrivateKey.decodeDer(derPriWithPa, password: "")
         } catch (e: Exception) {
-            @Expect(e.message.contains("Password shouldn't be empty"))
+            @Expect(e.message.contains("Password is empty."))
             sum += 1
         }
         try {
             SM2PrivateKey.decodeDer(derPriWithPa)
         } catch (e: Exception) {
-            @Expect(e.message.contains("Load private key error"))
+            @Expect(e.message.contains("Failed to load private key"))
             sum += 1
         }
         @Expect(sum == 5)
@@ -164,7 +164,7 @@ vmsHmSKA0KbXWjuopibM/ldBtOufAGstgnen4FOLarSC46OFm/hsFNbqiA==
         try {
             SM2PrivateKey.decodeFromPem("")
         } catch (e: Exception) {
-            @Expect(e.message.contains("Failed to parse PEM: Pem is empty."))
+            @Expect(e.message.contains("Failed to parse PEM: PEM is empty."))
             sum += 1
         }
 
@@ -186,7 +186,7 @@ vmsHmSKA0KbXWjuopibM/ldBtOufAGstgnen4FOLarSC46OFm/hsFNbqiA==
         try {
             SM2PrivateKey.decodeFromPem(pemPriWithPa, password: "")
         } catch (e: Exception) {
-            @Expect(e.message.contains("Password shouldn't be empty"))
+            @Expect(e.message.contains("Password is empty."))
             sum += 1
         }
         try {

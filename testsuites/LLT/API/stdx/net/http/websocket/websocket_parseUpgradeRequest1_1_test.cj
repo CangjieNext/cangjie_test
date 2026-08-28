@@ -125,8 +125,8 @@ class TestWebSocketParseUpgradeRequest1_1 {
         websocket.closeConn()
     }
 }
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request to websocket must be an HTTP/1.1 or higher request
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request lacks Origin field
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request's origin is not allowed by server
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request's origin is not allowed by server
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request's sec-websocket-version must be 13
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: upgrade request requires HTTP/1.1 or higher.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: missing 'Origin' header field.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: origin 'foo, bar' is not allowed.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: origin 'foo1' is not allowed.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: 'Sec-WebSocket-Version' header must be 13.

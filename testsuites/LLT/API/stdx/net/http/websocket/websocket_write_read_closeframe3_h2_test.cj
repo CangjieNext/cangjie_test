@@ -73,7 +73,7 @@ class TestWebSocketWriteAndReadCloseFrames3H2 {
             websocket.write(TextWebFrame, Array<UInt8>())
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "No more data frames can be sent after sending a Close frame.")
+            @Expect(e.message, "Cannot send data frames after Close frame.")
         }
 
         // recive close frame
@@ -90,14 +90,14 @@ class TestWebSocketWriteAndReadCloseFrames3H2 {
             websocket.write(TextWebFrame, Array<UInt8>())
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "The connection is closed.")
+            @Expect(e.message, "WebSocket connection is closed.")
         }
 
         try {
             websocket.writeCloseFrame()
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "The connection is closed.")
+            @Expect(e.message, "WebSocket connection is closed.")
         }
 
         sleep(Duration.millisecond * 1000)
@@ -134,7 +134,7 @@ class TestWebSocketWriteAndReadCloseFrames3H2 {
             websocketServer.read()
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "The connection is closed.")
+            @Expect(e.message, "WebSocket connection is closed.")
         }
         println("websocket_write_read_closeframe3_test_ok")
     }

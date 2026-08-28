@@ -73,7 +73,7 @@ class TestTcpWebSocketServer {
             WebSocket.upgradeFromServer(ctx)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, a response has been sent to the client.")
+            @Expect(e.message, "Response already sent to client.")
         }
     }
     func handler2(ctx: HttpContext): Unit {
@@ -82,7 +82,7 @@ class TestTcpWebSocketServer {
             WebSocket.upgradeFromServer(ctx)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, the connection has been upgraded.")
+            @Expect(e.message, "Connection already upgraded.")
         }
         websocket.closeConn()
     }

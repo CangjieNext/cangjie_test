@@ -29,7 +29,7 @@ main(): Int64 {
         try {
             var actValue = jsonValue.asObject().get(i).getOrThrow().asObject()
         } catch (e: JsonException) {
-            if (e.toString().contains("Fail to convert to JsonObject")) {
+            if (e.toString().contains("Failed to convert JsonValue to JsonObject.")) {
                 count = count + 1
             }
         }

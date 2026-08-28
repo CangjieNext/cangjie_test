@@ -43,13 +43,13 @@ class TestConnNodeSendRequestCONNECT2 {
         try {
             client.send(r)
         } catch (e: HttpException) {
-            @Expect(e.message, "Please use connect method to send a CONNECT request.")
+            @Expect(e.message, "CONNECT request requires using connect() method.")
         }
         let u2 = "ws://127.0.0.1:${port}/a"
         try {
             client.connect(u2)
         } catch (e: HttpException) {
-            @Expect(e.message.contains("Not HTTP protocol scheme: ws"))
+            @Expect(e.message.contains("Invalid protocol scheme: 'ws'"))
         }
         let (resp, socket) = client.connect(u)
         @Expect(resp.toString(), "HTTP/1.1 200 OK\r\nconnection: close\r\n\r\n")

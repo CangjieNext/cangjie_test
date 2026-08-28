@@ -47,7 +47,7 @@ class TestClient1_1reconnectConnException {
         try {
             client.send(r)
         } catch (e: HttpException) {
-            @Expect(e.message, "Invalid response status line.")
+            @Expect(e.message, "Invalid response status line: 'HTTP/1.2 204 ok'.")
         }
 
         client.close()

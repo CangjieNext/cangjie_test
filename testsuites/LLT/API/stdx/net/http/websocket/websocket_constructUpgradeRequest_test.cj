@@ -42,14 +42,14 @@ class TestWebSocketconstructUpgradeRequest {
             WebSocket.upgradeFromClient(client, u)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, no host in request URL.")
+            @Expect(e.message, "Request URL has no host.")
         }
         let u2 = URL.parse("http:///webSocket")
         try {
             WebSocket.upgradeFromClient(client, u2)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, invalid URL scheme, the scheme must be ws or wss.")
+            @Expect(e.message, "Invalid URL scheme 'http': expected 'ws' or 'wss'.")
         }
         client.close()
     }
@@ -65,7 +65,7 @@ class TestWebSocketconstructUpgradeRequest {
             WebSocket.upgradeFromClient(client, u, headers: headers)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, websocket extensions not supported yet.")
+            @Expect(e.message, "WebSocket extensions are not supported.")
         }
         client.close()
     }

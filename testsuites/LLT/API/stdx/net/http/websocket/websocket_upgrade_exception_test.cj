@@ -38,7 +38,7 @@ class TestWebSocketUpgradeFromClientException {
             WebSocket.upgradeFromClient(client, u)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "This client has already closed.")
+            @Expect(e.message, "Client is closed.")
         }
 
         println("websocket_upgradeFromClient_exception_test_ok")

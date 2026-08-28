@@ -57,13 +57,13 @@ class TestServer11updateCertFail {
             server.updateCert("./files/end_ecdsa.cer", "./files/end_ecdsa_private_key.pem")
             @Expect(false)
         } catch (e: HttpException) {
-            @Expect(e.message, "The TLS certificate is not configured.")
+            @Expect(e.message, "TLS certificate is not configured.")
         }
         try {
             server.updateCA("files/root_ecdsa.cer")
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "The TLS certificate is not configured.")
+            @Expect(e.message, "TLS certificate is not configured.")
         }
         @Expect(flag, true)
         server.close()

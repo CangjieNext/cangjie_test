@@ -68,7 +68,7 @@ class Test_X509_certificaterequest_format {
         try {
             X509CertificateRequest.decodeFromDer(derData)
         } catch (e: Exception) {
-            @Expect(e.message.contains("The field is not a sequence: DerType(class: Universal, typeIdentifier: 2, primitive: true)"))
+            @Expect(e.message.contains("The field is not a sequence: 'DerType(class: Universal, typeIdentifier: 2, primitive: true)'"))
             println(e.message)
             sum += 1
         }
@@ -107,7 +107,7 @@ class Test_X509_certificaterequest_format {
         try {
             X509CertificateRequest.decodeFromPem(pem)
         } catch (e: Exception) {
-            @Expect(e.message.contains("No ${PemEntry.LABEL_CERTIFICATE_REQUEST} entry found in PEM file."))
+            @Expect(e.message.contains("No '${PemEntry.LABEL_CERTIFICATE_REQUEST}' entry found in PEM file."))
             println(e.message)
             sum += 1
         }

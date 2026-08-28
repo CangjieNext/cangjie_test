@@ -21,7 +21,7 @@ public class Test_encoding_url_01 {
         try {
             var url1 = URL.parse(str)
         } catch(e: UrlSyntaxException) {
-            @Expect(e.toString().contains("Invalid hostname: contains control characters"))
+            @Expect(e.toString().contains("Invalid 'hostname': contains control characters"))
         }
     }
 
@@ -31,7 +31,7 @@ public class Test_encoding_url_01 {
         try {
             var url1 = URL.parse(str)
         } catch(e: UrlSyntaxException) {
-            @Expect(e.toString().contains("Invalid hostname: contains control characters"))
+            @Expect(e.toString().contains("Invalid 'hostname': contains control characters"))
         }
     }
 }
