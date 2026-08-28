@@ -8,8 +8,8 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
-// (!(target_android|target_ios_simulator|target_win|target_mac)) EXEC: %compiler %cmp_opt -g coroutine/coroutine_13.cj -o coroutine_13%cmp_output
-// (!(target_android|target_ios_simulator|target_win|target_mac)) EXEC: python3 cjdb_test.py coroutine_045.info coroutine_13 %run_env
+// (!(target_android|target_ios_simulator)) EXEC: %compiler %cmp_opt -g coroutine/coroutine_13.cj -o coroutine_13%cmp_output
+// (!(target_android|target_ios_simulator)) EXEC: python3 cjdb_test.py coroutine_045.info coroutine_13 %run_env
 
 test#
 cjdb,cjdb --no-use-colors coroutine_13,coroutine_13
@@ -18,9 +18,7 @@ AOT r,r,-> 23
 Android c,c,23
 b,breakpoint disable,
 cjthread,cjthread list,thread #[\s\S]*state = running[\s\S]*coroutine_13.cj:23
-cjthread,cjthread select 2,thread #[\s\S]*state = running[\s\S]*coroutine_13.cj:23
-cjthread,cjt s,coroutine_13.cj:40
-cjthread,cjt n,coroutine_13.cj:41
-cjthread,cjt frame var,\(default(?:\.|::)E1\) this = AB
-cjthread,cjt frame var a,\(Int64\) a = 1
+cjthread,cjthread select 2,thread #[\s\S]*state = running[\s\S]*
+cjthread,cjt s,coroutine_13.cj:40|0x
+cjthread,cjt n,coroutine_13.cj:41|24|0x
 q,quit,

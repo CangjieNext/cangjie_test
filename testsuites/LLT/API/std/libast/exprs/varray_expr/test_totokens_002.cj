@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 
 internal import std.ast.*
 
@@ -16,19 +24,10 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN
-description: l_curl, token_id: 6, token_literal_value: {, fileID: 1, line: 8, column: 27
-description: identifier, token_id: 137, token_literal_value: i, fileID: 1, line: 8, column: 28
-description: double_arrow, token_id: 46, token_literal_value: =>, fileID: 1, line: 8, column: 30
-description: newline, token_id: 143, token_literal_value: \n, fileID: 1, line: 8, column: 31
-description: identifier, token_id: 137, token_literal_value: i, fileID: 1, line: 8, column: 33
-description: newline, token_id: 143, token_literal_value: \n, fileID: 1, line: 8, column: 34
-description: r_curl, token_id: 7, token_literal_value: }, fileID: 1, line: 8, column: 34
-*/
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan description: l_curl, token_id: 6, token_literal_value: {
+// ASSERT: scan description: identifier, token_id: 137, token_literal_value: i
+// ASSERT: scan description: double_arrow, token_id: 46, token_literal_value: =>
+// ASSERT: scan description: newline, token_id: 143, token_literal_value: \\n
+// ASSERT: scan description: identifier, token_id: 137, token_literal_value: i
+// ASSERT: scan description: newline, token_id: 143, token_literal_value: \\n
+// ASSERT: scan description: r_curl, token_id: 7, token_literal_value: }

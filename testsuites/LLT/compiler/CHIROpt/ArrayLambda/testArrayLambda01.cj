@@ -1,8 +1,16 @@
-// EXEC-PIPE-0: %compiler %cmp_opt %debugCHIROpt %enableO2 %n.cj -o %output | compare %f
-// RUN-EXEC-PIPE-0: %run %output
-// ASSERT: scan [ArrayLambda] The call to arrayInitByFunction at [12,17] has been optimised to a call to arrayInitByValue.
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_ArrayLambdaOpt.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan RawArrayInitByValue
+// ASSERT: scan-not arrayInitByFunction
+// ASSERT: regex-not %[0-9]*: \(.*\) -> .* = Lambda
 
 internal import std.collection.*
 
@@ -14,9 +22,3 @@ main() {
     }
     return sum - 200
 }
-
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
-// This source file is part of the Cangjie project, licensed under Apache-2.0
-// with Runtime Library Exception.
-//
-// See https://cangjie-lang.cn/pages/LICENSE for license information.

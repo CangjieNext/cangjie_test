@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args | compare %f
 
 internal import std.ast.*
 
@@ -58,30 +66,16 @@ main(): Int64 {
     0
 }
 
-/* SCAN-IN
-ASTException: Cannot construct the 'ThrowExpr' node.
-CallExpr {
-  -callFunc: RefExpr {
-    -identifier: Token {
-      value: "Exception"
-      kind: IDENTIFIER
-      pos: 9: 15
-    }
-  }
-}
-description: throw, token_id: 107, token_literal_value: throw, fileID: 1, line: 39, column: 9
-ASTException: Illegal TokenKind, TokenKind should be THROW
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-cnt = 3
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+/*SCAN-IN
+Cannot construct the 'ThrowExpr' node
+*/
+/*SCAN-IN
+description: throw, token_id: 107, token_literal_value: throw
+*/
+/*SCAN-IN
+Illegal TokenKind, TokenKind should be THROW
+*/
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+// ASSERT: scan cnt = 3

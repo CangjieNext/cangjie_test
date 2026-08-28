@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %enableEH %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %set_stdx_path %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %set_stdx_path %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 
@@ -66,23 +67,17 @@ main(): Int64 {
     0
 }
 
-/* SCAN-IN
-ASTException: Cannot construct the 'PerformExpr' node.
-CallExpr {
-  -callFunc: RefExpr {
-    -identifier: Token {
-      value: "Eff"
-      kind: IDENTIFIER
-      pos: 17: 17
-    }
-  }
-}
-description: perform, token_id: 158, token_literal_value: perform, fileID: 1, line: 47, column: 9
+// ASSERT: scan ASTException: Cannot construct the 'PerformExpr' node
+/*SCAN-IN
+value: "Eff"
+*/
+/*SCAN-IN
+description: perform, token_id: 158, token_literal_value: perform
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be PERFORM
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-cnt = 3
- */
+*/
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+// ASSERT: scan cnt = 3

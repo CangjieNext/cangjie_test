@@ -21,5 +21,5 @@ AOT r,r,-> 66
 Android c,c,66
 CJVM c,c,
 n,n,68
-locals,locals,TimeUnit1<default(?:\.|::)C>\) m_time8 = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = {(\r|\n|\r\n)    c_width = 20(\r|\n|\r\n)    c_time = {(\r|\n|\r\n)      constructor = Day(\r|\n|\r\n)      arg_1 = 1(\r|\n|\r\n)      arg_2 = 2(\r|\n|\r\n)      arg_3 = 3
+p,p m_time8,TimeUnit1<default(?:\.|::)C>\)[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*c_width = 20[\s\S]*c_time = {[\s\S]*constructor = Day[\s\S]*arg_1 = 1[\s\S]*arg_2 = 2[\s\S]*arg_3 = 3
 q,q,

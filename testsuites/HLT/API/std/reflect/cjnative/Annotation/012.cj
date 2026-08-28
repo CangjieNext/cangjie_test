@@ -12,7 +12,6 @@
 // 拥有 abstract 语义的 class 类型不允许被宏 @Annotation 修饰。
 
 import std.reflect.*
-import MyType.myType.*
 @Annotation
 public abstract class A0 {
     public let id: Int64 = 0

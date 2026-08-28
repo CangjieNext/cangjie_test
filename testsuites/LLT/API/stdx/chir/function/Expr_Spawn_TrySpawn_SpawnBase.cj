@@ -13,6 +13,7 @@
 spawn ret: true
 tryspawn branches: true
 exec need: true
+exec dump: true
 */
 
 import std.collection.*
@@ -40,4 +41,5 @@ main() {
 
     sp1.executeClosure = callee
     println("exec need: ${sp1.needExecuteClosure() && sp1.executeClosure == callee}")
+    println("exec dump: ${sp1.toString().contains("executeClosure")}")
 }

@@ -408,6 +408,22 @@ class HashMapTest {
     }
 
     @TestCase
+    func reserveAtRemainingCapacity(): Unit {
+        var map: HashMap<Int64, Int64> = HashMap<Int64, Int64>(
+            [(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25), (6, 36), (7, 49), (8, 64), (9, 81)])
+        map.reserve(6)
+        @Expect(map.capacity, 16)
+
+        var iter = map.iterator()
+        map.reserve(6)
+        @Expect(map.capacity, 16)
+
+        let entry = iter.next().getOrThrow()
+        @Expect(entry[0], 0)
+        @Expect(entry[1], 0)
+    }
+
+    @TestCase
     func reserve2(): Unit {
         let arr = [521, 407, 213, 357, 554, 852, 935, 196, 350, 881, 118, 925, 820, 997, 37, 572, 989, 115, 215, 61, 922,
             751, 183, 920, 729, 775, 94, 454, 40, 868, 501, 145, 733, 583, 940, 862, 236, 530, 608, 336, 645, 259, 110,

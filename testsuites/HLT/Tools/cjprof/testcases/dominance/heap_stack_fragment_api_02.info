@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../../script/cjprof_api_test.py ../../script/cjprof_http_config.json ../../data/heap_stack.data
+// EXEC: python3 cjprof_api_test.py heap_stack_fragment_api_02.info cjprof_http_config.json
+
+test#
+heap_stack,/api/fragment/layout,INSTANCE_OBJECT,regex,"type":"INSTANCE_OBJECT"
+heap_stack,/api/fragment/layout,OBJECT_ARRAY,regex,"type":"OBJECT_ARRAY"
+heap_stack,/api/fragment/layout,STRUCT_ARRAY,regex,"type":"STRUCT_ARRAY"
+heap_stack,/api/fragment/layout,PRIMITIVE_ARRAY,regex,"type":"PRIMITIVE_ARRAY"
+heap_stack,/api/fragment/layout,PINNED_OBJECT,regex,"type":"PINNED_OBJECT"
+heap_stack,/api/fragment/distribution,address_range_start,regex,"address_range_start"
+heap_stack,/api/fragment/distribution,address_range_end,regex,"address_range_end"
+heap_stack,/api/fragment/distribution,rows,regex,"rows"
+heap_stack,/api/fragment/distribution,STRUCT_ARRAY,regex,"type":"STRUCT_ARRAY"

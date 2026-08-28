@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 import std.ast.*
 import std.collection.*
@@ -75,59 +83,35 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-Single
-prefix1.prefix2.package alias
-traversed!
--importKind: Multi
-  -importKind: Single
--comma: Token {
-  value: ","
-  kind: COMMA
-  pos: 39: 39
-}
-  -importKind: Alias
-  prefixPath: 0: Token {
-    value: "prefix1"
-    kind: IDENTIFIER
-    pos: 28: 44
-  }
-  prefixPath: 1: Token {
-    value: "prefix2"
-    kind: IDENTIFIER
-    pos: 28: 52
-  }
-  -identifier: Token {
-    value: "package"
-    kind: IDENTIFIER
-    pos: 30: 37
-  }
-  -importAlias 0: Token {
-    value: "alias"
-    kind: IDENTIFIER
-    pos: 27: 54
-  }
-Cannot construct the 'ImportList' node.
-Cannot construct the 'ImportList' node.
-ImportList {
-  -modifier: Token {
-    value: "&&"
-    kind: AND
-    pos: 63: 31
-  }
-  -keywordI: Token {
-    value: "("
-    kind: LPAREN
-    pos: 64: 31
-  }
-  -importKind: Single
-}
-cnt = 2
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan Single
+// ASSERT: scan prefix1.prefix2.package alias
+// ASSERT: scan traversed!
+// ASSERT: scan -importKind: Multi
+// ASSERT: scan -importKind: Single
+// ASSERT: scan -comma: Token {
+// ASSERT: scan value: ","
+// ASSERT: scan kind: COMMA
+// ASSERT: scan -importKind: Alias
+// ASSERT: scan prefixPath: 0: Token {
+// ASSERT: scan value: "prefix1"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan prefixPath: 1: Token {
+// ASSERT: scan value: "prefix2"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "package"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -importAlias 0: Token {
+// ASSERT: scan value: "alias"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan Cannot construct the 'ImportList' node
+// ASSERT: scan Cannot construct the 'ImportList' node
+// ASSERT: scan ImportList {
+// ASSERT: scan -modifier: Token {
+// ASSERT: scan value: "&&"
+// ASSERT: scan kind: AND
+// ASSERT: scan -keywordI: Token {
+// ASSERT: scan value: "("
+// ASSERT: scan kind: LPAREN
+// ASSERT: scan -importKind: Single
+// ASSERT: scan cnt = 2

@@ -49,7 +49,7 @@ harness/
 |   |-- plain_text_reporter.py    Generates plain text format test reports
 |   |-- report_template
 |   |   `-- report_template.html    HTML report template file
-|   `-- tree_view.pyl    Tree structure processing class and methods
+|   `-- tree_view.py    Tree structure processing class and methods
 |-- run_diff.py    Report comparison execution script
 |-- sample_tests    Sample tests
 |-- tdm    tdm module

@@ -18,7 +18,7 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-b,b main,default(?:\.|::)main\(\)[\s\S]*at demangle.cj:166
+b,b demangle.cj:166,default(?:\.|::)main\(\)[\s\S]*at demangle.cj:166
 CJVM b,b main,default\.main\(\)i64 at [\s\S]*demangle.cj:166
 AOT r,r,demangle_target`default(?:\.|::)main\(\) at demangle.cj:166[\s\S]*-> 166
 CJVM c,c,default\.main at [\s\S]*demangle.cj:166[\s\S]*-> 166

@@ -18,14 +18,19 @@ typedef int T9;
 typedef int T10;
 typedef int T11;
 
+typedef int T12;
+typedef T12* T13;
+
 struct S {
     T1 T1;
     T2* T2;
+    T13 T12;
 };
 
 @interface M {
     struct S S;
     T1* T1;
+    T13 T12;
 }
 - (T2)T2;
 - (T3*)T3;

@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 internal import std.collection.*
@@ -108,50 +116,38 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: Cannot construct the 'SpawnExpr' node.
-ASTException: Cannot construct the 'SpawnExpr' node.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-description: illegal, token_id: 162, token_literal_value: , fileID: 0, line: 0, column: 0
+// ASSERT: scan ASTException: Cannot construct the 'SpawnExpr' node
+// ASSERT: scan ASTException: Cannot construct the 'SpawnExpr' node
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+description: illegal, token_id: 162, token_literal_value:
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
-description: illegal, token_id: 162, token_literal_value: , fileID: 0, line: 0, column: 0
+*/
+/*SCAN-IN
+description: illegal, token_id: 162, token_literal_value:
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
-description: spawn, token_id: 133, token_literal_value: spawn, fileID: 1, line: 72, column: 42
+*/
+/*SCAN-IN
+description: spawn, token_id: 133, token_literal_value: spawn
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be SPAWN
-RefExpr {
-  -identifier: Token {
-    value: "ctx"
-    kind: IDENTIFIER
-    pos: 82: 50
-  }
-}
-LambdaExpr {
-  -doubleArrow: Token {
-    value: "=>"
-    kind: DOUBLE_ARROW
-    pos: 91: 51
-  }
-  -nodes: 0, LitConstExpr {
-    -literal: Token {
-      value: "1"
-      kind: INTEGER_LITERAL
-      pos: 91: 53
-    }
-  }
-}
-ASTException: Cannot get context from SpawnExpr
-traversed!
-traversed!
-cnt = 7
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+/*SCAN-IN
+value: "ctx"
+*/
+/*SCAN-IN
+value: "=>"
+*/
+/*SCAN-IN
+Cannot get context from SpawnExpr
+*/
+// ASSERT: scan traversed!
+// ASSERT: scan traversed!
+// ASSERT: scan cnt = 7

@@ -436,3 +436,17 @@ Tools\cjcov\cjcov_special_filename\cjcov_special_filename_017\cjcov_special_file
 Tools\cjcov\cjcov_special_filename\cjcov_special_filename_018\cjcov_special_filename_018.info
 
 API/std/console/stdin/test_stdin_windows_35.cj
+
+# Limitation of run_cross_compilation.py
+API/std/fs/os_chmod_n_01.cj
+API/std/fs/os_chmod_n_04.cj
+API/std/fs/os_fchmod_n_01.cj
+API/std/fs/os_fchmod_n_03.cj
+API/std/fs/os_isBlk_01.cj
+API/std/unittest/xml_package
+
+# Cannot create hard link on android.
+API/std/fs/links/test_hardlink_create_00.cj
+API/std/fs/links/test_hardlink_create_01.cj
+API/std/fs/links/test_hardlink_create_02.cj
+API/std/fs/globalfunc/test_removeIfExists_02.cj

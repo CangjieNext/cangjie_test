@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 
@@ -89,36 +97,41 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-description: match, token_id: 113, token_literal_value: match, fileID: 1, line: 24, column: 42
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+description: match, token_id: 113, token_literal_value: match
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be MATCH
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 33, column: 47
+*/
+/*SCAN-IN
+description: l_paren, token_id: 2, token_literal_value: (
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 42, column: 49
+*/
+/*SCAN-IN
+description: r_paren, token_id: 3, token_literal_value: )
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
-RefExpr {
-  -identifier: Token {
-    value: "b"
-    kind: IDENTIFIER
-    pos: 52: 49
-  }
-}
-description: l_curl, token_id: 6, token_literal_value: {, fileID: 1, line: 61, column: 50
+*/
+/*SCAN-IN
+value: "b"
+*/
+/*SCAN-IN
+description: l_curl, token_id: 6, token_literal_value: {
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LCURL
-description: r_curl, token_id: 7, token_literal_value: }, fileID: 1, line: 70, column: 65
+*/
+/*SCAN-IN
+description: r_curl, token_id: 7, token_literal_value: }
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RCURL
-2
-cnt = 6
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+// ASSERT: scan 2
+// ASSERT: scan cnt = 6

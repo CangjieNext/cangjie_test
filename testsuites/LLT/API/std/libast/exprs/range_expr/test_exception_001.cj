@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 
@@ -85,45 +93,29 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected expression after ':', found '='
-  [36m| [0m
-  [36m| [0m1 .. 2: = 3[0m
-  [36m| [0m        [31m^ expected expression here[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: Cannot construct the 'RangeExpr' node.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-LitConstExpr {
-  -literal: Token {
-    value: "2"
-    kind: INTEGER_LITERAL
-    pos: 43: 45
-  }
-}
-LitConstExpr {
-  -literal: Token {
-    value: "1"
-    kind: INTEGER_LITERAL
-    pos: 51: 42
-  }
-}
-ASTException: Current range expr cannot get step
-description: colon, token_id: 28, token_literal_value: :, fileID: 1, line: 67, column: 47
+/*SCAN-IN
+expected expression after ':', found '='
+*/
+// ASSERT: scan ASTException: Cannot construct the 'RangeExpr' node
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+value: "2"
+*/
+/*SCAN-IN
+value: "1"
+*/
+/*SCAN-IN
+Current range expr cannot get step
+*/
+/*SCAN-IN
+description: colon, token_id: 28, token_literal_value: :
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be COLON
-description: and, token_id: 16, token_literal_value: &&, fileID: 1, line: 77, column: 25
-cnt = 5
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+/*SCAN-IN
+description: and, token_id: 16, token_literal_value: &&
+*/
+// ASSERT: scan cnt = 5

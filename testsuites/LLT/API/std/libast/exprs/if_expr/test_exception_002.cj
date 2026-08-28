@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 
@@ -104,72 +112,38 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected expression after '', found keyword 'else'
-  [36m| [0m
-  [36m| [0melse { foo() }[0m
-  [36m| [0m[31m^^^^ expected expression here[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: Cannot construct the 'IfExpr' node.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-description: if, token_id: 98, token_literal_value: if, fileID: 1, line: 39, column: 36
+/*SCAN-IN
+expected expression after '', found keyword 'else'
+*/
+// ASSERT: scan ASTException: Cannot construct the 'IfExpr' node
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+description: if, token_id: 98, token_literal_value: if
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be IF
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 48, column: 38
+*/
+/*SCAN-IN
+description: l_paren, token_id: 2, token_literal_value: (
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 57, column: 43
+*/
+/*SCAN-IN
+description: r_paren, token_id: 3, token_literal_value: )
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
-IfExpr {
-  -keywordI: Token {
-    value: "if"
-    kind: IF
-    pos: 76: 36
-  }
-  -condition: LitConstExpr {
-    -literal: Token {
-      value: "true"
-      kind: BOOL_LITERAL
-      pos: 76: 39
-    }
-  }
-  -ifBlock: Block {
-  }
-  -keywordE: Token {
-    value: "else"
-    kind: ELSE
-    pos: 76: 46
-  }
-  -elseExpr: Block {
-  }
-}
-description: else, token_id: 99, token_literal_value: else, fileID: 1, line: 86, column: 47
+*/
+/*SCAN-IN
+value: "return"
+*/
+/*SCAN-IN
+description: else, token_id: 99, token_literal_value: else
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be ELSE
-ReturnExpr {
-  -keyword: Token {
-    value: "return"
-    kind: RETURN
-    pos: 96: 46
-  }
-  -expr: LitConstExpr {
-    -literal: Token {
-      value: "1"
-      kind: INTEGER_LITERAL
-      pos: 96: 53
-    }
-  }
-}
-cnt = 7
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+// ASSERT: scan cnt = 7

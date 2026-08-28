@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 import std.ast.*
 import std.collection.*
@@ -48,26 +49,20 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ident(() ->,())
-traversed!
-Constructor {
-  -identifier: Token {
-    value: "ident"
-    kind: IDENTIFIER
-    pos: 31: 34
-  }
-  -typeArguments: 0, FuncType {
-    -ARROW: Token {
-      value: "->"
-      kind: ARROW
-    }
-    -returnType:   }
-  -typeArguments: 1, ParenType {
-    -parenthesizedType:   }
-}
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 44, column: 43
-10
-description: identifier, token_id: 137, token_literal_value: , fileID: 13, line: 82, column: 38
-cnt = 0
- */
+// ASSERT: scan ident(() ->,())
+// ASSERT: scan traversed!
+// ASSERT: scan Constructor {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "ident"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -typeArguments: 0, FuncType {
+// ASSERT: scan -ARROW: Token {
+// ASSERT: scan value: "->"
+// ASSERT: scan kind: ARROW
+// ASSERT: scan -returnType:   }
+// ASSERT: scan -typeArguments: 1, ParenType {
+// ASSERT: scan -parenthesizedType:   }
+// ASSERT: scan description: l_paren, token_id: 2, token_literal_value: (
+// ASSERT: scan 10
+// ASSERT: scan description: identifier, token_id: 137, token_literal_value:
+// ASSERT: scan cnt = 0

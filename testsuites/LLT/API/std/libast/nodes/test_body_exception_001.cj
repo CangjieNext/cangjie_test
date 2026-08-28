@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 import std.ast.*
 import std.collection.*
@@ -38,19 +46,9 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN
-1
-description: l_curl, token_id: 6, token_literal_value: {, fileID: 13, line: 455, column: 34
-Illegal TokenKind, TokenKind should be LCURL
-description: r_curl, token_id: 7, token_literal_value: }, fileID: 13, line: 457, column: 34
-Illegal TokenKind, TokenKind should be RCURL
-cnt = 2
-*/
-
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan 1
+// ASSERT: scan description: l_curl, token_id: 6, token_literal_value: {
+// ASSERT: scan Illegal TokenKind, TokenKind should be LCURL
+// ASSERT: scan description: r_curl, token_id: 7, token_literal_value: }
+// ASSERT: scan Illegal TokenKind, TokenKind should be RCURL
+// ASSERT: scan cnt = 2

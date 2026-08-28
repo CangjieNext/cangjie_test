@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build 2>&1 | compare %f
-// ASSERT: regex Error: field 'profile.build.combined' in .[/|\\]cjpm.toml can only used for root package 'dep', current value is 'subdep'
+// ASSERT: regex Error: field 'profile.build.combined' in .[/|\\]cjpm.toml can only be used for root package 'dep', current value is 'subdep'
 // ASSERT: scan Error: cjpm build failed

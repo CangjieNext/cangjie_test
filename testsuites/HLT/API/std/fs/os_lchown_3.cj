@@ -8,10 +8,9 @@
 
 // LEVEL: 0
 // DEPENDENCE: test_fj_0.txt test_fj_notnull.txt
-// (not Windows) EXEC-PIPE: rm -rf mylink && rm -rf mylink2
-// (not Windows) EXEC-PIPE: ln -s test_fj_0.txt mylink && ln -s test_fj_notnull.txt mylink2
-// (not Windows) EXEC-PIPE: %compiler %cmp_opt -o %output %f
-// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// (not Windows) EXEC: %compiler %cmp_opt -o %output %f
+// (not Windows) RUN-EXEC: rm -rf mylink && rm -rf mylink2 && ln -s test_fj_0.txt mylink && ln -s test_fj_notnull.txt mylink2
+// (not Windows) RUN-EXEC: %run %run_opt %output %run_args
 
 import std.posix.*
 

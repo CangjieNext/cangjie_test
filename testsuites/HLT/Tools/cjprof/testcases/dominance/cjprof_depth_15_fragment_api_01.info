@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../../script/cjprof_api_test.py ../../script/cjprof_http_config.json ../../data/cjprof_depth_15.data
+// EXEC: python3 cjprof_api_test.py cjprof_depth_15_fragment_api_01.info cjprof_http_config.json
+
+test#
+cjprof_depth_15,/api/snapshot,gc_root_count,regex,"gc_root_count":36
+cjprof_depth_15,/api/snapshot,object_count,regex,"object_count":98423
+cjprof_depth_15,/api/fragment/overview,used_size,regex,"used_size":4737240
+cjprof_depth_15,/api/fragment/overview,address_range_start":16,scan,"address_range_end":4738352
+cjprof_depth_15,/api/fragment/overview,utilization,regex,"utilization"
+cjprof_depth_15,/api/fragment/summary,instance_object_total,regex,"instance_object_total":2885608
+cjprof_depth_15,/api/fragment/summary,object_array_total,regex,"object_array_total":128
+cjprof_depth_15,/api/fragment/summary,primitive_array_total,regex,"primitive_array_total":1842864
+cjprof_depth_15,/api/fragment/summary,struct_array_total,regex,"struct_array_total":8640
+cjprof_depth_15,/api/fragment/summary,large_object_total,regex,"large_object_total":0
+cjprof_depth_15,/api/fragment/summary,pinned_object_total,regex,"pinned_object_total":0

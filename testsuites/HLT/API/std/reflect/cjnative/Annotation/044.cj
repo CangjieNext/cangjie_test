@@ -11,7 +11,6 @@
 // 单个注解类内部的单个构造函数对自己的循环依赖。
 // 禁止构造函数之间循环依赖，否则编译报错。
 import std.reflect.*
-import MyType.myType.*
 
 @Annotation
 @A0[12]

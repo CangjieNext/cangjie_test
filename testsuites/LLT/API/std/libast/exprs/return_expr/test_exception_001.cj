@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 
@@ -69,30 +77,20 @@ main(): Int64 {
     0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected '=>' in lambda expression, found '}'
-  [36m| [0m
-  [36m| [0mreturn { }[0m
-  [36m| [0m         [31m^ expected '=>' here[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: Cannot construct the 'ReturnExpr' node.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-ASTException: Current ReturnExpr has none expr
-description: return, token_id: 108, token_literal_value: return, fileID: 1, line: 57, column: 9
+/*SCAN-IN
+expected '=>' in lambda expression, found '}'
+*/
+// ASSERT: scan ASTException: Cannot construct the 'ReturnExpr' node
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+Current ReturnExpr has none expr
+*/
+/*SCAN-IN
+description: return, token_id: 108, token_literal_value: return
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RETURN
-cnt = 5
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+// ASSERT: scan cnt = 5

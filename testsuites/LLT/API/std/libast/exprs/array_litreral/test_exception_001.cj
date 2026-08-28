@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 
@@ -71,34 +79,24 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: unclosed delimiter: '['
-  [36m| [0m
-  [36m| [0m[1 23 a][0m
-  [36m| [0m[36m~[0m [31m^ expected ']' here[0m
-  [36m| [0m[36m|[0m
-  [36m| [0m[36mto match this opening '['[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: Cannot construct the 'ArrayLiteral' node.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-0
-description: l_square, token_id: 4, token_literal_value: [, fileID: 1, line: 53, column: 48
+/*SCAN-IN
+unclosed delimiter: '['
+*/
+// ASSERT: scan ASTException: Cannot construct the 'ArrayLiteral' node
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+// ASSERT: scan 0
+/*SCAN-IN
+description: l_square, token_id: 4, token_literal_value: [
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LSQUARE
-description: r_square, token_id: 5, token_literal_value: ], fileID: 1, line: 62, column: 54
+*/
+/*SCAN-IN
+description: r_square, token_id: 5, token_literal_value: ]
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RSQUARE
-cnt = 5
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+// ASSERT: scan cnt = 5

@@ -1,13 +1,12 @@
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
 // DEPENDENCE: DCECFuncSource.c DCECFuncHeader.h
 // EXEC-PIPE-0: %clang -shared %clang_opt -fPIC DCECFuncSource.c -o libDCECFuncSource.so
-// EXEC-PIPE-0: %compiler %cmp_opt %enableO2 -L. -lDCECFuncSource %f -o %output
+// EXEC-PIPE-0: %compiler %cmp_opt %enableO2 -L. -lDCECFuncSource %n.cj -o %output
 // EXEC-PIPE-0: %run %run_opt %output
 
 foreign func wrapper(buf: CPointer<UInt8>): Unit

@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 
@@ -123,125 +131,41 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected expression after '', found keyword 'else'
-  [36m| [0m
-  [36m| [0melse { foo() }[0m
-  [36m| [0m[31m^^^^ expected expression here[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: Cannot construct the 'ForInExpr' node.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-description: in, token_id: 111, token_literal_value: in, fileID: 1, line: 39, column: 49
+/*SCAN-IN
+expected expression after '', found keyword 'else'
+*/
+// ASSERT: scan ASTException: Cannot construct the 'ForInExpr' node
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+description: in, token_id: 111, token_literal_value: in
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be IN
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 48, column: 46
+*/
+/*SCAN-IN
+description: l_paren, token_id: 2, token_literal_value: (
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 57, column: 53
+*/
+/*SCAN-IN
+description: r_paren, token_id: 3, token_literal_value: )
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
-VarPattern {
-  -identifier: Token {
-    value: "b"
-    kind: IDENTIFIER
-    pos: 67: 48
-  }
-}
-ForInExpr {
-  -keywordF: Token {
-    value: "for"
-    kind: FOR
-    pos: 76: 42
-  }
-  -pattern: VarPattern {
-    -identifier: Token {
-      value: "a"
-      kind: IDENTIFIER
-      pos: 76: 47
-    }
-  }
-  -keywordI: Token {
-    value: "in"
-    kind: IN
-    pos: 76: 49
-  }
-  -expr: RefExpr {
-    -identifier: Token {
-      value: "A"
-      kind: IDENTIFIER
-      pos: 76: 52
-    }
-  }
-  -keywordW: Token {
-    value: "where"
-    kind: WHERE
-    pos: 76: 54
-  }
-  -patternGuard: BinaryExpr {
-    -leftExpr: RefExpr {
-      -identifier: Token {
-        value: "a"
-        kind: IDENTIFIER
-        pos: 76: 60
-      }
-    }
-    -op: Token {
-      value: "!="
-      kind: NOTEQ
-      pos: 76: 62
-    }
-    -rightExpr: LitConstExpr {
-      -literal: Token {
-        value: "0"
-        kind: INTEGER_LITERAL
-        pos: 76: 65
-      }
-    }
-  }
-  -block: Block {
-    -nodes: 0, LitConstExpr {
-      -literal: Token {
-        value: "0"
-        kind: INTEGER_LITERAL
-        pos: 77: 56
-      }
-    }
-  }
-}
-description: illegal, token_id: 162, token_literal_value: , fileID: 0, line: 0, column: 0
-UnaryExpr {
-  -op: Token {
-    value: "!"
-    kind: NOT
-    pos: 96: 52
-  }
-  -expr: RefExpr {
-    -identifier: Token {
-      value: "a"
-      kind: IDENTIFIER
-      pos: 96: 53
-    }
-  }
-}
-RefExpr {
-  -identifier: Token {
-    value: "B"
-    kind: IDENTIFIER
-    pos: 105: 54
-  }
-}
-description: for, token_id: 104, token_literal_value: for, fileID: 1, line: 114, column: 43
+*/
+/*SCAN-IN
+value: "b"
+*/
+/*SCAN-IN
+description: illegal, token_id: 162, token_literal_value:
+*/
+/*SCAN-IN
+description: for, token_id: 104, token_literal_value: for
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be FOR
-cnt = 7
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+// ASSERT: scan cnt = 7

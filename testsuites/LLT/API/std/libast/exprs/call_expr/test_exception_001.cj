@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 
@@ -80,39 +88,28 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected ';' or '<NL>', found ','
-  [36m| [0m
-  [36m| [0mf { 1, 1 }[0m
-  [36m| [0m     [31m^ expected ';' or '<NL>' here[0m
-  [36m| [0m
-
-[31merror[0m: expected expression or declaration, found '}'
-  [36m| [0m
-  [36m| [0mf { 1, 1 }[0m
-  [36m| [0m         [31m^ expected expression or declaration here[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: Cannot construct the 'CallExpr' node.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 43, column: 41
+/*SCAN-IN
+expected ';' or '<NL>', found ','
+*/
+/*SCAN-IN
+expected expression or declaration, found '}'
+*/
+// ASSERT: scan ASTException: Cannot construct the 'CallExpr' node
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+description: l_paren, token_id: 2, token_literal_value: (
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 52, column: 43
+*/
+/*SCAN-IN
+description: r_paren, token_id: 3, token_literal_value: )
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
-2
-a?(1)
-cnt = 5
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+// ASSERT: scan 2
+// ASSERT: scan a?(1)
+// ASSERT: scan cnt = 5

@@ -16,7 +16,7 @@
 
 test#
 cjdb,cjdb --no-use-colors 047_debug_large_array,047_debug_large_array
-b,b main,Breakpoint 1: where[\s\S]*047_debug_large_array.cj:13
+b,b 047_debug_large_array.cj:13,Breakpoint 1: where[\s\S]*047_debug_large_array.cj:13
 AOT r,r,-> 13
 Android c,c,13
 CJVM c,c,

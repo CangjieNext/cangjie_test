@@ -3,7 +3,7 @@
 ## 创建图表的前置条件
 创建图表的前置条件是 `plotly.express` 和 `pandas` 包。可以通过以下命令安装：
 ```shell
-pip3 install pandas plotly.express
+pip3 install pandas plotly
 ```
 
 ## 内存测试的前置条件

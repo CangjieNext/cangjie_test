@@ -1,7 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // DEPENDENCE: %n.expect
 // EXEC: %compiler %coverage_opt %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output > %n.txt
-// EXEC: %diff %n.expect %n.txt
+// RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
+//
 
 internal import std.ast.*
 
@@ -76,10 +84,99 @@ main(): Int64 {
 
     return 0
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+
+// ASSERT: scan PrimaryCtorDecl {
+// ASSERT: scan -annotations: 0, Annotation {
+// ASSERT: scan -identifier: When
+// ASSERT: scan -condition: BinaryExpr {
+// ASSERT: scan -leftExpr: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "os"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -op: Token {
+// ASSERT: scan value: "=="
+// ASSERT: scan kind: EQUAL
+// ASSERT: scan -rightExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "Linux"
+// ASSERT: scan kind: STRING_LITERAL
+// ASSERT: scan -annotations: 1, Annotation {
+// ASSERT: scan -identifier: C
+// ASSERT: scan -modifiers: 0, Modifier {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "private"
+// ASSERT: scan kind: PRIVATE
+// ASSERT: scan -modifiers: 1, Modifier {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "const"
+// ASSERT: scan kind: CONST
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "Rectangle"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -funcParams: 0, FuncParam {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "let"
+// ASSERT: scan kind: LET
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "width"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: PrimitiveType {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "Int64"
+// ASSERT: scan kind: INT64
+// ASSERT: scan -funcParams: 1, FuncParam {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "let"
+// ASSERT: scan kind: LET
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "height"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: PrimitiveType {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "Int64"
+// ASSERT: scan kind: INT64
+// ASSERT: scan -block: Block {
+// ASSERT: scan -nodes: 0, AssignExpr {
+// ASSERT: scan -leftExpr: MemberAccess {
+// ASSERT: scan -baseExpr: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "this"
+// ASSERT: scan kind: THIS
+// ASSERT: scan -dot: Token {
+// ASSERT: scan value: "."
+// ASSERT: scan kind: DOT
+// ASSERT: scan -field: Token {
+// ASSERT: scan value: "width"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -assign: Token {
+// ASSERT: scan value: "="
+// ASSERT: scan kind: ASSIGN
+// ASSERT: scan -rightExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "10"
+// ASSERT: scan kind: INTEGER_LITERAL
+// ASSERT: scan -nodes: 1, AssignExpr {
+// ASSERT: scan -leftExpr: MemberAccess {
+// ASSERT: scan -baseExpr: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "this"
+// ASSERT: scan kind: THIS
+// ASSERT: scan -dot: Token {
+// ASSERT: scan value: "."
+// ASSERT: scan kind: DOT
+// ASSERT: scan -field: Token {
+// ASSERT: scan value: "height"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -assign: Token {
+// ASSERT: scan value: "="
+// ASSERT: scan kind: ASSIGN
+// ASSERT: scan -rightExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "10"
+// ASSERT: scan kind: INTEGER_LITERAL

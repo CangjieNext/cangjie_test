@@ -8,6 +8,6 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../../script/cjprof_heap.py ../../../sourcecode/test.cj ./heap_analyze_07.py
-// EXEC: %compiler %cmp_opt test.cj -o test%cmp_output
-// EXEC: cjprof record ./test -o heap.data
-// EXEC-2: %python heap_analyze_07.py binarytrees_heap_analyze_07%cmp_output %run_env
+// (!(target_win|target_mac)) EXEC: %compiler %cmp_opt test.cj -o test%cmp_output
+// (!(target_win|target_mac)) EXEC: cjprof record ./test -o heap.data
+// (!(target_win|target_mac)) EXEC-2: %python heap_analyze_07.py binarytrees_heap_analyze_07%cmp_output %run_env

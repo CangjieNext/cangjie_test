@@ -1,7 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // DEPENDENCE: %n.expect
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output > %n.txt
-// EXEC: %diff %n.expect %n.txt
+// RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
+//
 
 internal import std.ast.*
 internal import std.collection.*
@@ -36,10 +44,28 @@ main(): Int64 {
     expr.dump()
     return 0
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+
+// ASSERT: scan foo
+// ASSERT: scan a
+// ASSERT: scan b
+// ASSERT: scan CallExpr {
+// ASSERT: scan -callFunc: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "foo"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -arguments: 0, Argument {
+// ASSERT: scan -expr: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "a"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -arguments: 1, Argument {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "flag"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -expr: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "b"
+// ASSERT: scan kind: IDENTIFIER

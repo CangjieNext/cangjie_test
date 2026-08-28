@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 internal import std.ast.MatchExpr
 internal import std.collection.ArrayList
@@ -25,21 +26,13 @@ main() {
     matchExpr.dump()
 }
 
-/* SCAN
-2
-0
-MatchExpr {
-  -keyword: Token {
-    value: "match"
-    kind: MATCH
-    pos: 17: 9
-  }
-  -selector: RefExpr {
-    -identifier: Token {
-      value: "x"
-      kind: IDENTIFIER
-      pos: 17: 16
-    }
-  }
-}
-*/
+// ASSERT: scan 2
+// ASSERT: scan 0
+// ASSERT: scan MatchExpr {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "match"
+// ASSERT: scan kind: MATCH
+// ASSERT: scan -selector: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "x"
+// ASSERT: scan kind: IDENTIFIER

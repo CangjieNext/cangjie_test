@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 internal import std.collection.*
@@ -86,88 +94,33 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected '(' after 'quote', found line break
-  [36m| [0m
-  [36m| [0mquote[0m
-  [36m| [0m[31m^^^^^ unexpected line break here[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: 
-[31merror[0m: unclosed delimiter: '('
-  [36m| [0m
-  [36m| [0mquote([0m
-  [36m| [0m     [36m~[0m [31m^ expected ')' here[0m
-  [36m| [0m     [36m|[0m
-  [36m| [0m     [36mto match this opening '('[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 45, column: 47
+/*SCAN-IN
+expected '(' after 'quote', found line break
+*/
+/*SCAN-IN
+unclosed delimiter: '('
+*/
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+description: l_paren, token_id: 2, token_literal_value: (
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 54, column: 51
+*/
+/*SCAN-IN
+description: r_paren, token_id: 3, token_literal_value: )
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
-3
-quote($(a)  < VArray <, $>> $(! a))
-QuoteExpr {
-  -keyword: Token {
-    value: "quote"
-    kind: QUOTE
-  }
-  -exprs: 0, RefExpr {
-    -identifier: Token {
-      value: "a"
-      kind: IDENTIFIER
-      pos: 67: 59
-    }
-  }
-  -exprs: 1, RefExpr {
-    -identifier: Token {
-      value: ""
-      kind: DOLLAR_IDENTIFIER
-      pos: 65: 30
-    }
-    typeArguments: 0, VArrayType {
-      -VARRAY: Token {
-        value: "VArray"
-        kind: VARRAY
-      }
-      -elementTy:       -dollar: Token {
-        value: "$"
-        kind: DOLLAR
-      }
-    }
-  }
-  -exprs: 2, UnaryExpr {
-    -op: Token {
-      value: "!"
-      kind: NOT
-      pos: 67: 89
-    }
-    -expr: RefExpr {
-      -identifier: Token {
-        value: "a"
-        kind: IDENTIFIER
-        pos: 67: 90
-      }
-    }
-  }
-}
-description: quote, token_id: 89, token_literal_value: quote, fileID: 1, line: 77, column: 42
+*/
+// ASSERT: scan 3
+// ASSERT: scan quote($(a)  < VArray <, $>> $(! a))
+/*SCAN-IN
+description: quote, token_id: 89, token_literal_value: quote
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be QUOTE
-cnt = 6
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+// ASSERT: scan cnt = 6

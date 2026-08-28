@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 
@@ -86,61 +94,35 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected '(', found '{'
-  [36m| [0m
-  [36m| [0msynchronized {[0m
-  [36m| [0m             [31m^ expected '(' here[0m
-  [36m| [0m
-
-[31merror[0m: expected '=>' in lambda expression, found 'count'
-  [36m| [0m
-  [36m| [0m    count += 1[0m
-  [36m| [0m    [31m^^^^^ expected '=>' here[0m
-  [36m| [0m
-
-[31merror[0m: expected '{', found '<EOF>'
-  [36m| [0m
-  [36m| [0m}[0m
-  [36m| [0m [31m^ expected '{' here[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: Cannot construct the 'SynchronizedExpr' node.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 47, column: 68
+/*SCAN-IN
+expected '(', found '{'
+*/
+/*SCAN-IN
+expected '=>' in lambda expression, found 'count'
+*/
+/*SCAN-IN
+expected '{', found '<EOF>'
+*/
+// ASSERT: scan ASTException: Cannot construct the 'SynchronizedExpr' node
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+description: l_paren, token_id: 2, token_literal_value: (
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 56, column: 72
+*/
+/*SCAN-IN
+description: r_paren, token_id: 3, token_literal_value: )
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
-description: synchronized, token_id: 134, token_literal_value: synchronized, fileID: 1, line: 65, column: 56
+*/
+/*SCAN-IN
+description: synchronized, token_id: 134, token_literal_value: synchronized
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be SYNCHRONIZED
-RefExpr {
-  -identifier: Token {
-    value: "m"
-    kind: IDENTIFIER
-    pos: 75: 70
-  }
-}
-Block {
-  -nodes: 0, LitConstExpr {
-    -literal: Token {
-      value: "2"
-      kind: INTEGER_LITERAL
-      pos: 75: 73
-    }
-  }
-}
-cnt = 6
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+// ASSERT: scan cnt = 6

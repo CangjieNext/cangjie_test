@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 import std.ast.*
 import std.collection.*
@@ -61,28 +69,17 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN
-GenericParam {
-}
-3
-description: less, token_id: 53, token_literal_value: <, fileID: 13, line: 257, column: 34
-Illegal TokenKind, TokenKind should be LT
-description: greater, token_id: 54, token_literal_value: >, fileID: 13, line: 259, column: 34
-Illegal TokenKind, TokenKind should be GT
-description: less, token_id: 53, token_literal_value: <, fileID: 13, line: 257, column: 34
-description: and, token_id: 16, token_literal_value: &&, fileID: 1, line: 53, column: 66
-description: comma, token_id: 1, token_literal_value: ,, fileID: 13, line: 295, column: 17
-description: or, token_id: 17, token_literal_value: ||, fileID: 1, line: 53, column: 78
-description: comma, token_id: 1, token_literal_value: ,, fileID: 13, line: 295, column: 17
-description: newline, token_id: 143, token_literal_value: \n, fileID: 1, line: 53, column: 89
-description: greater, token_id: 54, token_literal_value: >, fileID: 13, line: 259, column: 34
-cnt = 2
-*/
-
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan GenericParam {
+// ASSERT: scan 3
+// ASSERT: scan description: less, token_id: 53, token_literal_value: <
+// ASSERT: scan Illegal TokenKind, TokenKind should be LT
+// ASSERT: scan description: greater, token_id: 54, token_literal_value: >
+// ASSERT: scan Illegal TokenKind, TokenKind should be GT
+// ASSERT: scan description: less, token_id: 53, token_literal_value: <
+// ASSERT: scan description: and, token_id: 16, token_literal_value: &&
+// ASSERT: scan description: comma, token_id: 1, token_literal_value:
+// ASSERT: scan description: or, token_id: 17, token_literal_value: ||
+// ASSERT: scan description: comma, token_id: 1, token_literal_value:
+// ASSERT: scan description: newline, token_id: 143, token_literal_value: \\n
+// ASSERT: scan description: greater, token_id: 54, token_literal_value: >
+// ASSERT: scan cnt = 2

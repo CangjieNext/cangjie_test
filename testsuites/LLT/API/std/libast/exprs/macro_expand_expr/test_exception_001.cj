@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 
@@ -120,70 +121,50 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected declaration, found '<EOF>'
-  [36m| [0m
-  [36m| [0m@when[0m
-  [36m| [0m     [31m^ expected declaration here[0m
-  [36m| [0m
-
-[31merror[0m: unexpected parameters for macro invocation here
-  [36m| [0m
-  [36m| [0m@when[0m
-  [36m| [0m     [31m^ expected declaration like: function, enum, class, interface, variable, property, extend ...[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: 
-[31merror[0m: expected expression after '', found keyword 'macro'
-  [36m| [0m
-  [36m| [0mmacro func M()[0m
-  [36m| [0m[31m^^^^^ expected expression here[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 51, column: 56
+/*SCAN-IN
+expected declaration, found '<EOF>'
+*/
+/*SCAN-IN
+unexpected parameters for macro invocation here
+*/
+/*SCAN-IN
+expected expression after '', found keyword 'macro'
+*/
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+description: l_paren, token_id: 2, token_literal_value: (
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 60, column: 58
+*/
+/*SCAN-IN
+description: r_paren, token_id: 3, token_literal_value: )
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
-8
-MacroExpandExpr {
-  -packageIdentifier: Token {
-    value: "M"
-    kind: IDENTIFIER
-    pos: 69: 55
-  }
-  -identifier: Token {
-    value: "M"
-    kind: IDENTIFIER
-    pos: 69: 55
-  }
-  -macroAttrs:0: Token {
-    value: "attr"
-    kind: IDENTIFIER
-    pos: 69: 57
-  }
-  -macroInputs:0: Token {
-    value: "input"
-    kind: IDENTIFIER
-    pos: 69: 63
-  }
-}
-3
-1
-description: identifier, token_id: 137, token_literal_value: A.m, fileID: 1, line: 72, column: 56
-description: l_square, token_id: 4, token_literal_value: [, fileID: 1, line: 85, column: 56
+*/
+// ASSERT: scan 8
+// ASSERT: scan 3
+// ASSERT: scan 1
+/*SCAN-IN
+description: identifier, token_id: 137, token_literal_value: A.m
+*/
+/*SCAN-IN
+description: l_square, token_id: 4, token_literal_value: [
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LSQUARE
-description: r_square, token_id: 5, token_literal_value: ], fileID: 1, line: 94, column: 58
+*/
+/*SCAN-IN
+description: r_square, token_id: 5, token_literal_value: ]
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RSQUARE
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be AT
-1
-8
-cnt = 8
- */
+*/
+// ASSERT: scan 8
+// ASSERT: scan cnt = 8

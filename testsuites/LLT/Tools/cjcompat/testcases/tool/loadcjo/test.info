@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: pkgb_v0.cj pkgb_v1.cj A
+// EXEC: %cjc pkgb_v0.cj %staticlib
+// EXEC: %move B.cjo old.cjo
+// EXEC: %cjc pkgb_v1.cj %staticlib
+// EXEC: %move B.cjo new.cjo
+// EXEC-PIPE-0: %cjcompat %old old.cjo %new new.cjo | compare %f
+
+// ASSERT: scan Compatible!

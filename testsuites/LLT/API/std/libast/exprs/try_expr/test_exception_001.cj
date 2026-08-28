@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args | compare %f
 
 internal import std.ast.*
 internal import std.collection.*
@@ -139,49 +147,29 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected '(' after 'catch', found '{'
-  [36m| [0m
-  [36m| [0m} catch {[0m
-  [36m| [0m  [36m~~~~~[0m [31m^ expected '(' here[0m
-  [36m| [0m  [36m|[0m
-  [36m| [0m  [36mafter this[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: 
-[31merror[0m: expected expression after '', found keyword 'catch'
-  [36m| [0m
-  [36m| [0mcatch(e: Exception) {[0m
-  [36m| [0m[31m^^^^^ expected expression here[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-Block {
-}
-0
-0
-description: illegal, token_id: 162, token_literal_value: , fileID: 0, line: 0, column: 0
+/*SCAN-IN
+expected '(' after 'catch', found '{'
+*/
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+// ASSERT: scan 0
+// ASSERT: scan 0
+/*SCAN-IN
+description: illegal, token_id: 162, token_literal_value:
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be FINALLY
-0
-description: try, token_id: 101, token_literal_value: try, fileID: 1, line: 104, column: 39
+*/
+/*SCAN-IN
+description: try, token_id: 101, token_literal_value: try
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be TRY
-1
+*/
+// ASSERT: scan 1
+/*SCAN-IN
 ASTException: Cannot get finally block from current TryExpr
-Block {
-}
-cnt = 6
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+// ASSERT: scan ASTException: Cannot get finally block from current TryExpr
+// ASSERT: scan cnt = 6

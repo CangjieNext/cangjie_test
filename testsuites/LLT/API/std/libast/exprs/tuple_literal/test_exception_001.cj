@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args | compare %f
 
 internal import std.ast.*
 internal import std.collection.*
@@ -75,36 +83,26 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: unclosed delimiter: '('
-  [36m| [0m
-  [36m| [0m(1 23 a)[0m
-  [36m| [0m[36m~[0m [31m^ expected ')' here[0m
-  [36m| [0m[36m|[0m
-  [36m| [0m[36mto match this opening '('[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: Cannot construct the 'TupleLiteral' node.
-2
-(a, b)
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-2
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 57, column: 48
+/*SCAN-IN
+unclosed delimiter: '('
+*/
+/*SCAN-IN
+ASTException: Cannot construct the 'TupleLiteral' node
+*/
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+// ASSERT: scan 2
+/*SCAN-IN
+description: l_paren, token_id: 2, token_literal_value: (
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 66, column: 54
+*/
+/*SCAN-IN
+description: r_paren, token_id: 3, token_literal_value: )
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
-cnt = 5
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+// ASSERT: scan cnt = 5

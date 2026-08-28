@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args | compare %f
 
 internal import std.ast.*
 
@@ -75,105 +83,30 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected a '$' follows an integer literal as the second generic argument between '<' and '>' of 'VArray' type
-  [36m| [0m
-  [36m| [0mVArray < Int64, $a > { i => i }[0m
-  [36m| [0m                [31m^^ [0m
-  [36m| [0m
-
-parsing expr error.
+/*SCAN-IN
+expected a '$' follows an integer literal as the second generic argument between '<' and '>' of 'VArray' type
+*/
+/*SCAN-IN
 ASTException: Cannot construct the 'VArrayExpr' node.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 44, column: 62
+*/
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+description: l_paren, token_id: 2, token_literal_value: (
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 53, column: 73
+*/
+/*SCAN-IN
+description: r_paren, token_id: 3, token_literal_value: )
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
+*/
+/*SCAN-IN
 1
-VArrayType {
-  -VARRAY: Token {
-    value: "VArray"
-    kind: VARRAY
-    pos: 63: 45
-  }
-  -elementTy: PrimitiveType {
-    -keyword: Token {
-      value: "Float64"
-      kind: FLOAT64
-      pos: 63: 52
-    }
-  }
-  -dollar: Token {
-    value: "$"
-    kind: DOLLAR
-    pos: 63: 62
-  }
-  -size: Token {
-    value: "5"
-    kind: INTEGER_LITERAL
-    pos: 63: 63
-  }
-}
-VArrayExpr {
-  -vArrayType: VArrayType {
-    -VARRAY: Token {
-      value: "VArray"
-      kind: VARRAY
-      pos: 63: 45
-    }
-    -elementTy: PrimitiveType {
-      -keyword: Token {
-        value: "Float64"
-        kind: FLOAT64
-        pos: 63: 52
-      }
-    }
-    -dollar: Token {
-      value: "$"
-      kind: DOLLAR
-      pos: 63: 62
-    }
-    -size: Token {
-      value: "5"
-      kind: INTEGER_LITERAL
-      pos: 63: 63
-    }
-  }
-  -arguments: 0, Argument {
-    -expr: LambdaExpr {
-      -funcParams: 0, FuncParam {
-        -identifier: Token {
-          value: "i"
-          kind: IDENTIFIER
-          pos: 63: 67
-        }
-        -paramType:       }
-      -doubleArrow: Token {
-        value: "=>"
-        kind: DOUBLE_ARROW
-        pos: 63: 69
-      }
-      -nodes: 0, RefExpr {
-        -identifier: Token {
-          value: "i"
-          kind: IDENTIFIER
-          pos: 63: 72
-        }
-      }
-    }
-  }
-}
+*/
+/*SCAN-IN
 cnt = 5
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/

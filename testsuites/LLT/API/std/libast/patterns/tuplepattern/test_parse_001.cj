@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 
@@ -18,30 +26,13 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-TuplePattern {
-  -patterns: 0, ConstPattern {
-    -litConstExpr: LitConstExpr {
-      -literal: Token {
-        value: "Bob"
-        kind: STRING_LITERAL
-        pos: 7: 39
-      }
-    }
-  }
-  -patterns: 1, VarOrEnumPattern {
-    -identifier: Token {
-      value: "age"
-      kind: IDENTIFIER
-      pos: 7: 46
-    }
-  }
-}
-*/
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan TuplePattern {
+// ASSERT: scan -patterns: 0, ConstPattern {
+// ASSERT: scan -litConstExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "Bob"
+// ASSERT: scan kind: STRING_LITERAL
+// ASSERT: scan -patterns: 1, VarOrEnumPattern {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "age"
+// ASSERT: scan kind: IDENTIFIER

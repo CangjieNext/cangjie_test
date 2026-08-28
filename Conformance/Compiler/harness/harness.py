@@ -64,7 +64,7 @@ class Harness:
     general.add_argument('--javac', action='store',
                          dest='javac', help='Path to Javac compiler')
     general.add_argument('--test-output', action='store', dest='test_output',
-                         help='Path for artifacts form tests execution')
+                         help='Path for artifacts from tests execution')
     general.add_argument('--test-root', action='store', dest='test_root',
                          help='Path to root directory with tests')
     general.add_argument('--tests', nargs='+', dest='tests',

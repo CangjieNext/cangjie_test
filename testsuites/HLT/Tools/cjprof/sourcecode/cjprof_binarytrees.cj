@@ -82,7 +82,7 @@ func Run(maxDepth_: UInt32) {
 }
 
 main(): Unit {
-    for (i in 0..10) {
+    for (i in 0..50) {
         var n = UInt32(16)
         Run(n)
     }

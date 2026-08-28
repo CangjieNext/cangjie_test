@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %enableEH %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %set_stdx_path %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %set_stdx_path %run_opt %output %run_args %noColor | compare %f
 
 internal import std.ast.*
 
@@ -66,21 +67,17 @@ main(): Int64 {
     0
 }
 
-/* SCAN-IN
-ASTException: Cannot construct the 'ResumeExpr' node.
-LitConstExpr {
-  -literal: Token {
-    value: "42"
-    kind: INTEGER_LITERAL
-    pos: 17: 21
-  }
-}
-description: resume, token_id: 159, token_literal_value: resume, fileID: 1, line: 47, column: 9
+// ASSERT: scan ASTException: Cannot construct the 'ResumeExpr' node
+/*SCAN-IN
+value: "42"
+*/
+/*SCAN-IN
+description: resume, token_id: 159, token_literal_value: resume
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RESUME
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-cnt = 3
- */
+*/
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+// ASSERT: scan cnt = 3

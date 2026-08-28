@@ -1,0 +1,15 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// EXEC-PIPE-0: %cjcompat -h | compare %f
+
+// ASSERT: scan Usage:
+// ASSERT: scan cjcompat --old /path/to/old.cjo --new /path/to/new.cjo [--api] [--abi]
+// ASSERT: scan -h                      Show usage
+// ASSERT: scan --old <value>           Path to the .cjo file corresponding to the old version of a Cangjie library.
+// ASSERT: scan --new <value>           Path to the .cjo file corresponding to the new version of a Cangjie library.
+// ASSERT: scan --api                   Enforces rules for API compatibility.
+// ASSERT: scan --abi                   Enforces rules for ABI compatibility.

@@ -7,12 +7,12 @@
  */
 
 // LEVEL: 1
-// (not Windows and not iOS) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows and not iOS) RUN-EXEC-PIPE: touch testfile01 && touch .hidden_files_01 && mkdir -p testdir && ln -sf unexists symlink01 && ln -sf testfile01 symlink02 && ln -sf testdir symlink03 && touch unexists && %export USER=`whoami` && %run %run_opt %output %run_utest_opt %run_args | compare %f
-// (not Windows) ASSERT: scan-2 symlink01
-// (not Windows) ASSERT: scan-2 symlink02
-// (not Windows) ASSERT: scan-2 symlink03
-// (not Windows) ASSERT: scan-4 .hidden_files_01
+// (!(target_ios | target_ios_simulator | target_win)) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (!(target_ios | target_ios_simulator | target_win)) RUN-EXEC-PIPE: %touch testfile01 && %touch .hidden_files_01 && %mkdir testdir && ln -sf unexists symlink01 && ln -sf testfile01 symlink02 && ln -sf testdir symlink03 && %touch unexists && %export USER=`whoami` && %run %run_opt %output %run_utest_opt %run_args | compare %f
+// (!(target_ios | target_ios_simulator | target_win)) ASSERT: scan-2 symlink01
+// (!(target_ios | target_ios_simulator | target_win)) ASSERT: scan-2 symlink02
+// (!(target_ios | target_ios_simulator | target_win)) ASSERT: scan-2 symlink03
+// (!(target_ios | target_ios_simulator | target_win)) ASSERT: scan-4 .hidden_files_01
 
 /*
  * Test description: Test the iterators and lists in Class Directory

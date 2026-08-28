@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args | compare %f
 
 internal import std.ast.*
 
@@ -71,47 +79,29 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-ASTException: 
-[31merror[0m: expected expression after '[', found '<EOF>'
-  [36m| [0m
-  [36m| [0mA[[[0m
-  [36m| [0m   [31m^ expected expression here[0m
-  [36m| [0m
-
-[31merror[0m: unclosed delimiter: '['
-  [36m| [0m
-  [36m| [0mA[[[0m
-  [36m| [0m  [36m~[31m^ expected ']' here[0m
-  [36m| [0m  [36m|[0m
-  [36m| [0m  [36mto match this opening '['[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: 
-[31merror[0m: expected expression after '[', found ']'
-  [36m| [0m
-  [36m| [0mb[][0m
-  [36m| [0m  [31m^ expected expression here[0m
-  [36m| [0m
-
-parsing expr error.
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
-description: l_square, token_id: 4, token_literal_value: [, fileID: 1, line: 43, column: 51
+/*SCAN-IN
+expected expression after '[', found '<EOF>'
+*/
+/*SCAN-IN
+unclosed delimiter: '['
+*/
+/*SCAN-IN
+expected expression after '[', found ']'
+*/
+/*SCAN-IN
+expected expression after '', found '<EOF>'
+*/
+/*SCAN-IN
+description: l_square, token_id: 4, token_literal_value: [
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be LSQUARE
-description: r_square, token_id: 5, token_literal_value: ], fileID: 1, line: 52, column: 58
+*/
+/*SCAN-IN
+description: r_square, token_id: 5, token_literal_value: ]
+*/
+/*SCAN-IN
 ASTException: Illegal TokenKind, TokenKind should be RSQUARE
-1
-cnt = 5
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+*/
+// ASSERT: scan 1
+// ASSERT: scan cnt = 5

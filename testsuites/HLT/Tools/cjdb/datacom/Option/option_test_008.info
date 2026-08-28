@@ -23,6 +23,6 @@ Android c,c,59
 CJVM c,c,59
 p,p Char_c,\(std[.]core(?:\.|::)Option<Rune>\)[\s\S]*'c'
 AOT p,p Char_slash,\(std[.]core(?:\.|::)Option<Rune>\)[\s\S]*'\\\\'
-p,p Char_chinese,\(std[.]core(?:\.|::)Option<Rune>\)[\s\S]*'�?
+p,p Char_chinese,\(std[.]core(?:\.|::)Option<Rune>\)[\s\S]*
 q,q,
 

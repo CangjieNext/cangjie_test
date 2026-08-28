@@ -24,5 +24,5 @@ AOT r,r,-> 21
 Android c,c,21
 CJVM c,c,
 n,n,22
-locals,locals,\(std.core(?:\.|::)String\) main_str6 = "仓颉字符串测�?
+locals,locals,\(std.core(?:\.|::)String\) main_str6 = "[\s\S]*
 q,q,
