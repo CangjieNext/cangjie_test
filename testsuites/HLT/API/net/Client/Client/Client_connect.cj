@@ -88,7 +88,7 @@ public class Test_connect {
         try {
             client.connect("")
         } catch (e: Exception) {
-            @Expect(e.message.contains("Not HTTP protocol scheme:"), true)
+            @Expect(e.message.contains("Invalid protocol scheme"), true)
         }
         client.close()
     }
@@ -105,7 +105,7 @@ public class Test_connect {
         try {
             client.connect("http://127.0.0.1:${s.port}/wrong")
         } catch (e: Exception) {
-            @Expect(e.message.contains("Not HTTP protocol scheme:"), true)
+            @Expect(e.message.contains("Invalid protocol scheme"), true)
         }
 
         try {

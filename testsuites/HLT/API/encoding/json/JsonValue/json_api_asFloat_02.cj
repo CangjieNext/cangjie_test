@@ -29,7 +29,7 @@ main(): Int64 {
         try {
             var actValue1 = jsonvalue.asObject().get(i).getOrThrow().asFloat().getValue()
         } catch (e: JsonException) {
-            if (e.toString().contains("Fail to convert to JsonFloat")) {
+            if (e.toString().contains("Failed to convert JsonValue to JsonFloat.")) {
                 count = count + 1
             }
         }

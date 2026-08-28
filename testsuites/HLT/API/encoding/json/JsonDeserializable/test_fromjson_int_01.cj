@@ -71,7 +71,7 @@ class Test_fromjson_int_01 {
             Int8.fromJson(reader)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message,"The next number is out of range for Int8.")
+            @Expect(e.message,"Number is out of range for Int8.")
         }
     }
 
@@ -130,7 +130,7 @@ class Test_fromjson_int_01 {
             Int16.fromJson(reader)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message,"The next number is out of range for Int16.")
+            @Expect(e.message,"Number is out of range for Int16.")
         }
     }
 
@@ -189,7 +189,7 @@ class Test_fromjson_int_01 {
             Int32.fromJson(reader)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message,"The next number is out of range for Int32.")
+            @Expect(e.message,"Number is out of range for Int32.")
         }
     }
 
@@ -248,7 +248,7 @@ class Test_fromjson_int_01 {
             IntNative.fromJson(reader)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message,"The next number is out of range for IntNative.")
+            @Expect(e.message,"Number is out of range for IntNative.")
         }
     }
 }

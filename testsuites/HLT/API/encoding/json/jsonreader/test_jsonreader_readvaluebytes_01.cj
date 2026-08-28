@@ -80,7 +80,7 @@ class Test_jsonreader_readvaluebytes_01 {
         unsafe { bas.write(jsonStr.rawData()) }
         var reader = JsonReader(bas)
         let e = @AssertThrows[IllegalStateException](reader.readValueBytes())
-        @Expect(e.message.contains("Character not expected"))
+        @Expect(e.message, "Unexpected character: '}'.")
     }
 
     @TestCase
@@ -90,6 +90,6 @@ class Test_jsonreader_readvaluebytes_01 {
         unsafe { bas.write(jsonStr.rawData()) }
         var reader = JsonReader(bas)
         let e = @AssertThrows[IllegalStateException](reader.readValueBytes())
-        @Expect(e.message.contains("Character not expected"))
+        @Expect(e.message, "Unexpected character: ']'.")
     }
 }

@@ -33,7 +33,7 @@ main(): Int64 {
     try {
         var a = client.send(req)
     } catch (e: HttpException) {
-        if (e.message == "TRACE request can not contain content.") {
+        if (e.message == "TRACE request cannot contain content.") {
             return 0
         }
     }
