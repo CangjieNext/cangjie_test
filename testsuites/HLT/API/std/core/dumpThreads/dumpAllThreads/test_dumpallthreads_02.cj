@@ -13,21 +13,38 @@
 import std.unittest.*
 import std.unittest.testmacro.*
 
-// 可能存在线程被回收的可能
 main() {
-    let _thread = spawn {}
-    @Assert(_thread.thread.state.toString(), "Ready")
+    let _thread = spawn {
+        while (true) {
+            if (Thread.currentThread.hasPendingCancellation) {
+                return 0
+            }
+        }
+        return 1
+    }
     let _thread_infos = ThreadSnapshot.dumpAllThreads()
     @Assert(_thread_infos.size, 2)
-    let _thread_info = _thread_infos[0]
+    func findThread(id: Int64, infos: Array<ThreadSnapshot>): ThreadSnapshot {
+        for (info in infos) {
+            if (info.id == id) {
+                return info
+            }
+        }
+        throw IllegalArgumentException("Thread id ${id} not found in thread snapshots")
+    }
+    let _thread_info = findThread(_thread.thread.id, _thread_infos)
     @Assert(_thread_info.id is Int64)
     @Assert(_thread_info.name, "")
     match(_thread_info.state) {
         case ThreadState.Ready => println("Ready")
+        case ThreadState.Running => println("Running")
         case _ => @Assert(false)
     }
     _thread_info.toString() |> println
-    @Assert(_thread_info.stackTrace.size, 0)
-    @Assert(_thread_info.toString().contains("ThreadSnapshot(id=${_thread_info.id}, name=, state=Ready)"))
+    @Assert(_thread_info.toString().contains("ThreadSnapshot(id=${_thread_info.id}, name=, state=${_thread_info.state})"))
     @Assert(_thread_info.toString().contains("stack trace"))
+
+    _thread.cancel()
+    sleep(Duration.second)
+    @Assert(_thread.get(), 0)
 }
