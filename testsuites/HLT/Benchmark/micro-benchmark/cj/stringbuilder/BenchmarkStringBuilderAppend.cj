@@ -12,16 +12,13 @@
 
 
 import std.time.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
 @Measure[TimeNow(Nanos)]
 @Configure[warmup: Duration.second]
-public class Test_StringBuilder_Append { 
-    var stringbuilder = StringBuilder()
-    var stringbuilder_1k = StringBuilder(1024)
-    var stringbuilder_1m = StringBuilder(1024 * 1024)
-
+public class Test_StringBuilder_Append {
     var string_32 = String(Array<Rune>(32, repeat: r'A'))
     var string_1k = String(Array<Rune>(1024, repeat: r'A'))
     var string_1m = String(Array<Rune>(1024 * 1024, repeat: r'A'))
@@ -38,110 +35,143 @@ public class Test_StringBuilder_Append {
     var bytes_1k = Array<UInt8>(1024, repeat: 65)
     var bytes_1m = Array<UInt8>(1024 * 1024, repeat: 65)
 
-    // 当前此接口仅在每个@Bench运行前运行，而非每次调用前运行
-    public override func beforeEach(): Unit{
-        stringbuilder = StringBuilder()
-        stringbuilder_1k = StringBuilder(1024)
-        stringbuilder_1m = StringBuilder(1024 * 1024)
-    }
-
     @Bench
     func BenchmarkStringBuilderAppend_Bool(): Unit {
+        var stringbuilder = StringBuilder()
         stringbuilder.append(true)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_Int64(): Unit {
+        var stringbuilder = StringBuilder()
         stringbuilder.append(-9223372036854775808)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_Int32(): Unit {
+        var stringbuilder = StringBuilder()
         stringbuilder.append(Int32(-2147483648))
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_Int16(): Unit {
+        var stringbuilder = StringBuilder()
         stringbuilder.append(Int16(-32768))
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_Int8(): Unit {
+        var stringbuilder = StringBuilder()
         stringbuilder.append(Int8(-128))
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_Float64(): Unit {
+        var stringbuilder = StringBuilder()
         stringbuilder.append(2e3f64)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_Float32(): Unit {
+        var stringbuilder = StringBuilder()
         stringbuilder.append(2e3f32)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_Rune(): Unit {
+        var stringbuilder = StringBuilder()
         stringbuilder.append(r'A')
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_String_N32(): Unit {
+        var stringbuilder = StringBuilder(32)
         stringbuilder.append(string_32)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_String_N1k(): Unit {
-        stringbuilder_1k.append(string_1k)
+        var stringbuilder = StringBuilder(1024)
+        stringbuilder.append(string_1k)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_String_N1m(): Unit {
-        stringbuilder_1m.append(string_1m)
+        var stringbuilder = StringBuilder(1024 * 1024)
+        stringbuilder.append(string_1m)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_RuneArray_N32(): Unit {
+        var stringbuilder = StringBuilder(32)
         stringbuilder.append(array_32)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_RuneArray_N1k(): Unit {
-        stringbuilder_1k.append(array_1k)
+        var stringbuilder = StringBuilder(1024)
+        stringbuilder.append(array_1k)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_RuneArray_N1m(): Unit {
-        stringbuilder_1m.append(array_1m)
+        var stringbuilder = StringBuilder(1024 * 1024)
+        stringbuilder.append(array_1m)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_StringBuilder_N32(): Unit {
+        var stringbuilder = StringBuilder(32)
         stringbuilder.append(sb_32)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_StringBuilder_N1k(): Unit {
-        stringbuilder_1k.append(sb_1k)
+        var stringbuilder = StringBuilder(1024)
+        stringbuilder.append(sb_1k)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppend_StringBuilder_N1m(): Unit {
-        stringbuilder_1m.append(sb_1m)
+        var stringbuilder = StringBuilder(1024 * 1024)
+        stringbuilder.append(sb_1m)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppendFromUtf8_N32(): Unit {
+        var stringbuilder = StringBuilder(32)
         stringbuilder.appendFromUtf8(bytes_32)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppendFromUtf8_N1k(): Unit {
-        stringbuilder_1k.appendFromUtf8(bytes_1k)
+        var stringbuilder = StringBuilder(1024)
+        stringbuilder.appendFromUtf8(bytes_1k)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderAppendFromUtf8_N1m(): Unit {
-        stringbuilder_1m.appendFromUtf8(bytes_1m)
+        var stringbuilder = StringBuilder(1024 * 1024)
+        stringbuilder.appendFromUtf8(bytes_1m)
+        blackBox(stringbuilder)
     }
 }

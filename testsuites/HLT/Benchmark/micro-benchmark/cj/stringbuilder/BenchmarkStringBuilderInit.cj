@@ -12,12 +12,13 @@
 
 
 import std.time.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
 @Measure[TimeNow(Nanos)]
 @Configure[warmup: Duration.second]
-public class Test_StringBuilder_Init { 
+public class Test_StringBuilder_Init {
     var string_32 = String(Array<Rune>(32, repeat: r'A'))
     var string_1k = String(Array<Rune>(1024, repeat: r'A'))
     var string_1m = String(Array<Rune>(1024 * 1024, repeat: r'A'))
@@ -28,61 +29,73 @@ public class Test_StringBuilder_Init {
 
     @Bench
     func BenchmarkStringBuilderInit_Empty_N32(): Unit {
-        var stringbuilder_empty = StringBuilder()
+        var stringbuilder = StringBuilder()
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderInit_Empty_N1k(): Unit {
-        var stringbuilder_empty = StringBuilder(1024)
+        var stringbuilder = StringBuilder(1024)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderInit_Empty_N1m(): Unit {
-        var stringbuilder_empty = StringBuilder(1024 * 1024)
+        var stringbuilder = StringBuilder(1024 * 1024)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderInit_From_str_N32(): Unit {
         var stringbuilder = StringBuilder(string_32)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderInit_From_str_N1k(): Unit {
         var stringbuilder = StringBuilder(string_1k)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderInit_From_str_N1m(): Unit {
         var stringbuilder = StringBuilder(string_1m)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderInit_Fromrune_N32(): Unit {
         var stringbuilder = StringBuilder(r'A', 32)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderInit_Fromrune_N1k(): Unit {
         var stringbuilder = StringBuilder(r'A', 1024)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderInit_Fromrune_N1m(): Unit {
         var stringbuilder = StringBuilder(r'A', 1024 * 1024)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderInit_Fromarray_N32(): Unit {
         var stringbuilder = StringBuilder(array_32)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderInit_Fromarray_N1k(): Unit {
         var stringbuilder = StringBuilder(array_1k)
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderInit_Fromarray_N1m(): Unit {
         var stringbuilder = StringBuilder(array_1m)
+        blackBox(stringbuilder)
     }
 }
