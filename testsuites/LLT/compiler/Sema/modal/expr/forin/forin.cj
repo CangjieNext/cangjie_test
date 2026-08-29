@@ -29,7 +29,7 @@ class Bam <: Iterator<Dog> {
         if (ccc<5) { ccc++; Dog() @local!}
         else { None<Dog> }
     }
-    public func next(this @local?) {
+    public exclave func next(this @local?) {
         if (ccc<5) { ccc++; Dog() @local? }
         else { None<Dog> }
     }

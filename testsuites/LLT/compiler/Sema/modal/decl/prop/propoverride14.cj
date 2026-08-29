@@ -20,7 +20,7 @@ class C<T> <: I<T> {
 class E <: I<String> {
     public prop value: String @local? {
         get() {
-            "haha"
+            exclave {"haha"}
         }
     }
 }

@@ -10,13 +10,13 @@
 class F {
     let p: Int = 1
     init() {}
-    init(this @local?) { exclave { } }
+    exclave init(this @local?) { }
 }
-func foo(): F@local? {
+exclave func foo(): F@local? {
     let b: F@local? = F()
     b
 }
-func bar(): F@local? {
+exclave func bar(): F@local? {
     let c: F@local? = F()
     return c
 }

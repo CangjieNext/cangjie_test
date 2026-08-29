@@ -11,7 +11,7 @@
 func foo(): String @local! {
     exclave { "x" }
 }
-func bar(): String @local? {
+exclave func bar(): String @local? {
     "x"
 }
 

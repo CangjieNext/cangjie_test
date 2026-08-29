@@ -22,7 +22,7 @@ func baz(a: F@local!): F@local! {
 main() {}
 
 /* SCAN
-error: cannot return expression of internal @local! type
+error: cannot return expression of internal @local! mode
   ==> external_call.cj:15:5:
    | 
 15 |     foo(a)
@@ -36,7 +36,7 @@ error: cannot pass argument of external @local! to @local! parameter 'a'
    |         ^ 
    | 
 
-error: cannot return expression of internal @local! type
+error: cannot return expression of internal @local! mode
   ==> external_call.cj:19:5:
    | 
 19 |     g(a)
