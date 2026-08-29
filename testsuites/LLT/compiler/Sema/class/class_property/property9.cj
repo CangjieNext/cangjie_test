@@ -65,6 +65,23 @@ note: 'i' is previously declared here
    |              ^ 
    | 
 
+error: class 'C' missing abstract modifier, otherwise abstract function or property should be implemented
+  ==> property9.cj:22:1:
+   | 
+22 |   class C <: A & B {
+   |  _^
+23 | |     public mut override prop i: Int64 {
+   | | ...
+29 | | }
+   | |_^
+   | 
+note: unimplemented interface property 'i'
+  ==> property9.cj:19:5:
+   | 
+19 |     mut prop i: Int32
+   |     ^^^^^^^^^^^^^^^^^ 
+   | 
+
 error: overloaded instance property must be of the same data type
   ==> property9.cj:45:30:
    | 
@@ -78,5 +95,26 @@ note: 'i' is previously declared here
    |                          ^ 
    | 
 
-2 errors generated, 2 errors printed.
+error: overloaded instance property must be of the same data type
+  ==> property9.cj:32:26:
+   | 
+32 |     public mut open prop i: String {
+   |                          ^ 
+   | 
+note: 'i' is previously declared here
+  ==> property9.cj:41:14:
+   | 
+41 |     mut prop i: Int64
+   |              ^ 
+   | 
+
+error: type of the inherited property members 'i' are not identical and not in subtype relation
+  ==> property9.cj:44:7:
+   | 
+44 | class C1 <: A1 & B1 {
+   |       ^^ 
+   | 
+   # note: conflict types are 'Int64', 'Struct-String'
+
+5 errors generated, 5 errors printed.
 */

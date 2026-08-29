@@ -36,9 +36,9 @@ error: no matching constructor for call 'Array'
    |                                ^ 
    | 
 note: found function member of 'Struct-Array<Generics-T>'
-  ==> (package std.core)array.cj:54:12:
+  ==> (package std.core)array.cj:52:12:
 note: found function member of 'Struct-Array<Generics-T>'
-  ==> (package std.core)array.cj:63:12:
+  ==> (package std.core)array.cj:61:12:
 
 error: mismatched types
   ==> varray06.cj:15:28:

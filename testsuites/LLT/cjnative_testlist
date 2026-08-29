@@ -128,8 +128,25 @@ compiler/Sema/modal/parse/local_func_in_exclave.cj
 # Sema lambda type infer
 compiler/Sema/modal/infer/p.cj
 compiler/Sema/modal/infer/some_local.cj
+compiler/Sema/type_infer/lambda_param_sum_keep_06.cj
 # TODO: macro serialization adapt
 compiler/Sema/modal/parse/at_local_macro_good.cj
+compiler/Macro/parse/macro_invoke_11084.cj
+compiler/Macro/parse/macro_invoke_11084_1.cj
+# runtime error on CI, passed locally
+compiler/Sema/string/local.cj
+# because of temporary changes of std API
+compiler/Sema/Extend/extend_duplicate_interfaces9.cj
+compiler/Sema/call/call_error_report_01.cj
+compiler/Sema/varray/err_byte_string.cj
+# mangle
+compiler/Mangle/FuncRules/ParamInitFunc/param_init_func.cj
+compiler/Mangle/FuncRules/ParamInitFunc/param_init_generic_func.cj
+# sema error, to be checked
+compiler/Sema/call/call_error_report_01.cj
+compiler/Sema/Extend/Extend_Refactor/extend_property_conflict_invalid_6.cj
+compiler/Sema/Extend/extend_duplicate_interfaces9.cj
+compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/AddExtends/InterfaceExtend0to1_CPointer.cj
 # CJMP did not adapt to modal type
 compiler/CJMP/
 

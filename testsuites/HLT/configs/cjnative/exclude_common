@@ -40,6 +40,30 @@ compiler/cjnative/Packages/org_name/package_decl/no_package_name_0.cj
 compiler/cjnative/Packages/org_name/package_decl/no_package_name_1.cj
 compiler/cjnative/Packages/org_name/package_decl/no_package_name_2.cj
 
+# modal type
+# these are caused by the breaking change of nested fun call, adding more function overload may cause breaking change, and such is excluded by breaking change rules. there is currently no impl plan.
+API/std/core/String/withRawData/test_withrawdata_01.cj
+API/std/io/BufferedInputStream/BufferedInputStream_close.cj
+# mangling in exception stacktrace
+API/std/core/dumpThreads/dumpCurrentThread/test_dumpcurrentthread_01.cj
+Tools/cjdb/datacom/demangle/demangle_013.info
+Tools/cjdb/datacom/demangle/demangle_016.info
+# cjmp didn't adapt to modal type prop overload
+compiler/cjnative/Packages/cjmp/
+Tools/cjcov/common_platform/cross_platform009/cross_platform009.cj
+Tools/cjpm/source_set/002/prop/prop.info
+# obfuscation
+compiler/cli/Option/obfuscation/009/obfuscation_94001.cj
+compiler/cli/Option/obfuscation/009/obfuscation_94002.cj
+compiler/cli/Option/obfuscation/009/obfuscation_94101.cj
+compiler/cli/Option/obfuscation/009/obfuscation_94102.cj
+compiler/cli/Option/obfuscation/009/obfuscation_94103.cj
+compiler/cli/Option/obfuscation/009/obfuscation_94201.cj
+compiler/cli/Option/obfuscation/009/obfuscation_94202.cj
+compiler/cli/Option/obfuscation/009/obfuscation_94203.cj
+compiler/cli/Option/obfuscation/009/obfuscation_94301.cj
+compiler/cli/Option/obfuscation/009/obfuscation_94302.cj
+
 # https://gitcode.com/Cangjie/cangjie_test/issues/315
 compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj
 Runtime/cjnative/runtime/OutOfMemoryError/oom_dump.cj

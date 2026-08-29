@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %f -o %output
 
-func foo(a: Int @local!): String @local? {
+exclave func foo(a: Int @local!): String @local? {
     try {
         let f: () -> String @local? = { => exclave { "ok" } }
         f()

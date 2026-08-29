@@ -9,8 +9,8 @@
 func foo(a: Int @local!): String @local? {
     exclave {
         "haha"
+        "hello"
     }
-    "hello"
 }
 
 class T {

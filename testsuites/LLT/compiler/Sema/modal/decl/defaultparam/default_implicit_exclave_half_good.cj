@@ -14,7 +14,7 @@ class C {
     }
 }
 
-func makeC(): C @local? {
+exclave func makeC(): C @local? {
     C()@local?
 }
 

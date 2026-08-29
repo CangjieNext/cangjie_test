@@ -8,9 +8,6 @@
 // negative test records that CJ_MCC_NewLocalWeakRefObject is not reachable
 // from Cangjie source until WeakRef gains a local initializer/API surface.
 // EXEC-PIPE-1: %compiler %diag_json %f 2>&1 | compare %f
-// ASSERT: scan "DiagKind": "sema_mismatched_types",
-// ASSERT: scan "DiagKind": "sema_parameters_and_arguments_mismatch",
-// ASSERT: scan "Errors": 2,
 
 import std.ref.*
 
@@ -26,3 +23,5 @@ main(): Unit {
     let target = WeakTarget(52)
     let weak: WeakRef<WeakTarget> @local? = WeakRef<WeakTarget>(target, CleanupPolicy.EAGER) @local?
 }
+// ASSERT: scan-1 "DiagKind": "sema_no_match_constructor",
+// ASSERT: scan "Errors": 1,

@@ -4,17 +4,15 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE: %compiler %cmp_opt %f -o %output -Woff all 2>&1
+// EXEC: %compiler %f
 
-func finallyExclave(_: Int @local!): String @local? {
+exclave func finallyExclave(_: Int @local!): String @local? {
     try {
         "ok"
     } catch (_) {
         "err"
     } finally {
-        exclave {
-            "cleanup"
-        }
+        "cleanup"
     }
 }
 
