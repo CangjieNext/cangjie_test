@@ -24,7 +24,7 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // TEST CJCPL
-// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
+// E-EXEC-PIPE: %cjcompat %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-3 [API/ABI] Named parameter cannot be made unnamed parameter.
 // ASSERT: scan-3 [ABI] The body of a const function or function marked with @Frozen changed.

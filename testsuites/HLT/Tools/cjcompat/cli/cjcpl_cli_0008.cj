@@ -6,11 +6,10 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// EXEC: %cp a.cjo old.cjo
-// EXEC-PIPE: %cjcpl --old old.cjo --new a.cjo --abi --api 2>&1 | compare %f
-// ASSERT: scan-full Compatible!\n
+// ERRCHECK: %cjcompat --old a.cjo --new
+// ASSERT: scan Option that requires an argument: --new
 package a
 main() {
     0

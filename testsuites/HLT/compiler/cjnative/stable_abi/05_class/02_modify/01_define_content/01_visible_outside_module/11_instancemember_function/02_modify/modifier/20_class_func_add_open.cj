@@ -24,8 +24,8 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
  
 // TEST CJCPL
-// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
-// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
+// E-EXEC-PIPE: %cjcompat %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcompat %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [ABI] Added open attribute of instance member functions for classes.
 // ASSERT: scan-not [API/ABI]

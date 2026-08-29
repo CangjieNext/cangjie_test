@@ -8,9 +8,8 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// EXEC: %cp a.cjo old.txt
-// ERRCHECK: %cjcpl --old old.txt --new a.cjo
-// ASSERT: scan Essential argument --old wrong or missing!
+// ERRCHECK: %cjcompat --old --new a.cjo
+// ASSERT: scan Option that requires an argument: --old
 package a
 main() {
     0

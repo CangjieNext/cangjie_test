@@ -9,7 +9,7 @@
 // LEVEL: 0-core
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC: %cp a.cjo old.cjo
-// EXEC-PIPE: %cjcpl --old old.cjo --new a.cjo --api --api 2>&1 | compare %f
+// EXEC-PIPE: %cjcompat --old old.cjo --new a.cjo --api 2>&1 | compare %f
 // ASSERT: scan-full Compatible!\n
 package a
 main() {
