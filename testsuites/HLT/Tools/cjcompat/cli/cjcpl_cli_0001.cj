@@ -9,5 +9,5 @@
 // LEVEL: 0
 // EXEC-PIPE: %cjcpl -h 2>&1 | compare %f
 // ASSERT: scan Usage:
-// ASSERT: scan cjcpl --old /path/to/old.cjo --new /path/to/new.cjo [--api] [--abi]
+// ASSERT: scan cjcompat --old /path/to/old.cjo --new /path/to/new.cjo [--api] [--abi]
 // ASSERT: scan Options:
