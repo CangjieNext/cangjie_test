@@ -11,8 +11,7 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-
-var res : Bool = false
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -27,26 +26,26 @@ public class Test_suit {
 
     @Bench
     func BenchmarkStringContains_N8(): Unit {
-        res = str1.contains("h")
+        blackBox(str1.contains("h"))
     }
 
     @Bench
     func BenchmarkStringContains_N32(): Unit {
-        res = str1_32.contains("h")
+        blackBox(str1_32.contains("h"))
     }
 
     @Bench
     func BenchmarkStringContains_N256(): Unit {
-        res = str1_256.contains("h")
+        blackBox(str1_256.contains("h"))
     }
 
     @Bench
     func BenchmarkStringContains_N1k(): Unit {
-        res = str1k.contains("h")
+        blackBox(str1k.contains("h"))
     }
 
     @Bench
     func BenchmarkStringContains_N1m(): Unit {
-        res = str1m.contains("h")
+        blackBox(str1m.contains("h"))
     }
 }
