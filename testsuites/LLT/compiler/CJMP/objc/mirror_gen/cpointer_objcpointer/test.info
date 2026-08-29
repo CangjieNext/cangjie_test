@@ -16,12 +16,6 @@ public struct CType {
     public var b: Int32 = 0
 }
 
-/* @ObjCMirror */
-public struct ObjCCompat {
-    public var a: ObjCPointer<?M> = ObjCPointer<?M>(CPointer<Unit>())
-    public var b: Int32 = 0
-}
-
 @ObjCMirror
 public open class M {
     protected var a: ObjCPointer<Int32>
