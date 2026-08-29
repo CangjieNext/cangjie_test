@@ -73,6 +73,54 @@ class Test_arraydeque_addlast_issue585_01 {
     }
 
     @TestCase
+    func test_addlast_capacity_boundary_and_continuous_growth(): Unit {
+        let initialCapacity: Int64 = 8
+        let arrdeque = ArrayDeque<Int64>(initialCapacity)
+
+        for (i in 0..(initialCapacity - 1)) {
+            arrdeque.addLast(i)
+        }
+        @Expect(arrdeque.size, initialCapacity - 1)
+        @Expect(arrdeque.capacity, initialCapacity)
+        @Expect(arrdeque.first, 0)
+        @Expect(arrdeque.last, initialCapacity - 2)
+
+        arrdeque.addLast(initialCapacity - 1)
+        @Expect(arrdeque.size, initialCapacity)
+        @Expect(arrdeque.capacity > initialCapacity, true)
+        @Expect(arrdeque.first, 0)
+        @Expect(arrdeque.last, initialCapacity - 1)
+
+        for (i in initialCapacity..OPS) {
+            arrdeque.addLast(i)
+        }
+        @Expect(arrdeque.size, OPS)
+        @Expect(arrdeque.first, 0)
+        @Expect(arrdeque.last, OPS - 1)
+        for (i in 0..OPS) {
+            @Expect(arrdeque.removeFirst(), Some(i))
+        }
+        @Expect(arrdeque.isEmpty(), true)
+    }
+
+    @TestCase
+    func test_addlast_after_iterator_reports_concurrent_modification(): Unit {
+        let arrdeque = ArrayDeque<Int64>(16)
+        for (i in 0..8) {
+            arrdeque.addLast(i)
+        }
+
+        let iter = arrdeque.iterator()
+        @Expect(iter.next(), Some(0))
+        arrdeque.addLast(8)
+        @Expect(arrdeque.size, 9)
+        @Expect(arrdeque.last, 8)
+        @ExpectThrows[ConcurrentModificationException]({
+            iter.next()
+        })
+    }
+
+    @TestCase
     func test_addlast_in_hashset_filter_workload(): Unit {
         let seen = HashSet<Int64>(OPS)
         let arrdeque = ArrayDeque<Int64>(OPS + 1)
