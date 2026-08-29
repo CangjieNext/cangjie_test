@@ -11,8 +11,7 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-
-var res : Array<Byte> = []
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -27,26 +26,26 @@ public class Test_suit {
 
     @Bench
     func BenchmarkStringToArray_N8(): Unit {
-        res = str1.toArray()
+        blackBox(str1.toArray())
     }
 
     @Bench
     func BenchmarkStringToArray_N32(): Unit {
-        res = str1_32.toArray()
+        blackBox(str1_32.toArray())
     }
 
     @Bench
     func BenchmarkStringToArray_N256(): Unit {
-        res = str1_256.toArray()
+        blackBox(str1_256.toArray())
     }
 
     @Bench
     func BenchmarkStringToArray_N1k(): Unit {
-        res = str1k.toArray()
+        blackBox(str1k.toArray())
     }
 
     @Bench
     func BenchmarkStringToArray_N1m(): Unit {
-        res = str1m.toArray()
+        blackBox(str1m.toArray())
     }
 }

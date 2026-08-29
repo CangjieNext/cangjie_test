@@ -11,8 +11,7 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-
-var res : Option<Int64> = None
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -29,96 +28,96 @@ public class Test_suit {
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1(): Unit {
-        res = str1.lastIndexOf(UInt8(114), 0)
+        blackBox(str1.lastIndexOf(UInt8(114), 0))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1k_start_start(): Unit {
-        res = str1k.lastIndexOf(UInt8(114),0)
+        blackBox(str1k.lastIndexOf(UInt8(114),0))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1k_start_mid(): Unit {
-        res = str1k.lastIndexOf(UInt8(114),512)
+        blackBox(str1k.lastIndexOf(UInt8(114),512))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1k_start_end(): Unit {
-        res = str1k.lastIndexOf(UInt8(114),1024)
+        blackBox(str1k.lastIndexOf(UInt8(114),1024))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1k_mid_start(): Unit {
-        res = str1k_mid.lastIndexOf(UInt8(114),0)
+        blackBox(str1k_mid.lastIndexOf(UInt8(114),0))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1k_mid_mid(): Unit {
-        res = str1k_mid.lastIndexOf(UInt8(114),512)
+        blackBox(str1k_mid.lastIndexOf(UInt8(114),512))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1k_mid_end(): Unit {
-        res = str1k_mid.lastIndexOf(UInt8(114),1024)
+        blackBox(str1k_mid.lastIndexOf(UInt8(114),1024))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1k_end_start(): Unit {
-        res = str1k_end.lastIndexOf(UInt8(114),0)
+        blackBox(str1k_end.lastIndexOf(UInt8(114),0))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1k_end_mid(): Unit {
-        res = str1k_end.lastIndexOf(UInt8(114),512)
+        blackBox(str1k_end.lastIndexOf(UInt8(114),512))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1k_end_end(): Unit {
-        res = str1k_end.lastIndexOf(UInt8(114),1024)
+        blackBox(str1k_end.lastIndexOf(UInt8(114),1024))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1m_start_start(): Unit {
-        res = str1m.lastIndexOf(UInt8(114),0)
+        blackBox(str1m.lastIndexOf(UInt8(114),0))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1m_start_mid(): Unit {
-        res = str1m.lastIndexOf(UInt8(114),512*1024)
+        blackBox(str1m.lastIndexOf(UInt8(114),512*1024))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1m_start_end(): Unit {
-        res = str1m.lastIndexOf(UInt8(114),1024*1024)
+        blackBox(str1m.lastIndexOf(UInt8(114),1024*1024))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1m_mid_start(): Unit {
-        res = str1m_mid.lastIndexOf(UInt8(114),0)
+        blackBox(str1m_mid.lastIndexOf(UInt8(114),0))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1m_mid_mid(): Unit {
-        res = str1m_mid.lastIndexOf(UInt8(114),512*1024)
+        blackBox(str1m_mid.lastIndexOf(UInt8(114),512*1024))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1m_mid_end(): Unit {
-        res = str1m_mid.lastIndexOf(UInt8(114),1024*1024)
+        blackBox(str1m_mid.lastIndexOf(UInt8(114),1024*1024))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1m_end_start(): Unit {
-        res = str1m_end.lastIndexOf(UInt8(114),0)
+        blackBox(str1m_end.lastIndexOf(UInt8(114),0))
     }
     
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1m_end_mid(): Unit {
-        res = str1m_end.lastIndexOf(UInt8(114),512*1024)
+        blackBox(str1m_end.lastIndexOf(UInt8(114),512*1024))
     }
     
     @Bench
     func BenchmarkStringLastIndexOfByteIndex_N1m_end_end(): Unit {
-        res = str1m_end.lastIndexOf(UInt8(114),1024*1024)
+        blackBox(str1m_end.lastIndexOf(UInt8(114),1024*1024))
     }
 }

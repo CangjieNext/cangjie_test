@@ -11,8 +11,7 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-
-var res : Option<Int64> = None
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -31,46 +30,46 @@ public class Test_suit {
 
     @Bench
     func BenchmarkStringLastIndexOfString_N1(): Unit {
-        res = str1.lastIndexOf("r")
+        blackBox(str1.lastIndexOf("r"))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfString_N1k_start(): Unit {
-        res = str1k.lastIndexOf("r")
+        blackBox(str1k.lastIndexOf("r"))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfString_N1k_mid(): Unit {
-        res = str1k_mid.lastIndexOf("r")
+        blackBox(str1k_mid.lastIndexOf("r"))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfString_N1k_end(): Unit {
-        res = str1k_end.lastIndexOf("r")
+        blackBox(str1k_end.lastIndexOf("r"))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfString_N1m_start(): Unit {
-        res = str1m.lastIndexOf("r")
+        blackBox(str1m.lastIndexOf("r"))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfString_N1m_mid(): Unit {
-        res = str1m_mid.lastIndexOf("r")
+        blackBox(str1m_mid.lastIndexOf("r"))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfString_N1m_end(): Unit {
-        res = str1m_end.lastIndexOf("r")
+        blackBox(str1m_end.lastIndexOf("r"))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfStringLongMatch_N1k(): Unit {
-        res = str_long_1K.lastIndexOf("abcdefgabcdefgabcdef")
+        blackBox(str_long_1K.lastIndexOf("abcdefgabcdefgabcdef"))
     }
 
     @Bench
     func BenchmarkStringLastIndexOfStringLongMatch_N1m(): Unit {
-        res = str_long_1M.lastIndexOf("abcdefgabcdefgabcdef")
+        blackBox(str_long_1M.lastIndexOf("abcdefgabcdefgabcdef"))
     }
 }
