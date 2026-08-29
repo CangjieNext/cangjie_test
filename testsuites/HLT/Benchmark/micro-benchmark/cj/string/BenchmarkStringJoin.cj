@@ -25,6 +25,11 @@ public class Test_suit {
     var str1k = Array<String>(1024, repeat:"s")
     var str1m = Array<String>(1024*1024, repeat:"s")
 
+    @AfterAll
+    func teardown(): Unit {
+        println("res: ${res}")
+    }
+
     @Bench
     func BenchmarkStringJoin_N8(): Unit {
         res = String.join(str1)

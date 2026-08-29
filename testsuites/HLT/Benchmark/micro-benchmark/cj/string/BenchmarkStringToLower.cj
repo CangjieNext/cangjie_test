@@ -25,6 +25,11 @@ public class Test_suit {
     var str1k = "H" * 1024
     var str1m = "H" * 1024 * 1024
 
+    @AfterAll
+    func teardown(): Unit {
+        println("res: ${res}")
+    }
+
     @Bench
     func BenchmarkStringToLower_N8(): Unit {
         res = str1.toAsciiLower()

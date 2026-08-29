@@ -29,6 +29,11 @@ public class Test_suit {
     var str_long_1K = "H" * 512 + "abcdefgabcdefgabcdef" + "H" * (512 -20)
     var str_long_1M = "H" * 1024 * 512 + "abcdefgabcdefgabcdef" + "H" * (1024 *512 -20)
 
+    @AfterAll
+    func teardown(): Unit {
+        println("res: ${res}")
+    }
+
     @Bench
     func BenchmarkStringIndexOfString_N1(): Unit {
         res = str1.indexOf("r")

@@ -29,6 +29,11 @@ public class Test_suit {
     var str1m_equal = "H"*1024*1024
     var str1m_notEqual = "H"*(1024*1024-1)+"S"
 
+    @AfterAll
+    func teardown(): Unit {
+        println("res: ${res}")
+    }
+
     @Bench
     func BenchmarkStringLessEqual_N1_Less(): Unit {
         res = str1 <= str1_notEqual

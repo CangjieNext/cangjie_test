@@ -29,6 +29,11 @@ public class Test_suit {
     var str1m_half = "H" * 1024 * 512 + "R" * 1024 *512 
     var str1m_all = "H" * (1024 * 1024) 
 
+    @AfterAll
+    func teardown(): Unit {
+        println("res: ${res}")
+    }
+
     @Bench
     func BenchmarkStringReplace_N8(): Unit {
         res = str1.replace("H", "R")

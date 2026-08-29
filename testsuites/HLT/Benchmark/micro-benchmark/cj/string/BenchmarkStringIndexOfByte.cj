@@ -27,6 +27,11 @@ public class Test_suit {
     var str1m_mid = "H" * 1024 * 512 + "r" + "H" * (1024 *512 -1)
     var str1m_end = "H" * (1024 * 1024 - 1) + "r"
 
+    @AfterAll
+    func teardown(): Unit {
+        println("res: ${res}")
+    }
+
     @Bench
     func BenchmarkStringIndexOfByte_N1(): Unit {
         res = str1.indexOf(UInt8(114))

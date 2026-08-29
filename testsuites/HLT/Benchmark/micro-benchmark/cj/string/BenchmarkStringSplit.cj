@@ -25,6 +25,11 @@ public class Test_suit {
     var str1k = "H" * 512 + "," + "H" * 511
     var str1m = "H" * (1024 * 512) + "," + "H" * (1024 * 512 - 1)
 
+    @AfterAll
+    func teardown(): Unit {
+        println("res: ${res}")
+    }
+
     @Bench
     func BenchmarkStringSplit_N8(): Unit {
         res = str1.split("")

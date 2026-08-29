@@ -23,6 +23,11 @@ public class Test_suit {
     var str2 = "H" * 1024
     var str3 = "H" * 1024 * 1024
 
+    @AfterAll
+    func teardown(): Unit {
+        println("res: ${res}")
+    }
+
     @Bench
     func BenchmarkStringMul_N1m_100(): Unit {
         res = str3 * 100
