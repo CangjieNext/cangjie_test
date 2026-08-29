@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// DEPENDENCE: test.toml test.h
+// EXEC: ObjCInteropGen test.toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+@C
+public struct NStruct {
+}
+
+@ObjCMirror
+public open class P {
+}
+
+@ObjCMirror
+public open class M {
+    public open mut prop foo: ObjCPointer<NStruct>
+    @ForeignName["foo:"] public open func foo(value: ?M): Unit
+    @ForeignName["bar:"] public open func bar(value: ?P): Unit
+    public open mut prop baz: ?P
+}
+*/
