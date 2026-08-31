@@ -4,15 +4,11 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// Macro named 'local' with space after '@': macro decl modifier, not type modal.
-
 // DEPENDENCE: %n.macro.cj
 // EXEC: %compiler %cmp_macro %n.macro.cj
-// EXEC: %compiler %f -Woff all
+// EXEC: %compiler %f -Woff all --debug-macro
 
 import modal_parse_macro.*
-
-
 main() {
-    @local @local! func foo() {}
+    @local @local? func foo() {}
 }
