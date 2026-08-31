@@ -10,7 +10,7 @@
 // DEPENDENCE: ./test_parse_006_dep.cj
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan intrinsic function must be toplevel scope
+// ASSERT: scan ParseASTException: Failed to parse program.
 internal import std.ast.*
 internal import std.io.*
 internal import std.collection.*

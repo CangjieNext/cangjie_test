@@ -7,7 +7,7 @@
  */
 
 // EXEC: %compiler %coverage_opt %cmp_opt_chir2hlir %f -o %output
-// RUN-EXEC: %run %run_opt %output > %n.txt
+// RUN-EXEC: %run %run_opt %output
 
 import std.ast.*
 
@@ -29,7 +29,7 @@ main(): Int64 {
     try {
         varDecl.pattern
     } catch (e: ASTException) {
-        if (e.message == "Current VarDecl is with an empty pattern") {
+        if (e.message == "'VarDecl' has no pattern.") {
             cnt++
         }
     }
@@ -41,7 +41,7 @@ main(): Int64 {
     try {
         varDecl.declType
     } catch (e: ASTException) {
-        if (e.message == "Current VarDecl has an implicit type") {
+        if (e.message == "'VarDecl' has no explicit type.") {
             cnt++
         }
     }
@@ -53,7 +53,7 @@ main(): Int64 {
     try {
         varDecl.expr
     } catch (e: ASTException) {
-        if (e.message == "Current VarDecl has not be initialized") {
+        if (e.message == "'VarDecl' is not initialized.") {
             cnt++
         }
     }

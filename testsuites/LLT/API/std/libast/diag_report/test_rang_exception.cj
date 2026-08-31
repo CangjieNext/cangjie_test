@@ -19,5 +19,5 @@ main() {
 }
 
 /* SCAN-IN
-ASTException: The range of input tokens is out of the macro call range.
+ASTException: Range of input tokens exceeds the macro call range.
  */

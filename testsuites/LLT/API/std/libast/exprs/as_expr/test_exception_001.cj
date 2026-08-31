@@ -46,13 +46,13 @@ main(): Int64 {
     0
 }
 
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'AsExpr' node.
 */
 /*SCAN-IN
 description: as, token_id: 58, token_literal_value: as
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be AS
+ASTException: Illegal token kind: expected 'AS', got 'ILLEGAL'.
 */
 // ASSERT: scan cnt = 2

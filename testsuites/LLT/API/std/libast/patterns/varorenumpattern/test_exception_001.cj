@@ -34,7 +34,7 @@ main(): Int64 {
 }
 
 /* SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be IDENTIFIER
-ASTException: Illegal TokenKind, TokenKind should be IDENTIFIER
+ASTException: Illegal token kind: expected 'IDENTIFIER', got 'FOR'.
+ASTException: Illegal token kind: expected 'IDENTIFIER', got 'AND'.
 cnt = 2
 */

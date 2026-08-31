@@ -8,7 +8,7 @@
 // DEPENDENCE: test_lex_lambdaExpr_inMacro_define_005.cj
 // EXEC: %compiler %cmp_macro test_lex_lambdaExpr_inMacro_define_005.cj
 // EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
-// ASSERT: scan expected '=>' in lambda expression, found '='
+// ASSERT: scan ParseASTException: Failed to parse program.
 import define.*
 
 @M()

@@ -63,8 +63,8 @@ main(): Int64 {
 
 // ASSERT: scan ASTException: Cannot construct the 'AssignExpr' node
 // ASSERT: scan ASTException: Cannot construct the 'AssignExpr' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'AssignExpr' node.
 */
 /*SCAN-IN
 description: assign, token_id: 30, token_literal_value: =

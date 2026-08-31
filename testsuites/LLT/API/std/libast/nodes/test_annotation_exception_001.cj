@@ -7,7 +7,7 @@
  */
 
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// RUN-EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC-PIPE-0: %run %run_opt %output | compare %f
 
 import std.ast.*
 import std.collection.*
@@ -106,11 +106,11 @@ main(): Int64 {
 
 // ASSERT: scan Cannot construct the 'Annotation' node
 // ASSERT: scan description: at, token_id: 51, token_literal_value: @
-// ASSERT: scan Illegal TokenKind, TokenKind should be AT or AT_EXCLAMATION
+// ASSERT: scan Illegal token kind: expected 'AT' or 'AT_EXCLAMATION', got 'OR'.
 // ASSERT: scan description: or, token_id: 17, token_literal_value: ||
 // ASSERT: scan 1
 // ASSERT: scan description: or, token_id: 17, token_literal_value: ||
-// ASSERT: scan Current Annotation node is not `When` annotation
+// ASSERT: scan Current 'Annotation' node is not a 'When' annotation.
 // ASSERT: scan BinaryExpr {
 // ASSERT: scan -leftExpr: RefExpr {
 // ASSERT: scan -identifier: Token {

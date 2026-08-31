@@ -71,12 +71,11 @@ main(): Int64 {
     0
 }
 
-// ASSERT: scan Cannot construct the 'ParenType' node
-// ASSERT: scan parsing type error
+// ASSERT: scan Cannot construct the 'ParenType' node.
 // ASSERT: scan description: l_paren, token_id: 2, token_literal_value: (
-// ASSERT: scan Illegal TokenKind, TokenKind should be LPAREN
+// ASSERT: scan Illegal token kind: expected 'LPAREN', got 'AND'.
 // ASSERT: scan description: r_paren, token_id: 3, token_literal_value: )
-// ASSERT: scan Illegal TokenKind, TokenKind should be RPAREN
+// ASSERT: scan Illegal token kind: expected 'RPAREN', got 'AND'.
 // ASSERT: scan ParenType {
 // ASSERT: scan -parenthesizedType: PrimitiveType {
 // ASSERT: scan -keyword: Token {

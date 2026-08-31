@@ -8,7 +8,6 @@
 
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args | compare %f
-// ASSERT: scan parsing expr error.
 // ASSERT: scan ASTException: Cannot construct the 'ForInExpr' node.
 
 internal import std.ast.*

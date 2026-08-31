@@ -8,7 +8,7 @@
 
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
 // RUN-EXEC-PIPE-1: : %run %run_opt %output 2>&1 | compare %f
-// ASSERT: scan Illegal TokenKind, TokenKind should be BITAND
+// ASSERT: scan Illegal token kind: expected 'BITAND', got 'DOT'.
 
 import std.ast.*
 

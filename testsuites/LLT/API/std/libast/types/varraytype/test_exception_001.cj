@@ -89,16 +89,15 @@ main(): Int64 {
 }
 
 // ASSERT: scan Cannot construct the 'VArrayType' node
-// ASSERT: scan parsing type error
 // ASSERT: scan description: less, token_id: 53, token_literal_value: <
-// ASSERT: scan Illegal TokenKind, TokenKind should be LT
+// ASSERT: scan Illegal token kind: expected 'LT', got 'AND'.
 // ASSERT: scan description: greater, token_id: 54, token_literal_value: >
-// ASSERT: scan Illegal TokenKind, TokenKind should be GT
+// ASSERT: scan Illegal token kind: expected 'GT', got 'AND'.
 // ASSERT: scan PrimitiveType {
 // ASSERT: scan -keyword: Token {
 // ASSERT: scan value: "Float64"
 // ASSERT: scan kind: FLOAT64
 // ASSERT: scan description: and, token_id: 16, token_literal_value: &&
 // ASSERT: scan description: dollar, token_id: 90, token_literal_value: $
-// ASSERT: scan Illegal TokenKind, TokenKind should be DOLLAR
+// ASSERT: scan Illegal token kind: expected 'DOLLAR', got 'AND'.
 // ASSERT: scan cnt = 5

@@ -75,9 +75,9 @@ value: "42"
 description: resume, token_id: 159, token_literal_value: resume
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RESUME
+ASTException: Illegal token kind: expected 'RESUME', got 'ILLEGAL'.
 */
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'ResumeExpr' node.
 */
 // ASSERT: scan cnt = 3

@@ -8,7 +8,7 @@
 
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan expected ';' or '<NL>', found ','
+// ASSERT: scan ParseASTException: Failed to parse decl.
 
 internal import std.ast.*
 internal import std.collection.*

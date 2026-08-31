@@ -53,9 +53,9 @@ main(): Int64 {
 }
 
 /* SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be a primitive type.
-ASTException: Cannot construct the 'PrimitiveTypeExpr' node. (Empty Input)
-ASTException: Illegal TokenKind, TokenKind should be a primitive type.
-ASTException: Illegal TokenKind, TokenKind should be a primitive type.
+ASTException: Illegal token kind: expected a primitive type, got 'NL'.
+ASTException: Cannot construct the 'PrimitiveTypeExpr' node: input is empty.
+ASTException: Illegal token kind: expected a primitive type, got 'IDENTIFIER'.
+ASTException: Illegal token kind: expected a primitive type, got 'OR'.
 cnt = 4
  */

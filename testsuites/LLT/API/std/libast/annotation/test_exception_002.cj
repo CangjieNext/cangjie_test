@@ -40,6 +40,6 @@ main() {
 }
 
 /* SCAN-IN
-Illegal TokenKind, TokenKind should be AT or AT_EXCLAMATION
+Illegal token kind: expected 'AT' or 'AT_EXCLAMATION', got 'SUB'.
 cnt = 1
  */

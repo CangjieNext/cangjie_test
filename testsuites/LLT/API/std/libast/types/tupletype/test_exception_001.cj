@@ -52,7 +52,6 @@ main(): Int64 {
 }
 
 // ASSERT: scan Cannot construct the 'TupleType' node
-// ASSERT: scan parsing type error
 // ASSERT: scan description: l_paren, token_id: 2, token_literal_value: (
 // ASSERT: scan description: r_paren, token_id: 3, token_literal_value: )
 // ASSERT: scan cnt = 2

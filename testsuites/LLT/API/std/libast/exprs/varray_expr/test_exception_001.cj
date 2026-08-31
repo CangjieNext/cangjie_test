@@ -83,26 +83,26 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected a '$' follows an integer literal as the second generic argument between '<' and '>' of 'VArray' type
+/* SCAN-IN
+ASTException: Cannot construct the 'VArrayExpr' node.
 */
 /*SCAN-IN
 ASTException: Cannot construct the 'VArrayExpr' node.
 */
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'VArrayExpr' node.
 */
 /*SCAN-IN
 description: l_paren, token_id: 2, token_literal_value: (
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LPAREN
+ASTException: Illegal token kind: expected 'LPAREN', got 'AND'.
 */
 /*SCAN-IN
 description: r_paren, token_id: 3, token_literal_value: )
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RPAREN
+ASTException: Illegal token kind: expected 'RPAREN', got 'AND'.
 */
 /*SCAN-IN
 1

@@ -106,30 +106,30 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected type argument
+/* SCAN-IN
+ASTException: Cannot construct the 'MemberAccess' node.
 */
-// ASSERT: scan ASTException: Cannot construct the 'MemberAccess' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+// ASSERT: scan ASTException: Cannot construct the 'MemberAccess' node.
+/* SCAN-IN
+ASTException: Cannot construct the 'MemberAccess' node.
 */
 /*SCAN-IN
 description: dot, token_id: 0, token_literal_value: .
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be DOT
+ASTException: Illegal token kind: expected 'DOT', got 'AND'.
 */
 /*SCAN-IN
 description: illegal, token_id: 162, token_literal_value:
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LT
+ASTException: Illegal token kind: expected 'LT', got 'AND'.
 */
 /*SCAN-IN
 description: illegal, token_id: 162, token_literal_value:
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be GT
+ASTException: Illegal token kind: expected 'GT', got 'AND'.
 */
 // ASSERT: scan 0
 // ASSERT: scan 0

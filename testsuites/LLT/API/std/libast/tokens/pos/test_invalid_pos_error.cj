@@ -8,7 +8,7 @@
 
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan There is a token with invalid position in the input.
+// ASSERT: scan ASTException: Cannot construct the 'MemberAccess' node.
 
 import std.ast.*
 

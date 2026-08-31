@@ -9,7 +9,7 @@
 // EXEC-0: %compiler %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan An exception has occurred:
-// ASSERT: scan parsing decl error
+// ASSERT: scan ParseASTException: Failed to parse decl.
 
 internal import std.ast.*
 
