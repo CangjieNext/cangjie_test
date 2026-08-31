@@ -121,29 +121,29 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected declaration, found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'MacroExpandExpr' node.
 */
-/*SCAN-IN
-unexpected parameters for macro invocation here
+/* SCAN-IN
+ASTException: Cannot construct the 'MacroExpandExpr' node.
 */
-/*SCAN-IN
-expected expression after '', found keyword 'macro'
+/* SCAN-IN
+ASTException: Cannot construct the 'MacroExpandExpr' node.
 */
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'MacroExpandExpr' node.
 */
 /*SCAN-IN
 description: l_paren, token_id: 2, token_literal_value: (
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LPAREN
+ASTException: Illegal token kind: expected 'LPAREN', got 'AND'.
 */
 /*SCAN-IN
 description: r_paren, token_id: 3, token_literal_value: )
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RPAREN
+ASTException: Illegal token kind: expected 'RPAREN', got 'AND'.
 */
 // ASSERT: scan 8
 // ASSERT: scan 3
@@ -155,16 +155,16 @@ description: identifier, token_id: 137, token_literal_value: A.m
 description: l_square, token_id: 4, token_literal_value: [
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LSQUARE
+ASTException: Illegal token kind: expected 'LSQUARE', got 'AND'.
 */
 /*SCAN-IN
 description: r_square, token_id: 5, token_literal_value: ]
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RSQUARE
+ASTException: Illegal token kind: expected 'RSQUARE', got 'AND'.
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be AT
+ASTException: Illegal token kind: expected 'AT', got 'AND'.
 */
 // ASSERT: scan 8
 // ASSERT: scan cnt = 8

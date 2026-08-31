@@ -93,12 +93,12 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected expression after ':', found '='
+/* SCAN-IN
+ASTException: Cannot construct the 'RangeExpr' node.
 */
-// ASSERT: scan ASTException: Cannot construct the 'RangeExpr' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+// ASSERT: scan ASTException: Cannot construct the 'RangeExpr' node.
+/* SCAN-IN
+ASTException: Cannot construct the 'RangeExpr' node.
 */
 /*SCAN-IN
 value: "2"
@@ -107,13 +107,13 @@ value: "2"
 value: "1"
 */
 /*SCAN-IN
-Current range expr cannot get step
+ASTException: 'RangeExpr' has no step.
 */
 /*SCAN-IN
 description: colon, token_id: 28, token_literal_value: :
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be COLON
+ASTException: Illegal token kind: expected 'COLON', got 'AND'.
 */
 /*SCAN-IN
 description: and, token_id: 16, token_literal_value: &&

@@ -67,7 +67,7 @@ main(): Int64 {
     0
 }
 
-// ASSERT: scan ASTException: Cannot construct the 'PerformExpr' node
+// ASSERT: scan ASTException: Cannot construct the 'PerformExpr' node.
 /*SCAN-IN
 value: "Eff"
 */
@@ -75,9 +75,9 @@ value: "Eff"
 description: perform, token_id: 158, token_literal_value: perform
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be PERFORM
+ASTException: Illegal token kind: expected 'PERFORM', got 'ILLEGAL'.
 */
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'PerformExpr' node.
 */
 // ASSERT: scan cnt = 3

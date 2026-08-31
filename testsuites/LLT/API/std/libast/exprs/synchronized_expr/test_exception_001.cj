@@ -94,35 +94,35 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected '(', found '{'
+/* SCAN-IN
+ASTException: Cannot construct the 'SynchronizedExpr' node.
 */
-/*SCAN-IN
-expected '=>' in lambda expression, found 'count'
+/* SCAN-IN
+ASTException: Cannot construct the 'SynchronizedExpr' node.
 */
-/*SCAN-IN
-expected '{', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'SynchronizedExpr' node.
 */
-// ASSERT: scan ASTException: Cannot construct the 'SynchronizedExpr' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+// ASSERT: scan ASTException: Cannot construct the 'SynchronizedExpr' node.
+/* SCAN-IN
+ASTException: Cannot construct the 'SynchronizedExpr' node.
 */
 /*SCAN-IN
 description: l_paren, token_id: 2, token_literal_value: (
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LPAREN
+ASTException: Illegal token kind: expected 'LPAREN', got 'AND'.
 */
 /*SCAN-IN
 description: r_paren, token_id: 3, token_literal_value: )
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RPAREN
+ASTException: Illegal token kind: expected 'RPAREN', got 'AND'.
 */
 /*SCAN-IN
 description: synchronized, token_id: 134, token_literal_value: synchronized
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be SYNCHRONIZED
+ASTException: Illegal token kind: expected 'SYNCHRONIZED', got 'AND'.
 */
 // ASSERT: scan cnt = 6

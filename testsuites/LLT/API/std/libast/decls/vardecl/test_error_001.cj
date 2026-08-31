@@ -9,8 +9,7 @@
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: regex-not core dump
-// ASSERT: scan expected identifier or pattern after 'let', found keyword 'let'
-// ASSERT: scan expected expression after '=', found '**'
+// ASSERT: scan ParseASTException: Failed to parse decl.
 
 internal import std.ast.*
 

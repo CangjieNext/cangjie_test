@@ -36,7 +36,7 @@ main(): Int64 {
     try {
         PrimitiveType(quote())
     } catch (e: ASTException) {
-        if (e.message == "parsing type error.") {
+        if (e.message == "Cannot construct the 'PrimitiveType' node.") {
             cnt++;
         }
     }
@@ -45,7 +45,7 @@ main(): Int64 {
         var p = PrimitiveType()
         p.keyword = Token(ADD)
     } catch (e: ASTException) {
-        if (e.message == "Illegal TokenKind, TokenKind should be a primitive type.") {
+        if (e.message == "Illegal token kind: expected a primitive type, got 'ADD'.") {
             cnt++;
         }
     }

@@ -17,5 +17,5 @@ main() {
 }
 
 /* SCAN-IN
-ASTException: Input tokens are not from a single file.
+ASTException: Input tokens span multiple files.
  */

@@ -48,7 +48,7 @@ main(): Int64 {
 
 // ASSERT: scan 1
 // ASSERT: scan description: l_curl, token_id: 6, token_literal_value: {
-// ASSERT: scan Illegal TokenKind, TokenKind should be LCURL
+// ASSERT: scan Illegal token kind: expected 'LCURL', got 'SENTINEL'.
 // ASSERT: scan description: r_curl, token_id: 7, token_literal_value: }
-// ASSERT: scan Illegal TokenKind, TokenKind should be RCURL
+// ASSERT: scan Illegal token kind: expected 'RCURL', got 'SENTINEL'.
 // ASSERT: scan cnt = 2

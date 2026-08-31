@@ -70,8 +70,8 @@ main(): Int64 {
     0
 }
 
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'RefExpr' node.
 */
 /*SCAN-IN
 description: illegal, token_id: 162, token_literal_value:
@@ -81,9 +81,9 @@ description: illegal, token_id: 162, token_literal_value:
 description: illegal, token_id: 162, token_literal_value:
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LT
+ASTException: Illegal token kind: expected 'LT', got 'ILLEGAL'.
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be GT
+ASTException: Illegal token kind: expected 'GT', got 'ILLEGAL'.
 */
 // ASSERT: scan cnt = 3

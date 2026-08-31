@@ -98,32 +98,32 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected '=>' in lambda expression, found '->'
+/* SCAN-IN
+ASTException: Cannot construct the 'LambdaExpr' node.
 */
-/*SCAN-IN
-expected '=>' in lambda expression, found 'a'
+/* SCAN-IN
+ASTException: Cannot construct the 'LambdaExpr' node.
 */
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'LambdaExpr' node.
 */
 /*SCAN-IN
 description: l_curl, token_id: 6, token_literal_value: {
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LCURL
+ASTException: Illegal token kind: expected 'LCURL', got 'AND'.
 */
 /*SCAN-IN
 description: r_curl, token_id: 7, token_literal_value: }
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RCURL
+ASTException: Illegal token kind: expected 'RCURL', got 'AND'.
 */
 /*SCAN-IN
 description: double_arrow, token_id: 46, token_literal_value: =>
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be DOUBLE_ARROW
+ASTException: Illegal token kind: expected 'DOUBLE_ARROW', got 'AND'.
 */
 // ASSERT: scan 21
 // ASSERT: scan cnt = 6

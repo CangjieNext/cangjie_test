@@ -63,7 +63,7 @@ main(): Int64 {
 
 /* SCAN-IN
 Cannot construct the 'PrefixType' node.
-parsing type error.
+Cannot construct the 'PrefixType' node.
 ?
 cnt = 2
 */

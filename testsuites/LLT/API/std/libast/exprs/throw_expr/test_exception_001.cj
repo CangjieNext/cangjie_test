@@ -73,9 +73,9 @@ Cannot construct the 'ThrowExpr' node
 description: throw, token_id: 107, token_literal_value: throw
 */
 /*SCAN-IN
-Illegal TokenKind, TokenKind should be THROW
+ASTException: Illegal token kind: expected 'THROW', got 'ILLEGAL'.
 */
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'ThrowExpr' node.
 */
 // ASSERT: scan cnt = 3

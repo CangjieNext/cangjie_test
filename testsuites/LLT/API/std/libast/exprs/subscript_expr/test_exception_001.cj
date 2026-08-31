@@ -79,29 +79,29 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected expression after '[', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'SubscriptExpr' node.
 */
-/*SCAN-IN
-unclosed delimiter: '['
+/* SCAN-IN
+ASTException: Cannot construct the 'SubscriptExpr' node.
 */
-/*SCAN-IN
-expected expression after '[', found ']'
+/* SCAN-IN
+ASTException: Cannot construct the 'SubscriptExpr' node.
 */
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'SubscriptExpr' node.
 */
 /*SCAN-IN
 description: l_square, token_id: 4, token_literal_value: [
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LSQUARE
+ASTException: Illegal token kind: expected 'LSQUARE', got 'AND'.
 */
 /*SCAN-IN
 description: r_square, token_id: 5, token_literal_value: ]
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RSQUARE
+ASTException: Illegal token kind: expected 'RSQUARE', got 'AND'.
 */
 // ASSERT: scan 1
 // ASSERT: scan cnt = 5

@@ -118,26 +118,26 @@ main(): Int64 {
 
 // ASSERT: scan ASTException: Cannot construct the 'SpawnExpr' node
 // ASSERT: scan ASTException: Cannot construct the 'SpawnExpr' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'SpawnExpr' node.
 */
 /*SCAN-IN
 description: illegal, token_id: 162, token_literal_value:
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LPAREN
+ASTException: Illegal token kind: expected 'LPAREN', got 'AND'.
 */
 /*SCAN-IN
 description: illegal, token_id: 162, token_literal_value:
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RPAREN
+ASTException: Illegal token kind: expected 'RPAREN', got 'AND'.
 */
 /*SCAN-IN
 description: spawn, token_id: 133, token_literal_value: spawn
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be SPAWN
+ASTException: Illegal token kind: expected 'SPAWN', got 'AND'.
 */
 /*SCAN-IN
 value: "ctx"
@@ -146,7 +146,7 @@ value: "ctx"
 value: "=>"
 */
 /*SCAN-IN
-Cannot get context from SpawnExpr
+ASTException: 'SpawnExpr' has no thread context.
 */
 // ASSERT: scan traversed!
 // ASSERT: scan traversed!

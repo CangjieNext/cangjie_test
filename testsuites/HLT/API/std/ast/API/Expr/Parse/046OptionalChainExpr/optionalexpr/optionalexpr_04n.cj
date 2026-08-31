@@ -9,8 +9,8 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// (!(target_ios | target_ios_simulator)) ASSERT: regex error.*expected expression after \'\?\', found \'<EOF>\'
-// (target_ios | target_ios_simulator) ASSERT: scan ParseASTException
+// (!(target_ios | target_ios_simulator)) ASSERT: scan ParseASTException: Failed to parse expr.
+// (target_ios | target_ios_simulator) ASSERT: scan ParseASTException: Failed to parse expr.
 import std.ast.*
 
 let opTokens = quote(a?{b}?)

@@ -88,27 +88,27 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected ';' or '<NL>', found ','
+/* SCAN-IN
+ASTException: Cannot construct the 'CallExpr' node.
 */
-/*SCAN-IN
-expected expression or declaration, found '}'
+/* SCAN-IN
+ASTException: Cannot construct the 'CallExpr' node.
 */
 // ASSERT: scan ASTException: Cannot construct the 'CallExpr' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'CallExpr' node.
 */
 /*SCAN-IN
 description: l_paren, token_id: 2, token_literal_value: (
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LPAREN
+ASTException: Illegal token kind: expected 'LPAREN', got 'AND'.
 */
 /*SCAN-IN
 description: r_paren, token_id: 3, token_literal_value: )
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RPAREN
+ASTException: Illegal token kind: expected 'RPAREN', got 'AND'.
 */
 // ASSERT: scan 2
 // ASSERT: scan a?(1)

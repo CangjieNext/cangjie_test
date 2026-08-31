@@ -71,12 +71,11 @@ main(): Int64 {
     0
 }
 
-// ASSERT: scan Cannot construct the 'FuncType' node
-// ASSERT: scan parsing type error
+// ASSERT: scan Cannot construct the 'FuncType' node.
 // ASSERT: scan description: l_paren, token_id: 2, token_literal_value: (
 // ASSERT: scan description: r_paren, token_id: 3, token_literal_value: )
 // ASSERT: scan description: arrow, token_id: 44, token_literal_value: ->
 // ASSERT: scan 2
 // ASSERT: scan description: and, token_id: 16, token_literal_value: &&
-// ASSERT: scan Illegal TokenKind, TokenKind should be COMMA
+// ASSERT: scan Illegal token kind: expected 'COMMA', got 'AND'.
 // ASSERT: scan cnt = 3

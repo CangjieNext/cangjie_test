@@ -17,5 +17,4 @@ main() {
     0
 }
 
-// ASSERT: scan expected '<-' in if-let expression, found '='
-// ASSERT: scan parsing expr error.
+// ASSERT: scan ParseASTException: Failed to parse expr.

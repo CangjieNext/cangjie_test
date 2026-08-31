@@ -87,38 +87,38 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-trailing closure can only be used on function calls with function or variable names
+/* SCAN-IN
+ASTException: Cannot construct the 'DoWhileExpr' node.
 */
-/*SCAN-IN
-expected '{', found keyword 'while'
+/* SCAN-IN
+ASTException: Cannot construct the 'DoWhileExpr' node.
 */
-// ASSERT: scan ASTException: Cannot construct the 'DoWhileExpr' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+// ASSERT: scan ASTException: Cannot construct the 'DoWhileExpr' node.
+/* SCAN-IN
+ASTException: Cannot construct the 'DoWhileExpr' node.
 */
 /*SCAN-IN
 description: do, token_id: 105, token_literal_value: do
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be DO
+ASTException: Illegal token kind: expected 'DO', got 'AND'.
 */
 /*SCAN-IN
 description: while, token_id: 106, token_literal_value: while
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be WHILE
+ASTException: Illegal token kind: expected 'WHILE', got 'AND'.
 */
 /*SCAN-IN
 description: l_paren, token_id: 2, token_literal_value: (
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LPAREN
+ASTException: Illegal token kind: expected 'LPAREN', got 'AND'.
 */
 /*SCAN-IN
 description: r_paren, token_id: 3, token_literal_value: )
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RPAREN
+ASTException: Illegal token kind: expected 'RPAREN', got 'AND'.
 */
 // ASSERT: scan cnt = 7

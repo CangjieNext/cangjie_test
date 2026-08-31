@@ -10,7 +10,7 @@
 // DEPENDENCE: macro_definition.cj
 // EXEC: %compiler %cmp_macro macro_definition.cj
 // ERRCHECK: %compiler %f -o %output
-// ASSERT: scan ASTException: The range of input tokens is out of the macro call range.
+// ASSERT: scan ASTException: Range of input tokens exceeds the macro call range.
 
 package macro_calling
 

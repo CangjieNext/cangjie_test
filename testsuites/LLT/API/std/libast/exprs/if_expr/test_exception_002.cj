@@ -112,30 +112,30 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected expression after '', found keyword 'else'
+/* SCAN-IN
+ASTException: Cannot construct the 'IfExpr' node.
 */
-// ASSERT: scan ASTException: Cannot construct the 'IfExpr' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+// ASSERT: scan ASTException: Cannot construct the 'IfExpr' node.
+/* SCAN-IN
+ASTException: Cannot construct the 'IfExpr' node.
 */
 /*SCAN-IN
 description: if, token_id: 98, token_literal_value: if
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be IF
+ASTException: Illegal token kind: expected 'IF', got 'AND'.
 */
 /*SCAN-IN
 description: l_paren, token_id: 2, token_literal_value: (
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LPAREN
+ASTException: Illegal token kind: expected 'LPAREN', got 'AND'.
 */
 /*SCAN-IN
 description: r_paren, token_id: 3, token_literal_value: )
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RPAREN
+ASTException: Illegal token kind: expected 'RPAREN', got 'AND'.
 */
 /*SCAN-IN
 value: "return"
@@ -144,6 +144,6 @@ value: "return"
 description: else, token_id: 99, token_literal_value: else
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be ELSE
+ASTException: Illegal token kind: expected 'ELSE', got 'AND'.
 */
 // ASSERT: scan cnt = 7

@@ -18,8 +18,5 @@ main() {
     0
 }
 
-// ASSERT: scan expected declaration, found 'classA'
-// ASSERT: regex-begin .*\|.*classA a \{ \}
-// ASSERT: scan-next ^ expected declaration here
 // ASSERT: scan An exception has occurred:
-// ASSERT: scan parsing program error.
+// ASSERT: scan ParseASTException: Failed to parse program.
