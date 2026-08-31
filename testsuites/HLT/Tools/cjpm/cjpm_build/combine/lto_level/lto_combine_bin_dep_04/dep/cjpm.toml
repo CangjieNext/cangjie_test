@@ -51,6 +51,8 @@
 [target.arm-linux-android23.bin-dependencies]
   path-option = ["inner_dep/target/arm-linux-android23/release/inner_dep"]
 
+[target.aarch64-linux-android23.bin-dependencies]
+  path-option = ["inner_dep/target/aarch64-linux-android23/release/inner_dep"]
 
 
 
@@ -72,4 +74,7 @@
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
 
 [target.arm-linux-android23]
+  compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
+
+[target.aarch64-linux-android23]
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"

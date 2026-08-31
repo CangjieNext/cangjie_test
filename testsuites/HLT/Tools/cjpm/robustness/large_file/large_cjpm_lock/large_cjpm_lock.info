@@ -1,0 +1,13 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 2
+// DEPENDENCE: ../%n
+// (not Windows)EXEC: cd %n && python3 -c "q=chr(34);f=open('cjpm.lock','w');[f.write('[[package]]\nname = '+q+'dep_'+str(i).zfill(5)+q+'\nversion = '+q+'1.0.0'+q+'\nsource = '+q+'local'+q+'\npath = '+q+'/tmp/dep_'+str(i).zfill(5)+q+'\n\n') for i in range(50000)];f.close()"
+// (Windows)EXEC: cd %n && python -c "q=chr(34);f=open('cjpm.lock','w');[f.write('[[package]]\nname = '+q+'dep_'+str(i).zfill(5)+q+'\nversion = '+q+'1.0.0'+q+'\nsource = '+q+'local'+q+'\npath = '+q+'/tmp/dep_'+str(i).zfill(5)+q+'\n\n') for i in range(50000)];f.close()"
+// ERRCHECK: cd %n && %cjpm build %cjpm_opt
+// ASSERT: scan Error:
+
