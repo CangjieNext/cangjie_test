@@ -53,6 +53,10 @@ lto = "full"
 [target.arm-linux-android23.bin-dependencies]
   path-option = ["dep/target/arm-linux-android23/release/dep","dep1/target/arm-linux-android23/release/dep1"]
 
+[target.aarch64-linux-android23.bin-dependencies]
+  path-option = ["dep/target/aarch64-linux-android23/release/dep","dep1/target/aarch64-linux-android23/release/dep1"]
+
+
 
 
 [target.x86_64-linux-ohos]
@@ -72,4 +76,7 @@ lto = "full"
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
 
 [target.arm-linux-android23]
+  compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
+
+[target.aarch64-linux-android23]
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"

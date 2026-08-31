@@ -55,6 +55,9 @@ lto = "full"
 [target.arm-linux-android23.bin-dependencies]
   path-option = ["dep/target/arm-linux-android23/release/dep","dep1/target/arm-linux-android23/release/dep1"]
 
+[target.aarch64-linux-android23.bin-dependencies]
+  path-option = ["dep/target/aarch64-linux-android23/release/dep","dep1/target/aarch64-linux-android23/release/dep1"]
+
 [target.x86_64-linux-ohos]
   compile-option = "-B=${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/bin --sysroot=${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/sysroot"
 
@@ -72,6 +75,9 @@ lto = "full"
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
 
 [target.arm-linux-android23]
+  compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
+
+[target.aarch64-linux-android23]
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
 [target.arm64-apple-ios-simulator]
   compile-option = "-B/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ --sysroot=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk"

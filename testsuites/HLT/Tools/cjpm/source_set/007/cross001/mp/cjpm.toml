@@ -62,3 +62,6 @@ features = ["user.mp.a", "user.mp.b", "user.mp.c"]
 
 [target.arm-linux-android23]
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
+
+[target.aarch64-linux-android23]
+  compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"

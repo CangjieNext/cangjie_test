@@ -46,7 +46,10 @@ level = "thin"
   path-option = ["inner_dep/target/aarch64-linux-android35/release/inner_dep"] 
 
 [target.arm-linux-android23.bin-dependencies]
-  path-option = ["inner_dep/target/arm-linux-android23/release/inner_dep"] 
+  path-option = ["inner_dep/target/arm-linux-android23/release/inner_dep"]
+
+[target.aarch64-linux-android23.bin-dependencies]
+  path-option = ["inner_dep/target/aarch64-linux-android23/release/inner_dep"] 
 
 [target.arm64-apple-ios-simulator.bin-dependencies]
   path-option = ["inner_dep/target/arm64-apple-ios-simulator/release/inner_dep"]
@@ -68,6 +71,9 @@ level = "thin"
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
 
 [target.arm-linux-android23]
+  compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
+
+[target.aarch64-linux-android23]
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
 [target.arm64-apple-ios-simulator]
   compile-option = "-B/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ --sysroot=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk"
