@@ -4,22 +4,28 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC-PIPE-0: %run %run_opt %output %run_args
-// ASSERT: scan [Devirtualization] The function call to a at [32,5] was optimized.
+// LEVEL: 0
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(Class-_CN7defaultU00000001SNF523CA1E&->@_CN7defaultU00000001SNF523CA11aHv
 
 private open class I {
-    public open func a(): Unit {
+    public open func a(): Int64 {
+        0
     }
 }
 
 private open class CA1 <: I {
-    public open func a(): Unit {
+    public open func a(): Int64 {
+        1
     }
 }
 
 private open class CA2 <: I {
-    public open func a(): Unit {
+    public open func a(): Int64 {
+        0
     }
 }
 
@@ -28,7 +34,5 @@ private func test(): I {
 }
 
 main() {
-    let a: I = test()
-    a.a()
-    0
+    test().a() - 1
 }

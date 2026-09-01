@@ -4,28 +4,37 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// EXEC-PIPE-0: %run %run_opt %output %run_args
-// ASSERT: scan [Devirtualization] The function call to foo at [29,9] was optimized.
-// ASSERT: scan [Devirtualization] The function call to foo at [46,9] was optimized.
-// ASSERT: scan [Devirtualization] The function call to foo at [65,5] was optimized.
-// ASSERT: scan [Devirtualization] The function call to foo at [59,9] was optimized.
+// LEVEL: 0
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "WHOLE" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(Class-_CN7default2CBE&->@_CN7default2CB3fooHv
+// ASSERT: scan-not Invoke(Class-_CN7default2CBE&->@_CN7default2CB3fooHv
+// ASSERT: scan Apply(Class-_CN7default2CCE&->@_CN7default2CC3fooHv
+// ASSERT: scan-not Invoke(Class-_CN7default2CCE&->@_CN7default2CC3fooHv
 
 open class CA {
-    public open func foo(): Unit {}
+    public open func foo(): Int64 {
+        0
+    }
 }
 
 class CB <: CA {
-    public func foo(): Unit {}
+    public func foo(): Int64 {
+        1
+    }
 }
 
 class CC <: CA {
-    public func foo(): Unit {}
+    public func foo(): Int64 {
+        2
+    }
 }
 
 class Test {
     let b: CA = CB()
-    func goo() {
+    func goo(): Int64 {
         b.foo()
     }
 }
@@ -42,7 +51,7 @@ class Test2 {
             b = CB()
         }
     }
-    func hoo() {
+    func hoo(): Int64 {
         b.foo()
     }
 }
@@ -55,14 +64,12 @@ open class TestI {
 }
 
 class TestII <: TestI {
-    func hoo() {
+    func hoo(): Int64 {
         b.foo()
     }
 }
 
 main() {
     let xx: Test2 = Test2()
-    xx.b.foo()
-
-    TestII().hoo()
+    xx.b.foo() + TestII().hoo() - 3
 }

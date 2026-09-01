@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/014_debug_func_bp.cj
+// (target_ohos) EXEC: python3 cjdb_test.py lldb_FunctionBp001.info 014_debug_func_bp %run_env
+
+test#
+cjdb,cjdb --no-use-colors 014_debug_func_bp,014_debug_func_bp
+b,b funcbp001,014_debug_func_bp.cj:67
+AOT r,r,-> 67
+c,c,67
+q,q,

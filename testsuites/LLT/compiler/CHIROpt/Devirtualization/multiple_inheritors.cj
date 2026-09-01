@@ -4,45 +4,47 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC-PIPE-0: %run %run_opt %output %run_args
-// ASSERT: scan-not Devirtualization
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace
+// LEVEL: 0
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "WHOLE" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Invoke(Class-_CN7default1AE&->@_CN7default1A2f1Hl
+// ASSERT: scan Invoke(Class-_CN7default2I1E&->@_CN7default2I12f1Hl
 
 interface I1 {
-    func f1(a: Int64): Unit {
-        println("I")
+    func f1(a: Int64): Int64 {
+        3
     }
 }
 
 open class A {
-    public open func f1(a: Int64): Unit {
-        println("extend A f1")
+    public open func f1(a: Int64): Int64 {
+        2
     }
 }
 
 open class A1 <: A & I1 {
-    public open override func f1(a: Int64): Unit {
-        println("extend A1 f1")
+    public open override func f1(a: Int64): Int64 {
+        0
     }
 }
 
 open class A2 <: A1 & I1 {
-    public open override func f1(a: Int64): Unit {
-        println("extend A2 f1")
+    public open override func f1(a: Int64): Int64 {
+        1
     }
 }
 
-func Test(a: A) {
+func Test(a: A): Int64 {
     a.f1(1)
 }
 
-func Test1(i1: I1) {
+func Test1(i1: I1): Int64 {
     i1.f1(1)
 }
 
 main() {
-    Test(A1())
-    Test1(A1())
+    // A1 overrides => 0 + 0
+    Test(A1()) + Test1(A1()) - 0
 }

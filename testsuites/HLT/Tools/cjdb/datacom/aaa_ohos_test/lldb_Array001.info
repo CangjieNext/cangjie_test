@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/046_debug_array.cj
+// (target_ohos) EXEC: python3 cjdb_test.py lldb_Array001.info 046_debug_array %run_env
+
+test#
+cjdb,cjdb --no-use-colors 046_debug_array,046_debug_array
+b,b 046_debug_array.cj:18,046_debug_array.cj:18
+AOT r,r,-> 18
+c,c,18
+globals,globals,\[0\] = 1
+globals,globals,std[.]core(?:\.|::)Array<Int8>\)[\s\S]*arrayTopcopy = {[\s\S]*\[0\] = 1[\s\S]*
+q,q,

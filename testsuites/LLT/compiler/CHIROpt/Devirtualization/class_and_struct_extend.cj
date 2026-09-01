@@ -4,8 +4,15 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix
-// EXEC-PIPE-0: %run %run_opt %output %run_args
+// LEVEL: 0
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(Class-_CN7default2CBIG_E<Class-_CNat3AnyE&>&->@_CN7default2CBIG_E6<init>Hv
+// ASSERT: scan-not Invoke(Class-_CN7default2CBIG_E<Class-_CNat3AnyE&>&->@_CN7default2CBIG_E6<init>Hv
+// ASSERT: scan Apply(Struct-_CN7default2CAIG_E<Class-_CNat3AnyE&>&->@_CN7default2CAIG_E6<init>Hv
+// ASSERT: scan-not Invoke(Struct-_CN7default2CAIG_E<Class-_CNat3AnyE&>&->@_CN7default2CAIG_E6<init>Hv
 
 struct CA<T> {}
 
