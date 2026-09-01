@@ -1,0 +1,21 @@
+﻿/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/enum01.cj
+// (target_ohos) EXEC: python3 cjdb_test.py enum01.info enum01 %run_env
+
+test#
+cjdb,cjdb --no-use-colors enum01,enum01
+b,b enum01.cj:18,enum01.cj:18
+AOT r,r,-> 18
+c,c,18
+locals,locals,E\) a1 = A
+expr,expr a1,E\)[\s\S]*A
+expr~expr E.B~E\)[\s\S]*B
+q,q,

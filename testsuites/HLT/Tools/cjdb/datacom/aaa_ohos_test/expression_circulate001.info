@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../../cjdb_test.py    ../../../basecase/past_basic/066_debug_lambda.cj
+// (target_ohos) EXEC: python3 cjdb_test.py expression_circulate001.info 066_debug_lambda %run_env
+
+test#
+cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
+b,b 066_debug_lambda.cj:21,066_debug_lambda.cj:21
+AOT r,r,-> 21
+c,c,21
+expr~ expr while(globals_i64 < 70) {globals_i64++};globals_i64~\(Int64\)[\s\S]*70
+expr~ expr do{globals_i64++}while(globals_i64 < a);globals_i64~\(Int64\)[\s\S]*71
+expr~ expr do{globals_i64++;break}while(12<13);globals_i64~\(Int64\)[\s\S]*72
+expr~ expr do{globals_i64++;break}while(16.16>32.32);globals_i64~\(Int64\)[\s\S]*73
+expr~ expr while(r'a' < r'b') {globals_i64++;break};globals_i64~\(Int64\)[\s\S]*74
+expr~ expr while(r'a' > r'b') {globals_i64++;break};globals_i64~\(Int64\)[\s\S]*74
+expr~ expr do{globals_i64++;break}while("abc" < "bcd");globals_i64~\(Int64\)[\s\S]*75
+expr~ expr do{globals_i64++;break}while("abc" > "bcd");globals_i64~\(Int64\)[\s\S]*76
+q,q,
