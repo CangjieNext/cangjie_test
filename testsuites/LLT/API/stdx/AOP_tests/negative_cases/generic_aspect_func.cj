@@ -7,7 +7,7 @@
  */
 
 // EXEC-PIPE-1: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin %weave_aspects_plugin 2>&1 | compare %f
-// ASSERT: scan Function with AOP annotations must not be generic.
+// ASSERT: scan with AOP annotations cannot be generic or belong to a generic type.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
