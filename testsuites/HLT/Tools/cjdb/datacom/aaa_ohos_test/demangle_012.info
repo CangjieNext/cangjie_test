@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py ../../basecase/demangle/
+// (target_ohos) EXEC: python3 cjdb_test.py demangle_012.info demangle_target %run_env
+
+test#
+cjdb,cjdb --no-use-colors demangle_target,demangle_target
+b,b 293,Breakpoint 1: 2 locations.
+AOT r,r,demangle_target`default(?:\.|::)main\(\) at demangle.cj:293:20[\s\S]*-> 293
+s,s,demangle_target`default(?:\.|::)main::lambda.*\(a=1\) at demangle.cj:293:39[\s\S]*-> 293
+s,s,demangle_target`default(?:\.|::)main\(\) at demangle.cj:293:20[\s\S]*-> 293
+s,s,demangle_target`default(?:\.|::)main\(\) at demangle.cj:294:20[\s\S]*-> 294
+q,q,
