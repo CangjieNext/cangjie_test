@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Range/range_baseVar.cj
+// (target_ohos) EXEC: python3 cjdb_test.py range_test_003.info range_baseVar %run_env
+
+test#
+cjdb,cjdb --no-use-colors range_baseVar,range_baseVar
+b,b range_baseVar.cj:20,range_baseVar.cj:20
+AOT r,r,-> 20
+c,c,20
+p,p r5,\(std[.]core(?:\.|::)Range<Rune>\)[\s\S]*'A'..'Z' : 1
+p,p r6,\(std[.]core(?:\.|::)Range<Rune>\)[\s\S]*'z'..'a' : -1
+q,q,

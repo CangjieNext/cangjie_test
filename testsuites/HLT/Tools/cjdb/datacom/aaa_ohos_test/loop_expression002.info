@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/loop_expression/loop_expression002.cj
+// (target_ohos) EXEC: python3 cjdb_test.py loop_expression002.info loop_expression002 %run_env
+
+test#
+cjdb,cjdb --no-use-colors loop_expression002,loop_expression002
+b,b loop_expression002.cj:11,loop_expression002.cj:11
+AOT r,r,-> 11
+c,c,11
+n,n,12
+n,n,13
+n,n,12
+n,n,13
+n,n,12
+n,n,13
+q,q,
