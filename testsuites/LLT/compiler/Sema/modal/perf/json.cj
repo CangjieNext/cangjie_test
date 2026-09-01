@@ -3,6 +3,10 @@
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// EXEC: %compiler %import-cangjie-stdx %file -o %output -O2 --int-overflow=wrapping --no-sub-pkg -Woff all
+// RUN-EXEC: %run %run_opt %output %run_args
+
 import stdx.encoding.json.*
 import std.fs.File
 import std.collection.*

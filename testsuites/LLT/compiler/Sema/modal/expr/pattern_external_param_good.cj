@@ -27,5 +27,5 @@ func takeExternal(p: F@local!) {
 }
 
 main() {
-    takeExternal(G())
+    takeExternal(G() @local!)
 }

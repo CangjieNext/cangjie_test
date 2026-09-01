@@ -22,6 +22,6 @@ func foo(a: F@local!) : G@local! {
 
 main() {
     let bar: (G@local!) -> F@local? = foo
-    bar(G())
+    bar(G() @local!)
     0
 }

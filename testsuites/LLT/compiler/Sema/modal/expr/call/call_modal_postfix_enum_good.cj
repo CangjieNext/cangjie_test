@@ -24,7 +24,6 @@ class Worker {
     func run(this @local!): Int64 {
         exclave {
             let x = E.A(NC()@local!) @local!
-            let y = E.A(NC()) @local!
             match (x) {
                 case E.A(v) => v.n
             }

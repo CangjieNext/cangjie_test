@@ -44,7 +44,6 @@ compiler/cjnative/Packages/org_name/package_decl/no_package_name_2.cj
 # these are caused by the breaking change of nested fun call, adding more function overload may cause breaking change, and such is excluded by breaking change rules. there is currently no impl plan.
 API/std/core/String/withRawData/test_withrawdata_01.cj
 API/std/io/BufferedInputStream/BufferedInputStream_close.cj
-API/net/TLS_new/tls_serverconf_08.cj
 # mangling in exception stacktrace
 API/std/core/dumpThreads/dumpCurrentThread/test_dumpcurrentthread_01.cj
 Tools/cjdb/datacom/demangle/demangle_013.info

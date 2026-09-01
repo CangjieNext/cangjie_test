@@ -53,7 +53,7 @@ func testInternalToInternal() {
 
 main() {
     testNotToNot()
-    testHalfCanReceiveAnything(C())
+    testHalfCanReceiveAnything(C() @local!)
     testInternalToInternal()
 }
 

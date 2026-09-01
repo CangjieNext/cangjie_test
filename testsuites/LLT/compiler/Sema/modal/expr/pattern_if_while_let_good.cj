@@ -40,7 +40,7 @@ func bar(a: F@local!): Int {
 }
 
 main(): Int {
-    foo(G())
-    bar(G())
+    foo(G() @local!)
+    bar(G() @local!)
     0
 }

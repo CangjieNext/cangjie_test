@@ -18,7 +18,7 @@ class Worker {
 }
 
 func run() {
-    Worker.consume(NC())
+    Worker.consume(NC() @local!)
 }
 
 main(): Int64 {
