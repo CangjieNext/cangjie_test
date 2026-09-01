@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun.cj
+// (target_ohos) EXEC: python3 cjdb_test.py global_fun_generics_01.info genericsfun %run_env
+
+test#
+cjdb,cjdb --no-use-colors genericsfun,genericsfun
+b,b genericsfun.cj:43,genericsfun.cj:43
+AOT r,r,-> 43
+c,c,43
+p, p gengricsvar,\(UInt8\)[\s\S]*8
+p, p a,\(UInt8\)[\s\S]*8
+p, p gengricsvar1,\(UInt16\)[\s\S]*16
+p, p b,\(UInt16\)[\s\S]*16
+p, p gengricsvar2,\(UInt32\)[\s\S]*32
+p, p c,\(UInt32\)[\s\S]*32
+p, p gengricsvar3,\(UInt64\)[\s\S]*64
+p, p d,\(UInt64\)[\s\S]*64
+q,q,

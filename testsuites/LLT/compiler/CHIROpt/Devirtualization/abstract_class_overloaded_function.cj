@@ -4,8 +4,12 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// ASSERT: scan-not Devirtualization
+// LEVEL: 0
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Func
 
 public interface A {
     func foo(i: Int64): Int64 {
@@ -23,5 +27,6 @@ public abstract class A1 <: A {
 }
 
 main() {
+    // compile-only smoke: A1 is abstract (foo(Int16) unimplemented)
     0
 }

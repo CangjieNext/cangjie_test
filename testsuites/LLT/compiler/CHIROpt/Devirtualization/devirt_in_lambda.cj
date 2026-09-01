@@ -4,9 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC-PIPE-0: %run %run_opt %output %run_args
-// ASSERT:scan [Devirtualization] The function call to next at [15,9] was optimized.
+// LEVEL: 0
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(@_CINat13ArrayIteratorIG_E4nextHv$l
+// ASSERT: scan-not Invoke(@_CINat13ArrayIteratorIG_E4nextHv$l
 
 main() {
     let a = [1, 2, 3, 5]
@@ -17,4 +21,5 @@ main() {
         }
     }
     foo()
+    sum - 11
 }

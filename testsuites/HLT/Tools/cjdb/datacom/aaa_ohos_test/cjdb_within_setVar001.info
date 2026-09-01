@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_setVar/001_debug_setVar_generices.cj
+// (target_ohos) EXEC: python3 cjdb_test.py cjdb_within_setVar001.info 001_debug_setVar_generices %run_env
+
+test#
+cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
+b,b 001_debug_setVar_generices.cj:14,001_debug_setVar_generices.cj:14
+AOT r,r,-> 14
+c,c,14
+s,s,93
+finish,finish, 13
+n,n,15
+p,p mc_u8,C1<UInt8>\)[\s\S]*{(\r|\n|\r\n)  [\s\S]*
+set,set mc_u8.width=19,\(UInt8\)[\s\S]*19
+q,q,

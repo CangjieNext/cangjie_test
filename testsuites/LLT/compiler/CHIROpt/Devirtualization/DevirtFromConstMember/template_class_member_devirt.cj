@@ -4,21 +4,32 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// EXEC-PIPE-0: %run %run_opt %output %run_args
-// (not Windows) ASSERT: scan [Devirtualization] The function call to foo at [37,9] was optimized.
-// (not Windows) ASSERT: scan [Devirtualization] The function call to foo at [43,5] was optimized.
+// LEVEL: 0
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(@_CIN7default2CBIG_E3fooHv$l
+// ASSERT: scan-not Invoke(@_CIN7default2CBIG_E3fooHv$l
+// ASSERT: scan Apply(@_CIN7default2CBIG_E3fooHv$l
+// ASSERT: scan-not Invoke(@_CIN7default2CBIG_E3fooHv$l
 
 interface CA<T> {
-    open func foo(): Unit {}
+    open func foo(): Int64 {
+        0
+    }
 }
 
 class CB<T> <: CA<T> {
-    public func foo(): Unit {}
+    public func foo(): Int64 {
+        1
+    }
 }
 
 class CC<T> <: CA<T> {
-    public func foo(): Unit {}
+    public func foo(): Int64 {
+        2
+    }
 }
 
 class Test2 {
@@ -33,13 +44,12 @@ class Test2 {
             b = CB()
         }
     }
-    func hoo() {
+    func hoo(): Int64 {
         b.foo()
     }
 }
 
 main() {
     let t = Test2()
-    t.b.foo()
-    t.hoo()
+    t.b.foo() + t.hoo() - 2
 }

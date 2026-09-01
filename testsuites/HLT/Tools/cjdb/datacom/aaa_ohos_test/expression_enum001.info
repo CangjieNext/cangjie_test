@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/011_enum_option.cj
+// (target_ohos) EXEC: python3 cjdb_test.py expression_enum001.info 011_enum_option %run_env
+
+test#
+cjdb,cjdb --no-use-colors 011_enum_option,011_enum_option
+b,b 011_enum_option.cj:21,011_enum_option.cj:21
+AOT r,r,-> 21
+c,c,21
+p,p c1,C\)[\s\S]*constructor = C1[\s\S]*arg_1 = 16[\s\S]*}
+q,q,

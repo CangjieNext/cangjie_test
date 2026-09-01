@@ -1,0 +1,22 @@
+﻿/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_basetype.cj
+// (target_ohos) EXEC: python3 cjdb_test.py VArray_basetype_002.info VArray_basetype_002 %run_env
+
+test#
+cjdb,cjdb --no-use-colors VArray_basetype_002,VArray_basetype_002
+b,b VArray_basetype.cj:34,Breakpoint 1: where = VArray_basetype_002`default(?:\.|::)main[\s\S]*VArray_basetype.cj:34
+AOT r,r,-> 34
+c,c,34
+p,p vUInt8,\(VArray<UInt8,\$3>\)[\s\S]*{[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+p,p vUInt16,\(VArray<UInt16,\$3>\)[\s\S]*{[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+p,p vUInt32,\(VArray<UInt32,\$3>\)[\s\S]*{[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+p,p vUInt64,\(VArray<UInt64,\$3>\)[\s\S]*{[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+q,q,

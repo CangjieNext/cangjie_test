@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE: ../../cjdb_test.py ../../basecase/past_basic/063_debug_expr_array.cj
+// (target_ohos) EXEC: python3 cjdb_test.py express_arraylist_001.info 001_express_basetype %run_env
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 063_debug_expr_array.cj:43,063_debug_expr_array.cj:43
+AOT r,r,-> 43
+c,c,43
+expr,expr arrl,std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*[\2\] = 2[\s\S]*}*
+expr,expr arrl[0],\(Int64\)[\s\S]*0
+expr,expr arrl[0]=10,\(Unit\)[\s\S]*()
+expr,expr arrl,std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 10[\s\S]*\[1\] = 1[\s\S]*[\2\] = 2[\s\S]*}*
+q,q,

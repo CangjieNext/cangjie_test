@@ -4,23 +4,26 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// EXEC-PIPE-0: %run %run_opt %output %run_args
-// ASSERT: scan-not [Devirtualization] The function call to EgZjaHJvbWUyBggAEEUYOdIBCD at [48,5] was optimized.
+// LEVEL: 0
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Invoke(Class-_CN7default1AE&->@_CN7default1A26EgZjaHJvbWUyBggAEEUYOdIBCDHv
 
 interface A {
-    func EgZjaHJvbWUyBggAEEUYOdIBCD(): Unit
+    func EgZjaHJvbWUyBggAEEUYOdIBCD(): Int64
 }
 
 class B <: A {
-    public func EgZjaHJvbWUyBggAEEUYOdIBCD(): Unit {
-        print(1)
+    public func EgZjaHJvbWUyBggAEEUYOdIBCD(): Int64 {
+        1
     }
 }
 
 class C <: A {
-    public func EgZjaHJvbWUyBggAEEUYOdIBCD(): Unit {
-        print(2)
+    public func EgZjaHJvbWUyBggAEEUYOdIBCD(): Int64 {
+        2
     }
 }
 
@@ -45,6 +48,5 @@ main() {
     } else {
         x = x_global
     }
-    x.a.EgZjaHJvbWUyBggAEEUYOdIBCD()
-    0
+    x.a.EgZjaHJvbWUyBggAEEUYOdIBCD() - 1
 }

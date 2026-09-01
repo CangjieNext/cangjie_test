@@ -4,7 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
 // ASSERT: scan interface function 'f1' must be implemented in 'A1'
 
 interface I1 {
