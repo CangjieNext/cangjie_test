@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/String/string_para03.cj
+// (target_ohos) EXEC: python3 cjdb_test.py expression_string03.info string_para03 %run_env
+
+test#
+cjdb,cjdb --no-use-colors string_para03,string_para03
+b,b string_para03.cj:10,string_para03.cj:10
+b,b string_para03.cj:13,string_para03.cj:13
+AOT r,r,-> 10
+c,c,10
+expr,expr a,\(std\.core(?:\.|::)String\)[\s\S]*"a: String"
+c,c,13
+expr,expr b,\(Int64\)[\s\S]*1
+b,b string_para03.cj:20,string_para03.cj:20
+c,c,20
+expr~expr f2<Int64>("a: String", 1)~\(Int64\)[\s\S]*1
+expr~expr f1("a:String")~\(std\.core(?:\.|::)String\)[\s\S]*"a:String"
+q,q,

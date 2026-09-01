@@ -4,37 +4,37 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC:%run %run_opt %output %run_args > %devirFile 2>&1
-// (DEBUG_OPTION)ASSERT: scan [Devirtualization] The function call to f1 at [35,5] was optimized.
-// (DEBUG_OPTION)ASSERT: scan-not core dumped
-// (DEBUG_OPTION)ASSERT: scan-not stack trace
-// (DEBUG_OPTION)EXEC: %compiler %n.cj -o %n.nonDevir.out
-// (DEBUG_OPTION)EXEC: %n.nonDevir.out > %nonDevirFile 2>&1
-// (DEBUG_OPTION)EXEC: %diff %devirFile %nonDevirFile
+// LEVEL: 0
+// Negative: interface-typed parameter stays Invoke even when actual object is B.
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7defaultU00000002LHoYr4TestHCNY_1IIlE" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Invoke(Class-_CN7defaultU00000002LHoYr1IIG_E<Int64>&->@_CN7defaultU00000002LHoYr1IIG_E2f1HG_
+// ASSERT: scan-not Apply(Class-_CN7defaultU00000002LHoYr1IIG_E<Int64>&->@_CN7defaultU00000002LHoYr1IIG_E2f1HG_
 
 private interface I<T> {
-    func f1(a: T): Unit {
-        println("I")
+    func f1(a: T): Int64 {
+        1
     }
 }
 
 private open class A {
-    public open func f1(a: Int64): Unit {
-        println("extend A f1")
+    public open func f1(a: Int64): Int64 {
+        2
     }
 }
 
 private class B <: A & I<Int64> {
-    public override func f1(a: Int64): Unit {
-        println("extend B f1")
+    public override func f1(a: Int64): Int64 {
+        0
     }
 }
 
-private func Test(i: I<Int64>) {
+private func Test(i: I<Int64>): Int64 {
     i.f1(1)
 }
 
 main() {
-    Test(B())
+    Test(B()) - 0
 }

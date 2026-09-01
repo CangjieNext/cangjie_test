@@ -4,11 +4,15 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %dumpCHIRDebug %enableO2 -Woff all %f -o %n.%suffix
-// EXEC-PIPE-0: %run %run_opt %output %run_args
-// (Linux) EXEC: %cat %n\_CHIR/[0-9]*_Devirtualization.chirtxt | sed -n -r '/Func @_CIN7defaultU00000004tyZkg1AIG_E3fooHv\$l/,/^}$/p' | compare %f
-// (Linux) ASSERT: regex Invoke.*f2
-// (Linux) ASSERT: regex-not Invoke.*this.*f2
+// LEVEL: 0
+// Positive: static f2 in foo must bind to A<T>::f2 via InvokeStatic, not subclass C<T>::f2.
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7defaultU00000004tyZkg1AIG_E3fooHv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan InvokeStatic(This&->@_CN7defaultU00000004tyZkg1AIG_E2f2Hv
+// ASSERT: scan-not InvokeStatic(This&->@_CN7default1CIG_E2f2Hv
+// ASSERT: scan-not Invoke(Class-_CN7default1CIG_E&->@_CN7default1CIG_E2f2Hv
 
 let globalVar: I = A<Int64>()
 
@@ -33,5 +37,6 @@ class C<T> <: A<T> {
 }
 
 main() {
-    0
+    A<Int64>(1)
+    0 - 0
 }

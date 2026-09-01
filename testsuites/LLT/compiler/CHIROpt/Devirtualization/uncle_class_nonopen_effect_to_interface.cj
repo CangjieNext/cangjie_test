@@ -4,11 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC-PIPE-0: %run %run_opt %output %run_args
-// ASSERT: scan [Devirtualization] The function call to f1 at [35,5] was optimized.
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace
+// LEVEL: 0
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(Class-_CN7default1CE&->@_CN7default1B2f1Hl
+// ASSERT: scan-not Invoke(Class-_CN7default1BE&->@_CN7default1B2f1Hl
 
 interface I<T> {
     func f1(a: T): Int64 {
@@ -32,5 +34,5 @@ class C <: B & I<Int64> {}
 
 main() {
     var b: A = C()
-    b.f1(1) // print extend A f1
+    b.f1(1) - 0 // print extend A f1
 }
