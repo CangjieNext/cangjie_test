@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE: ../../cjdb_test.py ../../basecase/generics_debug_files/interface_generics/
+// (target_ohos) EXEC: python3 cjdb_test.py cjdb_interface_generics_001.info debug_interface_generics %run_env
+
+test#
+cjdb,cjdb --no-use-colors debug_interface_generics,debug_interface_generics
+b,b debug_interface_generics.cj:14,debug_interface_generics.cj:14
+q,quit,

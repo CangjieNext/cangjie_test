@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var002.cj
+// (target_ohos) EXEC: python3 cjdb_test.py generics_local_var002.info generics_local_var002 %run_env
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var002,generics_local_var002
+b,b generics_local_var002.cj:57,generics_local_var002.cj:57
+AOT r,r,-> 57
+c,c,57
+expr:expr S1.varr:\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+expr:expr s1.varrs:\(std.core(?:\.|::)Array<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+expr:expr C1.vlist:\(std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+expr:expr c1.vlistc:\(std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+q,q,
