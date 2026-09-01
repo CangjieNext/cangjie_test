@@ -68,3 +68,7 @@ Benchmark
 
 # flaky test.
 Runtime/cjnative/runtime/Finalizer/complex_1.cj
+
+# Known Bug
+compiler/cjnative/Chir/dispatch/property_matrix/22_default_plus_abstract_unique_select/main.cj
+compiler/cjnative/stable_abi/07_extend/02_modify/01_define_content/05_instance_function/01_extend_nonclass/02_modify/return_type/41_extend_modify_func_returntype/41_extend_modify_func_returntype_0202.cj

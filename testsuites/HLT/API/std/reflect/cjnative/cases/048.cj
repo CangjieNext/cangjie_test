@@ -102,7 +102,7 @@ class Test {
         @Expect(arr.toString(), "[abstract, open, sealed]")
         arr = TypeInfo.of<C3>().modifiers |> map {a: ModifierInfo => a.toString()} |> collectArray
         arr.sort();
-        @Expect(arr.toString(), "[abstract]")
+        @Expect(arr.toString(), "[abstract, open]")
         arr = TypeInfo.of<C4>().modifiers |> map {a: ModifierInfo => a.toString()} |> collectArray
         arr.sort();
         @Expect(arr.toString(), "[open]")

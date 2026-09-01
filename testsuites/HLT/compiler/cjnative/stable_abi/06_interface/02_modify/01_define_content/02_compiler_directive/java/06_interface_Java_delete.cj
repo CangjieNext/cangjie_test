@@ -19,7 +19,7 @@
 // DEPENDENCE: main.cj, template.cj
 
 // TEST CJCPL
-// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcompat %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 
 // TEST API Compatibility

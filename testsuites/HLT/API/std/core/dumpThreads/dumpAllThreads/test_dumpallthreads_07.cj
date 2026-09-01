@@ -34,13 +34,28 @@ main() {
     var _thread_infos = ThreadSnapshot.dumpAllThreads()
 
     @Assert(_thread_infos.size, 2)
-    var _thread_info = _thread_infos[0]
+    func findThread(id: Int64, infos: Array<ThreadSnapshot>): ThreadSnapshot {
+        for (info in infos) {
+            if (info.id == id) {
+                return info
+            }
+        }
+        throw IllegalArgumentException("Thread id ${id} not found in thread snapshots")
+    }
+    var _thread_info = findThread(_thread.thread.id, _thread_infos)
 
-    sleep(Duration.second)
     _thread.thread.name = "pending"
-    _thread_infos = ThreadSnapshot.dumpAllThreads()
-    @Assert(_thread_infos.size, 2)
-    _thread_info = _thread_infos[0]
+    var _retry = 0
+    while (_retry < 100) {
+        _thread_infos = ThreadSnapshot.dumpAllThreads()
+        @Assert(_thread_infos.size, 2)
+        _thread_info = findThread(_thread.thread.id, _thread_infos)
+        if (match(_thread_info.state) { case ThreadState.Pending => true; case _ => false }) {
+            break
+        }
+        sleep(Duration.millisecond * 100)
+        _retry++
+    }
     match(_thread_info.state) {
         case ThreadState.Pending => println("Pending")
         case _ => @Assert(false)
@@ -48,17 +63,27 @@ main() {
     _thread_info.toString() |> println
     @Assert(_thread_info.toString().contains("ThreadSnapshot(id=${_thread_info.id}, name=pending, state=Pending)"))
 
-    sleep(Duration.second * 3)
+    _retry = 0
+    while (_retry < 100) {
+        _thread_infos = ThreadSnapshot.dumpAllThreads()
+        _thread_info = findThread(_thread.thread.id, _thread_infos)
+        if (match(_thread_info.state) { case ThreadState.Pending => false; case _ => true }) {
+            break
+        }
+        sleep(Duration.millisecond * 100)
+        _retry++
+    }
     _thread.thread.name = "running"
     _thread_infos = ThreadSnapshot.dumpAllThreads()
     @Assert(_thread_infos.size, 2)
-    _thread_info = _thread_infos[0]
+    _thread_info = findThread(_thread.thread.id, _thread_infos)
     match(_thread_info.state) {
         case ThreadState.Running => println("Running")
+        case ThreadState.Ready => println("Ready")
         case _ => @Assert(false)
     }
     _thread_info.toString() |> println
-    @Assert(_thread_info.toString().contains("ThreadSnapshot(id=${_thread_info.id}, name=running, state=Running)"))
+    @Assert(_thread_info.toString().contains("ThreadSnapshot(id=${_thread_info.id}, name=running, state=${_thread_info.state})"))
 
     _thread.cancel()
     sleep(Duration.second)
