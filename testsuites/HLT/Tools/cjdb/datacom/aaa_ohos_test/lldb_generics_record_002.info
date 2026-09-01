@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/052_debug_record_generics.cj
+// (target_ohos) EXEC: python3 cjdb_test.py lldb_generics_record_002.info 052_debug_record_generics %run_env
+
+test#
+cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
+b,b 052_debug_record_generics.cj:97,052_debug_record_generics.cj:97
+AOT r,r,-> 97
+c,c,97
+n,n,98
+locals,locals,R1<UInt32>\) r1 = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
+q,q,

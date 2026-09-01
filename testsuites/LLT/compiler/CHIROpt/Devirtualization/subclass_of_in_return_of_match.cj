@@ -4,6 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// LEVEL: 0
 // EXEC: %compiler %enableDevirtualization -Woff all %f -o %n.%suffix 
 // EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan-begin B123

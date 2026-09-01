@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var006.cj
+// (target_ohos) EXEC: python3 cjdb_test.py cjdb_ConditionBP024.info generics_local_var006 %run_env
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var006,generics_local_var006
+breakpoint,breakpoint set -f generics_local_var006.cj -l 20 -c "r1==6",generics_local_var006.cj:20
+AOT r,r,-> 20
+c,c,20
+p,p r2,\(std\.core(?:\.|::)String\)[\s\S]*"6"
+p,p r3,\(Bool\)[\s\S]*true
+expr,expr r3 is Bool,\(Bool\)[\s\S]*true
+expr,expr r1*3,\(Int64\)[\s\S]*18
+q,q,

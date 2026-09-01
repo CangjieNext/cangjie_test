@@ -4,11 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC-PIPE-0: %run %run_opt %output %run_args
-// ASSERT: scan [Devirtualization] The function call to f1 at [38,5] was optimized.
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace
+// LEVEL: 0
+// Negative: I1-typed parameter stays Invoke when class also overrides f1.
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7defaultU00000000vsnHV4TestHCNY_2I1E" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Invoke(Class-_CN7defaultU00000000vsnHV2I1E&->@_CN7defaultU00000000vsnHV2I12f1Hl
+// ASSERT: scan-not Apply(Class-_CN7defaultU00000000vsnHV2I1E&->@_CN7defaultU00000000vsnHV2I12f1Hl
 
 private interface I1 {
     func f1(a: Int64): Int64 {
@@ -34,10 +37,10 @@ private open class A1 <: A & I1 {
     }
 }
 
-private func Test(i1: I1) {
+private func Test(i1: I1): Int64 {
     i1.f1(1)
 }
 
 main() {
-    Test(A1())
+    Test(A1()) - 0
 }

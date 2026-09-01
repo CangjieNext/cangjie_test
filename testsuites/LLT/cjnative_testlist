@@ -18,7 +18,6 @@ compiler/CHIR/ComputeAnnotations
 compiler/CHIR/InvokeNodetest
 compiler/CHIR/RemoveRedundantRet
 compiler/CHIR/ScalarReplacementOfArray
-compiler/CHIROpt/Devirtualization
 compiler/CHIROpt/FlatForInExpr
 compiler/CHIROpt/FunctionInline
 compiler/CHIROpt/MarkClassHasInited

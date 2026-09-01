@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py    ../../basecase/lambda/Test_Lambda.cj
+// (target_ohos) EXEC: python3 cjdb_test.py lldb_lambda_02.info Test_Lambda %run_env
+
+test#
+cjdb,cjdb --no-use-colors Test_Lambda,Test_Lambda
+b,b Test_Lambda.cj:12,Test_Lambda.cj:12
+AOT r,r,-> 12
+c,c,12
+locals,locals,\(Unit\) test_lambda = \(\)
+q,q,
