@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_0o.cj
+// (target_ohos) EXEC: python3 cjdb_test.py expression_typeconver_001.info 057_debug_0o %run_env
+
+test#
+cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
+b,b 057_debug_0o.cj:64,057_debug_0o.cj:64
+AOT r,r,-> 64
+c,c,64
+expression, expression UIntNative(var118),\(UIntNative\)[\s\S]*8
+q,q,

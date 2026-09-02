@@ -72,6 +72,10 @@ ANDROID_RUNTIME_DIR = "linux_android_aarch64_cjnative"
 ANDROID_RUNTIME_MARKER = ANDROID_DEVICE_DIR + ".runtime_marker"
 ANDROID_RUNTIME_PUSH_LOCK_PATH = os.path.join(LOCK_DIR, 'android_runtime_push_lock')
 
+OHOS_DEVICE_DIR = "/data/local/tmp/debugserver/"
+OHOS_LLDB_PORT_START = 12000
+OHOS_LLDB_PORT_END = 35000
+
 LLDB_SERVER_PORT_START = 12000
 LLDB_SERVER_PORT_END = 35000
 
@@ -351,6 +355,82 @@ def get_android_paths():
         runtime_path = os.path.join(sdk_home, 'runtime', 'lib', 'linux_android_aarch64_cjnative')
     
     return lldb_server_path, runtime_path
+
+
+def get_hdc_path():
+    """Get hdc binary path from HDC_HOME"""
+    hdc_home = os.environ.get('HDC_HOME', '')
+    if hdc_home:
+        return os.path.join(hdc_home, 'hdc')
+    return 'hdc'
+
+
+def build_hdc_cmd(*args, device_id=None):
+    """
+    build_hdc_cmd: Build hdc command with optional device selection
+    """
+    cmd = [get_hdc_path()]
+    if device_id:
+        cmd.extend(['-t', device_id])
+    cmd.extend(args)
+    return cmd
+
+
+def hdc_shell(cmd, device_id=None):
+    """
+    hdc_shell: Execute shell command on OHOS device
+    """
+    result = subprocess.run(build_hdc_cmd('shell', cmd, device_id=device_id), capture_output=True, text=True)
+    return result.stdout.strip(), result.returncode
+
+
+def hdc_file_send(src, dst, device_id=None):
+    """
+    hdc_file_send: Send file to OHOS device
+    """
+    result = subprocess.run(build_hdc_cmd('file', 'send', src, dst, device_id=device_id), capture_output=True, text=True)
+    if result.returncode != 0:
+        print(f"hdc file send failed: {result.stderr}")
+        return False
+    return True
+
+
+def get_ohos_device_id():
+    """
+    get_ohos_device_id: Get connected OHOS device ID from hdc list targets
+    Returns: device_id or None if no device found
+    """
+    result = subprocess.run([get_hdc_path(), 'list', 'targets'], capture_output=True, text=True)
+    lines = result.stdout.strip().split('\n')
+    for line in lines:
+        line = line.strip()
+        if line and '[' not in line:
+            return line
+    return None
+
+
+def get_ohos_lldb_server_path(preferred_arch=None):
+    """
+    get_ohos_lldb_server_path: Get lldb-server path from DEVECO_HOME
+    preferred_arch: 'x86_64-linux-ohos' (simulator) or 'aarch64-linux-ohos' (device),
+                    None to auto-detect (x86_64 first)
+    Returns: lldb_server_path or None if not found
+    """
+    deveco_home = os.environ.get('DEVECO_HOME')
+    if not deveco_home:
+        return None
+    archs = []
+    if preferred_arch:
+        archs.append(preferred_arch)
+    for arch in ['x86_64-linux-ohos', 'aarch64-linux-ohos']:
+        if arch not in archs:
+            archs.append(arch)
+    for arch in archs:
+        lldb_server_path = os.path.join(deveco_home, 'sdk', 'default', 'hms', 'native', 'lldb', arch, 'lldb-server')
+        if os.path.exists(lldb_server_path):
+            print(f"Found lldb-server for {arch}: {lldb_server_path}")
+            return lldb_server_path
+    return None
 
 
 def parse_exec_output_file(test_case):
@@ -732,6 +812,754 @@ class AndroidDebugSession:
                 print(f"Released lldb port lock for port {self.lldb_port}")
 
 
+class OHOSDebugSession:
+    """
+    OHOSDebugSession: Manages OHOS remote debugging session
+    """
+    def __init__(self):
+        self.lldb_server_proc = None
+        self.cjdb_proc = None
+        self.ohos_pid = None
+        self.device_id = None
+        self.bundle_name = None
+        self.app_name = None
+        self.project_path = None
+        self.platform_sockid = None
+        self.lldb_port = None
+        self.lldb_port_lock = None
+        self.target_arch = None
+        self.lldb_arch_dir = None
+
+    def setup(self, test_case, cmp_res):
+        """
+        setup: Setup OHOS debugging environment
+        """
+        self.device_id = get_ohos_device_id()
+        if not self.device_id:
+            print("No OHOS device found")
+            return False
+
+        if os.environ.get('OHOS_TARGET_ARCH'):
+            self.target_arch = os.environ['OHOS_TARGET_ARCH']
+        elif os.environ.get('OHOS_SIMULATOR', '').lower() in ('1', 'true', 'yes'):
+            self.target_arch = 'x86_64'
+        else:
+            self.target_arch = 'aarch64'
+        arch_map = {'x86_64': 'x86_64', 'aarch64': 'arm64-v8a'}
+        self.lldb_arch_dir = arch_map.get(self.target_arch, self.target_arch)
+        self._lldb_arch_tag = {'x86_64': 'x86_64-linux-ohos', 'aarch64': 'aarch64-linux-ohos'}.get(self.target_arch, self.target_arch)
+        print(f"Target architecture: {self.target_arch} (lldb arch tag: {self._lldb_arch_tag}, lib dir: {self.lldb_arch_dir})")
+        
+        print(f"Connected device: {self.device_id}")
+        
+        self.bundle_name = 'com.example.myapplication'
+        self.app_name = 'myapplication'
+        self.project_path = os.environ.get('PROJECT_PATH', os.getcwd())
+        self.platform_sockid = os.environ.get('OHOS_SOCKID', str(random.randint(100000, 999999)))
+        
+        return True
+
+    def find_symbol_file(self, cmp_res):
+        """
+        find_symbol_file: Find the binary/.so with debug info for breakpoints.
+        Search order:
+          1. cmp_res itself (if it's an existing file path)
+          2. lib{cmp_res}.so or {cmp_res}.so in known build output dirs
+          3. First .so found in build output dirs (fallback)
+        Returns: file path or None
+        """
+        # 1. Direct path
+        if cmp_res and os.path.isfile(cmp_res):
+            print(f"[SYM] Using symbol file: {cmp_res}")
+            return cmp_res
+
+        # 2. Search by name pattern in build output
+        arch = self.lldb_arch_dir
+        search_dirs = [
+            os.path.join(self.project_path, 'entry', 'build', 'default', 'intermediates', 'libs', 'default', arch),
+            os.path.join(self.project_path, 'entry', 'build', 'default', 'intermediates', 'libs', 'default', arch, 'ohos'),
+            os.path.join(self.project_path, 'entry', 'build', 'default', 'intermediates', 'cangjie'),
+            os.path.join(self.project_path, 'entry', 'build', 'default', 'intermediates'),
+        ]
+
+        name_patterns = [
+            f'lib{cmp_res}.so',
+            f'{cmp_res}.so',
+            f'{cmp_res}',
+        ]
+
+        for d in search_dirs:
+            if not os.path.isdir(d):
+                continue
+            for pattern in name_patterns:
+                full = os.path.join(d, pattern)
+                if os.path.isfile(full):
+                    print(f"[SYM] Found symbol file by name match: {full}")
+                    return full
+            # Recursive search for pattern
+            for root, dirs, files in os.walk(d):
+                for pattern in name_patterns:
+                    if pattern in files:
+                        full = os.path.join(root, pattern)
+                        print(f"[SYM] Found symbol file (recursive): {full}")
+                        return full
+
+        # 3. Fallback: prefer libohos*.so, then any .so in build output
+        for d in search_dirs:
+            if not os.path.isdir(d):
+                continue
+            for root, dirs, files in os.walk(d):
+                for f in files:
+                    if f.startswith('libohos') and f.endswith('.so'):
+                        full = os.path.join(root, f)
+                        print(f"[SYM] Using libohos*.so as symbol file (fallback): {full}")
+                        return full
+
+        print(f"[SYM] No symbol file found for '{cmp_res}' under {self.project_path}")
+        print(f"[SYM] Searched dirs: {search_dirs}")
+        return None
+    
+    def copy_source_file(self, test_case, cmp_res):
+        """
+        copy_source_file: Find ALL .cj files from info file (DEPENDENCE line),
+        transform each, copy to project cangjie dir.
+        If all .cj files already exist in the project (previously inserted),
+        skip entirely - use existing files as-is for debugging.
+        Transformations per .cj file (idx = 1, 2, ...):
+          1. Replace existing package or insert 'package ohos_app_cangjie_entry' at line 9
+          2. Rename 'main(' to 'func cj_main{idx}(' (numbered by file order)
+          3. Remove line containing 'sleep(Duration.millisecond'
+        Then insert 'cj_main{idx}()' calls into index.cj (skip existing).
+        Note: Inserted files are NOT deleted after test execution (see cleanup()).
+        """
+        print(f"[COPY] project_path={self.project_path}", flush=True)
+
+        dst_dir = os.path.join(self.project_path, 'entry', 'src', 'main', 'cangjie')
+
+        # Determine .cj file name (fallback when no DEPENDENCE line)
+        cj_name = cmp_res + '.cj' if not cmp_res.endswith('.cj') else cmp_res
+        test_dir = os.path.dirname(os.path.abspath(test_case))
+
+        # Find ALL .cj files from DEPENDENCE line in .info file (preserve order)
+        cj_files = []  # list of (src_path, cj_name)
+
+        with open(test_case, 'r', encoding='UTF-8') as f:
+            for line in f:
+                if 'DEPENDENCE:' in line:
+                    deps = line.split('DEPENDENCE:')[1].strip().split()
+                    for dep in deps:
+                        if dep.endswith('.cj'):
+                            dep_path = os.path.join(test_dir, dep) if not os.path.isabs(dep) else dep
+                            dep_path = os.path.normpath(dep_path)
+                            if os.path.exists(dep_path):
+                                cj_files.append((dep_path, os.path.basename(dep_path)))
+                    break
+
+        # Fallback: search by name in test dir and parent dirs (single file)
+        if not cj_files:
+            for search_dir in [test_dir, os.path.dirname(test_dir), os.path.dirname(os.path.dirname(test_dir))]:
+                candidate = os.path.join(search_dir, cj_name)
+                if os.path.exists(candidate):
+                    cj_files.append((candidate, cj_name))
+                    break
+
+        if not cj_files:
+            print(f"[COPY] .cj file '{cj_name}' not found, skip", flush=True)
+            return True
+
+        # If all .cj files already exist in project, skip insertion entirely
+        all_exist = all(os.path.exists(os.path.join(dst_dir, name)) for _, name in cj_files)
+        if all_exist:
+            print(f"[COPY] .cj files already in project, skip insertion (use existing)", flush=True)
+            return True
+
+        print(f"[COPY] found {len(cj_files)} .cj file(s), inserting", flush=True)
+
+        # Dest: project cangjie dir
+        os.makedirs(dst_dir, exist_ok=True)
+
+        # Process each .cj file in order (idx starts at 1)
+        for idx, (src_cj, cj_name) in enumerate(cj_files, 1):
+            print(f"[COPY] source {idx}: {src_cj}", flush=True)
+
+            # Read original file
+            with open(src_cj, 'r', encoding='UTF-8') as f:
+                lines = f.readlines()
+
+            print(f"[COPY] original: {len(lines)} lines, name: {cj_name}", flush=True)
+
+            # Step 1: Replace existing package or insert new one at line 9
+            package_found = False
+            for i, line in enumerate(lines):
+                if line.strip().startswith('package '):
+                    lines[i] = 'package ohos_app_cangjie_entry\n'
+                    print(f"[COPY] replaced package at line {i+1}", flush=True)
+                    package_found = True
+                    break
+            if not package_found and len(lines) >= 8:
+                lines.insert(8, 'package ohos_app_cangjie_entry\n')
+                print(f"[COPY] inserted package at line 9", flush=True)
+
+            # Step 2: Rename main to cj_main{idx}
+            for i, line in enumerate(lines):
+                stripped = line.strip()
+                if stripped.startswith('func main(') or stripped.startswith('func main '):
+                    lines[i] = line.replace('func main(', f'func cj_main{idx}(').replace('func main ', f'func cj_main{idx} ')
+                    print(f"[COPY] renamed main to cj_main{idx} at line {i+1}", flush=True)
+                elif stripped.startswith('main(') or stripped.startswith('main ('):
+                    lines[i] = line.replace('main(', f'cj_main{idx}(', 1).replace('main (', f'cj_main{idx} (', 1)
+                    if not lines[i].strip().startswith('func '):
+                        lines[i] = lines[i].replace(f'cj_main{idx}', f'func cj_main{idx}', 1)
+                    print(f"[COPY] renamed main to cj_main{idx} at line {i+1}", flush=True)
+
+            # Step 3: Remove sleep(Duration.millisecond line
+            new_lines = []
+            for line in lines:
+                if 'sleep(Duration.millisecond' in line:
+                    print(f"[COPY] removed sleep line", flush=True)
+                    continue
+                new_lines.append(line)
+            lines = new_lines
+
+            # Write to dest
+            dst_cj = os.path.join(dst_dir, cj_name)
+            with open(dst_cj, 'w', encoding='UTF-8') as f:
+                f.writelines(lines)
+
+            print(f"[COPY] transformed -> {dst_cj} ({len(lines)} lines)", flush=True)
+
+        # Step 4: Insert cj_main{idx}() calls into index.cj (skip if already exists)
+        index_cj = os.path.join(dst_dir, 'index.cj')
+        if os.path.exists(index_cj):
+            with open(index_cj, 'r', encoding='UTF-8') as f:
+                idx_lines = f.readlines()
+            inserted = 0
+            for idx in range(1, len(cj_files) + 1):
+                call_str = f'cj_main{idx}()'
+                if any(call_str in line for line in idx_lines):
+                    print(f"[COPY] {call_str} already in index.cj, skip", flush=True)
+                    continue
+                if len(idx_lines) < 31:
+                    print(f"[COPY] index.cj too short, skip {call_str}", flush=True)
+                    continue
+                # Insert after last existing cj_mainN() call, or at line 32
+                insert_pos = 31
+                for i, line in enumerate(idx_lines):
+                    if re.search(r'cj_main\d*\(\)', line):
+                        insert_pos = i + 1
+                idx_lines.insert(insert_pos, f'                        {call_str}\n')
+                inserted += 1
+            if inserted > 0:
+                with open(index_cj, 'w', encoding='UTF-8') as f:
+                    f.writelines(idx_lines)
+                print(f"[COPY] inserted {inserted} cj_mainN() call(s) into index.cj", flush=True)
+
+        return True
+
+    def insert_all_source_files(self, info_folder):
+        """
+        insert_all_source_files: Collect all .cj files from info DEPENDENCE lines,
+        insert each into a separate sub-package under entry/src/main/cangjie/test{N}/.
+        Each file gets package ohos_app_cangjie_entry.test{N}, main renamed to
+        public func cj_main{N}(). index.cj gets import lines + cj_mainN() calls.
+        """
+        import shutil
+
+        print(f"[INSERT] project_path={self.project_path}", flush=True)
+        print(f"[INSERT] scanning folder: {info_folder}", flush=True)
+
+        dst_dir = os.path.join(self.project_path, 'entry', 'src', 'main', 'cangjie')
+
+        # Clean up old .cj files and subdirectories
+        keep_files = {'index.cj', 'ability_stage.cj', 'main_ability.cj', 'ability_mainability_entry.cj', 'module_entry_entry.cj'}
+        if os.path.isdir(dst_dir):
+            for f in os.listdir(dst_dir):
+                full_path = os.path.join(dst_dir, f)
+                if os.path.isfile(full_path) and f.endswith('.cj') and f not in keep_files:
+                    os.remove(full_path)
+                    print(f"[INSERT] removed old: {f}", flush=True)
+                elif os.path.isdir(full_path) and re.match(r'^test\d+$', f):
+                    shutil.rmtree(full_path)
+                    print(f"[INSERT] removed old dir: {f}/", flush=True)
+            # Clean up index.cj: remove old imports and cj_mainN() calls
+            index_cj = os.path.join(dst_dir, 'index.cj')
+            if os.path.exists(index_cj):
+                with open(index_cj, 'r', encoding='UTF-8') as f:
+                    idx_lines = f.readlines()
+                new_idx = [line for line in idx_lines
+                           if not re.search(r'import ohos_app_cangjie_entry\.test\d+\.\*', line)
+                           and not re.search(r'cj_main\d*\(\)', line)]
+                if len(new_idx) != len(idx_lines):
+                    with open(index_cj, 'w', encoding='UTF-8') as f:
+                        f.writelines(new_idx)
+                    print(f"[INSERT] cleaned old imports and cj_mainN() from index.cj", flush=True)
+
+        # Scan all .info files, collect unique .cj files from DEPENDENCE lines
+        all_cj_files = []
+        seen_names = set()
+
+        for f in sorted(os.listdir(info_folder)):
+            if not f.endswith('.info'):
+                continue
+            info_path = os.path.join(info_folder, f)
+            test_dir = os.path.dirname(os.path.abspath(info_path))
+            print(f"[INSERT] scanning: {f}", flush=True)
+            with open(info_path, 'r', encoding='UTF-8') as fh:
+                for line in fh:
+                    if 'DEPENDENCE:' in line:
+                        deps = line.split('DEPENDENCE:')[1].strip().split()
+                        for dep in deps:
+                            if dep.endswith('.cj'):
+                                dep_path = os.path.join(test_dir, dep) if not os.path.isabs(dep) else dep
+                                dep_path = os.path.normpath(dep_path)
+                                if os.path.exists(dep_path):
+                                    cj_name = os.path.basename(dep_path)
+                                    if cj_name not in seen_names:
+                                        all_cj_files.append((dep_path, cj_name))
+                                        seen_names.add(cj_name)
+                        break
+
+        if not all_cj_files:
+            print(f"[INSERT] No .cj files found in {info_folder}", flush=True)
+            return False
+
+        print(f"[INSERT] found {len(all_cj_files)} .cj file(s), inserting", flush=True)
+
+        os.makedirs(dst_dir, exist_ok=True)
+
+        # Process each .cj file into its own sub-package
+        for idx, (src_cj, cj_name) in enumerate(all_cj_files, 1):
+            print(f"[INSERT] source {idx}: {src_cj}", flush=True)
+
+            with open(src_cj, 'r', encoding='UTF-8') as f:
+                lines = f.readlines()
+
+            print(f"[INSERT] original: {len(lines)} lines, name: {cj_name}", flush=True)
+
+            # Step 1: Replace existing package or insert new one at line 9
+            pkg_name = f'ohos_app_cangjie_entry.test{idx}'
+            package_found = False
+            for i, line in enumerate(lines):
+                if line.strip().startswith('package '):
+                    lines[i] = f'package {pkg_name}\n'
+                    print(f"[INSERT] replaced package at line {i+1} -> {pkg_name}", flush=True)
+                    package_found = True
+                    break
+            if not package_found and len(lines) >= 8:
+                lines.insert(8, f'package {pkg_name}\n')
+                print(f"[INSERT] inserted package at line 9 -> {pkg_name}", flush=True)
+
+            # Step 2: Rename main to public func cj_main{idx}
+            for i, line in enumerate(lines):
+                stripped = line.strip()
+                if stripped.startswith('func main(') or stripped.startswith('func main '):
+                    lines[i] = line.replace('func main(', f'public func cj_main{idx}(').replace('func main ', f'public func cj_main{idx} ')
+                    print(f"[INSERT] renamed main to public cj_main{idx} at line {i+1}", flush=True)
+                elif stripped.startswith('main(') or stripped.startswith('main ('):
+                    lines[i] = line.replace('main(', f'cj_main{idx}(', 1).replace('main (', f'cj_main{idx} (', 1)
+                    if not lines[i].strip().startswith('public '):
+                        lines[i] = lines[i].replace(f'cj_main{idx}', f'public func cj_main{idx}', 1)
+                    print(f"[INSERT] renamed main to public cj_main{idx} at line {i+1}", flush=True)
+
+            # Step 3: Remove sleep(Duration.millisecond line
+            new_lines = []
+            for line in lines:
+                if 'sleep(Duration.millisecond' in line:
+                    print(f"[INSERT] removed sleep line", flush=True)
+                    continue
+                new_lines.append(line)
+            lines = new_lines
+
+            # Write to sub-directory test{idx}/
+            sub_dir = os.path.join(dst_dir, f'test{idx}')
+            os.makedirs(sub_dir, exist_ok=True)
+            dst_cj = os.path.join(sub_dir, cj_name)
+            with open(dst_cj, 'w', encoding='UTF-8') as f:
+                f.writelines(lines)
+            print(f"[INSERT] transformed -> {dst_cj} ({len(lines)} lines)", flush=True)
+
+        # Step 4: Update index.cj - insert imports and cj_mainN() calls
+        index_cj = os.path.join(dst_dir, 'index.cj')
+        if os.path.exists(index_cj):
+            with open(index_cj, 'r', encoding='UTF-8') as f:
+                idx_lines = f.readlines()
+
+            # Insert import lines after line 17 (0-based index 17)
+            num_files = len(all_cj_files)
+            import_lines = [f'import ohos_app_cangjie_entry.test{idx}.*\n' for idx in range(1, num_files + 1)]
+            for offset, imp_line in enumerate(import_lines):
+                idx_lines.insert(17 + offset, imp_line)
+            print(f"[INSERT] inserted {num_files} import line(s) into index.cj", flush=True)
+
+            # Insert cj_mainN() calls AFTER the line containing 'this.message = "Hello Cangjie"'
+            call_pos = None
+            for i, line in enumerate(idx_lines):
+                if 'this.message' in line and 'Hello Cangjie' in line:
+                    call_pos = i + 1  # insert after this line
+                    break
+            if call_pos is None:
+                # Fallback: find 'this.message' line
+                for i, line in enumerate(idx_lines):
+                    if 'this.message' in line:
+                        call_pos = i + 1
+                        break
+            if call_pos is None:
+                print(f"[INSERT] WARNING: could not find 'this.message' line, skip cj_mainN() insertion", flush=True)
+            else:
+                call_lines = [f'                        cj_main{idx}()\n' for idx in range(1, num_files + 1)]
+                for offset, call_line in enumerate(call_lines):
+                    idx_lines.insert(call_pos + offset, call_line)
+                print(f"[INSERT] inserted {num_files} cj_mainN() call(s) into index.cj at line {call_pos + 1}", flush=True)
+
+            with open(index_cj, 'w', encoding='UTF-8') as f:
+                f.writelines(idx_lines)
+
+        print(f"[INSERT] Done. {len(all_cj_files)} .cj file(s) inserted into sub-packages.", flush=True)
+        return True
+
+    def load_deveco_env(self):
+        """
+        load_deveco_env: Read deveco_env.txt and set environment variables
+        File location: DEVECO_ENV_FILE env var or {PROJECT_PATH}/deveco_env.txt
+        """
+        env_file = os.environ.get('DEVECO_ENV_FILE', '')
+        if not env_file:
+            env_file = os.path.join(self.project_path, 'deveco_env.txt')
+        if not os.path.exists(env_file):
+            print(f"[BUILD] env file not found: {env_file}", flush=True)
+            print(f"[BUILD] generate it in DevEco terminal: set > \"{env_file}\"", flush=True)
+            return False
+        with open(env_file, 'r', encoding='UTF-8', errors='replace') as f:
+            for line in f:
+                line = line.strip()
+                if '=' in line:
+                    key, val = line.split('=', 1)
+                    key = key.strip()
+                    val = val.strip()
+                    if key and not key.startswith('='):
+                        os.environ[key] = val
+        print(f"[BUILD] loaded env from {env_file}", flush=True)
+        return True
+
+    def build_project(self):
+        """
+        build_project: Run hvigorw.bat to build HAP with debug symbols
+        Step 1: Use template project (already created and signed)
+        Step 2: Signing already configured in template
+        Step 3: Build with hvigorw assembleHap --mode debug
+        """
+        # Load DevEco environment from file
+        self.load_deveco_env()
+
+        # Find hvigorw: from HVIGORW_HOME, DEVECO_HOME, or PATH
+        # Find hvigorw: from HVIGORW_HOME, DEVECO_HOME, or PATH
+        hvigorw = None
+        hvigorw_home = ''
+        # 1. HVIGORW_HOME
+        hvigorw_home = os.environ.get('HVIGORW_HOME', '')
+        if hvigorw_home:
+            for name in ['hvigorw.bat', 'hvigorw']:
+                candidate = os.path.join(hvigorw_home, name)
+                if os.path.exists(candidate):
+                    hvigorw = candidate
+                    break
+        # 2. DEVECO_HOME/tools/hvigor/bin
+        if not hvigorw:
+            deveco_home = os.environ.get('DEVECO_HOME', '')
+            if deveco_home:
+                hvigorw_home = os.path.join(deveco_home, 'tools', 'hvigor', 'bin')
+                for name in ['hvigorw.bat', 'hvigorw']:
+                    candidate = os.path.join(hvigorw_home, name)
+                    if os.path.exists(candidate):
+                        hvigorw = candidate
+                        break
+        # 3. PATH (fallback)
+        if not hvigorw:
+            import shutil
+            for name in ['hvigorw.bat', 'hvigorw']:
+                found = shutil.which(name)
+                if found:
+                    hvigorw = found
+                    hvigorw_home = os.path.dirname(found)
+                    break
+        if not hvigorw:
+            print(f"[BUILD] hvigorw not found", flush=True)
+            print(f"[BUILD] skip build, assuming HAP already exists", flush=True)
+            return True
+
+        # Don't set DEVECO_SDK_HOME - let hvigorw find it like the terminal does
+
+        # Skip build if HAP already exists
+        hap_path = os.path.join(self.project_path, 'entry', 'build', 'default', 'outputs', 'default', 'entry-default-signed.hap')
+        if os.path.exists(hap_path):
+            print(f"[BUILD] HAP already exists, skip build", flush=True)
+            return True
+
+        build_cmd = f'cd /d "{self.project_path}" && "{hvigorw}" assembleHap --mode module -p product=default -p buildMode=debug --no-daemon'
+        print(f"[BUILD] cmd: {build_cmd}", flush=True)
+        ret = os.system(build_cmd)
+        print(f"[BUILD] rc={ret}", flush=True)
+        if ret != 0:
+            print(f"[BUILD] build failed", flush=True)
+            return False
+
+        # Verify build output
+        hap_path = os.path.join(self.project_path, 'entry', 'build', 'default', 'outputs', 'default', 'entry-default-signed.hap')
+        so_dir = os.path.join(self.project_path, 'entry', 'build', 'default', 'intermediates', 'libs', 'default', self.lldb_arch_dir)
+        if os.path.exists(hap_path):
+            print(f"[BUILD] HAP: {hap_path} OK", flush=True)
+        else:
+            print(f"[BUILD] HAP not found after build!", flush=True)
+            return False
+        if os.path.isdir(so_dir):
+            so_files = [f for f in os.listdir(so_dir) if f.endswith('.so')]
+            print(f"[BUILD] .so files: {so_files}", flush=True)
+        else:
+            print(f"[BUILD] .so dir not found: {so_dir}", flush=True)
+
+        return True
+
+    def kill_residual_process(self):
+        """
+        kill_residual_process: Kill residual process before starting
+        """
+        hdc_shell(f"aa force-stop {self.bundle_name}", device_id=self.device_id)
+        print(f"Killed residual process: {self.bundle_name}")
+        time.sleep(1)
+        return True
+    
+    def copy_prebuilt_files(self):
+        """
+        copy_prebuilt_files: Copy pre-built HAP and .so from aaa_ohos_hap folder
+        to project build output directories. Creates dirs if missing.
+        """
+        import shutil
+
+        hap_src_dir = os.path.join(os.getcwd(), 'aaa_ohos_hap')
+        if not os.path.isdir(hap_src_dir):
+            return True
+
+        # Copy HAP -> entry/build/default/outputs/default/
+        hap_src = os.path.join(hap_src_dir, 'entry-default-signed.hap')
+        hap_dst_dir = os.path.join(self.project_path, 'entry', 'build', 'default', 'outputs', 'default')
+        hap_dst = os.path.join(hap_dst_dir, 'entry-default-signed.hap')
+        if os.path.exists(hap_src):
+            os.makedirs(hap_dst_dir, exist_ok=True)
+            shutil.copy2(hap_src, hap_dst)
+            print(f"[COPY] HAP -> {hap_dst}", flush=True)
+
+        # Copy .so -> entry/build/default/intermediates/libs/default/{arch}/
+        so_src = os.path.join(hap_src_dir, 'libohos_app_cangjie_entry.so')
+        so_dst_dir = os.path.join(self.project_path, 'entry', 'build', 'default', 'intermediates', 'libs', 'default', self.lldb_arch_dir)
+        so_dst = os.path.join(so_dst_dir, 'libohos_app_cangjie_entry.so')
+        if os.path.exists(so_src):
+            os.makedirs(so_dst_dir, exist_ok=True)
+            shutil.copy2(so_src, so_dst)
+            print(f"[COPY] .so -> {so_dst}", flush=True)
+
+        return True
+
+    def install_and_start_app(self):
+        """
+        install_and_start_app: Install HAP and start application with aa start
+        """
+        hap_path = os.path.join(self.project_path, 'entry', 'build', 'default', 'outputs', 'default', 'entry-default-signed.hap')
+        print(f"[STEP] HAP path: {hap_path}", flush=True)
+        print(f"[STEP] HAP exists: {os.path.exists(hap_path)}", flush=True)
+
+        if not os.path.exists(hap_path):
+            print(f"HAP file not found: {hap_path}", flush=True)
+            print(f"PROJECT_PATH={self.project_path}", flush=True)
+            return False
+
+        print("[STEP] sending HAP to device...", flush=True)
+        if not hdc_file_send(hap_path, '/data/local/tmp/entry-default-signed.hap', device_id=self.device_id):
+            print(f"ERROR: hdc file send failed", flush=True)
+            return False
+
+        print("[STEP] installing HAP...", flush=True)
+        install_out, install_ret = hdc_shell('bm install -p /data/local/tmp/entry-default-signed.hap', device_id=self.device_id)
+        print(f"bm install rc={install_ret}, out={install_out.strip()[:100]}", flush=True)
+        hdc_shell('rm -rf /data/local/tmp/entry-default-signed.hap', device_id=self.device_id)
+
+        print("[STEP] starting application (aa start)...", flush=True)
+        start_out, start_ret = hdc_shell(f'aa start -a EntryAbility -b {self.bundle_name} -m entry', device_id=self.device_id)
+        print(f"aa start rc={start_ret}, out={start_out.strip()[:100]}", flush=True)
+
+        time.sleep(2)
+        return True
+    
+    def simulate_click(self, x=None, y=None):
+        """
+        simulate_click: Use uitest click to tap screen center
+        """
+        if x is None and y is None:
+            import re
+            # Try multiple commands to get screen resolution
+            w, h = None, None
+            for cmd in ['hidumper -s WindowManagerService -a "-a"', 'uitest dumpLayout']:
+                out, _ = hdc_shell(cmd, device_id=self.device_id)
+                # Try [x y w h] format: [0 0 1260 2720]
+                m = re.search(r'\[\s*\d+\s+\d+\s+(\d{3,4})\s+(\d{3,4})\s*\]', out)
+                if m:
+                    w, h = int(m.group(1)), int(m.group(2))
+                    print(f"[CLICK] resolution from '{cmd[:20]}': {w}x{h}", flush=True)
+                    break
+            if w and h:
+                x, y = w // 2, h // 2
+                print(f"[CLICK] click center ({x},{y})", flush=True)
+            else:
+                x = int(os.environ.get('OHOS_CLICK_X', '630'))
+                y = int(os.environ.get('OHOS_CLICK_Y', '1360'))
+                print(f"[CLICK] resolution unknown, use default ({x},{y})", flush=True)
+        else:
+            x = x or int(os.environ.get('OHOS_CLICK_X', '630'))
+            y = y or int(os.environ.get('OHOS_CLICK_Y', '1360'))
+        click_cmd = f'uitest uiInput click {x} {y}'
+        print(f"[CLICK] {click_cmd}", flush=True)
+        out, ret = hdc_shell(click_cmd, device_id=self.device_id)
+        print(f"[CLICK] rc={ret}, out={out.strip()[:100]}", flush=True)
+        time.sleep(1)
+        return ret == 0
+    
+    def setup_lldb_server(self):
+        """
+        setup_lldb_server: Push lldb-server and set permissions
+        """
+        lldb_server_path = get_ohos_lldb_server_path(preferred_arch=self._lldb_arch_tag)
+        if not lldb_server_path:
+            print("Warning: lldb-server path not found, check DEVECO_HOME")
+            return False
+
+        remote_path = f"{OHOS_DEVICE_DIR}{self.bundle_name}/lldb-server"
+
+        print(f"Setting up lldb-server directory...")
+        # Combine mkdir + chmod + setenforce + ptrace_scope into one hdc shell call
+        setup_cmd = (
+            f"mkdir -p {OHOS_DEVICE_DIR}{self.bundle_name} && "
+            f"chmod 757 {OHOS_DEVICE_DIR}{self.bundle_name} && "
+            f"setenforce 0 2>/dev/null || su -c setenforce 0 2>/dev/null; "
+            f"echo 0 > /proc/sys/kernel/yama/ptrace_scope 2>/dev/null; true"
+        )
+        hdc_shell(setup_cmd, device_id=self.device_id)
+
+        print(f"Pushing lldb-server from {lldb_server_path} -> {remote_path}")
+        if not hdc_file_send(lldb_server_path, remote_path, device_id=self.device_id):
+            return False
+
+        hdc_shell(f"chmod 757 {remote_path}", device_id=self.device_id)
+
+        self._lldb_server_remote_path = remote_path
+
+        self.lldb_port, self.lldb_port_lock = choose_lldb_server_port()
+        if not self.lldb_port:
+            print("Failed to choose lldb-server port")
+            return False
+        print(f"Selected lldb-server port: {self.lldb_port}")
+
+        return True
+    
+    def get_pid_from_simulator(self, max_retries=8, interval=0.5):
+        """
+        get_pid_from_simulator: Get process PID from running simulator
+        Retries with polling because the app may take a few seconds to start.
+        Tries multiple process name patterns (app name and bundle name).
+        """
+        patterns = [self.app_name, self.bundle_name, self.bundle_name.split('.')[-1]]
+        seen_patterns = []
+        for p in patterns:
+            if p and p not in seen_patterns:
+                seen_patterns.append(p)
+
+        for attempt in range(1, max_retries + 1):
+            for pat in seen_patterns:
+                output, _ = hdc_shell(f"pgrep -f {pat}", device_id=self.device_id)
+                if output and output.strip():
+                    self.ohos_pid = output.strip().split('\n')[0].strip()
+                    print(f"Process found on simulator: {pat} PID={self.ohos_pid} (attempt {attempt})")
+                    return self.ohos_pid
+            print(f"Waiting for app process (attempt {attempt}/{max_retries})...")
+            time.sleep(interval)
+
+        ps_out, _ = hdc_shell("ps -A", device_id=self.device_id)
+        matching = [l for l in ps_out.split('\n') if self.app_name in l or self.bundle_name in l]
+        if matching:
+            parts = matching[0].split()
+            if len(parts) >= 2:
+                self.ohos_pid = parts[1]
+                print(f"Process found via ps fallback: PID={self.ohos_pid}")
+                return self.ohos_pid
+
+        print(f"Warning: No PID found for {self.app_name}/{self.bundle_name} after {max_retries} retries")
+        return None
+    
+    def start_lldb_server(self):
+        """
+        start_lldb_server: Start lldb-server directly on device (unix-abstract, /// fix applied)
+        """
+        lldb_remote = getattr(self, '_lldb_server_remote_path',
+                              f"{OHOS_DEVICE_DIR}{self.bundle_name}/lldb-server")
+        cmd = (f"{lldb_remote} platform "
+               f"--listen unix-abstract:///{self.bundle_name}/platform-{self.platform_sockid}.sock "
+               f"--log-file {OHOS_DEVICE_DIR}{self.bundle_name}/platform.log")
+
+        self.lldb_server_proc = subprocess.Popen(
+            build_hdc_cmd('shell', cmd, device_id=self.device_id),
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            text=True
+        )
+
+        time.sleep(1)
+
+        if self.lldb_server_proc.poll() is not None:
+            print(f"ERROR: lldb-server exited with code {self.lldb_server_proc.returncode}")
+            return False
+
+        running, _ = hdc_shell("pgrep -f lldb-server", device_id=self.device_id)
+        if not running.strip():
+            print("ERROR: lldb-server is not running on device.")
+            return False
+
+        print(f"Started lldb-server: platform-{self.platform_sockid}.sock")
+        return True
+    
+    def attach_debug_permission(self):
+        """
+        attach_debug_permission: Configure debug permission using aa attach
+        """
+        out, ret = hdc_shell(f"aa attach -b {self.bundle_name}", device_id=self.device_id)
+        print(f"aa attach -b {self.bundle_name} -> rc={ret}, out={out.strip() or '(empty)'}")
+        if ret != 0:
+            print("[WARN] aa attach failed, trying with su ...")
+            out2, ret2 = hdc_shell(f"su -c 'aa attach -b {self.bundle_name}'", device_id=self.device_id)
+            print(f"su aa attach -> rc={ret2}, out={out2.strip() or '(empty)'}")
+        print(f"Attached debug permission for {self.bundle_name}")
+        return True
+    
+    def cleanup(self):
+        """
+        cleanup: Clean up processes (lldb-server, cjdb, app on device).
+        Note: Inserted .cj files and index.cj cj_mainN() calls are NOT deleted
+        after test execution (per requirement).
+        """
+        try:
+            if self.lldb_server_proc:
+                self.lldb_server_proc.terminate()
+            if self.cjdb_proc:
+                self.cjdb_proc.terminate()
+            # Kill app on device
+            if self.device_id and self.bundle_name:
+                hdc_shell(f"aa force-stop {self.bundle_name}", device_id=self.device_id)
+                print(f"[CLEANUP] killed app: {self.bundle_name}", flush=True)
+        except Exception:
+            pass
+        finally:
+            if self.lldb_port_lock:
+                self.lldb_port_lock.release()
+                print(f"Released lldb port lock for port {self.lldb_port}")
+
+
 def read_execline(test_case):
     """
     read_execline: read *.info(exec command) line by line
@@ -767,9 +1595,11 @@ def split_cmd(line_e, run_env):
     result = symbol.join(line_e.split(symbol)[2:]).replace("\n", "")
     if "android_aarch64" in run_env and "cjdb" in firstcmd:
         doline = "cjdb"
-    if ("cjnative" in run_env and "android_aarch64" not in run_env and "ios_simulator" not in run_env and 'AOT' in firstcmd) or ("cjti" in run_env and 'CJVM' in firstcmd) or (
+    if "ohos_aarch64" in run_env and "cjdb" in firstcmd:
+        doline = "cjdb"
+    if ("cjnative" in run_env and "android_aarch64" not in run_env and "ios_simulator" not in run_env and "ohos_aarch64" not in run_env and 'AOT' in firstcmd) or ("cjti" in run_env and 'CJVM' in firstcmd) or (
             'AOT' not in firstcmd and 'CJVM' not in firstcmd and 'Android' not in firstcmd and not (
-                ("android_aarch64" in run_env or "ios_simulator" in run_env) and firstcmd.strip() == "r")) or (
+                ("android_aarch64" in run_env or "ios_simulator" in run_env or "ohos_aarch64" in run_env) and firstcmd.strip() == "r")) or (
             "android_aarch64" in run_env and 'Android' in firstcmd):
         print("__________________________")
         print("|" + firstcmd + "|")
@@ -902,11 +1732,12 @@ def _safe_wait(process, drain_timeout=3):
         pass
 
 
-def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_num, android_session=None, process=None):
+def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_num, android_session=None, process=None, ohos_session=None):
     """
     launch_debug method: based on different run_platform & run_env
     """
     p = None
+    ohos_clicked = False
     for line_e in lines_e:
         firstcmd, doline, result = split_cmd(line_e, run_env)
         # 'cjdb' in firstcmd: lanunch cjdb - start debugging
@@ -914,7 +1745,11 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
             if process is not None:
                 continue
             if run_platform == 'windows':
-                if "cjnative" in run_env:
+                if "ohos_aarch64" in run_env:
+                    process = make_spawn(doline.strip(), timeout=15, maxread=200000)
+                    process.expect(['target create[\\s\\S]*\\(cjdb\\)', '\\(cjdb\\)',
+                                   pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
+                elif "cjnative" in run_env:
                     if 'CJVM' in firstcmd:
                         continue
                     process = make_spawn(doline.strip(), timeout=15,
@@ -952,6 +1787,53 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                 process.expect(['target create[\\s\\S]*\\(cjdb\\)', '\\(cjdb\\)',
                                pexpect.EOF, pexpect.TIMEOUT], timeout=LLDB_STARTUP_TIMEOUT)
             result = '[\\s\\S]*' + result + '[\\s\\S]*'
+
+            # OHOS: send setup commands after starting cjdb
+            if "ohos_aarch64" in run_env and ohos_session:
+                print("[STEP] platform select remote-ohos", flush=True)
+                send_and_expect(process, 'platform select remote-ohos')
+                # print(f"[STEP] settings set target.default-arch {ohos_session.target_arch}", flush=True)
+                # send_and_expect(process, f'settings set target.default-arch {ohos_session.target_arch}')
+
+                print(f"[STEP] platform connect unix-abstract-connect://{ohos_session.device_id}/{ohos_session.bundle_name}/platform-{ohos_session.platform_sockid}.sock", flush=True)
+                alive, _ = hdc_shell("pgrep -f lldb-server", device_id=ohos_session.device_id)
+                print(f"[STEP] lldb-server alive: {bool(alive.strip())}", flush=True)
+                if not alive.strip():
+                    print("[ERROR] lldb-server not running before platform connect!", flush=True)
+                connect_url = f'unix-abstract-connect://{ohos_session.device_id}/{ohos_session.bundle_name}/platform-{ohos_session.platform_sockid}.sock'
+                pc_out = send_and_expect(process, f'platform connect {connect_url}')
+                if pc_out and 'error' in pc_out.lower():
+                    print(f"[WARN] platform connect: {pc_out.strip()[:200]}", flush=True)
+
+                arch_lib_dir = ohos_session.lldb_arch_dir
+                base = os.path.join(ohos_session.project_path, 'entry', 'build', 'default', 'intermediates')
+                search_paths = [
+                    os.path.join(base, 'libs', 'default', arch_lib_dir),
+                ]
+                for path in search_paths:
+                    if os.path.isdir(path):
+                        print(f"[STEP] exec-search-paths += {path}", flush=True)
+                        send_and_expect(process, f'settings append target.exec-search-paths {path}')
+
+                print("[STEP] process handle -s false SIGSEGV", flush=True)
+                send_and_expect(process, 'process handle -s false SIGSEGV', timeout=5)
+                print("[STEP] settings set auto-confirm true", flush=True)
+                send_and_expect(process, 'settings set auto-confirm true', timeout=5)
+                print("[STEP] settings set symbols.debug-info-symlink-paths /proc/self/cwd", flush=True)
+                send_and_expect(process, 'settings set symbols.debug-info-symlink-paths /proc/self/cwd', timeout=5)
+
+                if ohos_session.ohos_pid:
+                    print(f"[STEP] attach {ohos_session.ohos_pid}", flush=True)
+                    attach_out = send_and_expect(process, f'attach {ohos_session.ohos_pid}', timeout=LLDB_ATTACH_TIMEOUT)
+                    print(f"[STEP] attach result: {attach_out.strip()[:200] or '(ok)'}", flush=True)
+
+                    # Wait for "Executable module" (library loading complete)
+                    if 'Executable module' not in attach_out:
+                        print("[STEP] waiting for Executable module...", flush=True)
+                        process.expect(['Executable module', pexpect.TIMEOUT], timeout=20)
+                        process.expect(['\\(cjdb\\)', pexpect.TIMEOUT], timeout=10)
+                    print("[STEP] library loading complete", flush=True)
+
             continue
 
         # stop cjdb process using quit-cmd
@@ -965,8 +1847,8 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
             _safe_wait(process)
             break
 
-        # AOT-cmd only run on cjnative (non-Android/iOS) backend
-        elif "AOT" in firstcmd and ("android_aarch64" in run_env or "ios_simulator" in run_env):
+        # AOT-cmd only run on cjnative (non-Android/iOS/OHOS) backend
+        elif "AOT" in firstcmd and ("android_aarch64" in run_env or "ios_simulator" in run_env or "ohos_aarch64" in run_env):
             continue
 
         # CJVM-cmd only run on cjti-backend
@@ -980,10 +1862,25 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
             elif "ios_simulator" in run_env and doline.strip():
                 print(f"[iOS Debug] Executing Android line: doline={doline}, result={result}")
                 dotest(process, doline, result, f_e, run_env, run_platform, p)
+            elif "ohos_aarch64" in run_env and doline.strip():
+                print(f"[OHOS] Executing Android line: doline={doline}, result={result}")
+                if doline.strip() in ('c', 'continue'):
+                    c_timeout = int(os.environ.get('OHOS_CLICK_TIMEOUT', '30'))
+                    process.sendline(doline)
+                    time.sleep(1)
+                    if ohos_session and not ohos_clicked:
+                        print("[CLICK] clicking now...", flush=True)
+                        ohos_session.simulate_click()
+                        ohos_clicked = True
+                    expected_pattern = '\r?\n[\\s\\S]*' + result + '[\\s\\S]*\\(cjdb\\)'
+                    index = process.expect([expected_pattern, pexpect.TIMEOUT], timeout=c_timeout)
+                    indextest(process, doline, index, f_e, run_env, run_platform, p)
+                else:
+                    dotest(process, doline, result, f_e, run_env, run_platform, p)
             continue
 
-        # Skip 'r' (run) command for Android/iOS: process is already attached, use 'c' instead
-        elif ("android_aarch64" in run_env or "ios_simulator" in run_env) and (firstcmd.strip() == "r" or firstcmd.strip() == "rerun"):
+        # Skip 'r' (run) command for Android/iOS/OHOS: process is already attached, use 'c' instead
+        elif ("android_aarch64" in run_env or "ios_simulator" in run_env or "ohos_aarch64" in run_env) and (firstcmd.strip() == "r" or firstcmd.strip() == "rerun"):
             continue
 
         # Android remote debugging
@@ -996,6 +1893,37 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
         # iOS simulator debugging
         elif "ios_simulator" in run_env and "cjdb" not in firstcmd:
             dotest(process, doline, result, f_e, run_env, run_platform, p)
+
+        # OHOS remote debugging
+        elif "ohos_aarch64" in run_env and "cjdb" not in firstcmd:
+            cmd = firstcmd.strip()
+            if cmd in ('b', 'break', 'breakpoint', '_breakpoint-set'):
+                bp_out = send_and_expect(process, doline)
+                print(f"[BP] b output: {bp_out.strip()[:200]}", flush=True)
+                if 'pending' in bp_out.lower() or 'no locations' in bp_out.lower():
+                    print(f"[OHOS] breakpoint NOT resolved (pending)", flush=True)
+                    raise DebugTestFailed("Breakpoint not resolved: " + doline)
+                else:
+                    print(f"[OHOS] breakpoint set OK", flush=True)
+            elif cmd in ('c', 'continue', 'r', 'run'):
+                c_timeout = int(os.environ.get('OHOS_CLICK_TIMEOUT', '30'))
+
+                # Send c once (from test case)
+                process.sendline(doline)
+                time.sleep(1)
+
+                # Click to trigger breakpoint
+                if ohos_session and not ohos_clicked:
+                    print("[CLICK] clicking now...", flush=True)
+                    ohos_session.simulate_click()
+                    ohos_clicked = True
+
+                # Wait for breakpoint hit using result as expected pattern
+                expected_pattern = '\r?\n[\\s\\S]*' + result + '[\\s\\S]*\\(cjdb\\)'
+                index = process.expect([expected_pattern, pexpect.TIMEOUT], timeout=c_timeout)
+                indextest(process, doline, index, f_e, run_env, run_platform, p)
+            else:
+                dotest(process, doline, result, f_e, run_env, run_platform, p)
 
         # CJVM need 'process connect' command to connect server
         elif "process" in firstcmd and "CJVM" in firstcmd:
@@ -1140,6 +2068,7 @@ def debugging():
 
     android_session = None
     ios_session = None
+    ohos_session = None
     process = None
     p = None
     test_failed = False
@@ -1211,7 +2140,58 @@ def debugging():
             if android_session and android_session.android_pid:
                 send_and_expect(process, f'attach {android_session.android_pid}', timeout=LLDB_ATTACH_TIMEOUT)
 
-        process, p = on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_num, android_session, process)
+        elif "ohos_aarch64" in run_env:
+            ohos_session = OHOSDebugSession()
+            if not ohos_session.setup(test_case, cmp_res):
+                print("Failed to setup OHOS debug environment")
+                return False
+            
+            # print("[STEP] copy source file", flush=True)
+            # ohos_session.copy_source_file(test_case, cmp_res)
+
+            # print("[STEP] build project (hvigorw assembleHap)", flush=True)
+            # if not ohos_session.build_project():
+            #     print("Failed to build project")
+            #     ohos_session.cleanup()
+            #     return False
+
+            print("[STEP] copy prebuilt HAP and .so", flush=True)
+            ohos_session.copy_prebuilt_files()
+
+            print("[STEP] kill residual process", flush=True)
+            ohos_session.kill_residual_process()
+
+            print("[STEP] install HAP", flush=True)
+            if not ohos_session.install_and_start_app():
+                print("Failed to install HAP")
+                ohos_session.cleanup()
+                return False
+            
+            print("[STEP] setup lldb-server (push + chmod)", flush=True)
+            if not ohos_session.setup_lldb_server():
+                print("Failed to setup lldb-server")
+                ohos_session.cleanup()
+                return False
+
+            print("[STEP] get PID", flush=True)
+            ohos_session.get_pid_from_simulator()
+            if not ohos_session.ohos_pid:
+                print("Failed to get application PID")
+                ohos_session.cleanup()
+                return False
+
+            print("[STEP] start lldb-server (direct)", flush=True)
+            if not ohos_session.start_lldb_server():
+                print("Failed to start lldb-server")
+                ohos_session.cleanup()
+                return False
+
+            print("[STEP] aa attach (debug permission)", flush=True)
+            ohos_session.attach_debug_permission()
+
+            print("[STEP] entering on_debugging()", flush=True)
+
+        process, p = on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_num, android_session, process, ohos_session)
 
         if p:
             clean_process(p, run_platform)
@@ -1224,9 +2204,16 @@ def debugging():
             ios_session.cleanup()
             ios_session = None
 
+        if ohos_session:
+            ohos_session.cleanup()
+            ohos_session = None
+
         f_e.close()
-        process.kill(_KILL_SIGNAL)
-    except DebugTestFailed as e:
+        try:
+            process.kill(_KILL_SIGNAL)
+        except Exception:
+            pass
+    except Exception as e:
         print(f"Test failed: {e}")
         if android_session:
             android_session.cleanup()
@@ -1234,8 +2221,14 @@ def debugging():
         if ios_session:
             ios_session.cleanup()
             ios_session = None
+        if ohos_session:
+            ohos_session.cleanup()
+            ohos_session = None
         if process:
-            process.kill(_KILL_SIGNAL)
+            try:
+                process.kill(_KILL_SIGNAL)
+            except Exception:
+                pass
         if f_e:
             f_e.close()
         test_failed = True
@@ -1248,6 +2241,11 @@ def debugging():
         if ios_session:
             try:
                 ios_session.cleanup()
+            except Exception:
+                pass
+        if ohos_session:
+            try:
+                ohos_session.cleanup()
             except Exception:
                 pass
         if process:
@@ -1264,12 +2262,36 @@ def debugging():
     return not test_failed
 
 
+def insert_ohos_source():
+    """
+    insert_ohos_source: Scan folder for all .info files, collect all .cj files
+    from their DEPENDENCE lines, insert all into project template at once.
+    Usage: python cjdb_test.py --insert <info_folder>
+    Does NOT build, install, or start debugging.
+    """
+    info_folder = sys.argv[2]
+
+    session = OHOSDebugSession()
+    session.project_path = os.environ.get('PROJECT_PATH', os.getcwd())
+
+    print(f"[INSERT] project_path={session.project_path}")
+    print(f"[INSERT] info_folder={info_folder}")
+    session.insert_all_source_files(info_folder)
+    print(f"[INSERT] Done. Run hvigorw assembleHap manually, then execute test cases.")
+    os._exit(0)
+
+
 def debugging_with_retry():
-    """Windows/Mac: retry 2 times (3 total). Linux: run once, no retry."""
+    """Windows/Mac: retry 2 times (3 total). Linux: run once, no retry.
+    ohos_aarch64: never retry (build/install/click flow is stateful)."""
     if sys.platform == 'win32' and not _HAS_WINPTY:
         print('ERROR: pywinpty not installed. Run: pip install pywinpty')
         os._exit(1)
-    max_attempts = 3 if sys.platform in ('win32', 'darwin') else 1
+    run_env = sys.argv[3] if len(sys.argv) > 3 else ''
+    if "ohos_aarch64" in run_env:
+        max_attempts = 1
+    else:
+        max_attempts = 3 if sys.platform in ('win32', 'darwin') else 1
     for attempt in range(1, max_attempts + 1):
         try:
             ok = debugging()
@@ -1284,4 +2306,7 @@ def debugging_with_retry():
 
 
 if __name__ == "__main__":
-    debugging_with_retry()
+    if len(sys.argv) > 1 and sys.argv[1] == '--insert':
+        insert_ohos_source()
+    else:
+        debugging_with_retry()

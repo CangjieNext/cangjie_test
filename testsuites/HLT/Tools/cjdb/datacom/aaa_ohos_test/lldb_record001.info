@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/045_debug_record_mod.cj
+// (target_ohos) EXEC: python3 cjdb_test.py lldb_record001.info 045_debug_record_mod %run_env
+
+test#
+cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
+b,b 045_debug_record_mod.cj:57,045_debug_record_mod.cj:57
+AOT r,r,-> 57
+c,c,57
+n,n,58
+locals,locals,Rectangle\) rect = {(\r|\n|\r\n)  length = 3
+print,print rect,Rectangle\)[\s\S]*{(\r|\n|\r\n)  length = 3
+print,print rect.length,\(Int32\)[\s\S]*3
+q,q,
