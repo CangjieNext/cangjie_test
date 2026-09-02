@@ -1,0 +1,19 @@
+﻿/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/generics_abstract_fun01.cj
+// (target_ohos) EXEC: python3 cjdb_test.py generics_abstract_fun01.info generics_abstract_fun01 %run_env
+
+test#
+cjdb,cjdb --no-use-colors generics_abstract_fun01,generics_abstract_fun01
+b,b generics_abstract_fun01.cj:34,generics_abstract_fun01.cj:34
+AOT r,r,-> 34
+c,c,34
+p,p a1,AB1\)[\s\S]*{}
+q,q,
