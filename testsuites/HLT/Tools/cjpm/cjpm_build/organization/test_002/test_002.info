@@ -8,7 +8,7 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm test --no-color --no-progress | compare %f
 // ASSERT: regex-1 TP: .*\.\*
-// ASSERT: regex-1 TP: huawei::test\.\*
+// ASSERT: regex-1 TP: test@huawei\.\*
 // ASSERT: regex TOTAL: 3
 // ASSERT: regex PASSED: 3, SKIPPED: 0, ERROR: 0
 // ASSERT: regex FAILED: 0
