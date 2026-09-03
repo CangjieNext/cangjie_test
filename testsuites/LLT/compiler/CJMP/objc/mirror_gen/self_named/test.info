@@ -10,6 +10,10 @@
 // EXEC: ObjCInteropGen test.toml
 // EXEC: %cat test.cj | compare %f
 /* SCAN-IN
+public type T1 = Int32
+
+public type T2 = Int32
+
 public type T3 = Int32
 
 public type T9 = Int32
@@ -19,6 +23,13 @@ public type T11 = Int32
 public type T12 = Int32
 
 public type T13 = CPointer<T12>
+
+@C
+public struct S {
+    public var T1: T1 = 0
+    public var T2: CPointer<T2> = CPointer<T2>()
+    public var T12: T13 = CPointer<T12>()
+}
 
 @ObjCMirror
 public open class M {
