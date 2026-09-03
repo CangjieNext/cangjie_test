@@ -4,6 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package dep1.aoo
+package aoo
 
-import dep2.boo.*
+public func aoo(): Unit {
+    println("aoo")
+}

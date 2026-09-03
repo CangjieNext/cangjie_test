@@ -4,6 +4,6 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package dep1.aoo
-
-import dep2.boo.*
+// DEPENDENCE: ../%n
+// EXEC: cd %n/workspace && %cjpm update && cd ../ && %cat workspace/cjpm.lock 2>&1 | compare %f
+// ASSERT: scan opengauss
