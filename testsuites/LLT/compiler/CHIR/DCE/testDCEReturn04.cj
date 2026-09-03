@@ -4,10 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
 // EXEC-PIPE-0: %run %run_opt %output %run_args
 
+// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_expression_hint"
+
 func foo(): Int64 {
+    // EXPECT: chir_dce_unreachable_expression_hint
     return try {
         return 0
     } catch (_) {
@@ -28,6 +31,3 @@ main() {
     foo1()
     0
 }
-
-/* SCAN
-*/
