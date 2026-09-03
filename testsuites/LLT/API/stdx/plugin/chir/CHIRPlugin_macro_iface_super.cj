@@ -5,11 +5,14 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// EXEC-PIPE-1: %set_stdx_path %compiler %import-cangjie-stdx %cmp_opt %f -o %output 2>&1 | compare %f
-// @CHIRPlugin 扫描已有 RefType 父类型（非 CHIRPluginBase）后追加基类
-// ASSERT: scan super class 'CHIRPluginBase' must be placed at the beginning of supertype list
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace
+// EXEC: %set_stdx_path %compiler %import-cangjie-stdx %cmp_opt -Woff unused -o %n.%suffix %f
+// RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_args | compare %f
+// @CHIRPlugin prepends CHIRPluginBase so an existing interface super type is valid
+
+/* SCAN
+name: WithIface
+ok: true
+*/
 
 import stdx.plugin.*
 import stdx.chir.*
@@ -19,8 +22,13 @@ interface Marker {}
 @CHIRPlugin
 class WithIface <: Marker {
     public override func run(pkg: Package): Bool {
-        return true
+        let _ = pkg
+        true
     }
 }
 
-main() {}
+main() {
+    let p = WithIface()
+    println("name: ${p.name}")
+    println("ok: ${p is Marker}")
+}
