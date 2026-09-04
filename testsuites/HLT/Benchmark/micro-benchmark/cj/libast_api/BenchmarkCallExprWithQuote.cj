@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -22,11 +23,11 @@ class TestCallExpr {
     let componentInput3: ArrayList<ArrayList<Tokens> > = ArrayList<ArrayList<Tokens> >()
 
     TestCallExpr() {
-        let visitor1 = VisitBuilderSimple2()
-        let visitor2 = VisitBuilderSimple2()
-        let visitor3 = VisitBuilderSimple2()
+        blackBox(VisitBuilderSimple2())
+        blackBox(VisitBuilderSimple2())
+        blackBox(VisitBuilderSimple2())
         
-        let bd1 = getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr1)) as ClassDecl).getOrThrow())
+        blackBox(getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr1)) as ClassDecl).getOrThrow()))
         for (input in bd1) {
             match (input[0]) {
                 case value: Expr =>
@@ -35,7 +36,7 @@ class TestCallExpr {
                 case _ => ()
             }
         }
-        let bd2 = getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr2)) as ClassDecl).getOrThrow())
+        blackBox(getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr2)) as ClassDecl).getOrThrow()))
         for (input in bd2) {
             match (input[0]) {
                 case value: Expr =>
@@ -44,7 +45,7 @@ class TestCallExpr {
                 case _ => ()
             }
         }
-        let bd3 = getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr3)) as ClassDecl).getOrThrow())
+        blackBox(getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr3)) as ClassDecl).getOrThrow()))
         for (input in bd3) {
             match (input[0]) {
                 case value: Expr =>
@@ -59,7 +60,7 @@ class TestCallExpr {
     func BenchmarkCallExprWithQuote_001():Unit {
         for (tokens in componentInput1) {
             for (token in tokens) {
-                 var callBind = CallExpr(quote(bind($token,this)))
+                 blackBox(CallExpr(quote(bind($token,this))))
             }
         }
         ()
@@ -68,7 +69,7 @@ class TestCallExpr {
     func BenchmarkCallExprWithQuote_002():Unit {
         for (tokens in componentInput2) {
             for (token in tokens) {
-                 var callBind = CallExpr(quote(bind($token,this)))
+                 blackBox(CallExpr(quote(bind($token,this))))
             }
         }
         ()
@@ -77,7 +78,7 @@ class TestCallExpr {
     func BenchmarkCallExprWithQuote_003():Unit {
         for (tokens in componentInput3) {
             for (token in tokens) {
-                 var callBind = CallExpr(quote(bind($token,this)))
+                 blackBox(CallExpr(quote(bind($token,this))))
             }
         }
         ()

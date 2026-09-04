@@ -12,6 +12,7 @@
 
 import std.time.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -21,35 +22,34 @@ public class Test_ArrayList_Contains {
     static var int_16 = ArrayList<Int64>(16, {index: Int64 => index})
     static var int_128 = ArrayList<Int64>(128, {index: Int64 => index})
     static var int_4096 = ArrayList<Int64>(4096, {index: Int64 => index})
-    var res = false
 
     @Bench
     func BenchmarkArrayListContains_Int64_N16(): Unit {
-        res = int_16.contains(8)
+        blackBox(int_16.contains(8))
     }
 
     @Bench
     func BenchmarkArrayListContains_Int64_N128(): Unit {
-        res = int_128.contains(64)
+        blackBox(int_128.contains(64))
     }
 
     @Bench
     func BenchmarkArrayListContains_Int64_N4096(): Unit {
-        res = int_4096.contains(2048)
+        blackBox(int_4096.contains(2048))
     }
 
     @Bench
     func BenchmarkArrayListContains_Notexist_Int64_N16(): Unit {
-        res = int_16.contains(20)
+        blackBox(int_16.contains(20))
     }
 
     @Bench
     func BenchmarkArrayListContains_Notexist_Int64_N128(): Unit {
-        res = int_128.contains(130)
+        blackBox(int_128.contains(130))
     }
 
     @Bench
     func BenchmarkArrayListContains_Notexist_Int64_N4096(): Unit {
-        res = int_4096.contains(5000)
+        blackBox(int_4096.contains(5000))
     }
 }

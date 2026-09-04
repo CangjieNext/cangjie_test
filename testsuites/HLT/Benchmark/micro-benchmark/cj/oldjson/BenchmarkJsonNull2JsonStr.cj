@@ -15,6 +15,7 @@ import std.io.*
 import std.time.*
 import std.convert.*
 import std.collection.*
+import std.runtime.*
 
 let reps = 1000000
 func setUp(): JsonNull {
@@ -24,7 +25,7 @@ func setUp(): JsonNull {
 
 func benchmarkJsonNull2JsonStr(jsonNull: JsonNull) {
     for (i in 0..reps) {
-        jsonNull.toJsonString()
+        blackBox(jsonNull.toJsonString())
     }
 }
 

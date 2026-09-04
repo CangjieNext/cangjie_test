@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test 
 @Measure[TimeNow(Nanos)]
@@ -24,12 +25,12 @@ class TestGqlOperation {
         this.gqlOperationInput2 = cangjieLex(gqlOperationStr2)
     }
     func gqlOperation(input: Tokens): Tokens {
-        let decl = parseDecl(input)
-        var body = Tokens()
+        blackBox(parseDecl(input))
+        blackBox(Tokens())
         if (let Some(cd) <- (decl as ClassDecl)) {
-            let modifiers = cd.modifiers.toTokens()
-            let identifier = cd.identifier
-            let superTypes = cd.superTypes.toTokens()
+            blackBox(cd.modifiers.toTokens())
+            blackBox(cd.identifier)
+            blackBox(cd.superTypes.toTokens())
 
             for (item in cd.body.decls) {
                 match(item) {
@@ -45,10 +46,10 @@ class TestGqlOperation {
     
     @Bench
     func BenchmarkGqlOperation_001():Unit {
-        let body = gqlOperation(gqlOperationInput1)
+        blackBox(gqlOperation(gqlOperationInput1))
     }
     @Bench
     func BenchmarkGqlOperation_002():Unit {
-        let body = gqlOperation(gqlOperationInput2)
+        blackBox(gqlOperation(gqlOperationInput2))
     }
 }

@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test 
 @Measure[TimeNow(Nanos)]
@@ -46,57 +47,57 @@ class TestExprToTokens {
 
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_001(): Unit {
-        var ret = quote($handleRenderInput1)
+        blackBox(quote($handleRenderInput1))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_002(): Unit {
-        var ret = quote($handleRenderInput2)
+        blackBox(quote($handleRenderInput2))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_003(): Unit {
-        var ret = quote($handleRenderInput3)
+        blackBox(quote($handleRenderInput3))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_004(): Unit {
-        var ret = quote($handleRenderInput4)
+        blackBox(quote($handleRenderInput4))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_005(): Unit {
-        var ret = quote($handleRenderInput5)
+        blackBox(quote($handleRenderInput5))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_006(): Unit {
-        var ret = quote($handleRenderInput6)
+        blackBox(quote($handleRenderInput6))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_007(): Unit {
-        var ret = quote($handleRenderInput7)
+        blackBox(quote($handleRenderInput7))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_008(): Unit {
-        var ret = quote($handleRenderInput8)
+        blackBox(quote($handleRenderInput8))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_009(): Unit {
-        var ret = quote($handleRenderInput9)
+        blackBox(quote($handleRenderInput9))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_010(): Unit {
-        var ret = quote($handleRenderInput10)
+        blackBox(quote($handleRenderInput10))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_011(): Unit {
-        var ret = quote($handleRenderInput11)
+        blackBox(quote($handleRenderInput11))
         ()
     }
 
@@ -109,11 +110,11 @@ class TestExprsToTokensInQuote {
     let componentInput3: ArrayList<ArrayList<Expr> > = ArrayList<ArrayList<Expr> >()
 
     TestExprsToTokensInQuote() {
-        let visitor1 = VisitBuilderSimple1()
-        let visitor2 = VisitBuilderSimple1()
-        let visitor3 = VisitBuilderSimple1()
+        blackBox(VisitBuilderSimple1())
+        blackBox(VisitBuilderSimple1())
+        blackBox(VisitBuilderSimple1())
         
-        let bd1 = getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr1)) as ClassDecl).getOrThrow())
+        blackBox(getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr1)) as ClassDecl).getOrThrow()))
         for (input in bd1) {
             match (input[0]) {
                 case value: Expr =>
@@ -122,7 +123,7 @@ class TestExprsToTokensInQuote {
                 case _ => ()
             }
         }
-        let bd2 = getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr2)) as ClassDecl).getOrThrow())
+        blackBox(getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr2)) as ClassDecl).getOrThrow()))
         for (input in bd2) {
             match (input[0]) {
                 case value: Expr =>
@@ -131,7 +132,7 @@ class TestExprsToTokensInQuote {
                 case _ => ()
             }
         }
-        let bd3 = getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr3)) as ClassDecl).getOrThrow())
+        blackBox(getFuncDeclBlockNodes((parseDecl(cangjieLex(componentStr3)) as ClassDecl).getOrThrow()))
         for (input in bd3) {
             match (input[0]) {
                 case value: Expr =>
@@ -146,7 +147,7 @@ class TestExprsToTokensInQuote {
     func BenchmarkExprToTokensInQuote_exprs_001(): Unit {
         for (exprs in componentInput1) {
             for (expr in exprs) {
-                 var callBind = quote($expr)
+                 blackBox(quote($expr))
             }
         }
         ()
@@ -155,7 +156,7 @@ class TestExprsToTokensInQuote {
     func BenchmarkExprToTokensInQuote_exprs_002(): Unit {
         for (exprs in componentInput2) {
             for (expr in exprs) {
-                 var callBind = quote($expr)
+                 blackBox(quote($expr))
             }
         }
         ()
@@ -164,7 +165,7 @@ class TestExprsToTokensInQuote {
     func BenchmarkExprToTokensInQuote_exprs_003(): Unit {
         for (exprs in componentInput3) {
             for (expr in exprs) {
-                 var callBind = quote($expr)
+                 blackBox(quote($expr))
             }
         }
         ()
@@ -192,12 +193,12 @@ class TestCallExprToTokens {
 
     @Bench 
     func BenchmarkExprToTokensInQuote_CallExpr_001():Unit {
-        let baseExpr = generateArgsInput1.callFunc
-        let args = generateArgsInput1.arguments
-        var componentArg = quote($baseExpr)
+        blackBox(generateArgsInput1.callFunc)
+        blackBox(generateArgsInput1.arguments)
+        blackBox(quote($baseExpr))
         for (arg in args) {
-            let argValue = arg.expr
-            let argName = arg.identifier
+            blackBox(arg.expr)
+            blackBox(arg.identifier)
             componentArg = componentArg + quote($argName) + quote($argValue)
         }
         ()
@@ -205,60 +206,60 @@ class TestCallExprToTokens {
 
     @Bench 
     func BenchmarkExprToTokensInQuote_CallExpr_002():Unit {
-        let baseExpr = generateArgsInput2.callFunc
-        let args = generateArgsInput2.arguments
-        var componentArg = quote($baseExpr)
+        blackBox(generateArgsInput2.callFunc)
+        blackBox(generateArgsInput2.arguments)
+        blackBox(quote($baseExpr))
         for (arg in args) {
-            let argValue = arg.expr
-            let argName = arg.identifier
+            blackBox(arg.expr)
+            blackBox(arg.identifier)
             componentArg = componentArg + quote($argName) + quote($argValue)
         }
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_CallExpr_003():Unit {
-        let baseExpr = generateArgsInput3.callFunc
-        let args = generateArgsInput3.arguments
-        var componentArg = quote($baseExpr)
+        blackBox(generateArgsInput3.callFunc)
+        blackBox(generateArgsInput3.arguments)
+        blackBox(quote($baseExpr))
         for (arg in args) {
-            let argValue = arg.expr
-            let argName = arg.identifier
+            blackBox(arg.expr)
+            blackBox(arg.identifier)
             componentArg = componentArg + quote($argName) + quote($argValue)
         }
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_CallExpr_004():Unit {
-        let baseExpr = generateArgsInput4.callFunc
-        let args = generateArgsInput4.arguments
-        var componentArg = quote($baseExpr)
+        blackBox(generateArgsInput4.callFunc)
+        blackBox(generateArgsInput4.arguments)
+        blackBox(quote($baseExpr))
         for (arg in args) {
-            let argValue = arg.expr
-            let argName = arg.identifier
+            blackBox(arg.expr)
+            blackBox(arg.identifier)
             componentArg = componentArg + quote($argName) + quote($argValue)
         }
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_CallExpr_005():Unit {
-        let baseExpr = generateArgsInput5.callFunc
-        let args = generateArgsInput5.arguments
-        var componentArg = quote($baseExpr)
+        blackBox(generateArgsInput5.callFunc)
+        blackBox(generateArgsInput5.arguments)
+        blackBox(quote($baseExpr))
         for (arg in args) {
-            let argValue = arg.expr
-            let argName = arg.identifier
+            blackBox(arg.expr)
+            blackBox(arg.identifier)
             componentArg = componentArg + quote($argName) + quote($argValue)
         }
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_CallExpr_006():Unit {
-        let baseExpr = generateArgsInput6.callFunc
-        let args = generateArgsInput6.arguments
-        var componentArg = quote($baseExpr)
+        blackBox(generateArgsInput6.callFunc)
+        blackBox(generateArgsInput6.arguments)
+        blackBox(quote($baseExpr))
         for (arg in args) {
-            let argValue = arg.expr
-            let argName = arg.identifier
+            blackBox(arg.expr)
+            blackBox(arg.identifier)
             componentArg = componentArg + quote($argName) + quote($argValue)
         }
         ()

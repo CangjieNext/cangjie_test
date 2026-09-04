@@ -13,13 +13,13 @@
 
 import std.time.*
 import stdx.encoding.url.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
 @Measure[TimeNow(Nanos)]
 @Configure[warmup: Duration.second]
 public class Test_Url_Parse { 
-    var url = URL.parse("")
     var str = "http://www.cangjie.com"
 
     public override func beforeAll(): Unit {
@@ -34,76 +34,76 @@ public class Test_Url_Parse {
 
     @Bench
     func BenchmarkParse_N0(): Unit {
-        url = URL.parse("http://www.cangjie.com")
+        blackBox(URL.parse("http://www.cangjie.com"))
     }
 
     @Bench
     func BenchmarkParse_N1(): Unit {
-        url = URL.parse("http://1.2.3.4:8888/a")
+        blackBox(URL.parse("http://1.2.3.4:8888/a"))
     }
 
     @Bench
     func BenchmarkParse_Path_N1(): Unit {
-        url = URL.parse("http://www.cangjie.com/a")
+        blackBox(URL.parse("http://www.cangjie.com/a"))
     }
 
     @Bench
     func BenchmarkParse_Path_N10(): Unit {
-        url = URL.parse("http://www.cangjie.com/a/b/c/d/e/f/g/h/i/j")
+        blackBox(URL.parse("http://www.cangjie.com/a/b/c/d/e/f/g/h/i/j"))
     }
 
     @Bench
     func BenchmarkParse_Protocol_Https(): Unit {
-        url = URL.parse("https://www.cangjie.com")
+        blackBox(URL.parse("https://www.cangjie.com"))
     }
 
     @Bench
     func BenchmarkParse_Protocol_File(): Unit {
-        url = URL.parse("file:///home/cangjie/rabbits")
+        blackBox(URL.parse("file:///home/cangjie/rabbits"))
     }
 
     @Bench
     func BenchmarkParse_Protocol_Ftp(): Unit {
-        url = URL.parse("ftp://webmaster@www.cangjie.com/")
+        blackBox(URL.parse("ftp://webmaster@www.cangjie.com/"))
     }
 
     @Bench
     func BenchmarkParse_Query_N1(): Unit {
-        url = URL.parse("http://www.cangjie.com/search?q=apple")
+        blackBox(URL.parse("http://www.cangjie.com/search?q=apple"))
     }
 
     @Bench
     func BenchmarkParse_Query_N5(): Unit {
-        url = URL.parse("http://www.cangjie.com/products?color=red&size=L&brand=nike&type=sneakers&price=50-100")
+        blackBox(URL.parse("http://www.cangjie.com/products?color=red&size=L&brand=nike&type=sneakers&price=50-100"))
     }
 
     @Bench
     func BenchmarkParse_HostName_N5(): Unit {
-        url = URL.parse("http://www.cangjie.a.b.c.d.com")
+        blackBox(URL.parse("http://www.cangjie.a.b.c.d.com"))
     }
 
     @Bench
     func BenchmarkParse_Chinese_N1(): Unit {
-        url = URL.parse("http://www.仓颉.一.二.三.四.com")
+        blackBox(URL.parse("http://www.仓颉.一.二.三.四.com"))
     }
 
     @Bench
     func BenchmarkParse_Chinese_N2(): Unit {
-        url = URL.parse("http://www.cangjie.com/仓颉/一/二/三/四/五/六/七/八/九")
+        blackBox(URL.parse("http://www.cangjie.com/仓颉/一/二/三/四/五/六/七/八/九"))
     }
 
     @Bench
     func BenchmarkParse_Chinese_N3(): Unit {
-        url = URL.parse("http://www.cangjie.com/产品?颜色=red&大小=L&品牌=nike&类型=sneakers&价格=50-100e")
+        blackBox(URL.parse("http://www.cangjie.com/产品?颜色=red&大小=L&品牌=nike&类型=sneakers&价格=50-100e"))
     }
 
     @Bench
     func BenchmarkParse_Character_N1(): Unit {
-        url = URL.parse("http://www.%e4%b8%96%e7%95%8c.com")
+        blackBox(URL.parse("http://www.%e4%b8%96%e7%95%8c.com"))
     }
 
     @Bench
     func BenchmarkParse_Long(): Unit {
-        url = URL.parse(str)
+        blackBox(URL.parse(str))
     }
 }

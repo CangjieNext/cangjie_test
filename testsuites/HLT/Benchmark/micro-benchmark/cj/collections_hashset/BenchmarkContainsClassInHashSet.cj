@@ -14,13 +14,13 @@
 import std.collection.*
 import std.time.*
 import std.convert.*
+import std.runtime.*
 
 var counts: ArrayList<Int64> = ArrayList<Int64>([32, 256, 2 * 1024, 16 * 1024, 128 * 1024])
-var aBoolean = true
 
 func benchmarkContainsInHashset(hashSet: HashSet<A>, keys: ArrayList<A>) {
     for (key in keys) {
-        aBoolean = hashSet.contains(key)
+        blackBox(hashSet.contains(key))
     }
 }
 

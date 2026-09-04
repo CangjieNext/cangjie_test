@@ -15,6 +15,7 @@
 import std.collection.*
 import std.time.*
 import std.convert.*
+import std.runtime.*
 
 let reps = 10
 var counts: ArrayList<Int64> = ArrayList<Int64>([32, 256, 2 * 1024, 16 * 1024, 128 * 1024])
@@ -22,7 +23,7 @@ var counts: ArrayList<Int64> = ArrayList<Int64>([32, 256, 2 * 1024, 16 * 1024, 1
 func benchmarkRemoveFromHashset(hashSet: HashSet<Float64>, keys: ArrayList<Float64>) {
     var tmpSet = HashSet<Float64> (hashSet)
     for (key in keys) {
-        tmpSet.remove(key)
+        blackBox(tmpSet.remove(key))
     }
 }
 

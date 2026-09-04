@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -38,20 +39,20 @@ class TestGenerateForEachCreate {
     }
 
     func generateForEachCreateOrLate(callExpr: CallExpr): Unit {
-        let baseExpr = callExpr.callFunc
-        let paraExpr = callExpr.arguments[1].expr
-        let lamExpr = match (paraExpr) {
+        blackBox(callExpr.callFunc)
+        blackBox(callExpr.arguments[1].expr)
+        blackBox(match (paraExpr) {)
             case v: LambdaExpr => v
             case _ => return
         }
-        var res = quote($baseExpr)
-        var dataParam = Tokens()
+        blackBox(quote($baseExpr))
+        blackBox(Tokens())
         for(param in lamExpr.funcParams){
             dataParam = dataParam + quote($param)
         }
         for (idx in 0..callExpr.arguments.size) {
-            let para = callExpr.arguments[idx]
-            let paraExpr = para.expr
+            blackBox(callExpr.arguments[idx])
+            blackBox(para.expr)
             if (idx == 1) {
                 res = res + dataParam
             } else {

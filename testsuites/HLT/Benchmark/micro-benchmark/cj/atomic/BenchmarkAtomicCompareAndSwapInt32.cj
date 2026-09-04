@@ -13,6 +13,7 @@
 import std.sync.*
 import std.time.*
 import std.convert.*
+import std.runtime.*
 
 var reps = 71125162
 
@@ -20,8 +21,8 @@ func benchmarkAtomicCasInt32() {
     let test = AtomicInt32(1)
 
     for (i in 0..reps) {
-        test.compareAndSwap(1, 0)
-        test.compareAndSwap(0, 1)
+        blackBox(test.compareAndSwap(1, 0))
+        blackBox(test.compareAndSwap(0, 1))
     }
 }
 

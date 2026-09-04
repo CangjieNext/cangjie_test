@@ -15,6 +15,7 @@ import std.fs.*
 import std.time.*
 import std.convert.*
 import std.io.*
+import std.runtime.*
 
 let reps = 100000
 let dataPath = "../../script/data/json/"
@@ -29,7 +30,7 @@ func setUp(f: String): String {
 
 func benchmarkStr2JsonValue(str: String) {
     for (i in 0..reps) {
-        var jv = JsonValue.fromStr(str)
+        blackBox(JsonValue.fromStr(str))
     }
 }
 

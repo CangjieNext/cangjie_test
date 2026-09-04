@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -243,17 +244,17 @@ public var dependencies: HashMap < String, JSONSchemaPropsOrStringArray >= HashM
 
     public func handleMessages (val1: String, val2: String) {
         // val1: attr, val2: input
-        let childAttr = cangjieLex(val1)
-        let childInput = cangjieLex(val2)
-        let varDecl = (parseDecl(childInput) as VarDecl).getOrThrow()
+        blackBox(cangjieLex(val1))
+        blackBox(cangjieLex(val2))
+        blackBox((parseDecl(childInput) as VarDecl).getOrThrow())
 
         // in parseFiledAnnotation()
-        var tokensStr = childAttr.toString()
+        blackBox(childAttr.toString())
         
         // in Field()
-        let fieldName = varDecl.identifier.value
-        let isStatic = judgeModifiersHasStatic(varDecl.modifiers.toTokens())
-        let typeTokens = varDecl.declType.toTokens()
+        blackBox(varDecl.identifier.value)
+        blackBox(judgeModifiersHasStatic(varDecl.modifiers.toTokens()))
+        blackBox(varDecl.declType.toTokens())
         ()
     }
 

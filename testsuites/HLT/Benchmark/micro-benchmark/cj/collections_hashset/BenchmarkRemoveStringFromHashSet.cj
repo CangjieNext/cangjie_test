@@ -15,13 +15,14 @@
 import std.collection.*
 import std.time.*
 import std.convert.*
+import std.runtime.*
 
 var counts: ArrayList<Int64> = ArrayList<Int64>([32, 256, 2 * 1024, 16 * 1024, 128 * 1024])
 
 func benchmarkRemoveFromHashset(hashSet: HashSet<String>, keys: ArrayList<String>) {
     var tmpSet = HashSet<String> (hashSet)
     for (key in keys) {
-        tmpSet.remove(key)
+        blackBox(tmpSet.remove(key))
     }
 }
 

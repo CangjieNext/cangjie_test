@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -42,16 +43,16 @@ class TestGetOptionBaseType {
     @Bench
     func BenchmarkGetOptionBaseType_ctor_funcParams_type_toTokens_001(): Unit {
         for (item in gqlSerializeInput1) {
-            getOptionBaseType(item)
+            blackBox(getOptionBaseType(item))
         }
-        ()
+
     }
 
     @Bench
     func BenchmarkGetOptionBaseType_ctor_funcParams_type_toTokens_002(): Unit {
         for (item in gqlSerializeInput2) {
-            getOptionBaseType(item)
+            blackBox(getOptionBaseType(item))
         }
-        ()
+
     }
 }

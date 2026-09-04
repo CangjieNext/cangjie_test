@@ -13,6 +13,7 @@
 import std.time.*
 import std.convert.*
 import std.convert.*
+import std.runtime.*
 
 
 let memberLen: Array<(Int64, Int64)> = [(32, 100), (256, 100)]
@@ -40,6 +41,7 @@ func timeBenchmarkWriteArrayInOrderD3(len: Int64, reps: Int64): Unit {
         i = i + 1
     }
     var endTime = DateTime.now()
+    blackBox(srcArr)
     var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
 
     println("BenchmarkWriteArrayInOrderD3_N${len}: ${perTime.format(".2")} ns/op")

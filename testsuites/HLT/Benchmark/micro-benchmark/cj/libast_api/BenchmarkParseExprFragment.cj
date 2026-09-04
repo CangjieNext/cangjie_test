@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -51,7 +52,7 @@ class TestParseExprFragment {
                 ()
             }
         }
-        ()
+        blackBox(offset)
     }
 
     @Bench
@@ -60,6 +61,7 @@ class TestParseExprFragment {
         while(p != changeTrailingExprInput1.size) {
             (e, p) = parseExprFragment(changeTrailingExprInput1, startFrom: p)
         }
+        blackBox(e)
     }
     @Bench
     func BenchmarkParseExprFragment_changeTrailingExpr_002(): Unit {
@@ -67,6 +69,7 @@ class TestParseExprFragment {
         while(p != changeTrailingExprInput2.size) {
             (e, p) = parseExprFragment(changeTrailingExprInput2, startFrom: p)
         }
+        blackBox(e)
     }
     @Bench
     func BenchmarkParseExprFragment_changeTrailingExpr_003(): Unit {
@@ -74,6 +77,7 @@ class TestParseExprFragment {
         while(p != changeTrailingExprInput3.size) {
             (e, p) = parseExprFragment(changeTrailingExprInput3, startFrom: p)
         }
+        blackBox(e)
     }
     @Bench
     func BenchmarkParseExprFragment_changeTrailingExpr_004(): Unit {
@@ -81,6 +85,7 @@ class TestParseExprFragment {
         while(p != changeTrailingExprInput4.size) {
             (e, p) = parseExprFragment(changeTrailingExprInput4, startFrom: p)
         }
+        blackBox(e)
     }
     @Bench
     func BenchmarkParseExprFragment_changeTrailingExpr_005(): Unit {
@@ -88,6 +93,7 @@ class TestParseExprFragment {
         while(p != changeTrailingExprInput5.size) {
             (e, p) = parseExprFragment(changeTrailingExprInput5, startFrom: p)
         }
+        blackBox(e)
     }
     @Bench
     func BenchmarkParseExprFragment_changeTrailingExpr_006(): Unit {
@@ -95,6 +101,7 @@ class TestParseExprFragment {
         while(p != changeTrailingExprInput6.size) {
             (e, p) = parseExprFragment(changeTrailingExprInput6, startFrom: p)
         }
+        blackBox(e)
     }
     @Bench
     func BenchmarkParseExprFragment_changeTrailingExpr_007(): Unit {
@@ -102,6 +109,7 @@ class TestParseExprFragment {
         while(p != changeTrailingExprInput7.size) {
             (e, p) = parseExprFragment(changeTrailingExprInput7, startFrom: p)
         }
+        blackBox(e)
     }
     @Bench
     func BenchmarkParseExprFragment_changeTrailingExpr_008(): Unit {
@@ -109,5 +117,6 @@ class TestParseExprFragment {
         while(p != changeTrailingExprInput8.size) {
             (e, p) = parseExprFragment(changeTrailingExprInput8, startFrom: p)
         }
+        blackBox(e)
     }
 }

@@ -11,8 +11,7 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-
-var res : String = ""
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -27,26 +26,26 @@ public class Test_suit {
 
     @Bench
     func BenchmarkStringJoin_N8(): Unit {
-        res = String.join(str1)
+        blackBox(String.join(str1))
     }
 
     @Bench
     func BenchmarkStringJoin_N32(): Unit {
-        res = String.join(str1_32)
+        blackBox(String.join(str1_32))
     }
 
     @Bench
     func BenchmarkStringJoin_N256(): Unit {
-        res = String.join(str1_256)
+        blackBox(String.join(str1_256))
     }
 
     @Bench
     func BenchmarkStringJoin_N1k(): Unit {
-        res = String.join(str1k)
+        blackBox(String.join(str1k))
     }
 
     @Bench
     func BenchmarkStringJoin_N1m(): Unit {
-        res = String.join(str1m)
+        blackBox(String.join(str1m))
     }
 }

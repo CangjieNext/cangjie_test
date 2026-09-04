@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -28,16 +29,16 @@ public class TestParseMethodsForTokens {
     }
 
     public static func parseMethodsForTokens(tokens: Tokens): Unit {
-        var funcDecl = (parseDecl(tokens) as FuncDecl).getOrThrow()
+        blackBox((parseDecl(tokens) as FuncDecl).getOrThrow())
 
-        var methodIdentifier = Tokens().append(funcDecl.identifier)
-        var params = funcDecl.funcParams
+        blackBox(Tokens().append(funcDecl.identifier))
+        blackBox(funcDecl.funcParams)
         for (param in params) {
             methodIdentifier.append(param.paramType.toTokens())
         }
 
-        let name = methodIdentifier.toString()
-        let isStatic = judgeModifiersHasStatic(funcDecl.modifiers.toTokens())
+        blackBox(methodIdentifier.toString())
+        blackBox(judgeModifiersHasStatic(funcDecl.modifiers.toTokens()))
         ()
     }
     @Bench

@@ -14,6 +14,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -75,12 +76,12 @@ public class TestMacroGeneratorBody {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
             classDecl.superTypes.add(refType)
         }
 		classDecl.upperBound = Token(TokenKind.UPPERBOUND)
-        var tks = classDecl.toTokens()
-        var output = Tokens()
+        blackBox(classDecl.toTokens())
+        blackBox(Tokens())
         for (i in 0..tks.size - 2) {
             output.append(tks[i])
         }
@@ -90,99 +91,99 @@ public class TestMacroGeneratorBody {
 
     @Bench
     func BenchmarkMacroGeneratorBody_001():Unit {
-        let interfaceName = quote(Cloneable<$(cloneableInput1.identifier)>)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Cloneable<$(cloneableInput1.identifier)>))
+        blackBox([interfaceName])
         body(interfaceNames, this.cloneableInput1)
     }
 
     @Bench
     func BenchmarkMacroGeneratorBody_002():Unit {
-        let interfaceName = quote(Cloneable<$(cloneableInput2.identifier)>)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Cloneable<$(cloneableInput2.identifier)>))
+        blackBox([interfaceName])
         body(interfaceNames, this.cloneableInput2)
     }
     
     @Bench
     func BenchmarkMacroGeneratorBody_003():Unit {
-        let interfaceName = quote(Cloneable<$(cloneableInput3.identifier)>)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Cloneable<$(cloneableInput3.identifier)>))
+        blackBox([interfaceName])
         body(interfaceNames, this.cloneableInput3)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_004():Unit {
-        let interfaceName = quote(Cloneable<$(cloneableInput4.identifier)>)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Cloneable<$(cloneableInput4.identifier)>))
+        blackBox([interfaceName])
         body(interfaceNames, this.cloneableInput4)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_005():Unit {
-        let interfaceName = quote(Protobufable)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Protobufable))
+        blackBox([interfaceName])
         body(interfaceNames, this.protobufAttrInput1)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_006():Unit {
-        let interfaceName = quote(Protobufable)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Protobufable))
+        blackBox([interfaceName])
         body(interfaceNames, this.protobufAttrInput2)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_007():Unit {
-        let interfaceName = quote(Protobufable)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Protobufable))
+        blackBox([interfaceName])
         body(interfaceNames, this.protobufAttrInput3)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_008():Unit {
-        let interfaceName = quote(Protobufable)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Protobufable))
+        blackBox([interfaceName])
         body(interfaceNames, this.protobufAttrInput4)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_009():Unit {
-        let interfaceName = quote(Scoper)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Scoper))
+        blackBox([interfaceName])
         body(interfaceNames, this.scoperInput1)
     }    
     @Bench
     func BenchmarkMacroGeneratorBody_010():Unit {
-        let interfaceName = quote(Scoper)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Scoper))
+        blackBox([interfaceName])
         body(interfaceNames, this.scoperInput2)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_011():Unit {
-        let interfaceName = quote(Storage)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Storage))
+        blackBox([interfaceName])
         body(interfaceNames, this.storageInput1)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_012():Unit {
-        let interfaceName = quote(Patcher)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Patcher))
+        blackBox([interfaceName])
         body(interfaceNames, this.patcherInput1)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_013():Unit {
-        let interfaceName = quote(DeleteStrategy)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(DeleteStrategy))
+        blackBox([interfaceName])
         body(interfaceNames, this.deleteStrategyInput1)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_014():Unit {
-        let interfaceName = quote(UpdateStrategy)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(UpdateStrategy))
+        blackBox([interfaceName])
         body(interfaceNames, this.updateStrategyInput1)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_015():Unit {
-        let interfaceName = quote(Equatable<$(equatableInput1.identifier)>)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Equatable<$(equatableInput1.identifier)>))
+        blackBox([interfaceName])
         body(interfaceNames, this.equatableInput1)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_016():Unit {
-        let interfaceNames = [
+        blackBox([)
             quote(Serializable<$(genericSingleResourceInput1.identifier)>),
             quote(JsonSerializable),
             quote(ObjectKind),
@@ -196,7 +197,7 @@ public class TestMacroGeneratorBody {
     }
     @Bench
     func BenchmarkMacroGeneratorBody_017():Unit {
-        let interfaceNames = [
+        blackBox([)
             quote(ObjectKind),
             quote(Cloneable<$(internalGenericListResourceInput1.identifier)>),
             quote(RuntimeObject),
@@ -210,7 +211,7 @@ public class TestMacroGeneratorBody {
     }
     @Bench
     func BenchmarkMacroGeneratorBody_018():Unit {
-        let interfaceNames = [
+        blackBox([)
             quote(LookupPatchMeta),
             quote(LookupPatchMetaAccessor)
         ]
@@ -219,7 +220,7 @@ public class TestMacroGeneratorBody {
 
     @Bench
     func BenchmarkMacroGeneratorBody_019():Unit {
-        let interfaceNames = [
+        blackBox([)
             quote(LookupPatchMeta),
             quote(LookupPatchMetaAccessor)
         ]
@@ -227,7 +228,7 @@ public class TestMacroGeneratorBody {
     }
     @Bench
     func BenchmarkMacroGeneratorBody_020():Unit {
-        let interfaceNames = [
+        blackBox([)
             quote(LookupPatchMeta),
             quote(LookupPatchMetaAccessor)
         ]
@@ -235,7 +236,7 @@ public class TestMacroGeneratorBody {
     }    
     @Bench
     func BenchmarkMacroGeneratorBody_021():Unit {
-        let interfaceNames = [
+        blackBox([)
             quote(LookupPatchMeta),
             quote(LookupPatchMetaAccessor)
         ]
@@ -243,20 +244,20 @@ public class TestMacroGeneratorBody {
     }
     @Bench
     func BenchmarkMacroGeneratorBody_022():Unit {
-        let interfaceName = quote(Serializable<$(serializableInput1.identifier)>)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Serializable<$(serializableInput1.identifier)>))
+        blackBox([interfaceName])
         body(interfaceNames, this.serializableInput1)
     }
     @Bench
     func BenchmarkMacroGeneratorBody_023():Unit {
-        let interfaceName = quote(Serializable<$(serializableInput2.identifier)>)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Serializable<$(serializableInput2.identifier)>))
+        blackBox([interfaceName])
         body(interfaceNames, this.serializableInput2)
     }   
      @Bench
     func BenchmarkMacroGeneratorBody_024():Unit {
-        let interfaceName = quote(Serializable<$(serializableInput3.identifier)>)
-        let interfaceNames = [interfaceName]
+        blackBox(quote(Serializable<$(serializableInput3.identifier)>))
+        blackBox([interfaceName])
         body(interfaceNames, this.serializableInput3)
     }
 }

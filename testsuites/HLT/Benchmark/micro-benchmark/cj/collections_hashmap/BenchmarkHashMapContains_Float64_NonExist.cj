@@ -13,8 +13,7 @@
 import std.time.*
 import std.collection.*
 import stdx.crypto.crypto.*
-
-var boolean = true
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -53,42 +52,42 @@ public class Test_HashMap_Contains_Float64_NonExist {
     @Bench
     public func BenchmarkHashMapContains_Float64_NonExist_16(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapContains_Float64_NonExist_128(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapContains_Float64_NonExist_1024(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapContains_Float64_NonExist_8192(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapContains_Float64_NonExist_65536(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapContains_Float64_NonExist_1048576(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 }

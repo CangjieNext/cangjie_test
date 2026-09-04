@@ -13,6 +13,7 @@
 import std.sync.*
 import std.time.*
 import std.convert.*
+import std.runtime.*
 
 var reps = 180000000
 
@@ -22,6 +23,7 @@ func benchmarkAtomicSwapUInt32() {
 
     for (i in 0..reps) {
         y = x.swap(y)
+        blackBox(y)
     }
 }
 

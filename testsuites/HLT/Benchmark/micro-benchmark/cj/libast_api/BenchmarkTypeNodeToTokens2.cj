@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -145,12 +146,12 @@ class TestClassDeclSuperTypesToTokens {
 
     @Bench
     func BenchmarkTypeNodeToTokens2_ClassDecl_superTypes_001():Unit {
-        this.gqlOperationInput1.superTypes.toTokens()
+        blackBox(this.gqlOperationInput1.superTypes.toTokens())
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_ClassDecl_superTypes_002():Unit {
-        this.gqlOperationInput2.superTypes.toTokens()
+        blackBox(this.gqlOperationInput2.superTypes.toTokens())
         ()
     }
 }

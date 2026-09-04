@@ -15,6 +15,7 @@ import std.io.*
 import std.time.*
 import std.convert.*
 import std.collection.*
+import std.runtime.*
 
 let reps = 100000
 let nums = [4096, 512, 64, 8]
@@ -30,7 +31,7 @@ func setUp(num: Int64): JsonArray {
 
 func benchmarkJsonArray2JsonStr(jsonArr: JsonArray) {
     for (i in 0..reps) {
-        jsonArr.toJsonString()
+        blackBox(jsonArr.toJsonString())
     }
 }
 

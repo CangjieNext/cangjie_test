@@ -11,6 +11,7 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -18,15 +19,13 @@ import std.time.*
 @Configure[warmup: Duration.second]
 public class Test_Array_Init { 
 
-    static var arr : Array<Array<Array<Int64>>> = []
-
     @Bench[len in [32, 256]]
     func BenchmarkArrayInitializationD3_N(len: Int64): Unit {
-        arr = Array<Array<Array<Int64>>>(len, {int: Int64 => Array<Array<Int64>>(len, {int: Int64 => Array<Int64>(len, repeat: 0)})})
+        blackBox(Array<Array<Array<Int64>>>(len, {int: Int64 => Array<Array<Int64>>(len, {int: Int64 => Array<Int64>(len, repeat: 0)})}))
     }
 
     @Bench[len in [32, 256]]
     func BenchmarkArrayInitDataD3_N(len: Int64): Unit {
-        arr = Array<Array<Array<Int64>>>(len, {int: Int64 => Array<Array<Int64>>(len, {int: Int64 => Array<Int64>(len, {index: Int64 => index})})})
+        blackBox(Array<Array<Array<Int64>>>(len, {int: Int64 => Array<Array<Int64>>(len, {int: Int64 => Array<Int64>(len, {index: Int64 => index})})}))
     }
 }

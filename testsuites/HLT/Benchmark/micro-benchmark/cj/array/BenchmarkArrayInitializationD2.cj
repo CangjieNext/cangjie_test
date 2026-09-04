@@ -11,6 +11,7 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
+import std.runtime.*
 
 // 因为cangjie 使用 固定值 item 构造时实际上取的是引用，故二三维数组使用lambda表达式构造
 // 构造更大的数组时OOM
@@ -21,16 +22,14 @@ import std.time.*
 @Configure[warmup: Duration.second]
 public class Test_Array_Init { 
 
-    static var arr : Array<Array<Int64>> = []
-
     @Bench[len in [32, 256, 2048]]
     func BenchmarkArrayInitializationD2_N(len: Int64): Unit {
-        arr = Array<Array<Int64>>(len, {int: Int64 => Array<Int64>(len, repeat: 0)})
+        blackBox(Array<Array<Int64>>(len, {int: Int64 => Array<Int64>(len, repeat: 0)}))
     }
 
     @Bench[len in [32, 256, 2048]]
     func BenchmarkArrayInitDataD2_N(len: Int64): Unit {
-        arr = Array<Array<Int64>>(len, {int: Int64 => Array<Int64>(len, {index: Int64 => index})})
+        blackBox(Array<Array<Int64>>(len, {int: Int64 => Array<Int64>(len, {index: Int64 => index})}))
     }
 
 }

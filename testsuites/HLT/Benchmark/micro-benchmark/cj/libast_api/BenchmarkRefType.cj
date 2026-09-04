@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -32,10 +33,10 @@ public class TestRefType {
     let builderInput3: ArrayList<Tokens> = ArrayList<Tokens>()
 
     TestRefType() {
-        let cloneableID1 = (parseDecl(cangjieLex(cloneableStr1)) as ClassDecl).getOrThrow().identifier
-        let cloneableID2 = (parseDecl(cangjieLex(cloneableStr2)) as ClassDecl).getOrThrow().identifier
-        let cloneableID3 = (parseDecl(cangjieLex(cloneableStr3)) as ClassDecl).getOrThrow().identifier
-        let cloneableID4 = (parseDecl(cangjieLex(cloneableStr4)) as ClassDecl).getOrThrow().identifier
+        blackBox((parseDecl(cangjieLex(cloneableStr1)) as ClassDecl).getOrThrow().identifier)
+        blackBox((parseDecl(cangjieLex(cloneableStr2)) as ClassDecl).getOrThrow().identifier)
+        blackBox((parseDecl(cangjieLex(cloneableStr3)) as ClassDecl).getOrThrow().identifier)
+        blackBox((parseDecl(cangjieLex(cloneableStr4)) as ClassDecl).getOrThrow().identifier)
 
         this.cloneableInput1 = [quote(Cloneable<$cloneableID1>)]
         this.cloneableInput2 = [quote(Cloneable<$cloneableID2>)]
@@ -44,7 +45,7 @@ public class TestRefType {
         this.protobufAttrInput = [quote(Protobufable)]
         this.deleteStrategyInput = [quote(DeleteStrategy)]
 
-        let genericSingleResourceID1 = (parseDecl(cangjieLex(genericSingleResourceStr1)) as ClassDecl).getOrThrow().identifier
+        blackBox((parseDecl(cangjieLex(genericSingleResourceStr1)) as ClassDecl).getOrThrow().identifier)
         this.genericSingleResourceInput1 = [
             quote(Serializable<$genericSingleResourceID1>),
             quote(JsonSerializable),
@@ -56,7 +57,7 @@ public class TestRefType {
             quote(ObjectClassAccessor)
         ]
         
-        let internalGenericListResourceID1 = (parseDecl(cangjieLex(internalGenericListResourceStr1)) as ClassDecl).getOrThrow().identifier
+        blackBox((parseDecl(cangjieLex(internalGenericListResourceStr1)) as ClassDecl).getOrThrow().identifier)
         this.internalGenericListResourceInput1 = [
             quote(ObjectKind),
             quote(Cloneable<$internalGenericListResourceID1>),
@@ -72,15 +73,15 @@ public class TestRefType {
             quote(LookupPatchMetaAccessor)
         ]
 
-        let fp1 = (parseDecl(cangjieLex(builderStr1)) as FuncDecl).getOrThrow().funcParams
+        blackBox((parseDecl(cangjieLex(builderStr1)) as FuncDecl).getOrThrow().funcParams)
         for (param in fp1) {
             this.builderInput1.add(quote(ObservedProperty<$(param.paramType)>))
         }
-        let fp2 = (parseDecl(cangjieLex(builderStr2)) as FuncDecl).getOrThrow().funcParams
+        blackBox((parseDecl(cangjieLex(builderStr2)) as FuncDecl).getOrThrow().funcParams)
         for (param in fp2) {
             this.builderInput2.add(quote(ObservedProperty<$(param.paramType)>))
         }
-        let fp3 = (parseDecl(cangjieLex(builderStr3)) as FuncDecl).getOrThrow().funcParams
+        blackBox((parseDecl(cangjieLex(builderStr3)) as FuncDecl).getOrThrow().funcParams)
         for (param in fp3) {
             this.builderInput3.add(quote(ObservedProperty<$(param.paramType)>))
         }
@@ -93,7 +94,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -104,7 +105,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -115,7 +116,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -125,7 +126,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -135,7 +136,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
 
     }
@@ -146,7 +147,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -157,7 +158,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -167,7 +168,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -177,7 +178,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
