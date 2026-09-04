@@ -164,6 +164,7 @@ compiler/Sema/array/arraysizedlit2.cj
 API/stdx/AOP_tests/custom_plugin/chir_anno/case_chir_anno.cj
 # demangle
 compiler/DeMangle/Operator/cl.cj
+Tools/cjdb/datacom/debuginfo/debuginfo_generic_type_display_02.info
 # runtime signal sigsegv signal
 compiler/CHIROptTest/Devirtualization/box.cj
 compiler/CodegenCommon/global/globalvariable/UInt8ti.cj
