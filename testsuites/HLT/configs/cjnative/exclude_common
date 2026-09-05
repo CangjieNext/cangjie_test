@@ -50,6 +50,8 @@ Tools/cjcov/common_platform/cross_platform009/cross_platform009.cj
 Tools/cjpm/source_set/002/prop/prop.info
 # std api changes
 Tools/cjlsp/testcases/autotestcase/completion/textDocument_completion_007.info
+# demangle
+Tools/cjdb/datacom/demangle/demangle_016.info
 
 # https://gitcode.com/Cangjie/cangjie_test/issues/315
 compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj

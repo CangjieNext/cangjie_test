@@ -6,7 +6,7 @@
 
 // DEPENDENCE: origin.json
 // EXEC: %compiler %import-cangjie-stdx %f -o %output -O2 --int-overflow=wrapping --no-sub-pkg -Woff all
-// RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: %set_stdx_path %run %run_opt %output %run_args
 
 import stdx.encoding.json.*
 import std.fs.File

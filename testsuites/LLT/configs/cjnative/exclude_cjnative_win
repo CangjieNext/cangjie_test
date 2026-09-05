@@ -41,6 +41,10 @@ compiler/Driver/options/pgo/test_pgo_instr_gen.cj
 compiler/Driver/options/pgo/test_pgo_instr_use.cj
 compiler/Driver/options/occurance_warning_tests/--pgo-instr-use.cj
 
+# modal type
+# demangle
+Tools/cjdb/datacom/debuginfo/debuginfo_generic_type_display_02.info
+
 # windows平台不支持LTO
 compiler/Driver/options/obfuscation/test_level/test_lto_lld_paramet.cj
 

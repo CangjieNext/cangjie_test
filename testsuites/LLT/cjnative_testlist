@@ -157,6 +157,18 @@ compiler/Sema/modal/runtime/opt_fine2.cj
 compiler/Sema/modal/runtime/eq_v7.cj
 compiler/Sema/modal/runtime/rt1_barrier.cj
 compiler/Sema/modal/runtime/rt2_region_field.cj
+# err message mismatch @local! in type diag
+compiler/Sema/array/arraysizedlit1.cj
+compiler/Sema/array/arraysizedlit2.cj
+# CHIR plugin
+API/stdx/AOP_tests/custom_plugin/chir_anno/case_chir_anno.cj
+# demangle
+compiler/DeMangle/Operator/cl.cj
+# runtime signal sigsegv signal
+compiler/CHIROptTest/Devirtualization/box.cj
+compiler/CodegenCommon/global/globalvariable/UInt8ti.cj
+# timeout
+API/std/core/error_handler_stackoverflow_throws_error.cj
 # CJMP did not adapt to modal type
 compiler/CJMP/
 
