@@ -39,5 +39,12 @@ compiler/Driver/cross_compile/target_option/target_neg3.cj
 # These cross-compile tests should only be run on x86_64 platforms
 compiler/FFI/CFFI/cross-compile
 
+# modal type
+# missing CJMP adapt
+compiler/CJMP/objc/gen/objc_impl/typedefs_order.cj
+compiler/CJMP/objc/integration/collection_conversion/collection_conversion.info
+compiler/CJMP/objc/integration/objc_block/objc_block.info
+compiler/CJMP/objc/integration/objc_block_cangjie/objc_block_cangjie.info
+
 # ffi-python is only supported on linux.
 compiler/FFI/ffi_python
