@@ -13,4 +13,4 @@ class BadCopy <: Copyable {
 main() {}
 
 // ASSERT: scan-1 "DiagKind": "sema_interface_is_not_implementable",
-// ASSERT: scan "Errors": 2,
+// ASSERT: scan "Errors": 1,

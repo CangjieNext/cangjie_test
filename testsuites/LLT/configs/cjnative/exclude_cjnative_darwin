@@ -30,5 +30,13 @@ compiler/Codegen_CJNative/reflect
 # hot reload is not supported currently
 compiler/Codegen_CJNative/hotupdate
 
+# modal type
+# missing CJMP adapt
+compiler/CJMP/objc/gen/objc_impl/typedefs_order.cj
+compiler/CJMP/objc/integration/collection_conversion/collection_conversion.info
+compiler/CJMP/objc/integration/objc_block/objc_block.info
+compiler/CJMP/objc/integration/objc_block_cangjie/objc_block_cangjie.info
+
+
 # ffi-python is only supported on linux.
 compiler/FFI/ffi_python

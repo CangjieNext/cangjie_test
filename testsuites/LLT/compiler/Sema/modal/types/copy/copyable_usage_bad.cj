@@ -19,11 +19,12 @@ func opArg(a: ?Copyable): Unit {}
 func tupleArg(a: (Copyable, Int64)): Unit {}
 func nestedUpperBound<T>(a: T): Unit where T <: I<Copyable> {}
 
-struct My {}
+class My {
+    init() {}
+}
 extend My <: Copyable {}
 
 main() {}
 
-// ASSERT: scan-9 "DiagKind": "sema_illegal_copyable_type_usage",
-// ASSERT: scan-1 "DiagKind": "sema_interface_is_not_extendable",
+// ASSERT: scan-10 "DiagKind": "sema_illegal_copyable_type_usage",
 // ASSERT: scan "Errors": 10,
