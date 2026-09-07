@@ -9,6 +9,10 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+//
+// TEST INTENT: multiple tasks consumed via for-in sum to 60
+// DOC REF: ThreadGroup Iterable<T> - iteration waits and yields results
+// EXPECT: sum == 60, exit 0
 
 import std.concurrent.*
 

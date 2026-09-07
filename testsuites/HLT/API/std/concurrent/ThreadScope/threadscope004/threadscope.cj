@@ -1,4 +1,4 @@
-/*
+  /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
@@ -9,6 +9,10 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+//
+// TEST INTENT: task failure cancels unconsumed launched tasks
+// DOC REF: threadScope - "sends cancellation requests to all launched tasks"
+// EXPECT: caught "child failed" and worker observes hasPendingCancellation, exit 0
 
 import std.concurrent.*
 import std.sync.*

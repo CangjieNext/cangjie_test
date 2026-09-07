@@ -9,6 +9,10 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+//
+// TEST INTENT: task exception is rethrown to the scope caller
+// DOC REF: threadScope - Exceptions: "an unhandled launched task result is an exception"
+// EXPECT: caught message == "subtask failed", exit 0
 
 import std.concurrent.*
 

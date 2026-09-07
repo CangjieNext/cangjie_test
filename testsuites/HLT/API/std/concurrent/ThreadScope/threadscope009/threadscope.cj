@@ -9,6 +9,10 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+//
+// TEST INTENT: scope drains all tasks after a mid-task failure
+// DOC REF: threadScope - "drains outstanding task results"
+// EXPECT: caught "middle task failed" and all 4 tasks ran to fetchAdd, exit 0
 
 import std.concurrent.*
 import std.sync.*
