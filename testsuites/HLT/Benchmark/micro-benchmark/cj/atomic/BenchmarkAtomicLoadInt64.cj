@@ -13,6 +13,7 @@
 import std.sync.*
 import std.time.*
 import std.convert.*
+import std.runtime.*
 
 var reps = 1000000000
 
@@ -20,7 +21,7 @@ func benchmarkAtomicLoadInt64() {
     let test = AtomicInt64(0)
 
     for (i in 0..reps) {
-        test.load()
+        blackBox(test.load())
     }
 }
 

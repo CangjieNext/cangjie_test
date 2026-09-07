@@ -15,6 +15,7 @@ import std.io.*
 import std.time.*
 import std.convert.*
 import std.collection.*
+import std.runtime.*
 
 let reps = 100000
 let nums = [4096, 512, 64, 8]
@@ -31,7 +32,7 @@ func setUp(num: Int64): ArrayList<String> {
 func benchmarkStr2Float64(floatArr: ArrayList<String>) {
     for (n in 0..reps) {
         for (i in floatArr) {
-            Float64.parse(i)
+        blackBox(Float64.parse(i))
         }
     }
 }

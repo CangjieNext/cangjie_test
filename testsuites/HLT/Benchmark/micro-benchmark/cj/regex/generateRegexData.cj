@@ -10,6 +10,7 @@ import std.collection.*
 import std.time.*
 import std.convert.*
 import std.regex.*
+import std.runtime.*
 
 var charsRegex = ["*", ".", "+", "?", "^", "$", "|", "{}", "[]", "\\d", "\\w", "\\s"]
 
@@ -107,7 +108,7 @@ func benchmarkRegexMark(mark: String, name: String, times: Int64, stringSize: In
     var startTime = DateTime.now()
 
     for (i in 0..(reps/10)) {
-        regex.findAll()
+        blackBox(regex.findAll())
     }
     var endTime = DateTime.now()
     var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64((reps/10))
@@ -133,7 +134,7 @@ func benchmarkRegex_AllCount(mark: String, name: String, times: Int64, stringSiz
     var startTime = DateTime.now()
 
     for (i in 0..reps) {
-        regex.allCount()
+        blackBox(regex.allCount())
     }
     var endTime = DateTime.now()
     var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
@@ -159,7 +160,7 @@ func benchmarkRegex_ReplaceAll(mark: String, name: String, times: Int64, stringS
     var startTime = DateTime.now()
 
     for (i in 0..reps) {
-        regex.replaceAll("ZO")
+        blackBox(regex.replaceAll("ZO"))
     }
     var endTime = DateTime.now()
     var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)

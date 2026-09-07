@@ -19,7 +19,6 @@ import stdx.crypto.crypto.*
 import std.runtime.*
 
 var counts: ArrayList<Int64> = ArrayList<Int64>([32, 256, 2 * 1024])
-var _res = false
 
 func GenerateArray(n: Int64): Array<Int64> {
     let m = SecureRandom()
@@ -44,16 +43,16 @@ func DifferentSize(num: Int64) {
         var _set_2 = HashSet<Int64>(arr_2)
         var start_time = MonoTime.now()
 
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
         
         var end_time = MonoTime.now()
         total_time += Float64((end_time - start_time).toNanoseconds())
@@ -77,16 +76,16 @@ func AllEqual(num: Int64) {
         var _set_2 = HashSet<Int64>(arr)
         var start_time = MonoTime.now()
 
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
         
         var end_time = MonoTime.now()
         total_time += Float64((end_time - start_time).toNanoseconds())
@@ -111,16 +110,16 @@ func UnEqual(num: Int64) {
         var _set_2 = HashSet<Int64>(arr_2)
         var start_time = MonoTime.now()
 
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
         
         var end_time = MonoTime.now()
         total_time += Float64((end_time - start_time).toNanoseconds())
@@ -146,16 +145,16 @@ func PartEqual(num: Int64) {
         var _set_2 = HashSet<Int64>(arr_2)
         var start_time = MonoTime.now()
 
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
-        _res = _set_1 == _set_2
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
+        blackBox(_set_1 == _set_2)
         
         var end_time = MonoTime.now()
         total_time += Float64((end_time - start_time).toNanoseconds())

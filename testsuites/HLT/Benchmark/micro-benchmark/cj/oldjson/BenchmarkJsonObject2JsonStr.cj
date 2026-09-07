@@ -15,6 +15,7 @@ import std.io.*
 import std.time.*
 import std.convert.*
 import std.collection.*
+import std.runtime.*
 import stdx.serialization.serialization.*
 
 let reps = 1000000
@@ -72,7 +73,7 @@ func setUp(): JsonObject {
 
 func benchmarkJsonObject2JsonStr(jsonObject: JsonObject) {
     for (i in 0..reps) {
-        jsonObject.toJsonString()
+        blackBox(jsonObject.toJsonString())
     }
 }
 

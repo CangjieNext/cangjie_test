@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -27,12 +28,12 @@ class TestVarDeclTypeToTokens {
 
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecl_declType_001():Unit {
-        this.watchAttrOuterInput1.declType.toTokens()
+        blackBox(this.watchAttrOuterInput1.declType.toTokens())
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecl_declType_002():Unit {
-        this.storagePropAttrInput1.declType.toTokens()
+        blackBox(this.storagePropAttrInput1.declType.toTokens())
         ()
     } 
 

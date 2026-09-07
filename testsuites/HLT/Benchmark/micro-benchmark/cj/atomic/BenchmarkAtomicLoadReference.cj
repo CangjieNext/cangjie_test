@@ -13,6 +13,7 @@
 import std.sync.*
 import std.time.*
 import std.convert.*
+import std.runtime.*
 
 var reps = 1000000000
 
@@ -29,7 +30,7 @@ func benchmarkAtomicLoadReference(): Unit {
 
     var startTime = DateTime.now()
     for (i in 0..reps) {
-        test.load()
+        blackBox(test.load())
     }
     var endTime = DateTime.now()
     var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)

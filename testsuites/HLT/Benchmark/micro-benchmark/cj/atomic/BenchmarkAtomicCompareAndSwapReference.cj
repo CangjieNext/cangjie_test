@@ -13,6 +13,7 @@
 import std.sync.*
 import std.time.*
 import std.convert.*
+import std.runtime.*
 
 var reps = 65000000
 
@@ -31,8 +32,8 @@ func benchmarkAtomicCompareAndSwapReference(): Unit {
 
     var startTime = DateTime.now()
     for (i in 0..reps) {
-        test.compareAndSwap(u, v)
-        test.compareAndSwap(v, u)
+        blackBox(test.compareAndSwap(u, v))
+        blackBox(test.compareAndSwap(v, u))
     }
     var endTime = DateTime.now()
     var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)

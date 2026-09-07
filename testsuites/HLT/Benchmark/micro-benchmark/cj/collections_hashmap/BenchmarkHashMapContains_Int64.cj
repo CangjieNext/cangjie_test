@@ -13,8 +13,7 @@
 import std.time.*
 import std.collection.*
 import stdx.crypto.crypto.*
-
-var boolean = true
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -50,42 +49,42 @@ public class Test_HashMap_Contains_Int64 {
     @Bench
     public func BenchmarkHashMapContains_Int64_16(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapContains_Int64_128(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapContains_Int64_1024(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapContains_Int64_8192(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapContains_Int64_65536(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapContains_Int64_1048576(): Unit {
         for (v in keys) {
-            boolean = hashmap.contains(v)
+            blackBox(hashmap.contains(v))
         }
     }
 }

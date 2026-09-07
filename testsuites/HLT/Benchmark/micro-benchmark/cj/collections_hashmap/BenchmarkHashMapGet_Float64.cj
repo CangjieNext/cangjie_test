@@ -13,8 +13,7 @@
 import std.time.*
 import std.collection.*
 import stdx.crypto.crypto.*
-
-var element = Option<Int64>.None
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -50,42 +49,42 @@ public class Test_HashMap_Get_Float64 {
     @Bench
     public func BenchmarkHashMapGet_Float64_16(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapGet_Float64_128(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapGet_Float64_1024(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapGet_Float64_8192(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapGet_Float64_65536(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapGet_Float64_1048576(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 }

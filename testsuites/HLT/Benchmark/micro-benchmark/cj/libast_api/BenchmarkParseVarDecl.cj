@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -38,32 +39,32 @@ class TestParseVarDecl {
 
     @Bench
     func BenchmarkParseVarDecl_001() : Unit {
-        let varDecl = (parseDecl(stateInput1) as VarDecl).getOrThrow()
+        blackBox((parseDecl(stateInput1) as VarDecl).getOrThrow())
     }
 
     @Bench
     func BenchmarkParseVarDecl_002() : Unit {
-        let varDecl = (parseDecl(stateInput2) as VarDecl).getOrThrow()
+        blackBox((parseDecl(stateInput2) as VarDecl).getOrThrow())
     }
  
     @Bench
     func BenchmarkParseVarDecl_003() : Unit {
-        let varDecl = (parseDecl(stateInput3) as VarDecl).getOrThrow()
+        blackBox((parseDecl(stateInput3) as VarDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseVarDecl_004() : Unit {
-        let varDecl = (parseDecl(publishInput1) as VarDecl).getOrThrow()
+        blackBox((parseDecl(publishInput1) as VarDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseVarDecl_005() : Unit {
-        let varDecl = (parseDecl(isFragementInput1) as VarDecl).getOrThrow()
+        blackBox((parseDecl(isFragementInput1) as VarDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseVarDecl_006() : Unit {
-        let varDecl = (parseDecl(watchAttrOuterInput1) as VarDecl).getOrThrow()
+        blackBox((parseDecl(watchAttrOuterInput1) as VarDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseVarDecl_007() : Unit {
-        let varDecl = (parseDecl(storagePropAttrInput1) as VarDecl).getOrThrow()
+        blackBox((parseDecl(storagePropAttrInput1) as VarDecl).getOrThrow())
     }
 }

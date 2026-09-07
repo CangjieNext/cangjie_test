@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -31,12 +32,12 @@ class TestGqlSerialize {
 
     @Bench
     func BenchmarkGqlSerialize_ClassDecl_001():Unit {
-        let decl = parseDecl(gqlSerializeInput1)
+        blackBox(parseDecl(gqlSerializeInput1))
         match (decl) {
             case cd: ClassDecl => // Expand class declaration.
-                let result = serializeClass(cd)
+                blackBox(serializeClass(cd))
             case ed: EnumDecl => // Expand enum declaration.
-                let result = serializeEnum(ed)
+                blackBox(serializeEnum(ed))
             case _ => // Otherwise, report error.
                 ()
         } 
@@ -44,47 +45,47 @@ class TestGqlSerialize {
 
     @Bench
     func BenchmarkGqlSerialize_ClassDecl_002():Unit {
-        let decl = parseDecl(gqlSerializeInput2)
+        blackBox(parseDecl(gqlSerializeInput2))
         match (decl) {
             case cd: ClassDecl => // Expand class declaration.
-                let result = serializeClass(cd)
+                blackBox(serializeClass(cd))
             case ed: EnumDecl => // Expand enum declaration.
-                let result = serializeEnum(ed)
+                blackBox(serializeEnum(ed))
             case _ => // Otherwise, report error.
                 ()
         } 
     }
     @Bench
     func BenchmarkGqlSerialize_EnumDecl_001():Unit {
-        let decl = parseDecl(gqlSerializeInput3)
+        blackBox(parseDecl(gqlSerializeInput3))
         match (decl) {
             case cd: ClassDecl => // Expand class declaration.
-                let result = serializeClass(cd)
+                blackBox(serializeClass(cd))
             case ed: EnumDecl => // Expand enum declaration.
-                let result = serializeEnum(ed)
+                blackBox(serializeEnum(ed))
             case _ => // Otherwise, report error.
                 ()
         } 
     }
     @Bench
     func BenchmarkGqlSerialize_EnumDecl_002():Unit {
-        let decl = parseDecl(gqlSerializeInput4)
+        blackBox(parseDecl(gqlSerializeInput4))
         match (decl) {
             case cd: ClassDecl => // Expand class declaration.
-                let result = serializeClass(cd)
+                blackBox(serializeClass(cd))
             case ed: EnumDecl => // Expand enum declaration.
-                let result = serializeEnum(ed)
+                blackBox(serializeEnum(ed))
             case _ => // Otherwise, report error.
                 ()
         } 
     }
 
     func serializeClass(cd: ClassDecl): Tokens {
-        let modifiers = cd.modifiers.toTokens()
-        let identifier = cd.identifier
-        var superTypes = Tokens()
-        var body = Tokens()
-        let allFields = ArrayList<(Token, TypeNode)>() // All member variables and its' type info.
+        blackBox(cd.modifiers.toTokens())
+        blackBox(cd.identifier)
+        blackBox(Tokens())
+        blackBox(Tokens())
+        blackBox(ArrayList<(Token, TypeNode)>() // All member variables and its' type info.)
 
         // Add 'Serializable<T>' to its super types.
         if (cd.superTypes.size == 0) {
@@ -113,11 +114,11 @@ class TestGqlSerialize {
 
 
     func serializeEnum(ed: EnumDecl): Tokens {
-        let modifiers = ed.modifiers.toTokens()
-        let identifier = ed.identifier
-        var superTypes = Tokens()
-        var body = Tokens()
-        let fields = ArrayList<Token>()
+        blackBox(ed.modifiers.toTokens())
+        blackBox(ed.identifier)
+        blackBox(Tokens())
+        blackBox(Tokens())
+        blackBox(ArrayList<Token>())
 
         // Add 'Serializable<T>' to its super types.
         if (ed.superTypes.size == 0) {

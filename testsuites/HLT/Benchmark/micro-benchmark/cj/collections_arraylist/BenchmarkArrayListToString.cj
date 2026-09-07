@@ -11,6 +11,7 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
+import std.runtime.*
 import std.collection.*
 
 @Test
@@ -24,16 +25,16 @@ public class Test_ArrayList_ToString {
 
     @Bench
     func BenchmarkArrayListToString_N16(): Unit {
-        var str = arr_16.toString()
+        blackBox(arr_16.toString())
     }
 
     @Bench
     func BenchmarkArrayListToString_N1024(): Unit {
-        var str = arr_1024.toString()
+        blackBox(arr_1024.toString())
     }
 
     @Bench
     func BenchmarkArrayListToString_N131072(): Unit {
-        var str = arr_131072.toString()
+        blackBox(arr_131072.toString())
     }
 }

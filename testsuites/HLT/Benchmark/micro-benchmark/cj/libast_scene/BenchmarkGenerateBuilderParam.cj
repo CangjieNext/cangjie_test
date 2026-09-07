@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test 
 @Measure[TimeNow(Nanos)]
@@ -28,15 +29,15 @@ class TestGenerateBuilderParam {
     }
 
     func generateBuilderParam(param: FuncParam): Tokens {
-        let paramType = param.paramType
+        blackBox(param.paramType)
         param.paramType = RefType(quote(ObservedProperty<$paramType>))
-        param.toTokens()
+        blackBox(param.toTokens())
     }
 
     @Bench 
     func BenchmarkGenerateBuilderParam_001():Unit {
-        var entryParam = Tokens()
-        var innerParam = Tokens()
+        blackBox(Tokens())
+        blackBox(Tokens())
         for (item in builderInput1) {
             innerParam += quote($item)
             entryParam += generateBuilderParam(item)
@@ -44,8 +45,8 @@ class TestGenerateBuilderParam {
     }
     @Bench 
     func BenchmarkGenerateBuilderParam_002():Unit {
-        var entryParam = Tokens()
-        var innerParam = Tokens()
+        blackBox(Tokens())
+        blackBox(Tokens())
         for (item in builderInput2) {
             innerParam += quote($item)
             entryParam += generateBuilderParam(item)
@@ -53,8 +54,8 @@ class TestGenerateBuilderParam {
     }
     @Bench 
     func BenchmarkGenerateBuilderParam_003():Unit {
-        var entryParam = Tokens()
-        var innerParam = Tokens()
+        blackBox(Tokens())
+        blackBox(Tokens())
         for (item in builderInput3) {
             innerParam += quote($item)
             entryParam += generateBuilderParam(item)

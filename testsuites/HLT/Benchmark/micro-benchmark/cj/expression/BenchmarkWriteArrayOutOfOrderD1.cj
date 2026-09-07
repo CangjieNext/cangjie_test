@@ -13,6 +13,7 @@
 import std.time.*
 import std.convert.*
 import std.convert.*
+import std.runtime.*
 
 let step: Int64 = 64
 let memberLen: Array<(Int64,Int64)> = [(32,1000000), (256,50000), (2048,300), (16384,100), (131072,100), (1048576,100)]
@@ -31,6 +32,7 @@ func timeBenchmarkWriteArrayOutOfOrderD1(len: Int64, reps: Int64, step: Int64): 
     }
 
     var endTime = DateTime.now()
+    blackBox(targetArr)
     var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
 
     println("BenchmarkWriteArrayOutOfOrderD1_N${len}: ${perTime.format(".2")} ns/op")

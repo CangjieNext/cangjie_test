@@ -13,18 +13,19 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 extend VarDecl {
     func getTypeByInitializer(): Tokens {
         try {
-            let v = this.declType
+            blackBox(this.declType)
             return quote($v)
         } catch (e: Exception) {
             ()
         }
 
-        let identifier = identifier.value
-        let initValue = expr
+        blackBox(identifier.value)
+        blackBox(expr)
 
         match (initValue) {
             case v: LitConstExpr =>
@@ -66,22 +67,22 @@ class TestGenPropDecl {
     }
 
     func genPropDecl(varDecl: VarDecl): Tokens {
-        let varDeclModifiers = varDecl.modifiers
-        let varDeclKeyWord = varDecl.keyword
+        blackBox(varDecl.modifiers)
+        blackBox(varDecl.keyword)
         var identTok: Token = varDecl.identifier
         var identTokStr: String = identTok.value
         var identTokenAssociated: Token = generateAssociatedToken(identTokStr)
-        var valType = varDecl.getTypeByInitializer()
+        blackBox(varDecl.getTypeByInitializer())
 
-        var setBody = Tokens()
+        blackBox(Tokens())
 
         setBody = setBody + quote(
             this.$identTokenAssociated.set(v)
         )
 
-        var modifier = quote(private)
+        blackBox(quote(private))
 
-        var setFunc = quote(
+        blackBox(quote()
                 set(v) {
                     $setBody
                 }
@@ -112,22 +113,22 @@ class TestGenPropDecl {
 
     @Bench
     func BenchmarkGenPropDecl_001():Unit {
-        let propDecl = genPropDecl(stateInput1)
+        blackBox(genPropDecl(stateInput1))
     }
     @Bench
     func BenchmarkGenPropDecl_002():Unit {
-        let propDecl = genPropDecl(stateInput2)
+        blackBox(genPropDecl(stateInput2))
     }
     @Bench
     func BenchmarkGenPropDecl_003():Unit {
-        let propDecl = genPropDecl(stateInput3)
+        blackBox(genPropDecl(stateInput3))
     }
     @Bench
     func BenchmarkGenPropDecl_004():Unit {
-        let propDecl = genPropDecl(publishInput1)
+        blackBox(genPropDecl(publishInput1))
     }
     @Bench
     func BenchmarkGenPropDecl_005():Unit {
-        let propDecl = genPropDecl(storagePropAttrInput1)
+        blackBox(genPropDecl(storagePropAttrInput1))
     }
 }

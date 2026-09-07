@@ -15,82 +15,83 @@ import std.io.*
 import std.time.*
 import std.convert.*
 import std.collection.*
+import std.runtime.*
 
 let reps = 10000000
 
 func BenchmarkStr2Int8(str:String) {
     for (n in 0..reps) {
-         Int8.parse(str)
+        blackBox(Int8.parse(str))
     }
 }
 
 func BenchmarkStr2Int16(str:String) {
     for (n in 0..reps) {
-          Int16.parse(str)
+        blackBox(Int16.parse(str))
     }
 }
 
 func BenchmarkStr2Int32(str:String) {
     for (n in 0..reps) {
-          Int32.parse(str)
+        blackBox(Int32.parse(str))
     }
 }
 
 func BenchmarkStr2Int64(str:String) {
     for (n in 0..reps) {
-          Int64.parse(str)
+        blackBox(Int64.parse(str))
     }
 }
 
 
 func BenchmarkStr2UInt8(str:String) {
     for (n in 0..reps) {
-          UInt8.parse(str)
+        blackBox(UInt8.parse(str))
     }
 }
 
 func BenchmarkStr2UInt16(str:String) {
     for (n in 0..reps) {
-          UInt16.parse(str)
+        blackBox(UInt16.parse(str))
     }
 }
 
 func BenchmarkStr2UInt32(str:String) {
     for (n in 0..reps) {
-          UInt32.parse(str)
+        blackBox(UInt32.parse(str))
     }
 }
 
 func BenchmarkStr2UInt64(str:String) {
     for (n in 0..reps) {
-          UInt64.parse(str)
+        blackBox(UInt64.parse(str))
     }
 }
 
 func BenchmarkStr2Float16(str:String) {
     for (n in 0..reps) {
-          Float16.parse(str)
+        blackBox(Float16.parse(str))
     }
 }
 func BenchmarkStr2Float32(str:String) {
     for (n in 0..reps) {
-          Float32.parse(str)
+        blackBox(Float32.parse(str))
     }
 }
 func BenchmarkStr2Float64(str:String) {
     for (n in 0..reps) {
-          Float64.parse(str)
+        blackBox(Float64.parse(str))
     }
 }
 
 func BenchmarkStr2Bool(str:String) {
     for (n in 0..reps) {
-            Bool.parse(str)
+        blackBox(Bool.parse(str))
     }
 }
 func BenchmarkStr2Char(str:String) {
     for (n in 0..reps) {
-          Rune.parse(str)
+        blackBox(Rune.parse(str))
     }
 }
 

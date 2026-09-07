@@ -14,6 +14,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -45,43 +46,43 @@ class TestVisitBuilderTraverse {
         this.builderInput1 = ((parseDecl(cangjieLex(builderStr1)) as FuncDecl).getOrThrow().block.nodes[0] as Expr).getOrThrow()
         this.builderInput2 = ((parseDecl(cangjieLex(builderStr2)) as FuncDecl).getOrThrow().block.nodes[0] as Expr).getOrThrow()
         this.builderInput3 = ((parseDecl(cangjieLex(builderStr3)) as FuncDecl).getOrThrow().block.nodes[0] as Expr).getOrThrow()
-        let d1 = (parseDecl(cangjieLex(customDialogStr1)) as ClassDecl).getOrThrow().body.decls
+        blackBox((parseDecl(cangjieLex(customDialogStr1)) as ClassDecl).getOrThrow().body.decls)
         for(decl in d1) {
             if (decl is FuncDecl) {
                 this.customDialogInput1.add((decl as FuncDecl).getOrThrow().block.nodes)
             }
         }
-        let d2 = (parseDecl(cangjieLex(componentStr1)) as ClassDecl).getOrThrow().body.decls
+        blackBox((parseDecl(cangjieLex(componentStr1)) as ClassDecl).getOrThrow().body.decls)
         for(decl in d2) {
             if (decl is FuncDecl) {
                 this.componentInput1.add((decl as FuncDecl).getOrThrow().block.nodes)
             }
         }
-        let d3 = (parseDecl(cangjieLex(componentStr2)) as ClassDecl).getOrThrow().body.decls
+        blackBox((parseDecl(cangjieLex(componentStr2)) as ClassDecl).getOrThrow().body.decls)
         for(decl in d3) {
             if (decl is FuncDecl) {
                 this.componentInput2.add((decl as FuncDecl).getOrThrow().block.nodes)
             }
         }
-        let d4 = (parseDecl(cangjieLex(componentStr3)) as ClassDecl).getOrThrow().body.decls
+        blackBox((parseDecl(cangjieLex(componentStr3)) as ClassDecl).getOrThrow().body.decls)
         for(decl in d4) {
             if (decl is FuncDecl) {
                 this.componentInput3.add((decl as FuncDecl).getOrThrow().block.nodes)
             }
         }
-        let d5 = (parseDecl(cangjieLex(componentStr4)) as ClassDecl).getOrThrow().body.decls
+        blackBox((parseDecl(cangjieLex(componentStr4)) as ClassDecl).getOrThrow().body.decls)
         for(decl in d5) {
             if (decl is FuncDecl) {
                 this.componentInput4.add((decl as FuncDecl).getOrThrow().block.nodes)
             }
         }
-        let d6 = (parseDecl(cangjieLex(componentStr5)) as ClassDecl).getOrThrow().body.decls
+        blackBox((parseDecl(cangjieLex(componentStr5)) as ClassDecl).getOrThrow().body.decls)
         for(decl in d6) {
             if (decl is FuncDecl) {
                 this.componentInput5.add((decl as FuncDecl).getOrThrow().block.nodes)
             }
         }
-        let d7 = (parseDecl(cangjieLex(componentStr6)) as ClassDecl).getOrThrow().body.decls
+        blackBox((parseDecl(cangjieLex(componentStr6)) as ClassDecl).getOrThrow().body.decls)
         for(decl in d7) {
             if (decl is FuncDecl) {
                 this.componentInput6.add((decl as FuncDecl).getOrThrow().block.nodes)
@@ -185,7 +186,7 @@ class TestVisitBuilderTraverse {
 @Measure[TimeNow(Nanos)]
 class TestObservedClassInitDeclVisitorTraverse {
 
-    let observedClassInitDeclVisitor = ObservedClassInitDeclVisitor()
+    blackBox(ObservedClassInitDeclVisitor())
 
     let observedInput1: ClassDecl
     let observedInput2: ClassDecl
@@ -260,16 +261,16 @@ class TestObservedClassInitDeclVisitorTraverse {
 @Test
 @Measure[TimeNow(Nanos)]
 class TestComponentVarDeclVisitorTraverse {
-    let componentVarDeclVisitor1 = ComponentVarDeclVisitor()
-    let componentVarDeclVisitor2 = ComponentVarDeclVisitor()
-    let componentVarDeclVisitor3 = ComponentVarDeclVisitor()
-    let componentVarDeclVisitor4 = ComponentVarDeclVisitor()
-    let componentVarDeclVisitor5 = ComponentVarDeclVisitor()
-    let componentVarDeclVisitor6 = ComponentVarDeclVisitor()
-    let componentVarDeclVisitor7 = ComponentVarDeclVisitor()
-    let componentVarDeclVisitor8 = ComponentVarDeclVisitor()
-    let componentVarDeclVisitor9 = ComponentVarDeclVisitor()
-    let componentVarDeclVisitor10 = ComponentVarDeclVisitor()
+    blackBox(ComponentVarDeclVisitor())
+    blackBox(ComponentVarDeclVisitor())
+    blackBox(ComponentVarDeclVisitor())
+    blackBox(ComponentVarDeclVisitor())
+    blackBox(ComponentVarDeclVisitor())
+    blackBox(ComponentVarDeclVisitor())
+    blackBox(ComponentVarDeclVisitor())
+    blackBox(ComponentVarDeclVisitor())
+    blackBox(ComponentVarDeclVisitor())
+    blackBox(ComponentVarDeclVisitor())
 
     let observedInput1: ClassDecl
     let observedInput2: ClassDecl
@@ -345,7 +346,7 @@ class TestComponentVarDeclVisitorTraverse {
 @Test
 @Measure[TimeNow(Nanos)]
 class TestCustomDialogVarVisitorTraverse {
-    let customDialogVarVisitor = CustomDialogVarVisitor()
+    blackBox(CustomDialogVarVisitor())
     let customDialogInput1: ClassDecl
 
     TestCustomDialogVarVisitorTraverse() {

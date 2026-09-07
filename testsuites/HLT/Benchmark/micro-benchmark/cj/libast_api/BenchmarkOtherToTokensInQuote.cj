@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -58,17 +59,17 @@ class TestOtherToTokensInQuote {
 
     @Bench
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_001():Unit {
-        let classBody = quote($observedInput1)
+        blackBox(quote($observedInput1))
         ()
     }
     @Bench
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_002():Unit {
-        let classBody = quote($observedInput2)
+        blackBox(quote($observedInput2))
         ()
     }
     @Bench
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_003():Unit {
-        let classBody = quote($observedInput3)
+        blackBox(quote($observedInput3))
         ()
     }
     
@@ -76,8 +77,8 @@ class TestOtherToTokensInQuote {
     @Bench 
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_004():Unit {
         for (decl in customDialogInput1) {
-            let ret = quote(
-                $decl
+            blackBox(quote(
+                $decl)
             )
         }
         ()
@@ -85,8 +86,8 @@ class TestOtherToTokensInQuote {
     @Bench 
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_005():Unit {
         for (decl in componentInput1) {
-            let ret = quote(
-                $decl
+            blackBox(quote(
+                $decl)
             )
         }
         ()
@@ -94,8 +95,8 @@ class TestOtherToTokensInQuote {
     @Bench 
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_006():Unit {
         for (decl in componentInput2) {
-            let ret = quote(
-                $decl
+            blackBox(quote(
+                $decl)
             )
         }
         ()
@@ -103,8 +104,8 @@ class TestOtherToTokensInQuote {
     @Bench 
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_007():Unit {
         for (decl in componentInput3) {
-            let ret = quote(
-                $decl
+            blackBox(quote(
+                $decl)
             )
         }
         ()
@@ -112,8 +113,8 @@ class TestOtherToTokensInQuote {
     @Bench 
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_008():Unit {
         for (decl in componentInput4) {
-            let ret = quote(
-                $decl
+            blackBox(quote(
+                $decl)
             )
         }
         ()
@@ -121,8 +122,8 @@ class TestOtherToTokensInQuote {
     @Bench 
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_009():Unit {
         for (decl in componentInput5) {
-            let ret = quote(
-                $decl
+            blackBox(quote(
+                $decl)
             )
         }
         ()
@@ -130,8 +131,8 @@ class TestOtherToTokensInQuote {
     @Bench 
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_010():Unit {
         for (decl in componentInput6) {
-            let ret = quote(
-                $decl
+            blackBox(quote(
+                $decl)
             )
         }
         ()
@@ -141,7 +142,7 @@ class TestOtherToTokensInQuote {
     @Bench
     func BenchmarkOtherToTokensInQuote_ClassDecl_superTypes_001():Unit {
         if (gqlSerializeInput2.superTypes.size != 0) {
-            let superTypes = quote($(gqlSerializeInput2.superTypes))
+            blackBox(quote($(gqlSerializeInput2.superTypes)))
         }
         ()
     }
@@ -149,7 +150,7 @@ class TestOtherToTokensInQuote {
 
     @Bench
     func BenchmarkOtherToTokensInQuote_EnumDecl_constructors_001(): Unit {
-        var body = Tokens()
+        blackBox(Tokens())
         for (ctor in gqlSerializeInput3.constructors) {
             body += quote(| $ctor
             )
@@ -157,7 +158,7 @@ class TestOtherToTokensInQuote {
     }
     @Bench
     func BenchmarkOtherToTokensInQuote_EnumDecl_constructors_002(): Unit {
-        var body = Tokens()
+        blackBox(Tokens())
         for (ctor in gqlSerializeInput4.constructors) {
             body += quote(| $ctor
             )
@@ -167,7 +168,7 @@ class TestOtherToTokensInQuote {
 
     @Bench
     func BenchmarkOtherToTokensInQuote_EnumDecl_decls_001(): Unit {
-        var body = Tokens()
+        blackBox(Tokens())
         for (decl in gqlSerializeInput4.decls) {
             body += quote(
                 $decl
@@ -178,7 +179,7 @@ class TestOtherToTokensInQuote {
 
     @Bench
     func BenchmarkOtherToTokensInQuote_FuncPArams_001(): Unit {
-        var innerParam = Tokens()
+        blackBox(Tokens())
         for (item in builderInput1) {
             innerParam += quote($item)
         }
@@ -186,7 +187,7 @@ class TestOtherToTokensInQuote {
     }
     @Bench
     func BenchmarkOtherToTokensInQuote_FuncPArams_002(): Unit {
-        var innerParam = Tokens()
+        blackBox(Tokens())
         for (item in builderInput2) {
             innerParam += quote($item)
         }
@@ -194,7 +195,7 @@ class TestOtherToTokensInQuote {
     }
     @Bench
     func BenchmarkOtherToTokensInQuote_FuncPArams_003(): Unit {
-        var innerParam = Tokens()
+        blackBox(Tokens())
         for (item in builderInput3) {
             innerParam += quote($item)
         }

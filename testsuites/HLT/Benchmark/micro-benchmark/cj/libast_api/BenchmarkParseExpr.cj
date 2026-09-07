@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -29,17 +30,17 @@ class TestParseExpr {
 
     @Bench
     func BenchmarkParseExpr_RefExpr_001() : Unit {
-        let expr = (parseExpr(watchAttrInput1) as RefExpr).getOrThrow()
+        blackBox((parseExpr(watchAttrInput1) as RefExpr).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseExpr_RefExpr_002() : Unit {
-        let expr = (parseExpr(watchAttrInput2) as RefExpr).getOrThrow()
+        blackBox((parseExpr(watchAttrInput2) as RefExpr).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseExpr_LitConstExpr_001() : Unit {
-        let expr = (parseExpr(storagePropAttrInput1) as LitConstExpr).getOrThrow()
+        blackBox((parseExpr(storagePropAttrInput1) as LitConstExpr).getOrThrow())
         ()
     }
 
