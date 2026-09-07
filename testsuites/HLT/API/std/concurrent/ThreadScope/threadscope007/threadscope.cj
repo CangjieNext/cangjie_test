@@ -9,6 +9,10 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+//
+// TEST INTENT: results are yielded in completion order, not launch order
+// DOC REF: ThreadGroup - "Results are yielded as threads complete"
+// EXPECT: collected order is 2,3,1 with 60/10/30ms delays, exit 0
 
 import std.collection.ArrayList
 import std.concurrent.*

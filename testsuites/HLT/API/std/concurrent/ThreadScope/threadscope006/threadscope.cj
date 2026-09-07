@@ -9,6 +9,10 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+//
+// TEST INTENT: explicit cancelAll is observed by a cooperative task
+// DOC REF: ThreadGroup.cancelAll - "A thread can observe the request through hasPendingCancellation"
+// EXPECT: worker observes cancellation and exits, exit 0
 
 import std.concurrent.*
 import std.sync.*
