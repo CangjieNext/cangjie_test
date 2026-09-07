@@ -9,6 +9,10 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+//
+// TEST INTENT: scope waits for every unconsumed task before returning
+// DOC REF: threadScope - "waits for every unconsumed task result"
+// EXPECT: finishedCount == 3 after scope returns, exit 0
 
 import std.concurrent.*
 import std.sync.*

@@ -9,6 +9,10 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+//
+// TEST INTENT: fn return value is passed through when no tasks are launched
+// DOC REF: threadScope - Returns: "R - The return value of fn"
+// EXPECT: threadScope returns 42, exit 0
 
 import std.concurrent.*
 

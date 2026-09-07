@@ -9,6 +9,10 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+//
+// TEST INTENT: concurrent launch/cancelAll on one group stays crash-free (CME tolerated)
+// DOC REF: ThreadGroup warning - "The API of ThreadGroup itself is not thread-safe"
+// EXPECT: no crash; exit 0 whether or not CME is observed
 
 import std.collection.*
 import std.concurrent.*

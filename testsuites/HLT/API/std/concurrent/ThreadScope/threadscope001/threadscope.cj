@@ -9,6 +9,10 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+//
+// TEST INTENT: launch returns Unit
+// DOC REF: ThreadGroup.launch - "public func launch(task: () -> T): Unit"
+// EXPECT: type-check only; scope completes, exit 0
 
 import std.concurrent.*
 

@@ -9,6 +9,10 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+//
+// TEST INTENT: only the first failure is rethrown when all tasks fail
+// DOC REF: threadScope - "Only the first Exception or Error is rethrown; the rest are silently discarded"
+// EXPECT: caught one exception, all 4 finally blocks ran, exit 0
 
 import std.concurrent.*
 import std.sync.*
