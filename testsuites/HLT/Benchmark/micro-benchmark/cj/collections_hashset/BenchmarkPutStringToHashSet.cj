@@ -15,6 +15,7 @@
 import std.collection.*
 import std.time.*
 import std.convert.*
+import std.runtime.*
 
 let reps = 10
 var counts: ArrayList<Int64> = ArrayList<Int64>([32, 256, 2 * 1024, 16 * 1024, 128 * 1024])
@@ -23,7 +24,7 @@ func timeBenchmarkAddToHashset(num: Int64) {
     let N = 100000000 / num;
     var startTime = DateTime.now()
     for (i in 0..N) {
-        generatHashSet(num, "1")
+        blackBox(generatHashSet(num, "1"))
     }
     var endTime = DateTime.now()
     var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(N)

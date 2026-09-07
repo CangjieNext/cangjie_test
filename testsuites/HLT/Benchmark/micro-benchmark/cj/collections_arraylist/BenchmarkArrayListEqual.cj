@@ -12,6 +12,7 @@
 
 import std.time.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -32,40 +33,38 @@ public class Test_ArrayList_Equal {
 
     static var int_32_unequal = ArrayList<Int64>(32, {index: Int64 => index + 16})
 
-    var res = false
-
     @Bench
     func BenchmarkArrayListEqual_Int64_N32(): Unit {
-        res = int_32 == int_32_equal
+        blackBox(int_32 == int_32_equal)
     }
 
     @Bench
     func BenchmarkArrayListEqual_Int64_N128(): Unit {
-        res = int_256 == int_256_equal
+        blackBox(int_256 == int_256_equal)
     }
 
     @Bench
     func BenchmarkArrayListEqual_Int64_N2048(): Unit {
-        res = int_2048 == int_2048_equal
+        blackBox(int_2048 == int_2048_equal)
     }
 
     @Bench
     func BenchmarkArrayListEqual_PartEqual_Int64_N32(): Unit {
-        res = int_32 == int_32_partequal
+        blackBox(int_32 == int_32_partequal)
     }
 
     @Bench
     func BenchmarkArrayListEqual_PartEqual_Int64_N128(): Unit {
-        res = int_256 == int_256_partequal
+        blackBox(int_256 == int_256_partequal)
     }
 
     @Bench
     func BenchmarkArrayListEqual_PartEqual_Int64_N2048(): Unit {
-        res = int_2048 == int_2048_partequal
+        blackBox(int_2048 == int_2048_partequal)
     }
 
     @Bench
     func BenchmarkArrayListEqual_Unequal_Int64_N32(): Unit {
-        res = int_32 == int_32_unequal
+        blackBox(int_32 == int_32_unequal)
     }
 }

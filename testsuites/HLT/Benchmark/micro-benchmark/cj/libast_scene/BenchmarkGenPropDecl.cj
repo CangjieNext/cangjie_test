@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 extend VarDecl {
     func getTypeByInitializer(): Tokens {
@@ -112,22 +113,22 @@ class TestGenPropDecl {
 
     @Bench
     func BenchmarkGenPropDecl_001():Unit {
-        let propDecl = genPropDecl(stateInput1)
+        blackBox(genPropDecl(stateInput1))
     }
     @Bench
     func BenchmarkGenPropDecl_002():Unit {
-        let propDecl = genPropDecl(stateInput2)
+        blackBox(genPropDecl(stateInput2))
     }
     @Bench
     func BenchmarkGenPropDecl_003():Unit {
-        let propDecl = genPropDecl(stateInput3)
+        blackBox(genPropDecl(stateInput3))
     }
     @Bench
     func BenchmarkGenPropDecl_004():Unit {
-        let propDecl = genPropDecl(publishInput1)
+        blackBox(genPropDecl(publishInput1))
     }
     @Bench
     func BenchmarkGenPropDecl_005():Unit {
-        let propDecl = genPropDecl(storagePropAttrInput1)
+        blackBox(genPropDecl(storagePropAttrInput1))
     }
 }

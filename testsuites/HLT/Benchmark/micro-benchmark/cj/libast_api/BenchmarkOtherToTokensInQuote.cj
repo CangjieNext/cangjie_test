@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -58,17 +59,17 @@ class TestOtherToTokensInQuote {
 
     @Bench
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_001():Unit {
-        let classBody = quote($observedInput1)
+        blackBox(quote($observedInput1))
         ()
     }
     @Bench
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_002():Unit {
-        let classBody = quote($observedInput2)
+        blackBox(quote($observedInput2))
         ()
     }
     @Bench
     func BenchmarkOtherToTokensInQuote_ClassDecl_body_decls_003():Unit {
-        let classBody = quote($observedInput3)
+        blackBox(quote($observedInput3))
         ()
     }
     

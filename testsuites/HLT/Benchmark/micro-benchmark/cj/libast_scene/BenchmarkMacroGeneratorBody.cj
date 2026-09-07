@@ -14,6 +14,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -85,7 +86,7 @@ public class TestMacroGeneratorBody {
             output.append(tks[i])
         }
         output.append(quote(}))
-        ()
+        blackBox(output)
     }
 
     @Bench

@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test 
 @Measure[TimeNow(Nanos)]
@@ -45,10 +46,10 @@ class TestGqlOperation {
     
     @Bench
     func BenchmarkGqlOperation_001():Unit {
-        let body = gqlOperation(gqlOperationInput1)
+        blackBox(gqlOperation(gqlOperationInput1))
     }
     @Bench
     func BenchmarkGqlOperation_002():Unit {
-        let body = gqlOperation(gqlOperationInput2)
+        blackBox(gqlOperation(gqlOperationInput2))
     }
 }

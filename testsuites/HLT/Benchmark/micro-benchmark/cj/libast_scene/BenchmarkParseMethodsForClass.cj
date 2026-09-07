@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -64,48 +65,48 @@ class TestParseMethodsForClass {
 
     @Bench
     func BenchmarkParseMethodsForClass_001():Unit {
-        parseMethodsForClass(scoperInput1)
+        blackBox(parseMethodsForClass(scoperInput1))
     }
 
     @Bench
     func BenchmarkParseMethodsForClass_002():Unit {
-        parseMethodsForClass(scoperInput2)
+        blackBox(parseMethodsForClass(scoperInput2))
     }
     @Bench
     func BenchmarkParseMethodsForClass_003():Unit {
-        parseMethodsForClass(storageInput1)
+        blackBox(parseMethodsForClass(storageInput1))
     }
 
     @Bench
     func BenchmarkParseMethodsForClass_004():Unit {
-        parseMethodsForClass(patcherInput1)
+        blackBox(parseMethodsForClass(patcherInput1))
     }
     @Bench
     func BenchmarkParseMethodsForClass_005():Unit {
-        parseMethodsForClass(deleteStrategyInput1)
+        blackBox(parseMethodsForClass(deleteStrategyInput1))
     }
 
     @Bench
     func BenchmarkParseMethodsForClass_006():Unit {
-        parseMethodsForClass(updateStrategyInput1)
+        blackBox(parseMethodsForClass(updateStrategyInput1))
     }
     @Bench
     func BenchmarkParseMethodsForClass_007():Unit {
-        parseMethodsForClass(genericSingleResourceInput1)
+        blackBox(parseMethodsForClass(genericSingleResourceInput1))
     }
 
     @Bench
     func BenchmarkParseMethodsForClass_008():Unit {
-        parseMethodsForClass(serializableInput1)
+        blackBox(parseMethodsForClass(serializableInput1))
     }
     @Bench
     func BenchmarkParseMethodsForClass_009():Unit {
-        parseMethodsForClass(serializableInput2)
+        blackBox(parseMethodsForClass(serializableInput2))
     }
 
     @Bench
     func BenchmarkParseMethodsForClass_010():Unit {
-        parseMethodsForClass(serializableInput3)
+        blackBox(parseMethodsForClass(serializableInput3))
     }
 
 }

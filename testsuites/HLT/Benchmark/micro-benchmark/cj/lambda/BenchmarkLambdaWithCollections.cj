@@ -14,6 +14,7 @@
 import std.time.*
 import std.collection.*
 import std.random.Random
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -35,37 +36,37 @@ public class TestLambdaWithCollections {
 
     @Bench[reps in [512, 1024, 2048, 4096]]
     func BenchmarkLambdaWithCollections_ArrayInit_(reps: Int64): Array<Int64> {
-        Array<Int64>(reps, {index: Int64 => 2 * index})
+        blackBox(Array<Int64>(reps, {index: Int64 => 2 * index}))
     }
 
     @Bench[reps in [512, 1024, 2048, 4096]]
     func BenchmarkLambdaWithCollections_ArrayListInit_(reps: Int64): ArrayList<Int64> {
-        ArrayList<Int64>(reps, {index: Int64 => 2 * index})
+        blackBox(ArrayList<Int64>(reps, {index: Int64 => 2 * index}))
     }
 
     @Bench[data in dataStrategy]
     func BenchmarkLambdaWithCollections_Reduce_(data: ArrayList<Int64>): Int64 {
-        reduce({ x: Int64, y: Int64 => x + y })(data).getOrThrow()
+        blackBox(reduce({ x: Int64, y: Int64 => x + y })(data).getOrThrow())
     }
 
     @Bench[data in dataStrategy]
     func BenchmarkLambdaWithCollections_FilterReduce_(data: ArrayList<Int64>): Int64 {
-        reduce({ x: Int64, y: Int64 => x + y })(
+        blackBox(reduce({ x: Int64, y: Int64 => x + y })(
             filter({ k: Int64 =>
                 k % 2 == 1
             })(data)
-        ).getOrThrow()
+        ).getOrThrow())
     }
 
     @Bench[data in dataStrategy]
     func BenchmarkLambdaWithCollections_FilterMapReduce_(data: ArrayList<Int64>): Int64 {
-        reduce({ x: Int64, y: Int64 => x + y })(
+        blackBox(reduce({ x: Int64, y: Int64 => x + y })(
             map({ k: Int64 => 2 * k })(
                 filter({ k: Int64 =>
                     k % 2 == 1
                 })(data)
             )
-        ).getOrThrow()
+        ).getOrThrow())
     }
 
     @Bench[data in dataStrategyToSort]
@@ -79,6 +80,6 @@ public class TestLambdaWithCollections {
                 GT
             }
         })
-        data
+        blackBox(data)
     }
 }

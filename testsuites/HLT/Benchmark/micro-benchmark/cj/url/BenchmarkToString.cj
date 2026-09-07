@@ -13,8 +13,7 @@
 
 import std.time.*
 import stdx.encoding.url.*
-
-var str = ""
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -52,76 +51,76 @@ public class Test_Url_ToString {
 
     @Bench
     func BenchmarkToString_N0(): Unit {
-        str = url_1.toString()
+        blackBox(url_1.toString())
     }
 
     @Bench
     func BenchmarkToString_N1(): Unit {
-        str = url_2.toString()
+        blackBox(url_2.toString())
     }
 
     @Bench
     func BenchmarkToString_Path_N1(): Unit {
-        str = url_3.toString()
+        blackBox(url_3.toString())
     }
 
     @Bench
     func BenchmarkToString_Path_N10(): Unit {
-        str = url_4.toString()
+        blackBox(url_4.toString())
     }
 
     @Bench
     func BenchmarkToString_Protocol_Https(): Unit {
-        str = url_5.toString()
+        blackBox(url_5.toString())
     }
 
     @Bench
     func BenchmarkToString_Protocol_File(): Unit {
-        str = url_6.toString()
+        blackBox(url_6.toString())
     }
 
     @Bench
     func BenchmarkToString_Protocol_Ftp(): Unit {
-        str = url_7.toString()
+        blackBox(url_7.toString())
     }
 
     @Bench
     func BenchmarkToString_Query_N1(): Unit {
-        str = url_8.toString()
+        blackBox(url_8.toString())
     }
 
     @Bench
     func BenchmarkToString_Query_N5(): Unit {
-        str = url_9.toString()
+        blackBox(url_9.toString())
     }
 
     @Bench
     func BenchmarkToString_HostName_N5(): Unit {
-        str = url_10.toString()
+        blackBox(url_10.toString())
     }
 
     @Bench
     func BenchmarkToString_Chinese_N1(): Unit {
-        str = url_11.toString()
+        blackBox(url_11.toString())
     }
 
     @Bench
     func BenchmarkToString_Chinese_N2(): Unit {
-        str = url_12.toString()
+        blackBox(url_12.toString())
     }
 
     @Bench
     func BenchmarkToString_Chinese_N3(): Unit {
-        str = url_13.toString()
+        blackBox(url_13.toString())
     }
 
     @Bench
     func BenchmarkToString_Character_N1(): Unit {
-        str = url_14.toString()
+        blackBox(url_14.toString())
     }
 
     @Bench
     func BenchmarkToString_Long(): Unit {
-        str = url_15.toString()
+        blackBox(url_15.toString())
     }
 }

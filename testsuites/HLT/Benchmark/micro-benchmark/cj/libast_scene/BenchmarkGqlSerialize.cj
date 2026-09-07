@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -36,7 +37,7 @@ class TestGqlSerialize {
             case cd: ClassDecl => // Expand class declaration.
                 let result = serializeClass(cd)
             case ed: EnumDecl => // Expand enum declaration.
-                let result = serializeEnum(ed)
+                blackBox(serializeEnum(ed))
             case _ => // Otherwise, report error.
                 ()
         } 
@@ -49,7 +50,7 @@ class TestGqlSerialize {
             case cd: ClassDecl => // Expand class declaration.
                 let result = serializeClass(cd)
             case ed: EnumDecl => // Expand enum declaration.
-                let result = serializeEnum(ed)
+                blackBox(serializeEnum(ed))
             case _ => // Otherwise, report error.
                 ()
         } 
@@ -61,7 +62,7 @@ class TestGqlSerialize {
             case cd: ClassDecl => // Expand class declaration.
                 let result = serializeClass(cd)
             case ed: EnumDecl => // Expand enum declaration.
-                let result = serializeEnum(ed)
+                blackBox(serializeEnum(ed))
             case _ => // Otherwise, report error.
                 ()
         } 
@@ -73,7 +74,7 @@ class TestGqlSerialize {
             case cd: ClassDecl => // Expand class declaration.
                 let result = serializeClass(cd)
             case ed: EnumDecl => // Expand enum declaration.
-                let result = serializeEnum(ed)
+                blackBox(serializeEnum(ed))
             case _ => // Otherwise, report error.
                 ()
         } 

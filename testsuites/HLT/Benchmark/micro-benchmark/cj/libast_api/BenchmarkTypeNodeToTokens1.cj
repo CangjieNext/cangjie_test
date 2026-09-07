@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -27,12 +28,12 @@ class TestVarDeclTypeToTokens {
 
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecl_declType_001():Unit {
-        this.watchAttrOuterInput1.declType.toTokens()
+        blackBox(this.watchAttrOuterInput1.declType.toTokens())
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecl_declType_002():Unit {
-        this.storagePropAttrInput1.declType.toTokens()
+        blackBox(this.storagePropAttrInput1.declType.toTokens())
         ()
     } 
 
@@ -100,7 +101,7 @@ class TestVarDeclsTypeToTokens {
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_001():Unit{
         for (varDecl in this.cloneableInput1) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
@@ -108,7 +109,7 @@ class TestVarDeclsTypeToTokens {
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_002():Unit{
         for (varDecl in this.cloneableInput2) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }    
@@ -116,14 +117,14 @@ class TestVarDeclsTypeToTokens {
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_003():Unit{
         for (varDecl in this.cloneableInput3) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_004():Unit{
         for (varDecl in this.cloneableInput4) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
@@ -131,91 +132,91 @@ class TestVarDeclsTypeToTokens {
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_005():Unit{
         for (varDecl in this.scoperInput1) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_006():Unit{
         for (varDecl in this.scoperInput2) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_007():Unit{
         for (varDecl in this.deleteStrategyInput1) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_008():Unit{
         for (varDecl in this.updateStrategyInput1) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_009():Unit{
         for (varDecl in this.equatableInput1) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_010():Unit{
         for (varDecl in this.genericSingleResourceInput1) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_011():Unit{
         for (varDecl in this.internalGenericListResourceInput1) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_012():Unit{
         for (varDecl in this.patchMetaInput1) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_013():Unit{
         for (varDecl in this.patchMetaInput2) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_014():Unit{
         for (varDecl in this.patchMetaInput3) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_015():Unit{
         for (varDecl in this.patchMetaInput4) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_016():Unit{
         for (varDecl in this.serializableInput1) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_017():Unit{
         for (varDecl in this.serializableInput2) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }    
@@ -223,7 +224,7 @@ class TestVarDeclsTypeToTokens {
     @Bench
     func BenchmarkTypeNodeToTokens1_VarDecls_type_018():Unit{
         for (varDecl in this.serializableInput3) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
@@ -233,21 +234,21 @@ class TestVarDeclsTypeToTokens {
     @Bench 
     func BenchmarkTypeNodeToTokens1_VarDecls_type_019():Unit {
         for (varDecl in customDialogInput1) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench 
     func BenchmarkTypeNodeToTokens1_VarDecls_type_020():Unit {
         for (varDecl in componentInput1) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench 
     func BenchmarkTypeNodeToTokens1_VarDecls_type_021():Unit {
         for (varDecl in componentInput2) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
@@ -255,7 +256,7 @@ class TestVarDeclsTypeToTokens {
     func BenchmarkTypeNodeToTokens1_VarDecls_type_022():Unit {
         for (varDecl in componentInput3) {
             try{
-                varDecl.declType.toTokens()
+                blackBox(varDecl.declType.toTokens())
             } catch (e: Exception) {
                 ()
             }
@@ -265,21 +266,21 @@ class TestVarDeclsTypeToTokens {
     @Bench 
     func BenchmarkTypeNodeToTokens1_VarDecls_type_023():Unit {
         for (varDecl in componentInput4) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench 
     func BenchmarkTypeNodeToTokens1_VarDecls_type_024():Unit {
         for (varDecl in componentInput5) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }
     @Bench 
     func BenchmarkTypeNodeToTokens1_VarDecls_type_025():Unit {
         for (varDecl in componentInput6) {
-            varDecl.declType.toTokens()
+            blackBox(varDecl.declType.toTokens())
         }
         ()
     }

@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -42,15 +43,15 @@ public class TestParseMethodsForTokens {
     }
     @Bench
     func BenchmarkParseMethodsForTokens_001():Unit {
-        parseMethodsForTokens(scoperInlineInput1)
+        blackBox(parseMethodsForTokens(scoperInlineInput1))
     }
 
     @Bench
     func BenchmarkParseMethodsForTokens_002():Unit {
-        parseMethodsForTokens(deleteStrategyInlineInput1)
+        blackBox(parseMethodsForTokens(deleteStrategyInlineInput1))
     }
     @Bench
     func BenchmarkParseMethodsForTokens_003():Unit {
-        parseMethodsForTokens(updateStrategyInlineInput1)
+        blackBox(parseMethodsForTokens(updateStrategyInlineInput1))
     }
 }

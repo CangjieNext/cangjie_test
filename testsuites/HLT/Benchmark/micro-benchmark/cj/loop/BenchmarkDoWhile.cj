@@ -13,6 +13,7 @@
 
 import std.time.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -44,6 +45,7 @@ public class Test_Forin_Range {
             sum += j
             j++
         }while (j < size) 
+        blackBox(sum)
     }
 
     @Bench
@@ -52,6 +54,7 @@ public class Test_Forin_Range {
             sum += j
             j++
         }while (j < size) 
+        blackBox(sum)
     }
 
     @Bench
@@ -60,5 +63,6 @@ public class Test_Forin_Range {
             sum += j
             j++
         }while (j < size) 
+        blackBox(sum)
     }
 }

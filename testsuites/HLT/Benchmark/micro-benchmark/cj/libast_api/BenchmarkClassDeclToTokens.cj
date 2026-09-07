@@ -14,6 +14,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test 
 @Measure[TimeNow(Nanos)]
@@ -80,128 +81,128 @@ class TestClassDeclToTokens {
 
     @Bench
     func BenchmarkClassDeclToTokens_001():Unit {
-        this.cloneableInput1.toTokens()
+        blackBox(this.cloneableInput1.toTokens())
         ()
     }
 
     @Bench
     func BenchmarkClassDeclToTokens_002():Unit {
-        this.cloneableInput2.toTokens()
+        blackBox(this.cloneableInput2.toTokens())
         ()
     }
     
     @Bench
     func BenchmarkClassDeclToTokens_003():Unit {
-        this.cloneableInput3.toTokens()
+        blackBox(this.cloneableInput3.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_004():Unit {
-        this.cloneableInput4.toTokens()
+        blackBox(this.cloneableInput4.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_005():Unit {
-        this.protobufAttrInput1.toTokens()
+        blackBox(this.protobufAttrInput1.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_006():Unit {
-        this.protobufAttrInput2.toTokens()
+        blackBox(this.protobufAttrInput2.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_007():Unit {
-        this.protobufAttrInput3.toTokens()
+        blackBox(this.protobufAttrInput3.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_008():Unit {
-        this.protobufAttrInput4.toTokens()
+        blackBox(this.protobufAttrInput4.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_009():Unit {
-        this.scoperInput1.toTokens()
+        blackBox(this.scoperInput1.toTokens())
         ()
     }    
     @Bench
     func BenchmarkClassDeclToTokens_010():Unit {
-        this.scoperInput2.toTokens()
+        blackBox(this.scoperInput2.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_011():Unit {
-        this.storageInput1.toTokens()
+        blackBox(this.storageInput1.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_012():Unit {
-        this.patcherInput1.toTokens()
+        blackBox(this.patcherInput1.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_013():Unit {
-        this.deleteStrategyInput1.toTokens()
+        blackBox(this.deleteStrategyInput1.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_014():Unit {
-        this.updateStrategyInput1.toTokens()
+        blackBox(this.updateStrategyInput1.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_015():Unit {
-        this.equatableInput1.toTokens()
+        blackBox(this.equatableInput1.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_016():Unit {
-        this.genericSingleResourceInput1.toTokens()
+        blackBox(this.genericSingleResourceInput1.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_017():Unit {
-        this.internalGenericListResourceInput1.toTokens()
+        blackBox(this.internalGenericListResourceInput1.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_018():Unit {
-        this.patchMetaInput1.toTokens()
+        blackBox(this.patchMetaInput1.toTokens())
         ()
     }
 
     @Bench
     func BenchmarkClassDeclToTokens_019():Unit {
-        this.patchMetaInput2.toTokens()
+        blackBox(this.patchMetaInput2.toTokens())
         ()
     }
     
     @Bench
     func BenchmarkClassDeclToTokens_020():Unit {
-        this.patchMetaInput3.toTokens()
+        blackBox(this.patchMetaInput3.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_021():Unit {
-        this.patchMetaInput4.toTokens()
+        blackBox(this.patchMetaInput4.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_022():Unit {
-        this.serializableInput1.toTokens()
+        blackBox(this.serializableInput1.toTokens())
         ()
     }
 
     @Bench
     func BenchmarkClassDeclToTokens_023():Unit {
-        this.serializableInput2.toTokens()
+        blackBox(this.serializableInput2.toTokens())
         ()
     }
     
     @Bench
     func BenchmarkClassDeclToTokens_024():Unit {
-        this.serializableInput3.toTokens()
+        blackBox(this.serializableInput3.toTokens())
         ()
     }
 
@@ -209,17 +210,17 @@ class TestClassDeclToTokens {
 
     @Bench
     func BenchmarkClassDeclToTokens_025():Unit {
-        this.entryInput1.toTokens()
+        blackBox(this.entryInput1.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_026():Unit {
-        this.entryInput2.toTokens()
+        blackBox(this.entryInput2.toTokens())
         ()
     }
     @Bench
     func BenchmarkClassDeclToTokens_027():Unit {
-        this.entryInput3.toTokens()
+        blackBox(this.entryInput3.toTokens())
         ()
     }
 }

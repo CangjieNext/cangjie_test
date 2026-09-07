@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -63,34 +64,34 @@ class TestGenerateForEachCreate {
 
     @Bench
     func BenchmarkGenerateForEachCreate_001(): Unit {
-        generateForEachCreateOrLate(forEachCreateInput1)
+        blackBox(generateForEachCreateOrLate(forEachCreateInput1))
     }
     @Bench
     func BenchmarkGenerateForEachCreate_002(): Unit {
-        generateForEachCreateOrLate(forEachCreateInput2)
+        blackBox(generateForEachCreateOrLate(forEachCreateInput2))
     }
     @Bench
     func BenchmarkGenerateForEachCreate_003(): Unit {
-        generateForEachCreateOrLate(forEachCreateInput3)
+        blackBox(generateForEachCreateOrLate(forEachCreateInput3))
     }
     @Bench
     func BenchmarkGenerateForEachCreate_004(): Unit {
-        generateForEachCreateOrLate(forEachCreateInput4)
+        blackBox(generateForEachCreateOrLate(forEachCreateInput4))
     }
     @Bench
     func BenchmarkGenerateForEachCreate_005(): Unit {
-        generateForEachCreateOrLate(forEachCreateInput5)
+        blackBox(generateForEachCreateOrLate(forEachCreateInput5))
     }
     @Bench
     func BenchmarkGenerateForEachCreate_006(): Unit {
-        generateForEachCreateOrLate(forEachCreateInput6)
+        blackBox(generateForEachCreateOrLate(forEachCreateInput6))
     }
     @Bench
     func BenchmarkGenerateForEachCreate_007(): Unit {
-        generateForEachCreateOrLate(forEachCreateInput7)
+        blackBox(generateForEachCreateOrLate(forEachCreateInput7))
     }
     @Bench
     func BenchmarkGenerateForEachCreate_008(): Unit {
-        generateForEachCreateOrLate(forEachCreateInput8)
+        blackBox(generateForEachCreateOrLate(forEachCreateInput8))
     }
 }

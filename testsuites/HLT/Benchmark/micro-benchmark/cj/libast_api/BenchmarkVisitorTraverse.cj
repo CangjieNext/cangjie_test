@@ -14,6 +14,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -92,22 +93,22 @@ class TestVisitBuilderTraverse {
     // in func bindBuilderCtx
     @Bench 
     func BenchmarkVisitorTraverse_VisitBuilder_001() : Unit {
-        builderInput1.traverse(visitBuilderForBuilder1)
+        blackBox(builderInput1.traverse(visitBuilderForBuilder1))
     }
     @Bench 
     func BenchmarkVisitorTraverse_VisitBuilder_002() : Unit {
-        builderInput2.traverse(visitBuilderForBuilder2)
+        blackBox(builderInput2.traverse(visitBuilderForBuilder2))
     }
     @Bench 
     func BenchmarkVisitorTraverse_VisitBuilder_003() : Unit {
-        builderInput3.traverse(visitBuilderForBuilder3)
+        blackBox(builderInput3.traverse(visitBuilderForBuilder3))
     }
     @Bench
     func BenchmarkVisitorTraverse_VisitBuilder_004(): Unit {
         for (input in customDialogInput1) {
             match (input[0]) {
                 case value: Expr =>
-                    value.traverse(visitBuilderForBuilder4)
+                    blackBox(value.traverse(visitBuilderForBuilder4))
                 case _ => ()
             }
         }
@@ -118,7 +119,7 @@ class TestVisitBuilderTraverse {
         for (input in componentInput1) {
             match (input[0]) {
                 case value: Expr =>
-                    value.traverse(visitBuilderForBuilder5)
+                    blackBox(value.traverse(visitBuilderForBuilder5))
                 case _ => ()
             }
         }
@@ -129,7 +130,7 @@ class TestVisitBuilderTraverse {
         for (input in componentInput2) {
             match (input[0]) {
                 case value: Expr =>
-                    value.traverse(visitBuilderForBuilder6)
+                    blackBox(value.traverse(visitBuilderForBuilder6))
                 case _ => ()
             }
         }
@@ -140,7 +141,7 @@ class TestVisitBuilderTraverse {
         for (input in componentInput3) {
             match (input[0]) {
                 case value: Expr =>
-                    value.traverse(visitBuilderForBuilder7)
+                    blackBox(value.traverse(visitBuilderForBuilder7))
                 case _ => ()
             }
         }
@@ -151,7 +152,7 @@ class TestVisitBuilderTraverse {
         for (input in componentInput4) {
             match (input[0]) {
                 case value: Expr =>
-                    value.traverse(visitBuilderForBuilder8)
+                    blackBox(value.traverse(visitBuilderForBuilder8))
                 case _ => ()
             }
         }
@@ -162,7 +163,7 @@ class TestVisitBuilderTraverse {
         for (input in componentInput5) {
             match (input[0]) {
                 case value: Expr =>
-                    value.traverse(visitBuilderForBuilder9)
+                    blackBox(value.traverse(visitBuilderForBuilder9))
                 case _ => ()
             }
         }
@@ -173,7 +174,7 @@ class TestVisitBuilderTraverse {
         for (input in componentInput6) {
             match (input[0]) {
                 case value: Expr =>
-                    value.traverse(visitBuilderForBuilder10)
+                    blackBox(value.traverse(visitBuilderForBuilder10))
                 case _ => ()
             }
         }
@@ -215,43 +216,43 @@ class TestObservedClassInitDeclVisitorTraverse {
     // in func checkInitFunc
     @Bench 
     func BenchmarkVisitorTraverse_ObservedClassInitDeclVisitor_001() : Unit {
-        observedInput1.traverse(observedClassInitDeclVisitor)
+        blackBox(observedInput1.traverse(observedClassInitDeclVisitor))
     }
     @Bench 
     func BenchmarkVisitorTraverse_ObservedClassInitDeclVisitor_002() : Unit {
-        observedInput2.traverse(observedClassInitDeclVisitor)
+        blackBox(observedInput2.traverse(observedClassInitDeclVisitor))
     }
     @Bench 
     func BenchmarkVisitorTraverse_ObservedClassInitDeclVisitor_003() : Unit {
-        observedInput3.traverse(observedClassInitDeclVisitor)
+        blackBox(observedInput3.traverse(observedClassInitDeclVisitor))
     }
     @Bench
     func BenchmarkVisitorTraverse_ObservedClassInitDeclVistor_004(): Unit {
-        customDialogInput1.traverse(observedClassInitDeclVisitor)
+        blackBox(customDialogInput1.traverse(observedClassInitDeclVisitor))
     }
     @Bench
     func BenchmarkVisitorTraverse_ObservedClassInitDeclVistor_005(): Unit {
-        componentInput1.traverse(observedClassInitDeclVisitor)
+        blackBox(componentInput1.traverse(observedClassInitDeclVisitor))
     }
     @Bench
     func BenchmarkVisitorTraverse_ObservedClassInitDeclVistor_006(): Unit {
-        componentInput2.traverse(observedClassInitDeclVisitor)
+        blackBox(componentInput2.traverse(observedClassInitDeclVisitor))
     }
     @Bench
     func BenchmarkVisitorTraverse_ObservedClassInitDeclVistor_007(): Unit {
-        componentInput3.traverse(observedClassInitDeclVisitor)
+        blackBox(componentInput3.traverse(observedClassInitDeclVisitor))
     }
     @Bench
     func BenchmarkVisitorTraverse_ObservedClassInitDeclVistor_008(): Unit {
-        componentInput4.traverse(observedClassInitDeclVisitor)
+        blackBox(componentInput4.traverse(observedClassInitDeclVisitor))
     }
     @Bench
     func BenchmarkVisitorTraverse_ObservedClassInitDeclVistor_009(): Unit {
-        componentInput5.traverse(observedClassInitDeclVisitor)
+        blackBox(componentInput5.traverse(observedClassInitDeclVisitor))
     }
     @Bench
     func BenchmarkVisitorTraverse_ObservedClassInitDeclVistor_010(): Unit {
-        componentInput6.traverse(observedClassInitDeclVisitor)
+        blackBox(componentInput6.traverse(observedClassInitDeclVisitor))
     }
 
 }
@@ -299,44 +300,44 @@ class TestComponentVarDeclVisitorTraverse {
     // in func getVarDecls
     @Bench
     func BenchmarkVisitorTraverse_ComponentVarDeclVisitor_001() : Unit {
-        observedInput1.traverse(componentVarDeclVisitor1)
+        blackBox(observedInput1.traverse(componentVarDeclVisitor1))
     }
     @Bench
     func BenchmarkVisitorTraverse_ComponentVarDeclVisitor_002() : Unit {
-        observedInput2.traverse(componentVarDeclVisitor2)
+        blackBox(observedInput2.traverse(componentVarDeclVisitor2))
     }
     @Bench
     func BenchmarkVisitorTraverse_ComponentVarDeclVisitor_003() : Unit {
-        observedInput3.traverse(componentVarDeclVisitor3)
+        blackBox(observedInput3.traverse(componentVarDeclVisitor3))
     }
 
     @Bench
     func BenchmarkVisitorTraverse_ComponentVarDeclVisitor_004() : Unit {
-        customDialogInput1.traverse(componentVarDeclVisitor4)
+        blackBox(customDialogInput1.traverse(componentVarDeclVisitor4))
     }
     @Bench
     func BenchmarkVisitorTraverse_ComponentVarDeclVisitor_005() : Unit {
-        componentInput1.traverse(componentVarDeclVisitor5)
+        blackBox(componentInput1.traverse(componentVarDeclVisitor5))
     }
     @Bench
     func BenchmarkVisitorTraverse_ComponentVarDeclVisitor_006() : Unit {
-        componentInput2.traverse(componentVarDeclVisitor6)
+        blackBox(componentInput2.traverse(componentVarDeclVisitor6))
     }
     @Bench
     func BenchmarkVisitorTraverse_ComponentVarDeclVisitor_007() : Unit {
-        componentInput3.traverse(componentVarDeclVisitor7)
+        blackBox(componentInput3.traverse(componentVarDeclVisitor7))
     }
     @Bench
     func BenchmarkVisitorTraverse_ComponentVarDeclVisitor_008() : Unit {
-        componentInput4.traverse(componentVarDeclVisitor8)
+        blackBox(componentInput4.traverse(componentVarDeclVisitor8))
     }
     @Bench
     func BenchmarkVisitorTraverse_ComponentVarDeclVisitor_009() : Unit {
-        componentInput5.traverse(componentVarDeclVisitor9)
+        blackBox(componentInput5.traverse(componentVarDeclVisitor9))
     }
     @Bench
     func BenchmarkVisitorTraverse_ComponentVarDeclVisitor_010() : Unit {
-        componentInput6.traverse(componentVarDeclVisitor10)
+        blackBox(componentInput6.traverse(componentVarDeclVisitor10))
     }
 
 }
@@ -355,6 +356,6 @@ class TestCustomDialogVarVisitorTraverse {
     // in func checkCustomDialogController
     @Bench
     func BenchmarkVisitorTraverse_customDialogVarVisitor_001(): Unit {
-        customDialogInput1.traverse(customDialogVarVisitor)
+        blackBox(customDialogInput1.traverse(customDialogVarVisitor))
     }
 }

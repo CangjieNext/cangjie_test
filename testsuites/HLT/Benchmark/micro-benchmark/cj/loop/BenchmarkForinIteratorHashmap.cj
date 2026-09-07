@@ -13,6 +13,7 @@
 import std.time.*
 import stdx.crypto.crypto.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -47,6 +48,7 @@ public class Test_Forin_Hashmap {
         for (j in _map) {
             sum += j[0]
         }
+        blackBox(sum)
     }
 
     @Bench
@@ -54,6 +56,7 @@ public class Test_Forin_Hashmap {
         for (j in _map) {
             sum += j[0]
         }
+        blackBox(sum)
     }
 
     @Bench
@@ -61,5 +64,6 @@ public class Test_Forin_Hashmap {
         for (j in _map) {
             sum += j[0]
         }
+        blackBox(sum)
     }
 }

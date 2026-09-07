@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test 
 @Measure[TimeNow(Nanos)]
@@ -41,6 +42,8 @@ class TestGenerateBuilderParam {
             innerParam += quote($item)
             entryParam += generateBuilderParam(item)
         }
+        blackBox(entryParam)
+        blackBox(innerParam)
     }
     @Bench 
     func BenchmarkGenerateBuilderParam_002():Unit {
@@ -50,6 +53,8 @@ class TestGenerateBuilderParam {
             innerParam += quote($item)
             entryParam += generateBuilderParam(item)
         }
+        blackBox(entryParam)
+        blackBox(innerParam)
     }
     @Bench 
     func BenchmarkGenerateBuilderParam_003():Unit {
@@ -59,5 +64,7 @@ class TestGenerateBuilderParam {
             innerParam += quote($item)
             entryParam += generateBuilderParam(item)
         }
+        blackBox(entryParam)
+        blackBox(innerParam)
     }
 }

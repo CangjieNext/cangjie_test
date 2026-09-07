@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -102,24 +103,24 @@ class TestVarDeclsTypeNodeTokensToString {
 
     @Bench
     func BenchmarkTokensToString2_VarDecl_declType_001():Unit {
-        this.watchAttrOuterInput1.toString()
+        blackBox(this.watchAttrOuterInput1.toString())
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecl_declType_002():Unit {
-        this.storagePropAttrInput1.toString()
+        blackBox(this.storagePropAttrInput1.toString())
         ()
     }  
 
 
     @Bench 
     func BenchmarkTokensToString2_VarDecls_type_001(): Unit {
-        let str = genericSingleResourceInput1.toString()
+        blackBox(genericSingleResourceInput1.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString2_VarDecls_type_002(): Unit {
-        let str = internalGenericListResourceInput1.toString()
+        blackBox(internalGenericListResourceInput1.toString())
         ()
     }
 
@@ -127,49 +128,49 @@ class TestVarDeclsTypeNodeTokensToString {
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_003():Unit {
         for (tokens in customDialogInput1) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_004():Unit {
         for (tokens in componentInput1) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_005():Unit {
         for (tokens in componentInput2) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_006():Unit {
         for (tokens in componentInput3) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_007():Unit {
         for (tokens in componentInput4) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_008():Unit {
         for (tokens in componentInput5) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_009():Unit {
         for (tokens in componentInput6) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }

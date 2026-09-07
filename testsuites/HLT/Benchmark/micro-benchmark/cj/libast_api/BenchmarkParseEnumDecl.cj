@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -28,12 +29,12 @@ class TestParseEnumDecl {
 
     @Bench
     func BenchmarkParseEnumDecl_001() : Unit {
-        let enumDecl = (parseDecl(gqlSerializeInput1) as EnumDecl).getOrThrow()
+        blackBox((parseDecl(gqlSerializeInput1) as EnumDecl).getOrThrow())
     }
 
     @Bench
     func BenchmarkParseEnumDecl_002() : Unit {
-        let enumDecl = (parseDecl(gqlSerializeInput2) as EnumDecl).getOrThrow()
+        blackBox((parseDecl(gqlSerializeInput2) as EnumDecl).getOrThrow())
     }
 
 }

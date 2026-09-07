@@ -11,6 +11,7 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -25,22 +26,22 @@ public class Test_Array_ToString {
 
     @Bench
     func BenchmarkArrayToStringD1_N32(): Unit {
-        var str = arr_32.toString()
+        blackBox(arr_32.toString())
     }
 
     @Bench
     func BenchmarkArrayToStringD1_N256(): Unit {
-        var str = arr_256.toString()
+        blackBox(arr_256.toString())
     }
 
     @Bench
     func BenchmarkArrayToStringD1_N2048(): Unit {
-        var str = arr_2048.toString()
+        blackBox(arr_2048.toString())
     }
 
     @Bench
     func BenchmarkArrayToStringD1_N1048576(): Unit {
-        var str = arr_1048576.toString()
+        blackBox(arr_1048576.toString())
     }
 
     // D2 - case3
@@ -49,17 +50,17 @@ public class Test_Array_ToString {
     var arr_D2_2048 = Array<Array<Int64>>(2048, {int: Int64 => Array<Int64>(2048, repeat: 0)})
     @Bench
     func BenchmarkArrayToStringD2_N32(): Unit {
-        var str = arr_D2_32.toString()
+        blackBox(arr_D2_32.toString())
     }
 
     @Bench
     func BenchmarkArrayToStringD2_N256(): Unit {
-        var str = arr_D2_256.toString()
+        blackBox(arr_D2_256.toString())
     }
 
     @Bench
     func BenchmarkArrayToStringD2_N2048(): Unit {
-        var str = arr_D2_2048.toString()
+        blackBox(arr_D2_2048.toString())
     }
 
     // D3 - case2
@@ -68,11 +69,11 @@ public class Test_Array_ToString {
 
     @Bench
     func BenchmarkArrayToStringD3_N32(): Unit {
-        var str = arr_D3_32.toString()
+        blackBox(arr_D3_32.toString())
     }
 
     @Bench
     func BenchmarkArrayToStringD3_N128(): Unit {
-        var str = arr_D3_128.toString()
+        blackBox(arr_D3_128.toString())
     }
 }

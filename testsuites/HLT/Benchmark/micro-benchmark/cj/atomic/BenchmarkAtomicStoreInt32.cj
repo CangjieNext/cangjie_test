@@ -13,6 +13,7 @@
 import std.sync.*
 import std.time.*
 import std.convert.*
+import std.runtime.*
 
 var reps = 180000000
 
@@ -20,7 +21,7 @@ func benchmarkAtomicStoreInt32() {
     let test = AtomicInt32(0)
 
     for (i in 0..reps) {
-        test.store(0)
+        blackBox(test.store(0))
     }
 }
 

@@ -12,6 +12,7 @@
 
 import std.time.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -40,21 +41,21 @@ public class Test_HashMap_Clone {
 
     @Bench
     func BenchmarkHashMapClone_N_16(): Unit {
-        var hashmap = hashmap_16.clone()
+        blackBox(hashmap_16.clone())
     }
 
     @Bench
     func BenchmarkHashMapClone_N_128(): Unit {
-        var hashmap = hashmap_128.clone()
+        blackBox(hashmap_128.clone())
     }
 
     @Bench
     func BenchmarkHashMapClone_N_1024(): Unit {
-        var hashmap = hashmap_1024.clone()
+        blackBox(hashmap_1024.clone())
     }
 
     @Bench
     func BenchmarkHashMapClone_N_65536(): Unit {
-        var hashmap = hashmap_65536.clone()
+        blackBox(hashmap_65536.clone())
     }
 }

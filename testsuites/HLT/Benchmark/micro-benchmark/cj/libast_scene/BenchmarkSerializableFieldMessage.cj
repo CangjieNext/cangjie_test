@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -260,61 +261,61 @@ public var dependencies: HashMap < String, JSONSchemaPropsOrStringArray >= HashM
     @Bench
     func BenchmarkSerializableFieldMessage_001() {
         for ((val1, val2) in this.serializableInput1) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_002() {
         for ((val1, val2) in this.serializableInput2) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_003() {
         for ((val1, val2) in this.serializableInput3) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_004() {
         for ((val1, val2) in this.serializableInput4) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_005() {
         for ((val1, val2) in this.patchMetaInput1) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_006() {
         for ((val1, val2) in this.patchMetaInput2) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_007() {
         for ((val1, val2) in this.patchMetaInput3) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_008() {
         for ((val1, val2) in this.patchMetaInput4) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_009() {
         for ((val1, val2) in this.genericSingleResourceInput1) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_010() {
         for ((val1, val2) in this.genericSingleResourceInput2) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
 }

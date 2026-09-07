@@ -11,6 +11,7 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
+import std.runtime.*
 import std.collection.*
 
 @Test
@@ -26,26 +27,26 @@ public class Test_ArrayList_Init_LinkedList {
 
     @Bench
     func BenchmarkArrayListInitFromLinkedList_N16(): Unit {
-        var arr = ArrayList<Int64>(linkedlist_16)
+        blackBox(ArrayList<Int64>(linkedlist_16))
     }
 
     @Bench
     func BenchmarkArrayListInitFromLinkedList_N128(): Unit {
-        var arr = ArrayList<Int64>(linkedlist_128)
+        blackBox(ArrayList<Int64>(linkedlist_128))
     }
 
     @Bench
     func BenchmarkArrayListInitFromLinkedList_N1024(): Unit {
-        var arr = ArrayList<Int64>(linkedlist_1024)
+        blackBox(ArrayList<Int64>(linkedlist_1024))
     }
 
     @Bench
     func BenchmarkArrayListInitFromLinkedList_N8192(): Unit {
-        var arr = ArrayList<Int64>(linkedlist_8192)
+        blackBox(ArrayList<Int64>(linkedlist_8192))
     }
 
     @Bench
     func BenchmarkArrayListInitFromLinkedList_N65536(): Unit {
-        var arr = ArrayList<Int64>(linkedlist_65536)
+        blackBox(ArrayList<Int64>(linkedlist_65536))
     }
 }

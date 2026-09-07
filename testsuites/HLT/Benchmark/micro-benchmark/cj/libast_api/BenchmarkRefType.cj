@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -93,7 +94,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -104,7 +105,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -115,7 +116,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -125,7 +126,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -135,7 +136,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
 
     }
@@ -146,7 +147,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -157,7 +158,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -167,7 +168,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }
@@ -177,7 +178,7 @@ public class TestRefType {
             if (interfaceName.size == 0) {
                 continue
             }
-            var refType = RefType(interfaceName)
+            blackBox(RefType(interfaceName))
         }
         ()
     }

@@ -14,6 +14,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -111,126 +112,126 @@ class TestParseClassDecl {
 
     @Bench
     func BenchmarkParseClassDecl_001() : Unit {
-        let classDecl = (parseDecl(cloneableInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(cloneableInput1) as ClassDecl).getOrThrow())
         ()
     }
 
     @Bench
     func BenchmarkParseClassDecl_002() : Unit {
-        let classDecl = (parseDecl(cloneableInput2) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(cloneableInput2) as ClassDecl).getOrThrow())
         ()
     }
  
     @Bench
     func BenchmarkParseClassDecl_003() : Unit {
-        let classDecl = (parseDecl(cloneableInput3) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(cloneableInput3) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_004() : Unit {
-        let classDecl = (parseDecl(cloneableInput4) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(cloneableInput4) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_005() : Unit {
-        let classDecl = (parseDecl(protobufAttrInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(protobufAttrInput1) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_006() : Unit {
-        let classDecl = (parseDecl(protobufAttrInput2) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(protobufAttrInput2) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_007() : Unit {
-        let classDecl = (parseDecl(protobufAttrInput3) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(protobufAttrInput3) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_008() : Unit {
-        let classDecl = (parseDecl(protobufAttrInput4) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(protobufAttrInput4) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_009() : Unit {
-        let classDecl = (parseDecl(scoperInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(scoperInput1) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_010() : Unit {
-        let classDecl = (parseDecl(scoperInput2) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(scoperInput2) as ClassDecl).getOrThrow())
         ()
     }   
     @Bench
     func BenchmarkParseClassDecl_011() : Unit {
-        let classDecl = (parseDecl(storageInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(storageInput1) as ClassDecl).getOrThrow())
         ()
     }   
     @Bench
     func BenchmarkParseClassDecl_012() : Unit {
-        let classDecl = (parseDecl(patcherInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(patcherInput1) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_013() : Unit {
-        let classDecl = (parseDecl(deleteStrategyInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(deleteStrategyInput1) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_014() : Unit {
-        let classDecl = (parseDecl(updateStrategyInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(updateStrategyInput1) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_015() : Unit {
-        let classDecl = (parseDecl(equatableInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(equatableInput1) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_016() : Unit {
-        let classDecl = (parseDecl(genericSingleResourceInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(genericSingleResourceInput1) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_017() : Unit {
-        let classDecl = (parseDecl(internalGenericListResourceInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(internalGenericListResourceInput1) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_018() : Unit {
-        let classDecl = (parseDecl(patchMetaInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(patchMetaInput1) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_019() : Unit {
-        let classDecl = (parseDecl(patchMetaInput2) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(patchMetaInput2) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_020() : Unit {
-        let classDecl = (parseDecl(patchMetaInput3) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(patchMetaInput3) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_021() : Unit {
-        let classDecl = (parseDecl(patchMetaInput4) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(patchMetaInput4) as ClassDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseClassDecl_022() : Unit {
-        let classDecl = (parseDecl(serializableInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(serializableInput1) as ClassDecl).getOrThrow())
         ()
     }
 
     @Bench
     func BenchmarkParseClassDecl_023() : Unit {
-        let classDecl = (parseDecl(serializableInput2) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(serializableInput2) as ClassDecl).getOrThrow())
         ()
     }
  
     @Bench
     func BenchmarkParseClassDecl_024() : Unit {
-        let classDecl = (parseDecl(serializableInput3) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(serializableInput3) as ClassDecl).getOrThrow())
         ()
     }
     
@@ -238,81 +239,81 @@ class TestParseClassDecl {
 
     @Bench
     func BenchmarkParseClassDecl_025() : Unit {
-        let classDecl = (parseDecl(gqlOperationInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(gqlOperationInput1) as ClassDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseClassDecl_026() : Unit {
-        let classDecl = (parseDecl(gqlOperationInput2) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(gqlOperationInput2) as ClassDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseClassDecl_027() : Unit {
-        let classDecl = (parseDecl(gqlSerializeInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(gqlSerializeInput1) as ClassDecl).getOrThrow())
     }
 
     @Bench
     func BenchmarkParseClassDecl_028() : Unit {
-        let classDecl = (parseDecl(gqlSerializeInput2) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(gqlSerializeInput2) as ClassDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseClassDecl_029() : Unit {
-        let classDecl = (parseDecl(entryInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(entryInput1) as ClassDecl).getOrThrow())
     }
 
     @Bench
     func BenchmarkParseClassDecl_030() : Unit {
-        let classDecl = (parseDecl(entryInput2) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(entryInput2) as ClassDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseClassDecl_031() : Unit {
-        let classDecl = (parseDecl(entryInput3) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(entryInput3) as ClassDecl).getOrThrow())
     }
 
     @Bench
     func BenchmarkParseClassDecl_032() : Unit {
-        let classDecl = (parseDecl(entryInput4) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(entryInput4) as ClassDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseClassDecl_033() : Unit {
-        let classDecl = (parseDecl(observedInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(observedInput1) as ClassDecl).getOrThrow())
     }
 
     @Bench
     func BenchmarkParseClassDecl_034() : Unit {
-        let classDecl = (parseDecl(observedInput2) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(observedInput2) as ClassDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseClassDecl_035() : Unit {
-        let classDecl = (parseDecl(observedInput3) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(observedInput3) as ClassDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseClassDecl_036() : Unit {
-        let classDecl = (parseDecl(customDialogInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(customDialogInput1) as ClassDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseClassDecl_037() : Unit {
-        let classDecl = (parseDecl(componentInput1) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(componentInput1) as ClassDecl).getOrThrow())
     }
 
     @Bench
     func BenchmarkParseClassDecl_038() : Unit {
-        let classDecl = (parseDecl(componentInput2) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(componentInput2) as ClassDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseClassDecl_039() : Unit {
-        let classDecl = (parseDecl(componentInput3) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(componentInput3) as ClassDecl).getOrThrow())
     }
 
     @Bench
     func BenchmarkParseClassDecl_040() : Unit {
-        let classDecl = (parseDecl(componentInput4) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(componentInput4) as ClassDecl).getOrThrow())
     }   
     @Bench
     func BenchmarkParseClassDecl_041() : Unit {
-        let classDecl = (parseDecl(componentInput5) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(componentInput5) as ClassDecl).getOrThrow())
     }
 
     @Bench
     func BenchmarkParseClassDecl_042() : Unit {
-        let classDecl = (parseDecl(componentInput6) as ClassDecl).getOrThrow()
+        blackBox((parseDecl(componentInput6) as ClassDecl).getOrThrow())
     }
 }

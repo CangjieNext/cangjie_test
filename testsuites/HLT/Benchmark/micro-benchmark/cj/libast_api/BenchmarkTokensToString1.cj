@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -82,62 +83,62 @@ class TestFuncParamsTypeNodeTokensToString {
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_001(): Unit {
-        let str = scoperInlineInput1.toString()
+        blackBox(scoperInlineInput1.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_002(): Unit {
-        let str = scoperInput1.toString()
+        blackBox(scoperInput1.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_003(): Unit {
-        let str = scoperInput2.toString()
+        blackBox(scoperInput2.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_004(): Unit {
-        let str = storageInput1.toString()
+        blackBox(storageInput1.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_005(): Unit {
-        let str = patcherInput1.toString()
+        blackBox(patcherInput1.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_006(): Unit {
-        let str = deleteStrategyInput1.toString()
+        blackBox(deleteStrategyInput1.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_007(): Unit {
-        let str = updateStrategyInput1.toString()
+        blackBox(updateStrategyInput1.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_008(): Unit {
-        let str = genericSingleResourceInput1.toString()
+        blackBox(genericSingleResourceInput1.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_009(): Unit {
-        let str = serializableInput1.toString()
+        blackBox(serializableInput1.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_010(): Unit {
-        let str = serializableInput2.toString()
+        blackBox(serializableInput2.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_011(): Unit {
-        let str = serializableInput3.toString()
+        blackBox(serializableInput3.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString1_FuncParams_paramType_012(): Unit {
-        let str = deleteStrategyInlineInput1.toString()
+        blackBox(deleteStrategyInlineInput1.toString())
         ()
     }
 

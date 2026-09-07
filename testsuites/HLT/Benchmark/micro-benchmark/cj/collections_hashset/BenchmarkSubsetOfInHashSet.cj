@@ -21,7 +21,6 @@ import std.runtime.*
 var counts: ArrayList<Int64> = ArrayList<Int64>([32, 256, 2 * 1024])
 var _set_1 = HashSet<Int64>()
 var _set_2 = HashSet<Int64>()
-var res = false
 
 func GenerateArray(n: Int64): Array<Int64> {
     let m = SecureRandom()
@@ -46,7 +45,7 @@ func Exist(num: Int64) {
         _set_2 = HashSet<Int64>(arr_2)
         var startTime = MonoTime.now()
 
-        res = _set_2.subsetOf(_set_1)
+        blackBox(_set_2.subsetOf(_set_1))
 
         var endTime = MonoTime.now()
         totaltime += Float64((endTime - startTime).toNanoseconds()) 
@@ -70,7 +69,7 @@ func Nonexist(num: Int64) {
         _set_2 = HashSet<Int64>(arr_2)
         var startTime = MonoTime.now()
     
-        res = _set_2.subsetOf(_set_1)
+        blackBox(_set_2.subsetOf(_set_1))
     
         var endTime = MonoTime.now()
         totaltime += Float64((endTime - startTime).toNanoseconds())

@@ -13,6 +13,7 @@
 import std.time.*
 import std.convert.*
 import std.convert.*
+import std.runtime.*
 
 
 let memberLen: Array<(Int64,Int64)> = [(32,1000000), (256,50000), (2048,1000), (16384,500), (131072,100), (1048576,100)]//Go does not have test cases that match 131072 and 1048576.
@@ -31,7 +32,7 @@ func timeBenchmarkWriteArrayInOrderD1(len: Int64, reps: Int64): Unit {
     }
     var endTime = DateTime.now()
     // 防止O2优化
-    println(valArr.size)
+    blackBox(valArr)
     var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
 
     println("BenchmarkWriteArrayInOrderD1_N${len}: ${perTime.format(".2")} ns/op")

@@ -13,6 +13,7 @@
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -49,84 +50,84 @@ class TestFuncParamsTypeToTokens {
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_001():Unit{
         for (param in this.scoperInlineInput1) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_002():Unit{
         for (param in this.scoperInput1) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_003():Unit{
         for (param in this.scoperInput2) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_004():Unit{
         for (param in this.storageInput1) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_005():Unit{
         for (param in this.patcherInput1) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_006():Unit{
         for (param in this.deleteStrategyInput1) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_007():Unit{
         for (param in this.deleteStrategyInlineInput1) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_008():Unit{
         for (param in this.updateStrategyInput1) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_009():Unit{
         for (param in this.genericSingleResourceInput1) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_010():Unit{
         for (param in this.serializableInput1) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_011():Unit{
         for (param in this.serializableInput2) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_FuncParams_type_012():Unit{
         for (param in this.serializableInput3) {
-            param.paramType.toTokens()
+            blackBox(param.paramType.toTokens())
         }
         ()
     }
@@ -145,12 +146,12 @@ class TestClassDeclSuperTypesToTokens {
 
     @Bench
     func BenchmarkTypeNodeToTokens2_ClassDecl_superTypes_001():Unit {
-        this.gqlOperationInput1.superTypes.toTokens()
+        blackBox(this.gqlOperationInput1.superTypes.toTokens())
         ()
     }
     @Bench
     func BenchmarkTypeNodeToTokens2_ClassDecl_superTypes_002():Unit {
-        this.gqlOperationInput2.superTypes.toTokens()
+        blackBox(this.gqlOperationInput2.superTypes.toTokens())
         ()
     }
 }

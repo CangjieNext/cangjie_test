@@ -15,9 +15,9 @@ import std.collection.*
 import std.time.*
 import std.convert.*
 import stdx.crypto.crypto.*
+import std.runtime.*
 
 var counts: ArrayList<Int64> = ArrayList<Int64>([32, 256, 2 * 1024, 16 * 1024, 128 * 1024])
-var _set = HashSet<Int64>()
 
 func GenerateArray(n: Int64): Array<Int64> {
     let m = SecureRandom()
@@ -31,7 +31,7 @@ func GenerateArray(n: Int64): Array<Int64> {
 }
 
 func BenchmarkInitInHashset(arr: Array<Int64>) {
-     _set = HashSet<Int64>(arr)
+     blackBox(HashSet<Int64>(arr))
 }
 
 func TimeBenchmarkAddToHashset(num: Int64) {
@@ -41,7 +41,7 @@ func TimeBenchmarkAddToHashset(num: Int64) {
     for (_ in 0..N) {
         var startTime = MonoTime.now()
     
-        _set = HashSet<Int64>(arr)
+        blackBox(HashSet<Int64>(arr))
         
         var endTime = MonoTime.now()
         totaltime += Float64((endTime - startTime).toNanoseconds())

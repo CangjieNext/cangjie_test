@@ -13,226 +13,227 @@
 
 import std.time.*
 import std.collection.*
+import std.runtime.*
 
 interface I1 {
     func test_i1(): Unit {
-
+        blackBox(0)
     }
 }
 
 
 interface I2 {
     func test_i2(): Unit {
-
+        blackBox(0)
     }
 }
 
 interface I3 {
     func test_i3(): Unit {
-
+        blackBox(0)
     }
 }
 
 interface I4 {
     func test_i4(): Unit {
-
+        blackBox(0)
     }
 }
 
 interface I5 {
     func test_i5(): Unit {
-
+        blackBox(0)
     }
 }
 
 interface I6<T1> {
     func test_i6(): Unit {
-
+        blackBox(0)
     }
 }
 
 interface I7<T1> {
     func test_i7(): Unit {
-
+        blackBox(0)
     }
 }
 
 interface I8<T1> {
     func test_i8(): Unit {
-
+        blackBox(0)
     }
 }
 
 interface I9<T1> {
     func test_i9(): Unit {
-
+        blackBox(0)
     }
 }
 
 interface I10<T1> {
     func test_i10(): Unit {
-
+        blackBox(0)
     }
 }
 
 open class A1 {
-    public open func test_1(){
-
+    public open func test_1(): Unit {
+        blackBox(0)
     }
 }
 
 open class A2 <: A1 {
-    public open func test_1(){
-
+    public open func test_1(): Unit {
+        blackBox(0)
     }
 }
 
 open class A3 <: A2 {
-    public open func test_1(){
-
+    public open func test_1(): Unit {
+        blackBox(0)
     }
 }
 
 open class A4 <: A3 {
-    public open func test_1(){
-
+    public open func test_1(): Unit {
+        blackBox(0)
     }
 }
 
 open class A5 <: A4 {
-    public open func test_1(){
-
+    public open func test_1(): Unit {
+        blackBox(0)
     }
 }
 
 open class A6 <: A5 {
-    public open func test_1(){
-
+    public open func test_1(): Unit {
+        blackBox(0)
     }
 }
 
 open class A7 <: A6 {
-    public open func test_1(){
-
+    public open func test_1(): Unit {
+        blackBox(0)
     }
 }
 
 open class A8 <: A7 {
-    public open func test_1(){
-
+    public open func test_1(): Unit {
+        blackBox(0)
     }
 }
 
 open class A9 <: A8 {
-    public open func test_1(){
-
+    public open func test_1(): Unit {
+        blackBox(0)
     }
 }
 
 open class B1 {
-    public open func test_1(){
-
+    public open func test_1(): Unit {
+        blackBox(0)
     }
 }
 
 open class B2 <: B1 {
-    public open func test_2(){
-
+    public open func test_2(): Unit {
+        blackBox(0)
     }
 }
 
 open class B3 <: B2 {
-    public open func test_3(){
-
+    public open func test_3(): Unit {
+        blackBox(0)
     }
 }
 
 open class B4 <: B3 {
-    public open func test_4(){
-
+    public open func test_4(): Unit {
+        blackBox(0)
     }
 }
 
 open class B5 <: B4 {
-    public open func test_5(){
-
+    public open func test_5(): Unit {
+        blackBox(0)
     }
 }
 
 open class B6 <: B5 {
-    public open func test_6(){
-
+    public open func test_6(): Unit {
+        blackBox(0)
     }
 }
 
 open class B7 <: B6 {
-    public open func test_7(){
-
+    public open func test_7(): Unit {
+        blackBox(0)
     }
 }
 
 open class B8 <: B7 {
-    public open func test_8(){
-
+    public open func test_8(): Unit {
+        blackBox(0)
     }
 }
 
 open class B9 <: B8 {
-    public open func test_9(){
-
+    public open func test_9(): Unit {
+        blackBox(0)
     }
 }
 
 open class B10 <: B9 {
-    public open func test_10(){
-
+    public open func test_10(): Unit {
+        blackBox(0)
     }
 }
 
 class A10 <: A9 & I1 & I2 & I3 & I4 & I5 {
-    public func test_1(){
+    public func test_1(): Unit {
 
     }
 
-    public func test_i1(){
+    public func test_i1(): Unit {
 
     }
 
-    public func test_i2(){
+    public func test_i2(): Unit {
 
     }
 
-    public func test_i3(){
+    public func test_i3(): Unit {
 
     }
 
-    public func test_i4(){
+    public func test_i4(): Unit {
 
     }
 
-    public func test_i5(){
+    public func test_i5(): Unit {
 
     }
 }
 
 class A11 <: I1 & I2 & I3 & I4 & I5 {
-    public func test_i1(){
+    public func test_i1(): Unit {
 
     }
 
-    public func test_i2(){
+    public func test_i2(): Unit {
 
     }
 
-    public func test_i3(){
+    public func test_i3(): Unit {
 
     }
 
-    public func test_i4(){
+    public func test_i4(): Unit {
 
     }
 
-    public func test_i5(){
+    public func test_i5(): Unit {
 
     }
 }

@@ -12,6 +12,7 @@
 
 import std.time.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -22,20 +23,18 @@ public class Test_ArrayList_ToArray {
     static var arr_1024 = ArrayList<Int64>(Array<Int64>(1024, repeat: 0))
     static var arr_131072 = ArrayList<Int64>(Array<Int64>(131072, repeat: 0))
 
-    static var tmp_arr = Array<Int64>()
-
     @Bench
     func BenchmarkArrayListToArray_N16() {
-        tmp_arr = arr_16.toArray()
+        blackBox(arr_16.toArray())
     }
 
     @Bench
     func BenchmarkArrayListToArray_N1024() {
-        tmp_arr = arr_1024.toArray()
+        blackBox(arr_1024.toArray())
     }
 
     @Bench
     func BenchmarkArrayListToArray_N131072() {
-        tmp_arr = arr_131072.toArray()
+        blackBox(arr_131072.toArray())
     }
 }
