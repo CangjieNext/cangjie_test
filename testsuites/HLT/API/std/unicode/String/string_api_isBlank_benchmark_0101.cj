@@ -7,10 +7,11 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run %run_opt %output %run_args --bench
 
 import std.unittest.*
+import std.unittest.testmacro.*
 import std.unicode.*
 
 @Test
