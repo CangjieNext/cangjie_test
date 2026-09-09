@@ -156,6 +156,8 @@ compiler/Sema/array/arraysizedlit1.cj
 compiler/Sema/array/arraysizedlit2.cj
 # CHIR plugin
 API/stdx/AOP_tests/custom_plugin/chir_anno/case_chir_anno.cj
+# CHIR opt
+compiler/CHIROpt/ArrayLambda/testArrayLambda02.cj
 # runtime signal sigsegv signal
 compiler/CHIROptTest/Devirtualization/box.cj
 compiler/CodegenCommon/global/globalvariable/UInt8ti.cj
