@@ -5,12 +5,9 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC: %compiler %f -o %output
-// EXEC: %run %run_opt %output %run_args
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan copy done
 
-// RT-2 复现：@local! 容器逐元素拷贝 @local! 元素触发 region 断言
-// 实测：崩溃
-//   field must reference heap object, current local object or null
-//   CJNative Handle signal: 6.
 package demo
 import std.collection.*
 import std.core.*

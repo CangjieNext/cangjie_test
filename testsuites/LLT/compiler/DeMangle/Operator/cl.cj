@@ -9,7 +9,7 @@
 // ASSERT: scan at default::A::()(default::A)
 
 class A {
-    operator func ()() {
+    operator func ()(a: A) {
         throw Exception()
         return 0
     }
@@ -18,7 +18,7 @@ class A {
 main() {
     var x = A()
     var d = A()
-    d()
+    d(x)
 
     0
 }
