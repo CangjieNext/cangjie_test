@@ -11,7 +11,8 @@
 // - isGlobalVarsChecked / annoinfo append on a second aspect in the same package
 // - successful @ReplaceFuncBody collection (funcTypeStr from last parameter)
 
-// EXEC-PIPE-0: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin %weave_aspects_plugin
+// EXEC-PIPE-0: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin
+// EXEC-PIPE-0: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %weave_aspects_plugin
 // EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan marker\na1\nw1\na2\nw2\nwrap\nw3\n
 // ASSERT: scan-not core dumped
