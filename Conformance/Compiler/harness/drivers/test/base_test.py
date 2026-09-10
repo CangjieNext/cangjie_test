@@ -234,8 +234,9 @@ class BaseTest:
     if value is None:
       value = '.'.join(path.basename(self.test_path).split('.')[:-1])
       self._log_debug_about_default_value('name', value)
-    # Check the _name to prevent reassignment, if --replay mode is changed
-    if not re.match(r'[<>:"/\\|?*\x00]', value):
+    # Reject illegal path characters anywhere in @Name (not only the first char).
+    # re.match only anchors at start; use re.search so names like "foo:bar" / "a/b" fail.
+    if not re.search(r'[<>:"/\\|?*\x00]', value):
       self._name = value
       self._log_debug_property_value('name', self._name)
     else:
