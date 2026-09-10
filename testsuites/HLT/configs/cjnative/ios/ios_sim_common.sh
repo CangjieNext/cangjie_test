@@ -42,7 +42,7 @@ sign_macho_dylib() {
     local f="$1"
     [ -e "$f" ] || return 0
     if file -b "$f" | grep -qE "Mach-O.*(dylib|dynamically linked shared library)"; then
-        codesign -f -s - "$f" 2>/dev/null
+        codesign -f -s - "$f"
     fi
 }
  

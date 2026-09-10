@@ -6,4 +6,4 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build --target x86_64-unknown-linux-gnu %cjpm_opt
+// (native_compilation)EXEC: cd %n && %cjpm build --target x86_64-unknown-linux-gnu %cjpm_opt
