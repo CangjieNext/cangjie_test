@@ -146,7 +146,6 @@ compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/AddExtends/Interfa
 compiler/Driver/LTO/lto_test6_22.cj
 # result error
 compiler/Sema/modal/runtime/cmp5_for_lambda.cj
-compiler/Sema/modal/runtime/opt_fine2.cj
 # runtime Barrier WriteGeneric SIGABRT, need chir fix first
 compiler/Sema/modal/runtime/eq_v4.cj
 compiler/Sema/modal/runtime/eq_v7.cj
