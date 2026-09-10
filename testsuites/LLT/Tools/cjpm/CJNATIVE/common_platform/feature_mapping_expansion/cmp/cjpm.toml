@@ -1,0 +1,42 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[package]
+  cjc-version = "1.0.0"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "cmp"
+  output-type = "dynamic"
+  override-compile-option = ""
+  target-dir = ""
+  version = "1.0.0"
+  always-enabled-features = [ "user.cmp.always" ]
+  package-configuration = {}
+
+[dependencies]
+
+[profile]
+  experimental = true
+
+[[feature]]
+  names = [ "user.cmp.userfeat", "user.cmp.extra", "user.cmp.always" ]
+
+[[feature]]
+  name = "user.cmp.plat"
+  mapping = [ "user.cmp.userfeat", "user.cmp.extra" ]
+
+[[source-set]]
+  src-dir = "./common"
+  features = [ ]
+
+[[source-set]]
+  src-dir = "./extra"
+  features = [ "user.cmp.extra" ]
+
+[[source-set]]
+  src-dir = "./platform"
+  features = [ "user.cmp.userfeat", "user.cmp.plat" ]
