@@ -11,7 +11,12 @@
  
 set -e
  
-CANGJIE_HOME="${CANGJIE_HOME:-$(dirname "$(dirname "$(readlink -f "$0")")")/../../..}"
+WORKSPACE=$(cd "$(dirname "$0")"; pwd)
+
+# Source the common utility functions
+source "$WORKSPACE/ios_sim_common.sh"
+
+require_cangjie_home
  
 ARCH="arm64"
 CJ_SRC=""
@@ -35,8 +40,13 @@ fi
  
 if [ "$ARCH" = "arm64" ]; then
     SUBDIR="ios_simulator_aarch64"
-else
+    TARGET_TRIPLE="arm64-apple-ios-simulator"
+elif [ "$ARCH" = "x86_64" ]; then
     SUBDIR="ios_simulator_x86_64"
+    TARGET_TRIPLE="x86_64-apple-ios-simulator"
+else
+    echo "Error: unsupported --arch '$ARCH' (expected arm64 or x86_64)"
+    exit 2
 fi
  
 SDK="$(xcrun --sdk iphonesimulator --show-sdk-path)"
@@ -51,7 +61,7 @@ export PATH="$CANGJIE_HOME/bin:$PATH"
 echo "compiling $CJ_SRC -> $OUT (arch=$ARCH)"
 CJ_OPTS=(
     --import-path "$MODULES"
-    --target="arm64-apple-ios-simulator"
+    --target="$TARGET_TRIPLE"
     --sysroot="$SDK"
     -B"$TOOLCHAIN"
     --output-type=exe

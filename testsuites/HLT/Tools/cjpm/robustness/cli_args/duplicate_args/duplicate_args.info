@@ -6,5 +6,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build -i -i -i %cjpm_opt
+// (native_compilation)EXEC: cd %n && %cjpm build -i -i -i %cjpm_opt
 // ASSERT: scan cjpm build success

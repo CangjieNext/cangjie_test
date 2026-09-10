@@ -71,7 +71,7 @@ echo "simulator: $UDID"
  
 # 3. Ad-hoc sign the shared runtime dylibs once (before running the full test suite)
 echo "signing runtime dylibs ..."
-sign_runtime_dylibs "$(ios_runtime_lib_dir)"
+sign_dylibs_in_dir "$(ios_runtime_lib_dir)"
  
 # 4. Invoke the framework
 if [ -z "$TEST_PATH" ]; then
