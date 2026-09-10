@@ -9,7 +9,8 @@
 // Global aspect whose first parameter is the woven instance type (CustomType match).
 // Classes are passed as RefType, so a struct is required to hit the CustomType arm.
 
-// EXEC-PIPE-0: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin %weave_aspects_plugin
+// EXEC-PIPE-0: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin
+// EXEC-PIPE-0: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %weave_aspects_plugin
 // EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan #----- aspect -----#\n#----- foo -----#\n
 // ASSERT: scan-not core dumped

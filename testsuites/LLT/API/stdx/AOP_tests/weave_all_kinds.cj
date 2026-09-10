@@ -6,11 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// One compile covers the three weaveFuncBody arms: InsertAtEntry (with params),
+// Two-pass compile covers the three weaveFuncBody arms: InsertAtEntry (with params),
 // InsertAtExit (lambda is skipped, exit is instrumented), and ReplaceFuncBody
 // for both args.size == 1 and args.size != 1.
 
-// EXEC-PIPE-0: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin %weave_aspects_plugin
+// EXEC-PIPE-0: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin
+// EXEC-PIPE-0: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %weave_aspects_plugin
 // EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan entry:ok\nenter-body\nlambda\nexit-body\n#----- exit -----#\nwrap1\norig1\n1\nwrap2\norig2\nnine\n
 // ASSERT: scan-not core dumped
