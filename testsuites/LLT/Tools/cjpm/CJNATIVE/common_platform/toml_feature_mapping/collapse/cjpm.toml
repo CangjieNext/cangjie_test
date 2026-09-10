@@ -1,0 +1,12 @@
+[package]
+  cjc-version = "1.0.0"
+  name = "testing"
+  description = "nothing here"
+  version = "1.0.0"
+  output-type = "executable"
+
+[dependencies]
+  cmp = { path = "./cmp" }
+
+[profile]
+  experimental = true

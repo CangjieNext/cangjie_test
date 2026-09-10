@@ -1,0 +1,35 @@
+[package]
+  cjc-version = "1.0.0"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "cmp"
+  output-type = "dynamic"
+  override-compile-option = ""
+  target-dir = ""
+  version = "1.0.0"
+  package-configuration = {}
+
+[dependencies]
+
+[profile]
+  experimental = true
+
+[[feature]]
+  name = "user.cmp.extra"
+
+[[feature]]
+  name = "user.cmp.plat"
+  mapping = [ "user.cmp.extra" ]
+
+[[source-set]]
+  src-dir = "./common"
+  features = [ ]
+
+[[source-set]]
+  src-dir = "./platform"
+  features = [ "user.cmp.plat" ]
+
+[[source-set]]
+  src-dir = "./platform2"
+  features = [ "user.cmp.plat", "user.cmp.extra" ]
