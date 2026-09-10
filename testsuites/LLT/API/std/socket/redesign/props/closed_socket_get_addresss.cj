@@ -25,13 +25,13 @@ class Test_Get_Address {
         try {
             udpsocket.remoteAddress
         } catch (e: Exception) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
             sum += 1
         }
         try {
             udpsocket.localAddress
         } catch (e: Exception) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
             sum += 1
         }
         @Expect(sum, 2)
@@ -45,13 +45,13 @@ class Test_Get_Address {
         try {
             socket.remoteAddress
         } catch (e: Exception) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
             sum += 1
         }
         try {
             socket.localAddress
         } catch (e: Exception) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
             sum += 1
         }
         @Expect(sum, 2)
@@ -66,7 +66,7 @@ class Test_Get_Address {
         try {
             socket.localAddress
         } catch (e: Exception) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
             sum += 1
         }
         @Expect(sum, 1)
@@ -80,13 +80,13 @@ class Test_Get_Address {
         try {
             socket.remoteAddress
         } catch (e: Exception) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
             sum += 1
         }
         try {
             socket.localAddress
         } catch (e: Exception) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
             sum += 1
         }
         @Expect(sum, 2)
@@ -100,13 +100,13 @@ class Test_Get_Address {
         try {
             socket.remoteAddress
         } catch (e: Exception) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
             sum += 1
         }
         try {
             socket.localAddress
         } catch (e: Exception) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
             sum += 1
         }
         @Expect(sum, 2)
@@ -121,7 +121,7 @@ class Test_Get_Address {
         try {
             socket.localAddress
         } catch (e: Exception) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
             sum += 1
         }
         @Expect(sum, 1)

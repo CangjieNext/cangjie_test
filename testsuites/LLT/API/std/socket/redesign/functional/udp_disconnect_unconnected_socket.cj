@@ -53,7 +53,7 @@ class Test_Udp_Disconnect_Unconnected {
             udpsocket.disconnect()
             @Assert(false)
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
         }
     }
 }

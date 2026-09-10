@@ -133,7 +133,7 @@ class Test_Udp_ReusePort_ReuseAddress {
             udpsocket1.bind()
         } catch (e: SocketException) {
             sum += 1
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
         }
         @Expect(sum, 4)
     }

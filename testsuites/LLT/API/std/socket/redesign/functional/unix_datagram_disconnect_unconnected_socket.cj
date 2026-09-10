@@ -64,7 +64,7 @@ class Test_UnixDatagram_Disconnect_Unconnected {
             udSocket.disconnect()
             @Assert(false)
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is already closed.")
+            @Expect(e.message, "Socket is already closed")
         }
     }
 }
