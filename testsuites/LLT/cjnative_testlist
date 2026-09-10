@@ -146,9 +146,8 @@ compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/AddExtends/Interfa
 compiler/Driver/LTO/lto_test6_22.cj
 # result error
 compiler/Sema/modal/runtime/cmp5_for_lambda.cj
-# runtime Barrier WriteGeneric SIGABRT, need chir fix first
+# Current Type does not implement '==' method for its @local? instance
 compiler/Sema/modal/runtime/eq_v4.cj
-compiler/Sema/modal/runtime/eq_v7.cj
 compiler/Sema/modal/runtime/constrained_retry.cj
 # err message mismatch @local! in type diag
 compiler/Sema/array/arraysizedlit1.cj
