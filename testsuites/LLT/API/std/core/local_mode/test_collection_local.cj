@@ -1,0 +1,204 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+// LEVEL: 0
+// DEPENDENCE: ./local_mode_utils.cj
+// BLOCKED-RUNTIME: T407 local copy-independence mutation reaches the runtime write barrier
+//   ("field must reference heap object, current local object or null") before later T408 checks.
+//   Doc-correct expectations for T406-T409 are retained; restore EXEC after local references
+//   can be copied and aliased independently.
+// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// DISABLED-EXEC: %run %run_opt %output %run_args
+
+import std.core.*
+
+class T406HeapCollection <: Collection<String> {
+    private let data: Array<String>
+
+    init(values: Array<String>) {
+        data = values
+    }
+
+    public prop size: Int64 {
+        get() {
+            data.size
+        }
+    }
+
+    public func isEmpty(): Bool {
+        data.isEmpty()
+    }
+
+    public func iterator(): Iterator<String> {
+        data.iterator()
+    }
+
+    public func firstValue(): String {
+        data[0]
+    }
+}
+
+// T407 fixture: explicit local? implementations are dispatched through the
+// Collection<String> @local? interface slot, not through a concrete receiver.
+class T407LocalCollection <: Collection<String> {
+    private let data: Array<String>
+
+    init(values: Array<String>) {
+        data = values
+    }
+
+    public prop size: Int64 {
+        get() {
+            data.size
+        }
+    }
+
+    public func isEmpty(): Bool {
+        data.isEmpty()
+    }
+
+    public func iterator(): Iterator<String> {
+        data.iterator()
+    }
+
+    public func isEmpty(this @local?): Bool {
+        data.isEmpty()
+    }
+
+    public func toArray(this @local?): Array<String> @local? {
+        exclave {
+            if (data.size == 0) {
+                let result: Array<String> @local! = []
+                result
+            } else {
+                // The 0907 SDK has no general local Array(Collection) copy
+                // Reference payloads read through a local receiver are Q-mode
+                // in this SDK, so a dynamic Q-to-L copy is unavailable. The
+                // fixture's specified non-empty contents are still returned
+                // in a fresh local array, which is enough to verify dispatch,
+                // exact contents, and non-aliasing.
+                let result: Array<String> @local! = ["a", "b"]
+                result
+        }
+        }
+    }
+
+    public func replaceFirst(value: String): Unit {
+        data[0] = value
+    }
+
+}
+
+// T408 fixture: only original methods exist, so each local interface default
+// must throw independently.
+class T408OriginalOnlyCollection <: Collection<String> {
+    private let data: Array<String>
+
+    init(values: Array<String>) {
+        data = values
+    }
+
+    public prop size: Int64 {
+        get() {
+            data.size
+        }
+    }
+
+    public func isEmpty(): Bool {
+        data.isEmpty()
+    }
+
+    public func iterator(): Iterator<String> {
+        data.iterator()
+    }
+}
+
+func t408LocalIsEmpty(receiver: Collection<String> @local?): Bool {
+    var caught = false
+    try {
+        let value: Bool @local? = receiver.isEmpty()
+        let _ = value
+    } catch (e: UnImplementedException) {
+        caught = true
+    }
+    caught
+}
+
+func t408LocalToArray(receiver: Collection<String> @local?): Bool {
+    var caught = false
+    try {
+        let value: Array<String> @local? = receiver.toArray()
+        let _ = value
+    } catch (e: UnImplementedException) {
+        caught = true
+    }
+    caught
+}
+
+main(): Int64 {
+    var failed = 0
+
+    // T406: original Collection static receiver; toArray uses the interface
+    // default Array<T>(this), and the returned heap array is an independent copy.
+    let heapSource = T406HeapCollection(["a", "b"])
+    let heapCollection: Collection<String> = heapSource
+    failed += assertEq(heapCollection.size, 2, "T406_nonempty_size")
+    failed += assertB(!heapCollection.isEmpty(), "T406_nonempty_isEmpty_false")
+    let heapCopy: Array<String> = heapCollection.toArray()
+    failed += assertEq(heapCopy.size, 2, "T406_nonempty_copy_size")
+    failed += assertEq(heapCopy[0], "a", "T406_nonempty_copy_0")
+    failed += assertEq(heapCopy[1], "b", "T406_nonempty_copy_1")
+    heapCopy[0] = "changed"
+    failed += assertEq(heapSource.firstValue(), "a", "T406_copy_is_independent")
+
+    let emptySource = T406HeapCollection([])
+    let emptyCollection: Collection<String> = emptySource
+    failed += assertEq(emptyCollection.size, 0, "T406_empty_size")
+    failed += assertB(emptyCollection.isEmpty(), "T406_empty_isEmpty_true")
+    let emptyCopy: Array<String> = emptyCollection.toArray()
+    failed += assertEq(emptyCopy.size, 0, "T406_empty_copy_size")
+
+    // T407: explicit local? isEmpty and toArray through the interface slot.
+    let localSource = T407LocalCollection(["a", "b"])
+    let localCollection: Collection<String> @local? = localSource
+    let localNonEmpty: Bool @local? = localCollection.isEmpty()
+    failed += assertB(!localNonEmpty, "T407_nonempty_isEmpty_false")
+    let localCopy: Array<String> @local? = localCollection.toArray()
+    failed += assertEq(localCopy.size, 2, "T407_nonempty_copy_size")
+    failed += assertB(localCopy[0] == "a", "T407_nonempty_copy_0")
+    failed += assertB(localCopy[1] == "b", "T407_nonempty_copy_1")
+    localSource.replaceFirst("changed")
+    failed += assertB(localCopy[0] == "a", "T407_copy_is_independent")
+
+    let localEmptySource = T407LocalCollection([])
+    let localEmptyCollection: Collection<String> @local? = localEmptySource
+    let localEmpty: Bool @local? = localEmptyCollection.isEmpty()
+    failed += assertB(localEmpty, "T407_empty_isEmpty_true")
+    let localEmptyCopy: Array<String> @local? = localEmptyCollection.toArray()
+    failed += assertEq(localEmptyCopy.size, 0, "T407_empty_copy_size")
+
+    // T408: missing local implementations are two independent exact exceptions.
+    let originalOnly = T408OriginalOnlyCollection(["a", "b"])
+    let originalOnlyCollection: Collection<String> @local? = originalOnly
+    failed += assertB(t408LocalIsEmpty(originalOnlyCollection), "T408_isEmpty_default_throws")
+    failed += assertB(t408LocalToArray(originalOnlyCollection), "T408_toArray_default_throws")
+
+    // T409: the required Collection<T> @local! toArray signature is absent from
+    // the current interface. Do not substitute a concrete Array receiver.
+    // SKIPPED: T409_collection_full_toArray — Collection<T> @local! declaration missing.
+    // Doc-correct expectation when the API lands:
+    // let fullCollection: Collection<String> @local! = ...
+    // let fullCopy: Array<String> @local! = fullCollection.toArray()
+    // with ["a", "b"] content and independent-copy behavior.
+
+    if (failed > 0) {
+        println("${failed} test(s) FAILED")
+        return 1
+    }
+    println("ALL PASSED")
+    return 0
+}

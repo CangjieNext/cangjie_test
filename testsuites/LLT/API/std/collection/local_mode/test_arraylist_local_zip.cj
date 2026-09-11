@@ -1,0 +1,76 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+// LEVEL: 0
+// DEPENDENCE: ../../core/local_mode/local_mode_utils.cj
+// DISABLED-EXEC: %compiler %cmp_opt ../../core/local_mode/local_mode_utils.cj %f -o %output
+// DISABLED-EXEC: %run %run_opt %output %run_args
+//
+// BLOCKED (LM-DOC-20260910 T333, C7/RT-1/C3): this zip-only process keeps
+// double-empty/left-empty/right-empty/left-short/equal/right-short inputs and
+// exact Int64×String tuple payload expectations.  The first non-empty result
+// fill aborts rc=134 with `field must reference heap object, current local
+// object or null`; String tuple payload is also covered by C7.  The doc-valid
+// q `other` combinations are preserved below; the 0907 SDK's signature is
+// incorrectly narrowed to `other @local!` and is tested separately by
+// test_arraylist_local_zip_types_blocked.cj.
+
+import std.collection.*
+import std.core.*
+
+func verifyZip(left: ArrayList<Int64> @local!, right: ArrayList<String> @local!, expected: Int64): Int64 {
+    exclave {
+        let zipped: ArrayList<(Int64, String)> @local! = left.zip(right)
+        if (zipped.size != expected) { return 1 }
+        // Doc-correct payload checks (Int64 exact, String type/value) remain
+        // intentionally present even though runtime reaches the barrier first.
+        if (expected > 0) {
+            let pair: (Int64, String) @local! = zipped[0]
+            if (pair[0] != left[0]) { return 1 }
+            let stringValue: String @local! = pair[1]
+            if (stringValue != right[0]) { return 1 }
+        }
+        0
+    }
+}
+
+func makeInt(values: Array<Int64> @local!): ArrayList<Int64> @local! {
+    exclave { ArrayList<Int64>(values) @local! }
+}
+
+func makeString(values: Array<String> @local!): ArrayList<String> @local! {
+    exclave { ArrayList<String>(values) @local! }
+}
+
+main(): Int64 {
+    var failed = 0
+    let emptyI: Array<Int64> @local! = []
+    let emptyS: Array<String> @local! = []
+    let twoI: Array<Int64> @local! = [1, 2]
+    let threeI: Array<Int64> @local! = [1, 2, 3]
+    let oneI: Array<Int64> @local! = [1]
+    let twoS: Array<String> @local! = ["a", "b"]
+    let threeS: Array<String> @local! = ["a", "b", "c"]
+
+    // T333: all six min-size combinations.
+    failed += assertEq(verifyZip(makeInt(emptyI), makeString(emptyS), 0), 0, "T333_double_empty")
+    failed += assertEq(verifyZip(makeInt(emptyI), makeString(twoS), 0), 0, "T333_left_empty")
+    failed += assertEq(verifyZip(makeInt(twoI), makeString(emptyS), 0), 0, "T333_right_empty")
+    failed += assertEq(verifyZip(makeInt(oneI), makeString(twoS), 1), 0, "T333_left_short")
+    failed += assertEq(verifyZip(makeInt(twoI), makeString(twoS), 2), 0, "T333_equal")
+    failed += assertEq(verifyZip(makeInt(threeI), makeString(twoS), 2), 0, "T333_right_short")
+
+    // T333 doc-valid q-other positive (blocked by current narrow signature):
+    // let rightQ: ArrayList<String> @local? = makeString(threeS)
+    // let qZip: ArrayList<(Int64, String)> @local! = makeInt(twoI).zip(rightQ)
+    // let heap: ArrayList<String> = ArrayList<String>(["h"])
+    // let heapQ: ArrayList<String> @local? = heap
+    // let heapZip = makeInt(oneI).zip(heapQ)
+    if (failed > 0) { println("${failed} test(s) FAILED"); return 1 }
+    println("ALL PASSED")
+    return 0
+}

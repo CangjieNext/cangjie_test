@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+// LEVEL: 0
+// DEPENDENCE: ./local_mode_utils.cj
+// EXPECTED-COMPILE-FAIL: heap(String @~local) 直接赋给 String @local! 槽 —— 非 Copyable narrowing，应报 mode 不匹配（期望绑定/赋值语句上的诊断）
+// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// DISABLED-EXEC: %run %run_opt %output %run_args
+//
+// 设计项 LM-DOC-20260910：T206（S204 四个直接非法赋值之一）。旁证正例：
+// String(q) 显式拷贝构造合法（见 test_string_local_construct.cj T204）。
+main(): Int64 {
+    let heap: String = "H"
+    let bad: String @local! = heap
+    println(bad.size)
+    return 0
+}
