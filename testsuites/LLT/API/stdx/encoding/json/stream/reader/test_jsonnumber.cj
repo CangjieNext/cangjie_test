@@ -156,6 +156,18 @@ public class JsonNumberTest {
     }
 
     @TestCase
+    func jsonnumberIntAtBounds(): Unit {
+        let bas = ByteBuffer()
+        bas.write("{\"num\":".toArray())
+        bas.write(Array<Byte>(8192 - 8, repeat: b' '))
+        bas.write("-123}".toArray())
+        let reader = JsonReader(bas)
+        reader.startObject()
+        @Expect(reader.readName(), "num")
+        @Expect(reader.readValue<Int64>(), -123)
+    }
+
+    @TestCase
     func jsonnumberFloat1(): Unit {
         let jsonStr = ##"123"##
         var bas = ByteBuffer()
