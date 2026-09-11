@@ -11,7 +11,7 @@
 // EXEC: %cat test.cj | compare %f
 /* SCAN-IN
 @C
-public struct NStruct {
+public struct N {
 }
 
 @ObjCMirror
@@ -20,7 +20,7 @@ public open class P {
 
 @ObjCMirror
 public open class M {
-    public open mut prop foo: ObjCPointer<NStruct>
+    public open mut prop foo: ObjCPointer<N>
     @ForeignName["foo:"] public open func foo(value: ?M): Unit
     @ForeignName["bar:"] public open func bar(value: ?P): Unit
     public open mut prop baz: ?P
