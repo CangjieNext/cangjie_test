@@ -429,6 +429,8 @@ class ArrayListTest {
         } catch (e2: IndexOutOfBoundsException) {
             @Expect(e2.message, "The size of ArrayList is 5, but the start is ${Int64.Min} and the end is 1.")
         }
+        @ExpectThrows[IndexOutOfBoundsException](arr2.remove(0..-1))
+        @ExpectThrows[IndexOutOfBoundsException](arr2.remove(-1..-3))
     }
 
     @TestCase
