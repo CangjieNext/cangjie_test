@@ -18,6 +18,6 @@ class test_01{
     @TestCase
 func test_filepath_009() {
     let e = @AssertThrows[Exception](parseFile("file/abc.cj"))
-    @Assert(e.message.contains("may not exist or permission denied"))
+    @Assert(e.message.contains("Failed to read file 'file/abc.cj'"))
 }
 }

@@ -56,7 +56,7 @@ class Test {
             let node = parseFile(path)
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: Failed to canonical: the input path `${path}` may not exist or permission denied!")
+            @Expect(e.message, "Failed to read file '${path}'.")
         }
         @Expect(count, 1)
     }
@@ -68,7 +68,7 @@ class Test {
             let node = parseFile("sourceFile")
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: The file extension of the source file must be 'cj'.")
+            @Expect(e.message, "Invalid file extension: expected 'cj', got ''.")
         }
         @Expect(count, 1)
     }
@@ -80,7 +80,7 @@ class Test {
             let node = parseFile("sourceFile/test_file.txt")
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: The file extension of the source file must be 'cj'.")
+            @Expect(e.message, "Invalid file extension: expected 'cj', got 'txt'.")
         }
         @Expect(count, 1)
     }
@@ -93,7 +93,7 @@ class Test {
             let node = parseFile(path)
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: Failed to canonical path `${path}` return -2: \"No such file or directory\".")
+            @Expect(e.message, "Failed to read file '${path}'.")
         }
         @Expect(count, 1)
     }
@@ -149,7 +149,7 @@ class Test {
             let node = parseFile("sourceFile/test_file_chmod.cj")
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: The file is not readable.")
+            @Expect(e.message.contains("is not readable"), true)
         }
         @Expect(count, 1)
     }

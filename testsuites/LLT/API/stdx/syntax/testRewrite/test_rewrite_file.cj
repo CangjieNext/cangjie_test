@@ -110,7 +110,7 @@ x: Bool,
             let rewrite = RewriteNodeError()
             let newNode = rewrite.walk(file.getOrThrow())
         } catch (e: Exception) {
-            @Expect(e.message, "ParseException: found more than one package declaration for the package.")
+            @Expect(e.message, "Found more than one package declaration in package 'default'.")
         }
     }
 
