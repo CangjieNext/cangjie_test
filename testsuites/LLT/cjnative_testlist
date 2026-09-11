@@ -124,9 +124,7 @@ compiler/Sema/generics/generic_subst_perf.cj
 
 # modal type
 # Sema lambda type infer
-compiler/Sema/modal/infer/p.cj
 compiler/Sema/modal/infer/some_local.cj
-compiler/Sema/type_infer/lambda_param_sum_keep_06.cj
 # breaking changes caused by adding API
 API/stdx/encoding/json/addTests/JsonArray/test_api_01_02.cj
 API/stdx/net/tls/redesign/resume-session-get-certs-server.cj
