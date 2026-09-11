@@ -30,7 +30,7 @@ error: the return type of this function cannot be calculated from the function b
    |     ^ 
    | 
    # note: Traces:
-The types 'Class-C @local!', 'Class-D @local!' and 'Nothing' do not have the smallest common supertype
+The types 'Class-C @local!' and 'Class-D @local!' do not have the smallest common supertype
 
 
 1 error generated, 1 error printed.
