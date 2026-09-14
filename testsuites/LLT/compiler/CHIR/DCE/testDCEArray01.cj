@@ -4,7 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+
+// ASSERT: scan-1 "DiagKind": "chir_dce_unused_expression"
+// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_expression_hint"
 
 class A {
     public operator func [](index: Int64) {
@@ -18,17 +21,3 @@ main() {
     a[return 1]
     0
 }
-
-/* SCAN
-warning: unreachable 'call'
-  ==> testDCEArray01.cj:18:5:
-   | 
-18 |     a[return 1]
-   |     ^^^^^^^^^^^any code following this expression is unreachable
-   |     |
-   |     unreachable 'call'
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-1 warning generated, 1 warning printed.
-*/
