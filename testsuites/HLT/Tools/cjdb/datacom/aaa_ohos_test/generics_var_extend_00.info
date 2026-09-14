@@ -1,0 +1,41 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_var_extend.cj
+// (target_ohos) EXEC: python3 cjdb_test.py generics_var_extend_00.info generics_var_extend %run_env
+
+test#
+cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
+b,b generics_var_extend.cj:73,generics_var_extend.cj:73
+b,b generics_var_extend.cj:80,generics_var_extend.cj:80
+b,b generics_var_extend.cj:87,generics_var_extend.cj:87
+b,b generics_var_extend.cj:94,generics_var_extend.cj:94
+b,b generics_var_extend.cj:101,generics_var_extend.cj:101
+AOT r,r,-> 73
+c,c,73
+p, p a,\(Bool\)[\s\S]*true
+p, p a1,\(Bool\)[\s\S]*true
+locals, locals,\(Bool\) a = true[\s\S]*\(Bool\) a1 = true
+c,c,80
+p, p a,\(std\.core(?:\.|::)String\)[\s\S]*"cangjie"
+p, p a1,\(std\.core(?:\.|::)String\)[\s\S]*"cangjie"
+locals, locals,\(std\.core(?:\.|::)String\) a = "cangjie"[\s\S]*\(std\.core(?:\.|::)String\) a1 = "cangjie"
+c,c,87
+p, p a,\(Float16\)[\s\S]*16.156
+p, p a1,\(Float16\)[\s\S]*16.156
+locals, locals,\(Float16\) a = 16.156[\s\S]*\(Float16\) a1 = 16.156
+c,c,94
+p, p a,\(UInt16\)[\s\S]*16
+p, p a1,\(UInt16\)[\s\S]*16
+locals, locals,\(UInt16\) a = 16[\s\S]*\(UInt16\) a1 = 16
+c,c,101
+p, p a,\(Rune\)[\s\S]*'a'
+p, p a1,\(Rune\)[\s\S]*'a'
+locals, locals,\(Rune\) a = 'a'[\s\S]*\(Rune\) a1 = 'a'
+q,q,

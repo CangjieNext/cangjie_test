@@ -11,8 +11,7 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-
-var res : Option<Int64> = None
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -31,46 +30,46 @@ public class Test_suit {
 
     @Bench
     func BenchmarkStringIndexOfString_N1(): Unit {
-        res = str1.indexOf("r")
+        blackBox(str1.indexOf("r"))
     }
 
     @Bench
     func BenchmarkStringIndexOfString_N1k_start(): Unit {
-        res = str1k.indexOf("r")
+        blackBox(str1k.indexOf("r"))
     }
 
     @Bench
     func BenchmarkStringIndexOfString_N1k_mid(): Unit {
-        res = str1k_mid.indexOf("r")
+        blackBox(str1k_mid.indexOf("r"))
     }
 
     @Bench
     func BenchmarkStringIndexOfString_N1k_end(): Unit {
-        res = str1k_end.indexOf("r")
+        blackBox(str1k_end.indexOf("r"))
     }
 
     @Bench
     func BenchmarkStringIndexOfString_N1m_start(): Unit {
-        res = str1m.indexOf("r")
+        blackBox(str1m.indexOf("r"))
     }
 
     @Bench
     func BenchmarkStringIndexOfString_N1m_mid(): Unit {
-        res = str1m_mid.indexOf("r")
+        blackBox(str1m_mid.indexOf("r"))
     }
 
     @Bench
     func BenchmarkStringIndexOfString_N1m_end(): Unit {
-        res = str1m_end.indexOf("r")
+        blackBox(str1m_end.indexOf("r"))
     }
 
     @Bench
     func BenchmarkStringIndexOfStringLongMatch_N1k(): Unit {
-        res = str_long_1K.indexOf("abcdefgabcdefgabcdef")
+        blackBox(str_long_1K.indexOf("abcdefgabcdefgabcdef"))
     }
 
     @Bench
     func BenchmarkStringIndexOfStringLongMatch_N1m(): Unit {
-        res = str_long_1M.indexOf("abcdefgabcdefgabcdef")
+        blackBox(str_long_1M.indexOf("abcdefgabcdefgabcdef"))
     }
 }

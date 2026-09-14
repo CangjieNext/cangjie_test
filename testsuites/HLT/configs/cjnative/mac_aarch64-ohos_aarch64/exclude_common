@@ -139,3 +139,6 @@ API/std/reflect/cjnative/tuple_type
 
 # OHOS does not support reflection of function type currently.
 API/std/reflect/cjnative/function_type
+
+# std.concurrent is not built for OHOS
+API/std/concurrent

@@ -23,31 +23,31 @@ public macro Outer(input: Tokens): Tokens {
         try {
             m.getBool("key1")
         } catch (e: Exception) {
-            eprint(e.message)
+            eprintln(e.message)
         }
 
         try {
             m.getInt64("key2")
         } catch (e: Exception) {
-            eprint(e.message)
+            eprintln(e.message)
         }
 
         try {
             m.getString("key3")
         } catch (e: Exception) {
-            eprint(e.message)
+            eprintln(e.message)
         }
 
         try {
             m.getTokens("key4")
         } catch (e: Exception) {
-            eprint(e.message)
+            eprintln(e.message)
         }
 
         try {
             m.getTokens("key6")
         } catch (e: Exception) {
-            eprint(e.message)
+            eprintln(e.message)
         }
     }
     return input

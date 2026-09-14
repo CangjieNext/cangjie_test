@@ -8,7 +8,7 @@
 // EXEC: %compiler %cmp_macro define.cj
 // ERRCHECK: %compiler call.cj test.cj %macro_lib
 // ASSERT: scan undeclared identifier 'Expect'
-// ASSERT: scan expected expression after '+', found '}'
+// ASSERT: scan ParseASTException: Failed to parse decl.
 
 import define.*
 

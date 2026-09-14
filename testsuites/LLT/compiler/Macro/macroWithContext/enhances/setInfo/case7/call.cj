@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 //  DEPENDENCE: define.cj
 //  EXEC: %compiler %cmp_macro define.cj
 //  EXEC: %run_macro %compiler %cmp_opt %f 2>&1 | compare %f
@@ -10,15 +16,9 @@ main(): Int64 {
 }
 
 /* SCAN
-The 'key1' cannot get the Bool type value!
-The 'key2' cannot get the Int64 type value!
-The 'key3' cannot get the String type value!
-The 'key4' cannot get the Tokens type value!
-Cannot get the information from inner macro by 'key6'!
+Macro item 'key1' has a different type: expected 'Bool'.
+Macro item 'key2' has a different type: expected 'Int64'.
+Macro item 'key3' has a different type: expected 'String'.
+Macro item 'key4' has a different type: expected 'Tokens'.
+Macro item 'key6' does not exist.
 */
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
-// This source file is part of the Cangjie project, licensed under Apache-2.0
-// with Runtime Library Exception.
-//
-// See https://cangjie-lang.cn/pages/LICENSE for license information.
-

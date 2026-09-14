@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/001_debug_class_top_mod.cj
+// (target_ohos) EXEC: python3 cjdb_test.py lldb_class002.info 001_debug_class_top_mod %run_env
+
+test#
+cjdb,cjdb --no-use-colors 001_debug_class_top_mod,001_debug_class_top_mod
+b,b 001_debug_class_top_mod.cj:59,001_debug_class_top_mod.cj:59
+AOT r,r,-> 59
+c,c,59
+n,n,60
+locals,locals,C2\) newc = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
+print,print newc,C2\)[\s\S]*{(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
+print,print newc.length,\(Int32\)[\s\S]*200
+q,q,

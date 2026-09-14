@@ -77,20 +77,20 @@ main(): Int64 {
     0
 }
 
-/*SCAN-IN
-expected '=>' in lambda expression, found '}'
+/* SCAN-IN
+ASTException: Cannot construct the 'ReturnExpr' node.
 */
-// ASSERT: scan ASTException: Cannot construct the 'ReturnExpr' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+// ASSERT: scan ASTException: Cannot construct the 'ReturnExpr' node.
+/* SCAN-IN
+ASTException: Cannot construct the 'ReturnExpr' node.
 */
 /*SCAN-IN
-Current ReturnExpr has none expr
+ASTException: 'ReturnExpr' has no expression.
 */
 /*SCAN-IN
 description: return, token_id: 108, token_literal_value: return
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RETURN
+ASTException: Illegal token kind: expected 'RETURN', got 'ILLEGAL'.
 */
 // ASSERT: scan cnt = 5

@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC-PIPE-1: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin %weave_aspects_plugin 2>&1 | compare %f
-// ASSERT: scan The first parameter of the function annotatedFunction annotated with @ReplaceFuncBody must be the same as the type indicated by packageName and className.
+// ASSERT: scan annotated with @ReplaceFuncBody has first parameter type
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

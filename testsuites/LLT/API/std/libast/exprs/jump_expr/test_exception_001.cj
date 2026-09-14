@@ -64,10 +64,10 @@ main(): Int64 {
     return 0
 }
 
-// ASSERT: scan ASTException: Cannot construct the 'JumpExpr' node, TokenKind should be BREAK or CONTINUE
-// ASSERT: scan ASTException: Cannot construct the 'JumpExpr' node. (Empty Input)
+// ASSERT: scan ASTException: Cannot construct the 'JumpExpr' node: expected 'BREAK' or 'CONTINUE' token.
+// ASSERT: scan ASTException: Cannot construct the 'JumpExpr' node: input is empty.
 // ASSERT: scan description: illegal, token_id: 162, token_literal_value:
-// ASSERT: scan ASTException: Illegal TokenKind, TokenKind should be BREAK or CONTINUE
+// ASSERT: scan ASTException: Illegal token kind: expected 'BREAK' or 'CONTINUE', got 'AND'.
 // ASSERT: scan JumpExpr {
 // ASSERT: scan -keyword: Token {
 // ASSERT: scan value: "break"

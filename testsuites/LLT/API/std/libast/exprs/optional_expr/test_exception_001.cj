@@ -65,5 +65,5 @@ main(): Int64 {
 // ASSERT: scan ASTException: Cannot construct the 'OptionalExpr' node
 // ASSERT: scan ASTException: Cannot construct the 'OptionalExpr' node
 // ASSERT: scan description: quest, token_id: 52, token_literal_value: ?
-// ASSERT: scan ASTException: Illegal TokenKind, TokenKind should be QUEST
+// ASSERT: scan ASTException: Illegal token kind: expected 'QUEST', got 'AND'.
 // ASSERT: scan cnt = 4

@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/004_debug_multiArray_composite_string.cj
+// (target_ohos) EXEC: python3 cjdb_test.py cjdb_compositeArray_view015.info 004_debug_multiArray_composite_string %run_env
+
+test#
+cjdb,cjdb --no-use-colors 004_debug_multiArray_composite_string,004_debug_multiArray_composite_string
+b,b 004_debug_multiArray_composite_string.cj:40,004_debug_multiArray_composite_string.cj:40
+AOT r,r,-> 40
+c,c,40
+p,p multiArr_str_q[1][1],std[.]core(?:\.|::)Array<std[.]core(?:\.|::)Array<std.core(?:\.|::)String>>\)[\s\S]*{[\s\S]*\[0\] = [\s\S]*
+p,p multiArr_str_q[1][1][2][2..3],std[.]core(?:\.|::)Array<std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = "abcdxyz[\s\S]*
+q,q,

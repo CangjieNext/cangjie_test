@@ -38,8 +38,8 @@ main(): Int64 {
 }
 
 /* SCAN-IN
-orgName should not be empty
-orgName should not be empty
-Illegal TokenKind, TokenKind should be DOUBLE_COLON
+Organization name is empty.
+Organization name is empty.
+Illegal token kind: expected 'DOUBLE_COLON', got 'DOT'.
 cnt = 3
  */

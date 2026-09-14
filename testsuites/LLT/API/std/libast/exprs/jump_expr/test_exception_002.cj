@@ -35,7 +35,7 @@ main(): Int64 {
     return 0
 }
 
-// ASSERT: scan ASTException: Cannot construct the 'JumpExpr' node, TokenKind should be BREAK or CONTINUE
+// ASSERT: scan ASTException: Cannot construct the 'JumpExpr' node: expected 'BREAK' or 'CONTINUE' token.
 // ASSERT: scan description: break, token_id: 110, token_literal_value: break
-// ASSERT: scan ASTException: Illegal TokenKind, TokenKind should be BREAK or CONTINUE
+// ASSERT: scan ASTException: Illegal token kind: expected 'BREAK' or 'CONTINUE', got 'IDENTIFIER'.
 // ASSERT: scan cnt = 2

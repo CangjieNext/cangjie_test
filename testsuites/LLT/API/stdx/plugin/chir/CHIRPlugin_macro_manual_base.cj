@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC-PIPE-1: %set_stdx_path %compiler %import-cangjie-stdx %cmp_opt %f -o %output 2>&1 | compare %f
-// ASSERT: scan BadPlugin can't inherit from class CHIRPluginBase manually.
+// ASSERT: scan Class 'BadPlugin' must not inherit from CHIRPluginBase manually; the @CHIRPlugin macro adds this base class.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

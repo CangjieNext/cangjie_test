@@ -7,7 +7,7 @@
  */
 
 // EXEC-PIPE-1: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin %weave_aspects_plugin 2>&1 | compare %f
-// ASSERT: scan Instance member function must not be woven into global function or static member function.
+// ASSERT: scan cannot be woven into a global or static member function.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

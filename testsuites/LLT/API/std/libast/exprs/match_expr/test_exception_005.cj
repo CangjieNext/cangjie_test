@@ -97,26 +97,26 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'MatchExpr' node.
 */
 /*SCAN-IN
 description: match, token_id: 113, token_literal_value: match
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be MATCH
+ASTException: Illegal token kind: expected 'MATCH', got 'AND'.
 */
 /*SCAN-IN
 description: l_paren, token_id: 2, token_literal_value: (
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LPAREN
+ASTException: Illegal token kind: expected 'LPAREN', got 'AND'.
 */
 /*SCAN-IN
 description: r_paren, token_id: 3, token_literal_value: )
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RPAREN
+ASTException: Illegal token kind: expected 'RPAREN', got 'AND'.
 */
 /*SCAN-IN
 value: "b"
@@ -125,13 +125,13 @@ value: "b"
 description: l_curl, token_id: 6, token_literal_value: {
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LCURL
+ASTException: Illegal token kind: expected 'LCURL', got 'AND'.
 */
 /*SCAN-IN
 description: r_curl, token_id: 7, token_literal_value: }
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RCURL
+ASTException: Illegal token kind: expected 'RCURL', got 'AND'.
 */
 // ASSERT: scan 2
 // ASSERT: scan cnt = 6

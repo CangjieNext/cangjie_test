@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC-PIPE-1: %compiler %cmp_opt %cmp_utest_opt -o %n.%suffix %f 2>&1 | compare %f
-// ASSERT: scan unexpected struct declaration in function body
+// ASSERT: scan ParseASTException: Failed to parse decl.
 
 // NOTE: checks that option validators can be used only at top level.
 

@@ -85,18 +85,18 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected '<-' in if-let expression, found '='
+/* SCAN-IN
+ASTException: Cannot construct the 'LetPatternExpr' node.
 */
-// ASSERT: scan ASTException: Cannot construct the 'LetPatternExpr' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+// ASSERT: scan ASTException: Cannot construct the 'LetPatternExpr' node.
+/* SCAN-IN
+ASTException: Cannot construct the 'LetPatternExpr' node.
 */
 /*SCAN-IN
 description: let, token_id: 91, token_literal_value: let
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LET
+ASTException: Illegal token kind: expected 'LET', got 'AND'.
 */
 /*SCAN-IN
 value: "Some"
@@ -105,6 +105,6 @@ value: "Some"
 description: backarrow, token_id: 45, token_literal_value: <-
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be BACKARROW
+ASTException: Illegal token kind: expected 'BACKARROW', got 'AND'.
 */
 // ASSERT: scan cnt = 5

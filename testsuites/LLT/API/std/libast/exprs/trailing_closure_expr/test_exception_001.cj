@@ -70,13 +70,13 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected expression or declaration, found '->'
+/* SCAN-IN
+ASTException: Cannot construct the 'TrailingClosureExpr' node.
 */
-/*SCAN-IN
-expected expression after '', found keyword 'func'
+/* SCAN-IN
+ASTException: Cannot construct the 'TrailingClosureExpr' node.
 */
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'TrailingClosureExpr' node.
 */
 // ASSERT: scan cnt = 3

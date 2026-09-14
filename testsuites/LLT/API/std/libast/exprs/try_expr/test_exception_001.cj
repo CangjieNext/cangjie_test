@@ -147,11 +147,11 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected '(' after 'catch', found '{'
+/* SCAN-IN
+ASTException: Cannot construct the 'TryExpr' node.
 */
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'TryExpr' node.
 */
 // ASSERT: scan 0
 // ASSERT: scan 0
@@ -159,17 +159,17 @@ expected expression after '', found '<EOF>'
 description: illegal, token_id: 162, token_literal_value:
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be FINALLY
+ASTException: Illegal token kind: expected 'FINALLY', got 'AND'.
 */
 /*SCAN-IN
 description: try, token_id: 101, token_literal_value: try
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be TRY
+ASTException: Illegal token kind: expected 'TRY', got 'AND'.
 */
 // ASSERT: scan 1
 /*SCAN-IN
-ASTException: Cannot get finally block from current TryExpr
+ASTException: 'TryExpr' has no finally block.
 */
-// ASSERT: scan ASTException: Cannot get finally block from current TryExpr
+// ASSERT: scan ASTException: 'TryExpr' has no finally block.
 // ASSERT: scan cnt = 6

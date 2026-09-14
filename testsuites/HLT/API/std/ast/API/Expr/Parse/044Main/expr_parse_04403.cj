@@ -9,8 +9,8 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan body of main function is missing
-
+// ASSERT: scan An exception has occurred:
+// ASSERT: scan ParseASTException: Failed to parse decl.
 import std.ast.*
 
 main() {

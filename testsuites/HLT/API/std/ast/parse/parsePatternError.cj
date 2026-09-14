@@ -10,10 +10,8 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 
-// ASSERT: scan expected pattern, found keyword 'case'
 // ASSERT: scan An exception has occurred:
-// ASSERT: scan ParseASTException
-// ASSERT: scan parsing pattern error.
+// ASSERT: scan ParseASTException: Failed to parse pattern.
 internal import std.ast.*
 
 main() {

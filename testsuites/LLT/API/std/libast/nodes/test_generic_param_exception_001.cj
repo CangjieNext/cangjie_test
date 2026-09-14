@@ -72,9 +72,9 @@ main(): Int64 {
 // ASSERT: scan GenericParam {
 // ASSERT: scan 3
 // ASSERT: scan description: less, token_id: 53, token_literal_value: <
-// ASSERT: scan Illegal TokenKind, TokenKind should be LT
+// ASSERT: scan Illegal token kind: expected 'LT', got 'NL'.
 // ASSERT: scan description: greater, token_id: 54, token_literal_value: >
-// ASSERT: scan Illegal TokenKind, TokenKind should be GT
+// ASSERT: scan Illegal token kind: expected 'GT', got 'NL'.
 // ASSERT: scan description: less, token_id: 53, token_literal_value: <
 // ASSERT: scan description: and, token_id: 16, token_literal_value: &&
 // ASSERT: scan description: comma, token_id: 1, token_literal_value:

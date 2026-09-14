@@ -39,11 +39,7 @@ main(): Int64 {
 }
 
 /* SCAN-IN
-ASTException: 
-[31merror[0m: expected expression after '', found '<EOF>'
- [36m==>[0m :1:1:
-
-parsing expr error.
+ASTException: Cannot construct the 'LitConstExpr' node.
 LitConstExpr {
 }
 cnt = 1

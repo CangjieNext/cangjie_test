@@ -9,8 +9,8 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %use_ast %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan `is` and `as` operators cannot be chained
-
+// ASSERT: scan An exception has occurred:
+// ASSERT: scan ParseASTException: Failed to parse expr.
 import std.ast.*
 
 main(): Int64 {

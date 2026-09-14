@@ -12,27 +12,31 @@
 
 
 import std.time.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
 @Measure[TimeNow(Nanos)]
 @Configure[warmup: Duration.second]
-public class Test_StringBuilder_Reset { 
+public class Test_StringBuilder_Reset {
     @Bench
     func BenchmarkStringBuilderReset_N32(): Unit {
         var stringbuilder = StringBuilder()
         stringbuilder.reset()
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderReset_N1k(): Unit {
         var stringbuilder = StringBuilder(1024)
         stringbuilder.reset()
+        blackBox(stringbuilder)
     }
 
     @Bench
     func BenchmarkStringBuilderReset_N1m(): Unit {
         var stringbuilder = StringBuilder(1024 * 1024)
         stringbuilder.reset()
+        blackBox(stringbuilder)
     }
 }

@@ -30,5 +30,5 @@ main(): Int64 {
 }
 
 // ASSERT: scan description: upperbound, token_id: 135, token_literal_value: <:
-// ASSERT: scan Illegal TokenKind, TokenKind should be BITAND
+// ASSERT: scan Illegal token kind: expected 'BITAND', got 'AND'.
 // ASSERT: scan cnt = 1

@@ -24,5 +24,16 @@ warning: unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-1 warning generated, 1 warning printed.
+warning: unreachable expression
+  ==> testDCEDowhile17.cj:15:5:
+   | 
+13 |         return 0
+   |         ~~~~~~~~ any code following this expression is unreachable
+14 |     } while (true)
+15 |     return 1
+   |     ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+2 warnings generated, 2 warnings printed.
 */

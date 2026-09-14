@@ -60,12 +60,12 @@ main(): Int64 {
     return 0
 }
 
-/*SCAN-IN
-expected expression after '==', found '<EOF>'
+/* SCAN-IN
+ASTException: Cannot construct the 'IncOrDecExpr' node.
 */
-// ASSERT: scan ASTException: Cannot construct the 'IncOrDecExpr' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+// ASSERT: scan ASTException: Cannot construct the 'IncOrDecExpr' node.
+/* SCAN-IN
+ASTException: Cannot construct the 'IncOrDecExpr' node.
 */
 /*SCAN-IN
 description: and, token_id: 16, token_literal_value: &&

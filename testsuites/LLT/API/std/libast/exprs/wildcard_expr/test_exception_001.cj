@@ -51,8 +51,8 @@ main(): Int64 {
 }
 
 /* SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be WILDCARD
-ASTException: Cannot construct the 'WildcardExpr' node. (Empty Input)
-ASTException: Illegal TokenKind, TokenKind should be WILDCARD
+ASTException: Illegal token kind: expected 'WILDCARD', got 'NL'.
+ASTException: Cannot construct the 'WildcardExpr' node: input is empty.
+ASTException: Illegal token kind: expected 'WILDCARD', got 'AND'.
 cnt = 3
  */

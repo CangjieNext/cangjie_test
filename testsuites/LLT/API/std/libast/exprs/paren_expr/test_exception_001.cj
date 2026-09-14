@@ -89,12 +89,12 @@ main(): Int64 {
     0
 }
 
-/*SCAN-IN
-unclosed delimiter: '('
+/* SCAN-IN
+ASTException: Cannot construct the 'ParenExpr' node.
 */
-// ASSERT: scan ASTException: Cannot construct the 'ParenExpr' node
-/*SCAN-IN
-expected expression after '', found '<EOF>'
+// ASSERT: scan ASTException: Cannot construct the 'ParenExpr' node.
+/* SCAN-IN
+ASTException: Cannot construct the 'ParenExpr' node.
 */
 /*SCAN-IN
 description: l_paren, token_id: 2, token_literal_value: (
@@ -103,9 +103,9 @@ description: l_paren, token_id: 2, token_literal_value: (
 description: r_paren, token_id: 3, token_literal_value: )
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be LPAREN
+ASTException: Illegal token kind: expected 'LPAREN', got 'ILLEGAL'.
 */
 /*SCAN-IN
-ASTException: Illegal TokenKind, TokenKind should be RPAREN
+ASTException: Illegal token kind: expected 'RPAREN', got 'ILLEGAL'.
 */
 // ASSERT: scan cnt = 5

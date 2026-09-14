@@ -8,7 +8,7 @@
 
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args | compare %f
-// ASSERT: scan parsing decl error.
+// ASSERT: scan Cannot construct the 'PrimaryCtorDecl' node.
 
 internal import std.ast.*
 

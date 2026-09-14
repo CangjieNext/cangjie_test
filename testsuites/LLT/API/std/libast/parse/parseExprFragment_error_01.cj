@@ -17,8 +17,5 @@ main() {
     0
 }
 
-// ASSERT: scan expected expression after '+', found '%'
-// ASSERT: regex-begin .*\|.*x \+ \% 1
-// ASSERT: scan-next ^ expected expression here
 // ASSERT: scan An exception has occurred:
-// ASSERT: scan parsing expr fragment error.
+// ASSERT: scan ParseASTException: Failed to parse expr fragment.

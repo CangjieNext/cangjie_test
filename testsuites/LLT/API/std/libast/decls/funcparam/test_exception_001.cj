@@ -7,7 +7,7 @@
  */
 
 // EXEC: %compiler %coverage_opt %cmp_opt_chir2hlir %f -o %output
-// RUN-EXEC: %run %run_opt %output > %n.txt
+// RUN-EXEC: %run %run_opt %output
 
 internal import std.ast.*
 
@@ -49,7 +49,7 @@ main(): Int64 {
         let funcParam = FuncParam(tmp)
         funcParam.expr
     } catch (e: ASTException) {
-        if (e.message == "The expression of FuncParam is None") {
+        if (e.message == "'FuncParam' has no expression.") {
             cnt++
         }
     }

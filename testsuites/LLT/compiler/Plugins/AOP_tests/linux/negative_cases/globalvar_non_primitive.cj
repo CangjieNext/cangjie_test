@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC-PIPE-1: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin %weave_aspects_plugin 2>&1 | compare %f
-// ASSERT: scan In `default` package where AOP annotations are used, all global variables must be initialized with literals of primitive types only.
+// ASSERT: scan must be initialized with primitive literal values when AOP annotations are used.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

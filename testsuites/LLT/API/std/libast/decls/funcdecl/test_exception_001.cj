@@ -7,7 +7,7 @@
  */
 
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// RUN-EXEC: %run %run_opt %output > %n.txt
+// RUN-EXEC: %run %run_opt %output
 
 internal import std.ast.*
 
@@ -26,7 +26,7 @@ main(): Int64 {
     try {
         funcDecl.declType
     } catch (e: ASTException) {
-        if (e.message == "Current FuncDecl has empty return type") {
+        if (e.message == "'FuncDecl' has no return type.") {
             cnt++
         }
     }

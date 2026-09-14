@@ -61,10 +61,9 @@ main(): Int64 {
     return 0
 }
 
-// ASSERT: scan Cannot construct the 'QualifiedType' node
-// ASSERT: scan parsing type error
+// ASSERT: scan Cannot construct the 'QualifiedType' node.
 // ASSERT: scan description: less, token_id: 53, token_literal_value: <
 // ASSERT: scan description: greater, token_id: 54, token_literal_value: >
 // ASSERT: scan description: dot, token_id: 0, token_literal_value:
-// ASSERT: scan Illegal TokenKind, TokenKind should be COMMA
+// ASSERT: scan Illegal token kind: expected 'COMMA', got 'AND'.
 // ASSERT: scan cnt = 3

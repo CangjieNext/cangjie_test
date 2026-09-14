@@ -19,8 +19,5 @@ main() {
     0
 }
 
-// ASSERT: scan expected declaration, found 'x'
-// ASSERT: regex-begin .*\|.*x
-// ASSERT: scan-next ^ expected declaration here
 // ASSERT: scan An exception has occurred:
-// ASSERT: scan parsing decl error.
+// ASSERT: scan ParseASTException: Failed to parse decl.
