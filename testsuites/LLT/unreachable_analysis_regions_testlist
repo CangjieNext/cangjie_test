@@ -1,0 +1,13 @@
+[ALL-TEST-CASE]
+compiler/CHIR/DCE/UnreachableWarning/ControlFlow/Completion/else_if_recursion_boundary.cj
+compiler/CHIR/DCE/UnreachableWarning/ControlFlow/Nothing/nothing_argument_evaluation.cj
+compiler/CHIR/DCE/UnreachableWarning/ValueFlow/Local/var_reassignment_continuation.cj
+compiler/CHIR/DCE/testDCEApply01.cj
+compiler/CHIR/DCE/testDCEApply05.cj
+compiler/CHIR/DCE/testDCEApply08.cj
+compiler/CHIR/DCE/testDCEApply09.cj
+compiler/CHIR/DCE/testDCEApply10.cj
+compiler/CHIR/DCE/testDCEArray01.cj
+compiler/CHIR/DCE/testDCEIf16.cj
+compiler/CHIR/DCE/testDCENothing3.cj
+compiler/CHIR/DCE/testUnusedOp03.cj
