@@ -17,11 +17,21 @@
  
 set +x
 set -e
- 
+
 WORKSPACE=$(cd `dirname $0`; pwd)
- 
+
 # Source the common utility functions
 source "$WORKSPACE/ios_sim_common.sh"
+
+# The test framework re-invokes this script with "--cleanup" after a case
+# passes. There is nothing to clean remotely: the executable runs in the
+# local work_dir, which the framework removes itself. Accept the flag as a
+# no-op so the framework's end-of-case hook does not error out (it would
+# otherwise pass "--cleanup" as the run command and fail with "cannot find
+# executable '--cleanup'").
+if [ "$1" = "--cleanup" ]; then
+    exit 0
+fi
  
 require_cangjie_home
 
