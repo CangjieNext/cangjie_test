@@ -140,22 +140,23 @@ func collectInfo(v: JsonValue, out: ArrayList<Info>): Unit {
 
 func myParse(): ArrayList<Info> {
     let data = "origin.json"
-    println("heap size=${getAllocatedHeapSize()}")
+    println("begin heap size=${getAllocatedHeapSize()}")
     let raw = String.fromUtf8(File.readFrom(data))
-    println("heap size=${getAllocatedHeapSize()}")
+    println("readfile heap size=${getAllocatedHeapSize()}")
     let jv: JsonValue = JsonValue.fromStr(raw)
-    println("heap size=${getAllocatedHeapSize()}")
+    println("parseJson heap size=${getAllocatedHeapSize()}")
     let out = ArrayList<Info>()
-    println("heap size=${getAllocatedHeapSize()}")
     collectInfo(jv, out)
-    println("heap size=${getAllocatedHeapSize()}")
+    println("end heap size=${getAllocatedHeapSize()}")
     out
 }
 
 main() {
-    let info = myParse()
-    for (i in info) {
-        let s = "${i.a}-${i.b}-${i.value}"
-        println(s)
+    for (i in 0..20) {
+        let info = myParse()
+        for (i in info) {
+            let s = "${i.a}-${i.b}-${i.value}"
+            blackBox(s)
+        }
     }
 }
