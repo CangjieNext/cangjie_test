@@ -7,7 +7,7 @@
 // Verify enum table diagnostics group or-pattern alternatives that span constructor groups.
 // EXEC-PIPE-0: %compiler %cmp_opt %diag_json -O2 %f -o %output 2>&1 | compare %f
 
-// ASSERT: scan-3 "DiagKind": "chir_unreachable_pattern"
+// ASSERT: scan-4 "DiagKind": "chir_unreachable_pattern"
 
 enum Mode {
     | Left(Int64)

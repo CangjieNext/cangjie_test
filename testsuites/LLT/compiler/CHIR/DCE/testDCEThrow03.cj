@@ -45,13 +45,24 @@ main() {
 /* SCAN
 warning: unreachable expression
   ==> testDCEThrow03.cj:12:9:
-   | 
+   |
 11 |         throw B()
    |         ~~~~~~~~~ any code following this expression is unreachable
 12 |         var a = 1
    |         ^^^^^^^^^ unreachable expression
+   |
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable expression
+  ==> testDCEThrow03.cj:42:5:
+   |
+40 |     try (a: A = A()) {
+   |          ~~~~~~~~~~ any code following this expression is unreachable
+41 |     } finally {}
+42 |     return 0
+   |     ^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-1 warning generated, 1 warning printed.
+2 warnings generated, 2 warnings printed.
 */
