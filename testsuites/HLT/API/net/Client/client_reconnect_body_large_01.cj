@@ -138,10 +138,7 @@ class LargeSlowBody <: InputStream {
     let data: Array<Byte>
 
     init() {
-        data = Array<Byte>(BODY_SIZE, repeat: 0)
-        for (i in 0..BODY_SIZE) {
-            data[i] = ((i % 256) as Byte)
-        }
+        data = Array<Byte>(BODY_SIZE) { i => Byte(i % 256) }
     }
 
     public func read(buf: Array<Byte>): Int64 {
@@ -156,9 +153,7 @@ class LargeSlowBody <: InputStream {
         if (pos + len > BODY_SIZE) {
             len = BODY_SIZE - pos
         }
-        for (i in 0..len) {
-            buf[i] = data[pos + i]
-        }
+        buf[0..len] = data[pos..pos + len]
         pos += len
         return len
     }
