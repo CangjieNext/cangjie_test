@@ -7,7 +7,7 @@
 // Verify selected enum table entries collect source case ids through their default edge.
 // EXEC-PIPE-0: %compiler %cmp_opt %diag_json -O2 %f -o %output 2>&1 | compare %f
 
-// ASSERT: scan-2 "DiagKind": "chir_unreachable_pattern"
+// ASSERT: scan-4 "DiagKind": "chir_unreachable_pattern"
 
 enum TableState {
     | Left(Int64, Bool)
