@@ -53,5 +53,16 @@ warning: unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-1 warning generated, 1 warning printed.
+warning: unreachable expression
+  ==> testDCEThrow03.cj:42:5:
+   | 
+40 |     try (a: A = A()) {
+   |          ~~~~~~~~~~ any code following this expression is unreachable
+41 |     } finally {}
+42 |     return 0
+   |     ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+2 warnings generated, 2 warnings printed.
 */

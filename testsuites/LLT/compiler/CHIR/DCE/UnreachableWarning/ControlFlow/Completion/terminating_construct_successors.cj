@@ -7,7 +7,7 @@
 // Verify successors of all-terminating if, match, and try/catch expressions.
 // EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
 
-// ASSERT: scan-3 "DiagKind": "chir_dce_unreachable_expression_hint"
+// ASSERT: scan-2 "DiagKind": "chir_dce_unreachable_expression_hint"
 
 func returnsEveryBranch(value: Bool): Int64 {
     if (value) { return 1 } else { return 2 }
