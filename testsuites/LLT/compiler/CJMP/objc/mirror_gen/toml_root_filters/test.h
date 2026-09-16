@@ -14,7 +14,11 @@ void N();
 @interface K
 @end
 
+@interface U
+@end
+
 @interface P
+@property U* u;
 @end
 
 @interface M
