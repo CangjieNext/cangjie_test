@@ -5,13 +5,9 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [[packages]]
-root-filters = ["M"]
 filters = ["N", "K"]
-package-name = "cjworld"
-output-path = "."
+package-name = "cjworldA"
 
-[output-roots.default]
-path = "mirrors"
-
-[sources.all]
-paths = ["test.h"]
+[[packages]]
+filters = ["M", "P", "U"]
+package-name = "cjworldB"
