@@ -8,7 +8,13 @@
 // (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
 
 // ASSERT: scan-1 "DiagKind": "chir_unreachable_pattern"
+// ASSERT: scan-begin "DiagKind": "chir_unreachable_pattern"
+// ASSERT: scan-after "Line": 24
+// ASSERT: scan-after "Column": 18
 // ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_expression_hint"
+// ASSERT: scan-begin "DiagKind": "chir_dce_unreachable_expression_hint"
+// ASSERT: scan-after "Line": 27
+// ASSERT: scan-after "Column": 9
 
 class A {
     func test() {
