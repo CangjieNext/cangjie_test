@@ -157,11 +157,12 @@ func myParse(): ArrayList<Info> {
 }
 
 main() {
-    for (i in 0..20) {
+    // 20 times for performance, run only 1 for CI
+    // for (i in 0..20) {
         let info = myParse()
         for (i in info) {
             let s = "${i.a}-${i.b}-${i.value}"
             blackBox(s)
         }
-    }
+    // }
 }
