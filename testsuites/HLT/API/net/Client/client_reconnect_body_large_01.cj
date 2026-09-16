@@ -138,7 +138,7 @@ class LargeSlowBody <: InputStream {
     let data: Array<Byte>
 
     init() {
-        data = Array<Byte>(BODY_SIZE) { i => Byte(i % 256) }
+        data = Array<Byte>(BODY_SIZE) { i => UInt8(i % 256) }
     }
 
     public func read(buf: Array<Byte>): Int64 {
