@@ -34,21 +34,5 @@ warning: unreachable pattern
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-warning: unreachable pattern
-  ==> testUnusedCode15.cj:13:26:
-   | 
-13 |                     case 1 => "Black"
-   |                          ^ 
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-warning: unreachable pattern
-  ==> testUnusedCode15.cj:14:26:
-   | 
-14 |                     case _ => "Bule"
-   |                          ^ 
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-4 warnings generated, 4 warnings printed.
+2 warnings generated, 2 warnings printed.
 */
