@@ -36,27 +36,5 @@ warning: unreachable pattern
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-warning: unreachable block in 'if' expression
-  ==> testUnusedCode14.cj:13:23:
-   | 
-13 |               if (true) {
-   |  _______________________^
-14 | |                 "Black"
-15 | |             } else {
-   | |_____________^ unreachable block in 'if' expression
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-warning: unreachable block in 'if' expression
-  ==> testUnusedCode14.cj:15:20:
-   | 
-15 |               } else {
-   |  ____________________^
-16 | |                 "Blue"
-17 | |             }
-   | |_____________^ unreachable block in 'if' expression
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-4 warnings generated, 4 warnings printed.
+2 warnings generated, 2 warnings printed.
 */
