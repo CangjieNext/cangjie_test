@@ -25,9 +25,7 @@ warning: unreachable expression
   ==> testDCEtypecast.cj:12:5:
    | 
 12 |     Rune(return r'a')
-   |     ^^^^^^^^^^^^^^^^^any code following this expression is unreachable
-   |     |
-   |     unreachable expression
+   |     ^^^^^^^^^^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 

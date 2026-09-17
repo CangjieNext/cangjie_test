@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// This warning pass does not infer that a while(true) has no successor.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+// ASSERT: scan-not warning: unreachable
 
-// ASSERT: scan-not "DiagKind":
+// This warning pass does not infer that a while(true) has no successor.
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 main() {
     while (true) {

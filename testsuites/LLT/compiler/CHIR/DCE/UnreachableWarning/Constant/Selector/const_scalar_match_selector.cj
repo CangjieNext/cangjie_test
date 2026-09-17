@@ -5,9 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify const scalar selectors make non-matching cases unreachable.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-
-// ASSERT: scan-4 "DiagKind": "chir_unreachable_pattern"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 func numericSelector() {
     const number = 1 + 2
@@ -47,3 +45,43 @@ main() {
     floatSelector()
     runeSelector()
 }
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> const_scalar_match_selector.cj:13:14:
+   | 
+13 |         case 4 => println("unreachable number case")
+   |              ^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> const_scalar_match_selector.cj:21:14:
+   | 
+21 |         case false => println("unreachable Bool case")
+   |              ^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> const_scalar_match_selector.cj:29:14:
+   | 
+29 |         case 2.0 => println("unreachable Float case")
+   |              ^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> const_scalar_match_selector.cj:37:14:
+   | 
+37 |         case r'b' => println("unreachable Rune case")
+   |              ^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
