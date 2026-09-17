@@ -4,13 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-//EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+//EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
-// ASSERT: scan-2 "DiagKind": "chir_dce_unreachable"
-// ASSERT: scan-2 "DiagKind": "chir_dce_unreachable_expression_hint"
-// ASSERT: scan-1 "DiagKind": "chir_dce_unused_expression"
-// ASSERT: scan-1 "DiagKind": "chir_dce_unused_function"
-// ASSERT: scan-1 "DiagKind": "chir_dce_unused_operator"
+
+
+
+
+
 
 private func foo() {
     (return 99) + 1
@@ -36,3 +36,85 @@ main() {
 
     return 0
 }
+
+/* SCAN
+warning: unreachable 'operator'
+  ==> testUnusedOp03.cj:16:19:
+   | 
+16 |     (return 99) + 1
+   |      ~~~~~~~~~    ^ unreachable 'operator'
+   |      |
+   |      any code following this expression is unreachable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unused expression
+  ==> testUnusedOp03.cj:20:5:
+   | 
+20 |     1 + (return 99)
+   |     ^ unused expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable 'operator'
+  ==> testUnusedOp03.cj:20:7:
+   | 
+20 |     1 + (return 99)
+   |       ^  ~~~~~~~~~ any code following this expression is unreachable
+   |       |
+   |       unreachable 'operator'
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unused function:'test'
+  ==> testUnusedOp03.cj:23:1:
+   | 
+23 |   private func test(a: Int64, b: Int64) {
+   |  _^
+24 | |     a + b
+25 | | }
+   | |_^ unused function
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unused result of the operator:'+'
+  ==> testUnusedOp03.cj:29:11:
+   | 
+29 |     foo() + bar()
+   |           ^ unused result of the operator
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable 'call'
+  ==> testUnusedOp03.cj:35:5:
+   | 
+35 |     test(return 0, foo() + 1)
+   |     ^^^^ ~~~~~~~~ any code following this expression is unreachable
+   |     |
+   |     unreachable 'call'
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable expression
+  ==> testUnusedOp03.cj:35:20:
+   | 
+35 |     test(return 0, foo() + 1)
+   |          ~~~~~~~~  ^^^^^^^^^ unreachable expression
+   |          |
+   |          any code following this expression is unreachable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable expression
+  ==> testUnusedOp03.cj:37:5:
+   | 
+35 |     test(return 0, foo() + 1)
+   |     ~~~~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+36 | 
+37 |     return 0
+   |     ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+8 warnings generated, 8 warnings printed.
+*/

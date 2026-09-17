@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 // EXEC-PIPE-0: %run %run_opt %output %run_args %output 
 
-// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_block_in_expression"
+
 
 main() {
     if (true) {
@@ -18,3 +18,19 @@ main() {
     }
     0
 }
+
+/* SCAN
+warning: unreachable block in 'if' expression
+  ==> testDCEIf16.cj:14:12:
+   | 
+14 |       } else if (true) {
+   |  ____________^
+15 | |         var b = 2
+   | | ...
+18 | |     }
+   | |_____^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+1 warning generated, 1 warning printed.
+*/

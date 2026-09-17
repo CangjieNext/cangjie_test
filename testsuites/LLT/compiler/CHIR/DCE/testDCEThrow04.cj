@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (CJNATIVE) EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+// (CJNATIVE) EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 // (CJNATIVE) EXEC-PIPE-0: %run %run_opt %output %run_args
 
-// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_expression_hint"
+
 
 class A <: Exception {}
 
@@ -23,3 +23,26 @@ main() {
     print("success.")
     return 0
 }
+
+/* SCAN
+warning: unreachable expression
+  ==> testDCEThrow04.cj:18:9:
+   | 
+16 |         throw A();
+   |         ~~~~~~~~~ any code following this expression is unreachable
+17 |         // EXPECT: chir_dce_unreachable_expression_hint
+18 |         1 + 1
+   |         ^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unused result of the operator:'+'
+  ==> testDCEThrow04.cj:20:11:
+   | 
+20 |         2 + 2
+   |           ^ unused result of the operator
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+2 warnings generated, 2 warnings printed.
+*/

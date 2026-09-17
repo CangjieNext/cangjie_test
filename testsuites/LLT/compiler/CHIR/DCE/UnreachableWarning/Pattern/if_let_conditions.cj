@@ -5,9 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Known constructors and their bindings select if-let conditions.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-
-// ASSERT: scan-3 "DiagKind": "chir_dce_unreachable_block_in_expression"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 enum State {
     | Ready
@@ -53,3 +51,39 @@ main() {
     knownNone()
     contradictoryBinding()
 }
+
+/* SCAN-IN
+warning: unreachable block in 'if' expression
+  ==> if_let_conditions.cj:19:12:
+   | 
+19 |       } else {
+   |  ____________^
+20 | |         println("dead enum else")
+21 | |     }
+   | |_____^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable block in 'if' expression
+  ==> if_let_conditions.cj:28:12:
+   | 
+28 |       } else {
+   |  ____________^
+29 | |         println("dead Some else")
+30 | |     }
+   | |_____^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable block in 'if' expression
+  ==> if_let_conditions.cj:35:13:
+   | 
+35 |     if (let Some(number) <- value) {
+   |             ^^^^^^^^^^^^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/

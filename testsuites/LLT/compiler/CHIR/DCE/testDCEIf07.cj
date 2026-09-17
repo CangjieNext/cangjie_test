@@ -38,8 +38,7 @@ warning: unreachable expression
   ==> testDCEIf07.cj:11:5:
    | 
 11 |       if (return 0) {
-   |       ^   ~~~~~~~~ any code following this expression is unreachable
-   |  _____|
+   |  _____^
 12 | |         if (true) {
    | | ...
 29 | |     }

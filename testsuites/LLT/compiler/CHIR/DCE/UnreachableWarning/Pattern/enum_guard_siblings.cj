@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// A true guard only completes the matching Red case; sibling enum constructors remain reachable.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+// ASSERT: scan-not warning: unreachable
 
-// ASSERT: scan-not "DiagKind": "chir_unreachable_pattern"
+// A true guard only completes the matching Red case; sibling enum constructors remain reachable.
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 enum Color {
     | Red
