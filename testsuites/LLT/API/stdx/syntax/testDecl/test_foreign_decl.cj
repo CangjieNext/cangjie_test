@@ -21,7 +21,7 @@ class Test {
 
     @BeforeAll
     func readInput(): Unit {
-        let node = parseFile("sourceFile/foreign_decl.cj")
+        let node = parseFile("foreign_decl.cj")
         file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(node.diags.size, 0)
     }
