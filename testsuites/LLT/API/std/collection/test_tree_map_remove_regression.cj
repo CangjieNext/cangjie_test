@@ -84,4 +84,68 @@ class TreeMapRemoveRegressionTest {
         @Expect(map.add(7, 72), None<Int64>)
         @Expect(map.get(7), Some(72))
     }
+
+    @TestCase
+    func removeFirstAndLastPreserveBoundaryValuesThroughDrain(): Unit {
+        let empty = TreeMap<Int64, Int64>()
+        @Expect(empty.removeFirst().isNone(), true)
+        @Expect(empty.removeLast().isNone(), true)
+
+        let single = TreeMap<Int64, Int64>()
+        single.add(7, 70)
+        let only = single.removeFirst().getOrThrow()
+        @Expect(only[0], 7)
+        @Expect(only[1], 70)
+        @Expect(single.isEmpty(), true)
+        @Expect(single.removeLast().isNone(), true)
+
+        let map = TreeMap<Int64, Int64>()
+        for (i in 0..256) {
+            map.add(i, i * 10)
+        }
+        for (i in 0..128) {
+            let first = map.removeFirst().getOrThrow()
+            let last = map.removeLast().getOrThrow()
+            @Expect(first[0], i)
+            @Expect(first[1], i * 10)
+            @Expect(last[0], 255 - i)
+            @Expect(last[1], (255 - i) * 10)
+        }
+        @Expect(map.isEmpty(), true)
+    }
+
+    @TestCase
+    func removeIfKeepsSuccessorsOrderedAndCanDrainTree(): Unit {
+        let empty = TreeMap<Int64, Int64>()
+        empty.removeIf({_, _ => true})
+        @Expect(empty.isEmpty(), true)
+
+        let single = TreeMap<Int64, Int64>()
+        single.add(7, 70)
+        single.removeIf({key, _ => key == 7})
+        @Expect(single.isEmpty(), true)
+
+        let map = TreeMap<Int64, Int64>()
+        for (i in 0..512) {
+            map.add(i, i * 10)
+        }
+        map.removeIf({key, _ => key % 3 == 0})
+
+        var previous = -1
+        var count = 0
+        for ((key, value) in map) {
+            @Expect(key > previous, true)
+            @Expect(key % 3 != 0, true)
+            @Expect(value, key * 10)
+            previous = key
+            count++
+        }
+        @Expect(count, 341)
+        @Expect(map.size, 341)
+
+        map.removeIf({_, _ => true})
+        @Expect(map.isEmpty(), true)
+        @Expect(map.removeFirst().isNone(), true)
+        @Expect(map.removeLast().isNone(), true)
+    }
 }
