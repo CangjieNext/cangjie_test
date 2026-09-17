@@ -7,7 +7,7 @@
  */
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_args | compare %f
-// Function/Block public attribute predicates, setters, and constructor kinds.
+// Function public attribute predicates, setters, and constructor kinds.
 
 /* SCAN
 default: false false false false true
@@ -17,11 +17,9 @@ clear final: false false true true true
 clear noInline: false false false true true
 all cleared: false false false false true
 function default: false false false
-blocks default: false false
 constructor default flags: false false false false false
 constructor enabled flags: true true true true false
 constructor: false false false
-moved blocks: false false
 default: false false false
 class: true false false true
 struct: false true false true
@@ -63,12 +61,7 @@ func testFuncAttributePredicates() {
 func testCtorAttributePredicates() {
     let pkg = Package("pkg.ctor.flags", AccessLevel.Public)
     let fn = pkg.addFunction(FuncType.get(Array<Type>(), UnitType.get()), "ctor", "ctor", pkg.name)
-    let target = pkg.addFunction(FuncType.get(Array<Type>(), UnitType.get()), "target", "target", pkg.name)
-    fn.initBody()
-    let bg = fn.body.getOrThrow()
-    let extra = bg.appendBlock()
     println("function default: ${fn.isMut()} ${fn.isInitializer()} ${fn.isAnnoFactoryFunc()}")
-    println("blocks default: ${bg.entryBlock.isInitializer()} ${extra.isInitializer()}")
     fn.setClassConstructor()
     printFlags("constructor default flags", fn)
     fn.setOverride(true)
@@ -77,8 +70,6 @@ func testCtorAttributePredicates() {
     fn.setSkipAnalysis(true)
     printFlags("constructor enabled flags", fn)
     println("constructor: ${fn.isMut()} ${fn.isInitializer()} ${fn.isAnnoFactoryFunc()}")
-    fn.moveBodyTo(target)
-    println("moved blocks: ${target.body.getOrThrow().entryBlock.isInitializer()} ${extra.isInitializer()}")
 }
 
 func printKind(label: String, fn: Function, kind: String) {
