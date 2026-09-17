@@ -44,13 +44,11 @@ main() {
 }
 
 /* SCAN
-error: expected no modifier before macro call, found 'foreign'
- ==> generic_decl.cj:8:1:
+error: it is not allowed to re-export a macro package in a package.
+ ==> generic_decl.cj:5:17:
   | 
-8 | foreign {
-  | ^^^^^^^ expected no modifier here
-9 | @callTest
-  | ~~~~~~~~~ before macro call
+5 | internal import test.*
+  |                 ^^^^ 
   | 
 
 1 error generated, 1 error printed.
