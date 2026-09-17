@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // DEPENDENCE: sourceFile/foreign_decl.cj
-// (not Windows) EXEC: dos2unix sourceFile/foreign_decl.cj
+// (not Windows) EXEC: dos2unix foreign_decl.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
