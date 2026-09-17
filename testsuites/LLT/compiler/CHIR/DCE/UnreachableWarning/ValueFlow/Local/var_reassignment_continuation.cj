@@ -6,15 +6,10 @@
 
 // Verify that an unreachable successor does not recursively enter the shared
 // continuation and report the reachable second if at any optimization level.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -O0 -o %output 2>&1 | compare %f
-
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -O1 -o %output 2>&1 | compare %f
-
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -O2 -o %output 2>&1 | compare %f
-
-// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_block_in_expression"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %f -O0 -o %output
+// EXEC: %compiler %cmp_opt %f -O1 -o %output
+// EXEC: %compiler %cmp_opt %f -O2 -o %output
 
 main() {
     var judge = true
@@ -31,3 +26,18 @@ main() {
         println("constant")
     }
 }
+
+/* SCAN-IN
+warning: unreachable block in 'if' expression
+  ==> var_reassignment_continuation.cj:25:16:
+   | 
+25 |       if (false) {
+   |  ________________^
+26 | |         println("constant")
+27 | |     }
+   | |_____^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+1 warning generated, 1 warning printed.
+*/

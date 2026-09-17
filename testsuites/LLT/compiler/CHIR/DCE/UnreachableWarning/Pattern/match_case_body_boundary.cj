@@ -5,9 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify sibling-case traversal does not enter a nested match in an unreachable binding case body.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-
-// ASSERT: scan-1 "DiagKind": "chir_unreachable_pattern"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 main() {
     let selector = 1
@@ -20,3 +18,15 @@ main() {
             }
     }
 }
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> match_case_body_boundary.cj:14:14:
+   | 
+14 |         case value =>
+   |              ^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+1 warning generated, 1 warning printed.
+*/

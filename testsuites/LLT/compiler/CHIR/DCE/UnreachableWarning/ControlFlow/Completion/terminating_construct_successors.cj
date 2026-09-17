@@ -5,10 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify successors of all-terminating if, match, and try/catch expressions.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
-
-// ASSERT: scan-3 "DiagKind": "chir_dce_unreachable_expression_hint"
 
 func returnsEveryBranch(value: Bool): Int64 {
     if (value) { return 1 } else { return 2 }
@@ -33,3 +31,39 @@ main() {
     try { matchThrows(true) } catch (_: Exception) {}
     try { catchesThrow() } catch (_: Exception) {}
 }
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> terminating_construct_successors.cj:13:5:
+   | 
+12 |     if (value) { return 1 } else { return 2 }
+   |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+13 |     println("unreachable after all-return if")
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> terminating_construct_successors.cj:19:5:
+   | 
+18 |     match (value) { case true => throw Exception(); case false => throw Exception() }
+   |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+19 |     println("unreachable after all-throw match")
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> terminating_construct_successors.cj:25:5:
+   | 
+24 |     try { throw Exception() } catch (_: Exception) { throw Exception() }
+   |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+25 |     println("unreachable after all-throw try")
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/

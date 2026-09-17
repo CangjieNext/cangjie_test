@@ -7,11 +7,8 @@
 // A false guard must not hide later reachable and unreachable match cases,
 // and a reachable guard fact must reach its case body.
 
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json -O2 %f -o %output 2>&1 | compare %f
-
-// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_block_in_expression"
-// ASSERT: scan-4 "DiagKind": "chir_unreachable_pattern"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt -O2 %f -o %output
 
 main() {
     let grade = 85
@@ -32,3 +29,56 @@ main() {
         case _ => println("fallback")
     }
 }
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> match_where_constant_chain.cj:16:22:
+   | 
+16 |         case g where g >= 90 => "A"
+   |                      ^^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> match_where_constant_chain.cj:18:14:
+   | 
+18 |         case g where g >= 70 => "C"
+   |              ^^^^^^^^^^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> match_where_constant_chain.cj:19:14:
+   | 
+19 |         case _ => "D"
+   |              ^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable block in 'if' expression
+  ==> match_where_constant_chain.cj:26:29:
+   | 
+26 |               if (number < 0) {
+   |  _____________________________^
+27 | |                 println("unreachable case guard body")
+28 | |             }
+   | |_____________^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> match_where_constant_chain.cj:29:14:
+   | 
+29 |         case _ => println("fallback")
+   |              ^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/

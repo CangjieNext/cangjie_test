@@ -5,9 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Concrete type facts propagate, while open-hierarchy and runtime conversions do not.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-
-// ASSERT: scan-2 "DiagKind": "chir_dce_unreachable_block_in_expression"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 open class Base {}
 
@@ -47,3 +45,29 @@ main() {
     checkOpenHierarchy(Base())
     checkRuntimeConversion()
 }
+
+/* SCAN-IN
+warning: unreachable block in 'if' expression
+  ==> type_fact_conditions.cj:20:12:
+   | 
+20 |       } else {
+   |  ____________^
+21 | |         println("unreachable supertype else")
+22 | |     }
+   | |_____^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable block in 'if' expression
+  ==> type_fact_conditions.cj:24:34:
+   | 
+24 |       if (derived is OtherDerived) {
+   |  __________________________________^
+25 | |         println("unreachable sibling type check")
+26 | |     }
+   | |_____^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
