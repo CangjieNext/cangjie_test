@@ -119,8 +119,23 @@ class Test {
     }
 
     @TestCase
+    func testForeignBlockMemberWithOwnAnnotation(): Unit {
+        // A member's own annotation (written directly on the member, after the block-level
+        // ones) must still be kept and expanded, while the block-level `@When` propagated
+        // by the compiler is filtered out.
+        let funcDecl = (file.getOrThrow().topLevelDecls[6] as FuncDecl).getOrThrow()
+        @Expect(funcDecl.name, "hook")
+        @Expect(funcDecl.annotations.size, 1)
+        @Expect(funcDecl.annotations[0].identifier, "Deprecated")
+        var pos = funcDecl.annotations[0].nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([26, 5, 26, 33]).toArray())
+        pos = funcDecl.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([26, 5, 27, 31]).toArray())
+    }
+
+    @TestCase
     func testTopLevelDeclsCount(): Unit {
         let f = file.getOrThrow()
-        @Expect(f.topLevelDecls.size, 6)
+        @Expect(f.topLevelDecls.size, 7)
     }
 }

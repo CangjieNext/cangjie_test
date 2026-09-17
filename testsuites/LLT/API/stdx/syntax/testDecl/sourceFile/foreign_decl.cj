@@ -20,3 +20,9 @@ foreign {
     func read(fd: Int32): Int64
     func write(fd: Int32): Int64
 }
+
+@When[os != "Windows"]
+foreign {
+    @Deprecated[ message: "dd" ]
+    func hook(id: Int32): Unit
+}
