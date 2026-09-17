@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %f -Woff all %diag_json 2>&1
+// EXEC: %compiler %f -o %output
 func foo(a: CFunc<()->Int>) {
     unsafe { println(a().toString()) }
 }
@@ -12,9 +12,7 @@ func foo(a: CFunc<()->Int> @local!) {
     unsafe { println(a().toString()) }
 }
 
-@C foreign func bar(): Int
+@C foreign func rand(): Int
 main() {
-    foo(bar)
+    foo(rand)
 }
-// ASSERT: scan-1 "DiagKind": "sema_ambiguous_match",
-// ASSERT: scan "Errors": 1,

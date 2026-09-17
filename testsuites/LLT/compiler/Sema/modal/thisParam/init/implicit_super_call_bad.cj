@@ -18,5 +18,6 @@ class G <: F {
 main() {
 }
 
+// ASSERT: scan-2 "DiagKind": "sema_no_match_function_declaration_for_call",
 // ASSERT: scan-2 "DiagKind": "sema_no_non_param_constructor_in_super_class",
-// ASSERT: scan "Errors": 2,
+// ASSERT: scan "Errors": 4,

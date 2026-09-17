@@ -26,5 +26,5 @@ class ChildFull <: BaseHalf {
 
 main() {}
 
-// ASSERT: scan-2 "DiagKind": "sema_mismatched_types",
+// ASSERT: scan-2 "DiagKind": "sema_no_match_function_declaration_for_call",
 // ASSERT: scan "Errors": 2,

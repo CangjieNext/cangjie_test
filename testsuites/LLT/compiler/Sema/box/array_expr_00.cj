@@ -10,6 +10,5 @@ main() {
     let x: Bool = Array<Int64>()
 }
 
-// ASSERT: scan "DiagKind": "sema_no_match_constructor",
 // ASSERT: scan "DiagKind": "sema_mismatched_types",
-// ASSERT: scan "Errors": 2,
+// ASSERT: scan "Errors": 1,

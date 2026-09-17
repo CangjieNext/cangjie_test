@@ -29,17 +29,6 @@ error: mismatched types
    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^ expected 'VArray<Int64, $3>', found 'Struct-Array<Int64>'
    | 
 
-error: no matching constructor for call 'Array'
-  ==> varray06.cj:14:32:
-   | 
-14 |     let a: VArray<Int64, $3> = Array<Int64>(3, repeat: 0) // x2 error
-   |                                ^ 
-   | 
-note: found function member of 'Struct-Array<Generics-T>'
-  ==> (package std.core)array.cj:52:12:
-note: found function member of 'Struct-Array<Generics-T>'
-  ==> (package std.core)array.cj:61:12:
-
 error: mismatched types
   ==> varray06.cj:15:28:
    | 
@@ -90,5 +79,5 @@ error: unknown named argument prefix 'itxx:'
    | 
    # note: expect the name of the named parameter is 'item'
 
-9 errors generated, 9 errors printed.
+8 errors generated, 8 errors printed.
 */

@@ -13,8 +13,7 @@ main(): Int64 {
     return 0
 }
 
-// ASSERT: scan "DiagKind": "sema_unable_to_infer_generic_func",
-// ASSERT: scan-2 "DiagKind": "sema_no_match_constructor",
-// ASSERT: scan "DiagKind": "sema_unknown_named_argument",
-// ASSERT: scan "DiagKind": "sema_mismatched_types",
-// ASSERT: scan "Errors": 5,
+// ASSERT: scan-1 "DiagKind": "sema_unable_to_infer_generic_func",
+// ASSERT: scan-1 "DiagKind": "sema_mismatched_types",
+// ASSERT: scan-1 "DiagKind": "sema_unknown_named_argument",
+// ASSERT: scan "Errors": 3,

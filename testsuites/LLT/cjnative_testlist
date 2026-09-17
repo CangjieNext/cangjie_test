@@ -127,27 +127,15 @@ compiler/Sema/generics/generic_subst_perf.cj
 compiler/Sema/modal/infer/p.cj
 compiler/Sema/modal/infer/some_local.cj
 compiler/Sema/type_infer/lambda_param_sum_keep_06.cj
-# breaking changes caused by adding API
-API/stdx/encoding/json/addTests/JsonArray/test_api_01_02.cj
-API/stdx/net/tls/redesign/resume-session-get-certs-server.cj
-API/stdx/net/tls/redesign/resume-session.cj
-compiler/Sema/call/call_error_report_01.cj
-compiler/Sema/varray/err_byte_string.cj
 # problem of implementing default member of interface, this is not caused by local mode
 API/stdx/net/http/server/serve_tls_test.cj
 compiler/Sema/Extend/extend_duplicate_interfaces9.cj
-# strange error message in sema
-compiler/Sema/call/call_error_report_01.cj
-compiler/Sema/array/arraysizedlit1.cj
-compiler/Sema/array/arraysizedlit2.cj
 # incremental
 compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/AddExtends/InterfaceExtend0to1_CPointer.cj
 # LTO runtime SIGSEGV
 compiler/Driver/LTO/lto_test6_22.cj
 # CHIR plugin
 API/stdx/AOP_tests/custom_plugin/chir_anno/case_chir_anno.cj
-# CHIR opt
-compiler/CHIROpt/ArrayLambda/testArrayLambda02.cj
 # runtime signal sigsegv signal
 compiler/CHIROptTest/Devirtualization/box.cj
 compiler/CodegenCommon/global/globalvariable/UInt8ti.cj
