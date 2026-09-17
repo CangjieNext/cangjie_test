@@ -27,11 +27,14 @@ warning: unused expression
 warning: unreachable expression
   ==> testDCEDowhile17.cj:15:5:
    | 
-13 |         return 0
-   |         ~~~~~~~~ any code following this expression is unreachable
-14 |     } while (true)
-15 |     return 1
-   |     ^^^^^^^^ unreachable expression
+11 |       do {
+   |  _____~
+12 | |         (2.4, 3.5)
+   | | ...
+14 | |     } while (true)
+   | |__________________~ any code following this expression is unreachable
+15 |       return 1
+   |       ^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 

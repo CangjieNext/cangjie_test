@@ -5,9 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify range-for termination CFG construction and a return successor diagnostic.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-
-// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_expression_hint"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 func returnFromRange(shouldReturn: Bool): Int64 {
     for (_ in 0..1) {
@@ -32,3 +30,18 @@ main() {
     println(returnFromRange(false))
     println(returnThenUnreachableInRange())
 }
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> for_range_termination.cj:23:9:
+   | 
+21 |         return 1
+   |         ~~~~~~~~ any code following this expression is unreachable
+22 |         // EXPECT: chir_dce_unreachable_expression_hint
+23 |         println("unreachable after range-for return")
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+1 warning generated, 1 warning printed.
+*/

@@ -4,17 +4,17 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (CJNATIVE) EXEC-PIPE: %compiler %cmp_opt %diag_json %enableO2 %f -o %output 2>&1 | compare %f
+// (CJNATIVE) EXEC-PIPE: %compiler %cmp_opt %enableO2 %f -o %output 2>&1 | compare %f
 // (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
 
-// ASSERT: scan-1 "DiagKind": "chir_unreachable_pattern"
-// ASSERT: scan-begin "DiagKind": "chir_unreachable_pattern"
-// ASSERT: scan-after "Line": 24
-// ASSERT: scan-after "Column": 18
-// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_expression_hint"
-// ASSERT: scan-begin "DiagKind": "chir_dce_unreachable_expression_hint"
-// ASSERT: scan-after "Line": 27
-// ASSERT: scan-after "Column": 9
+
+
+
+
+
+
+
+
 
 class A {
     func test() {
@@ -32,3 +32,30 @@ main() {
     A().test()
     return 0
 }
+
+/* SCAN
+warning: unreachable pattern
+  ==> testDCESwitch07.cj:24:18:
+   | 
+24 |             case _ => return 2
+   |                  ^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable expression
+  ==> testDCESwitch07.cj:27:9:
+   | 
+21 |           match (1) {
+   |  _________~
+22 | |             case 1 | 2 | 3 => return 1
+   | | ...
+25 | |         }
+   | |_________~ any code following this expression is unreachable
+26 |           // EXPECT: chir_dce_unreachable_expression_hint
+27 |           return 1
+   |           ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+2 warnings generated, 2 warnings printed.
+*/

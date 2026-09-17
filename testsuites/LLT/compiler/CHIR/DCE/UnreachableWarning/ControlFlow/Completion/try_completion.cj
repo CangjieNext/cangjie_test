@@ -5,9 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify terminal and normal completion paths through try/catch/finally.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-
-// ASSERT: scan-3 "DiagKind": "chir_dce_unreachable_expression_hint"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 func returnWithFinally(): Int64 {
     try { return 1 } finally { println("cleanup") }
@@ -56,3 +54,44 @@ main() {
     normalTryFinallyThrow()
     catchCompletesNormally()
 }
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> try_completion.cj:13:5:
+   | 
+11 |     try { return 1 } finally { println("cleanup") }
+   |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+12 |     // EXPECT: chir_dce_unreachable_expression_hint
+13 |     println("unreachable after all-return try-finally")
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> try_completion.cj:24:5:
+   | 
+21 |         return 1
+   |         ~~~~~~~~ any code following this expression is unreachable
+22 |     }
+   | ...
+24 |     println("unreachable after finally return")
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> try_completion.cj:36:5:
+   | 
+33 |         throw Exception()
+   |         ~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+34 |     }
+   | ...
+36 |     println("unreachable after finally throw")
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/

@@ -5,8 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify named arguments use declaration order when Nothing stops evaluation.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_expression_hint"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 func stop(): Nothing { throw Exception() }
 func next(): Int64 { 1 }
@@ -16,3 +15,27 @@ main() {
     consumeNamed(third: stop(), first: next(), second: next())
     println("unreachable after declaration-order named call")
 }
+
+/* SCAN-IN
+warning: unreachable 'call'
+  ==> nothing_named_argument.cj:15:5:
+   | 
+15 |     consumeNamed(third: stop(), first: next(), second: next())
+   |     ^^^^^^^^^^^^        ~~~~~~ any code following this expression is unreachable
+   |     |
+   |     unreachable 'call'
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> nothing_named_argument.cj:16:5:
+   | 
+15 |     consumeNamed(third: stop(), first: next(), second: next())
+   |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+16 |     println("unreachable after declaration-order named call")
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/

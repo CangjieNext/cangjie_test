@@ -32,9 +32,7 @@ warning: unreachable 'operator'
   ==> testDCEReturn05.cj:12:9:
    | 
 12 |         -return
-   |         ^~~~~~~ any code following this expression is unreachable
-   |         |
-   |         unreachable 'operator'
+   |         ^ unreachable 'operator'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 

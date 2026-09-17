@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 // EXEC-PIPE-0: %run %run_opt %output %run_args
 
-// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_expression_hint"
+
 
 func foo(): Int64 {
     // EXPECT: chir_dce_unreachable_expression_hint
@@ -31,3 +31,19 @@ main() {
     foo1()
     0
 }
+
+/* SCAN
+warning: unreachable expression
+  ==> testDCEReturn04.cj:14:5:
+   | 
+14 |       return try {
+   |  _____^
+15 | |         return 0
+   | | ...
+18 | |     }
+   | |_____^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+1 warning generated, 1 warning printed.
+*/

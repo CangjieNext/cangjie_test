@@ -5,10 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify a constant condition remains diagnosed inside a lambda.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-
-
-// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_block_in_expression"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 main() {
     let double = { value: Int64 =>
@@ -20,3 +17,18 @@ main() {
     }
     println(double(1))
 }
+
+/* SCAN-IN
+warning: unreachable block in 'if' expression
+  ==> lambda_constant_condition.cj:14:16:
+   | 
+14 |           } else {
+   |  ________________^
+15 | |             0
+16 | |         }
+   | |_________^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+1 warning generated, 1 warning printed.
+*/
