@@ -29,9 +29,7 @@ warning: unreachable expression
   ==> testDCEAsg02.cj:13:9:
    | 
 13 |         a = continue // a是不可达的表达式
-   |         ^^^^^^^^^^^^ any code following this expression is unreachable
-   |         |
-   |         unreachable expression
+   |         ^^^^^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 

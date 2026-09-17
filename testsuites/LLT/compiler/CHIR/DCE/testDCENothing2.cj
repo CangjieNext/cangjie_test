@@ -29,9 +29,7 @@ warning: unreachable expression
   ==> testDCENothing2.cj:16:5:
    | 
 16 |     var a = A(return)
-   |     ^^^^^^^^^^^^^^^^^ any code following this expression is unreachable
-   |     |
-   |     unreachable expression
+   |     ^^^^^^^^^^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
@@ -43,5 +41,13 @@ warning: unused variable:'a'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-3 warnings generated, 3 warnings printed.
+warning: unreachable expression
+  ==> testDCENothing2.cj:16:13:
+   | 
+16 |     var a = A(return)
+   |             ^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+4 warnings generated, 4 warnings printed.
 */

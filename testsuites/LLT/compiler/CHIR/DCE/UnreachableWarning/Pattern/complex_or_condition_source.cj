@@ -5,10 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify the final branch of a complex or-pattern keeps the enclosing if/while source.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-
-// ASSERT: scan-2 "DiagKind": "chir_dce_unreachable_block_in_expression"
-// ASSERT: scan-2 "DiagKind": "chir_unreachable_pattern"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 main() {
     let ifValue = (3, 6)
@@ -22,3 +19,43 @@ main() {
         break
     }
 }
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> complex_or_condition_source.cj:12:13:
+   | 
+12 |     if (let (1, 2) | (3, 4) <- ifValue) {
+   |             ^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable block in 'if' expression
+  ==> complex_or_condition_source.cj:12:22:
+   | 
+12 |     if (let (1, 2) | (3, 4) <- ifValue) {
+   |                      ^^^^^^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> complex_or_condition_source.cj:17:16:
+   | 
+17 |     while (let (1, 2) | (3, 4) <- whileValue) {
+   |                ^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable block in 'while' expression
+  ==> complex_or_condition_source.cj:17:25:
+   | 
+17 |     while (let (1, 2) | (3, 4) <- whileValue) {
+   |                         ^^^^^^ unreachable block in 'while' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/

@@ -4,9 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
-// ASSERT: scan-2 "DiagKind": "chir_dce_unreachable_expression_hint"
+
 
 class A <: Exception & Resource {
     public func isClosed() {
@@ -43,3 +43,29 @@ main() {
     } finally {}
     return 0
 }
+
+/* SCAN
+warning: unreachable expression
+  ==> testDCEThrow03.cj:14:9:
+   | 
+13 |         throw B()
+   |         ~~~~~~~~~ any code following this expression is unreachable
+14 |         var a = 1
+   |         ^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable expression
+  ==> testDCEThrow03.cj:44:5:
+   | 
+42 |       try (a: A = A()) {
+   |  _____~
+43 | |     } finally {}
+   | |________________~ any code following this expression is unreachable
+44 |       return 0
+   |       ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+2 warnings generated, 2 warnings printed.
+*/

@@ -5,9 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify selected enum table entries collect source case ids through their default edge.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json -O2 %f -o %output 2>&1 | compare %f
-
-// ASSERT: scan-4 "DiagKind": "chir_unreachable_pattern"
+// EXEC-PIPE-0: %compiler %cmp_opt -O2 %f -o %output 2>&1 | compare %f
 
 enum TableState {
     | Left(Int64, Bool)
@@ -24,3 +22,43 @@ main() {
         case Right(_, false) => 4
     }
 }
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> enum_table_reachability_edges.cj:19:30:
+   | 
+19 |         case Left(_, true) | Right(0, true) => 1
+   |                              ^^^^^^^^^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> enum_table_reachability_edges.cj:20:14:
+   | 
+20 |         case Left(_, false) => 2
+   |              ^^^^^^^^^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> enum_table_reachability_edges.cj:21:14:
+   | 
+21 |         case Right(_, true) => 3
+   |              ^^^^^^^^^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> enum_table_reachability_edges.cj:22:14:
+   | 
+22 |         case Right(_, false) => 4
+   |              ^^^^^^^^^^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/

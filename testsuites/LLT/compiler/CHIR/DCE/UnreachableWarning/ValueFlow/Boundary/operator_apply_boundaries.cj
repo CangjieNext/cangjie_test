@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// Float power and user operators are Apply boundaries for value propagation.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+// ASSERT: scan-not warning: unreachable
 
-// ASSERT: scan-not "DiagKind":
+// Float power and user operators are Apply boundaries for value propagation.
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 struct Counter {
     let value: Int64
