@@ -4,7 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %cmp_opt %enableO2 %f -o %output
+// LEVEL: 0
+// Runtime: dual interface instantiation I<Int64> & I<String> must not mis-resolve.
+// EXEC: %compiler %cmp_opt %enableO2 %n.cj -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 interface I<T> {
