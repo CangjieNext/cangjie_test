@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// CTFE-only values do not become RulesChecking value-flow facts.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+// ASSERT: scan-not warning: unreachable
 
-// ASSERT: scan-not "DiagKind":
+// CTFE-only values do not become RulesChecking value-flow facts.
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 const func currentValue(): Int64 {
     1

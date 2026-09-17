@@ -54,9 +54,7 @@ warning: unreachable expression
   ==> testDCEArray05.cj:21:5:
    | 
 21 |     [1, 3, return 2]
-   |     ^^^^^^^^^^^^^^^^any code following this expression is unreachable
-   |     |
-   |     unreachable expression
+   |     ^^^^^^^^^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 

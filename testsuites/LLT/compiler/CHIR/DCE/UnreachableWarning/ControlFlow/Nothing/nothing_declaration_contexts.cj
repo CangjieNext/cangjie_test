@@ -5,9 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify Nothing successors in declaration-body contexts.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-
-// ASSERT: scan-6 "DiagKind": "chir_dce_unreachable_expression_hint"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 class ThrowingHolder {
     init() {
@@ -71,3 +69,81 @@ main() {
     println(PropertyHolder.create().id())
     println((Counter(1) + Counter(2)).value)
 }
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> nothing_declaration_contexts.cj:14:9:
+   | 
+12 |         throw Exception()
+   |         ~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+13 |         // EXPECT: chir_dce_unreachable_expression_hint
+14 |         println("unreachable initializer")
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> nothing_declaration_contexts.cj:22:9:
+   | 
+20 |         return "hello"
+   |         ~~~~~~~~~~~~~~ any code following this expression is unreachable
+21 |         // EXPECT: chir_dce_unreachable_expression_hint
+22 |         return "unreachable greeting"
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> nothing_declaration_contexts.cj:31:13:
+   | 
+29 |             return true
+   |             ~~~~~~~~~~~ any code following this expression is unreachable
+30 |             // EXPECT: chir_dce_unreachable_expression_hint
+31 |             return false
+   |             ^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> nothing_declaration_contexts.cj:38:16:
+   | 
+36 |         return PropertyHolder()
+   |         ~~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+37 |         // EXPECT: chir_dce_unreachable_expression_hint
+38 |         return PropertyHolder()
+   |                ^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> nothing_declaration_contexts.cj:56:16:
+   | 
+54 |         return Counter(other.value)
+   |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+55 |         // EXPECT: chir_dce_unreachable_expression_hint
+56 |         return Counter(0)
+   |                ^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> nothing_declaration_contexts.cj:65:9:
+   | 
+63 |         throw Exception()
+   |         ~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+64 |         // EXPECT: chir_dce_unreachable_expression_hint
+65 |         println("unreachable lambda")
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/

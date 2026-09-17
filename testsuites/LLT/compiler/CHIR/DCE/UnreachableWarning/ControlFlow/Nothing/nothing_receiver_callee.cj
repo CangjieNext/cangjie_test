@@ -5,8 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify Nothing receiver and Nothing callee diagnostics retain their source locations.
-// EXEC-PIPE-0: %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
-// ASSERT: scan-4 "DiagKind": "chir_dce_unreachable_expression_hint"
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 extend Nothing {
     func consume(value: Int64) { }
@@ -27,3 +26,51 @@ func callee(): Int64 {
 }
 
 main() { receiver(); callee() }
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> nothing_receiver_callee.cj:17:20:
+   | 
+17 |     stop().consume(next())
+   |     ~~~~~~         ^^^^^^ unreachable expression
+   |     |
+   |     any code following this expression is unreachable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> nothing_receiver_callee.cj:18:5:
+   | 
+17 |     stop().consume(next())
+   |     ~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+18 |     println("unreachable after Nothing receiver")
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> nothing_receiver_callee.cj:23:12:
+   | 
+23 |     stop()(next())
+   |     ~~~~~~ ^^^^^^ unreachable expression
+   |     |
+   |     any code following this expression is unreachable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> nothing_receiver_callee.cj:24:5:
+   | 
+23 |     stop()(next())
+   |     ~~~~~~~~~~~~~~ any code following this expression is unreachable
+24 |     println("unreachable after Nothing callee")
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
