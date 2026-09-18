@@ -5,43 +5,31 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args
-
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 import std.sync.*
 import std.time.*
-import std.convert.*
 import std.runtime.*
-
-var reps = 135000000
-
 class A {
     var num: Int32 = 0
-
     init(num: Int32) {
         this.num = num
     }
 }
 
-func benchmarkAtomicSwapReference(): Unit {
-    let x = A(1)
-    var y = A(1)
-    let test = AtomicReference<A>(x)
-    var startTime = DateTime.now()
-    for (i in 0..reps) {
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_AtomicSwapReference {
+
+    @Bench
+    func BenchmarkAtomicSwapReference(): Unit {
+        let x = A(1)
+        var y = A(1)
+        let test = AtomicReference<A>(x)
         y = test.swap(x)
+        blackBox(y)
     }
-    blackBox(y)
-
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-
-    println("BenchmarkAtomicSwapReference: " + perTime.format(".2") + " ns/op")
-}
-
-main(): Int64 {
-    benchmarkAtomicSwapReference()
-    return 0
 }

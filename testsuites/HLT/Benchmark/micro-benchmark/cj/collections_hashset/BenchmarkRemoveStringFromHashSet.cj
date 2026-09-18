@@ -8,39 +8,30 @@
 
 // LEVEL: 3
 // DEPENDENCE: common_collection.cj
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f common_collection.cj -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f common_collection.cj -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
 // TIMEOUT: 1800
 
 import std.collection.*
 import std.time.*
-import std.convert.*
 import std.runtime.*
 
-var counts: ArrayList<Int64> = ArrayList<Int64>([32, 256, 2 * 1024, 16 * 1024, 128 * 1024])
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_Remove_String_From_HashSet {
 
-func benchmarkRemoveFromHashset(hashSet: HashSet<String>, keys: ArrayList<String>) {
-    var tmpSet = HashSet<String> (hashSet)
-    for (key in keys) {
-        blackBox(tmpSet.remove(key))
+    @Strategy[len in [32, 256, 2048, 16384, 131072]]
+    func hashSetData(len: Int64): (HashSet<String>, ArrayList<String>) {
+        generatHashSetTarget(len, "1")
     }
-}
 
-func timeBenchmarkRemoveFromHashset(num: Int64) {
-    var (hashSet, keys) = generatHashSetTarget(num, "1")
-    let N = 100000000 / num;
-    let startTime = DateTime.now()
-    for (i in 0..N) {
-        benchmarkRemoveFromHashset(hashSet, keys)
+    @Bench[data in hashSetData]
+    func BenchmarkRemoveFromHashset(data: (HashSet<String>, ArrayList<String>)): Unit {
+        var tmpSet = HashSet<String>(data[0])
+        for (key in data[1]) {
+            blackBox(tmpSet.remove(key))
+        }
     }
-    let endTime = DateTime.now()
-    let perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(N)
-    println("BenchmarkRemoveFromHashset_${types[0]}_${num.toString()}: ${perTime.format(".2")} ns/op")
-}
-
-main(): Int64 {
-    for (count in counts) {
-        timeBenchmarkRemoveFromHashset(count)
-    }
-    return 0
 }

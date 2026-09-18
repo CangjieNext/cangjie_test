@@ -7,18 +7,16 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args
-
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
 
 import stdx.encoding.json.stream.*
 import std.io.*
 import std.time.*
-import std.convert.*
 import std.collection.*
 import std.random.*
+import std.unittest.*
 
-let reps =[1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 100000, 10000, 10000]
 let string_size = [4, 8, 16, 64, 256, 1024, 4 * 1024, 16 * 1024, 128 * 1024]
 let random = Random()
 
@@ -32,6 +30,16 @@ func buildString(length: Int64): String {
     return str.toString()
 }
 
+func repFor(len: Int64): Int64 {
+    if (len <= 1024) {
+        1000000
+    } else if (len == 4096) {
+        100000
+    } else {
+        10000
+    }
+}
+
 func testWriteStrings(w: JsonWriter, n: Int64, str: String) {
     w.startArray()
     for (_ in 0..n) {
@@ -41,24 +49,24 @@ func testWriteStrings(w: JsonWriter, n: Int64, str: String) {
     w.flush()
 }
 
-func getWriter():JsonWriter {
+func getWriter(): JsonWriter {
     var out = ByteBuffer()
     return JsonWriter(out)
 }
 
-func timeBenchmarkJsonWriteString(rep: Int64, length: Int64) {
-    var jw = getWriter()
-    var str = buildString(length)
-    var startTime = DateTime.now()
-    testWriteStrings(jw, rep, str)
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(rep/10)
-    println("BenchmarkJsonWriteString_G10_${length}: " + perTime.format(".2") + " ns/op")
-}
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_Json_Write_String {
 
-main(): Int64 {
-    for (i in 0..9) {
-        timeBenchmarkJsonWriteString(reps[i], string_size[i])
+    @Strategy[len in [4, 8, 16, 64, 256, 1024, 4096, 16384, 131072]]
+    func writerData(len: Int64): GenerateEachInputProvider<(JsonWriter, String, Int64)> {
+        GenerateEachInputProvider { => (getWriter(), buildString(len), repFor(len)) }
     }
-    return 0
+
+    @Bench[data in writerData]
+    func BenchmarkJsonWriteString_G10(data: (JsonWriter, String, Int64)): Unit {
+        testWriteStrings(data[0], data[2], data[1])
+    }
 }
