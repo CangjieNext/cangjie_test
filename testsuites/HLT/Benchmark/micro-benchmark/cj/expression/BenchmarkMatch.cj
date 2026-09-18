@@ -12,7 +12,7 @@
 
 
 import std.time.*
-import std.collection.HashSet
+import std.runtime.*
 
 public enum Month {
     January | February | March | April | May | June | July | August | September | October | November | December
@@ -27,14 +27,6 @@ public class Test_Match {
     static var a: Int64 = 16
     static var b: Float64 = 0.0
     static var month: Month = December
-
-    static let blackhole = HashSet<Int64>()
-    static var element = 0
-
-    @AfterAll
-    public func dumb(): Unit {
-        blackhole.add(element)
-    }
 
     @Bench
     func BenchmarkMatchD1(): Unit {
@@ -56,7 +48,7 @@ public class Test_Match {
             case 15 => 15.5
             case _ => 16.5
         }
-        element = a
+        blackBox(a)
     }
 
     @Bench
@@ -82,7 +74,7 @@ public class Test_Match {
                     case _ => 16.6
                 }
         }
-        element = a
+        blackBox(a)
     }
 
     @Bench
@@ -113,7 +105,7 @@ public class Test_Match {
                         }
                 }
         }
-        element = a
+        blackBox(a)
     }
 
     @Bench
@@ -132,6 +124,6 @@ public class Test_Match {
             case November => 11
             case December => 12
         }
-        element = a
+        blackBox(a)
     }
 }
