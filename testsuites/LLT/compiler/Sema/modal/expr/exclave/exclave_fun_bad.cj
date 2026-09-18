@@ -14,7 +14,14 @@ class C {
         exclave { C()@local! }
     }
 }
+exclave func foo(): Unit {
+    println(3)
+}
+exclave func foo(a: String @local?): Unit {
+    println(a)
+}
 main() {}
 
-// ASSERT: scan "DiagKind": "sema_nested_exclave",
-// ASSERT: scan "Errors": 1,
+// ASSERT: scan-1 "DiagKind": "sema_nested_exclave",
+// ASSERT: scan-2 "DiagKind": "sema_exclave_invalid_func_signature",
+// ASSERT: scan "Errors": 3,
