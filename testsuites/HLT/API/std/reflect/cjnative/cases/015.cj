@@ -11,7 +11,7 @@
 // EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %compile_dylib_opt ./MyType/src/myType/*.cj -o ./MyType/libMyType.myType.%test_suffix
 // EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std -o %output %f
 // RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan ReflectException : Try to load the same file twice
+// ASSERT: scan ReflectException : File './MyType/libMyType.myType' is already loaded.
 // 反复加载同一个动态库模块。
 
 import std.reflect.*

@@ -118,7 +118,7 @@ class BigIntBitOpertTest {
             param_a >> -1
             @Expect(1,2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The parameter n must >= 0.")
+            @Expect(e.message, "Invalid argument 'n': must be non-negative.")
         }
 
         try {
@@ -126,7 +126,7 @@ class BigIntBitOpertTest {
             param_a << -32
             @Expect(1,2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The parameter n must >= 0.")
+            @Expect(e.message, "Invalid argument 'n': must be non-negative.")
         }
     }
 

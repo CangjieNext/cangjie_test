@@ -48,7 +48,7 @@ public class Test_env_process_01 {
             getVariable("\0")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The path cannot contain null character!")
+            @Expect(e.message, "Invalid argument 'key': contains null character.")
         }
     }
 }

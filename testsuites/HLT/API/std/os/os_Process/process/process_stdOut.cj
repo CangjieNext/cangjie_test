@@ -81,7 +81,7 @@ class Test_stdOut {
         try {
             Process.start("echo", "abc", stdOut: FromFile(file))
         } catch (e: ProcessException) {
-            @Expect(e.message, "Redirect file closed or not existed, not allow redirect.")
+            @Expect(e.message, "Redirect file is closed or does not exist.")
             cnt++
         } finally {
             remove("./stdout.txt")
@@ -97,7 +97,7 @@ class Test_stdOut {
         try {
             Process.start("sleep", "fggerw", stdErr: FromFile(file))
         } catch (e: ProcessException) {
-            @Expect(e.message, "Redirect file closed or not existed, not allow redirect.")
+            @Expect(e.message, "Redirect file is closed or does not exist.")
             cnt++
         }
         @Expect(cnt, 1)

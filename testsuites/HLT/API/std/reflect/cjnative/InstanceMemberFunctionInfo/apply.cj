@@ -33,7 +33,7 @@ class Test {
                 .apply(1, 12, r'a');
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalArgumentException: The input parameter item does not comply with the required quantity.")
+            @Expect(e.toString(), "IllegalArgumentException: Invalid argument count: expected 3, got 2.")
         }
 
         // 非子类型的 class 实例。
@@ -46,7 +46,7 @@ class Test {
                 .apply(C0(), 12, r'a');
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalArgumentException: The input parameter item does not comply with the required quantity.")
+            @Expect(e.toString(), "IllegalArgumentException: Invalid argument count: expected 3, got 2.")
         }
 
         // 获取父类型的实例成员函数，但却对子类型的实例调用。
@@ -58,7 +58,7 @@ class Test {
                 .apply(C4());
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalTypeException: The input instance should be \"MyType.myType.C2\", but now it`s \"MyType.myType.C4\"")
+            @Expect(e.toString(), "IllegalTypeException: Invalid instance type: expected 'MyType.myType.C2', got 'MyType.myType.C4'.")
         }
 
         // 实参数目不等。
@@ -71,7 +71,7 @@ class Test {
                 .apply(C1(), 12, r'a');
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalArgumentException: The input parameter item does not comply with the required quantity.")
+            @Expect(e.toString(), "IllegalArgumentException: Invalid argument count: expected 3, got 2.")
         }
 
         // 实参类型不匹配。
@@ -84,7 +84,7 @@ class Test {
                 .apply(C1(), 12, "kiki", 1.2);
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalTypeException: The input parameter does not match the type of the input parameter required by the function.")
+            @Expect(e.toString(), "IllegalTypeException: Parameter type mismatch: expected 'UInt32', got 'Int64'.")
         }
 
         // 试图调用抽象实例成员函数。
@@ -96,7 +96,7 @@ class Test {
                 .apply(C6());
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "InvocationTargetException: The abstract function cannot be applied.")
+            @Expect(e.toString(), "InvocationTargetException: Cannot invoke abstract function 'c3_public_abstract_instance_member_function_0'.")
         }
 
         // 实例成员函数内部抛出异常。

@@ -92,13 +92,13 @@ class Test_bigint_pow {
             param_a.modPow(BigInt(-1))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The exponent can not be negative.")
+            @Expect(e.message, "Invalid argument 'n': exponent cannot be negative.")
         }
         try {
             param_a.modPow(BigInt(1), m: BigInt(0))
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
         }
     }
 }

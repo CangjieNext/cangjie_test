@@ -50,7 +50,7 @@ class BigInitTest {
             i = BigInt(bytes)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size of bytes cannot be zero!")
+            @Expect(e.message, "Invalid argument 'bytes': size cannot be zero.")
         }
     }
 
@@ -105,7 +105,7 @@ class BigInitTest {
             i = BigInt(false, bytes)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size or the value of magnitude cannot be zero if sign is true!")
+            @Expect(e.message, "Invalid argument 'magnitude': value cannot be zero when sign is true.")
         }
 
         bytes = Array<Byte>()
@@ -113,7 +113,7 @@ class BigInitTest {
             i = BigInt(false, bytes)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size or the value of magnitude cannot be zero if sign is true!")
+            @Expect(e.message, "Invalid argument 'magnitude': value cannot be zero when sign is true.")
         }
         i = BigInt(true, bytes)
         @Expect(i.toString(), "0")

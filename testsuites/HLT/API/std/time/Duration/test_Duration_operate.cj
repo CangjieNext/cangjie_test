@@ -47,7 +47,7 @@ class Duration_operate_new_Test01 {
             let duration7 = duration5 + duration6
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Out of range of representation of 'Duration'!")
+            @Expect(e.message, "Duration value overflow.")
         }
     }
 
@@ -60,7 +60,7 @@ class Duration_operate_new_Test01 {
             let duration11 = duration8 + duration9 + Duration.nanosecond
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Out of range of representation of 'Duration'!")
+            @Expect(e.message, "Duration value overflow.")
         }
     }
 
@@ -71,7 +71,7 @@ class Duration_operate_new_Test01 {
             let duration13 = duration12 - Duration.nanosecond
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Out of range of representation of 'Duration'!")
+            @Expect(e.message, "Duration value overflow.")
         }
     }
 

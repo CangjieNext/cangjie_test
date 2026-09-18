@@ -9,7 +9,7 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan IllegalSynchronizationStateException: Write-Lock is not locked by current thread
+// ASSERT: scan IllegalSynchronizationStateException: Cannot unlock write lock: not locked by current thread
 
 import std.sync.{ReentrantReadWriteMutex, ReadWriteMutexMode}
 

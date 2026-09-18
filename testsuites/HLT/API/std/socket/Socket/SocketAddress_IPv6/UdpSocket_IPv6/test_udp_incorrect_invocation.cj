@@ -46,13 +46,13 @@ class Test_Udp_Incorrect_Invocation {
             udpsocket.connect(addr)
         } catch (e: SocketException) {
             sum += 1
-            @Expect(e.message, "The socket is not bound: invoke bind() first.")
+            @Expect(e.message, "Socket is not bound.")
         }
         try {
             udpsocket.disconnect()
         } catch (e: SocketException) {
             sum += 1
-            @Expect(e.message, "The socket is not bound: invoke bind() first.")
+            @Expect(e.message, "Socket is not bound.")
         }
         try {
             udpsocket.send(data)

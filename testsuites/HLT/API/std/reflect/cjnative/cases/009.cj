@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan IllegalTypeException: The input parameter does not match the type of the input parameter required by the function.
+// ASSERT: scan IllegalTypeException: Parameter type mismatch: expected 'Int64', got 'Float64'.
 // 如果实例 `instance` 的运行时类型与该实例成员属性信息所对应的实例成员属性所属的类型不严格相同，则会抛出 `IllegalTypeException` 异常。
 // 如果新值 `newValue` 的运行时类型与该实例成员属性信息所对应的实例成员属性的声明类型不严格相同，则会抛出 `IllegalTypeException` 异常。
 
