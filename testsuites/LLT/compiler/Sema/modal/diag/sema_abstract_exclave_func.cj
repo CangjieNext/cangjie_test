@@ -6,14 +6,14 @@
 
 // EXEC-PIPE-1: %compiler %cmp_opt %f -Woff all 2>&1 | compare %f
 abstract class C {
-    public exclave func foo(): Unit
+    public exclave func foo(): String @local!
 }
 main() {}
 /* SCAN
 error: abstract func 'foo' cannot be exclave
  ==> sema_abstract_exclave_func.cj:9:25:
   | 
-9 |     public exclave func foo(): Unit
+9 |     public exclave func foo(): String @local!
   |                         ^^^ 
   | 
 

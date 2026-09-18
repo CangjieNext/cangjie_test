@@ -5,11 +5,12 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC: %compiler %f -o %output
-func foo(a: CFunc<()->Int>) {
-    unsafe { println(a().toString()) }
+// RUN-EXEC: %run %run_opt %output %run_args
+func foo(_: CFunc<()->Int>) {
+    0
 }
-func foo(a: CFunc<()->Int> @local!) {
-    unsafe { println(a().toString()) }
+func foo(_: CFunc<()->Int> @local!) {
+    1
 }
 
 @C foreign func rand(): Int
