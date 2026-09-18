@@ -4,10 +4,21 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-macro package modal_parse_macro
+macro package refresh_local_named_param_lex_macro
 
 internal import std.ast.*
 
-public macro local(input: Tokens): Tokens {
-    input
+public macro EmitNamedLocal(_: Tokens): Tokens {
+    cangjieLex(
+        """
+func take(local!: Int64): Int64 {
+    local
+}
+main() {
+    let n = take(local: 1)
+    if (n == 1) {
+        println("ok")
+    }
+}
+""")
 }

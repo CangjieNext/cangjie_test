@@ -24,7 +24,7 @@ class Info {
     }
 }
 
-exclave func tryExtractInfo(s: String @local?): Option<Info> {
+func tryExtractInfo(s: String @local?): Option<Info> {
     let prefix = "|text-style-"
     let patternLen = prefix.size
     if (s.size < patternLen + 5) {

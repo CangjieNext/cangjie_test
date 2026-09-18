@@ -6,11 +6,11 @@
 
 // EXEC-PIPE-1: %compiler %diag_json %f -Woff all 2>&1 | compare %f
 abstract class C {
-    public exclave func foo(): Unit
+    public exclave func foo(): String @local!
 }
 
 interface I {
-    exclave func bar(): Unit
+    exclave func bar(): String @local!
 }
 
 main() {}

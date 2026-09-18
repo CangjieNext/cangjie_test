@@ -4,19 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %diag_json %f 2>&1
-func f(): Unit @local! {
-    let a: Int64 @local! = 0
+// EXEC-PIPE-1: %compiler %f %diag_json 2>&1 | compare %f
+func foo(a: (String,String) @local!){
+    bar(a[0])
 }
-func bar(): Unit @local! {
-    exclave {
-        let b: Int64@local! = 0
-    }
+exclave func bar(p: String @local!) {
+    println(p)
 }
-main() {
-    f()
-    bar()
-    0
-}
-// ASSERT: scan-1 "DiagKind": "sema_exclave_invalid_func_signature",
+main() {}
+// ASSERT: scan-1 "DiagKind": "sema_bad_external_local_arg",
 // ASSERT: scan "Errors": 1,
