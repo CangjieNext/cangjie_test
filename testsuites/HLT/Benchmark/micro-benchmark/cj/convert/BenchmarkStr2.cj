@@ -7,133 +7,85 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.convert.*
-import std.io.*
-import std.time.*
-import std.convert.*
-import std.collection.*
 import std.runtime.*
 
-let reps = 10000000
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_Str2 {
 
-func BenchmarkStr2Int8(str:String) {
-    for (n in 0..reps) {
-        blackBox(Int8.parse(str))
+    @Bench
+    func BenchmarkStr2Int8(): Unit {
+        blackBox(Int8.parse("100"))
     }
-}
 
-func BenchmarkStr2Int16(str:String) {
-    for (n in 0..reps) {
-        blackBox(Int16.parse(str))
+    @Bench
+    func BenchmarkStr2Int16(): Unit {
+        blackBox(Int16.parse("100"))
     }
-}
 
-func BenchmarkStr2Int32(str:String) {
-    for (n in 0..reps) {
-        blackBox(Int32.parse(str))
+    @Bench
+    func BenchmarkStr2Int32(): Unit {
+        blackBox(Int32.parse("100"))
     }
-}
 
-func BenchmarkStr2Int64(str:String) {
-    for (n in 0..reps) {
-        blackBox(Int64.parse(str))
+    @Bench
+    func BenchmarkStr2Int64(): Unit {
+        blackBox(Int64.parse("100"))
     }
-}
 
+    @Bench
+    func BenchmarkStr2UInt8(): Unit {
+        blackBox(UInt8.parse("100"))
+    }
 
-func BenchmarkStr2UInt8(str:String) {
-    for (n in 0..reps) {
-        blackBox(UInt8.parse(str))
+    @Bench
+    func BenchmarkStr2UInt16(): Unit {
+        blackBox(UInt16.parse("100"))
     }
-}
 
-func BenchmarkStr2UInt16(str:String) {
-    for (n in 0..reps) {
-        blackBox(UInt16.parse(str))
+    @Bench
+    func BenchmarkStr2UInt32(): Unit {
+        blackBox(UInt32.parse("100"))
     }
-}
 
-func BenchmarkStr2UInt32(str:String) {
-    for (n in 0..reps) {
-        blackBox(UInt32.parse(str))
+    @Bench
+    func BenchmarkStr2UInt64(): Unit {
+        blackBox(UInt64.parse("100"))
     }
-}
 
-func BenchmarkStr2UInt64(str:String) {
-    for (n in 0..reps) {
-        blackBox(UInt64.parse(str))
+    @Bench
+    func BenchmarkStr2Float16(): Unit {
+        blackBox(Float16.parse("100.100"))
     }
-}
 
-func BenchmarkStr2Float16(str:String) {
-    for (n in 0..reps) {
-        blackBox(Float16.parse(str))
+    @Bench
+    func BenchmarkStr2Float32(): Unit {
+        blackBox(Float32.parse("100.100"))
     }
-}
-func BenchmarkStr2Float32(str:String) {
-    for (n in 0..reps) {
-        blackBox(Float32.parse(str))
-    }
-}
-func BenchmarkStr2Float64(str:String) {
-    for (n in 0..reps) {
-        blackBox(Float64.parse(str))
-    }
-}
 
-func BenchmarkStr2Bool(str:String) {
-    for (n in 0..reps) {
-        blackBox(Bool.parse(str))
+    @Bench
+    func BenchmarkStr2Float64(): Unit {
+        blackBox(Float64.parse("100.100"))
     }
-}
-func BenchmarkStr2Char(str:String) {
-    for (n in 0..reps) {
-        blackBox(Rune.parse(str))
+
+    @Bench
+    func BenchmarkStr2Bool(): Unit {
+        blackBox(Bool.parse("true"))
     }
-}
 
-func timeBenchmarkBenchmarkStr2Int(funCase:HashMap<String,(str:String)->Unit>,caseStrs:HashMap<String,String>) {
-    for ((k,v) in funCase){
-        var params=caseStrs.get(k).getOrThrow()
-        var startTime = DateTime.now()
-        v(params)
-        var endTime = DateTime.now()
-        var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-        println(k + ": " + perTime.format(".2") + " ns/op")
-
+    @Bench
+    func BenchmarkStr2Bool_false(): Unit {
+        blackBox(Bool.parse("false"))
     }
-}
 
-main(): Int64 {
-    timeBenchmarkBenchmarkStr2Int(HashMap<String,(str:String)->Unit>([("BenchmarkStr2Int8",BenchmarkStr2Int8),
-    ("BenchmarkStr2Int16",BenchmarkStr2Int16),
-    ("BenchmarkStr2Int32",BenchmarkStr2Int32),
-    ("BenchmarkStr2Int64",BenchmarkStr2Int64),
-    ("BenchmarkStr2UInt8",BenchmarkStr2UInt8),
-     ("BenchmarkStr2UInt16",BenchmarkStr2UInt16),
-      ("BenchmarkStr2UInt32",BenchmarkStr2UInt32),
-       ("BenchmarkStr2UInt64",BenchmarkStr2UInt64),
-        ("BenchmarkStr2Float16",BenchmarkStr2Float16),
-        ("BenchmarkStr2Float32",BenchmarkStr2Float32),
-        ("BenchmarkStr2Float64",BenchmarkStr2Float64),
-        ("BenchmarkStr2Bool_true",BenchmarkStr2Bool),
-          ("BenchmarkStr2Bool_false",BenchmarkStr2Bool),
-         ("BenchmarkStr2Char",BenchmarkStr2Char)]),HashMap<String,String>([("BenchmarkStr2Int8", "100"),
-         ("BenchmarkStr2Int16","100"),
-         ("BenchmarkStr2Int32","100"),
-         ("BenchmarkStr2Int64","100"),
-         ("BenchmarkStr2UInt8","100"),
-         ("BenchmarkStr2UInt16","100"),
-         ("BenchmarkStr2UInt32","100"),
-         ("BenchmarkStr2UInt64","100"),
-         ("BenchmarkStr2Float16","100.100"),
-         ("BenchmarkStr2Float32","100.100"),
-         ("BenchmarkStr2Float64","100.100"),
-         ("BenchmarkStr2Bool_true","true"),
-          ("BenchmarkStr2Bool_false","false"),
-         ("BenchmarkStr2Char","'a'")]))
-    return 0
+    @Bench
+    func BenchmarkStr2Char(): Unit {
+        blackBox(Rune.parse("'a'"))
+    }
 }

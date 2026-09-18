@@ -8,16 +8,13 @@
 
 // LEVEL: 3
 // DEPENDENCE: common_collection.cj
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f common_collection.cj -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f common_collection.cj -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
 
 import std.collection.*
 import std.time.*
-import std.convert.*
 import stdx.crypto.crypto.*
 import std.runtime.*
-
-var counts: ArrayList<Int64> = ArrayList<Int64>([32, 256, 2 * 1024, 16 * 1024, 128 * 1024])
 
 func GenerateArray(n: Int64): Array<Int64> {
     let m = SecureRandom()
@@ -26,33 +23,22 @@ func GenerateArray(n: Int64): Array<Int64> {
         let num = m.nextInt64()
         _arr.add(num)
     }
-
     return _arr.toArray()
 }
 
-func BenchmarkInitInHashset(arr: Array<Int64>) {
-     blackBox(HashSet<Int64>(arr))
-}
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_Init_Collection_In_HashSet {
 
-func TimeBenchmarkAddToHashset(num: Int64) {
-    var totaltime = 0.0
-    let arr = GenerateArray(num)
-    let N = 100000000 / num;
-    for (_ in 0..N) {
-        var startTime = MonoTime.now()
-    
-        blackBox(HashSet<Int64>(arr))
-        
-        var endTime = MonoTime.now()
-        totaltime += Float64((endTime - startTime).toNanoseconds())
+    @Strategy[len in [32, 256, 2048, 16384, 131072]]
+    func initData(len: Int64): Array<Int64> {
+        GenerateArray(len)
     }
-    var perTime = totaltime / Float64(N)
-    println("BenchmarkInitCollectionInHashSet_${types[1]}_${num.toString()}: ${perTime.format(".2")} ns/op")
-}
 
-main(): Int64 {
-    for (count in counts) {
-        TimeBenchmarkAddToHashset(count)
+    @Bench[data in initData]
+    func BenchmarkInitCollectionInHashSet(data: Array<Int64>): Unit {
+        blackBox(HashSet<Int64>(data))
     }
-    return 0
 }
