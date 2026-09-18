@@ -15,7 +15,7 @@
 // ASSERT: scan-2 CJ_MCC_RemoveLocalFinalizer
 
 class AA {
-  exclave init() {}
+  init() {}
   exclave init(this @local?) {}
   exclave init(this @local!) {}
 }

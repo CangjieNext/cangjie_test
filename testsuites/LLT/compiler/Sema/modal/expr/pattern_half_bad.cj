@@ -19,13 +19,14 @@ enum F {
         exclave {
             match (this) {
                 case B => println("B")
-                case C(x) => let gar = x + "Hello" // should report error because x is @local?
+                case C(x) => let gar = jet(x)
             }
         }
     }
 }
+func jet(_: String @local!) {}
 
 main() {}
 
-// ASSERT: scan-2 "DiagKind": "sema_invalid_binary_expr",
-// ASSERT: scan "Errors": 2,
+// ASSERT: scan-1 "DiagKind": "sema_invalid_binary_expr",
+// ASSERT: scan "Errors": 1,

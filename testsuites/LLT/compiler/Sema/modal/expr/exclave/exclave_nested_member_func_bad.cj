@@ -7,12 +7,9 @@
 // ERRCHECK: %compiler %f -Woff all %diag_json 2>&1
 
 class C {
-    init() {}
-    init(this @local!) { exclave { } }
-
-    exclave func nestedInMember() {
+    exclave func nestedInMember(): String @local! {
         exclave {
-            0
+            "haha"
         }
     }
 }

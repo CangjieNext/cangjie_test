@@ -7,6 +7,7 @@
 // ERRCHECK: %compiler %f -Woff all %diag_json 2>&1
 main() {
     let p = arrayInitByCollection
+    let q = arrayInitByFunction
 }
-// ASSERT: scan-1 "DiagKind": "sema_undeclared_identifier",
-// ASSERT: scan "Errors": 1,
+// ASSERT: scan-2 "DiagKind": "sema_undeclared_identifier",
+// ASSERT: scan "Errors": 2,

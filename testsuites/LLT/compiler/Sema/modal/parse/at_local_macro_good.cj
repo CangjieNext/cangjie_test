@@ -4,11 +4,11 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE: %n.macro.cj
-// EXEC: %compiler %cmp_macro %n.macro.cj
+// DEPENDENCE: ../macro/identity.macro.cj
+// EXEC: %compiler %cmp_macro identity.macro.cj
 // EXEC: %compiler %f -Woff all --debug-macro
 
-import modal_parse_macro.*
+import identity_macro.*
 main() {
     @local @local? func foo() {}
 }
