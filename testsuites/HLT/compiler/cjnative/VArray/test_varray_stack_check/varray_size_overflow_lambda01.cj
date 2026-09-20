@@ -13,8 +13,8 @@
 main(): Int64 {
     var f: () -> Int64 = {
         =>
-        var v: VArray<Int64, $2305843009213693963> = VArray<Int64, $2305843009213693963> {i => i + 1}
-        return v[0]
+            var v: VArray<Int64, $2305843009213693963> = VArray<Int64, $2305843009213693963> {i => i + 1}
+            return v[0]
     }
     return f()
 }
