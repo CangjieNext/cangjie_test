@@ -75,3 +75,36 @@ Runtime/cjnative/runtime/Finalizer/complex_1.cj
 # Known Bug
 compiler/cjnative/Chir/dispatch/property_matrix/22_default_plus_abstract_unique_select/main.cj
 compiler/cjnative/stable_abi/07_extend/02_modify/01_define_content/05_instance_function/01_extend_nonclass/02_modify/return_type/41_extend_modify_func_returntype/41_extend_modify_func_returntype_0202.cj
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/488
+Tools/cjlint/normal\004\normal_004001\normal_004001.info
+Tools/cjlint/normal\004\normal_004002\normal_004002.info
+Tools/cjlint/normal\004\normal_004003\normal_004003.info
+Tools/cjlint/normal\004\normal_004004\normal_004004.info
+Tools/cjlint/normal\004\normal_004005\normal_004005.info
+Tools/cjlint/normal\004\normal_004006\normal_004006.info
+Tools/cjlint/normal\004\normal_004007\normal_004007.info
+Tools/cjlint/normal\004\normal_004008\normal_004008.info
+Tools/cjlint/rules\G_CLS_01\g_cls_01_009\g_cls_01_009.info
+Tools/cjlint/rules\G_CON_01\g_con_01_003\g_con_01_003.info
+Tools/cjlint/rules\G_CON_01\g_con_01_006\g_con_01_006.info
+Tools/cjlint/rules\G_CON_02\g_con_02_1037\g_con_02_1037.info
+Tools/cjlint/rules\G_DCL_01\g_dcl_01_025\g_dcl_01_025.info
+Tools/cjlint/rules\G_FUN_02\g_fun_02_006\g_fun_02_006.info
+Tools/cjlint/rules\G_FUN_02\g_fun_02_007\g_fun_02_007.info
+Tools/cjlint/rules\G_FUN_02\g_fun_02_008\g_fun_02_008.info
+Tools/cjlint/rules\G_FUN_02\g_fun_02_023\g_fun_02_023.info
+Tools/cjlint/rules\G_NAM_05\G_NAM_05_016\G_NAM_05_016.info
+Tools/cjlint/rules\G_SYN_01\g_syn_01_029\g_syn_01_029.info
+Tools/cjlint/rules\G_VAR_03\g_var_03_008\g_var_03_008.info
+Tools/cjlint/rules\P_01\p_01_10033\p_01_10033.info
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/489
+Tools/cjfmt/binary_operator/binary_operator_03_wrap_over_length/binary_operator_03_wrap_over_length.info
+Tools/cjfmt/blank_line/blank_line_02_top_level_decls/blank_line_02_top_level_decls.info
+Tools/cjfmt/blank_line/blank_line_08_top_multiline_comment_blank/blank_line_08_top_multiline_comment_blank.info
+Tools/cjfmt/cli/options/cjfmt_cli_416.info
+Tools/cjfmt/cli/options/cjfmt_cli_601.info
+Tools/cjfmt/line_length/line_length_02_boundary_121/line_length_02_boundary_121.info
+Tools/cjfmt/macro/macro_08_blank_line_vars/macro_08_blank_line_vars.info
+Tools/cjfmt/multiline_comment/multiline_comment_03_toplevel_alignment/multiline_comment_03_toplevel_alignment.info
