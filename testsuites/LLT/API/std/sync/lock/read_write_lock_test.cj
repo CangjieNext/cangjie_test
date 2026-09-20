@@ -161,4 +161,62 @@ class TestReadWriteLock {
             @Expect(c.waitUntil({=>false}, timeout: Duration.millisecond), false)
         }
     }
+
+    // MC-1: a timed-out waiter must not consume a subsequent notify()
+    // Regression: w1 (untimed) waits first, w2 (timed) waits second and times out;
+    // the LIFO queue is [w2, w1]; after w2 times out, one notify() must wake w1.
+    @TestCase
+    func testWaitTimeoutNotifyNotSwallowed(): Unit {
+        let m = ReadWriteLock().writeLock
+        m.lock()
+        let c = m.condition()
+        m.unlock()
+
+        let w1Ready = AtomicBool(false)
+        let w2Ready = AtomicBool(false)
+        let w2Done = AtomicBool(false)
+        let w1Woke = AtomicBool(false)
+
+        func waitFlag(f: AtomicBool, capMs: Int64): Unit {
+            var tries = capMs
+            while (!f.load() && tries > 0) {
+                tries -= 1
+                sleep(Duration.millisecond)
+            }
+        }
+
+        // A: w1 waits without timeout
+        spawn {
+            synchronized(m) {
+                w1Ready.store(true)
+                c.wait()
+                w1Woke.store(true)
+            }
+        }
+        waitFlag(w1Ready, 5000)
+        synchronized(m) {} // w1 released the lock when entering wait
+
+        // B: w2 waits with a short timeout (LIFO pushes it to the head)
+        spawn {
+            synchronized(m) {
+                w2Ready.store(true)
+                c.wait(timeout: Duration.millisecond * 30)
+                w2Done.store(true)
+            }
+        }
+        waitFlag(w2Ready, 5000)
+        synchronized(m) {} // w2 released the lock when entering wait
+
+        // C: wait for w2 to time out and leave (poll, no notify-driven wait)
+        waitFlag(w2Done, 5000)
+
+        // D: one notify() must wake w1 (buggy version: swallowed by stale w2 node)
+        synchronized(m) {
+            c.notify()
+        }
+
+        // E: w1 must wake up within a bounded time.
+        waitFlag(w1Woke, 2000)
+        @Expect(w1Woke.load(), true)
+    }
 }
