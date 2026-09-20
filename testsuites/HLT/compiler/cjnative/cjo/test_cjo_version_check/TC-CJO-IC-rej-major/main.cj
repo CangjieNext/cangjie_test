@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+// ═════════════════════════════════════════════════════════════════
+// 用例: TC-CJO-IC-rej-major(组: IncrementalCache;执行域: automated)
+// 用例意图: 兄弟 cjo 版本不匹配 → 增量构建被拒(PIPE-1,stderr 含版本 error);坏缓存被丢弃回退全量编译,缓存日志落回退行;产物与干净全量一致
+// fixture: 现场手术:pkg.cjo 经 cjo_mutate.py --set-cjo-version 1.0.0;手术目标=兄弟 cjo(.cached 内 cjo 不被读)
+// 判据: cjo_version_check/errcheck/incr_cache/cache_reject_major
+// 需求追溯: DFX#5;DT 设计正常场景 B;EC:major 异;DT:增量缓存×拒绝回退(分叉位)
+// ═════════════════════════════════════════════════════════════════
+
+
+// DEPENDENCE: pkg pkg.old.cj ../cjo_mutate.py log_reject.txt
+// EXEC: %cp pkg.old.cj pkg.cj
+// EXEC: %compiler %cmp_opt pkg.cj %compile_lib_opt -o pkg.%middle
+// EXEC: %compiler %incremental_compile %cmp_opt pkg.%middle %f -o %output
+// EXEC: %python cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 1.0.0
+// EXEC-PIPE-1: %compiler %incremental_compile %cmp_opt pkg.%middle %f -o %output 2>&1 | compare %f
+// ASSERT: scan is incompatible: compiled with cjc
+// (Linux)EXEC: cat .cached/*.log | compare log_reject.txt
+// (Windows)EXEC: powershell Get-Content .cached/*.log | compare log_reject.txt
+
+import pkg.*
+
+main(): Int64 {
+    if (depValue() == 42) {
+        return 0
+    }
+    return 1
+}
