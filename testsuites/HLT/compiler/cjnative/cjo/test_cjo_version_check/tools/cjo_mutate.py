@@ -1,0 +1,234 @@
+# cjo_mutate.py — CJO 版本检查 fixture 手术工具(真实实现,flatc JSON 往返主路径
+#   + 字节级破坏操作,全部用例运行时现场生成,套件不预存任何 .cjo)
+# 先例:CHIROpt/ArrayLambda pick_defination.py(套件根共享工具,DEPENDENCE ../x.py)
+#
+# 用法(与 test_cjo_version_check 各用例头部一致):
+#   --patch-cjo <file> --set-cjo-version M.m.p   改写 cjo 的 cjoVersion 三元组
+#   --patch-cjo <file> --set-version-string S    改写 cjo 的 version 字符串(产物溯源,同长更稳)
+#   --patch-cjo <file> --clear-version-string    删除 version 字符串(诊断报 'unknown' 溯源)
+#   --patch-cjo <file> --truncate <N>            截断至前 N 字节(Verifier 结构失败;N 省略=减半)
+#   --patch-cjo <file> --corrupt-identifier      头 4 字节改 XXXX(file identifier 非 CJOF)
+#   --patch-cjo <file> --random-fill [SEED]      等长随机字节替换全文(固定种子=可复现)
+#   --dump-version <file>                        印 "M.m.p <version-string>"(写读闭环断言用)
+#   --generate <baseline.cjo> <out.cjo> --set-cjo-version M.m.p [--set-version-string S]
+#                                                从基准产物生成命名 fixture(Verifier 必过)
+# 实测门禁语义(cjc 1.3.0-alpha.20260920003052,基准 (0,1,0)):
+#   接受:minor<=cur 且 major<=cur(含 (0,0,0));拒绝:minor>cur 或 major>cur
+#   cjoVersion 是 CjoFormat.fbs 的 inline struct(3 字节,无在场位)→ 无法缺字段;
+#   (0,0,0) 即"缺版本"的可实现形态,且被接受(与 version 字符串缺失被拒绝不同)。
+# 权威命令 cjo→json: ./flatc -t ./CjoFormat.fbs -- ./<file>.cjo
+# 权威命令 json→cjo: ./flatc -b ./CjoFormat.fbs ./<file>.json 产出 <file>.bin,mv 改名为 <file>.cjo
+#   flatc 输出 relaxed JSON(键名不带引号,可能带尾逗号);stderr 的 snake_case warning 可忽略
+#   flatc 产出名 = 输入 splitext 词干,共享词干的文件会互撞 → 一律复制到唯一临时名再手术
+# 注意:cjoVersion 与 .cachedast 的 HashedPackage.version:string 是两类机制(前者本特性,
+#   后者既有 CANGJIE_VERSION 门禁),勿混淆。
+import argparse
+import os
+import random
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+
+
+def locate_tool(name):
+    """找 flatc 与 CjoFormat.fbs:cwd → 脚本自身向上各级 → PATH。"""
+    seen = []
+    for start in (os.getcwd(), os.path.dirname(os.path.abspath(__file__))):
+        d = start
+        for _ in range(10):
+            cand = os.path.join(d, name)
+            if os.path.isfile(cand):
+                return cand
+            seen.append(d)
+            parent = os.path.dirname(d)
+            if parent == d:
+                break
+            d = parent
+    found = shutil.which(name)
+    if found:
+        return found
+    raise SystemExit('cjo_mutate.py: cannot locate %s (searched cwd/script dirs/PATH)' % name)
+
+
+def relaxed_json_to_strict(txt):
+    """flatc 的 relaxed JSON → 严格 JSON:键名加引号、去尾逗号。"""
+    txt = re.sub(r'([,{\[]\s*)([A-Za-z_][A-Za-z0-9_]*)\s*:', r'\1"\2":', txt)
+    txt = re.sub(r',(\s*[}\]])', r'\1', txt)
+    return txt
+
+
+def strict_json_to_relaxed(txt):
+    """严格 JSON → relaxed:键名去引号(flatc -b 接受两种,统一回 relaxed 便于二次手术)。"""
+    return txt
+
+
+def flatc_roundtrip(cjo_path, mutate):
+    """cjo → json → mutate(json 文本) → bin → 覆写回 cjo。"""
+    flatc = locate_tool('flatc-win.exe' if os.name == 'nt' else 'flatc')
+    fbs = locate_tool('CjoFormat.fbs')
+    tmp = tempfile.mkdtemp(prefix='cjo_mutate_')
+    try:
+        stem = 'probe_%d' % os.getpid()
+        probe = os.path.join(tmp, stem + '.cjo')
+        shutil.copy(cjo_path, probe)
+        r = subprocess.run([flatc, '-t', fbs, '--', probe], cwd=tmp,
+                           capture_output=True, text=True, errors='replace')
+        if r.returncode != 0:
+            raise SystemExit('cjo_mutate.py: flatc -t failed on %s:\n%s'
+                             % (cjo_path, (r.stderr or '')[-400:]))
+        json_path = os.path.join(tmp, stem + '.json')
+        if not os.path.isfile(json_path):
+            raise SystemExit('cjo_mutate.py: flatc -t produced no json for %s' % cjo_path)
+        txt = open(json_path, encoding='utf-8').read()
+        txt = mutate(txt)
+        open(json_path, 'w', encoding='utf-8').write(txt)
+        r = subprocess.run([flatc, '-b', fbs, stem + '.json'], cwd=tmp,
+                           capture_output=True, text=True, errors='replace')
+        if r.returncode != 0:
+            raise SystemExit('cjo_mutate.py: flatc -b failed:\n%s' % (r.stderr or '')[-400:])
+        bin_path = os.path.join(tmp, stem + '.bin')
+        if not os.path.isfile(bin_path):
+            raise SystemExit('cjo_mutate.py: flatc -b produced no bin')
+        shutil.move(bin_path, cjo_path)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+TRIPLE_RE = re.compile(
+    r'cjoVersion: \{\s*major_num: (\d+),\s*minor_num: (\d+),\s*patch_num: (\d+)')
+VERSION_STR_RE = re.compile(r'version: "([^"]*)"')
+
+
+def set_triple(txt, m, mi, p):
+    def repl(match):
+        return ('cjoVersion: {\n    major_num: %d,\n    minor_num: %d,\n'
+                '    patch_num: %d' % (m, mi, p))
+    new, n = TRIPLE_RE.subn(repl, txt, count=1)
+    if n == 0:
+        raise SystemExit('cjo_mutate.py: cjoVersion triple not found in json')
+    return new
+
+
+def read_triple(txt):
+    m = TRIPLE_RE.search(txt)
+    if not m:
+        raise SystemExit('cjo_mutate.py: cjoVersion triple not found in json')
+    return (int(m.group(1)), int(m.group(2)), int(m.group(3)))
+
+
+def byte_ops(path, op, arg=None):
+    """字节级破坏操作(Verifier 组):截断/坏 identifier/随机填充。直接改写文件。"""
+    raw = open(path, 'rb').read()
+    if op == 'truncate':
+        n = int(arg) if arg is not None else len(raw) - len(raw) // 2
+        raw = raw[:n]
+    elif op == 'corrupt-identifier':
+        raw = b'XXXX' + raw[4:]
+    elif op == 'random-fill':
+        rng = random.Random(int(arg) if arg is not None else 42)
+        raw = bytes(rng.randrange(256) for _ in range(len(raw)))
+    else:
+        raise SystemExit('cjo_mutate.py: unknown byte op %s' % op)
+    open(path, 'wb').write(raw)
+    print('cjo_mutate.py: %s applied to %s' % (op, path))
+
+
+def main():
+    ap = argparse.ArgumentParser(description='CJO version fixture surgery tool')
+    ap.add_argument('--patch-cjo', metavar='FILE')
+    ap.add_argument('--generate', nargs=2, metavar=('BASE', 'OUT'))
+    ap.add_argument('--set-cjo-version', metavar='M.m.p')
+    ap.add_argument('--set-version-string', metavar='S')
+    ap.add_argument('--clear-version-string', action='store_true')
+    ap.add_argument('--truncate', nargs='?', const='', default=None, metavar='N')
+    ap.add_argument('--corrupt-identifier', action='store_true')
+    ap.add_argument('--random-fill', nargs='?', const='', default=None, metavar='SEED')
+    ap.add_argument('--dump-version', metavar='FILE')
+    ap.add_argument('--patch-cache', action='store_true',
+                    help='兼容保留:实测 .cached 内 <hash>.cjo 的 cjoVersion 不参与门禁,'
+                         '本工具不再提供缓存手术;如传入则报错退出(防止空转假绿)')
+    args = ap.parse_args()
+
+    if args.patch_cache:
+        raise SystemExit('cjo_mutate.py: --patch-cache 已废弃(实测缓存 cjo 不参与版本门禁;'
+                         '增量用例改为手术命令行 dep cjo,见用例头部 fixture 说明)')
+
+    # 字节级破坏:不经过 flatc(输入本来就允许是坏结构),直接改文件
+    byte_op = None
+    if args.truncate is not None:
+        byte_op = ('truncate', args.truncate or None)
+    elif args.corrupt_identifier:
+        byte_op = ('corrupt-identifier', None)
+    elif args.random_fill is not None:
+        byte_op = ('random-fill', args.random_fill or None)
+    if byte_op is not None:
+        if not args.patch_cjo:
+            ap.error('--truncate/--corrupt-identifier/--random-fill need --patch-cjo FILE')
+        byte_ops(args.patch_cjo, byte_op[0], byte_op[1])
+        return
+
+    if args.dump_version:
+        flatc = locate_tool('flatc-win.exe' if os.name == 'nt' else 'flatc')
+        fbs = locate_tool('CjoFormat.fbs')
+        tmp = tempfile.mkdtemp(prefix='cjo_dump_')
+        try:
+            probe = os.path.join(tmp, 'dump.cjo')
+            shutil.copy(args.dump_version, probe)
+            r = subprocess.run([flatc, '-t', fbs, '--', probe], cwd=tmp,
+                               capture_output=True, text=True, errors='replace')
+            if r.returncode != 0:
+                raise SystemExit('cjo_mutate.py: flatc -t failed:\n%s' % (r.stderr or '')[-300:])
+            txt = open(os.path.join(tmp, 'dump.json'), encoding='utf-8').read()
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        tri = read_triple(txt)
+        vs = VERSION_STR_RE.search(txt)
+        print('%d.%d.%d %s' % (tri[0], tri[1], tri[2], vs.group(1) if vs else '(none)'))
+        return
+
+    targets = []
+    if args.patch_cjo:
+        targets.append(args.patch_cjo)
+    if args.generate:
+        base, out = args.generate
+        shutil.copy(base, out)
+        targets.append(out)
+
+    if not targets:
+        ap.error('nothing to do: need --patch-cjo FILE or --generate BASE OUT')
+
+    triple = None
+    if args.set_cjo_version:
+        parts = args.set_cjo_version.split('.')
+        if len(parts) != 3:
+            ap.error('--set-cjo-version expects M.m.p')
+        triple = tuple(int(x) for x in parts)
+
+    for path in targets:
+        def mutate(txt):
+            txt2 = txt
+            if triple is not None:
+                txt2 = set_triple(txt2, *triple)
+            if args.set_version_string is not None:
+                new, n = VERSION_STR_RE.subn('version: "%s"' % args.set_version_string,
+                                             txt2, count=1)
+                if n == 0:
+                    raise SystemExit('cjo_mutate.py: version string not found in json')
+                txt2 = new
+            if args.clear_version_string:
+                new, n = re.subn(r'version: "[^"]*",\s*', '', txt2, count=1)
+                if n == 0:
+                    raise SystemExit('cjo_mutate.py: version string not found in json')
+                txt2 = new
+            if txt2 == txt and triple is None and args.set_version_string is None \
+                    and not args.clear_version_string:
+                raise SystemExit('cjo_mutate.py: no mutation applied to %s' % path)
+            return txt2
+        flatc_roundtrip(path, mutate)
+        print('cjo_mutate.py: patched %s' % path)
+
+
+if __name__ == '__main__':
+    main()
