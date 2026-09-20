@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// [C9_iflet_ok_else] 已知成功 if-let 的 else
+// Tier-A: 本地 SDK 1.3.0-alpha 实测计数一致，可常驻 CI。
+// 规格: §4.2 C9（嵌套 constructor 确定成功 → else 1 条; 绑定出的 number 在 then 中按未知值处理; 2026-09-20 新 SDK 实测 1 条 block 与本断言一致，升 A）
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+
+// ASSERT: scan-1 "DiagKind": "chir_dce_unreachable_block_in_expression"
+
+main() {
+    let value = Option<Option<Int64>>.Some(Option<Int64>.Some(1))
+    if (let Some(Some(number)) <- value) {
+        println(number)
+    } else {
+        println("dead nested Some else")
+    }
+}
