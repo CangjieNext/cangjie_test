@@ -56,6 +56,11 @@ API/std/collection/TreeSet/treeset_random_key.cj
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 
+# stdx main branch flatbuffers.cjo missing, cjpm tree/check/update fail. TODO: restore after stdx fixed.
+Tools/cjpm/stdx/c/tree_01/tree_01.info
+Tools/cjpm/stdx/c/check_01/check_01.info
+Tools/cjpm/stdx/c/update_01/update_01.info
+
 # pffi should run with Python-ffi version
 API/std/ffi/Python
 # old jffi can only be run with cjvm.
