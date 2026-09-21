@@ -77,7 +77,7 @@ public class JsonSecurityRegressionTest {
             arr.toJsonString()
             @Assert(false)
         } catch (e: JsonException) {
-            @Expect(e.message, "Json nested depth exceeds 100.")
+            @Expect(e.message, "JSON nested depth '101' exceeds maximum '100'.")
         }
     }
 

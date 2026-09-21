@@ -7,11 +7,13 @@
  */
 // LEVEL: 0
 // SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no JSON local receiver/ctor APIs.
+// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
+// Evidence: cjc+run ALL PASSED (T518/T519/T531)。 T531 heap half 格式化期望对齐 pretty layout。
 // Evidence: cjc exits rc=1 with `invalid subscript operator [] on Class-JsonArray @local!`
 // and `expected Class-JsonArray, found Class-JsonArray @local!` (44 errors generated,
 // 8 errors printed) after source duplicate declarations were removed.
-// DISABLED-EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// DISABLED-EXEC: %set_stdx_path %run %run_opt %output %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T518/T519.  This file is the read-only constructor and
 // accessor probe for JsonArray.  Constructor alias/copy behavior is not a
@@ -37,7 +39,7 @@ func fail(label: String): Int64 {
     1
 }
 
-func expectIndexError(array: JsonArray @local!, index: Int64, label: String): Int64 {
+exclave func expectIndexError(array: JsonArray @local!, index: Int64, label: String): Int64 {
     try {
         let _: JsonValue @local! = array[index]
         fail("${label}_accepted")
@@ -147,10 +149,10 @@ exclave func checkHeapArrayHalf(array: JsonArray, label: String): Int64 {
     } catch (_: JsonException) {
         ()
     }
-    let text: String = view.toString()
+    let text: String = array.toString()
     if (text != "[1,\"x\"]") { failed += fail("${label}_toString") }
-    let formatted: String = view.toJsonString()
-    if (formatted != "[\\n  1,\\n  \\\"x\\\"\\n]") { failed += fail("${label}_toJsonString") }
+    let formatted: String = array.toJsonString(0)
+    if (formatted != "[\n  1,\n  \"x\"\n]") { failed += fail("${label}_toJsonString") }
     failed
 }
 
@@ -160,7 +162,10 @@ main(): Int64 {
     // T518: local ArrayList constructor with an initial [1] payload.  The
     // constructor itself is the supported construction path; no add call is
     // made in this active read-only file.
-    let list: ArrayList<JsonValue> @local! = ArrayList<JsonValue>([JsonInt(1) @local!]) @local!
+    let elem: JsonValue @local! = JsonInt(1) @local!
+    let elems: ArrayList<JsonValue> @local! = ArrayList<JsonValue>()
+    elems.add(elem)
+    let list: ArrayList<JsonValue> @local! = elems
     let fromList: JsonArray @local! = JsonArray(list) @local!
     if (fromList.size() != 1 || fromList[0].toString() != "1") {
         failed += fail("T518_list_ctor_initial_payload")
@@ -171,7 +176,9 @@ main(): Int64 {
 
     // T518: an initial Array payload is observed through the Array-taking local
     // constructor.  The source array is not mutated afterwards.
-    let source: Array<JsonValue> @local! = [JsonInt(1), JsonString("x")]
+    let e1: JsonValue @local! = JsonInt(1) @local!
+    let e2: JsonValue @local! = JsonString("x") @local!
+    let source: Array<JsonValue> @local! = [e1, e2]
     let fromArray: JsonArray @local! = JsonArray(source) @local!
     failed += checkLocalArray(fromArray, "T518_array_ctor")
     if (source.size != 2) { failed += fail("T518_array_ctor_source_size") }

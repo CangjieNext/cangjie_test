@@ -61,7 +61,7 @@ public class JsonReaderSecurityRegressionTest {
             reader.readValue<BigInt>()
             @Assert(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "BigInt length exceeds 16384.")
+            @Expect(e.message, "BigInt length '16385' exceeds maximum '16384'.")
         }
     }
 
@@ -72,7 +72,7 @@ public class JsonReaderSecurityRegressionTest {
             reader.readValue<String>()
             @Assert(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Json string length exceeds 33554432.")
+            @Expect(e.message, "JSON string length '33554433' exceeds maximum '33554432'.")
         }
     }
 }

@@ -26,7 +26,7 @@ public class JsonWriterSecurityRegressionTest {
             }
             @Assert(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Json nested depth exceeds 100.")
+            @Expect(e.message, "JSON nested depth '100' exceeds maximum '100'.")
         }
     }
 

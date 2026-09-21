@@ -9,7 +9,8 @@
 // SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no fromStr(String @local?) overload.
 // Evidence: cjc exits rc=1 with `expected Struct-String, found Struct-String @local?`
 // at the isolated call (4 errors generated, 4 errors printed).
-// DISABLED-EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // DISABLED-EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T509 isolated provenance probe.  The only local value in

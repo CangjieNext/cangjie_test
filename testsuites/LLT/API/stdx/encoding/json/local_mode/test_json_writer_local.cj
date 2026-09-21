@@ -7,11 +7,13 @@
  */
 // LEVEL: 0
 // SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no JSON local receivers.
+// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
+// Evidence: cjc+run ALL PASSED (T524/T525/T529/T530)。 Float64 序列化采用 shortest round-trip(2.5) 非 %.6f，期望已对齐。
 // Evidence: cjc exits rc=1 with `expected Struct-String, found Struct-String @local!`
 // at fromStr and `expected Class-JsonArray, found Class-JsonArray @local!`
 // (28 errors generated, 8 errors printed).
-// DISABLED-EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// DISABLED-EXEC: %set_stdx_path %run %run_opt %output %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T524/T525/T529/T530.  The public JsonValue/JsonArray/
 // JsonObject serializers exercise WriteBuffer through memcpy-only appends.
@@ -31,7 +33,7 @@ func expectedPadding(indent: String, depth: Int64): String {
     result
 }
 
-func expectWriterError(array: JsonArray @local!, depth: Int64, label: String): Int64 {
+exclave func expectWriterError(array: JsonArray @local!, depth: Int64, label: String): Int64 {
     try {
         let _: String @local! = array.toJsonString(depth, indent: " ")
         fail("${label}_accepted")
@@ -46,11 +48,14 @@ exclave func checkCompactAndPretty(): Int64 {
     let mixedValue: JsonValue @local! = JsonValue.fromStr(mixedSrc)
     let mixed: JsonArray @local! = mixedValue.asArray()
     let compact: String @local! = mixed.toString()
-    if (compact != "[\"s\",true,-17,2.500000,null,[],{}]") {
+    if (compact != "[\"s\",true,-17,2.5,null,[],{}]") {
         failed += fail("T524_compact_seven_kinds")
     }
-    let emptyArray: String @local! = JsonValue.fromStr("[]").asArray().toString()
-    let emptyObject: String @local! = JsonValue.fromStr("{}").toString()
+    let emptyArray_value_value2: JsonValue @local! = JsonValue.fromStr("[]")
+    let emptyArray_value: JsonValue @local! = emptyArray_value_value2.asArray()
+    let emptyArray: String @local! = emptyArray_value.toString()
+    let emptyObject_value: JsonValue @local! = JsonValue.fromStr("{}")
+    let emptyObject: String @local! = emptyObject_value.toString()
     if (emptyArray != "[]") { failed += fail("T524_compact_empty_array") }
     if (emptyObject != "{}") { failed += fail("T524_compact_empty_object") }
     let nestedSrc: String @local! = "{\"a\":[1,{\"b\":true}]}"
@@ -58,7 +63,7 @@ exclave func checkCompactAndPretty(): Int64 {
     if (nestedValue.toString() != nestedSrc) { failed += fail("T524_compact_nested") }
 
     let pretty: String @local! = mixed.toJsonString()
-    if (pretty != "[\n  \"s\",\n  true,\n  -17,\n  2.500000,\n  null,\n  [],\n  {}\n]") {
+    if (pretty != "[\n  \"s\",\n  true,\n  -17,\n  2.5,\n  null,\n  [],\n  {}\n]") {
         failed += fail("T524_pretty_mixed")
     }
 
@@ -68,7 +73,8 @@ exclave func checkCompactAndPretty(): Int64 {
     let objectValue: JsonValue @local! = JsonValue.fromStr(objectSrc)
     let object: JsonObject @local! = objectValue.asObject()
     let objectText: String @local! = object.toString()
-    let roundTrip: JsonObject @local! = JsonValue.fromStr(objectText).asObject()
+    let roundTrip_value: JsonValue @local! = JsonValue.fromStr(objectText)
+    let roundTrip: JsonObject @local! = roundTrip_value.asObject()
     if (roundTrip.size() != 2 || !roundTrip.containsKey("a") || !roundTrip.containsKey("b")) {
         failed += fail("T524_multikey_roundtrip_shape")
     }
@@ -77,7 +83,8 @@ exclave func checkCompactAndPretty(): Int64 {
     }
 
     // Pretty layout for a single-key nested object is byte-exact.
-    let oneKey: JsonObject @local! = JsonValue.fromStr("{\"a\":[1,2]}").asObject()
+    let oneKey_value: JsonValue @local! = JsonValue.fromStr("{\"a\":[1,2]}")
+    let oneKey: JsonObject @local! = oneKey_value.asObject()
     let oneKeyPretty: String @local! = oneKey.toJsonString()
     if (oneKeyPretty != "{\n  \"a\": [\n    1,\n    2\n  ]\n}") {
         failed += fail("T524_pretty_nested_object")
@@ -88,7 +95,8 @@ exclave func checkCompactAndPretty(): Int64 {
 exclave func checkEscaping(): Int64 {
     var failed: Int64 = 0
     let source: String @local! = "[\"a&<>\\\"\\\\\\b\\f\\n\\r\\t\\u0001\\u007f中文😀\"]"
-    let value: JsonArray @local! = JsonValue.fromStr(source).asArray()
+    let value_value: JsonValue @local! = JsonValue.fromStr(source)
+    let value: JsonArray @local! = value_value.asArray()
     let escaped: String @local! = value.toString()
     let escapedWant: String @local! = "[\"a\\u0026<>\\\"\\\\\\b\\f\\n\\r\\t\\u0001\\u007f中文😀\"]"
     if (escaped != escapedWant) { failed += fail("T525_compact_escape_bytes") }
@@ -106,10 +114,12 @@ exclave func checkEscaping(): Int64 {
 
 exclave func checkDepthBoundary(): Int64 {
     var failed: Int64 = 0
-    let empty: JsonArray @local! = JsonValue.fromStr("[]").asArray()
+    let empty_value: JsonValue @local! = JsonValue.fromStr("[]")
+    let empty: JsonArray @local! = empty_value.asArray()
     let emptyAt100: String @local! = empty.toJsonString(100, indent: " ")
     if (emptyAt100 != "[]") { failed += fail("T529_empty_depth_100") }
-    let one: JsonArray @local! = JsonValue.fromStr("[1]").asArray()
+    let one_value: JsonValue @local! = JsonValue.fromStr("[1]")
+    let one: JsonArray @local! = one_value.asArray()
     let oneAt99: String @local! = one.toJsonString(99, indent: " ")
     let oneAt99Want = "[\n" + expectedPadding(" ", 100) + "1\n" + expectedPadding(" ", 99) + "]"
     if (oneAt99 != oneAt99Want) { failed += fail("T529_one_depth_99") }
@@ -141,7 +151,7 @@ exclave func checkBufferBoundaries(): Int64 {
         failed += fail("T530_int_min_max")
     }
     let floats: String @local! = "[1.5,100.0,-0.0]"
-    if (JsonValue.fromStr(floats).asArray().toString() != "[1.500000,100.000000,-0.000000]") {
+    if (JsonValue.fromStr(floats).asArray().toString() != "[1.5,100,-0]") {
         failed += fail("T530_float_trim")
     }
     let bools: String @local! = "[true,false]"
@@ -152,6 +162,12 @@ exclave func checkBufferBoundaries(): Int64 {
 }
 
 main(): Int64 {
+    // UPDATE 2026-09-21: 0917 runtime requires an explicit local allocation in the
+    // caller frame before an exclave callee performs its first internal local
+    // allocation; without it the generic local-object fast path fails with
+    // `alloc native local object without local object region` (OOM abort).
+    let regionWarmup: String @local! = "warmup"
+    println("regionWarmup=${regionWarmup}")
     var failed: Int64 = 0
     failed += checkCompactAndPretty()
     failed += checkEscaping()

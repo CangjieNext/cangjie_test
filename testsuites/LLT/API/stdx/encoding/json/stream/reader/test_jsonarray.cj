@@ -153,7 +153,7 @@ public class JsonArrayTest {
             reader.peek()
             @Expect(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Character not expected: '}'.")
+            @Expect(e.message, "Unexpected character: '}'.")
         }
     }
 
@@ -169,7 +169,7 @@ public class JsonArrayTest {
             reader.peek()
             @Expect(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Expect a string as Json Name, but peeked '['.")
+            @Expect(e.message, "Expected a string as JSON name, but peeked '['.")
         }
     }
 
@@ -189,7 +189,7 @@ public class JsonArrayTest {
             reader.peek()
             @Expect(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Character not expected: '}'.")
+            @Expect(e.message, "Unexpected character: '}'.")
         }
     }
 
@@ -219,7 +219,7 @@ public class JsonArrayTest {
             reader.peek()
             @Expect(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Character not expected: ','.")
+            @Expect(e.message, "Unexpected character: ','.")
         }
     }
 
@@ -233,7 +233,7 @@ public class JsonArrayTest {
             reader.peek()
             @Expect(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Character not expected: ','.")
+            @Expect(e.message, "Unexpected character: ','.")
         }
     }
 

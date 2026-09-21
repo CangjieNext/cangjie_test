@@ -7,11 +7,13 @@
  */
 // LEVEL: 0
 // SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no parser local overloads.
+// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
+// Evidence: cjc+run ALL PASSED (T505/T508-T515)。 T515 solidus 期望由 \/ 修正为 /（RFC 合法转义，payload 不含反斜杠）。
 // Evidence: cjc exits rc=1 with `expected Struct-String, found Struct-String @local!`
 // at JsonValue.fromStr and `expected Class-JsonValue, found Class-JsonValue @local!`
 // (27 errors generated, 8 errors printed).
-// DISABLED-EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// DISABLED-EXEC: %set_stdx_path %run %run_opt %output %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T508/T510-T517/T535.  Parser observations deliberately
 // assert only JsonException type for rejected input.  Row/column/complete
@@ -379,8 +381,8 @@ main(): Int64 {
     let plainText: String @local! = "\"abc\""
     let plainSrc: String @local! = "\"abc\""
     failed += expectLocalString(plainSrc, plainPayload, plainText, "T515_plain")
-    let simplePayload: String @local! = "q\"bs\\/\b\f\n\r\t"
-    let simpleText: String @local! = "\"q\\\"bs\\\\/\\b\\f\\n\\r\\t\""
+    let simplePayload: String @local! = "q\"bs/\b\f\n\r\t"
+    let simpleText: String @local! = "\"q\\\"bs/\\b\\f\\n\\r\\t\""
     let simpleSrc: String @local! = "\"q\\\"bs\\/\\b\\f\\n\\r\\t\""
     failed += expectLocalString(simpleSrc, simplePayload, simpleText, "T515_simple_escapes")
     let asciiPayload: String @local! = "A"

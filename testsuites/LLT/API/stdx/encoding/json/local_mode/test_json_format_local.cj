@@ -7,11 +7,13 @@
  */
 // LEVEL: 0
 // SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no JSON local format APIs.
+// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
+// Evidence: cjc+run ALL PASSED (T526/T527/T528)。
 // Evidence: cjc exits rc=1 with `expected Class-JsonArray, found Class-JsonArray @local!`
 // for formatter calls and `expected Struct-String, found Struct-String @local!` at fromStr
 // (31 errors generated, 8 errors printed).
-// DISABLED-EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// DISABLED-EXEC: %set_stdx_path %run %run_opt %output %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T526/T528.  Formatted output is compared byte-for-byte
 // against an independent indentation oracle.  Invalid format arguments catch
@@ -158,16 +160,20 @@ main(): Int64 {
 
     // T526: exact layouts for empty, flat, nested arrays and a single-key
     // object (single key avoids any HashMap order assumption).
-    let emptyArray: JsonArray @local! = JsonValue.fromStr("[]").asArray()
-    let emptyObject: JsonObject @local! = JsonValue.fromStr("{}").asObject()
+    let emptyArray_value: JsonValue @local! = JsonValue.fromStr("[]")
+    let emptyArray: JsonArray @local! = emptyArray_value.asArray()
+    let emptyObject_value: JsonValue @local! = JsonValue.fromStr("{}")
+    let emptyObject: JsonObject @local! = emptyObject_value.asObject()
     if (emptyArray.toJsonString() != "[]") { failed += fail("T526_empty_array") }
     if (emptyObject.toJsonString() != "{}") { failed += fail("T526_empty_object") }
     if (pair.toJsonString() != "[\n  1,\n  2\n]") { failed += fail("T526_pair_default") }
-    let oneKey: JsonObject @local! = JsonValue.fromStr("{\"a\":[1,2]}").asObject()
+    let oneKey_value: JsonValue @local! = JsonValue.fromStr("{\"a\":[1,2]}")
+    let oneKey: JsonObject @local! = oneKey_value.asObject()
     if (oneKey.toJsonString() != "{\n  \"a\": [\n    1,\n    2\n  ]\n}") {
         failed += fail("T526_one_key_nested")
     }
-    let nested: JsonArray @local! = JsonValue.fromStr("[[1],3]").asArray()
+    let nested_value: JsonValue @local! = JsonValue.fromStr("[[1],3]")
+    let nested: JsonArray @local! = nested_value.asArray()
     if (nested.toJsonString() != "[\n  [\n    1\n  ],\n  3\n]") {
         failed += fail("T526_nested_array")
     }

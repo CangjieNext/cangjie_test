@@ -9,7 +9,8 @@
 // SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no JsonObject @local! ctor.
 // Evidence: cjc exits rc=1 with `no matching constructor for call 'JsonObject'`
 // and local receiver mismatch at size() (2 errors generated, 2 printed).
-// DISABLED-EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // DISABLED-EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T521 isolated positive.  This compilation unit contains
