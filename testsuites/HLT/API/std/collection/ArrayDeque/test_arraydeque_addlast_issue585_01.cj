@@ -50,6 +50,29 @@ class Test_arraydeque_addlast_issue585_01 {
     }
 
     @TestCase
+    func test_reserve_non_wrap_preserves_order(): Unit {
+        let arrdeque = ArrayDeque<Int64>()
+        for (i in 0..4) {
+            arrdeque.addLast(i)
+        }
+        @Expect(arrdeque.removeFirst(), Some(0))
+        @Expect(arrdeque.removeFirst(), Some(1))
+        @Expect(arrdeque.size, 2)
+        @Expect(arrdeque.first, Some(2))
+        @Expect(arrdeque.last, Some(3))
+
+        arrdeque.reserve(7)
+
+        @Expect(arrdeque.capacity > 8, true)
+        @Expect(arrdeque.size, 2)
+        @Expect(arrdeque.first, Some(2))
+        @Expect(arrdeque.last, Some(3))
+        @Expect(arrdeque.removeFirst(), Some(2))
+        @Expect(arrdeque.removeFirst(), Some(3))
+        @Expect(arrdeque.isEmpty(), true)
+    }
+
+    @TestCase
     func test_addlast_wrap_around_grow_keeps_order(): Unit {
         let arrdeque = ArrayDeque<Int64>(8)
         for (i in 0..6) {
