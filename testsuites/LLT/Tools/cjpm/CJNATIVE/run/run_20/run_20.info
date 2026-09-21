@@ -6,6 +6,7 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run --build-args="-h -a -b" 2>&1 | compare %f
+// EXEC: cd %n && %cjpm run --build-args="-a -h" 2>&1 | compare %f
 // ASSERT: scan Compile a local module and all of its dependencies
 // ASSERT: scan Warning: cjpm doesn't do job in show usage mode
 // ASSERT: scan cjpm run failed
