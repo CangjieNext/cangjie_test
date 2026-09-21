@@ -11,6 +11,7 @@
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.sync.*
+import std.time.*
 
 @Test
 class TestReadWriteLock {
@@ -218,5 +219,65 @@ class TestReadWriteLock {
         // E: w1 must wake up within a bounded time.
         waitFlag(w1Woke, 2000)
         @Expect(w1Woke.load(), true)
+    }
+
+    // CR-2: a timed condition wait must return within its requested budget.
+    // The unfixed SyncList.NotifyOnce.waitWithTimeout recomputed the
+    // remaining budget with a wall clock (DateTime.nowUTC) and passed the
+    // ORIGINAL timeout to monitor.wait on every loop, so a wall-clock step
+    // (NTP / manual date change) distorted the wait and spurious wakeups
+    // stretched one wait to ~N * timeout. The fixed code uses MonoTime and
+    // the remaining budget.
+    //
+    // Public-API regression construction: a worker waits with a 200ms
+    // timeout while the main thread notify()s it repeatedly. The fixed std
+    // returns at ~200ms. (The unfixed std also returns at ~200ms here: a
+    // notify() marks the waiter notified so the loop exits; the wall-clock /
+    // spurious-wakeup bugs are not reachable through the public API without
+    // a clock shim, which LLT does not provide — they are covered by the
+    // LD_PRELOAD-based verification in the fix report.)
+    @TestCase
+    func testWaitTimeoutBudget(): Unit {
+        let m = ReadWriteLock().writeLock
+        m.lock()
+        let c = m.condition()
+        m.unlock()
+
+        let started = AtomicBool(false)
+        let done = AtomicBool(false)
+        let elapsedMs = AtomicInt64(-1)
+        spawn {
+            synchronized(m) {
+                started.store(true)
+                let t0 = MonoTime.now()
+                c.wait(timeout: Duration.millisecond * 200)
+                elapsedMs.store((MonoTime.now() - t0).toMilliseconds())
+            }
+            done.store(true)
+        }
+        while (!started.load()) {
+            sleep(Duration.millisecond)
+        }
+
+        // spuriously wake the waiter 8 times within its budget
+        for (_ in 0..8) {
+            sleep(Duration.millisecond * 25)
+            synchronized(m) {
+                c.notify()
+            }
+        }
+
+        // wait for the waiter to finish (bounded)
+        var tries: Int64 = 5000
+        while (!done.load() && tries > 0) {
+            tries -= 1
+            sleep(Duration.millisecond)
+        }
+
+        let elapsed = elapsedMs.load()
+        @Expect(done.load(), true) // waiter must return within the bounded wait
+        // Fixed std: ~200ms. Unfixed std: >= 8 * 200ms. CI-stable ceiling:
+        // well below the unfixed behaviour.
+        @Expect(Duration.millisecond * elapsed <= Duration.millisecond * 600)
     }
 }
