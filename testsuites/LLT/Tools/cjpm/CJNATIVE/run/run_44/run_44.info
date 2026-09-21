@@ -5,6 +5,6 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// ERRCHECK: cd %n && %cjpm run --build-args -h
+// ERRCHECK: cd %n && %cjpm init && %cjpm run --build-args -h
 // ASSERT: scan Warning: cjpm doesn't do job in show usage mode
 // ASSERT: scan-not Compile and run an executable product.
