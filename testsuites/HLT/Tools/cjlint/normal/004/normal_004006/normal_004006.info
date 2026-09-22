@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ./src
+// Regression: the manual documents the column key of exclude_lists.json as
+// 'colum' while the SDK only honors 'column'. With the manual spelling and a
+// mismatched column value (99 != 5) the warning must NOT be suppressed.
+// Currently the unknown key is silently ignored and the whole line 10 is
+// excluded. NOTE: if docs are fixed to 'column' instead, update the config
+// of this case accordingly.
+// EXEC-PIPE: %lint -f ./src -c . -m %cangjieDir 2>&1 | compare %f
+// ASSERT: regex .*test\.cj:10:5:.*warning.*G\.VAR\.01: Prefer immutable variables when the value of the variable 'count' does not change\.

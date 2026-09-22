@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE: ../%n
 // EXEC: cd %n/uilang && cjfmt -f ./config_ArrayLit_indent2.cj -c ./../cangjie-format.toml -l 9:100
 // (Windows) EXEC: dos2unix %n/formated/config_ArrayLit_indent2.cj
