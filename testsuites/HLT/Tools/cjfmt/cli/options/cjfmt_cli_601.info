@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: bom_input.cj
+// DEPENDENCE: bom_expect.cj
+// EXEC: %cp bom_input.cj bom_work.cj
+// EXEC: %cjfmt -f bom_work.cj -l 1:100
+// (Windows) EXEC: dos2unix bom_expect.cj
+// EXEC: %diff bom_expect.cj bom_work.cj
