@@ -4,20 +4,27 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %f -Woff all %diag_json 2>&1
+// ERRCHECK: %compiler %f -Woff all %cmp_opt 2>&1
 
 class C {
     init() {}
     init(this @local!) { exclave {} }
 }
-
 func makeC(): C @local! {
     exclave { C() }
 }
 
-let g = { => makeC() }
+let g = { => exclave { makeC() } }()
 
 main() {}
 
-// ASSERT: scan-1 "DiagKind": "sema_bad_internal_local_return",
-// ASSERT: scan "Errors": 1,
+/* SCAN
+error: expected data type here, got modal type 'Class-C @local!'
+  ==> sema_expected_data_type.cj:17:1:
+   | 
+17 | let g = { => exclave { makeC() } }()
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+   | 
+
+1 error generated, 1 error printed.
+*/

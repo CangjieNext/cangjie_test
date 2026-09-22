@@ -7,7 +7,7 @@
 // EXEC-PIPE-1: %compiler %cmp_opt %f -o %output -Woff all 2>&1 | compare %f
 
 class C {
-   exclave init(this @local!) {}
+    exclave init(this @local!) {}
 }
 func foo(): C@local! {
     exclave {

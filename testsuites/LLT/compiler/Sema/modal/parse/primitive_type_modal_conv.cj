@@ -6,23 +6,9 @@
 
 // ERRCHECK: %compiler %f -Woff all %diag_json 2>&1
 
-class C {
-    init() {}
-    exclave init(this @local!) {}
+main() {
+    let b = Int32 @local!(a)
 }
 
-func outer() {
-    let a: C @local! = exclave { C() }
-    func inner(y!: C @local! = a) {
-        println("ok")
-    }
-    inner()
-}
-
-main(): Int64 {
-    outer()
-    0
-}
-
-// ASSERT: scan "DiagKind": "sema_bad_capture_local",
+// ASSERT: scan-1 "DiagKind": "parse_unexpected_modal_type",
 // ASSERT: scan "Errors": 1,

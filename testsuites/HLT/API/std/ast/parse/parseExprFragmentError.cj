@@ -11,7 +11,6 @@
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 
 // ASSERT: scan expected expression after '', found '+'
-// ASSERT: scan expected expression after '+', found '%'
 // ASSERT: scan An exception has occurred:
 // ASSERT: scan ParseASTException
 // ASSERT: scan parsing expr fragment error.

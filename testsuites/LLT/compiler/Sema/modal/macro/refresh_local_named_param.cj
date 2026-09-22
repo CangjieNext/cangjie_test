@@ -18,7 +18,5 @@ func take(local!: Int64): Int64 {
 
 main() {
     let n = take(local: 1)
-    if (n == 1) {
-        println("ok")
-    }
+    n - 1
 }

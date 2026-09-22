@@ -12,5 +12,5 @@ exclave func bar(p: String @local!) {
     println(p)
 }
 main() {}
-// ASSERT: scan-1 "DiagKind": "sema_bad_external_local_arg",
+// ASSERT: scan-1 "DiagKind": "sema_external_local_arg",
 // ASSERT: scan "Errors": 1,

@@ -9,6 +9,6 @@
 func varrayArg(a: VArray<Copyable, $1>): Unit {}
 
 main() {}
-// ASSERT: scan-1 "DiagKind": "sema_illegal_copyable_type_usage",
+// ASSERT: scan-1 "DiagKind": "sema_illegal_copy_type_usage",
 // ASSERT: scan-1 "DiagKind": "sema_varray_arg_type_with_reftype",
 // ASSERT: scan "Errors": 2,

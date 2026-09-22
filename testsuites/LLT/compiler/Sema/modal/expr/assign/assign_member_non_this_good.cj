@@ -33,14 +33,14 @@ class E {
 
 main() {}
 /* SCAN
-error: cannot assign to member of @local? value of non copy type outside its constructorand finalizer
+error: cannot assign to member of @local? value of non copy type outside its constructor and finalizer
   ==> assign_member_non_this_good.cj:23:9:
    | 
 23 |         value.c = C()
    |         ^^^^^^^^^^^^^ 
    | 
 
-error: cannot assign to member of @local? value of non copy type outside its constructorand finalizer
+error: cannot assign to member of @local? value of non copy type outside its constructor and finalizer
   ==> assign_member_non_this_good.cj:30:9:
    | 
 30 |         d.c = C()

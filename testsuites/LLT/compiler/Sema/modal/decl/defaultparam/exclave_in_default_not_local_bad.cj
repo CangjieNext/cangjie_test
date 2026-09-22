@@ -17,7 +17,7 @@ func foo(y!: C = exclave { C() }) {
 }
 
 main() {
-    foo(C())
+    foo(y: C())
 }
 
 // ASSERT: scan "DiagKind": "sema_exclave_outside_function",
