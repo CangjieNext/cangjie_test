@@ -148,7 +148,6 @@ API/stdx/AOP_tests/custom_plugin/chir_anno/case_chir_anno.cj
 compiler/CHIROpt/ArrayLambda/testArrayLambda02.cj
 # runtime signal sigsegv signal
 compiler/CHIROptTest/Devirtualization/box.cj
-compiler/CodegenCommon/global/globalvariable/UInt8ti.cj
 compiler/Sema/modal/expr/array_lit2.cj
 # timeout
 API/std/core/error_handler_stackoverflow_throws_error.cj
