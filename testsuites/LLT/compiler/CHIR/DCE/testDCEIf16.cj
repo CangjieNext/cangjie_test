@@ -21,16 +21,26 @@ main() {
 
 /* SCAN
 warning: unreachable block in 'if' expression
-  ==> testDCEIf16.cj:14:12:
+  ==> testDCEIf16.cj:14:22:
    | 
 14 |       } else if (true) {
-   |  ____________^
+   |  ______________________^
 15 | |         var b = 2
-   | | ...
+16 | |     } else {
+   | |_____^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable block in 'if' expression
+  ==> testDCEIf16.cj:16:12:
+   | 
+16 |       } else {
+   |  ____________^
+17 | |         var c = 3
 18 | |     }
    | |_____^ unreachable block in 'if' expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-1 warning generated, 1 warning printed.
+2 warnings generated, 2 warnings printed.
 */
