@@ -26,5 +26,5 @@ extend My <: Copyable {}
 
 main() {}
 
-// ASSERT: scan-10 "DiagKind": "sema_illegal_copyable_type_usage",
+// ASSERT: scan-10 "DiagKind": "sema_illegal_copy_type_usage",
 // ASSERT: scan "Errors": 10,

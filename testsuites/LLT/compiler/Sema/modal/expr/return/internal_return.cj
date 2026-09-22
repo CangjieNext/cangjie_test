@@ -30,5 +30,5 @@ func baz(): Int@local! {
     return c.p
 }
 
-// ASSERT: scan-2 "DiagKind": "sema_bad_internal_local_return",
+// ASSERT: scan-2 "DiagKind": "sema_internal_local_return",
 // ASSERT: scan "Errors": 2,

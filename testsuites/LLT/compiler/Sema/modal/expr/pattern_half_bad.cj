@@ -27,6 +27,5 @@ enum F {
 func jet(_: String) {}
 
 main() {}
-
 // ASSERT: scan-2 "DiagKind": "sema_mismatched_types",
 // ASSERT: scan "Errors": 2,

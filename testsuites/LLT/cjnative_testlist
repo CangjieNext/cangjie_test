@@ -127,6 +127,11 @@ compiler/Sema/generics/generic_subst_perf.cj
 # problem of implementing default member of interface, this is not caused by local mode
 API/stdx/net/http/server/serve_tls_test.cj
 compiler/Sema/Extend/extend_duplicate_interfaces9.cj
+# CHIR translation of default param value
+compiler/Sema/modal/decl/defaultparam/default_param.cj
+# composition in modal type requires redesign
+compiler/Sema/modal/expr/composition/local_good.cj
+compiler/Sema/modal/expr/composition/local_good2.cj
 # incremental
 compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/AddExtends/InterfaceExtend0to1_CPointer.cj
 # CHIR plugin

@@ -6,21 +6,15 @@
 
 // ERRCHECK: %compiler %f -Woff all %diag_json 2>&1
 
-class NC {
+class C {
     init() {}
-    init(this @local!) { exclave { } }
+    init(this @local!) { exclave {} }
 }
 
-func id(a: NC@local!): NC@local! {
-    exclave { a }
+main() {
+    let c: C @local! = C()
+    let d = -c
 }
 
-func use(p: NC@local!) {
-    id(p)
-}
-
-main() {}
-
-// ASSERT: scan-1 "DiagKind": "sema_bad_external_local_arg",
-// ASSERT: scan-1 "DiagKind": "sema_bad_internal_local_return",
-// ASSERT: scan "Errors": 2,
+// ASSERT: scan-1 "DiagKind": "sema_invalid_unary_expr",
+// ASSERT: scan "Errors": 1,

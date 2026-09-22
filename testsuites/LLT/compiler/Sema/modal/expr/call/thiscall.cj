@@ -15,5 +15,5 @@ class C {
     func bar(this @local!) {}
 }
 main() {}
-// ASSERT: scan-3 "DiagKind": "sema_bad_external_local_arg",
+// ASSERT: scan-3 "DiagKind": "sema_external_local_arg",
 // ASSERT: scan "Errors": 3,

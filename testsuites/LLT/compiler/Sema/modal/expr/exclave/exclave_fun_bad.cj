@@ -4,8 +4,6 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// An `exclave func` already provides an exclave region for its body; a nested `exclave { }` is illegal.
-
 // ERRCHECK: %compiler %f -Woff all %diag_json 2>&1
 
 class C {

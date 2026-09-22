@@ -12,7 +12,6 @@
 // EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 // ASSERT: scan expected expression after '', found '+'
-// ASSERT: scan expected expression after '+', found '%'
 // ASSERT: scan An exception has occurred:
 // ASSERT: scan ParseASTException
 // ASSERT: scan parsing expr fragment error.

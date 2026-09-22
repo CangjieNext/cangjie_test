@@ -14,5 +14,5 @@ main() {
     let s = [S(), F()]
 }
 
-// ASSERT: scan-1 "DiagKind": "sema_illegal_copyable_type_usage",
+// ASSERT: scan-1 "DiagKind": "sema_illegal_copy_type_usage",
 // ASSERT: scan "Errors": 1,
