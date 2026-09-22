@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: noend_input.cj
+// DEPENDENCE: noend_expect.cj
+// EXEC: %cp noend_input.cj noend_work.cj
+// EXEC: %cjfmt -f noend_work.cj -l 1:100
+// (Windows) EXEC: dos2unix noend_expect.cj
+// EXEC: %diff noend_expect.cj noend_work.cj
