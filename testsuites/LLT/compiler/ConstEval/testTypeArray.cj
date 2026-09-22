@@ -4,20 +4,20 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_a`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_b`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_c`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_d`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_e`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_f`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_g`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_h`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_i`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_j`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_k`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_first_numbers_when_counting`
+// EXEC: %compiler %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
+// EXEC: %run %run_opt %output %run_args
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_a`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_b`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_c`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_d`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_e`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_f`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_g`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_h`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_i`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_j`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_k`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_first_numbers_when_counting`
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

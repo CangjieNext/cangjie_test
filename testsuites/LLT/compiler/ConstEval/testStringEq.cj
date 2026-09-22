@@ -4,19 +4,19 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
-// (not CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 10 nodes to 1 nodes
-// (not CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 10 nodes to 1 nodes
-// (not CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 6 nodes to 1 nodes
-// (not CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 6 nodes to 1 nodes
-// (not CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 5 nodes to 1 nodes
-// (not CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 5 nodes to 1 nodes
-// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_s1` of 3 expressions to one of 2 expressions.
-// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_s2` of 3 expressions to one of 2 expressions.
-// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_r1` with initializer constant(s).
-// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_r2` with initializer constant(s).
-// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_r3` with initializer constant(s).
-// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_r4` with initializer constant(s).
+// EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
+// (not CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 10 nodes to 1 nodes
+// (not CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 10 nodes to 1 nodes
+// (not CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 6 nodes to 1 nodes
+// (not CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 6 nodes to 1 nodes
+// (not CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 5 nodes to 1 nodes
+// (not CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated from 5 nodes to 1 nodes
+// (CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_s1` of 3 expressions to one of 2 expressions.
+// (CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_s2` of 3 expressions to one of 2 expressions.
+// (CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_r1` with initializer constant(s).
+// (CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_r2` with initializer constant(s).
+// (CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_r3` with initializer constant(s).
+// (CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_r4` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

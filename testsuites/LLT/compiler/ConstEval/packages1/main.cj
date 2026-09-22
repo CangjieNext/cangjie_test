@@ -5,11 +5,13 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: packageA.cj packageB.cj %n.cj
-// (DEBUG_OPTION)EXEC: %compiler %compile_lib_opt packageA.cj -o packageA.%middle
-// (DEBUG_OPTION)EXEC: %compiler %compile_lib_opt packageB.cj -o packageB.%middle
-// (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt packageB.%middle packageA.%middle %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_z` with initializer constant(s).
-// (CJNATIVE and DEBUG_OPTION) EXEC-85: %run %run_opt %output %run_args
+// EXEC: %compiler %compile_lib_opt packageA.cj -o packageA.%middle
+// EXEC: %compiler %compile_lib_opt packageB.cj -o packageB.%middle
+// EXEC: %compiler %compile_exe_opt %debugCHIROpt packageB.%middle packageA.%middle %n.cj -o %output 2>&1 | compare %f
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_z` with initializer constant(s).
+// (CJNATIVE) EXEC-85: %run %run_opt %output %run_args
+// ASSERT: scan-not core dumped
+// ASSERT: scan-not stack trace
 
 import b.*
 const z = g() + 1

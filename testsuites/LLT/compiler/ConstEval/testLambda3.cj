@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION) EXEC: %cjc %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
-// (DEBUG_OPTION and CJNATIVE) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_add_two`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_two_plus_two` with initializer constant(s).
+// EXEC: %cjc %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
+// (CJNATIVE) EXEC: %run %run_opt %output %run_args
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_add_two`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_two_plus_two` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

@@ -4,51 +4,51 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION) EXEC: %cjc %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
-// (DEBUG_OPTION) EXEC: %run %output
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1i8` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2i8` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3i8` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1i16` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2i16` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3i16` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1i32` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2i32` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3i32` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1i64` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2i64` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3i64` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1iNative` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2iNative` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3iNative` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1u8` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2u8` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3u8` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1u16` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2u16` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3u16` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1u32` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2u32` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3u32` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1u64` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2u64` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3u64` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1uNative` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2uNative` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3uNative` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1Rune` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2Rune` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3Rune` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1Bool` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2Bool` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1Option` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2Option` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m1Enum`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m2Enum`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m3Enum`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m1Enum2`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m2Enum2`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m3Enum2`
+// EXEC: %cjc %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
+// EXEC: %run %output
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1i8` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2i8` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3i8` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1i16` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2i16` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3i16` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1i32` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2i32` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3i32` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1i64` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2i64` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3i64` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1iNative` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2iNative` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3iNative` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1u8` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2u8` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3u8` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1u16` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2u16` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3u16` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1u32` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2u32` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3u32` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1u64` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2u64` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3u64` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1uNative` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2uNative` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3uNative` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1Rune` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2Rune` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m3Rune` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1Bool` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2Bool` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m1Option` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_m2Option` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m1Enum`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m2Enum`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m3Enum`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m1Enum2`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m2Enum2`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_m3Enum2`
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

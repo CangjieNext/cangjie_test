@@ -4,13 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION) EXEC: %cjc %debugCHIROpt %cmp_opt %f -o %output | compare %f
-// (DEBUG_OPTION) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_global`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_value` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_array`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_nested`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_doubleIndex` with initializer constant(s).
+// EXEC: %cjc %debugCHIROpt %cmp_opt %f -o %output | compare %f
+// EXEC: %run %run_opt %output %run_args
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_global`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_value` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_array`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_nested`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_doubleIndex` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

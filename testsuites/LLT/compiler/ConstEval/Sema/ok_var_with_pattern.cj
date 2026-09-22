@@ -4,11 +4,11 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %cmp_opt %f -o %output | compare %f
-// (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args
-// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `_CGV7default13tuple_patternHv:a:b:c:d` with initializer constant(s).
-// (not CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_tuple_pattern:a:b:c:d` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_result` with initializer constant(s).
+// EXEC: %compiler %compile_exe_opt %debugCHIROpt %cmp_opt %f -o %output | compare %f
+// EXEC: %run %run_opt %output %run_args
+// (CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `_CGV7default13tuple_patternHv:a:b:c:d` with initializer constant(s).
+// (not CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_tuple_pattern:a:b:c:d` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_result` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

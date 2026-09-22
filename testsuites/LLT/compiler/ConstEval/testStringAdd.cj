@@ -4,8 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1
-// (DEBUG_OPTION)EXEC: %run %run_opt %output | compare %f
+// EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1
+// EXEC: %run %run_opt %output | compare %f
 
 // Tests basic constant evaluation with `String` type.
 

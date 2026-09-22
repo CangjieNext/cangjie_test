@@ -5,12 +5,12 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: testMultiFile01.cj testMultiFile02.cj
-// (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt testMultiFile01.cj testMultiFile02.cj -o %output 2>&1 | compare %f
-// (CJNATIVE and DEBUG_OPTION) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_myConstInAnotherFile` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_myConst0` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_myConst1` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_myConst2` with initializer constant(s).
+// EXEC: %compiler %debugCHIROpt testMultiFile01.cj testMultiFile02.cj -o %output 2>&1 | compare %f
+// (CJNATIVE) EXEC: %run %run_opt %output %run_args
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_myConstInAnotherFile` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_myConst0` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_myConst1` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_myConst2` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

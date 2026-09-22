@@ -5,11 +5,11 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: %n.expect.out
-// (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args 2>&1 > %n.real.out
-// (DEBUG_OPTION)EXEC: %diff %n.expect.out %n.real.out
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_nine` of 4 expressions to one of 9 expressions.
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_three` of 5 expressions to one of 8 expressions.
+// EXEC: %compiler %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
+// EXEC: %run %run_opt %output %run_args 2>&1 > %n.real.out
+// EXEC: %diff %n.expect.out %n.real.out
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_nine` of 4 expressions to one of 9 expressions.
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_three` of 5 expressions to one of 8 expressions.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

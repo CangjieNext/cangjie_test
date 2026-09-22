@@ -5,14 +5,14 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: %n.expect.out
-// (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args 2>&1 > %n.real.out
-// (DEBUG_OPTION)EXEC: %diff %n.expect.out %n.real.out
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_4` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_3` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_4` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_5` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_2` with initializer constant(s).
+// EXEC: %compiler %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
+// EXEC: %run %run_opt %output %run_args 2>&1 > %n.real.out
+// EXEC: %diff %n.expect.out %n.real.out
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_4` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_3` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_4` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_5` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_2` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

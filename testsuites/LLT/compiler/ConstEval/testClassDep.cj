@@ -6,25 +6,25 @@
 
 // DEPENDENCE: depClass.cj
 // DEPENDENCE: %n.expect.out
-// (DEBUG_OPTION)EXEC: %compiler %compile_lib_opt depClass.cj -o depClass.%middle
-// (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt depClass.%middle %n.cj -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args 2>&1 > %n.real.out
-// (DEBUG_OPTION)EXEC: %diff %n.expect.out %n.real.out
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_numberAsNumber`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_numberFirst` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_numberSecond` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_numberAsObject`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_objectAsObject`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_objectAsOptionalNumber`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_callAsNumber`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_callFirst` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_callSecond` with initializer constant(s).
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_callAsObject`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_callObjectAsObject`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_callObjectAsOptionalNumber`
-// ASSERT: scan debug: consteval at :0:0 - :0:0 function `gv$_wrappedInt` not evaluated successfully
-// ASSERT: scan debug: consteval at :0:0 - :0:0 function `gv$_wrappedString` not evaluated successfully
-// ASSERT: scan debug: consteval at :0:0 - :0:0 function `gv$_wrappedNumbers` not evaluated successfully
+// EXEC: %compiler %compile_lib_opt depClass.cj -o depClass.%middle
+// EXEC: %compiler %compile_exe_opt %debugCHIROpt depClass.%middle %n.cj -o %output 2>&1 | compare %f
+// EXEC: %run %run_opt %output %run_args 2>&1 > %n.real.out
+// EXEC: %diff %n.expect.out %n.real.out
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_numberAsNumber`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_numberFirst` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_numberSecond` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_numberAsObject`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_objectAsObject`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_objectAsOptionalNumber`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_callAsNumber`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_callFirst` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_callSecond` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_callAsObject`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_callObjectAsObject`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_callObjectAsOptionalNumber`
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 function `gv$_wrappedInt` not evaluated successfully
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 function `gv$_wrappedString` not evaluated successfully
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 function `gv$_wrappedNumbers` not evaluated successfully
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
