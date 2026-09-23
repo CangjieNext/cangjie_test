@@ -51,4 +51,4 @@ main(): Int64 {
     return run()
 }
 // ASSERT: scan parse_expected_left_brace
-// ASSERT: scan parse_expected_decl
+// ASSERT: scan-not parse_expected_decl

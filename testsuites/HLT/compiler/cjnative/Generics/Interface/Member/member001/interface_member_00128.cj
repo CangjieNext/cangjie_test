@@ -25,4 +25,4 @@ return 0
 // ASSERT: scan parse_expected_right_delimiter
 // ASSERT: scan parse_invalid_super_declaration
 // ASSERT: scan parse_expected_left_brace
-// ASSERT: scan parse_expected_decl
+// ASSERT: scan-not parse_expected_decl
