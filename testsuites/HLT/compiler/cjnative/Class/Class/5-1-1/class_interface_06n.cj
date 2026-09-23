@@ -28,4 +28,4 @@ class Data <: Base  & Data implements Base1 {
 }
 // ASSERT: scan parse_decl_cannot_inherit_their_self
 // ASSERT: scan parse_expected_left_brace
-// ASSERT: scan parse_expected_decl
+// ASSERT: scan-not parse_expected_decl

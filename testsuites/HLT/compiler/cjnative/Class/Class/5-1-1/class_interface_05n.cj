@@ -27,4 +27,4 @@ class Data <: Base  & implements Base1 {
     public var res1: Int64 = getNum1()
 }
 // ASSERT: scan parse_expected_left_brace
-// ASSERT: scan parse_expected_decl
+// ASSERT: scan-not parse_expected_decl

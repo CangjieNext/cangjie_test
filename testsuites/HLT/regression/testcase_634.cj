@@ -28,4 +28,6 @@ foo(B<Int32,Int64>(),C<Int32,Int64>())
 // ASSERT: scan parse_expected_lt_paren
 // ASSERT: scan parse_expected_type
 // ASSERT: scan parse_expected_left_brace
-// ASSERT: scan parse_expected_character
+// ASSERT: scan-not parse_expected_character
+
+// ASSERT: scan parse_expected_decl
