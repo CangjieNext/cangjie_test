@@ -83,6 +83,7 @@ func negotiateClientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./files/root_rsa.cer", Read)))
     tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+    tlsConfig.serverName = Some("oss.PMS.com")
 	tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig
 }

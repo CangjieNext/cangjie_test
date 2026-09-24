@@ -26,6 +26,9 @@ public func clientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./files/root_rsa.cer", Read)))
     tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+    // The test certificates use DNS:oss.PMS.com as SAN; set it explicitly so
+    // hostname verification keeps passing while the URL uses 127.0.0.1.
+    tlsConfig.serverName = Some("oss.PMS.com")
     tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig
 }
