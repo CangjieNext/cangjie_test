@@ -38,7 +38,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal.parse("+10c+2")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("String value not allow contains other character"))
+            @Expect(e.message.contains("String value contains invalid character"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -46,7 +46,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal.parse("10e")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("String value not allow without digits after e"))
+            @Expect(e.message.contains("String value has no digits after 'e'."))
             sum += 1
         }
         @Expect(sum, 2)
@@ -54,7 +54,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal.parse("abc")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("String value not allow contains other character beyond"))
+            @Expect(e.message.contains("String value contains invalid character"))
             sum += 1
         }
         @Expect(sum, 3)
@@ -62,7 +62,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal.parse("#$%")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("String value not allow contains other character beyond"))
+            @Expect(e.message.contains("String value contains invalid character"))
             sum += 1
         }
         @Expect(sum, 4)
@@ -70,7 +70,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal.parse("\0")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("String value not allow contains other character beyond"))
+            @Expect(e.message.contains("String value contains invalid character"))
             sum += 1
         }
         @Expect(sum, 5)
@@ -78,7 +78,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal.parse("*10e+2")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("String value not allow contains other character beyond"))
+            @Expect(e.message.contains("String value contains invalid character"))
             sum += 1
         }
         @Expect(sum, 6)
@@ -89,7 +89,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal(Float16.Inf)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Float value cannot be Inf or NaN.")
+            @Expect(e.message, "Float value is Inf or NaN.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -97,7 +97,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal(-Float16.Inf)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Float value cannot be Inf or NaN.")
+            @Expect(e.message, "Float value is Inf or NaN.")
             sum += 1
         }
         @Expect(sum, 2)
@@ -105,7 +105,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal(Float16.NaN)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Float value cannot be Inf or NaN.")
+            @Expect(e.message, "Float value is Inf or NaN.")
             sum += 1
         }
         @Expect(sum, 3)
@@ -116,7 +116,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal(Float32.Inf)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Float value cannot be Inf or NaN.")
+            @Expect(e.message, "Float value is Inf or NaN.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -124,7 +124,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal(-Float32.Inf)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Float value cannot be Inf or NaN.")
+            @Expect(e.message, "Float value is Inf or NaN.")
             sum += 1
         }
         @Expect(sum, 2)
@@ -132,7 +132,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal(Float32.NaN)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Float value cannot be Inf or NaN.")
+            @Expect(e.message, "Float value is Inf or NaN.")
             sum += 1
         }
         @Expect(sum, 3)
@@ -143,7 +143,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal(Float64.Inf)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Float value cannot be Inf or NaN.")
+            @Expect(e.message, "Float value is Inf or NaN.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -151,7 +151,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal(-Float64.Inf)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Float value cannot be Inf or NaN.")
+            @Expect(e.message, "Float value is Inf or NaN.")
             sum += 1
         }
         @Expect(sum, 2)
@@ -159,7 +159,7 @@ class Test_decimal_except_02 {
         try {
             let dec = Decimal(Float64.NaN)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Float value cannot be Inf or NaN.")
+            @Expect(e.message, "Float value is Inf or NaN.")
             sum += 1
         }
         @Expect(sum, 3)

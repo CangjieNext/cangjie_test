@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// (需要文件输入，性能测试时执行) RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
 
 import stdx.encoding.json.*
 import std.fs.*
@@ -17,7 +17,6 @@ import std.convert.*
 import std.io.*
 import std.runtime.*
 
-let reps = 100000
 let dataPath = "../../script/data/json/"
 let tags = ["n8d1", "n8d2", "n8d4", "n8d8", "n64d1", "n64d2", "n64d4", "n64d8", "n512d1", "n512d2", "n512d4"]
 
@@ -28,27 +27,19 @@ func setUp(f: String): String {
     return data
 }
 
-func benchmarkStr2JsonValue(str: String) {
-    for (i in 0..reps) {
-        blackBox(JsonValue.fromStr(str))
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_Str2JsonValue {
+
+    @Strategy[tag in ["n8d1", "n8d2", "n8d4", "n8d8", "n64d1", "n64d2", "n64d4", "n64d8", "n512d1", "n512d2", "n512d4"]]
+    func jsonData(tag: String): String {
+        setUp(dataPath + tag + ".json")
     }
-}
 
-func timeBenchmarkStr2JsonValue(tag: String) {
-    var file = dataPath + tag + ".json"
-    var str = setUp(file)
-
-    var startTime = DateTime.now()
-    benchmarkStr2JsonValue(str)
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-
-    println("BenchmarkStr2JsonValue" + tag + ": " + perTime.format(".2") + " ns/op")
-}
-
-main(): Int64 {
-    for (tag in tags) {
-        timeBenchmarkStr2JsonValue(tag)
+    @Bench[data in jsonData]
+    func BenchmarkStr2JsonValue(data: String): Unit {
+        blackBox(JsonValue.fromStr(data))
     }
-    return 0
 }

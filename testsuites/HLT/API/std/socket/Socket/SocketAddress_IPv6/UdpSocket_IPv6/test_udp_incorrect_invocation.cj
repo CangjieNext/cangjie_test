@@ -27,6 +27,8 @@ let flag = true
 let flag = true
 @When[os == "Linux"]
 let flag = false
+@When[os == "Windows"]
+let flag = false
 var sum = 0
 var data = Array<Byte>(10, repeat: 10)
 
@@ -46,13 +48,13 @@ class Test_Udp_Incorrect_Invocation {
             udpsocket.connect(addr)
         } catch (e: SocketException) {
             sum += 1
-            @Expect(e.message, "The socket is not bound: invoke bind() first.")
+            @Expect(e.message, "Socket is not bound.")
         }
         try {
             udpsocket.disconnect()
         } catch (e: SocketException) {
             sum += 1
-            @Expect(e.message, "The socket is not bound: invoke bind() first.")
+            @Expect(e.message, "Socket is not bound.")
         }
         try {
             udpsocket.send(data)

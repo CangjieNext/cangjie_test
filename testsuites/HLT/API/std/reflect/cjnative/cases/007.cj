@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan IllegalSetException: Attempt to modify immutable property 'p'
+// ASSERT: scan IllegalSetException: Cannot modify immutable property 'p'.
 // 如果该实例成员属性信息所对应的实例成员属性不可修改，则会抛出 `IllegalSetException` 异常。
 
 import std.reflect.*

@@ -7,12 +7,12 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.sync.*
 import std.time.*
-import std.convert.*
+import std.runtime.*
 
 var reps = 1000
 
@@ -56,29 +56,26 @@ class A {
     }
 }
 
-func benchmarkConcurrencyAtomicReferenceLoad(): Unit {
-    let wg = WaitGroup(0)
-    wg.add(reps)
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_ConcurrencyAtomicReferenceLoad {
+    @Bench
+    func BenchmarkConcurrencyAtomicReferenceLoad(): Unit {
+        let wg = WaitGroup(0)
+        wg.add(reps)
 
-    let test = AtomicReference<A>(A(1))
+        let test = AtomicReference<A>(A(1))
 
-    var startTime = DateTime.now()
-    for (i in 0..reps) {
-        let thread: Future<Unit> = spawn {
-            for (j in 0..1000) {
-                test.load()
+        for (i in 0..reps) {
+            let thread: Future<Unit> = spawn {
+                for (j in 0..1000) {
+                    blackBox(test.load())
+                }
+                wg.done()
             }
-            wg.done()
         }
+        wg.wait()
     }
-    wg.wait()
-    var endTime = DateTime.now()
-
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkConcurrencyAtomicReferenceLoad: " + perTime.format(".2") + " ns/op")
-}
-
-main(): Int64 {
-    benchmarkConcurrencyAtomicReferenceLoad()
-    return 0
 }

@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt   %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan Exception
-// ASSERT: scan Month value must be in [1, 12].
+// ASSERT: scan Invalid month value: expected 1 to 12.
 
 import std.time.*
 

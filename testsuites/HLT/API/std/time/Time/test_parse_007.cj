@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt   %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan Exception
-// ASSERT: scan Day of February in 2001 must be in [1, 28]
+// ASSERT: scan Invalid day '29' for February 2001: expected 1 to 28.
 
 import std.time.*
 

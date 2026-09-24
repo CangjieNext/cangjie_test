@@ -176,7 +176,7 @@ public class Test_httpsProxy {
             let res = client.send(request)
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message, "Failed to resolve address abc.")
+            @Expect(e.message, "Failed to resolve address 'abc'.")
         }
         @Expect(flag, true)
     }

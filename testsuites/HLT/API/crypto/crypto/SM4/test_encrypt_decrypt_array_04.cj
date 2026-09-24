@@ -76,8 +76,8 @@ class Test_encrypt_decrypt_array_04 {
             paddingMode: PaddingMode.NoPadding, tagSize: 12)
         let e = @AssertThrows[CryptoException](sm4_1.encrypt("12345".toArray()))
         let e1 = @AssertThrows[CryptoException](sm4_2.encrypt("cangjietest".toArray()))
-        @Expect(e.message, "Encrypt failed.")
-        @Expect(e1.message, "Encrypt failed.")
+        @Expect(e.message, "Encryption finalization failed.")
+        @Expect(e1.message, "Encryption finalization failed.")
     }
 
     @TestCase
@@ -118,7 +118,7 @@ class Test_encrypt_decrypt_array_04 {
         let sm4_2 = SM4(OperationMode.ECB, '1234567891234567'.toArray(), paddingMode: PaddingMode.NoPadding, tagSize: 12)
         let e = @AssertThrows[CryptoException](sm4_1.encrypt("12345".toArray()))
         let e1 = @AssertThrows[CryptoException](sm4_2.encrypt("cangjietest".toArray()))
-        @Expect(e.message, "Encrypt failed.")
-        @Expect(e1.message, "Encrypt failed.")
+        @Expect(e.message, "Encryption finalization failed.")
+        @Expect(e1.message, "Encryption finalization failed.")
     }
 }

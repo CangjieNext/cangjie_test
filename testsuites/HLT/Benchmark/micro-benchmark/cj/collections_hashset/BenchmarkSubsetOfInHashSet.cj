@@ -8,19 +8,15 @@
 
 // LEVEL: 3
 // DEPENDENCE: common_collection.cj
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f common_collection.cj -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f common_collection.cj -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
 // TIMEOUT: 2400
 
 import std.collection.*
 import std.time.*
-import std.convert.*
 import stdx.crypto.crypto.*
-import std.runtime.*   
-
-var counts: ArrayList<Int64> = ArrayList<Int64>([32, 256, 2 * 1024])
-var _set_1 = HashSet<Int64>()
-var _set_2 = HashSet<Int64>()
+import std.runtime.*
+import std.unittest.*
 
 func GenerateArray(n: Int64): Array<Int64> {
     let m = SecureRandom()
@@ -29,67 +25,40 @@ func GenerateArray(n: Int64): Array<Int64> {
         let num = m.nextInt64()
         _arr.add(num)
     }
-
     return _arr.toArray()
 }
 
-func Exist(num: Int64) {
-    var totaltime = 0.0
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_SubsetOf_In_HashSet {
 
-    let arr = GenerateArray(num)
-    let arr_2 = arr[0..num / 2]
-    let N = 100000000 / num
-
-    for (_ in 0..N) {
-        _set_1 = HashSet<Int64>(arr)
-        _set_2 = HashSet<Int64>(arr_2)
-        var startTime = MonoTime.now()
-
-        blackBox(_set_2.subsetOf(_set_1))
-
-        var endTime = MonoTime.now()
-        totaltime += Float64((endTime - startTime).toNanoseconds()) 
-        _set_1.clear()
-        _set_2.clear()
-        GC()
-    }
-    
-    var perTime = totaltime / Float64(N)
-    println("BenchmarkSubsetOfInHashset_Exist_${types[1]}_${num.toString()}: ${perTime.format(".2")} ns/op")
-}
-
-func Nonexist(num: Int64) {
-    var totaltime = 0.0
-    let arr = GenerateArray(num)
-    let arr_2 = GenerateArray(num / 2)
-
-    let N = 100000000 / num;
-    for (_ in 0..N) {
-        _set_1 = HashSet<Int64>(arr)
-        _set_2 = HashSet<Int64>(arr_2)
-        var startTime = MonoTime.now()
-    
-        blackBox(_set_2.subsetOf(_set_1))
-    
-        var endTime = MonoTime.now()
-        totaltime += Float64((endTime - startTime).toNanoseconds())
-        _set_1.clear()
-        _set_2.clear()
-        GC()
+    @Strategy[len in [32, 256, 2048]]
+    func existData(len: Int64): GenerateEachInputProvider<(HashSet<Int64>, HashSet<Int64>)> {
+        GenerateEachInputProvider {
+            let arr = GenerateArray(len)
+            let arr_2 = arr[0..len / 2]
+            (HashSet<Int64>(arr), HashSet<Int64>(arr_2))
+        }
     }
 
-    var perTime = totaltime / Float64(N)
-    println("BenchmarkSubsetOfInHashset_Nonexist_${types[1]}_${num.toString()}: ${perTime.format(".2")} ns/op")
-}
-
-main(): Int64 {
-    for (count in counts) {
-        Exist(count)
+    @Bench[data in existData]
+    func BenchmarkSubsetOf_Exist(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
+        blackBox(data[1].subsetOf(data[0]))
     }
 
-    for (count in counts) {
-        Nonexist(count)
+    @Strategy[len in [32, 256, 2048]]
+    func nonexistData(len: Int64): GenerateEachInputProvider<(HashSet<Int64>, HashSet<Int64>)> {
+        GenerateEachInputProvider {
+            let arr = GenerateArray(len)
+            let arr_2 = GenerateArray(len / 2)
+            (HashSet<Int64>(arr), HashSet<Int64>(arr_2))
+        }
     }
 
-    return 0
+    @Bench[data in nonexistData]
+    func BenchmarkSubsetOf_Nonexist(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
+        blackBox(data[1].subsetOf(data[0]))
+    }
 }

@@ -65,7 +65,7 @@ class Testupgradefromserverconf_02 {
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u)
             websocket.closeConn()
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("Upgrade to websocket failed, the status code should be 101, but received 403"))
+            @Expect(e.message.contains("WebSocket upgrade failed: invalid status code '403', expected 101"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -162,7 +162,7 @@ class Testupgradefromserverconf_02 {
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u, headers: headers)
             websocket.closeConn()
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("Upgrade to websocket failed, the status code should be 101, but received 403"))
+            @Expect(e.message.contains("WebSocket upgrade failed: invalid status code '403', expected 101"))
             sum += 1
         }
         @Expect(sum, 1)

@@ -31,10 +31,10 @@ class Test_rsa_keys_011 {
 
         var encOpt = PSSOption(64)
         let e = @AssertThrows[CryptoException](rsaPub.encrypt(bas1, bas2, padType: PSS(encOpt)))
-        @Expect(e.message, "PSSOption only use in sign or verify.")
+        @Expect(e.message, "PSSOption is only applicable to signing or verification operations.")
         var decOpt = PSSOption(64)
         let e1 = @AssertThrows[CryptoException](rsaPri.decrypt(bas2, bas3, padType: PSS(decOpt)))
-        @Expect(e1.message, "PSSOption only use in sign or verify.")
+        @Expect(e1.message, "PSSOption is only applicable to signing or verification operations.")
         var buf = Array<Byte>(str.size, repeat: 0)
         bas3.read(buf)
         @Expect(str.toArray() != buf)

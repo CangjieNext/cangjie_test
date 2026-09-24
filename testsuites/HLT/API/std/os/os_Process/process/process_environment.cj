@@ -123,7 +123,7 @@ class Test_environment {
             let p = Process.start("sleep", "5s", environment: env)
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Environment \"\0\" entry cannot contains invalid character.")
+            @Expect(e.message, "Environment entry \'\0\' contains invalid character.")
         }
         @Expect(cnt, 1)
     }
@@ -141,7 +141,7 @@ class Test_environment {
             let p = Process.start("sleep", "5s", environment: env1)
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Environment \"key=\" entry cannot contains invalid character.")
+            @Expect(e.message, "Environment entry \'key=\' contains invalid character.")
         }
         @Expect(cnt, 1)
 
@@ -150,7 +150,7 @@ class Test_environment {
             let p = Process.start("sleep", "5s", environment: env2)
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Environment \"=key\" entry cannot contains invalid character.")
+            @Expect(e.message, "Environment entry \'=key\' contains invalid character.")
         }
         @Expect(cnt, 2)
 
@@ -159,7 +159,7 @@ class Test_environment {
             let p = Process.start("sleep", "5s", environment: env3)
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Environment \"ke=y\" entry cannot contains invalid character.")
+            @Expect(e.message, "Environment entry \'ke=y\' contains invalid character.")
         }
         @Expect(cnt, 3)
     }

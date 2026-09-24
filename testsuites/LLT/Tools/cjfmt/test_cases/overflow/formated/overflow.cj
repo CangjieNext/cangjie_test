@@ -8,21 +8,21 @@ var a1: Int32 = 2147483647
 var a2: Int32 = 2147483647
 var test = @OverflowSaturating {
     =>
-    func x() {
-        var a: Int8 = 100;
-        a + a
-    };
-    x()
+        func x() {
+            var a: Int8 = 100;
+            a + a
+        };
+        x()
 }
 var a = Array<Int32>(1, @OverflowWrapping {i => a1 + a2})
 var test = @OverflowThrowing {
     =>
-    var x = @OverflowSaturating {
-        =>
-        var a: Int8 = 100;
-        a + a
-    };
-    x()
+        var x = @OverflowSaturating {
+            =>
+                var a: Int8 = 100;
+                a + a
+        };
+        x()
 }
 
 main(): Int64 {

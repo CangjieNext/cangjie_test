@@ -12,7 +12,7 @@
 
 
 import std.time.*
-import std.collection.HashSet
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -22,21 +22,13 @@ public class Test_Loop {
 
     static var sum = 0
 
-    static let blackhole = HashSet<Int64>()
-    static var element = 0
-
-    @AfterAll
-    public func dumb(): Unit {
-        blackhole.add(element)
-    }
-
     @Bench
     func BenchmarkLoopD1(): Unit {
         sum = 0
         for (j in 0..100000) {
             sum += j / 2
         }
-        element = sum
+        blackBox(sum)
     }
 
     @Bench
@@ -47,7 +39,7 @@ public class Test_Loop {
                 sum += (j + k) / 2
             }
         }
-        element = sum
+        blackBox(sum)
     }
 
     @Bench
@@ -60,7 +52,7 @@ public class Test_Loop {
                 }
             }
         }
-        element = sum
+        blackBox(sum)
     }
 
     @Bench
@@ -75,6 +67,6 @@ public class Test_Loop {
                 }
             }
         }
-        element = sum
+        blackBox(sum)
     }
 }

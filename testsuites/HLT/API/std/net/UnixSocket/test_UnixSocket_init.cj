@@ -20,7 +20,7 @@ class Test_UnixSocket {
         try {
             UnixSocket(str)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Path size(${str.size}) is too long") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
+            @Expect(e.message.contains("Path size '${str.size}' is too long") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
         }
     }
 
@@ -30,7 +30,7 @@ class Test_UnixSocket {
         try {
             UnixServerSocket(bindAt: str)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Path size(${str.size}) is too long") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
+            @Expect(e.message.contains("Path size '${str.size}' is too long") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
         }
     }
 
@@ -40,7 +40,7 @@ class Test_UnixSocket {
         try {
             UnixDatagramSocket(bindAt: str)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Path size(${str.size}) is too long") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
+            @Expect(e.message.contains("Path size '${str.size}' is too long") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
         }
     }
 }

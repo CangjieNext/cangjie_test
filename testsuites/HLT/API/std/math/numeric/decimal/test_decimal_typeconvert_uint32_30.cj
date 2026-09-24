@@ -31,21 +31,21 @@ class Test_decimal_typeconvert_uint32_30 {
         try {
             dec1.toInt8()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int8.")
+            @Expect(e.message, "Value out of Int8 range.")
             sum += 1
         }
         @Expect(sum, 1)
         try {
             dec1.toInt16()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int16.")
+            @Expect(e.message, "Value out of Int16 range.")
             sum += 1
         }
         @Expect(sum, 2)
         try {
             dec1.toInt32()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int32.")
+            @Expect(e.message, "Value out of Int32 range.")
             sum += 1
         }
         @Expect(sum, 3)
@@ -56,14 +56,14 @@ class Test_decimal_typeconvert_uint32_30 {
         try {
             dec1.toUInt8()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt8.")
+            @Expect(e.message, "Value out of UInt8 range.")
             sum += 1
         }
         @Expect(sum, 4)
         try {
             dec1.toUInt16()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt16.")
+            @Expect(e.message, "Value out of UInt16 range.")
             sum += 1
         }
         @Expect(sum, 5)
@@ -74,21 +74,21 @@ class Test_decimal_typeconvert_uint32_30 {
         try {
             dec1.toInt8(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int8.")
+            @Expect(e.message, "Value out of Int8 range.")
             sum += 1
         }
         @Expect(sum, 6)
         try {
             dec1.toInt16(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int16.")
+            @Expect(e.message, "Value out of Int16 range.")
             sum += 1
         }
         @Expect(sum, 7)
         try {
             dec1.toInt32(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int32.")
+            @Expect(e.message, "Value out of Int32 range.")
             sum += 1
         }
         @Expect(sum, 8)
@@ -99,14 +99,14 @@ class Test_decimal_typeconvert_uint32_30 {
         try {
             dec1.toUInt8(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt8.")
+            @Expect(e.message, "Value out of UInt8 range.")
             sum += 1
         }
         @Expect(sum, 9)
         try {
             dec1.toUInt16(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt16.")
+            @Expect(e.message, "Value out of UInt16 range.")
             sum += 1
         }
         @Expect(sum, 10)

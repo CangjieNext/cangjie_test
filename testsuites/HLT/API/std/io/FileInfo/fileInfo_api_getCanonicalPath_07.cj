@@ -19,6 +19,6 @@ class TestFileInfo {
     @TestCase
     func testCase0(): Unit {
         let e = @AssertThrows[IllegalArgumentException](canonicalize(""))
-        @Expect(e.toString(), "IllegalArgumentException: The input path is empty.")
+        @Expect(e.toString(), "IllegalArgumentException: Invalid argument 'path': cannot be empty.")
     }
 }

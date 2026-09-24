@@ -121,7 +121,7 @@ class Test_tlsserverconf_03 {
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(keypemser).map({c => c}))
         } catch (e: X509Exception) {
             sum1 += 1
-            @Expect(e.message, "X509Cert decode failed: No CERTIFICATE entry found in PEM file.")
+            @Expect(e.message, "X509Cert decode failed: No 'CERTIFICATE' entry found in PEM file.")
         }
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
@@ -188,7 +188,7 @@ class Test_tlsserverconf_03 {
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemser1).map({c => c}))
         } catch (e: X509Exception) {
             sum1 += 1
-            @Expect(e.message, "X509Cert decode failed: No CERTIFICATE entry found in PEM file.")
+            @Expect(e.message, "X509Cert decode failed: No 'CERTIFICATE' entry found in PEM file.")
         }
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()

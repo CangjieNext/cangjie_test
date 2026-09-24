@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// Verify that a multi-level else-if chain reports only directly unreachable successors.
+// Verify that a multi-level else-if chain reports each unreachable sibling body.
 // EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 main() {
@@ -18,6 +18,8 @@ main() {
         println("nested else")
     }
 }
+
+// ASSERT: scan-3 warning: unreachable block in 'if' expression
 
 /* SCAN-IN
 warning: unreachable block in 'if' expression
@@ -34,12 +36,24 @@ warning: unreachable block in 'if' expression
 
 /* SCAN-IN
 warning: unreachable block in 'if' expression
-  ==> else_if_recursion_boundary.cj:15:12:
+  ==> else_if_recursion_boundary.cj:15:23:
    | 
 15 |       } else if (false) {
-   |  ____________^
+   |  _______________________^
 16 | |         println("nested then")
-   | | ...
+17 | |     } else {
+   | |_____^ unreachable block in 'if' expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable block in 'if' expression
+  ==> else_if_recursion_boundary.cj:17:12:
+   | 
+17 |       } else {
+   |  ____________^
+18 | |         println("nested else")
 19 | |     }
    | |_____^ unreachable block in 'if' expression
    | 

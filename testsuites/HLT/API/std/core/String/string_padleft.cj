@@ -46,7 +46,7 @@ class Test_padStart_05 {
             var padstr = str.padStart(-1, padding: "12")
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Negative totalWidth.")
+            @Expect(e.message,"Invalid argument 'totalWidth': expected a non-negative value, got '-1'.")
         }
     }
 }

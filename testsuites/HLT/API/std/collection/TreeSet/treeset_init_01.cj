@@ -89,7 +89,7 @@ class Test_treeset_init_01 {
         try {
             TreeSet<Int64>(-5, PreData)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid size of TreeSet"))
+            @Expect(e.message.contains("Invalid size '-5': expected a non-negative value"))
             sum += 1
         }
         @Expect(sum, 1)
