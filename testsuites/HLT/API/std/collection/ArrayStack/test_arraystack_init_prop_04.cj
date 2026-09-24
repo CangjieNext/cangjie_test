@@ -53,6 +53,6 @@ class Test_arraystack_init_prop_04 {
     @TestCase
     func test_arraystack_init_notblank_03(): Unit {
         let e = @AssertThrows[IllegalArgumentException](ArrayStack<Int64>(-100))
-        @Expect(e.message.contains("The capacity must be greater than or equal to 0"))
+        @Expect(e.message.contains("Invalid capacity '-100': expected a non-negative value"))
     }
 }

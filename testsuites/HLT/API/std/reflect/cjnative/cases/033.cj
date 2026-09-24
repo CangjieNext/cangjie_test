@@ -51,7 +51,7 @@ class Test {
             (TypeInfo.of<C0>() as ClassTypeInfo).getOrThrow().getStaticVariable("v0").setValue(C5())
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalSetException: Attempt to modify immutable variable 'v0'.")
+            @Expect(e.toString(), "IllegalSetException: Cannot modify immutable variable 'v0'.")
         }
 
         try {
@@ -59,7 +59,7 @@ class Test {
             (TypeInfo.of<C0>() as ClassTypeInfo).getOrThrow().getStaticVariable("v1").setValue(true)
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalSetException: Attempt to modify immutable variable 'v1'.")
+            @Expect(e.toString(), "IllegalSetException: Cannot modify immutable variable 'v1'.")
         }
 
         try {
@@ -67,7 +67,7 @@ class Test {
             (TypeInfo.of<C0>() as ClassTypeInfo).getOrThrow().getStaticVariable("v2").setValue(C1())
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalSetException: Attempt to modify immutable variable 'v2'.")
+            @Expect(e.toString(), "IllegalSetException: Cannot modify immutable variable 'v2'.")
         }
 
         try {
@@ -75,7 +75,7 @@ class Test {
             (TypeInfo.of<C0>() as ClassTypeInfo).getOrThrow().getStaticVariable("v3").setValue(C4())
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalSetException: Attempt to modify immutable variable 'v3'.")
+            @Expect(e.toString(), "IllegalSetException: Cannot modify immutable variable 'v3'.")
         }
 
         try {
@@ -83,7 +83,7 @@ class Test {
             (TypeInfo.of<C0>() as ClassTypeInfo).getOrThrow().getStaticVariable("v4").setValue(C8())
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalSetException: Attempt to modify immutable variable 'v4'.")
+            @Expect(e.toString(), "IllegalSetException: Cannot modify immutable variable 'v4'.")
         }
     }
 }

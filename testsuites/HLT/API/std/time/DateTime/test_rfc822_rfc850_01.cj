@@ -40,7 +40,7 @@ class Test_Format_RFC822 {
             DateTime.parse(s, fmt)
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Assert(e.message, "Fail to parse at index 21: \".\" should be \" \".")
+            @Assert(e.message, "Failed to parse at index 21: expected ' ', got '.'.")
             @Assert(true)
         }
     }
@@ -73,7 +73,7 @@ class Test_Format_RFC850 {
             DateTime.parse(s, fmt)
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Assert(e.message, "Fail to parse at index 28: \".\" should be \" \".")
+            @Assert(e.message, "Failed to parse at index 28: expected ' ', got '.'.")
             @Assert(true)
         }
     }

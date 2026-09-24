@@ -54,12 +54,12 @@ class Testwebsocketconf_05 {
             try {
                 websocketServer.write(TextWebFrame, Array<UInt8>(4097, repeat: 97))
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("No more data frames can be sent after sending a Close frame"))
+                @Expect(e.message.contains("Cannot send data frames after Close frame"))
             }
             try {
                 websocketServer.write(BinaryWebFrame, Array<UInt8>(4097, repeat: 97))
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("No more data frames can be sent after sending a Close frame"))
+                @Expect(e.message.contains("Cannot send data frames after Close frame"))
             }
             websocketServer.closeConn()
         }
@@ -252,7 +252,7 @@ class Testwebsocketconf_05 {
             websocket.write(CloseWebFrame, [3u8, 233u8, 110u8, 111u8, 114u8, 109u8, 97u8, 108u8, 34u8])
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("The connection is closed"))
+            @Expect(e.message.contains("WebSocket connection is closed"))
         }
         client.close()
         server.close()

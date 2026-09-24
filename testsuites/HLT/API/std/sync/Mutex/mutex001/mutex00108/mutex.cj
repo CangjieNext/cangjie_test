@@ -11,7 +11,7 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
 // EXEC: %compiler %cmp_opt  %f asan.%middle -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan in main, count = 3\nException occured: IllegalSynchronizationStateException: Mutex is not locked by current thread
+// ASSERT: scan in main, count = 3\nException occured: IllegalSynchronizationStateException: Cannot unlock mutex: not locked by current thread
 
 import std.sync.*
 import std.runtime.*

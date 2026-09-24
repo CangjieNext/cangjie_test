@@ -21,6 +21,13 @@ public class Main <: JObject {
         MyObject.sx = 11
         print("cj: static var sx modify\n", flush: true)
         print("cj: ${obj.x} ${obj.y} ${MyObject.sx} ${MyObject.sy}\n", flush: true)
+
+        obj.obj = JString("set obj field")
+        print("cj: ${obj.obj.toString()}\n", flush: true)
+
+        MyObject.sobj = JString("set sobj field")
+        print("cj: ${MyObject.sobj.toString()}\n", flush: true)
+
         print("cj: Main() end\n", flush: true)
     }
 }

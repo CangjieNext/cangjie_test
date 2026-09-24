@@ -25,7 +25,7 @@ class Test {
             (TypeInfo.of<C3>() as ClassTypeInfo).getOrThrow().construct();
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "InvocationTargetException: Constructing abstract classes is not allowed.")
+            @Expect(e.toString(), "InvocationTargetException: Cannot construct abstract class 'MyType.myType.C3'.")
         }
 
         try {

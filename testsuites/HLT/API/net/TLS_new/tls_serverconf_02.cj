@@ -126,7 +126,7 @@ class Test_tlsserverconf_02 {
         try {
             tlsServer.handshake()
         } catch (e: TlsException) {
-            @Expect(e.message.contains("The Certificate chain doesn't match the private key"))
+            @Expect(e.message.contains("Certificate chain does not match private key"))
             sum2 += 1
         }
         @Expect(sum2, 1)

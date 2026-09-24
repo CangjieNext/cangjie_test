@@ -75,7 +75,7 @@ class Test_runOutput {
             Process.runOutput("abc")
         } catch (e: ProcessException) {
             cnt++
-            @Expect(e.message, "Created process failed, errMessage: \"No such file or directory\".")
+            @Expect(e.message, "Failed to create process: No such file or directory.")
         }
         @Expect(cnt,1)
     }
@@ -86,7 +86,7 @@ class Test_runOutput {
             Process.runOutput("")
         } catch (e: ProcessException) {
             cnt++
-            @Expect(e.message, "Created process failed, errMessage: \"No such file or directory\".")
+            @Expect(e.message, "Failed to create process: No such file or directory.")
         }
         @Expect(cnt,1)
     }
@@ -97,7 +97,7 @@ class Test_runOutput {
             Process.runOutput("\0")
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Command \"\0\" cannot contains null character.")
+            @Expect(e.message, "Command \'\0\' contains null character.")
         }
         @Expect(cnt,1)
     }
@@ -108,7 +108,7 @@ class Test_runOutput {
             Process.runOutput("echo\0")
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Command \"echo\0\" cannot contains null character.")
+            @Expect(e.message, "Command \'echo\0\' contains null character.")
         }
         @Expect(cnt,1)
     }
@@ -119,7 +119,7 @@ class Test_runOutput {
             Process.runOutput("ec\0ho")
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Command \"ec\0ho\" cannot contains null character.")
+            @Expect(e.message, "Command \'ec\0ho\' contains null character.")
         }
         @Expect(cnt,1)
     }
@@ -130,7 +130,7 @@ class Test_runOutput {
             Process.runOutput("echo", "\0")
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Argument \"\0\" cannot contains null character.")
+            @Expect(e.message, "Argument \'\0\' contains null character.")
         }
         @Expect(cnt,1)
     }
@@ -141,7 +141,7 @@ class Test_runOutput {
             Process.runOutput("echo", "a", "\0")
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Argument \"\0\" cannot contains null character.")
+            @Expect(e.message, "Argument \'\0\' contains null character.")
         }
         @Expect(cnt,1)
     }
@@ -162,7 +162,7 @@ class Test_runOutput {
             let sub = Process.runOutput("echo", "abcd" * 1024 * 1024)
         } catch (e: ProcessException) {
             cnt++
-            @Expect(e.message, "Created process failed, errMessage: \"Argument list too long\".")
+            @Expect(e.message, "Failed to create process: Argument list too long.")
         }
         @Expect(cnt,1)
         remove("./test.txt")

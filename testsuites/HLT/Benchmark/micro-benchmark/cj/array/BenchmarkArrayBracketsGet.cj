@@ -11,22 +11,13 @@
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-import std.collection.HashSet
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
 @Configure[warmup: Duration.second]
 @Measure[TimeNow(Nanos)]
 public class Test_Array_Bracket_Get {
-
-    static let blackhole = HashSet<Int64>()
-    static var element = 0
-
-    // This is to prevent aggresive optimizations, like DCE and inline
-    @AfterAll
-    public func dumb(): Unit {
-        blackhole.add(element)
-    }
 
     static var arrD1: Array<Int64> = []
     static var arrD2: Array<Array<Int64>> = []
@@ -52,17 +43,17 @@ public class Test_Array_Bracket_Get {
 
     @Bench[index in arrayStrategyD1]
     func BenchmarkArrayBracketsGetD1_N(index: Int64): Unit {
-        element = arrD1[index]
+        blackBox(arrD1[index])
     }
 
     @Bench[index in arrayStrategyD2]
     func BenchmarkArrayBracketsGetD2_N(index: Int64): Unit {
-        element = arrD2[index][index]
+        blackBox(arrD2[index][index])
     }
 
     @Bench[index in arrayStrategyD3]
     func BenchmarkArrayBracketsGetD3_N(index: Int64): Unit {
-        element = arrD3[index][index][index]
+        blackBox(arrD3[index][index][index])
     }
 
     static var arrD1_32 = Array<Int64>(32, {i => i})
@@ -72,17 +63,17 @@ public class Test_Array_Bracket_Get {
     @Bench
     func BenchmarkArrayBracketsGetD1(): Unit {
         var index: Int64 = 32 / 2
-        element = arrD1_32[index] 
+        blackBox(arrD1_32[index])
     }
     @Bench
     func BenchmarkArrayBracketsGetD2(): Unit {
         var index: Int64 = 32 / 2
-        element = arrD2_32[index][index]
+        blackBox(arrD2_32[index][index])
     }
     @Bench
     func BenchmarkArrayBracketsGetD3(): Unit {
         var index: Int64 = 32 / 2
-        element = arrD3_32[index][index][index]
+        blackBox(arrD3_32[index][index][index])
     }
 
 }

@@ -4,9 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ASSERT: scan-not warning: unreachable
+// ASSERT: scan-1 warning: unreachable expression
 
-// Finally bodies execute after direct and conditional returns.
+// Finally bodies remain reachable; an explicit return after an all-return operand does not.
 // EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 class CleanupResource <: Resource {
@@ -111,3 +111,17 @@ main() {
     cleanupInsideResource()
     allReturnTryFinally(2)
 }
+
+/* SCAN-IN
+warning: unreachable expression
+  ==> finally_cleanup_reachability.cj:60:5:
+   | 
+60 |       return match (value) {
+   |  _____^
+61 | |         case true => return 1
+   | | ...
+63 | |     }
+   | |_____^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/

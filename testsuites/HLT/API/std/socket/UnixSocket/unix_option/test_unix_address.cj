@@ -187,7 +187,7 @@ class Test_Unix_Socket_Address {
         try {
             client.localAddress
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is not bound")
+            @Expect(e.message, "Socket is not bound.")
             sum += 1
         }
 

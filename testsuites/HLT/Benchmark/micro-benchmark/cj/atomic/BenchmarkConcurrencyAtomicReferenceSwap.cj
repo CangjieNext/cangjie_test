@@ -7,14 +7,12 @@
  */
 
 // LEVEL: 3
-// (LLVM and x86) EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// (LLVM and arm) EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg -Woff=all --target-cpu=tsv110 --experimental %f -o %output
-// (JET) EXEC: %compiler %cmp_opt %overflow_wrapping -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.sync.*
 import std.time.*
-import std.convert.*
+import std.runtime.*
 
 var reps = 1000
 
@@ -58,30 +56,28 @@ class A {
     }
 }
 
-func benchmarkConcurrencyAtomicReferenceSwap(): Unit {
-    let wg = WaitGroup(0)
-    wg.add(reps)
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_ConcurrencyAtomicReferenceSwap {
+    @Bench
+    func BenchmarkConcurrencyAtomicReferenceSwap(): Unit {
+        let wg = WaitGroup(0)
+        wg.add(reps)
 
-    let test = AtomicReference<A>(A(1))
+        let test = AtomicReference<A>(A(1))
 
-    var startTime = DateTime.now()
-    for (i in 0..reps) {
-        let thread: Future<Unit> = spawn {
-            var y = A(1)
-            for (j in 0..10000) {
-                y = test.swap(y)
+        for (i in 0..reps) {
+            let thread: Future<Unit> = spawn {
+                var y = A(1)
+                for (j in 0..10000) {
+                    y = test.swap(y)
+                }
+                blackBox(y)
+                wg.done()
             }
-            wg.done()
         }
+        wg.wait()
     }
-    wg.wait()
-    var endTime = DateTime.now()
-
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkConcurrencyAtomicReferenceSwap: " + perTime.format(".2") + " ns/op")
-}
-
-main(): Int64 {
-    benchmarkConcurrencyAtomicReferenceSwap()
-    return 0
 }

@@ -12,78 +12,71 @@
 
 import std.time.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
 @Measure[TimeNow(Nanos)]
 @Configure[warmup: Duration.second]
 public class Test_HashMap_Init_Capacity { 
-    static var arr = HashMap<Int64, Int64>()
-    static var arr0 = HashMap<String, Int64>()
 
     @Bench
     func BenchmarkHashMapInitCapacity_Int64_N_16(): Unit {
-        arr = HashMap<Int64, Int64>()
+        blackBox(HashMap<Int64, Int64>())
     }
 
     @Bench
     func BenchmarkHashMapInitCapacity_Int64_N_128(): Unit {
-        arr = HashMap<Int64, Int64>(128)
+        blackBox(HashMap<Int64, Int64>(128))
     }
 
     @Bench
     func BenchmarkHashMapInitCapacity_Int64_N_1024(): Unit {
-        arr = HashMap<Int64, Int64>(1024)
+        blackBox(HashMap<Int64, Int64>(1024))
     }
 
     @Bench
     func BenchmarkHashMapInitCapacity_Int64_N_8192(): Unit {
-        arr = HashMap<Int64, Int64>(8192)
+        blackBox(HashMap<Int64, Int64>(8192))
     }
 
     @Bench
     func BenchmarkHashMapInitCapacity_Int64_N_65536(): Unit {
-        arr = HashMap<Int64, Int64>(65536)
+        blackBox(HashMap<Int64, Int64>(65536))
     }
 
     @Bench
     func BenchmarkHashMapInitCapacity_Int64_N_1048576(): Unit {
-        arr = HashMap<Int64, Int64>(1048576)
+        blackBox(HashMap<Int64, Int64>(1048576))
     }
 
     @Bench
     func BenchmarkHashMapInitCapacity_String_N_16(): Unit {
-        arr0 = HashMap<String, Int64>()
+        blackBox(HashMap<String, Int64>())
     }
 
     @Bench
     func BenchmarkHashMapInitCapacity_String_N_128(): Unit {
-        arr0 = HashMap<String, Int64>(128)
+        blackBox(HashMap<String, Int64>(128))
     }
 
     @Bench
     func BenchmarkHashMapInitCapacity_String_N_1024(): Unit {
-        arr0 = HashMap<String, Int64>(1024)
+        blackBox(HashMap<String, Int64>(1024))
     }
 
     @Bench
     func BenchmarkHashMapInitCapacity_String_N_8192(): Unit {
-        arr0 = HashMap<String, Int64>(8192)
+        blackBox(HashMap<String, Int64>(8192))
     }
 
     @Bench
     func BenchmarkHashMapInitCapacity_String_N_65536(): Unit {
-        arr0 = HashMap<String, Int64>(65536)
+        blackBox(HashMap<String, Int64>(65536))
     }
 
     @Bench
     func BenchmarkHashMapInitCapacity_String_N_1048576(): Unit {
-        arr0 = HashMap<String, Int64>(1048576)
-    }
-
-    @AfterAll
-    func teardown() {
-        println(arr.size)
-        println(arr0.size)
+        blackBox(HashMap<String, Int64>(1048576))
     }
 }

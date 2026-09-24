@@ -5,37 +5,28 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args
-
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 import std.sync.*
 import std.time.*
-import std.convert.*
 import std.runtime.*
+import std.unittest.*
 
-var reps = 180000000
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_AtomicSwapInt64 {
 
-func benchmarkAtomicSwapInt64() {
-    let x = AtomicInt64(1)
-    var y:Int64 = 1
-    for (i in 0..reps) {
-        y = x.swap(y)
+    @Strategy
+    func atomicData(): GenerateEachInputProvider<AtomicInt64> {
+        GenerateEachInputProvider { => AtomicInt64(1) }
+    }
+
+    @Bench[data in atomicData]
+    func BenchmarkAtomicSwapInt64(data: AtomicInt64): Unit {
+        var y:Int64 = data.swap(1)
         blackBox(y)
     }
-}
-
-main(): Int64 {
-    var startTime: DateTime
-    var endTime: DateTime
-    var perTime: Float64
-
-    startTime = DateTime.now()
-    benchmarkAtomicSwapInt64()
-    endTime = DateTime.now()
-
-    perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkAtomicSwapInt64: " + perTime.format(".2") + " ns/op")
-    return 0
 }

@@ -38,7 +38,7 @@ class Test_abs {
             let duration = Duration.Min.abs()
         } catch (e: ArithmeticException) {
             flag = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
         @Assert(flag, true)
     }

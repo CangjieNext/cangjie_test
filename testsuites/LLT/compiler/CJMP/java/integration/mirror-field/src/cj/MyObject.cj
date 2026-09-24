@@ -10,6 +10,8 @@ import java.lang.JObject
 
 @JavaMirror["com.java.lib.MyObject"]
 public open class MyObject <: JObject {
+    public var obj: JObject
+    public static var sobj: JObject
     public init(a:Int16)
     public var x: Bool
     public let y: Int16

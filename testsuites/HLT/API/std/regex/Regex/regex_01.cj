@@ -34,7 +34,7 @@ main() {
     try {
         var resultFindIndex = matcher2.find(0)
     } catch (e: IndexOutOfBoundsException) {
-        if (e.toString() != "IndexOutOfBoundsException: Invalid index: 0 against size: 0.") {
+        if (e.toString() != "IndexOutOfBoundsException: Index out of bounds: index is 0, but size is 0.") {
             println(e.toString())
             return 2
         }

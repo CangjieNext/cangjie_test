@@ -94,14 +94,14 @@ class Testwebsocketreadwrite_03 {
         try {
             websocket.write(CloseWebFrame, Array<UInt8>(12288, repeat: 97))
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+            @Expect(e.message.contains("Control frame payload length"))
             println(e.message)
             sum1 += 1
         }
         try {
             websocket.write(CloseWebFrame, Array<UInt8>(126, repeat: 97))
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+            @Expect(e.message.contains("Control frame payload length"))
             println(e.message)
             sum1 += 1
         }
@@ -164,12 +164,12 @@ class Testwebsocketreadwrite_03 {
         try {
             websocket.write(TextWebFrame, Array<UInt8>(125, repeat: 10))
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("No more data frames can be sent after sending a Close frame"))
+            @Expect(e.message.contains("Cannot send data frames after Close frame"))
         }
         try {
             websocket.write(BinaryWebFrame, Array<UInt8>(125, repeat: 10))
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("No more data frames can be sent after sending a Close frame"))
+            @Expect(e.message.contains("Cannot send data frames after Close frame"))
         }
         sleep(Duration.millisecond * 600)
         websocket.closeConn()
