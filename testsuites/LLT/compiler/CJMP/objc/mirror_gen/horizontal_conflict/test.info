@@ -1,0 +1,81 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// DEPENDENCE: test.toml test.h
+// EXEC: ObjCInteropGen test.toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+@ObjCMirror
+public open class A {
+    public open mut prop foo: Int32
+}
+
+@ObjCMirror
+public interface P1 {
+    mut prop foo: Int32
+}
+
+@ObjCMirror
+public interface P2 {
+    mut prop foo: Int32
+}
+
+@ObjCMirror
+public interface P3 {
+    mut prop foo: Int32
+}
+
+@ObjCMirror
+public interface P4 {
+    prop foo: Int32
+}
+
+@ObjCMirror
+public open class M1 <: A & P1 /*& P2 & P3*/ {
+}
+
+@ObjCMirror
+public open class M2 <: P1 /*& P2 & P3*/ {
+}
+
+@ObjCMirror
+public open class M3 <: P2 /*& P1 & P3*/ {
+}
+
+@ObjCMirror
+public open class M4 <: A & P3 {
+}
+
+@ObjCMirror
+public open class M5 <: P1 & P3 /*& P2*/ {
+}
+
+@ObjCMirror
+public open class M6 <: A /*& P4*/ & P1 /*& P2*/ {
+}
+
+@ObjCMirror
+public interface P7 {
+}
+
+@ObjCMirror
+public interface P8 {
+}
+
+@ObjCMirror
+public interface P9 {
+}
+
+@ObjCMirror
+public open class M7 <: A & P7 & P8 & P9 {
+}
+
+@ObjCMirror
+public open class M8 <: P7 & P8 & P9 {
+}
+*/
