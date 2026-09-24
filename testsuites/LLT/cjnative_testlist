@@ -125,7 +125,6 @@ compiler/Sema/generics/generic_subst_perf.cj
 # modal type
 # Sema lambda type infer
 compiler/Sema/modal/infer/p.cj
-compiler/Sema/modal/infer/some_local.cj
 compiler/Sema/type_infer/lambda_param_sum_keep_06.cj
 # problem of implementing default member of interface, this is not caused by local mode
 API/stdx/net/http/server/serve_tls_test.cj
