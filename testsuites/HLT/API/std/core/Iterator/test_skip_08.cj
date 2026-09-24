@@ -95,28 +95,28 @@ class Test_skip_08 {
             collectArray<Rune>(normalArr1.iterator().skip(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Skip count cannot less than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a non-negative value, got '-9223372036854775808'.")
         }
 
         try {
             collectArray<Int64>(normalArr2.iterator().skip(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Skip count cannot less than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a non-negative value, got '-9223372036854775808'.")
         }
 
         try {
             collectArray<String>(normalArr3.iterator().skip(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Skip count cannot less than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a non-negative value, got '-9223372036854775808'.")
         }
 
         try {
             collectArray<Float64>(normalArr4.iterator().skip(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Skip count cannot less than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a non-negative value, got '-9223372036854775808'.")
         }
     }
 }

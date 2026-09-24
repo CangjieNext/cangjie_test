@@ -12,7 +12,7 @@
 
 
 import std.time.*
-import std.collection.HashSet
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -24,14 +24,6 @@ public class Test_If_Else {
     static var n = 2
     static var k = 2
     static var l = 2
-
-    static let blackhole = HashSet<Int64>()
-    static var element = 0
-
-    @AfterAll
-    public func dumb(): Unit {
-        blackhole.add(element)
-    }
 
     @Bench
     func BenchmarkIfElseD1(): Unit {
@@ -68,7 +60,7 @@ public class Test_If_Else {
         } else {
             n = 1
         }
-        element = n
+        blackBox(n)
     }
 
     @Bench
@@ -170,8 +162,8 @@ public class Test_If_Else {
                 n = 2
             }
         }
-        element = n
-        element = m
+        blackBox(n)
+        blackBox(m)
     }
 
     @Bench
@@ -401,9 +393,9 @@ public class Test_If_Else {
                 n = 4
             }
         }
-        element = n
-        element = m
-        element = k
-        element = l
+        blackBox(n)
+        blackBox(m)
+        blackBox(k)
+        blackBox(l)
     }
 }

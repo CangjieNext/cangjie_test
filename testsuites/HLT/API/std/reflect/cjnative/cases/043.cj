@@ -33,7 +33,7 @@ class Test {
                 .apply(ti, [12]);
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalArgumentException: The input parameter item does not comply with the required quantity.")
+            @Expect(e.toString(), "IllegalArgumentException: Invalid argument count: expected 3, got 1.")
         }
 
         // 实参类型不匹配。
@@ -44,7 +44,7 @@ class Test {
                 .apply(ti, [12, C1(), 12]);
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalTypeException: The input parameter does not match the type of the input parameter required by the function.")
+            @Expect(e.toString(), "IllegalTypeException: Parameter type mismatch: expected 'String', got 'Int64'.")
         }
 
         // 静态成员函数内部抛出异常。

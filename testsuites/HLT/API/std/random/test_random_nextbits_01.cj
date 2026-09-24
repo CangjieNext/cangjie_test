@@ -52,7 +52,7 @@ class Test_random_nextbits_01 {
     func test_random_nextbits_04() {
         let r = Random()
         let e = @AssertThrows[IllegalArgumentException](r.nextBits(0))
-        @Expect(e.message, "Bits cannot be 0.")
+        @Expect(e.message, "Invalid argument 'bits': value cannot be 0.")
         @ExpectThrows[IllegalArgumentException](r.nextBits(65))
         @ExpectThrows[IllegalArgumentException](r.nextBits(UInt64.Max))
     }

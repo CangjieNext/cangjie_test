@@ -95,56 +95,56 @@ class Test_step_10 {
             collectArray<Rune>(normalArr1.iterator().step(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Step count must be greater than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a positive value, got '-9223372036854775808'.")
         }
 
         try {
             collectArray<Rune>(normalArr1.iterator().step(0))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Step count must be greater than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a positive value, got '0'.")
         }
 
         try {
             collectArray<Int64>(normalArr2.iterator().step(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Step count must be greater than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a positive value, got '-9223372036854775808'.")
         }
 
         try {
             collectArray<Int64>(normalArr2.iterator().step(0))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Step count must be greater than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a positive value, got '0'.")
         }
 
         try {
             collectArray<String>(normalArr3.iterator().step(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Step count must be greater than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a positive value, got '-9223372036854775808'.")
         }
 
         try {
             collectArray<String>(normalArr3.iterator().step(0))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Step count must be greater than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a positive value, got '0'.")
         }
 
         try {
             collectArray<Float64>(normalArr4.iterator().step(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Step count must be greater than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a positive value, got '-9223372036854775808'.")
         }
 
         try {
             collectArray<Float64>(normalArr4.iterator().step(0))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Step count must be greater than 0!")
+            @Expect(e.message,"Invalid argument 'count': expected a positive value, got '0'.")
         }
     }
 }

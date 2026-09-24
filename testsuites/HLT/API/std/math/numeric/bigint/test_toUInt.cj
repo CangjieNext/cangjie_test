@@ -30,21 +30,21 @@ class BigIntToUIntTest {
             convert_result = param_a.toUInt8(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt8.")
+            @Expect(e.message, "Value out of UInt8 range.")
         }
         try {
             var param_a = BigInt(-128)
             convert_result = param_a.toUInt8(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt8.")
+            @Expect(e.message, "Value out of UInt8 range.")
         }
         try {
             var param_a = BigInt(256)
             convert_result = param_a.toUInt8(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt8.")
+            @Expect(e.message, "Value out of UInt8 range.")
         }
 
         let expwra_map = HashMap<String, UInt8>(
@@ -79,14 +79,14 @@ class BigIntToUIntTest {
             convert_result = param_a.toUInt16(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt16.")
+            @Expect(e.message, "Value out of UInt16 range.")
         }
         try {
             var param_a = BigInt.parse("-8001", radix: 16)
             convert_result = param_a.toUInt16(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt16.")
+            @Expect(e.message, "Value out of UInt16 range.")
         }
 
         let expwra_map = HashMap<String, String>(
@@ -121,14 +121,14 @@ class BigIntToUIntTest {
             convert_result = param_a.toUInt32(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt32.")
+            @Expect(e.message, "Value out of UInt32 range.")
         }
         try {
             var param_a = BigInt.parse("100000000", radix: 16)
             convert_result = param_a.toUInt32(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt32.")
+            @Expect(e.message, "Value out of UInt32 range.")
         }
 
         let expwra_map = HashMap<String, String>(
@@ -164,14 +164,14 @@ class BigIntToUIntTest {
             convert_result = param_a.toUInt64(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt64.")
+            @Expect(e.message, "Value out of UInt64 range.")
         }
         try {
             var param_a = BigInt.parse("-1", radix: 16)
             convert_result = param_a.toUInt64(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt64.")
+            @Expect(e.message, "Value out of UInt64 range.")
         }
 
         let expwra_map = HashMap<String, String>(
@@ -255,21 +255,21 @@ class BigIntToUIntTest {
             param_a.toUInt16(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt16." )
+            @Expect(e.message, "Value out of UInt16 range." )
         }
 
         try {
             param_a.toUInt32(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt32." )
+            @Expect(e.message, "Value out of UInt32 range." )
         }
 
         try {
             param_a.toUInt64(overflowHandling: Throwing)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the UInt64." )
+            @Expect(e.message, "Value out of UInt64 range." )
         }
     }
 

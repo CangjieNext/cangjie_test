@@ -64,7 +64,7 @@ class test_workDirectory {
             let process = Process.start("sleep", expect, workingDirectory: Path("  "))
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "WorkingDirectory \"  \" not exist in the file system.")
+            @Expect(e.message, "Working directory \'  \' does not exist.")
         }
         @Expect(cnt, 2)
 
@@ -72,7 +72,7 @@ class test_workDirectory {
             let process = Process.start("sleep", expect, workingDirectory: Path("notExistFilePath"))
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "WorkingDirectory \"notExistFilePath\" not exist in the file system.")
+            @Expect(e.message, "Working directory \'notExistFilePath\' does not exist.")
         }
         @Expect(cnt, 3)
     }

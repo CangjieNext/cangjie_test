@@ -12,9 +12,9 @@
 // ═════════════════════════════════════════════════════════════════
 
 
-// DEPENDENCE: pkg ../tools/cjo_mutate.py
+// DEPENDENCE: pkg ../tools
 // EXEC: %compiler %pkg_opt pkg %compile_lib_opt -o pkg.%middle
-// EXEC: %python cjo_mutate.py --patch-cjo pkg.cjo --clear-version-string
+// EXEC: %python tools/cjo_mutate.py --patch-cjo pkg.cjo --clear-version-string
 // EXEC-PIPE-0: %compiler %cmp_opt pkg.%middle %f -o %output 2>&1 | compare %f
 // ASSERT: scan-not is incompatible: compiled with cjc
 // ASSERT: scan-not validation of

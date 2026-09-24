@@ -26,9 +26,8 @@
 #   flatc 输出 relaxed JSON(键名不带引号,可能带尾逗号);stderr 的 snake_case warning 可忽略
 #   flatc 产出名 = 输入 splitext 词干,共享词干的文件会互撞 → 一律复制到唯一临时名再手术
 # 分发形态:tools/ 下各平台 flatc 以 zip 入库,首次使用现场解压(见下方 _FLATC_* 一节)。
-#   套件资源定位:环境变量 CANGJIE_TEST 指向套件根,脚本经
-#   $CANGJIE_TEST/testsuites/HLT/compiler/cjnative/cjo/test_cjo_version_check/tools
-#   取 CjoFormat.fbs 与 flatc zip(用例运行态本脚本被扁平拷入 work_dir,不在套件树内)
+#   套件资源定位:flatc 与 CjoFormat.fbs 只在本脚本所在目录(即套件内 tools/)查找;
+#   不读 CANGJIE_TEST 环境变量,不搜 cwd,不搜 PATH,其他路径一律不进行任何搜索
 # 注意:cjoVersion 与 .cachedast 的 HashedPackage.version:string 是两类机制(前者本特性,
 #   后者既有 CANGJIE_VERSION 门禁),勿混淆。
 import argparse
@@ -43,8 +42,8 @@ import zipfile
 
 
 # flatc 分发:各平台二进制以 zip 入库(包内单个 flatc,命名如 flatc-mac),首次使用现场解压,
-#   解压目标为 zip 同级目录(即本脚本所在目录),此后直接复用已解压产物;
-#   目录只读(部分 CI 只读挂载)时退回解压到系统临时目录。
+#   解压目标固定为 zip 同级目录(即本脚本所在目录),此后直接复用已解压产物;
+#   解压失败即报错退出,不退回任何其他路径。
 _FLATC_SPECIFIC = {'win': 'flatc-win.exe', 'mac': 'flatc-mac', 'linux': 'flatc-linux'}
 _FLATC_GENERIC = {'win': 'flatc.exe', 'mac': 'flatc', 'linux': 'flatc'}
 _FLATC_ZIPS = {  # 本平台 zip 候选名(平台名优先,通名兜底)
@@ -60,124 +59,92 @@ def _platform_key():
     return 'mac' if sys.platform == 'darwin' else 'linux'
 
 
-def _search_dirs():
-    """探测目录(按序):$CANGJIE_TEST 套件 tools/ → 本脚本所在目录 → cwd。
+def _tools_dir():
+    """资源唯一探测目录:本脚本所在目录(即套件内 tools/)。
 
-    用例运行态:本脚本被框架扁平拷入 work_dir,work_dir 不在套件树内,向上遍历
-    探不到 tools/,故以 CANGJIE_TEST 环境变量回指套件根,定位
-    $CANGJIE_TEST/testsuites/HLT/compiler/cjnative/cjo/test_cjo_version_check/tools;
-    脚本所在目录/cwd 兜底覆盖 tools/ 内直跑等本地场景。
+    flatc/CjoFormat.fbs 只与本脚本同级查找;不读 CANGJIE_TEST 环境变量,
+    不搜 cwd,不搜 PATH——其他路径一律不进行任何搜索,避免从他处误取
+    版本不一致的工具/描述文件。
     """
-    cands = []
-    root = os.environ.get('CANGJIE_TEST')
-    if root:
-        cands.append(os.path.join(root, 'testsuites', 'HLT', 'compiler', 'cjnative',
-                                  'cjo', 'test_cjo_version_check', 'tools'))
-    cands.append(os.path.dirname(os.path.abspath(__file__)))
-    cands.append(os.getcwd())
-    seen = set()
-    dirs = []
-    for d in cands:
-        key = os.path.normcase(os.path.normpath(d))
-        if key not in seen:
-            seen.add(key)
-            dirs.append(d)
-    return dirs
+    return os.path.dirname(os.path.abspath(__file__))
 
 
 def locate_tool(name):
-    """找 CjoFormat.fbs 等资源:$CANGJIE_TEST tools/ → 本脚本所在目录 → cwd → PATH。"""
-    for d in _search_dirs():
-        cand = os.path.join(d, name)
-        if os.path.isfile(cand):
-            return cand
-    found = shutil.which(name)
-    if found:
-        return found
-    raise SystemExit('cjo_mutate.py: cannot locate %s (searched $CANGJIE_TEST tools/'
-                     'script dir/cwd/PATH; 请确认环境变量 CANGJIE_TEST 指向套件根)' % name)
+    """找 CjoFormat.fbs 等资源:仅本脚本所在目录(tools/),不做其他任何路径搜索。"""
+    cand = os.path.join(_tools_dir(), name)
+    if os.path.isfile(cand):
+        return cand
+    raise SystemExit('cjo_mutate.py: cannot locate %s (searched only %s; '
+                     '请确认资源与本脚本同目录)' % (name, _tools_dir()))
 
 
 def locate_flatc():
-    """找本平台 flatc:$CANGJIE_TEST tools/、脚本所在目录、cwd 内 专属名二进制 → 本平台
-    zip(首次现场解压一次) → 通名 → PATH。
+    """找本平台 flatc:仅本脚本所在目录(tools/)内 专属名二进制 → 本平台 zip
+    (首次现场解压一次) → 通名;不做其他任何路径搜索(cwd/PATH 一律不查)。
 
     专属名优先于通名:避免同目录内他平台 flatc(如 linux 的 flatc)在 mac/linux 被误用;
     zip 命中解压一次后,专属名此后直接命中,不再解包。
     """
     key = _platform_key()
-    dirs = _search_dirs()
-    for d in dirs:
-        cand = os.path.join(d, _FLATC_SPECIFIC[key])
-        if os.path.isfile(cand):
-            return cand
-    for d in dirs:
-        for zname in _FLATC_ZIPS[key]:
-            cand = os.path.join(d, zname)
-            if os.path.isfile(cand):
-                return _extract_flatc_zip(cand)
-    for d in dirs:
-        cand = os.path.join(d, _FLATC_GENERIC[key])
-        if os.path.isfile(cand):
-            return cand
-    found = shutil.which(_FLATC_GENERIC[key])
-    if found:
-        return found
-    raise SystemExit('cjo_mutate.py: cannot locate flatc for %s (searched $CANGJIE_TEST '
-                     'tools/script dir/cwd/zips/PATH; 请确认环境变量 CANGJIE_TEST 指向套件根)'
-                     % key)
+    d = _tools_dir()
+    cand = os.path.join(d, _FLATC_SPECIFIC[key])
+    if os.path.isfile(cand):
+        return cand
+    for zname in _FLATC_ZIPS[key]:
+        zcand = os.path.join(d, zname)
+        if os.path.isfile(zcand):
+            return _extract_flatc_zip(zcand)
+    cand = os.path.join(d, _FLATC_GENERIC[key])
+    if os.path.isfile(cand):
+        return cand
+    raise SystemExit('cjo_mutate.py: cannot locate flatc for %s (searched only %s; '
+                     '请确认本平台 flatc 二进制或 zip 与本脚本同目录)' % (key, d))
 
 
 def _extract_flatc_zip(zip_path):
     """解包 flatc zip(成员按 basename 平铺)并返回本平台二进制路径。
 
+    解压目标固定为 zip 同级目录(即本脚本所在目录),不落到任何其他路径;
     并发用例同时触发解压时按"已存在且等长则跳过 + 临时名原子替换"防撕裂。
     """
     bases = (_FLATC_SPECIFIC[_platform_key()], _FLATC_GENERIC[_platform_key()])
-    zdir = os.path.dirname(os.path.abspath(zip_path))
-    fallback = os.path.join(tempfile.gettempdir(), 'cjo_mutate_flatc', _platform_key())
-    for outdir in (zdir, fallback):
-        try:
-            os.makedirs(outdir, exist_ok=True)
-            with zipfile.ZipFile(zip_path) as zf:
-                for info in zf.infolist():
-                    if info.is_dir():
-                        continue
-                    base = os.path.basename(info.filename.replace('\\', '/'))
-                    if not base:
-                        continue
-                    dst = os.path.join(outdir, base)
-                    if not (os.path.isfile(dst) and os.path.getsize(dst) == info.file_size):
-                        tmp_dst = '%s.tmp%d' % (dst, os.getpid())
-                        with zf.open(info) as src, open(tmp_dst, 'wb') as fh:
-                            shutil.copyfileobj(src, fh)
-                        os.replace(tmp_dst, dst)
-                    if os.name != 'nt' and base in bases:
-                        os.chmod(dst, 0o755)  # zip 外部属性不保证保留可执行位
-        except (OSError, zipfile.BadZipFile) as exc:
-            if outdir == fallback:
-                raise SystemExit('cjo_mutate.py: cannot extract flatc from %s: %s'
-                                 % (zip_path, exc))
-            print('cjo_mutate.py: extract to %s failed (%s), retrying in %s'
-                  % (outdir, exc, fallback), file=sys.stderr)
-            continue
-        for base in bases:  # 解压成功:按候选名认领本平台二进制
-            cand = os.path.join(outdir, base)
-            if os.path.isfile(cand):
-                return cand
-        for base in sorted(os.listdir(outdir)):  # 兜底:命名不在候选表(如带架构后缀)
-            if not base.startswith('flatc'):
-                continue
-            if os.name == 'nt':
-                if not base.endswith('.exe'):
+    outdir = os.path.dirname(os.path.abspath(zip_path))
+    try:
+        with zipfile.ZipFile(zip_path) as zf:
+            for info in zf.infolist():
+                if info.is_dir():
                     continue
-            elif '.' in base:
+                base = os.path.basename(info.filename.replace('\\', '/'))
+                if not base:
+                    continue
+                dst = os.path.join(outdir, base)
+                if not (os.path.isfile(dst) and os.path.getsize(dst) == info.file_size):
+                    tmp_dst = '%s.tmp%d' % (dst, os.getpid())
+                    with zf.open(info) as src, open(tmp_dst, 'wb') as fh:
+                        shutil.copyfileobj(src, fh)
+                    os.replace(tmp_dst, dst)
+                if os.name != 'nt' and base in bases:
+                    os.chmod(dst, 0o755)  # zip 外部属性不保证保留可执行位
+    except (OSError, zipfile.BadZipFile) as exc:
+        raise SystemExit('cjo_mutate.py: cannot extract flatc from %s into %s: %s'
+                         % (zip_path, outdir, exc))
+    for base in bases:  # 解压成功:按候选名认领本平台二进制
+        cand = os.path.join(outdir, base)
+        if os.path.isfile(cand):
+            return cand
+    for base in sorted(os.listdir(outdir)):  # 兜底:命名不在候选表(如带架构后缀)
+        if not base.startswith('flatc'):
+            continue
+        if os.name == 'nt':
+            if not base.endswith('.exe'):
                 continue
-            cand = os.path.join(outdir, base)
-            if os.path.isfile(cand):
-                if os.name != 'nt':
-                    os.chmod(cand, 0o755)
-                return cand
+        elif '.' in base:
+            continue
+        cand = os.path.join(outdir, base)
+        if os.path.isfile(cand):
+            if os.name != 'nt':
+                os.chmod(cand, 0o755)
+            return cand
     raise SystemExit('cjo_mutate.py: no flatc binary for this platform in %s' % zip_path)
 
 

@@ -104,7 +104,7 @@ class Test_Unixdatagram_Filepath {
         try {
             unixdatagramsocket1.bind()
         } catch (e: SocketException) {
-            @Expect(e.message.contains("The socket is already bound"), true)
+            @Expect(e.message.contains("Socket is already bound"), true)
             sum += 1
         }
         @Expect(sum, 1)

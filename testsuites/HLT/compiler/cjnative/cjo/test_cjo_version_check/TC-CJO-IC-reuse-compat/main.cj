@@ -12,17 +12,17 @@
 // ═════════════════════════════════════════════════════════════════
 
 
-// DEPENDENCE: pkg pkg.old.cj ../tools/cjo_mutate.py log_reuse.txt
+// DEPENDENCE: pkg pkg.old.cj ../tools log_reuse.txt
 // EXEC: %cp pkg.old.cj pkg.cj
 // EXEC: %compiler %cmp_opt pkg.cj %compile_lib_opt -o pkg.%middle
 // EXEC: %compiler %incremental_compile %cmp_opt pkg.%middle %f -o %output
-// EXEC: %python cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 0.0.0
+// EXEC: %python tools/cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 0.0.0
 // EXEC-PIPE-0: %compiler %incremental_compile %cmp_opt pkg.%middle %f -o %output 2>&1 | compare %f
 // ASSERT: scan-not module_version_not_identical
-// EXEC: %python cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 0.1.255
+// EXEC: %python tools/cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 0.1.255
 // EXEC-PIPE-0: %compiler %incremental_compile %cmp_opt pkg.%middle %f -o %output 2>&1 | compare %f
 // ASSERT: scan-not module_version_not_identical
-// EXEC: %python cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 0.1.0
+// EXEC: %python tools/cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 0.1.0
 // EXEC-PIPE-0: %compiler %incremental_compile %cmp_opt pkg.%middle %f -o %output 2>&1 | compare %f
 // ASSERT: scan-not module_version_not_identical
 // (Linux)EXEC: cat .cached/*.log | compare log_reuse.txt

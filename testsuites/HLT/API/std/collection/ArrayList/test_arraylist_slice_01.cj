@@ -30,7 +30,7 @@ class Test_arraylist_slice_01 {
     func test_slice_02(): Unit {
         let buf = ArrayList<String>()
         let e = @AssertThrows[IndexOutOfBoundsException](buf[0..1])
-        @Expect(e.message, "The opened end of the range 1 is greater than the size 0.")
+        @Expect(e.message, "Open range end '1' is greater than size '0'.")
     }
 
     @TestCase

@@ -59,6 +59,20 @@ sign_dylibs_in_dir() {
  
 
  
+# Detect the CPU architecture of a Mach-O file (arm64 or x86_64).
+# Used to pick the matching simulator runtime library directory when the
+# architecture is not known otherwise (the [run] script line carries no target
+# argument; the compiled executable in the work_dir is the source of truth).
+macho_arch() {
+    local exe="$1"
+    [ -e "$exe" ] || { echo "arm64"; return; }
+    if file -b "$exe" | grep -q "x86_64"; then
+        echo "x86_64"
+    else
+        echo "arm64"
+    fi
+}
+
 # Output a usable simulator udid: prefer the environment variable, otherwise the currently booted simulator
 get_simulator_udid() {
     local udid="${XCODE_DEVICE_UDID_OF_CANGJIE_IOS_TEST}"
@@ -74,15 +88,20 @@ get_simulator_udid() {
 }
  
 # Run an executable on the simulator, injecting the runtime library directory for dynamic linking.
+# The architecture is detected from the executable itself, so x64 builds pick the
+# x86_64 runtime directory automatically. The current working directory is appended
+# to SIMCTL_CHILD_DYLD_LIBRARY_PATH so case-local glue dylibs (e.g. libcjworld.dylib
+# produced in the work_dir) are also loadable at spawn time.
 # Usage: run_on_simulator <udid> <exe> [args...]
 run_on_simulator() {
     local udid="$1"
     local exe="$2"
     shift 2
-    local lib_dir
-    lib_dir=$(ios_runtime_lib_dir)
-    echo "running './$exe' on simulator $udid"
-    SIMCTL_CHILD_DYLD_LIBRARY_PATH="$lib_dir" xcrun simctl spawn "$udid" "./$exe" "$@"
+    local lib_dir arch
+    arch=$(macho_arch "$exe")
+    lib_dir=$(ios_runtime_lib_dir "$arch")
+    echo "running './$exe' on simulator $udid (runtime: $lib_dir)"
+    SIMCTL_CHILD_DYLD_LIBRARY_PATH="$lib_dir:$(pwd)" xcrun simctl spawn "$udid" "./$exe" "$@"
     return $?
 }
  

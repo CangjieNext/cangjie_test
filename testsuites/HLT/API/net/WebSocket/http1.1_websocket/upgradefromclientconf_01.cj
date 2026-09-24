@@ -295,7 +295,7 @@ class Testupgradefromclientconf_01 {
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u)
             websocket.closeConn()
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("Upgrade to websocket failed, invalid URL scheme, the scheme must be ws or wss"))
+            @Expect(e.message.contains("Invalid URL scheme"))
             sum += 1
         }
         @Expect(sum ,1)
@@ -329,7 +329,7 @@ class Testupgradefromclientconf_01 {
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u)
             websocket.closeConn()
         } catch (e: HttpException) {
-            @Expect(e.message.contains("TLS must be configured when HTTPS requests are sent."))
+            @Expect(e.message.contains("TLS configuration is required for HTTPS requests."))
             sum += 1
         }
         @Expect(sum, 1)
@@ -363,7 +363,7 @@ class Testupgradefromclientconf_01 {
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u)
             websocket.closeConn()
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("Upgrade to websocket failed, invalid URL scheme, the scheme must be ws or wss"))
+            @Expect(e.message.contains("Invalid URL scheme"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -397,7 +397,7 @@ class Testupgradefromclientconf_01 {
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u)
             websocket.closeConn()
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("Upgrade to websocket failed, the status code should be 101, but received 404"))
+            @Expect(e.message.contains("WebSocket upgrade failed: invalid status code '404', expected 101"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -431,7 +431,7 @@ class Testupgradefromclientconf_01 {
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u)
             websocket.closeConn()
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("Upgrade to websocket failed, invalid URL scheme, the scheme must be ws or wss"))
+            @Expect(e.message.contains("Invalid URL scheme"))
             sum += 1
         }
         @Expect(sum, 1)

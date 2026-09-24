@@ -12,17 +12,17 @@
 // ═════════════════════════════════════════════════════════════════
 
 
-// DEPENDENCE: pkg pkg.old.cj ../tools/cjo_mutate.py log_selfheal_p1.txt log_selfheal_p2.txt diag_p1.txt diag_p2.txt
+// DEPENDENCE: pkg pkg.old.cj ../tools log_selfheal_p1.txt log_selfheal_p2.txt diag_p1.txt diag_p2.txt
 // EXEC: %cp pkg.old.cj pkg.cj
 // EXEC: %compiler %cmp_opt pkg.cj %compile_lib_opt -o pkg.%middle
 // EXEC: %compiler %incremental_compile %cmp_opt pkg.%middle %f -o %output
 // 第一段:手术 (1,0,0) → 增量构建被拒,缓存日志落 frontend error 回退行
-// EXEC: %python cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 1.0.0
+// EXEC: %python tools/cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 1.0.0
 // EXEC-PIPE-1: %compiler %incremental_compile %cmp_opt pkg.%middle %f -o %output 2>&1 | compare diag_p1.txt
 // (Linux)EXEC: cat .cached/*.log | compare log_selfheal_p1.txt
 // (Windows)EXEC: powershell Get-Content .cached/*.log | compare log_selfheal_p1.txt
 // 第二段:恢复 (0,1,0) → 增量构建恢复命中(自愈),缓存日志无回退行
-// EXEC: %python cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 0.1.0
+// EXEC: %python tools/cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 0.1.0
 // EXEC-PIPE-0: %compiler %incremental_compile %cmp_opt pkg.%middle %f -o %output 2>&1 | compare diag_p2.txt
 // (Linux)EXEC: cat .cached/*.log | compare log_selfheal_p2.txt
 // (Windows)EXEC: powershell Get-Content .cached/*.log | compare log_selfheal_p2.txt

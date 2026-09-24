@@ -7,12 +7,12 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.sync.*
 import std.time.*
-import std.convert.*
+import std.runtime.*
 
 var reps = 1000
 
@@ -56,32 +56,29 @@ class A {
     }
 }
 
-func benchmarkConcurrencyAtomicReferenceCas(): Unit {
-    let wg = WaitGroup(0)
-    wg.add(reps)
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_ConcurrencyAtomicReferenceCas {
+    @Bench
+    func BenchmarkConcurrencyAtomicReferenceCas(): Unit {
+        let wg = WaitGroup(0)
+        wg.add(reps)
 
-    let x = A(1)
-    let y = A(2)
-    let test = AtomicReference<A>(x)
+        let x = A(1)
+        let y = A(2)
+        let test = AtomicReference<A>(x)
 
-    var startTime = DateTime.now()
-    for (i in 0..reps) {
-        let thread: Future<Unit> = spawn {
-            for (j in 0..10000) {
-                test.compareAndSwap(x, y)
-                test.compareAndSwap(y, x)
+        for (i in 0..reps) {
+            let thread: Future<Unit> = spawn {
+                for (j in 0..10000) {
+                    blackBox(test.compareAndSwap(x, y))
+                    blackBox(test.compareAndSwap(y, x))
+                }
+                wg.done()
             }
-            wg.done()
         }
+        wg.wait()
     }
-    wg.wait()
-    var endTime = DateTime.now()
-
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkConcurrencyAtomicReferenceCas: " + perTime.format(".2") + " ns/op")
-}
-
-main(): Int64 {
-    benchmarkConcurrencyAtomicReferenceCas()
-    return 0
 }

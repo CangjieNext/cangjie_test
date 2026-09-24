@@ -115,7 +115,7 @@ class Test_tlssocket_01 {
             try {
                 tlsServer.handshake()
             } catch (e: TlsException | SocketException) {
-                @Expect(e.message.contains("The Certificate chain doesn't match the private key"))
+                @Expect(e.message.contains("Certificate chain does not match private key"))
                 sum1 += 1
             }
             @Expect(sum1, 1)
@@ -165,7 +165,7 @@ class Test_tlssocket_01 {
             try {
                 tlsServer.handshake()
             } catch (e: TlsException) {
-                @Expect(e.message.contains("The Certificate chain doesn't match the private key"))
+                @Expect(e.message.contains("Certificate chain does not match private key"))
                 sum1 += 1
             }
             @Expect(sum1, 1)

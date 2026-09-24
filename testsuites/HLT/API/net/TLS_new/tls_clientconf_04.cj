@@ -140,7 +140,7 @@ class Test_tlsclientconf_04 {
         try {
             clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
         } catch (e: X509Exception) {
-            @Expect(e.message, "X509Cert decode failed: No CERTIFICATE entry found in PEM file.")
+            @Expect(e.message, "X509Cert decode failed: No 'CERTIFICATE' entry found in PEM file.")
             sum2 += 1
         }
         var tcpClient = TcpSocket("127.0.0.1", port.load())

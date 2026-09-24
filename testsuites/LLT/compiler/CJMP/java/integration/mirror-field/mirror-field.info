@@ -19,5 +19,7 @@ cj: true 1 10 100
 cj: var x modify
 cj: static var sx modify
 cj: false 1 11 100
+cj: set obj field
+cj: set sobj field
 cj: Main() end
 */

@@ -23,7 +23,7 @@ class Test_operators {
             let duration = Duration.Max + Duration.nanosecond
         } catch (e: ArithmeticException) {
             flag = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
         @Assert(flag, true)
     }
@@ -55,7 +55,7 @@ class Test_operators {
             let duration = Duration.Min - Duration.nanosecond
         } catch (e: ArithmeticException) {
             flag = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
         @Assert(flag, true)
     }
@@ -135,28 +135,28 @@ class Test_operators {
             let duration = Duration.Max * 2
         } catch (e: ArithmeticException) {
             flag1 = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
 
         try {
             let duration = Duration.Min * -2
         } catch (e: ArithmeticException) {
             flag2 = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
 
         try {
             let duration = 2 * Duration.Max
         } catch (e: ArithmeticException) {
             flag3 = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
 
         try {
             let duration = -2 * Duration.Min
         } catch (e: ArithmeticException) {
             flag4 = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
 
         @Assert(flag1, true)
@@ -177,35 +177,35 @@ class Test_operators {
             let duration = Duration.Max * 1.1
         } catch (e: ArithmeticException) {
             flag1 = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
 
         try {
             let duration = Duration.Min * -1.1
         } catch (e: ArithmeticException) {
             flag2 = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
 
         try {
             let duration = 1.1 * Duration.Max
         } catch (e: ArithmeticException) {
             flag3 = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
 
         try {
             let duration = -1.1 * Duration.Min
         } catch (e: ArithmeticException) {
             flag4 = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
 
         try {
             let duration = Duration.nanosecond * Float64.Inf
         } catch (e: ArithmeticException) {
             flag5 = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
 
         @Assert(flag1, true)
@@ -225,21 +225,21 @@ class Test_operators {
             let duration = Duration.nanosecond * Float64.NaN
         } catch (e: IllegalArgumentException) {
             flag1 = true
-            @Assert(e.message, "The value of operand cannot be Float64.NaN(not a number)!")
+            @Assert(e.message, "Operand value cannot be 'Float64.NaN'.")
         }
 
         try {
             let duration = Float64.NaN * Duration.nanosecond
         } catch (e: IllegalArgumentException) {
             flag2 = true
-            @Assert(e.message, "The value of operand cannot be Float64.NaN(not a number)!")
+            @Assert(e.message, "Operand value cannot be 'Float64.NaN'.")
         }
 
         try {
             let duration = Float64.Inf * Duration.nanosecond
         } catch (e: ArithmeticException) {
             flag3 = true
-            @Assert(e.message, "Out of range of representation of 'Duration'!")
+            @Assert(e.message, "Duration value overflow.")
         }
 
         @Assert(flag1, true)
@@ -254,7 +254,7 @@ class Test_operators {
             let duration = Duration.nanosecond / 0
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Assert(e.message, "The value of right operand cannot be 0!")
+            @Assert(e.message, "Divisor value cannot be '0'.")
         }
 
         @Assert(flag, true)
@@ -277,7 +277,7 @@ class Test_operators {
             let duration = Duration.nanosecond / 0.0
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Assert(e.message, "The value of right operand cannot be 0.0!")
+            @Assert(e.message, "Divisor value cannot be '0.0'.")
         }
 
         @Assert(flag, true)
@@ -303,7 +303,7 @@ class Test_operators {
             let duration = Duration.nanosecond / Float64.NaN
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Assert(e.message, "The value of right operand cannot be Float64.NaN(not a number)!")
+            @Assert(e.message, "Divisor value cannot be 'Float64.NaN'.")
         }
 
         @Assert(flag, true)
@@ -326,7 +326,7 @@ class Test_operators {
             let duration = Duration.nanosecond / Duration.Zero
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Assert(e.message, "The value of right operand cannot be Duration.Zero!")
+            @Assert(e.message, "Divisor cannot be 'Duration.Zero'.")
         }
         @Assert(flag, true)
     }

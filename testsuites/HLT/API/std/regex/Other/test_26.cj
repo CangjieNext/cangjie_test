@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // (not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
 // (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan RegexException: Compilation for pattern `a\\1` failed at offset 2: reference to non-existent subpattern.
+// ASSERT: scan RegexException: Failed to compile pattern 'a\\1' at offset 2: reference to non-existent subpattern.
 
 import std.regex.*
 import std.collection.*

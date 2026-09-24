@@ -12,9 +12,9 @@
 // ═════════════════════════════════════════════════════════════════
 
 
-// DEPENDENCE: pkg ../tools/cjo_mutate.py
+// DEPENDENCE: pkg ../tools
 // EXEC: %compiler %pkg_opt pkg %compile_lib_opt -o pkg.%middle
-// EXEC: %python cjo_mutate.py --patch-cjo pkg.cjo --corrupt-identifier
+// EXEC: %python tools/cjo_mutate.py --patch-cjo pkg.cjo --corrupt-identifier
 // EXEC-PIPE-1: %compiler %cmp_opt pkg.%middle %f -o %output 2>&1 | compare %f
 // ASSERT: scan validation of
 // ASSERT: scan failed, please confirm it was created by compiler whose version is
