@@ -70,7 +70,7 @@ class Test_concurrenthashmap_19 {
         try {
             ConcurrentHashMap<Int64, Int64>(-2, concurrencyLevel: Int64.Max)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid size of Concurrent HashMap"))
+            @Expect(e.message.contains("Invalid capacity '-2': expected a non-negative value"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -132,7 +132,7 @@ class Test_concurrenthashmap_19 {
         try {
             ConcurrentHashMap<Int64, Int64>(-1, PreData)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid size of Concurrent HashMap"))
+            @Expect(e.message.contains("Invalid size '-1': expected a non-negative value"))
             sum += 1
         }
         @Expect(sum, 1)

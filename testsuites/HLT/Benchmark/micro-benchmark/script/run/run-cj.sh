@@ -94,6 +94,14 @@ function read_testlist() {
                 run_ast_benchmark $line
             elif [ $api = "reflect" ]; then
                 run_reflect_benchmark $line
+            elif [ $api = "json" ]; then
+                run_string_benchmark $line
+            elif [ $api = "io" ]; then
+                run_string_benchmark $line
+            elif [ $api = "convert" ]; then
+                run_string_benchmark $line
+            elif [ $api = "expression" ]; then
+                run_string_benchmark $line
             else
                 run_benchmark $line
             fi
@@ -203,8 +211,8 @@ function run_collections_hashset_benchmark() {
     cd "$base/../../cj/collections_hashset"
     result="result-cj-collections_hashset.list"
     benchmark=$1
-    cjc ${benchmark}.cj common_collection.cj $opt -o ${benchmark}.out
-    res=`timeout 1800 ./${benchmark}.out`
+    cjc ${benchmark}.cj common_collection.cj $opt -o ${benchmark}.out --test
+    res=`timeout 1800 ./${benchmark}.out --bench --no-color`
     if [ -n "$res" ]; then
         echo "$res" >> "$base/$result"
     else
@@ -275,14 +283,14 @@ function run_atomic_aarch64_benchmark(){
 
     if [[ "${optimized[@]}" =~ $benchmark ]]; then
         if [[ $(uname -m) == "aarch64" ]]; then
-            cjc ${benchmark}.cj $opt $lto --target-cpu=tsv110 --experimental -o ${benchmark}.out
+            cjc ${benchmark}.cj $opt $lto --target-cpu=tsv110 --experimental -o ${benchmark}.out --test
         else
-            cjc ${benchmark}.cj $opt $lto -o ${benchmark}.out
+            cjc ${benchmark}.cj $opt $lto -o ${benchmark}.out --test
         fi
     elif [[ ! "${optimized[@]}" =~ $benchmark ]]; then
-        cjc ${benchmark}.cj $opt -o ${benchmark}.out
+        cjc ${benchmark}.cj $opt -o ${benchmark}.out --test
     fi
-    res=`timeout 1800 ./${benchmark}.out`
+    res=`timeout 1800 ./${benchmark}.out --bench --no-color`
     if [ -n "$res" ]; then
         echo "$res" >> "$base/$result"
     else

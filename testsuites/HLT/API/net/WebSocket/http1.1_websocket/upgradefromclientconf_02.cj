@@ -116,7 +116,7 @@ class Testupgradefromclientconf_02 {
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u, version: HTTP1_0)
             websocket.closeConn()
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("Only the upgrade from HTTP1_1 and HTTP2_0 to WebSocket is supported"))
+            @Expect(e.message.contains("Unsupported protocol 'HTTP/1.0'"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -185,7 +185,7 @@ class Testupgradefromclientconf_02 {
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u, version: UnknownProtocol("zps"))
             websocket.closeConn()
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("Only the upgrade from HTTP1_1 and HTTP2_0 to WebSocket is supported"))
+            @Expect(e.message.contains("Unsupported protocol 'zps'"))
             sum += 1
         }
         @Expect(sum, 1)

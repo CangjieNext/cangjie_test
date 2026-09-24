@@ -28,7 +28,7 @@ class TestParseFormat {
                 let time0 = DateTime.parse(dateTime[0], "yyyy-MM-dd-wwwww").toString()
             } catch (e: IllegalArgumentException) {
                 index += 1
-                @Assert(e.message, "The number of character \"w\" can not exceed 4.")
+                @Assert(e.message, "Invalid format string: character 'w' exceeds maximum length 4.")
             }
         }
         @Assert(index, 3)

@@ -77,7 +77,7 @@ class Testwebsocketconf_02 {
             websocket.read()
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("The connection is closed"))
+            @Expect(e.message.contains("WebSocket connection is closed"))
         }
         client.close()
         server.close()
@@ -156,7 +156,7 @@ class Testwebsocketconf_02 {
                 websocketServer.read()
                 @Expect(1, 2)
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("The connection is closed"))
+                @Expect(e.message.contains("WebSocket connection is closed"))
             }
         }
         func startServer() {

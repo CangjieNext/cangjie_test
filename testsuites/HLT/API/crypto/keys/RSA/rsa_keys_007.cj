@@ -27,6 +27,6 @@ class Test_rsa_keys_007 {
         var sha512Instance = SHA512()
         var sh: Array<Byte> = digest(sha512Instance, str)
         let e = @AssertThrows[CryptoException](rsaPri.sign(sha512Instance, sh, padType: OAEP(OAEPOption(SHA1(),SHA224(),label:"cangjie-helloworld"))))
-        @Expect(e.message, "OAEPOption only use in encrypt or decrypt.")
+        @Expect(e.message, "OAEPOption is only applicable to encryption or decryption operations.")
     }
 }

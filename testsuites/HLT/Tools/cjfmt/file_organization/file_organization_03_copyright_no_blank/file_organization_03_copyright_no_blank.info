@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: cd %n/uilang && cjfmt -f ./file_organization_03_copyright_no_blank.cj -l 1:200
+// (Windows) EXEC: dos2unix %n/formated/file_organization_03_copyright_no_blank.cj
+// EXEC: %diff %n/formated/file_organization_03_copyright_no_blank.cj %n/uilang/file_organization_03_copyright_no_blank.cj

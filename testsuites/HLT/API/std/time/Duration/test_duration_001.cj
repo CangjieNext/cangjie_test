@@ -79,9 +79,9 @@ class TestDuration {
         for (i in 0..3) {
             var e: Exception
             e = @AssertThrows[ArithmeticException](unit[i] * (multipuler2[i] - 1))
-            @Expect(e.toString().contains("Out of range of representation"))
+            @Expect(e.toString().contains("Duration value overflow"))
             e = @AssertThrows[ArithmeticException](unit[i] * (multipuler1[i] + 1))
-            @Expect(e.toString().contains("Out of range of representation"))
+            @Expect(e.toString().contains("Duration value overflow"))
         }
     }
 
@@ -110,23 +110,23 @@ class TestDuration {
         let nano = Duration.nanosecond * (-1)
         var e: Exception
         e = @AssertThrows[ArithmeticException](Duration.Max - nano)
-        @Expect(e.toString().contains("Out of range of representation"))
+        @Expect(e.toString().contains("Duration value overflow"))
         e = @AssertThrows[ArithmeticException](Duration.Min - Duration.nanosecond)
-        @Expect(e.toString().contains("Out of range of representation"))
+        @Expect(e.toString().contains("Duration value overflow"))
         e = @AssertThrows[ArithmeticException](Duration.Max + Duration.nanosecond)
-        @Expect(e.toString().contains("Out of range of representation"))
+        @Expect(e.toString().contains("Duration value overflow"))
         e = @AssertThrows[ArithmeticException](Duration.Min - Duration.nanosecond)
-        @Expect(e.toString().contains("Out of range of representation"))
+        @Expect(e.toString().contains("Duration value overflow"))
         e = @AssertThrows[ArithmeticException](Duration.Min + nano)
-        @Expect(e.toString().contains("Out of range of representation"))
+        @Expect(e.toString().contains("Duration value overflow"))
         e = @AssertThrows[ArithmeticException](Duration.Max * 2)
-        @Expect(e.toString().contains("Out of range of representation"))
+        @Expect(e.toString().contains("Duration value overflow"))
         e = @AssertThrows[ArithmeticException](Duration.Min * (-1))
-        @Expect(e.toString().contains("Out of range of representation"))
+        @Expect(e.toString().contains("Duration value overflow"))
         e = @AssertThrows[IllegalArgumentException](Duration.Max / 0)
-        @Expect(e.toString().contains("The value of right operand cannot be 0"))
+        @Expect(e.toString().contains("Divisor value cannot be '0'"))
         e = @AssertThrows[IllegalArgumentException](Duration.Min / 0)
-        @Expect(e.toString().contains("The value of right operand cannot be 0"))
+        @Expect(e.toString().contains("Divisor value cannot be '0'"))
     }
 
     // 验证运算符重载计算正确性

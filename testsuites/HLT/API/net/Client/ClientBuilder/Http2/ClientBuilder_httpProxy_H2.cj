@@ -155,7 +155,7 @@ public class Test_httpProxy {
             client.get("https://127.0.0.1:8080")
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message, "Failed to resolve address abc.")
+            @Expect(e.message, "Failed to resolve address 'abc'.")
         }
         @Expect(flag, true)
     }

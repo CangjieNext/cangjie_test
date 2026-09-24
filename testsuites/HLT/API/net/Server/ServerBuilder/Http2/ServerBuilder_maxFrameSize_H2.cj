@@ -62,7 +62,7 @@ public class Test_maxFrameSize_mode_h2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message.contains("Max frame size should not be under 2^14 or over 2^24-1."))
+            @Expect(e.message.contains("Invalid argument 'maxFrameSize'"))
         }
         @Expect(flag, true)
     }
@@ -79,7 +79,7 @@ public class Test_maxFrameSize_mode_h2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message.contains("Max frame size should not be under 2^14 or over 2^24-1."))
+            @Expect(e.message.contains("Invalid argument 'maxFrameSize'"))
         }
         @Expect(flag, true)
     }

@@ -67,7 +67,7 @@ public class Test_maxFrameSize {
             let client = ClientBuilder().tlsConfig(clientConfig()).maxFrameSize(UInt32(2 ** 14 - 1)).build()
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message.contains("MaxFrameSize should between 2^14 and 2^24-1."))
+            @Expect(e.message.contains("Invalid maxFrameSize"))
         }
         @Expect(flag, true)
     }
@@ -79,7 +79,7 @@ public class Test_maxFrameSize {
             let client = ClientBuilder().tlsConfig(clientConfig()).maxFrameSize(UInt32(2 ** 24)).build()
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message.contains("MaxFrameSize should between 2^14 and 2^24-1."))
+            @Expect(e.message.contains("Invalid maxFrameSize"))
         }
         @Expect(flag, true)
     }

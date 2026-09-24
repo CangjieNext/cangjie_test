@@ -24,21 +24,21 @@ class TestParseFormat {
             let time0 = DateTime.parse("00:00:10", "yyyy-MM-dd-wwww").toString()
         } catch (e0: TimeParseException) {
             index += 1
-            @Expect(e0.message, "Fail to parse at index 2: \":\" should be integer.")
+            @Expect(e0.message, "Failed to parse at index 2: expected an integer, got ':'.")
         }
 
         try {
             let time1 = DateTime.parse("00:30:01", "yyyy-MM-dd-wwww").toString()
         } catch (e1: TimeParseException) {
             index += 1
-            @Expect(e1.message, "Fail to parse at index 2: \":\" should be integer.")
+            @Expect(e1.message, "Failed to parse at index 2: expected an integer, got ':'.")
         }
 
         try {
             let time2 = DateTime.parse("12:59:00", "yyyy-MM-dd-wwww").toString()
         } catch (e2: TimeParseException) {
             index += 1
-            @Expect(e2.message, "Fail to parse at index 2: \":\" should be integer.")
+            @Expect(e2.message, "Failed to parse at index 2: expected an integer, got ':'.")
         }
 
         @Expect(index, 3)

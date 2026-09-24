@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan InvocationTargetException: The abstract function cannot be applied.
+// ASSERT: scan InvocationTargetException: Cannot invoke abstract function 'f'.
 // - 如果该实例成员函数信息所对应的实例成员函数是抽象的，则会抛出 `InvocationTargetException` 异常。
 
 import std.reflect.*

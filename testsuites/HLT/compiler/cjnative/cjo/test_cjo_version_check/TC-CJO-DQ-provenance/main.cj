@@ -5,16 +5,13 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// ═════════════════════════════════════════════════════════════════
-// 用例: TC-CJO-DQ-provenance(组: CrossPackage;执行域: automated)
-// 用例意图: 编译失败;诊断含 99.99.99(而非当前编译器版本)——provenance 引用产物 version 字段
-// fixture: 现场手术:pkg.cjo 经 cjo_mutate.py --set-cjo-version 1.0.0 --set-version-string 99.99.99(与当前编译器版本任何一位都不同)
-// ═════════════════════════════════════════════════════════════════
+// 用例: TC-CJO-DQ-provenance(组: CrossPackage)
+// 意图: 诊断溯源取产物 version 字符串(99.99.99)而非当前编译器版本
 
 
-// DEPENDENCE: pkg ../tools/cjo_mutate.py
+// DEPENDENCE: pkg ../tools
 // EXEC: %compiler %pkg_opt pkg %compile_lib_opt -o pkg.%middle
-// EXEC: %python cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 1.0.0 --set-version-string 99.99.99
+// EXEC: %python tools/cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 1.0.0 --set-version-string 99.99.99
 // EXEC-PIPE-1: %compiler %cmp_opt pkg.%middle %f -o %output 2>&1 | compare %f
 // ASSERT: scan is incompatible: compiled with cjc
 // ASSERT: scan 99.99.99

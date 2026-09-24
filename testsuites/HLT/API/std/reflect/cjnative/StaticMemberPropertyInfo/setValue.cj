@@ -36,7 +36,7 @@ class Test {
                 .setValue("hello");
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalTypeException: The input parameter does not match the type of the input parameter required by the function.")
+            @Expect(e.toString(), "IllegalTypeException: Parameter type mismatch: expected 'Int8', got 'String'.")
         }
         // 尝试修改不可变静态成员属性。
         try {
@@ -47,7 +47,7 @@ class Test {
                 .setValue("world");
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalSetException: Attempt to modify immutable property 'c1_public_readonly_static_member_property_0'")
+            @Expect(e.toString(), "IllegalSetException: Cannot modify immutable property 'c1_public_readonly_static_member_property_0'.")
         }
     }
     @TestCase
@@ -68,7 +68,7 @@ class Test {
                 .getStaticProperty("s1_public_mutable_static_member_property_0")
                 .setValue("123")
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalTypeException: The input parameter does not match the type of the input parameter required by the function.")
+            @Expect(e.toString(), "IllegalTypeException: Parameter type mismatch: expected 'Int8', got 'String'.")
         }
         // 尝试修改不可变静态成员属性。
         try {
@@ -78,7 +78,7 @@ class Test {
                 .getStaticProperty("s1_public_readonly_static_member_property_0")
                 .setValue(13)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalSetException: Attempt to modify immutable property 's1_public_readonly_static_member_property_0'")
+            @Expect(e.toString(), "IllegalSetException: Cannot modify immutable property 's1_public_readonly_static_member_property_0'.")
         }
     }
 }

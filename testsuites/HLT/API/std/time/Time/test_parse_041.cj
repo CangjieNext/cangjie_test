@@ -24,21 +24,21 @@ class TestParseFormat {
             let time0 = DateTime.parse("2020-10-01T00:00:00ABC", "yyyy-MM-ddTHH:mm:sszz").toString()
         } catch (e0: TimeParseException) {
             index += 1
-            @Expect(e0.message, "Illegal zone name or zone id.")
+            @Expect(e0.message, "Invalid zone name or zone ID.")
         }
 
         try {
             let time1 = DateTime.parse("1999-12-31T23:59:59ABC", "yyyy-MM-ddTHH:mm:sszz").toString()
         } catch (e1: TimeParseException) {
             index += 1
-            @Expect(e1.message, "Illegal zone name or zone id.")
+            @Expect(e1.message, "Invalid zone name or zone ID.")
         }
 
         try {
             let time2 = DateTime.parse("2021-05-31T12:30:00ABC", "yyyy-MM-ddTHH:mm:sszz").toString()
         } catch (e2: TimeParseException) {
             index += 1
-            @Expect(e2.message, "Illegal zone name or zone id.")
+            @Expect(e2.message, "Invalid zone name or zone ID.")
         }
 
         @Expect(index, 3)

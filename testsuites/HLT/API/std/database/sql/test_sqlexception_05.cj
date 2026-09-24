@@ -27,7 +27,7 @@ class Test_SqlException_05 {
         let sqlExcep = SqlException()
         @Expect(sqlExcep.sqlState, "")
         @Expect(sqlExcep.errorCode, 0)
-        @Expect(sqlExcep.message,"errorCode: 0")
+        @Expect(sqlExcep.message,"errorCode: 0.")
     }
 
     /*
@@ -43,7 +43,7 @@ class Test_SqlException_05 {
         let sqlExcep = SqlException("")
         @Expect(sqlExcep.sqlState, "")
         @Expect(sqlExcep.errorCode, 0)
-        @Expect(sqlExcep.message,"errorCode: 0")
+        @Expect(sqlExcep.message,"errorCode: 0.")
     }
 
     /*
@@ -75,7 +75,7 @@ class Test_SqlException_05 {
         let sqlExcep = SqlException("cangjietest")
         @Expect(sqlExcep.sqlState, "")
         @Expect(sqlExcep.errorCode, 0)
-        @Expect(sqlExcep.message,"cangjietest, errorCode: 0")
+        @Expect(sqlExcep.message,"cangjietest, errorCode: 0.")
     }
 
     /*
@@ -92,7 +92,7 @@ class Test_SqlException_05 {
         let sqlExcep = SqlException(string)
         @Expect(sqlExcep.sqlState, "")
         @Expect(sqlExcep.errorCode, 0)
-        @Expect(sqlExcep.message,"${string}, errorCode: 0")
+        @Expect(sqlExcep.message,"${string}, errorCode: 0.")
     }
 
     /*
@@ -109,7 +109,7 @@ class Test_SqlException_05 {
         let sqlExcep = SqlException(string)
         @Expect(sqlExcep.sqlState, "")
         @Expect(sqlExcep.errorCode, 0)
-        @Expect(sqlExcep.message,"${string}, errorCode: 0")
+        @Expect(sqlExcep.message,"${string}, errorCode: 0.")
     }
 
     /*
@@ -125,7 +125,7 @@ class Test_SqlException_05 {
         let sqlExcep = SqlException("", "", -1)
         @Expect(sqlExcep.sqlState, "")
         @Expect(sqlExcep.errorCode, -1)
-        @Expect(sqlExcep.message,"errorCode: -1")
+        @Expect(sqlExcep.message,"errorCode: -1.")
     }
 
     /*
@@ -141,7 +141,7 @@ class Test_SqlException_05 {
         let sqlExcep = SqlException("cangjietest", "cangjietest", 0)
         @Expect(sqlExcep.sqlState, "cangjietest")
         @Expect(sqlExcep.errorCode, 0)
-        @Expect(sqlExcep.message, "cangjietest, SqlState: cangjietest, errorCode: 0")
+        @Expect(sqlExcep.message, "cangjietest, SqlState: cangjietest, errorCode: 0.")
     }
 
     /*
@@ -158,6 +158,6 @@ class Test_SqlException_05 {
         let sqlExcep = SqlException(string, string, 10000)
         @Expect(sqlExcep.sqlState, "${string}")
         @Expect(sqlExcep.errorCode, 10000)
-        @Expect(sqlExcep.message, "${string}, SqlState: ${string}, errorCode: 10000")
+        @Expect(sqlExcep.message, "${string}, SqlState: ${string}, errorCode: 10000.")
     }
 }

@@ -13,13 +13,13 @@
 import std.time.*
 import std.collection.*
 import stdx.crypto.crypto.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
 @Measure[TimeNow(Nanos)]
 @Configure[warmup: Duration.second]
 public class Test_HashMap_Init_Collection {
-    static var _map = HashMap<Int64,Int64>()
     var arr = Array<(Int64,Int64)>()
     let _range = [32, 256, 2048]
     var count = 0
@@ -40,21 +40,16 @@ public class Test_HashMap_Init_Collection {
 
     @Bench
     func BenchmarkHashMapInitCollection_N_32(): Unit {
-        _map = HashMap<Int64,Int64>(arr)
+        blackBox(HashMap<Int64,Int64>(arr))
     }
 
     @Bench
     func BenchmarkHashMapInitCollection_N_256(): Unit {
-        _map = HashMap<Int64,Int64>(arr)
+        blackBox(HashMap<Int64,Int64>(arr))
     }
 
     @Bench
     func BenchmarkHashMapInitCollection_N_2048(): Unit {
-        _map = HashMap<Int64,Int64>(arr)
-    }
-
-    @AfterAll
-    func teardown() {
-        println(_map.size)
+        blackBox(HashMap<Int64,Int64>(arr))
     }
 }

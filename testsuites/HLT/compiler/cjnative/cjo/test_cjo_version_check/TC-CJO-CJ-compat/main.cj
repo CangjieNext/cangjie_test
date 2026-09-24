@@ -5,11 +5,8 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// ═════════════════════════════════════════════════════════════════
-// 用例: TC-CJO-CJ-compat(组: CJMP;执行域: automated)
-// 用例意图: PreloadCommonPartOfPackage 加载兼容 CJO → 预加载成功并继续后续流程(复用跨包校验路径,无单独适配);scan-not 版本诊断
-// fixture: c/p 均由当前 cjc 现场编译(公共部分 cjo 为原生 (0,1,0),无变体)
-// ═════════════════════════════════════════════════════════════════
+// 用例: TC-CJO-CJ-compat(组: CJMP)
+// 意图: 预加载兼容公共部分 CJO 成功并继续后续流程;无版本诊断
 
 
 // DEPENDENCE: c p

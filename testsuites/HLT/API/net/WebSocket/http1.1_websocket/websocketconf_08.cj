@@ -54,7 +54,7 @@ class Testwebsocketconf_08 {
                 websocketServer.writePongFrame(Array<UInt8>(126, repeat: 97))
                 @Expect(1, 2)
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+                @Expect(e.message.contains("Control frame payload length"))
             }
             websocketServer.closeConn()
         }
@@ -83,7 +83,7 @@ class Testwebsocketconf_08 {
             websocket.writePongFrame(Array<UInt8>(126, repeat: 97))
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+            @Expect(e.message.contains("Control frame payload length"))
         }
         websocket.closeConn()
         client.close()
@@ -141,7 +141,7 @@ class Testwebsocketconf_08 {
             websocket.read()
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("The connection is closed"))
+            @Expect(e.message.contains("WebSocket connection is closed"))
         }
         sleep(Duration.millisecond * 600)
         client.close()

@@ -52,13 +52,13 @@ class Test_Unix_Backlogsize {
             server.backlogSize = 0
         } catch (e: IllegalArgumentException) {
             sum += 1
-            @Expect(e.message, "BacklogSize should be positive: 0.")
+            @Expect(e.message, "Backlog size must be positive, got '0'.")
         }
         try {
             server.backlogSize = -1
         } catch (e: IllegalArgumentException) {
             sum += 1
-            @Expect(e.message, "BacklogSize should be positive: -1.")
+            @Expect(e.message, "Backlog size must be positive, got '-1'.")
         }
 
         server.bind()
@@ -66,13 +66,13 @@ class Test_Unix_Backlogsize {
             server.backlogSize = 0
         } catch (e: SocketException) {
             sum += 1
-            @Expect(e.message, "The socket is already bound")
+            @Expect(e.message, "Socket is already bound.")
         }
         try {
             server.backlogSize = -1
         } catch (e: SocketException) {
             sum += 1
-            @Expect(e.message, "The socket is already bound")
+            @Expect(e.message, "Socket is already bound.")
         }
         server.close()
         try {

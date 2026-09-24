@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: crlf_body.cj
+// DEPENDENCE: crlf_expect.cj
+// DEPENDENCE: crlf_crlf.toml
+// EXEC: %cjfmt -f crlf_body.cj -c crlf_crlf.toml -l 1:200 -o crlf_work.cj
+// EXEC: %cjfmt -f crlf_work.cj -l 1:200
+// (Windows) EXEC: dos2unix crlf_expect.cj
+// EXEC: %diff crlf_expect.cj crlf_work.cj

@@ -5,11 +5,8 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// ═════════════════════════════════════════════════════════════════
-// 用例: TC-CJO-CM-same(组: CrossPackage;执行域: automated)
-// 用例意图: 编译成功、运行 exit 0;scan-not 版本不匹配串且 scan-not validation 串(不过度拒绝的 parity 基准)
-// fixture: 无变体:pkg 由当前 cjc 现场编译,cjoVersion=(0,1,0) 原生未改;其余用例的变体均为运行时现场手术(见 test_design.md §四)
-// ═════════════════════════════════════════════════════════════════
+// 用例: TC-CJO-CM-same(组: CrossPackage)
+// 意图: 原生 (0,1,0) 未改,编译运行通过(不过度拒绝的 parity 基准)
 
 
 // DEPENDENCE: pkg

@@ -12,7 +12,7 @@
 
 
 import std.time.*
-import std.collection.HashSet
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -23,14 +23,6 @@ public class Test_Write_Array_Out_Of_Order_D3 {
     static var arrD3_32 = Array<Array<Array<Int64>>>(32, {i => Array<Array<Int64>>(32, {i => Array<Int64>(32, repeat: 0)})})
     static var arrD3_256 = Array<Array<Array<Int64>>>(256, {i => Array<Array<Int64>>(256, {i => Array<Int64>(256, repeat: 0)})})
 
-    static let blackhole = HashSet<Int64>()
-    static var element = 0
-
-    @AfterAll
-    public func dumb(): Unit {
-        blackhole.add(element)
-    }
-
     @Bench
     func BenchmarkWriteArrayOutOfOrderD3_N32(): Unit {
         for (k in 0..32:64) {
@@ -40,7 +32,7 @@ public class Test_Write_Array_Out_Of_Order_D3 {
                 }
             }
         }
-        element = arrD3_32[0][0][0]
+        blackBox(arrD3_32[0][0][0])
     }
 
     @Bench
@@ -52,6 +44,6 @@ public class Test_Write_Array_Out_Of_Order_D3 {
                 }
             }
         }
-        element = arrD3_256[0][0][0]
+        blackBox(arrD3_256[0][0][0])
     }
 }

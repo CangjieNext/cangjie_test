@@ -107,7 +107,7 @@ public class Test_tlsConfig {
             client1.send(request)
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "TLS must be configured when HTTPS requests are sent.")
+            @Expect(e.message, "TLS configuration is required for HTTPS requests.")
         }
         @Expect(flag, true)
     }

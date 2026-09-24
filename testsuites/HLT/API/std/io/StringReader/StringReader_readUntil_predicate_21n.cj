@@ -34,7 +34,7 @@ ABCDEFG"""
     try {
         var res: Option<String> = strReader.readUntil(f)
     } catch (e: ContentFormatException) {
-        if (e.message != "Invalid utf8 byte sequence.") {
+        if (e.message != "Invalid UTF-8 byte sequence: unexpected continuation byte at index '13'.") {
             return 1
         }
     }
