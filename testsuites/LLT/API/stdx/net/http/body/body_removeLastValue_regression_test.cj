@@ -17,7 +17,6 @@
  *      to "foo" instead of "foo,bar".
  * Test API:
  *      public func read(dst: Array<Byte>): Int64
- * Related Issue: https://atomgit.com/Cangjie/cangjie_stdx/issues/379
  */
 
 package tests.body
