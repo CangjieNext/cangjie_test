@@ -65,7 +65,7 @@ class Test_StringReader_runeslines {
                 @Expect(false)
             }
         } catch (e: ContentFormatException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message, "Invalid UTF-8 byte sequence: no valid UTF-8 code found before index '0'.")
         }
     }
 
@@ -103,7 +103,7 @@ class Test_StringReader_runeslines {
                 @Expect(false)
             }
         } catch (e: ContentFormatException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message, "Invalid UTF-8: unexpected continuation byte '162' at index '0' (missing leading byte).")
         }
     }
 }

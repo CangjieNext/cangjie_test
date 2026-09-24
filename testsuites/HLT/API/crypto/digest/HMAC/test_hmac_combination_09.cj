@@ -33,7 +33,7 @@ class Test_hmac_combination_09 {
         try {
             hmac.write(key)
         } catch (e: CryptoException) {
-            @Expect(e.message, "HMAC write failed, digest calculation has been completed.")
+            @Expect(e.message, "Digest calculation already completed.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -50,7 +50,7 @@ class Test_hmac_combination_09 {
         try {
             hmac.write(key)
         } catch (e: CryptoException) {
-            @Expect(e.message, "HMAC write failed, digest calculation has been completed.")
+            @Expect(e.message, "Digest calculation already completed.")
             sum += 1
         }
         @Expect(sum, 1)

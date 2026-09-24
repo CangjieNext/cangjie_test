@@ -26,14 +26,14 @@ class Test_random_nextUInt8_max_01 {
         try {
             r1.nextUInt8(lib)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid argument.")
+            @Expect(e.message, "Invalid argument 'max': cannot be 0.")
             count += 1
         }
         @Expect(count, 1)
         try {
             r2.nextUInt8(lib)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid argument.")
+            @Expect(e.message, "Invalid argument 'max': cannot be 0.")
             count += 1
         }
         @Expect(count, 2)

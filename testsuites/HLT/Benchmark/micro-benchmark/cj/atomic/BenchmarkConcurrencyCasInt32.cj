@@ -7,12 +7,12 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.sync.*
 import std.time.*
-import std.convert.*
+import std.runtime.*
 
 var reps = 1000
 
@@ -48,33 +48,26 @@ class WaitGroup {
     }
 }
 
-func benchmarkConcurrencyCasInt32(): Unit {
-    let test = AtomicInt32(0)
-    let wg = WaitGroup(0)
-    wg.add(reps)
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_ConcurrencyCasInt32 {
+    @Bench
+    func BenchmarkConcurrencyCasInt32(): Unit {
+        let test = AtomicInt32(0)
+        let wg = WaitGroup(0)
+        wg.add(reps)
 
-    for (i in 0..reps) {
-        let thread: Future<Unit> = spawn {
-            for (j in 0..10000) {
-                test.compareAndSwap(1, 0)
-                test.compareAndSwap(0, 1)
+        for (i in 0..reps) {
+            let thread: Future<Unit> = spawn {
+                for (j in 0..10000) {
+                    blackBox(test.compareAndSwap(1, 0))
+                    blackBox(test.compareAndSwap(0, 1))
+                }
+                wg.done()
             }
-            wg.done()
         }
+        wg.wait()
     }
-    wg.wait()
-}
-
-main(): Int64 {
-    var startTime: DateTime
-    var endTime: DateTime
-    var perTime: Float64
-
-    startTime = DateTime.now()
-    benchmarkConcurrencyCasInt32()
-    endTime = DateTime.now()
-
-    perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkConcurrencyCasInt32: " + perTime.format(".2") + " ns/op")
-    return 0
 }

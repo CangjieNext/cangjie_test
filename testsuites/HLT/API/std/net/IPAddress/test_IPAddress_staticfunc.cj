@@ -121,14 +121,14 @@ public class Test_IPAddress_Static_Func {
     func case_readBigEndian_02(): Unit {
         var arr = Array<Byte>()
         var e = @AssertThrows[IllegalArgumentException](IPAddress.readBigEndian(arr))
-        @Expect(e.message, "The buffer size must be 4 or 16")
+        @Expect(e.message, "The buffer size must be 4 or 16.")
         arr = Array<Byte>(16, repeat: 255u8)
         @Expect(IPAddress.readBigEndian(arr).toString(), "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff")
         arr = Array<Byte>(16, repeat: 0u8)
         @Expect(IPAddress.readBigEndian(arr).toString(), "::")
         arr = Array<Byte>(17, repeat: 0u8)
         e = @AssertThrows[IllegalArgumentException](IPAddress.readBigEndian(arr))
-        @Expect(e.message, "The buffer size must be 4 or 16")
+        @Expect(e.message, "The buffer size must be 4 or 16.")
     }
 
     @TestCase

@@ -32,7 +32,7 @@ class Test_index_range_06 {
             var a = str[-1..1]
             @Expect(1, 2)
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "Invalid range start: -1 or end: 1")
+            @Expect(e.message, "Invalid range: start is '-1', end is '1', but size is '40'.")
         }
     }
 
@@ -43,7 +43,7 @@ class Test_index_range_06 {
             var a = str[1..41]
             @Expect(1, 2)
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "Invalid range start: 1 or end: 41")
+            @Expect(e.message, "Invalid range: start is '1', end is '41', but size is '40'.")
         }
     }
 
@@ -54,22 +54,22 @@ class Test_index_range_06 {
             var a = str[1..7 : 2]
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "the value of the step should be '1'")
+            @Expect(e.message, "String slice step must be 1, got '2'.")
         }
     }
 
     @TestCase
     func test_outofrange_04(): Unit {
         let str = "1に三🙏🏿👩‍👩‍👧‍👦"
-        let e = @AssertThrows[IllegalArgumentException](str[1..7:-1])
-        @Expect(e.message, "the value of the step should be '1'")
+            let e = @AssertThrows[IllegalArgumentException](str[1..7:-1])
+            @Expect(e.message, "String slice step must be 1, got '-1'.")
     }
 
     @TestCase
     func test_outofrange_05(): Unit {
         let str = "1に三🙏🏿👩‍👩‍👧‍👦"
-        let e = @AssertThrows[IllegalArgumentException](str[2..7])
-        @Expect(e.message, "Invalid utf8 byte sequence.")
+            let e = @AssertThrows[IllegalArgumentException](str[2..7])
+            @Expect(e.message, "Invalid UTF-8 byte sequence: index '2' is not a code point boundary.")
     }
 
     @TestCase
@@ -79,7 +79,7 @@ class Test_index_range_06 {
             var a = str[1..8]
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message, "Invalid UTF-8 byte sequence: index '8' is not a code point boundary.")
         }
     }
 }

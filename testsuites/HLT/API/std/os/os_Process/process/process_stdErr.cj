@@ -103,7 +103,7 @@ class Test_stdErr {
         try {
             Process.start("sleep", "fggerw", stdErr: FromFile(file))
         } catch (e: ProcessException) {
-            @Expect(e.message, "Redirect file closed or not existed, not allow redirect.")
+            @Expect(e.message, "Redirect file is closed or does not exist.")
             cnt++
         } finally {
             remove("./stdErr.txt")
@@ -120,7 +120,7 @@ class Test_stdErr {
         try {
             Process.start("sleep", "fggerw", stdErr: FromFile(file))
         } catch (e: ProcessException) {
-            @Expect(e.message, "Redirect file closed or not existed, not allow redirect.")
+            @Expect(e.message, "Redirect file is closed or does not exist.")
             flag++
         }
         @Expect(flag, 1)

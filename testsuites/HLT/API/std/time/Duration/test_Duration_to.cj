@@ -26,13 +26,13 @@ class Duration_to_new_Test01 {
             let num1 = durMax.toNanoseconds()
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in nanosecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in nanoseconds exceeds 'Int64' range.")
         }
         try {
             let num2 = durMin.toNanoseconds()
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in nanosecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in nanoseconds exceeds 'Int64' range.")
         }
     }
 
@@ -42,13 +42,13 @@ class Duration_to_new_Test01 {
             let num1 = durMax.toMicroseconds()
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in microsecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in microseconds exceeds 'Int64' range.")
         }
         try {
             let num2 = durMin.toMicroseconds()
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in microsecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in microseconds exceeds 'Int64' range.")
         }
     }
 
@@ -58,13 +58,13 @@ class Duration_to_new_Test01 {
             let num1 = durMax.toMilliseconds()
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in millisecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in milliseconds exceeds 'Int64' range.")
         }
         try {
             let num2 = durMin.toMilliseconds()
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in millisecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in milliseconds exceeds 'Int64' range.")
         }
     }
 

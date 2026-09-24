@@ -94,14 +94,14 @@ class Testwebsocketreadwrite_05 {
         try {
             websocket.write(PongWebFrame, Array<UInt8>(12288, repeat: 97))
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+            @Expect(e.message.contains("Control frame payload length"))
             println(e.message)
             sum1 += 1
         }
         try {
             websocket.write(PongWebFrame, Array<UInt8>(126, repeat: 97))
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+            @Expect(e.message.contains("Control frame payload length"))
             println(e.message)
             sum1 += 1
         }

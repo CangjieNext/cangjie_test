@@ -19,9 +19,13 @@
 #   XCODE_DEVICE_UDID_OF_CANGJIE_IOS_TEST Optional  specify a simulator udid, otherwise use the booted one
 #
 # Usage:
-#   bash run_ios_exe_testsuite.sh [test case path or suite directory] [--test_list=<file>]
+#   bash run_ios_exe_testsuite.sh [--arch=arm64|x86_64] [test case path or suite directory] [--test_list=<file>]
+#   --arch selects the simulator flavour (default arm64):
+#     arm64  -> mac_aarch64-ios_simulator_aarch64_exe/basic.cfg + aarch64 runtime
+#     x86_64 -> mac_aarch64-ios_simulator_x64_exe/basic.cfg    + x86_64 runtime
 #   Examples:
 #   bash run_ios_exe_testsuite.sh ${CANGJIE_TEST}/testsuites/HLT/Runtime/cjnative
+#   bash run_ios_exe_testsuite.sh --arch=x86_64 ${CANGJIE_TEST}/testsuites/HLT/Runtime/cjnative
 #   bash run_ios_exe_testsuite.sh ${CANGJIE_TEST}/testsuites/HLT/Runtime/cjnative --test_list=${CANGJIE_TEST}/testsuites/HLT/testlist
  
 set -e
@@ -40,11 +44,21 @@ if [ -z "${CANGJIE_TEST_FRAMEWORK}" ]; then
     CANGJIE_TEST_FRAMEWORK="$(dirname "$CANGJIE_TEST")/cangjie_test_framework"
 fi
  
-CFG="${CANGJIE_TEST}/testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_aarch64_exe/basic.cfg"
+ARCH="arm64"
+CFG_DIR="mac_aarch64-ios_simulator_aarch64_exe"
+TARGET_LIB="ios_simulator_aarch64_cjnative"
 RUN_CMD_ARGS=()
- 
+
 for arg in "$@"; do
     case "$arg" in
+        --arch=arm64)
+            ARCH="arm64"
+            CFG_DIR="mac_aarch64-ios_simulator_aarch64_exe"
+            TARGET_LIB="ios_simulator_aarch64_cjnative" ;;
+        --arch=x86_64)
+            ARCH="x86_64"
+            CFG_DIR="mac_aarch64-ios_simulator_x64_exe"
+            TARGET_LIB="ios_simulator_x86_64_cjnative" ;;
         --test_list=*) RUN_CMD_ARGS+=("$arg") ;;
         -*) RUN_CMD_ARGS+=("$arg") ;;
         *)
@@ -57,11 +71,13 @@ for arg in "$@"; do
     esac
 done
  
+CFG="${CANGJIE_TEST}/testsuites/HLT/configs/cjnative/${CFG_DIR}/basic.cfg"
+
 # 1. Environment variables
 export CANGJIE_HOME CANGJIE_TEST
 export PATH="${CANGJIE_HOME}/bin:${CANGJIE_HOME}/tools/bin:${PATH}"
 export DYLD_LIBRARY_PATH="${CANGJIE_HOME}/runtime/lib/darwin_aarch64_cjnative:${CANGJIE_HOME}/tools/lib:${DYLD_LIBRARY_PATH}"
-export CANGJIE_LOCAL_STDX_PATH="${CANGJIE_HOME}/modules/ios_simulator_aarch64_cjnative"
+export CANGJIE_LOCAL_STDX_PATH="${CANGJIE_HOME}/modules/${TARGET_LIB}"
  
 # 2. Confirm the simulator is booted
 source "${WORKSPACE}/ios_sim_common.sh"
@@ -70,8 +86,8 @@ export XCODE_DEVICE_UDID_OF_CANGJIE_IOS_TEST="$UDID"
 echo "simulator: $UDID"
  
 # 3. Ad-hoc sign the shared runtime dylibs once (before running the full test suite)
-echo "signing runtime dylibs ..."
-sign_dylibs_in_dir "$(ios_runtime_lib_dir)"
+echo "signing runtime dylibs (${ARCH}) ..."
+sign_dylibs_in_dir "$(ios_runtime_lib_dir "$ARCH")"
  
 # 4. Invoke the framework
 if [ -z "$TEST_PATH" ]; then

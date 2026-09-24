@@ -30,7 +30,7 @@ class Test_to {
             duration.toNanoseconds()
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in nanosecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in nanoseconds exceeds 'Int64' range.")
         }
     }
 
@@ -41,7 +41,7 @@ class Test_to {
             duration.toNanoseconds()
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in nanosecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in nanoseconds exceeds 'Int64' range.")
         }
     }
 

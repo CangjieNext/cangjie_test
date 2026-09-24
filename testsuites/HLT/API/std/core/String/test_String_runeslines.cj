@@ -67,7 +67,7 @@ class Test_String_runeslines {
                 @Expect(false)
             }
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message, "Invalid UTF-8 byte sequence: unexpected continuation byte at index '0'.")
         }
     }
 

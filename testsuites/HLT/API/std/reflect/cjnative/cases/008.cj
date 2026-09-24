@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan IllegalTypeException: The input instance should be "default.C2", but now it`s "default.C3"
+// ASSERT: scan IllegalTypeException: Invalid instance type: expected 'default.C2', got 'default.C3'.
 // 如果实例 `instance` 的运行时类型与该实例成员属性信息所对应的实例成员属性所属的类型不严格相同，则会抛出 `IllegalTypeException` 异常。
 
 import std.reflect.*

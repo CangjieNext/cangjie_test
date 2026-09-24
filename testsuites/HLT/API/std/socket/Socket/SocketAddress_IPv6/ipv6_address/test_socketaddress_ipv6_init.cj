@@ -71,11 +71,11 @@ public class Test_SocketAddress_Ipv6 {
         let e = @AssertThrows[IllegalFormatException | SocketException](IPSocketAddress(add_str, port))
         let flag = e.message.contains("each field must have at least one digit") || e
             .message
-            .contains("an IPv6 address can only have one ellipsis") || e.message.contains("too many hex fields") ||
-            e.message.contains("IPv6 field has value >=2^16") || e.message.contains("IPv4 field has value >255") ||
-            e.message.contains("extra characters at the end of the address") || e
+            .contains("IPv6 address can only have one ellipsis") || e.message.contains("too many hex fields") ||
+            e.message.contains("field part width exceeds") || e.message.contains("IPv4 field value exceeds 255") ||
+            e.message.contains("extra characters at end of address") || e
             .message
-            .contains("unable to parse IP") || e.message.contains("field part value width large than")
+            .contains("Unable to parse IP") || e.message.contains("field part width exceeds")
         if (!flag) {
             println(e.message)
         }

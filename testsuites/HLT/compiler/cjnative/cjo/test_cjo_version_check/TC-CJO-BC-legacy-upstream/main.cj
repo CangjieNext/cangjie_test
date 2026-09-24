@@ -5,31 +5,20 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// Case: TC-CJO-BC-legacy-upstream (group: CrossPackage; exec: automated)
-// Intent: single-SDK backward-compat round. Upstream cjo archives are
-//   compiled by the CURRENT cjc, then their cjoVersion triples are demoted
-//   in-place to legacy shapes ((0,0,0) = pre-versioning all-zero form,
-//   (0,0,1) = oldest minor/patch form). A downstream driver importing both
-//   archives must compile silently (PIPE-0, no version diag, no verifier
-//   diag) and run correctly. The gate only reads the triple, so a demoted
-//   triple is indistinguishable from a real old-compiler artifact - no
-//   dual-SDK environment needed.
-// Fixture: pkg_l1/pkg_l2 compiled in-run by current cjc; copies demoted
-//   to (0,0,0) / (0,0,1) via ../tools/cjo_mutate.py --patch-cjo, then moved back
-//   to the sibling positions (mutate works on copies so pristine build
-//   outputs stay intact).
-// Note: keep this file ASCII-only (framework re-opens it with locale
-//   encoding once a SEPARATE-FILE directive is present).
-// --------------------------------------------------------------
+// Case: TC-CJO-BC-legacy-upstream (group: CrossPackage)
+// Intent: both upstream cjo archives demoted on copies to legacy triples
+//   ((0,0,0) / (0,0,1)), then moved back; the downstream driver must compile
+//   silently and run.
+// Note: keep this file ASCII-only.
 
 
-// DEPENDENCE: pkg_l1 pkg_l2 ../tools/cjo_mutate.py diag_ok.txt
+// DEPENDENCE: pkg_l1 pkg_l2 ../tools diag_ok.txt
 // EXEC: %compiler %pkg_opt pkg_l1 %compile_lib_opt -o l1.%middle
 // EXEC: %compiler %pkg_opt pkg_l2 %compile_lib_opt -o l2.%middle
 // EXEC: %cp l1.cjo l1_mut.cjo
 // EXEC: %cp l2.cjo l2_mut.cjo
-// EXEC: %python cjo_mutate.py --patch-cjo l1_mut.cjo --set-cjo-version 0.0.0
-// EXEC: %python cjo_mutate.py --patch-cjo l2_mut.cjo --set-cjo-version 0.0.1
+// EXEC: %python tools/cjo_mutate.py --patch-cjo l1_mut.cjo --set-cjo-version 0.0.0
+// EXEC: %python tools/cjo_mutate.py --patch-cjo l2_mut.cjo --set-cjo-version 0.0.1
 // EXEC: %cp l1_mut.cjo l1.cjo
 // EXEC: %cp l2_mut.cjo l2.cjo
 // EXEC-PIPE-0: %compiler %cmp_opt l1.%middle l2.%middle %f -o %output 2>&1 | compare diag_ok.txt

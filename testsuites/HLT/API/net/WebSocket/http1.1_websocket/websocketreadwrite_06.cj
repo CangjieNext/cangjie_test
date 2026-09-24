@@ -209,13 +209,13 @@ class Testwebsocketreadwrite_06 {
         try {
             websocket.write(TextWebFrame, Array<UInt8>(124, repeat: 10))
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("No more data frames can be sent after sending a Close frame"))
+            @Expect(e.message.contains("Cannot send data frames after Close frame"))
             sum1 += 1
         }
         try {
             websocket.write(BinaryWebFrame, Array<UInt8>(125, repeat: 10))
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("No more data frames can be sent after sending a Close frame"))
+            @Expect(e.message.contains("Cannot send data frames after Close frame"))
             sum1 += 1
         }
         @Expect(sum1, 2)

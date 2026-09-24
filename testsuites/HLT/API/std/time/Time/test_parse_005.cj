@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt   %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan Exception
-// ASSERT: scan Fail to parse at index 16: "Z" should be ":".
+// ASSERT: scan Failed to parse at index 16: expected ':', got 'Z'.
 
 import std.time.*
 

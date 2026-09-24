@@ -5,16 +5,13 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// ═════════════════════════════════════════════════════════════════
-// 用例: TC-CJO-DQ-terminates(组: CrossPackage;执行域: automated)
-// 用例意图: 编译失败(PIPE-1 退出非零=error 级别)+ %output 不存在;不得以 warning 降级继续编译(拒绝发生在 AST 消费前)
-// fixture: 现场手术:pkg.cjo 经 cjo_mutate.py --set-cjo-version 0.2.0;追加 (Linux)/(Windows) 双行 EXEC 断言无产物
-// ═════════════════════════════════════════════════════════════════
+// 用例: TC-CJO-DQ-terminates(组: CrossPackage)
+// 意图: 拒绝为 error 级且不产生输出产物,不得降级 warning 继续
 
 
-// DEPENDENCE: pkg ../tools/cjo_mutate.py
+// DEPENDENCE: pkg ../tools
 // EXEC: %compiler %pkg_opt pkg %compile_lib_opt -o pkg.%middle
-// EXEC: %python cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 0.2.0
+// EXEC: %python tools/cjo_mutate.py --patch-cjo pkg.cjo --set-cjo-version 0.2.0
 // EXEC-PIPE-1: %compiler %cmp_opt pkg.%middle %f -o %output 2>&1 | compare %f
 // ASSERT: scan is incompatible: compiled with cjc
 // (Linux)EXEC: test ! -f %output

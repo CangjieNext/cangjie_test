@@ -33,7 +33,7 @@ class Test_rsa_keys_009 {
         rsaPub.encrypt(bas1, bas2, padType: OAEP(encOpt))
         var decOpt = OAEPOption(SHA512(), SHA512(), label: "cangjieworld")
         let e = @AssertThrows[CryptoException](rsaPri.decrypt(bas2, bas3, padType: OAEP(decOpt)))
-        @Expect(e.message, "Decrypt error.")
+        @Expect(e.message, "Failed to decrypt data.")
         var buf = Array<Byte>(str.size, repeat: 0)
         bas3.read(buf)
         @Expect(str.toArray() != buf)

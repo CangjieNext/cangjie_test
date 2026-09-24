@@ -12,31 +12,26 @@
 
 import std.time.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
 @Measure[TimeNow(Nanos)]
 @Configure[warmup: Duration.second]
 public class Test_ArrayList_Init_Lamda {
-    static var arr = ArrayList<Int64>()
 
     @Bench
     func BenchmarkArrayListInitLamda_N32(): Unit {
-        arr = ArrayList<Int64>(32, {i => i})
+        blackBox(ArrayList<Int64>(32, {i => i}))
     }
 
     @Bench
     func BenchmarkArrayListInitLamda_N256(): Unit {
-        arr = ArrayList<Int64>(256, {i => i})
+        blackBox(ArrayList<Int64>(256, {i => i}))
     }
 
     @Bench
     func BenchmarkArrayListInitLamda_N2048(): Unit {
-        arr = ArrayList<Int64>(2048, {i => i})
-    }
-
-    @AfterAll
-    func teardown() {
-        println(arr.size)
+        blackBox(ArrayList<Int64>(2048, {i => i}))
     }
 }

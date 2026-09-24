@@ -12,7 +12,7 @@
 
 
 import std.time.*
-import std.collection.HashSet
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -25,14 +25,6 @@ public class Test_Write_Array_Out_Of_Order_D2 {
     static var arrD2_2048 = Array<Array<Int64>>(2048, {i => Array<Int64>(2048, repeat: 0)})
     static var arrD2_16384 = Array<Array<Int64>>(16384, {i => Array<Int64>(16384, repeat: 0)})
 
-    static let blackhole = HashSet<Int64>()
-    static var element = 0
-
-    @AfterAll
-    public func dumb(): Unit {
-        blackhole.add(element)
-    }
-
     @Bench
     func BenchmarkWriteArrayOutOfOrderD2_N32(): Unit {
         for (j in 0..32:64) {
@@ -40,7 +32,7 @@ public class Test_Write_Array_Out_Of_Order_D2 {
                 arrD2_32[j][i] = i
             }
         }
-        element = arrD2_32[0][0]
+        blackBox(arrD2_32[0][0])
     }
 
     @Bench
@@ -50,7 +42,7 @@ public class Test_Write_Array_Out_Of_Order_D2 {
                 arrD2_256[j][i] = i
             }
         }
-        element = arrD2_256[0][0]
+        blackBox(arrD2_256[0][0])
     }
 
     @Bench
@@ -60,7 +52,7 @@ public class Test_Write_Array_Out_Of_Order_D2 {
                 arrD2_2048[j][i] = i
             }
         }
-        element = arrD2_2048[0][0]
+        blackBox(arrD2_2048[0][0])
     }
 
     @Bench
@@ -70,6 +62,6 @@ public class Test_Write_Array_Out_Of_Order_D2 {
                 arrD2_16384[j][i] = i
             }
         }
-        element = arrD2_16384[0][0]
+        blackBox(arrD2_16384[0][0])
     }
 }

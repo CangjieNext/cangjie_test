@@ -20,7 +20,7 @@ class Test_BufferedInputStream {
         try {
             var bufferedInputStream = BufferedInputStream(inputStream, buffer)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The buffer cannot be empty.")
+            @Expect(e.message, "Invalid argument 'buffer': buffer size is 0.")
         }
     }
 
@@ -77,7 +77,7 @@ class Test_BufferedInputStream {
         try {
             var bufferedInputStream = BufferedOutputStream(inputStream, buffer)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The buffer cannot be empty.")
+            @Expect(e.message, "Invalid argument 'buffer': buffer size is 0.")
         }
     }
 

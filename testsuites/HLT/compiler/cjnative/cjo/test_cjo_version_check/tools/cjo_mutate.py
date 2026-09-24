@@ -3,34 +3,22 @@
 # with Runtime Library Exception.
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-# cjo_mutate.py — CJO 版本检查 fixture 手术工具(真实实现,flatc JSON 往返主路径
-#   + 字节级破坏操作,全部用例运行时现场生成,套件不预存任何 .cjo)
-# 先例:CHIROpt/ArrayLambda pick_defination.py(套件根共享工具,DEPENDENCE ../x.py)
+# cjo_mutate.py — CJO 版本检查 fixture 手术工具:flatc JSON 往返改写 cjoVersion/version 串,
+#   外加字节级破坏操作;fixture 运行时现场生成,套件不预存 .cjo。
 #
-# 用法(与 test_cjo_version_check 各用例头部一致):
-#   --patch-cjo <file> --set-cjo-version M.m.p   改写 cjo 的 cjoVersion 三元组
-#   --patch-cjo <file> --set-version-string S    改写 cjo 的 version 字符串(产物溯源,同长更稳)
-#   --patch-cjo <file> --clear-version-string    删除 version 字符串(诊断报 'unknown' 溯源)
-#   --patch-cjo <file> --truncate <N>            截断至前 N 字节(Verifier 结构失败;N 省略=减半)
-#   --patch-cjo <file> --corrupt-identifier      头 4 字节改 XXXX(file identifier 非 CJOF)
-#   --patch-cjo <file> --random-fill [SEED]      等长随机字节替换全文(固定种子=可复现)
-#   --dump-version <file>                        印 "M.m.p <version-string>"(写读闭环断言用)
-#   --generate <baseline.cjo> <out.cjo> --set-cjo-version M.m.p [--set-version-string S]
-#                                                从基准产物生成命名 fixture(Verifier 必过)
-# 实测门禁语义(cjc 1.3.0-alpha.20260920003052,基准 (0,1,0)):
-#   接受:minor<=cur 且 major<=cur(含 (0,0,0));拒绝:minor>cur 或 major>cur
-#   cjoVersion 是 CjoFormat.fbs 的 inline struct(3 字节,无在场位)→ 无法缺字段;
-#   (0,0,0) 即"缺版本"的可实现形态,且被接受(与 version 字符串缺失被拒绝不同)。
-# 权威命令 cjo→json: ./flatc -t ./CjoFormat.fbs -- ./<file>.cjo
-# 权威命令 json→cjo: ./flatc -b ./CjoFormat.fbs ./<file>.json 产出 <file>.bin,mv 改名为 <file>.cjo
-#   flatc 输出 relaxed JSON(键名不带引号,可能带尾逗号);stderr 的 snake_case warning 可忽略
-#   flatc 产出名 = 输入 splitext 词干,共享词干的文件会互撞 → 一律复制到唯一临时名再手术
-# 分发形态:tools/ 下各平台 flatc 以 zip 入库,首次使用现场解压(见下方 _FLATC_* 一节)。
-#   套件资源定位:环境变量 CANGJIE_TEST 指向套件根,脚本经
-#   $CANGJIE_TEST/testsuites/HLT/compiler/cjnative/cjo/test_cjo_version_check/tools
-#   取 CjoFormat.fbs 与 flatc zip(用例运行态本脚本被扁平拷入 work_dir,不在套件树内)
-# 注意:cjoVersion 与 .cachedast 的 HashedPackage.version:string 是两类机制(前者本特性,
-#   后者既有 CANGJIE_VERSION 门禁),勿混淆。
+# 用法:
+#   --patch-cjo <file> --set-cjo-version M.m.p   改写 cjoVersion 三元组
+#   --patch-cjo <file> --set-version-string S    改写 version 字符串
+#   --patch-cjo <file> --clear-version-string    删除 version 字符串
+#   --patch-cjo <file> --truncate [N]            截断至前 N 字节(缺省减半)
+#   --patch-cjo <file> --corrupt-identifier      头 4 字节改 XXXX
+#   --patch-cjo <file> --random-fill [SEED]      等长随机字节替换(固定种子可复现)
+#   --dump-version <file>                        印 "M.m.p <version-string>"
+#   --generate <base.cjo> <out.cjo> --set-cjo-version M.m.p [--set-version-string S]
+#
+# 资源定位:flatc 与 CjoFormat.fbs 只在本脚本所在目录(tools/)查找,其他路径一律不搜;
+#   各平台 flatc 以 zip 入库,首次使用解压到本目录。
+# 门禁语义:接受 minor<=cur 且 major<=cur(含 (0,0,0)=缺版本形态),任一超出即拒绝。
 import argparse
 import os
 import random
@@ -42,9 +30,7 @@ import tempfile
 import zipfile
 
 
-# flatc 分发:各平台二进制以 zip 入库(包内单个 flatc,命名如 flatc-mac),首次使用现场解压,
-#   解压目标为 zip 同级目录(即本脚本所在目录),此后直接复用已解压产物;
-#   目录只读(部分 CI 只读挂载)时退回解压到系统临时目录。
+# 各平台 flatc 以 zip 入库(包内单个二进制),首次使用解压到本脚本所在目录后直接复用。
 _FLATC_SPECIFIC = {'win': 'flatc-win.exe', 'mac': 'flatc-mac', 'linux': 'flatc-linux'}
 _FLATC_GENERIC = {'win': 'flatc.exe', 'mac': 'flatc', 'linux': 'flatc'}
 _FLATC_ZIPS = {  # 本平台 zip 候选名(平台名优先,通名兜底)
@@ -60,124 +46,84 @@ def _platform_key():
     return 'mac' if sys.platform == 'darwin' else 'linux'
 
 
-def _search_dirs():
-    """探测目录(按序):$CANGJIE_TEST 套件 tools/ → 本脚本所在目录 → cwd。
-
-    用例运行态:本脚本被框架扁平拷入 work_dir,work_dir 不在套件树内,向上遍历
-    探不到 tools/,故以 CANGJIE_TEST 环境变量回指套件根,定位
-    $CANGJIE_TEST/testsuites/HLT/compiler/cjnative/cjo/test_cjo_version_check/tools;
-    脚本所在目录/cwd 兜底覆盖 tools/ 内直跑等本地场景。
-    """
-    cands = []
-    root = os.environ.get('CANGJIE_TEST')
-    if root:
-        cands.append(os.path.join(root, 'testsuites', 'HLT', 'compiler', 'cjnative',
-                                  'cjo', 'test_cjo_version_check', 'tools'))
-    cands.append(os.path.dirname(os.path.abspath(__file__)))
-    cands.append(os.getcwd())
-    seen = set()
-    dirs = []
-    for d in cands:
-        key = os.path.normcase(os.path.normpath(d))
-        if key not in seen:
-            seen.add(key)
-            dirs.append(d)
-    return dirs
+def _tools_dir():
+    """资源唯一探测目录:本脚本所在目录(tools/),其他路径一律不搜。"""
+    return os.path.dirname(os.path.abspath(__file__))
 
 
 def locate_tool(name):
-    """找 CjoFormat.fbs 等资源:$CANGJIE_TEST tools/ → 本脚本所在目录 → cwd → PATH。"""
-    for d in _search_dirs():
-        cand = os.path.join(d, name)
-        if os.path.isfile(cand):
-            return cand
-    found = shutil.which(name)
-    if found:
-        return found
-    raise SystemExit('cjo_mutate.py: cannot locate %s (searched $CANGJIE_TEST tools/'
-                     'script dir/cwd/PATH; 请确认环境变量 CANGJIE_TEST 指向套件根)' % name)
+    """找 CjoFormat.fbs 等资源:仅本脚本所在目录(tools/),不做其他任何路径搜索。"""
+    cand = os.path.join(_tools_dir(), name)
+    if os.path.isfile(cand):
+        return cand
+    raise SystemExit('cjo_mutate.py: cannot locate %s (searched only %s; '
+                     '请确认资源与本脚本同目录)' % (name, _tools_dir()))
 
 
 def locate_flatc():
-    """找本平台 flatc:$CANGJIE_TEST tools/、脚本所在目录、cwd 内 专属名二进制 → 本平台
-    zip(首次现场解压一次) → 通名 → PATH。
+    """找本平台 flatc:仅脚本所在目录内 专属名 → 本平台 zip(首次解压) → 通名。
 
-    专属名优先于通名:避免同目录内他平台 flatc(如 linux 的 flatc)在 mac/linux 被误用;
-    zip 命中解压一次后,专属名此后直接命中,不再解包。
+    专属名优先于通名,避免同目录内他平台 flatc 被误用。
     """
     key = _platform_key()
-    dirs = _search_dirs()
-    for d in dirs:
-        cand = os.path.join(d, _FLATC_SPECIFIC[key])
-        if os.path.isfile(cand):
-            return cand
-    for d in dirs:
-        for zname in _FLATC_ZIPS[key]:
-            cand = os.path.join(d, zname)
-            if os.path.isfile(cand):
-                return _extract_flatc_zip(cand)
-    for d in dirs:
-        cand = os.path.join(d, _FLATC_GENERIC[key])
-        if os.path.isfile(cand):
-            return cand
-    found = shutil.which(_FLATC_GENERIC[key])
-    if found:
-        return found
-    raise SystemExit('cjo_mutate.py: cannot locate flatc for %s (searched $CANGJIE_TEST '
-                     'tools/script dir/cwd/zips/PATH; 请确认环境变量 CANGJIE_TEST 指向套件根)'
-                     % key)
+    d = _tools_dir()
+    cand = os.path.join(d, _FLATC_SPECIFIC[key])
+    if os.path.isfile(cand):
+        return cand
+    for zname in _FLATC_ZIPS[key]:
+        zcand = os.path.join(d, zname)
+        if os.path.isfile(zcand):
+            return _extract_flatc_zip(zcand)
+    cand = os.path.join(d, _FLATC_GENERIC[key])
+    if os.path.isfile(cand):
+        return cand
+    raise SystemExit('cjo_mutate.py: cannot locate flatc for %s (searched only %s; '
+                     '请确认本平台 flatc 二进制或 zip 与本脚本同目录)' % (key, d))
 
 
 def _extract_flatc_zip(zip_path):
-    """解包 flatc zip(成员按 basename 平铺)并返回本平台二进制路径。
+    """解包 flatc zip 到 zip 同级目录(即脚本所在目录),返回本平台二进制路径。
 
-    并发用例同时触发解压时按"已存在且等长则跳过 + 临时名原子替换"防撕裂。
+    并发解压按"已存在且等长则跳过 + 临时名原子替换"防撕裂。
     """
     bases = (_FLATC_SPECIFIC[_platform_key()], _FLATC_GENERIC[_platform_key()])
-    zdir = os.path.dirname(os.path.abspath(zip_path))
-    fallback = os.path.join(tempfile.gettempdir(), 'cjo_mutate_flatc', _platform_key())
-    for outdir in (zdir, fallback):
-        try:
-            os.makedirs(outdir, exist_ok=True)
-            with zipfile.ZipFile(zip_path) as zf:
-                for info in zf.infolist():
-                    if info.is_dir():
-                        continue
-                    base = os.path.basename(info.filename.replace('\\', '/'))
-                    if not base:
-                        continue
-                    dst = os.path.join(outdir, base)
-                    if not (os.path.isfile(dst) and os.path.getsize(dst) == info.file_size):
-                        tmp_dst = '%s.tmp%d' % (dst, os.getpid())
-                        with zf.open(info) as src, open(tmp_dst, 'wb') as fh:
-                            shutil.copyfileobj(src, fh)
-                        os.replace(tmp_dst, dst)
-                    if os.name != 'nt' and base in bases:
-                        os.chmod(dst, 0o755)  # zip 外部属性不保证保留可执行位
-        except (OSError, zipfile.BadZipFile) as exc:
-            if outdir == fallback:
-                raise SystemExit('cjo_mutate.py: cannot extract flatc from %s: %s'
-                                 % (zip_path, exc))
-            print('cjo_mutate.py: extract to %s failed (%s), retrying in %s'
-                  % (outdir, exc, fallback), file=sys.stderr)
-            continue
-        for base in bases:  # 解压成功:按候选名认领本平台二进制
-            cand = os.path.join(outdir, base)
-            if os.path.isfile(cand):
-                return cand
-        for base in sorted(os.listdir(outdir)):  # 兜底:命名不在候选表(如带架构后缀)
-            if not base.startswith('flatc'):
-                continue
-            if os.name == 'nt':
-                if not base.endswith('.exe'):
+    outdir = os.path.dirname(os.path.abspath(zip_path))
+    try:
+        with zipfile.ZipFile(zip_path) as zf:
+            for info in zf.infolist():
+                if info.is_dir():
                     continue
-            elif '.' in base:
+                base = os.path.basename(info.filename.replace('\\', '/'))
+                if not base:
+                    continue
+                dst = os.path.join(outdir, base)
+                if not (os.path.isfile(dst) and os.path.getsize(dst) == info.file_size):
+                    tmp_dst = '%s.tmp%d' % (dst, os.getpid())
+                    with zf.open(info) as src, open(tmp_dst, 'wb') as fh:
+                        shutil.copyfileobj(src, fh)
+                    os.replace(tmp_dst, dst)
+                if os.name != 'nt' and base in bases:
+                    os.chmod(dst, 0o755)  # zip 外部属性不保证保留可执行位
+    except (OSError, zipfile.BadZipFile) as exc:
+        raise SystemExit('cjo_mutate.py: cannot extract flatc from %s into %s: %s'
+                         % (zip_path, outdir, exc))
+    for base in bases:  # 解压成功:按候选名认领本平台二进制
+        cand = os.path.join(outdir, base)
+        if os.path.isfile(cand):
+            return cand
+    for base in sorted(os.listdir(outdir)):  # 兜底:命名不在候选表(如带架构后缀)
+        if not base.startswith('flatc'):
+            continue
+        if os.name == 'nt':
+            if not base.endswith('.exe'):
                 continue
-            cand = os.path.join(outdir, base)
-            if os.path.isfile(cand):
-                if os.name != 'nt':
-                    os.chmod(cand, 0o755)
-                return cand
+        elif '.' in base:
+            continue
+        cand = os.path.join(outdir, base)
+        if os.path.isfile(cand):
+            if os.name != 'nt':
+                os.chmod(cand, 0o755)
+            return cand
     raise SystemExit('cjo_mutate.py: no flatc binary for this platform in %s' % zip_path)
 
 
@@ -185,11 +131,6 @@ def relaxed_json_to_strict(txt):
     """flatc 的 relaxed JSON → 严格 JSON:键名加引号、去尾逗号。"""
     txt = re.sub(r'([,{\[]\s*)([A-Za-z_][A-Za-z0-9_]*)\s*:', r'\1"\2":', txt)
     txt = re.sub(r',(\s*[}\]])', r'\1', txt)
-    return txt
-
-
-def strict_json_to_relaxed(txt):
-    """严格 JSON → relaxed:键名去引号(flatc -b 接受两种,统一回 relaxed 便于二次手术)。"""
     return txt
 
 
@@ -276,13 +217,11 @@ def main():
     ap.add_argument('--random-fill', nargs='?', const='', default=None, metavar='SEED')
     ap.add_argument('--dump-version', metavar='FILE')
     ap.add_argument('--patch-cache', action='store_true',
-                    help='兼容保留:实测 .cached 内 <hash>.cjo 的 cjoVersion 不参与门禁,'
-                         '本工具不再提供缓存手术;如传入则报错退出(防止空转假绿)')
+                    help='已废弃:缓存 cjo 不参与版本门禁,传入即报错退出')
     args = ap.parse_args()
 
     if args.patch_cache:
-        raise SystemExit('cjo_mutate.py: --patch-cache 已废弃(实测缓存 cjo 不参与版本门禁;'
-                         '增量用例改为手术命令行 dep cjo,见用例头部 fixture 说明)')
+        raise SystemExit('cjo_mutate.py: --patch-cache 已废弃(缓存 cjo 不参与版本门禁)')
 
     # 字节级破坏:不经过 flatc(输入本来就允许是坏结构),直接改文件
     byte_op = None

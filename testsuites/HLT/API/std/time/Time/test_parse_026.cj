@@ -24,21 +24,21 @@ class TestParseFormat {
             let time0 = DateTime.parse("2021-02-06", "YYYY-WW-ww").toString()
         } catch (e0: TimeParseException) {
             index += 1
-            @Expect(e0.message, "Lack of year value.")
+            @Expect(e0.message, "Missing year value.")
         }
 
         try {
             let time1 = DateTime.parse("2021-48-04", "YYYY-WW-ww").toString()
         } catch (e1: TimeParseException) {
             index += 1
-            @Expect(e1.message, "Lack of year value.")
+            @Expect(e1.message, "Missing year value.")
         }
 
         try {
             let time2 = DateTime.parse("2021-52-07", "YYYY-WW-ww").toString()
         } catch (e2: TimeParseException) {
             index += 1
-            @Expect(e2.message, "Lack of year value.")
+            @Expect(e2.message, "Missing year value.")
         }
 
         @Expect(index, 3)

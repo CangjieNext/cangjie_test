@@ -20,7 +20,7 @@ main(): Int64 {
         FileHandler("./data/test.json", handlerType: UpLoad)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/test.json'.") {
             return 1
         }
     }
@@ -28,7 +28,7 @@ main(): Int64 {
         FileHandler("./data/test.json", handlerType: UpLoad, bufferSize: -1)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/test.json'.") {
             return 2
         }
     }
@@ -36,7 +36,7 @@ main(): Int64 {
         FileHandler("./data/test.json", handlerType: UpLoad, bufferSize: 4 * 1024 / 2)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/test.json'.") {
             return 3
         }
     }
@@ -44,7 +44,7 @@ main(): Int64 {
         FileHandler("./data/test.json", handlerType: UpLoad, bufferSize: 4 * 1024 * 2)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/test.json'.") {
             return 4
         }
     }
@@ -52,7 +52,7 @@ main(): Int64 {
         FileHandler("./data/test.json", handlerType: UpLoad, bufferSize: 64 * 1024 / 2)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/test.json'.") {
             return 5
         }
     }
@@ -60,7 +60,7 @@ main(): Int64 {
         FileHandler("./data/test.json", handlerType: UpLoad, bufferSize: 64 * 1024 * 2)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/test.json'.") {
             return 6
         }
     }
