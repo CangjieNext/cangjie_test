@@ -6,13 +6,10 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no fromStr/asX local overloads.
-// Evidence: cjc exits rc=1 with `expected Struct-String, found Struct-String @local!`
-// at JsonValue.fromStr and `expected Class-JsonValue, found Class-JsonValue @local!`
-// (37 errors generated, 8 errors printed).
 // UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
+// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 下本用例 cjc+run ALL PASSED，run 步骤恢复 EXEC。
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// DISABLED-EXEC: %set_stdx_path %run %run_opt %output %run_args
+// EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T500/T501/T506/T507.  This file covers the JsonValue
 // facade only.  Container mutation and parser malformed-input controls live in

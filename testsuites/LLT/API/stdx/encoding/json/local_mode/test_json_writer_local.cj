@@ -6,12 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no JSON local receivers.
 // UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
 // Evidence: cjc+run ALL PASSED (T524/T525/T529/T530)。 Float64 序列化采用 shortest round-trip(2.5) 非 %.6f，期望已对齐。
-// Evidence: cjc exits rc=1 with `expected Struct-String, found Struct-String @local!`
-// at fromStr and `expected Class-JsonArray, found Class-JsonArray @local!`
-// (28 errors generated, 8 errors printed).
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
 //

@@ -9,13 +9,10 @@
 // local 重载，本文件恢复 EXEC。唯一例外：T503 Int64.Min 行因 stdx
 // JsonInt.toString 取负溢出缺陷（json_object.cj:413）移入
 // test_json_int_min_overflow_blocked.cj。
+// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 下本用例 cjc+run ALL PASSED，run 步骤恢复 EXEC。
 // LEVEL: 0
-// SKIP-COMPILE: LM-DOC-20260910 prescribed SDK lacks JSON local overloads.
-// Evidence: cjc exits rc=1 with `no matching constructor for call 'JsonNull'`
-// and `mismatched types ... expected Class-JsonBool, found Class-JsonBool @local!`
-// (40 errors generated, 8 errors printed).
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// DISABLED-EXEC: %set_stdx_path %run %run_opt %output %run_args
+// EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T502-T505.  The local scalar constructors only copy scalar
 // fields; this file deliberately keeps container mutation and parser negative
@@ -193,10 +190,10 @@ main(): Int64 {
     failed += checkLocalInt(0, "0", "zero")
     failed += checkLocalInt(-7, "-7", "negative")
     failed += checkLocalInt(Int64.Max, "9223372036854775807", "max")
-    // SKIPPED: T503 Int64.Min → "-9223372036854775808"——SDK
-    // local_mode-localmods-20260911-final 的 JsonInt.toString(this @local?)
-    // 在 Int64.Min 上抛 OverflowException: sub（json_object.cj:413 取负溢出），
-    // 属 stdx 实现缺陷；精确期望见 test_json_int_min_overflow_blocked.cj。
+    // T503: Int64.Min must round-trip through every local serializer.  The old
+    // OverflowException: sub defect in JsonInt.toString is fixed; the assertion
+    // is active so a regression fails the case instead of being skipped.
+    failed += checkLocalInt(Int64.Min, "-9223372036854775808", "min")
     failed += checkLocalFloat(1.5, "1.500000", "fraction")
     failed += checkLocalFloat(42.0, "42.000000", "from_int_value")
     failed += checkLocalFloatIntCtor()

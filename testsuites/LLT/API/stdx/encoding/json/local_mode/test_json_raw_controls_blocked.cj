@@ -6,12 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// SKIP-COMPILE: LM-DOC-20260910 prescribed JSON runtime artifact cannot link.
 // UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
 // Evidence: cjc+run ALL PASSED — 本地重建 stdx 可链接（旧 SKIP-COMPILE 记录的 wyhash 链接缺失不再复现），raw U+0000-U+001F 均抛 JsonException。
-// Evidence: cjc exits rc=1 at link with
-// `libstdx.encoding.json.so: undefined reference to _CNat6wyhashHA0_h?llm`.
-// The source-gap FAIL oracle therefore cannot execute under this SDK.
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
 //

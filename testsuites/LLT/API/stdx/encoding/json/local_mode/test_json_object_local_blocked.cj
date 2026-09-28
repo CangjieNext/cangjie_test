@@ -6,20 +6,15 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no JsonObject @local! ctor.
-// Evidence: cjc exits rc=1 with `no matching constructor for call 'JsonObject'`
-// and local receiver mismatch at size() (2 errors generated, 2 printed).
 // UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
+// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 下本隔离用例 cjc+run ALL PASSED，run 步骤恢复 EXEC。
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// DISABLED-EXEC: %set_stdx_path %run %run_opt %output %run_args
+// EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T521 isolated positive.  This compilation unit contains
 // only JsonObject() @local! and its size observation: no heap control, map
 // setup, put, serializer, or other local value may alter region placement.
-// If the isolated constructor reaches the runtime, expected result is size 0
-// and exit 0.  The currently observed runtime blocker is
-// `Barrier::WriteGeneric does not support local object` (SIGABRT, rc=134);
-// restore EXEC only after this exact isolated case runs ALL PASSED.
+// Expected result is size 0 and exit 0.
 
 import stdx.encoding.json.*
 

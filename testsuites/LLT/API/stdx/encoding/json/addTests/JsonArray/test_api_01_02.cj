@@ -18,10 +18,10 @@ main(): Int64 {
 
 /* SCAN
 error: mismatched types
-  ==> test_api_01_02.cj:15:31:
+  ==> test_api_01_02.cj:15:18:
    | 
 15 |     var result = initFunc.add([1, 2, 3])
-   |                               ^^^^^^^^^ expected 'Class-JsonValue', found 'Array'
+   |                  ^^^^^^^^^^^^ expected 'Class-JsonArray @local!', found 'Class-JsonArray'
    | 
 
 1 error generated, 1 error printed.

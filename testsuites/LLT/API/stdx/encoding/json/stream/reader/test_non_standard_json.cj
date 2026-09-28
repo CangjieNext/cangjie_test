@@ -25,7 +25,7 @@ public class NonStandardJsonTest {
             reader.readValue<String>()
             @Expect(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Unexpected character: 'a'.")
+            @Expect(e.message, "Character not expected: 'a'.")
         }
     }
 

@@ -5,18 +5,15 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// LEVEL: 0
-// EXPECTED-COMPILE-FAIL: T532_heap_array_to_local_array
-// DISABLED-EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// DISABLED-EXEC: %set_stdx_path %run %run_opt %output %run_args
+// ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %stdx-package -o %n.%suffix %f
 //
-// LM-DOC-20260910 LEGIT-NEG: one illegal heap-to-local assignment only.  The
-// heap serializer line is a valid mode control and must not be used to hide a
-// second error.  Diagnostic wording/location is not an oracle; the expected
+// LM-DOC-20260910 LEGIT-NEG (T532): one illegal heap-to-local assignment only.
+// The heap serializer line is a valid mode control and must not be used to hide
+// a second error.  Diagnostic wording/location is not an oracle; the expected
 // failure is a mode mismatch at the assignment below.
 //
-// Verified with the prescribed SDK: cjc exits non-zero and reports
-// `expected Class-JsonArray @local!, found Class-JsonArray` at the assignment.
+// The case is written as ERRCHECK + SCAN so the harness actually compiles it and
+// asserts the compiler diagnostic, rather than being skipped via DISABLED-EXEC.
 
 import stdx.encoding.json.*
 
@@ -27,3 +24,14 @@ main(): Int64 {
     let localArray: JsonArray @local! = heapArray
     return 0
 }
+
+/* SCAN
+error: mismatched types
+  ==> test_json_local_mode_neg_01.cj:24:41:
+   | 
+24 |     let localArray: JsonArray @local! = heapArray
+   |                                         ^^^^^^^^^ expected 'Class-JsonArray @local!', found 'Class-JsonArray'
+   | 
+
+1 error generated, 1 error printed.
+*/

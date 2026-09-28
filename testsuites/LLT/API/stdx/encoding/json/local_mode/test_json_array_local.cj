@@ -6,12 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no JSON local receiver/ctor APIs.
 // UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
 // Evidence: cjc+run ALL PASSED (T518/T519/T531)。 T531 heap half 格式化期望对齐 pretty layout。
-// Evidence: cjc exits rc=1 with `invalid subscript operator [] on Class-JsonArray @local!`
-// and `expected Class-JsonArray, found Class-JsonArray @local!` (44 errors generated,
-// 8 errors printed) after source duplicate declarations were removed.
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
@@ -20,13 +16,10 @@
 // contract (F13), so only initial contents are observed.
 //
 // JsonArray.add(this @local!, JsonValue @local!) is a visible local-field write.
-// On the current runtime the generic write barrier aborts with
-// `Barrier::WriteGeneric does not support local object`; the doc-correct add
-// sequence is retained here as a SKIPPED row rather than allowing it to poison
-// the read-only probe:
-//   // SKIPPED: T519_array_add Barrier::WriteGeneric — expected ["x",1,null]
-//   // let afterAdd: JsonArray @local! = array.add(JsonString("x") @local!)
-//   // afterAdd.add(JsonInt(1) @local!).add(JsonNull() @local!)
+// It is exercised actively below (T519): on the current runtime it aborts with
+// `heap object must not reference non-heap object`
+// (runtime/src/CompilerCalls.cpp:357), so the row fails until local-object
+// element writes are supported by the runtime.
 //
 // No mutating ArrayList call is used here; the supported constructor form is
 // covered below.  The independent add row above is the only T519 write probe.
@@ -203,6 +196,20 @@ main(): Int64 {
     // []-operator JsonException without checking exception text.
     failed += checkLocalArray(parsed, "T519_parser_local")
     failed += checkLocalArrayHalf(parsed, "T519_parser_half")
+
+    // T519: JsonArray.add(this @local!, JsonValue @local!) is a visible
+    // local-field write.  Active (not skipped): on the current runtime it aborts
+    // with `heap object must not reference non-heap object`
+    // (runtime/src/CompilerCalls.cpp:357), so this row fails until the runtime
+    // supports local-object element writes.
+    let afterAdd: JsonArray @local! = JsonArray() @local!
+    afterAdd.add(JsonString("x") @local!)
+    afterAdd.add(JsonInt(1) @local!)
+    afterAdd.add(JsonNull() @local!)
+    if (afterAdd.size() != 3 || afterAdd[0].toString() != "\"x\"" ||
+        afterAdd[1].toString() != "1" || afterAdd[2].toString() != "null") {
+        failed += fail("T519_array_add")
+    }
 
     if (failed > 0) {
         println("${failed} test(s) FAILED")

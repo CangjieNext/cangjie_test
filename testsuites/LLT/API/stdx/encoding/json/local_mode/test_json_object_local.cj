@@ -6,12 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no JSON local receiver APIs.
 // UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
-// Evidence: cjc+run ALL PASSED (T520/T522/T523)。 SDK HashMap 无 local pair-array init，payload 断言收敛为空 ctor 断言（写入属 T519 barrier 范围）。
-// Evidence: cjc exits rc=1 with `invalid subscript operator [] on Class-JsonObject @local!`
-// and `expected Class-JsonObject, found Class-JsonObject @local!` (45 errors generated,
-// 8 errors printed).
+// Evidence: cjc+run ALL PASSED (T520/T522/T523)。
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
@@ -19,14 +15,10 @@
 // lookup are active here.  HashMap alias/copy behavior and duplicate-key
 // ordering are intentionally not asserted (F12/F13/F14).
 //
-// The local `put` overload writes a generic local-object field.  The current
-// runtime aborts with Barrier::WriteGeneric; its doc-correct rows stay isolated
-// as SKIPPED controls so they cannot mask read behavior:
-//   // SKIPPED: T522_object_put_local_key Barrier::WriteGeneric — expected size 2
-//   // let key: String @local! = "local"
-//   // object.put(key, JsonInt(1) @local!)
-//   // let halfKey: String @local? = "half"
-//   // object.put(halfKey, JsonInt(2) @local!)
+// UPDATE 2026-09-21: the local `put` overload and local HashMap population are
+// verified working on the rebuilt stdx; the earlier Barrier::WriteGeneric abort
+// no longer reproduces for JsonObject.  The T522 row is active so a regression
+// fails the case instead of being skipped.
 
 import stdx.encoding.json.*
 import std.collection.*
@@ -164,10 +156,11 @@ main(): Int64 {
 
     // T520: map-taking local constructor with the documented initial
     // "a":1 and "中":"值" payload.  No post-construction map mutation is used.
-    // UPDATE 2026-09-21: SDK collection exposes no local init taking a pair array
-    // (only init(@local!, Int64) / init(@local!)); populating requires member writes
-    // which are T519-barrier blocked at runtime. Keep the map empty here; the
-    // T520 initial-payload observability is covered by the parser ctor below.
+    // UPDATE 2026-09-21: local HashMap population is verified working on the
+    // rebuilt stdx (HashMap.add(@local!, ...) then the map ctor exits 0 with the
+    // doc-correct 2-field payload).  The map is kept empty here so this file
+    // stays a construction/lookup probe; T520 initial-payload observability is
+    // covered by the parser ctor below.
     let initialFields: HashMap<String, JsonValue> @local! = HashMap<String, JsonValue>(2)
     let initial: JsonObject @local! = JsonObject(initialFields) @local!
     if (initial.size() != 0 || initial.getFields().size != 0) {
@@ -201,8 +194,20 @@ main(): Int64 {
     }
     if (object["x"].asInt().getValue() != 1) { failed += fail("T523_index_value") }
 
-    // T522 mutation remains a doc-correct, independently runnable blocked row;
-    // no local-object write occurs in this executable read probe.
+    // T522: local `put` writes into a local JsonObject.  Both the local! and the
+    // widened local? key form are exercised; the row is active (not skipped) so a
+    // regression in local-object writes fails this case.
+    let mutated: JsonObject @local! = JsonObject() @local!
+    let key: String @local! = "local"
+    mutated.put(key, JsonInt(1) @local!)
+    let halfKey: String @local? = "half"
+    mutated.put(halfKey, JsonInt(2) @local!)
+    if (mutated.size() != 2) { failed += fail("T522_object_put_local_key_size") }
+    let localKey: String @local! = "local"
+    let halfKeyCheck: String @local! = "half"
+    if (!mutated.containsKey(localKey)) { failed += fail("T522_object_put_local_key_missing") }
+    if (!mutated.containsKey(halfKeyCheck)) { failed += fail("T522_object_put_half_key_missing") }
+    if (mutated[localKey].asInt().getValue() != 1) { failed += fail("T522_object_put_local_value") }
 
     if (failed > 0) {
         println("${failed} test(s) FAILED")

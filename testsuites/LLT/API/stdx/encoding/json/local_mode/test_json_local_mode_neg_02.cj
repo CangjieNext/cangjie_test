@@ -5,24 +5,19 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// LEVEL: 0
-// EXPECTED-COMPILE-FAIL: T533_local_array_to_heap_parameter
-// SKIP-SOURCE: T533 target overloads are absent in the prescribed SDK; cjc
-// stops at fromStr/asArray before reaching the intended mode mismatch.
-// DISABLED-EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// DISABLED-EXEC: %set_stdx_path %run %run_opt %output %run_args
+// ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %stdx-package -o %n.%suffix %f
 //
-// LM-DOC-20260910 LEGIT-NEG fragment: pass a local JsonArray to a function
-// whose parameter is the heap receiver type.  This is deliberately the only
-// invalid operation in this file.  The local parser construction is valid on
-// the design SDK and is required to make the target fragment observable.
+// LM-DOC-20260910 LEGIT-NEG fragment (T533): pass a local JsonArray to a
+// function whose parameter is the heap receiver type.  This is deliberately the
+// only invalid operation in this file.
 //
-// Current prescribed SDK evidence is SKIP-SOURCE rather than a false negative:
-// it has no JsonValue.fromStr(String @local!) / JsonArray.asArray() local
-// overloads, so compilation fails before the intended call.  The remaining
-// T533 fragments (Q-array add, Q-object put, L-container write of heap payload)
-// likewise require independent source files when those overloads are shipped;
-// they are not combined here as a whole-file SCAN block (F18).
+// Verified 2026-09-21 with the rebuilt stdx: the local overloads exist, so cjc
+// reaches the intended call and reports a mode mismatch at acceptHeapArray.
+// The remaining T533 fragments (Q-array add, Q-object put, L-container write of
+// heap payload) require independent source files; they are not combined here.
+//
+// The case is written as ERRCHECK + SCAN so the harness actually compiles it and
+// asserts the compiler diagnostic, rather than being skipped via DISABLED-EXEC.
 
 import stdx.encoding.json.*
 
@@ -35,4 +30,16 @@ main(): Int64 {
     let value: JsonValue @local! = JsonValue.fromStr(source)
     let localArray: JsonArray @local! = value.asArray()
     acceptHeapArray(localArray)
+    return 0
 }
+
+/* SCAN
+error: mismatched types
+  ==> test_json_local_mode_neg_02.cj:32:21:
+   | 
+32 |     acceptHeapArray(localArray)
+   |                     ^^^^^^^^^^ expected 'Class-JsonArray', found 'Class-JsonArray @local!'
+   | 
+
+1 error generated, 1 error printed.
+*/

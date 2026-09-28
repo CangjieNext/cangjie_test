@@ -6,12 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// SKIP-COMPILE: LM-DOC-20260910 prescribed SDK has no JSON local format APIs.
 // UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
 // Evidence: cjc+run ALL PASSED (T526/T527/T528)。
-// Evidence: cjc exits rc=1 with `expected Class-JsonArray, found Class-JsonArray @local!`
-// for formatter calls and `expected Struct-String, found Struct-String @local!` at fromStr
-// (31 errors generated, 8 errors printed).
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
@@ -223,10 +219,10 @@ main(): Int64 {
     let objectHalfExplicit: String = objectView.toJsonString(2,
         bracketInNewLine: false, indent: "  ")
     if (objectHalfDefault != objectHalfExplicit) { failed += fail("T536_object_half_defaults") }
-    // T536 static provenance constraints are source-only rows: an L receiver
-    // cannot take an L/Q indent, while a Q receiver can take H/L/Q values.
-    // SKIP-SOURCE: T536_L_receiver_local_indent (independent negative file
-    // required once the local overload package is available).
+    // T536 static provenance constraints: an L receiver cannot take an L indent
+    // (its indent parameter is `String @~local`); that negative is covered
+    // actively by test_json_format_local_neg_indent.cj.  A Q receiver can take
+    // H/L/Q indent values and is exercised above.
 
     // T528: each invalid parameter is isolated and catches the precise public
     // exception type.  These are separate calls so no double-error precedence
