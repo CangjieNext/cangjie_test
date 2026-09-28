@@ -7,12 +7,12 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// BLOCKED-RUNTIME: T407 local copy-independence mutation reaches the runtime write barrier
-//   ("field must reference heap object, current local object or null") before later T408 checks.
-//   Doc-correct expectations for T406-T409 are retained; restore EXEC after local references
-//   can be copied and aliased independently.
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// FIXED（2026-09-24）：原 BLOCKED-RUNTIME（T407 local copy-independence mutation 触发
+//   运行时写屏障 "field must reference heap object, current local object or null"）
+//   已在当前 SDK/runtime 解决，T406-T409 全部按文档期望通过（T409 的
+//   Collection<T> @local! toArray 声明仍未落地，保留 SKIPPED 注释），本用例恢复活跃。
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 import std.core.*
 
@@ -122,7 +122,7 @@ func t408LocalIsEmpty(receiver: Collection<String> @local?): Bool {
     try {
         let value: Bool @local? = receiver.isEmpty()
         let _ = value
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught
@@ -133,7 +133,7 @@ func t408LocalToArray(receiver: Collection<String> @local?): Bool {
     try {
         let value: Array<String> @local? = receiver.toArray()
         let _ = value
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught

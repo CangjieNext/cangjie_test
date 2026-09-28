@@ -8,7 +8,7 @@
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
 // EXPECTED-COMPILE-FAIL (T411): passing Iterator<String> @local? result to heapOnly(Iterator<String>) must report a mode mismatch at the escape
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// RUN-EXEC-PIPE-1: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output 2>&1 | compare %f
 // DISABLED-EXEC: %run %run_opt %output %run_args
 
 import std.core.*
@@ -27,3 +27,12 @@ main(): Int64 {
     triggerHalfEscape()
     0
 }
+
+/* SCAN-IN
+error: mismatched types
+  ==> test_interface_half_result_escape_neg.cj:23:14:
+   | 
+23 |     heapOnly(localIterator)
+   |              ^^^^^^^^^^^^^ expected 'Class-Iterator<Struct-String>', found 'Class-Iterator<Struct-String> @local?'
+   | 
+*/

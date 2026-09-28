@@ -7,11 +7,11 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// BLOCKED-RUNTIME: T405 ArrayList local remove(at:) reaches Barrier::WriteGeneric and aborts before
-//   the old iterator can observe ConcurrentModificationException. The doc-correct expectation
-//   remains: after public mutation, iterator.next() must catch ConcurrentModificationException.
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// FIXED-RUNTIME: T405 历史 blocker（local remove(at:) 触发 Barrier::WriteGeneric abort）已随
+//   runtime write_generic 修复消失。doc-correct 行为已实测：public mutation 后
+//   iterator.next() 抛出 ConcurrentModificationException，本用例恢复活跃。
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 import std.collection.*
 
@@ -26,7 +26,7 @@ main(): Int64 {
         println("FAIL: T405_arraylist_mutation — expected ConcurrentModificationException")
         return 1
     } catch (e: ConcurrentModificationException) {
-        println("FAIL: T405_arraylist_mutation did not reach barrier")
-        return 1
+        // barrier reached: the version check fired and CME surfaced to the caller
+        return 0
     }
 }

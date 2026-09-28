@@ -6,9 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// DEPENDENCE: ../../core/local_mode/local_mode_utils.cj
+// DEPENDENCE: ./local_mode_utils.cj
 // EXPECTED-COMPILE-FAIL: T332 ArrayList @local? receiver has no zip overload
-// DISABLED-EXEC: %compiler %cmp_opt ../../core/local_mode/local_mode_utils.cj %f -o %output
+// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // DISABLED-EXEC: %run %run_opt %output %run_args
 //
 // LM-DOC-20260910 T332/T399: a q receiver is forbidden even though the

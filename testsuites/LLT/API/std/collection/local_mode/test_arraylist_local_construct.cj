@@ -6,8 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// DEPENDENCE: ../../core/local_mode/local_mode_utils.cj
-// EXEC: %compiler %cmp_opt ../../core/local_mode/local_mode_utils.cj %f -o %output
+// DEPENDENCE: ./local_mode_utils.cj
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T300/T301.  T302 is an independent blocked-positive

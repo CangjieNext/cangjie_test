@@ -17,17 +17,17 @@ main(): Int64 {
 
     var caughtExact = false
     try {
-        throw UnImplementedException()
+        throw UnimplementedException()
         failed += 1
-        println("FAIL: T433_noarg_exact_type — expected UnImplementedException")
-    } catch (e: UnImplementedException) {
+        println("FAIL: T433_noarg_exact_type — expected UnimplementedException")
+    } catch (e: UnimplementedException) {
         caughtExact = true
     }
     failed += assertB(caughtExact, "T433_noarg_exact_type")
 
     var caughtParent = false
     try {
-        throw UnImplementedException("sentinel")
+        throw UnimplementedException("sentinel")
         failed += 1
         println("FAIL: T433_message_parent_type — expected Exception")
     } catch (e: Exception) {

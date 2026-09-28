@@ -7,8 +7,9 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
 // BLOCKED（设计项 LM-DOC-20260910：T233/T234 精确 payload 部分）：本 SDK（0907）
 // 的 Option @local! payload 修复覆盖 Byte/Int64 等简单值（T228/T231 已活跃断言），

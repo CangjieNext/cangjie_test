@@ -12,8 +12,9 @@
 //   overload is also absent in the 0907 SDK. T405's public ArrayList mutation is isolated in
 //   test_iterable_iterator_arraylist_mutation_blocked.cj for the local write barrier.
 //   Restore EXEC after the corresponding runtime/stdlib blockers are fixed.
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 import std.core.*
 
@@ -43,7 +44,7 @@ class T400OriginalIterable <: Iterable<String> {
 }
 
 // T403 fixture: only the original iterator() exists; local interface overloads
-// must use Iterable's default body and throw UnImplementedException.
+// must use Iterable's default body and throw IllegalStateException (doc §1).
 class T403OriginalOnlyIterable <: Iterable<String> {
     public func iterator(): Iterator<String> {
         T400OriginalIterator()
@@ -51,7 +52,7 @@ class T403OriginalOnlyIterable <: Iterable<String> {
 }
 
 // T404 fixture: only the original next() exists; local interface overloads must
-// use Iterator's default body and throw UnImplementedException.
+// use Iterator's default body and throw IllegalStateException (doc §2).
 class T404OriginalOnlyIterator <: Iterator<String> {
     public func next(): Option<String> {
         None
@@ -63,7 +64,7 @@ func t403HalfDefault(receiver: Iterable<String> @local?): Bool {
     try {
         let result: Iterator<String> @local? = receiver.iterator()
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: IllegalStateException) {
         caught = true
     }
     caught
@@ -74,7 +75,7 @@ func t404HalfDefault(receiver: Iterator<String> @local?): Bool {
     try {
         let result: Option<String> @local? = receiver.next()
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: IllegalStateException) {
         caught = true
     }
     caught
@@ -147,14 +148,14 @@ main(): Int64 {
     let defaultIterableHalf: Iterable<String> @local? = defaultIterable
     failed += assertB(t403HalfDefault(defaultIterableHalf), "T403_iterable_half_default")
     // Doc-correct full expectation (C10): T403OriginalOnlyIterable @local! .iterator()
-    // must likewise catch UnImplementedException when full fixture construction is available.
+    // must likewise catch IllegalStateException when full fixture construction is available.
 
     // T404: each missing local Iterator overload is an exact failure.
     let defaultIterator = T404OriginalOnlyIterator()
     let defaultIteratorHalf: Iterator<String> @local? = defaultIterator
     failed += assertB(t404HalfDefault(defaultIteratorHalf), "T404_iterator_next_half_default")
     // Doc-correct full expectation (C10): T404OriginalOnlyIterator @local! .next()
-    // must likewise catch UnImplementedException when full fixture construction is available.
+    // must likewise catch IllegalStateException when full fixture construction is available.
 
     // T405: Iterator.iterator() returns this and shares the cursor.
     let shared: Iterator<String> = T400OriginalIterator()

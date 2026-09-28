@@ -8,7 +8,7 @@
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
 // EXPECTED-COMPILE-FAIL: String @local? 直接赋给 String @local! 槽 —— 非 Copyable narrowing 非法，应报 mode 不匹配
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// RUN-EXEC-PIPE-1: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output 2>&1 | compare %f
 // DISABLED-EXEC: %run %run_opt %output %run_args
 //
 // 设计项 LM-DOC-20260910：T206。旁证正例：String(q) local 拷贝构造合法。
@@ -19,3 +19,12 @@ main(): Int64 {
     println(bad.size)
     return 0
 }
+
+/* SCAN-IN
+error: mismatched types
+  ==> test_string_local_neg_assign_q_to_local.cj:18:31:
+   | 
+18 |     let bad: String @local! = q
+   |                               ^ expected 'Struct-String @local!', found 'Struct-String @local?'
+   | 
+*/

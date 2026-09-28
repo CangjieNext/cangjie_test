@@ -8,7 +8,7 @@
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
 // EXPECTED-COMPILE-FAIL: T129 non-Copyable Array<String> @local? []= must be rejected by the Copyable constraint/mode contract
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// RUN-EXEC-PIPE-1: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output 2>&1 | compare %f
 // DISABLED-EXEC: %run %run_opt %output %run_args
 //
 // This is the intentional T129 language negative. It is not a runtime-barrier case:
@@ -24,3 +24,13 @@ main(): Int64 {
     receiver[0] = replacement
     0
 }
+
+/* SCAN-IN
+error: cannot assign to this subscript expression
+  ==> test_array_local_neg_noncopyable_q_write.cj:24:5:
+   | 
+24 |     receiver[0] = replacement
+   |     ^^^^^^^^^^^ 
+   | 
+   # note: you may want to implement 'operator func[](this @local?, index0: Int64, value!: Struct-String @local?)' for type 'Struct-Array<Struct-String>'
+*/

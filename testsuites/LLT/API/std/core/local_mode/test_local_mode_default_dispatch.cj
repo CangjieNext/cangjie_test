@@ -42,7 +42,7 @@ main(): Int64 {
     try {
         let result: String @local! = defaultAsInterface.toString()
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         defaultCaught = true
     }
     failed += assertB(defaultCaught, "T432_default_interface_throws")

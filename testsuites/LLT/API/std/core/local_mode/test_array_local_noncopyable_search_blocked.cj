@@ -7,17 +7,13 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// EXPECTED-COMPILE-FAIL: T134 non-Copyable Equatable Box search on Array<Box> @local? is a blocked positive; current SDK's search extension requires Copyable
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
-// BLOCKED-SOURCE（设计项 LM-DOC-20260910：T134）：闭环的七个
-// `Array<T> @local?` 搜索重载不限制 T 为 Copyable；一个 non-Copyable、
-// Equatable-by-id Box 应按 id 搜索，即使 target 的 tag 与 receiver 中的 tag 不同。
-// 当前源码/SDK 将这七个 local? 搜索重载放在 `T <: Copyable & Equatable<T>`
-// 扩展中，因此编译失败（expected non-local Array / no matching function）。
-// 这是被实现额外约束阻塞的正向用例，不是语言负例，也不是把 Box 换成
-// Int64 的可通过替代。SDK/源码解除额外 Copyable bound 后恢复 EXEC。
+// 2026-09-28 已解锁（T134 恢复 EXEC）：七个 `Array<T> @local?` 搜索重载改为
+// **就地循环**实现（arrayGetUnchecked3 + == @local?），约束从
+// `T <: Copyable & Equatable<T>` 收窄为仅 `T <: Equatable<T>`——本用例的
+// non-Copyable、Equatable-by-id Box（target 的 tag 与 receiver 中不同）现已通过。
 // 设计期望（裸 Option<Int64>）：indexOf(target,2)=Some(2)，indexOf([2,3])=Some(2)，
 // indexOf([2,3],3)=Some(4)，lastIndexOf(target)=Some(4)，
 // lastIndexOf(target,2)=Some(4)，lastIndexOf([2,3])=Some(4)，
@@ -73,6 +69,11 @@ class Box <: Equatable<Box> {
     }
 
     public operator func ==(other: Box): Bool {
+        this.id == other.id
+    }
+
+    // 2026-09-28：indexOf/lastIndexOf @local? 就地比较需 == @local? 适配（见用例头部说明）。
+    public operator func ==(this @local?, other: Box @local?): Bool {
         this.id == other.id
     }
 }

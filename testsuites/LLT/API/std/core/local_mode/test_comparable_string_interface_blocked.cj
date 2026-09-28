@@ -7,12 +7,12 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// BLOCKED-RUNTIME: T429/T434 Comparable<String> @local? interface dispatch reaches
-//   Comparable's UnImplementedException default instead of String's local compare override.
-//   This probe deliberately keeps the doc-correct value assertions and prints FAIL for each
-//   blocked call; restore EXEC when interface-local Comparable dispatch is fixed.
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// FIXED（2026-09-15）：根因是 Ordering 类型自身缺 @local? 覆写——@local? Ordering
+//   结果上的 ==/compare 落接口默认(throw)。std.core comparable.cj 的
+//   extend Ordering <: Comparable<Ordering> 已补 compare/==/!= 的 @local? 覆写,
+//   本用例恢复活跃。
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 import std.core.*
 
@@ -27,8 +27,8 @@ func t429StringCompareCase(receiver: String @local!, other: String @local!, expe
                 println("FAIL: ${name} — expected the documented Ordering")
                 1
             }
-        } catch (e: UnImplementedException) {
-            println("FAIL: ${name} — expected String compare, got UnImplementedException")
+        } catch (e: UnimplementedException) {
+            println("FAIL: ${name} — expected String compare, got UnimplementedException")
             1
         }
     }
@@ -43,8 +43,8 @@ func t434HeapOther(receiver: String @local!, other: String, name: String): Int64
                 println("FAIL: ${name} — expected LT")
                 1
             }
-        } catch (e: UnImplementedException) {
-            println("FAIL: ${name} — expected LT, got UnImplementedException")
+        } catch (e: UnimplementedException) {
+            println("FAIL: ${name} — expected LT, got UnimplementedException")
             1
         }
     }
@@ -59,8 +59,8 @@ func t434FullOther(receiver: String @local!, other: String @local!, name: String
                 println("FAIL: ${name} — expected LT")
                 1
             }
-        } catch (e: UnImplementedException) {
-            println("FAIL: ${name} — expected LT, got UnImplementedException")
+        } catch (e: UnimplementedException) {
+            println("FAIL: ${name} — expected LT, got UnimplementedException")
             1
         }
     }
@@ -75,8 +75,8 @@ func t434HalfOther(receiver: String @local!, other: String @local?, name: String
                 println("FAIL: ${name} — expected LT")
                 1
             }
-        } catch (e: UnImplementedException) {
-            println("FAIL: ${name} — expected LT, got UnImplementedException")
+        } catch (e: UnimplementedException) {
+            println("FAIL: ${name} — expected LT, got UnimplementedException")
             1
         }
     }

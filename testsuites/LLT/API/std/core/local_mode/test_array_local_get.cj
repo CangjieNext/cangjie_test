@@ -7,20 +7,15 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
-// BLOCKED（设计项 LM-DOC-20260910：T118/T119/T120）：本文件是读路径的
-// doc-correct 探针，但当前 0907 SDK/runtime 仍无法执行完整契约：
-// * T118 的 first/last/get 成功分支构造 `Option<T> @local!/@local?` Some payload，
-//   运行时在 local Option 字段写入时触发 `Barrier::WriteGeneric`（已实测 rc=134）。
-// * T119 用 non-Copyable String 暴露元素模式；合法 `[]` 读取触发
-//   `field must reference heap object, current local object or null`（rc=134），
-//   不能用 Copyable Int64 掩盖模式问题。
-// * T120 的两种 local range getter 在编译器声明中可见，但 0907 SDK 链接时
-//   缺少 `Array<T>::operator[](Range)` local! / local? 符号（undefined reference）。
-// 期望值、显式模式槽及边界异常均保持不变；SDK/runtime 修复后恢复 EXEC。
-// 设计编号命名空间：LM-DOC-20260910。
+// FIXED（2026-09-24）：原 BLOCKED（设计项 LM-DOC-20260910：T118/T119/T120）三项
+//   阻塞均已在当前 SDK/runtime 解决——T118 的 Option<T> @local!/@local? Some payload
+//   写入、T119 的 non-Copyable String [] 读取、T120 的 Array<T>::operator[](Range)
+//   local 符号链接均正常，本用例恢复活跃并实测 ALL PASSED。T120 的 step=1 断言
+//   已按原文恢复为活跃代码；step=2 探针保持注释（运行时按文档语义抛
+//   IllegalArgumentException "Illegal step 2, step should be 1"，SKIPPED 注释保留）。
 
 func dynamicGetNegative(): Int64 {
     -1
@@ -137,18 +132,18 @@ main(): Int64 {
     // T120: range getter is a positive local-mode declaration. The 0907 SDK has
     // no linked local range getter symbols, so preserve all exact probes here.
     // SKIPPED: T120 range getter SDK link blocker; doc-correct expected values/modes:
-    // let source120Bang: Array<Int64> @local! = [0, 1, 2, 3]
-    // let halfOpen120Bang: Array<Int64> @local! = source120Bang[1..3]
-    // failed += assertEq(halfOpen120Bang.size, 2, "T120_bang_half_open_size")
-    // failed += assertEq(halfOpen120Bang[0], 1, "T120_bang_half_open_0")
-    // let closed120Bang: Array<Int64> @local! = source120Bang[1..=2]
-    // failed += assertEq(closed120Bang[1], 2, "T120_bang_closed_1")
+     let source120Bang: Array<Int64> @local! = [0, 1, 2, 3]
+     let halfOpen120Bang: Array<Int64> @local! = source120Bang[1..3]
+     failed += assertEq(halfOpen120Bang.size, 2, "T120_bang_half_open_size")
+     failed += assertEq(halfOpen120Bang[0], 1, "T120_bang_half_open_0")
+     let closed120Bang: Array<Int64> @local! = source120Bang[1..=2]
+     failed += assertEq(closed120Bang[1], 2, "T120_bang_closed_1")
     // let stepped120Bang: Array<Int64> @local! = source120Bang[
     //     Range<Int64>(0, 4, 2, true, false, false)]
     // failed += assertEq(stepped120Bang.size, 2, "T120_bang_step_size")
-    // let source120Question: Array<Int64> @local? = [0, 1, 2, 3]
-    // let halfOpen120Question: Array<Int64> @local? = source120Question[1..3]
-    // failed += assertEq(halfOpen120Question[0], 1, "T120_question_half_open_0")
+     let source120Question: Array<Int64> @local? = [0, 1, 2, 3]
+     let halfOpen120Question: Array<Int64> @local? = source120Question[1..3]
+     failed += assertEq(halfOpen120Question[0], 1, "T120_question_half_open_0")
     // SKIPPED: T120 step!=1 expected IllegalArgumentException; [-1..2), [3..2),
     //          [1..5), and closed-end Max expected IndexOutOfBoundsException.
 

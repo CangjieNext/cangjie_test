@@ -6,8 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// DEPENDENCE: ../../core/local_mode/local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ../../core/local_mode/local_mode_utils.cj %f -o %output
+// DEPENDENCE: ./local_mode_utils.cj
+// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // DISABLED-EXEC: %run %run_opt %output %run_args
 //
 // BLOCKED (LM-DOC-20260910 T333, C7/RT-1/C3): this zip-only process keeps

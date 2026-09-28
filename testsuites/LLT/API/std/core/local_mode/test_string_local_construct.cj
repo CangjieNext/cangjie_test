@@ -148,6 +148,20 @@ main(): Int64 {
     failed += assertB(s211c == "A¢", "T211_unchecked_QL_value")
     failed += assertEq(s211c.size, 3, "T211_unchecked_QL_size")
 
+
+    // T202: Array-backed Collection<Rune> @local? → String @local!
+    // （SDK local_mode-localmods-20260911-final 已实现 Collection 构造）
+    let srcR202: Array<Rune> @local! = [r'A', r'\u{00A2}']
+    let coll202: Collection<Rune> @local? = srcR202
+    let s202: String @local! = String(coll202)
+    failed += assertB(s202 == "A¢", "T202_collection_value")
+    failed += assertEq(s202.size, 3, "T202_collection_size")
+    // T201: QH Rune 数组直接入参（构造参数模式 @local? 接纳 heap widen）
+    let heapRunes202: Array<Rune> = [r'x', r'y']
+    let qr202: Array<Rune> @local? = heapRunes202
+    let s202b: String @local! = String(qr202)
+    failed += assertB(s202b == "xy", "T201_qh_runeArray")
+
     if (failed > 0) {
         println("${failed} test(s) FAILED")
         return 1

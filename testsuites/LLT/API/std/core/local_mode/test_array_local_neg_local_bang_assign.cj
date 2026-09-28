@@ -8,7 +8,7 @@
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
 // EXPECTED-COMPILE-FAIL: T129 heap Array<Int64> cannot be assigned directly to Array<Int64> @local! slot
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// RUN-EXEC-PIPE-1: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output 2>&1 | compare %f
 // DISABLED-EXEC: %run %run_opt %output %run_args
 //
 // This is a single intentional T129 mode negative. A heap value cannot be silently
@@ -19,3 +19,12 @@ main(): Int64 {
     let localBang: Array<Int64> @local! = heap
     0
 }
+
+/* SCAN-IN
+error: mismatched types
+  ==> test_array_local_neg_local_bang_assign.cj:19:43:
+   | 
+19 |     let localBang: Array<Int64> @local! = heap
+   |                                           ^^^^ expected 'Struct-Array<Int64> @local!', found 'Struct-Array<Int64>'
+   | 
+*/

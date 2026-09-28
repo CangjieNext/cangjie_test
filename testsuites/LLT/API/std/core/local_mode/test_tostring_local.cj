@@ -38,7 +38,7 @@ func t432DefaultLocal(receiver: ToString @local?): Bool {
     try {
         let result: String @local! = receiver.toString()
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught

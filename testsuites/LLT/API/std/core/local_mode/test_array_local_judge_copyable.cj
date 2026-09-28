@@ -7,8 +7,9 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
 // BLOCKED-SOURCE（设计项 LM-DOC-20260910：T132/T133）：闭环要求
 // `Array<T> @local?` 上恰好 7 个搜索重载并返回裸 Option<Int64>。当前目标
@@ -100,6 +101,12 @@ struct KeyC <: Copyable & Equatable<KeyC> {
     }
 
     public operator func ==(other: KeyC): Bool {
+        this.id == other.id
+    }
+
+    // 2026-09-28：indexOf/lastIndexOf @local? 改为就地比较后走 == @local? 分派，
+    // 元素类型必须自行适配（否则落 Equal 默认体抛 UnimplementedException）。
+    public operator func ==(this @local?, other: KeyC @local?): Bool {
         this.id == other.id
     }
 }

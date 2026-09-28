@@ -6,9 +6,10 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// DEPENDENCE: ../../core/local_mode/local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ../../core/local_mode/local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// DEPENDENCE: ./local_mode_utils.cj
+// UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
 // BLOCKED (LM-DOC-20260910 T309-T317, RT-1): all visible local ArrayList
 // writes are doc-correct positive tests, but the 0907 runtime aborts with
@@ -167,8 +168,8 @@ main(): Int64 {
     if (a310e.size != 2 || a310e[1] != 2) { failed += 1; println("FAIL: T310_empty_source") }
     // T311: at=-1 与 at=size+1 在写入前拒绝。
     let a311b: ArrayList<Int64> @local! = ArrayList<Int64>([1, 2]) @local!
-    try { a311b.add(9, at: -1); failed += 1; println("FAIL: T311_at_negative") } catch (e: IllegalArgumentException) {}
-    try { a311b.add(9, at: 3); failed += 1; println("FAIL: T311_at_gt_size") } catch (e: IllegalArgumentException) {}
+    try { a311b.add(9, at: -1); failed += 1; println("FAIL: T311_at_negative") } catch (e: IndexOutOfBoundsException) {}
+    try { a311b.add(9, at: 3); failed += 1; println("FAIL: T311_at_gt_size") } catch (e: IndexOutOfBoundsException) {}
     // T312: q-Int64 setter 与 -1/size 越界写（越界写须不改状态）。
     let a312q: ArrayList<Int64> @local? = ArrayList<Int64>([1, 2]) @local!
     a312q[0] = 9
@@ -183,8 +184,8 @@ main(): Int64 {
     let a313q: ArrayList<Int64> @local? = ArrayList<Int64>([1, 4]) @local!
     let got313: Int64 = a313q.remove(at: 1)
     if (got313 != 4 || a313q.size != 1) { failed += 1; println("FAIL: T313_q_remove") }
-    try { a313q.remove(at: -1); failed += 1; println("FAIL: T313_remove_negative") } catch (e: IllegalArgumentException) {}
-    try { a313q.remove(at: 1); failed += 1; println("FAIL: T313_remove_size") } catch (e: IllegalArgumentException) {}
+    try { a313q.remove(at: -1); failed += 1; println("FAIL: T313_remove_negative") } catch (e: IndexOutOfBoundsException) {}
+    try { a313q.remove(at: 1); failed += 1; println("FAIL: T313_remove_size") } catch (e: IndexOutOfBoundsException) {}
     // T315: removeIf 全留/全删/首 callback 抛（源不变不作 rollback 断言）。
     let a315k: ArrayList<Int64> @local! = ArrayList<Int64>([1, 2, 3]) @local!
     a315k.removeIf({ v: Int64 @local! => false })
@@ -194,14 +195,14 @@ main(): Int64 {
     if (a315d.size != 0) { failed += 1; println("FAIL: T315_delete_all") }
     let a315t: ArrayList<Int64> @local! = ArrayList<Int64>([1, 2, 3]) @local!
     try {
-        a315t.removeIf({ v: Int64 @local! => v == 2 })
+        a315t.removeIf({ v: Int64 @local! => if (v == 1) { throw IllegalArgumentException("sentinel315") } else { false } })
         failed += 1
         println("FAIL: T315_first_throw — expected sentinel propagation")
     } catch (expected315: IllegalArgumentException) {}
     // T316/T317: q 与空表变体。
     let a316q: ArrayList<Int64> @local? = ArrayList<Int64>([5]) @local!
     a316q.clear()
-    if (!a316q.isEmpty() || a316q.capacity != 2) { failed += 1; println("FAIL: T316_q_clear") }
+    if (!a316q.isEmpty() || a316q.capacity != 1) { failed += 1; println("FAIL: T316_q_clear") }
     let a316e: ArrayList<Int64> @local! = ArrayList<Int64>(2) @local!
     a316e.clear()
     if (!a316e.isEmpty() || a316e.capacity != 2) { failed += 1; println("FAIL: T316_clear_empty") }

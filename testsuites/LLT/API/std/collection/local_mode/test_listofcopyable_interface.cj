@@ -6,12 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// DEPENDENCE: ../../core/local_mode/local_mode_utils.cj
+// DEPENDENCE: ./local_mode_utils.cj
 // BLOCKED-SOURCE: ListOfCopyable<T> is missing its required ReadOnlyList<T> parent
 //   interface in the 0907 SDK (C1/C2). The true interface static receiver probe below
 //   must remain disabled until that source declaration is restored; no concrete
 //   ArrayList receiver is used as a substitute.
-// DISABLED-EXEC: %compiler %cmp_opt ../../core/local_mode/local_mode_utils.cj %f -o %output
+// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // DISABLED-EXEC: %run %run_opt %output %run_args
 
 import std.collection.*
@@ -53,7 +53,7 @@ main(): Int64 {
     // add(9, at: 0) => [9, 1, 2, 3]
     // add(all: [7, 8], at: 1) => [9, 7, 8, 1, 2, 3]
     // capacity=1 growth must succeed and preserve order (T419), not be accepted
-    // as an UnImplementedException fallback.
+    // as an UnimplementedException fallback.
 
     // Doc-correct T420/T421 expectations retained:
     // remove(at: 1) from [1, 2, 3] returns 2 and leaves [1, 3]

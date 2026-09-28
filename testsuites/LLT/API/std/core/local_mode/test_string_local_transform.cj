@@ -140,18 +140,19 @@ main(): Int64 {
     failed += assertB(rm217.removePrefix("") == "仓abc\u{1F600}", "T217_removePrefix_empty")
     failed += assertB(rm217.removeSuffix("") == "仓abc\u{1F600}", "T217_removeSuffix_empty")
 
-    // T222: static join 空/单/多元素；省略 delimiter 与显式 NUL delimiter
+    // T222: static join 空/单/多元素；@local! 版无 delimiter 默认值（URL 文档 §15，
+    // 2026-09-28 契约翻转），原"省略 delimiter"的调用改为显式传 String.empty。
     let emptyArr222: Array<String> @local! = []
-    let j222a: String @local! = String.join(emptyArr222)
+    let j222a: String @local! = String.join(emptyArr222, delimiter: String.empty)
     failed += assertEq(j222a.size, 0, "T222_join_empty_defaultDelim")
     let oneBlank222: Array<String> @local! = [""]
-    let j222b: String @local! = String.join(oneBlank222)
+    let j222b: String @local! = String.join(oneBlank222, delimiter: String.empty)
     failed += assertEq(j222b.size, 0, "T222_join_singleBlank")
     let oneA222: Array<String> @local! = ["A"]
     let j222c: String @local! = String.join(oneA222, delimiter: "-")
     failed += assertB(j222c == "A", "T222_join_single_explicitDelim")
     let two222: Array<String> @local! = ["A", "仓"]
-    let j222d: String @local! = String.join(two222)
+    let j222d: String @local! = String.join(two222, delimiter: String.empty)
     failed += assertB(j222d == "A仓", "T222_join_defaultDelim")
     let j222e: String @local! = String.join(two222, delimiter: "\u{0000}")
     failed += assertB(j222e == "A\u{0000}仓", "T222_join_nulDelim")

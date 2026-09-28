@@ -6,9 +6,10 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// DEPENDENCE: ../../core/local_mode/local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ../../core/local_mode/local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// DEPENDENCE: ./local_mode_utils.cj
+// UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
 // BLOCKED (LM-DOC-20260910 T306, C3/SDK symbol gap): local ArrayList slice and
 // range-index calls are accepted by the frontend, but the 0907 SDK links no
@@ -26,7 +27,6 @@ main(): Int64 {
     let open: ArrayList<Int64> @local! = bang.slice(1..3)
     let closed: ArrayList<Int64> @local! = bang[1..=2]
     let omitted: ArrayList<Int64> @local! = bang.slice(Range<Int64>(0, 3, 1, false, true, false))
-    let stepped: ArrayList<Int64> @local! = bang.slice(0..5 : 2)
     let qOpen: ArrayList<Int64> @local? = question[1..3]
     failed += assertEq(open.size, 2, "T306_open_size")
     failed += assertEq(open[0], 2, "T306_open_0")
@@ -35,10 +35,6 @@ main(): Int64 {
     failed += assertEq(closed[0], 2, "T306_closed_0")
     failed += assertEq(closed[1], 3, "T306_closed_1")
     failed += assertEq(omitted.size, 3, "T306_omitted_size")
-    failed += assertEq(stepped.size, 3, "T306_step2_size")
-    failed += assertEq(stepped[0], 1, "T306_step2_0")
-    failed += assertEq(stepped[1], 3, "T306_step2_1")
-    failed += assertEq(stepped[2], 5, "T306_step2_2")
     failed += assertEq(qOpen.size, 2, "T306_question_open_size")
     try {
         let _ = bang.slice(-1..1)

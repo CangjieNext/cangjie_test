@@ -105,7 +105,7 @@ func t427EqOnlyDefault(receiver: T427EqOnly @local?, other: T427EqOnly @local?):
     try {
         let result = receiver == other
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught
@@ -116,26 +116,22 @@ func t427NotEqOnlyDefault(receiver: T427NotEqOnly @local?, other: T427NotEqOnly 
     try {
         let result = receiver != other
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught
 }
 
+// 2026-09-28 契约翻转（URL 文档 §8）：Equatable.!= @local? 默认体改为
+// !(this == other)，不再抛异常；结果经 T427Equatable 的 == @local? 覆写推导。
 func t427EquatableNotEqDefault(receiver: T427Equatable @local?, other: T427Equatable @local?): Bool {
-    var caught = false
-    try {
-        let result = receiver != other
-        let _ = result
-    } catch (e: UnImplementedException) {
-        caught = true
-    }
-    caught
+    receiver != other
 }
 
 // T428/T429: only compare is implemented; Comparable supplies the ordering
 // operators. The local != default is intentionally not part of the five-op
-// table; T427 separately proves local != defaults to an exception.
+// table; T427 proves Equatable's local != delegates to == (doc §8), while a
+// direct NotEqual conformer's local != still throws (NotEqual has no default).
 class T429CompareOnlyKey <: Comparable<T429CompareOnlyKey> {
     let value: String
 
@@ -189,7 +185,7 @@ func t430Compare(receiver: T430NoLocalCompareKey @local?, other: T430NoLocalComp
     try {
         let result: Ordering @local? = receiver.compare(other)
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught
@@ -200,7 +196,7 @@ func t430Equal(receiver: T430NoLocalCompareKey @local?, other: T430NoLocalCompar
     try {
         let result = receiver == other
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught
@@ -211,7 +207,7 @@ func t430Less(receiver: T430NoLocalCompareKey @local?, other: T430NoLocalCompare
     try {
         let result = receiver < other
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught
@@ -222,7 +218,7 @@ func t430Greater(receiver: T430NoLocalCompareKey @local?, other: T430NoLocalComp
     try {
         let result = receiver > other
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught
@@ -233,7 +229,7 @@ func t430LessOrEqual(receiver: T430NoLocalCompareKey @local?, other: T430NoLocal
     try {
         let result = receiver <= other
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught
@@ -244,7 +240,7 @@ func t430GreaterOrEqual(receiver: T430NoLocalCompareKey @local?, other: T430NoLo
     try {
         let result = receiver >= other
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught
@@ -282,7 +278,7 @@ func t431MissingHashDefault(value: T431MissingHash @local?): Bool {
     try {
         let result: Int64 @local? = receiver.hashCode()
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught
@@ -310,7 +306,7 @@ func t432MissingToStringDefault(value: T432MissingToString @local?): Bool {
     try {
         let result: String @local! = value.toString()
         let _ = result
-    } catch (e: UnImplementedException) {
+    } catch (e: UnimplementedException) {
         caught = true
     }
     caught
@@ -352,7 +348,9 @@ main(): Int64 {
     let equatableA: T427Equatable @local? = T427Equatable(1)
     let equatableB: T427Equatable @local? = T427Equatable(1)
     failed += assertB(equatableA == equatableB, "T427_equatable_local_equal_override")
-    failed += assertB(t427EquatableNotEqDefault(equatableA, equatableB), "T427_equatable_local_notequal_default_throws")
+    failed += assertB(!t427EquatableNotEqDefault(equatableA, equatableB), "T427_equatable_local_notequal_default_delegates_eq")
+    let equatableC: T427Equatable @local? = T427Equatable(2)
+    failed += assertB(t427EquatableNotEqDefault(equatableA, equatableC), "T427_equatable_local_notequal_default_delegates_ne")
     // Doc-correct full-mode expectation (C10): EqOnly/NotEqOnly/Equatable
     // full receivers use the same exact typed catches.
 

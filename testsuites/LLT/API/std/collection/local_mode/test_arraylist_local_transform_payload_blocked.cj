@@ -6,15 +6,15 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// DEPENDENCE: ../../core/local_mode/local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ../../core/local_mode/local_mode_utils.cj %f -o %output
+// DEPENDENCE: ./local_mode_utils.cj
+// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // DISABLED-EXEC: %run %run_opt %output %run_args
 //
 // BLOCKED (LM-DOC-20260910 T320-T329, RT-1/C7): non-empty transforms retain
 // doc-correct exact result/content/callback assertions.  The first result
 // allocation/fill aborts with `F Barrier::WriteGeneric does not support local
 // object`; reduce Some payloads additionally hit the local Option barrier.
-// No UnImplementedException or wrong current behavior is accepted as success.
+// No UnimplementedException or wrong current behavior is accepted as success.
 
 import std.collection.*
 import std.core.*
