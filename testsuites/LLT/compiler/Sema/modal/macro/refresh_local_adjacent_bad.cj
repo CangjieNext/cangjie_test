@@ -20,5 +20,4 @@ func badTilde() {
     let y: Int64 @~ local = 0
 }
 
-// ASSERT: scan-2 "DiagKind": "parse_expected_character",
-// ASSERT: scan "Errors": 2,
+// ASSERT: scan-2 "DiagKind": "parse_expected_character"

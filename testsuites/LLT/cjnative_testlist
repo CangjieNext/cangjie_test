@@ -143,6 +143,8 @@ API/stdx/AOP_tests/custom_plugin/chir_anno/case_chir_anno.cj
 compiler/CHIROptTest/Devirtualization/box.cj
 compiler/CodegenCommon/global/globalvariable/UInt8ti.cj
 compiler/Sema/modal/expr/array_lit2.cj
+compiler/Sema/modal/expr/exclave/call_generic_with_copytype.cj
+compiler/Sema/modal/expr/option_some_local.cj
 
 
 # daignose is changed
