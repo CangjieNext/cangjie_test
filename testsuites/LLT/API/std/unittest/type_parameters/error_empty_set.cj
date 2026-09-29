@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC-PIPE-1: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt 2>&1 | compare %f
-// ASSERT: scan Empty type in @Types macro for parameter A
+// ASSERT: scan Empty type in '@Types' macro for parameter 'A'.
 
 internal import std.collection.HashSet
 

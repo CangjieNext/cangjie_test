@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC-PIPE-1: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt 2>&1 | compare %f
-// ASSERT: scan @Types macro provides unknown type variables: B, C
+// ASSERT: scan The following variables in '@Types' macro do not correspond to any generic parameter: 'B', 'C'
 
 internal import std.collection.HashSet
 

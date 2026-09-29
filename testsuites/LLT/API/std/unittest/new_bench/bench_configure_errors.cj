@@ -8,7 +8,7 @@
 
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // EXEC-PIPE-1: %run %run_opt %output %run_utest_opt --bench --no-color | compare %f
-// ASSERT: scan Number of warmup iterations must be non negative
+// ASSERT: scan Invalid configuration value 'warmup': must be non negative, got '-1'.
 // ASSERT: scan PASSED: 0
 
 import std.unittest.*

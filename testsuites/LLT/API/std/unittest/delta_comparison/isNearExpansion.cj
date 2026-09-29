@@ -19,13 +19,13 @@ class T {
     @TestCase
     func notSupportedCmpType(): Unit {
         let e = @AssertThrows[IllegalArgumentException](isNearExpansion(1.1f16, 1.1f16, delta: 0.1f16, cmpType: "-_-"))
-        @Expect(e.message == "Given '-_-' is not supported.")
+        @Expect(e.message, "Invalid 'cmpType': supported values are 'LT', 'GT', 'LE', 'GE', 'EQ' and 'NOT_EQ', got '-_-'.")
     }
 
     @TestCase
     func notSupportedCmpTypeForIsNearEq(): Unit {
         let e = @AssertThrows[IllegalArgumentException](
             isNearExpansion(1.1f16, 1.1f16, delta: 0.1f16, cmpType: "/-|-\\", overloadHack: false))
-        @Expect(e.message == "Trying to compare incomparable objects.")
+        @Expect(e.message, "Ordered near-comparison with delta can not be used with types that do not implement Comparable.")
     }
 }

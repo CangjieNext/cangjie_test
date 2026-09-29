@@ -65,7 +65,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeInt64", exception, "this data is not DataModelInt")
+        anomalyAssert("testInvalidDeserializeInt64", exception, "Expected DataModelInt")
     }
 
     /*
@@ -93,7 +93,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeInt32", exception, "this data is not DataModelInt")
+        anomalyAssert("testInvalidDeserializeInt32", exception, "Expected DataModelInt")
     }
 
     /*
@@ -121,7 +121,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeInt16", exception, "this data is not DataModelInt")
+        anomalyAssert("testInvalidDeserializeInt16", exception, "Expected DataModelInt")
     }
 
     /*
@@ -149,7 +149,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeInt8", exception, "this data is not DataModelInt")
+        anomalyAssert("testInvalidDeserializeInt8", exception, "Expected DataModelInt")
     }
 
     /*
@@ -177,7 +177,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeUInt64", exception, "this data is not DataModelInt")
+        anomalyAssert("testInvalidDeserializeUInt64", exception, "Expected DataModelInt")
     }
 
     /*
@@ -205,7 +205,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeUInt32", exception, "this data is not DataModelInt")
+        anomalyAssert("testInvalidDeserializeUInt32", exception, "Expected DataModelInt")
     }
 
     /*
@@ -233,7 +233,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeUInt16", exception, "this data is not DataModelInt")
+        anomalyAssert("testInvalidDeserializeUInt16", exception, "Expected DataModelInt")
     }
 
     /*
@@ -261,7 +261,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeUInt8", exception, "this data is not DataModelInt")
+        anomalyAssert("testInvalidDeserializeUInt8", exception, "Expected DataModelInt")
     }
 
     /*
@@ -289,7 +289,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeUInt8", exception, "this data is not DataModelFloat")
+        anomalyAssert("testInvalidDeserializeUInt8", exception, "Expected DataModelFloat")
     }
 
     /*
@@ -317,7 +317,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeFloat32", exception, "this data is not DataModelFloat")
+        anomalyAssert("testInvalidDeserializeFloat32", exception, "Expected DataModelFloat")
     }
 
     /*
@@ -345,7 +345,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeFloat16", exception, "this data is not DataModelFloat")
+        anomalyAssert("testInvalidDeserializeFloat16", exception, "Expected DataModelFloat")
     }
 
     /*
@@ -372,7 +372,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeBool", exception, "this data is not DataModelBool")
+        anomalyAssert("testInvalidDeserializeBool", exception, "Expected DataModelBool")
     }
 
     /*
@@ -399,7 +399,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeString", exception, "this data is not DataModelString")
+        anomalyAssert("testInvalidDeserializeString", exception, "Expected DataModelString")
     }
 
     /*
@@ -439,14 +439,14 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception01 = e
         }
-        anomalyAssert("testInvalidDeserializeRune_01", exception01, "this data is not DataModelString")
+        anomalyAssert("testInvalidDeserializeRune_01", exception01, "Expected DataModelString")
         var exception02: ?Exception = None
         try {
             Rune.deserialize(DataModelString("fgh"))
         } catch (e: Exception) {
             exception02 = e
         }
-        anomalyAssert("testInvalidDeserializeRune_02", exception02, "this data is not Rune")
+        anomalyAssert("testInvalidDeserializeRune_02", exception02, "Expected Rune")
     }
 
     /*
@@ -482,7 +482,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeArray", exception, "this data is not DataModelSeq")
+        anomalyAssert("testInvalidDeserializeArray", exception, "Expected DataModelSeq")
     }
 
     /*
@@ -511,7 +511,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeArrayList", exception, "this data is not DataModelSeq")
+        anomalyAssert("testInvalidDeserializeArrayList", exception, "Expected DataModelSeq")
     }
 
     /*
@@ -551,7 +551,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidSerializeHashMap", exception, "this data is not String")
+        anomalyAssert("testInvalidSerializeHashMap", exception, "Expected String")
     }
     /*
      * Test description: Test extend HashMap <: Serializable ::serialization
@@ -566,7 +566,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception01 = e
         }
-        anomalyAssert("testInvalidDeserializeHashMap_01", exception01, "this data is not DataModelStruct")
+        anomalyAssert("testInvalidDeserializeHashMap_01", exception01, "Expected DataModelStruct")
         var exception02: ?Exception = None
         try {
             HashMap<String, String>.deserialize(HashMap<Int64, String>([(1, "3"), (2, "6"), (3, "9")]).serializeInternal())
@@ -574,7 +574,7 @@ class SerializableTest {
             exception02 = e
         }
 
-        anomalyAssert("testInvalidDeserializeHashMap_02", exception02, "this data is not String")
+        anomalyAssert("testInvalidDeserializeHashMap_02", exception02, "Expected String")
     }
 
     /*
@@ -607,7 +607,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeHashSet", exception, "this data is not DataModelSeq")
+        anomalyAssert("testInvalidDeserializeHashSet", exception, "Expected DataModelSeq")
     }
 
     /*
@@ -640,7 +640,7 @@ class SerializableTest {
         } catch (e: DataModelException) {
             exception = e
         }
-        anomalyAssert("testInvalidDeserializeOption", exception, "this data is not DataModelString")
+        anomalyAssert("testInvalidDeserializeOption", exception, "Expected DataModelString")
     }
 
     /*
@@ -704,7 +704,7 @@ class Abc <: Serializable<Abc> & ToString {
     public static func deserialize(dm: DataModel): Abc {
         var dms = match (dm) {
             case data: DataModelStruct => data
-            case _ => throw Exception("this data is not DataModelStruct")
+            case _ => throw Exception("Expected DataModelStruct")
         }
         var result = Abc()
         result.name = String.deserialize(dms.get("name"))
@@ -753,7 +753,7 @@ class Values <: Hashable & Equatable<Values> & Serializable<Values> {
     public static func deserialize(dm: DataModel): Values {
         var dms: DataModelStruct = match (dm) {
             case data: DataModelStruct => data
-            case _ => throw Exception("this data is not DataModelStruct")
+            case _ => throw Exception("Expected DataModelStruct")
         }
         var result = Values(0)
         result.m_data = Int64.deserialize(dms.get("m_data"))
@@ -776,7 +776,7 @@ class abc <: Serializable<abc> {
     public static func deserialize(dm: DataModel): abc {
         var dms = match (dm) {
             case data: DataModelStruct => data
-            case _ => throw Exception("this data is not DataModelStruct")
+            case _ => throw Exception("Expected DataModelStruct")
         }
         var result = abc()
         result.name = String.deserialize(dms.get("name"))
@@ -796,7 +796,7 @@ class Location <: Serializable<Location> {
     public static func deserialize(dm: DataModel): Location {
         var dms = match (dm) {
             case data: DataModelStruct => data
-            case _ => throw Exception("this data is not DataModelStruct")
+            case _ => throw Exception("Expected DataModelStruct")
         }
         var result = Location()
         result.time = Int64.deserialize(dms.get("time"))
