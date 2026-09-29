@@ -10,12 +10,18 @@
 // DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // DISABLED-EXEC: %run %run_opt %output %run_args
 //
-// BLOCKED（设计项 LM-DOC-20260910：T318/T422，P420）：heap CustomCollection
-// widen QH 作为 bulk add 来源是规范正例；实测 SDK
-// local_mode-localmods-20260911-final 仍将未知动态类型按 cSize=0 静默 no-op
-// （自定义类分支未实现），运行结果非 [1,4,2,3] → 本文件按 doc-correct 期望保留，
-// 实现修复后恢复 EXEC。其余 q add 来源（Array/ArrayList）已在
-// test_arraylist_copyable_extension.cj 活跃验证。
+// BLOCKED (std, not yet implemented): T318/T422, P420.  A heap CustomCollection
+// widened to Collection<Int64> @local? is the documented positive source for bulk
+// add, but both add(all:) branches in std only specialise Array<T> and
+// ArrayList<T> and fall through to
+//   case _ => throw IllegalArgumentException("Unsupported collection type for @local? add.")
+// (collection/array_list.cj:3227; the @local! branch does the same at :516), so the
+// custom collection never contributes.  A custom source cannot be widened to
+// Collection<Int64> @local! either (only @local? accepts a heap origin), so there is
+// no way to reach the generic path from a test.  Restore EXEC when the branches
+// handle an arbitrary Collection (e.g. via toArray()).
+// Other bulk-add sources (Array/ArrayList) are covered by
+// test_arraylist_copyable_extension.cj.
 import std.collection.*
 import std.core.*
 

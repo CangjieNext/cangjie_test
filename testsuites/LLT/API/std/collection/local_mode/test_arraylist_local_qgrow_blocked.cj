@@ -10,12 +10,20 @@
 // DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // DISABLED-EXEC: %run %run_opt %output %run_args
 //
-// BLOCKED（设计项 LM-DOC-20260910：T319/P354，C3）：ArrayList @local? 的
-// reserve 在 free<additional 时必须扩容成功。编译器禁止 q 实例在构造外重绑
-// 非 Copyable 成员 myData，SDK local_mode-localmods-20260911-final 实测抛
-// UnimplementedException（array_list.cj:3199）——blocked positive，不得把该
-// 异常当成功。修复（编译器放开 q 成员重绑）后恢复 EXEC。no-grow 边界
-// （0/负/恰好 free）已在 test_arraylist_copyable_extension.cj 活跃验证。
+// BLOCKED (compiler + std message): T319/P354, C3.  ArrayList @local? reserve must
+// grow when free < additional.  Growing needs to rebind the non-Copyable myData
+// member, which the compiler forbids outside the constructor, so std throws
+//   UnimplementedException(localGrowUnsupportedMessage("reserve"))
+// (collection/array_list.cj; helper at :3319).  Two separate defects here:
+//   1. the growth itself is unimplemented for a @local? receiver;
+//   2. the message tells the caller to convert via `Array.cloneToLocal`, but that
+//      function is `internal` as of 2026-09-29 (core/array.cj:1826) and raises
+//      "no matching function declaration" for a user, so the advice is unactionable.
+//      The documented public route is Array.clone(this @local?): Array<T> @local?
+//      (spec line 473), which still yields @local? and so cannot be rebound to a
+//      @local! field either.
+// No-grow boundaries (0 / negative / exactly free) are covered by
+// test_arraylist_copyable_extension.cj.
 import std.collection.*
 import std.core.*
 

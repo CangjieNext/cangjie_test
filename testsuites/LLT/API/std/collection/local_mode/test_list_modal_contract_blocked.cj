@@ -25,9 +25,10 @@
 //   - removeIf takes ((T @local!) -> Bool) @local?, which cannot be formed inside a
 //     non-exclave function, so it is invoked from an exclave helper.
 //
-// Still blocked and not asserted here: T416's removeIf with a non-Copyable element
-// (String) does not compile -- "cannot pass argument of external @local! to @local!
-// parameter" -- while the same lambda with Int64 does. Tracked as a separate case.
+// Still blocked and not asserted here: removeIf with a non-Copyable element and an
+// inline @local! lambda compiles but SEGFAULTs inside ArrayList.removeIf at the
+// predicate call; the same mutation through a named exclave predicate works. See
+// test_arraylist_local_removeif_noncopyable_blocked.cj.
 // T417 (heap String passed to a List<String> @local! add) is a separate negative case.
 import std.collection.*
 import std.core.*
