@@ -7,9 +7,9 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// EXPECTED-COMPILE-FAIL (T411): passing Iterator<String> @local? result to heapOnly(Iterator<String>) must report a mode mismatch at the escape
-// RUN-EXEC-PIPE-1: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output 2>&1 | compare %f
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// ERRCHECK: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// (T411): passing Iterator<String> @local? result to heapOnly(Iterator<String>) must report a mode mismatch at the escape
+// RUN: none (negative case: compilation must fail; SCAN-IN below asserts the diagnostic).
 
 import std.core.*
 

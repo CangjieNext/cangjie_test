@@ -7,9 +7,9 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// EXPECTED-COMPILE-FAIL: String @local? 实参传给 plain String（@~local）参数 —— 应报 mode 不匹配
-// RUN-EXEC-PIPE-1: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output 2>&1 | compare %f
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// ERRCHECK: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// String @local? 实参传给 plain String（@~local）参数 —— 应报 mode 不匹配
+// RUN: none (negative case: compilation must fail; SCAN-IN below asserts the diagnostic).
 //
 // 设计项 LM-DOC-20260910：T221。
 main(): Int64 {

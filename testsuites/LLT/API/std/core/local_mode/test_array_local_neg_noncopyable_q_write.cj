@@ -7,9 +7,9 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// EXPECTED-COMPILE-FAIL: T129 non-Copyable Array<String> @local? []= must be rejected by the Copyable constraint/mode contract
-// RUN-EXEC-PIPE-1: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output 2>&1 | compare %f
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// ERRCHECK: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// T129 non-Copyable Array<String> @local? []= must be rejected by the Copyable constraint/mode contract
+// RUN: none (negative case: compilation must fail; SCAN-IN below asserts the diagnostic).
 //
 // This is the intentional T129 language negative. It is not a runtime-barrier case:
 // Array<String> is non-Copyable, so the @local? mutation extension must not be selected.

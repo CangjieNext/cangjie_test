@@ -7,9 +7,9 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// EXPECTED-COMPILE-FAIL: T129 heap Array<Int64> cannot be assigned directly to Array<Int64> @local! slot
-// RUN-EXEC-PIPE-1: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output 2>&1 | compare %f
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// ERRCHECK: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// T129 heap Array<Int64> cannot be assigned directly to Array<Int64> @local! slot
+// RUN: none (negative case: compilation must fail; SCAN-IN below asserts the diagnostic).
 //
 // This is a single intentional T129 mode negative. A heap value cannot be silently
 // reclassified as a local! value; callers must use a local-mode constructor/copy path.
