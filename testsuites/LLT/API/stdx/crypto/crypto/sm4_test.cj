@@ -169,6 +169,27 @@ class Test_sm4 {
     }
 
     @TestCase
+    func test_sm4_gcm_rejects_short_ciphertext(): Unit {
+        let key = "1234567890123456".toArray()
+        let iv = "1234567890123456".toArray()
+
+        // GCM ciphertext must contain at least the complete authentication tag.
+        // Keep every input shorter than the configured tag size to cover the
+        // boundary that previously caused a negative slice index.
+        for (tagSize in 12..17) {
+            for (ciphertextLength in 0..tagSize) {
+                let cipher = SM4(OperationMode.GCM, key, iv: iv, tagSize: tagSize)
+                try {
+                    cipher.decrypt(Array<Byte>(ciphertextLength, repeat: 0))
+                    @Expect(false)
+                } catch (e: CryptoException) {
+                    @Expect(e.message, "Decrypt failed: input is shorter than GCM tag.")
+                }
+            }
+        }
+    }
+
+    @TestCase
     func test_sm4_gc(): Unit {
         var key = "1234567890123456"
         var iv = "1234567890123456"
