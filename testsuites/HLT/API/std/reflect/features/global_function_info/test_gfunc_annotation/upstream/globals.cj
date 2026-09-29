@@ -1,0 +1,47 @@
+package upstream
+
+import std.core.*
+
+import std.reflect.*
+
+@Annotation
+public class Tag { public const init() {} }
+
+@Annotation
+public class MyAnnotation {
+    public let data: String
+    public const init(data: String) { this.data = data }
+}
+public interface Iface {}
+
+@Tag
+public func annotated(): Int64  {
+42
+}
+
+@Tag
+@Tag
+public func annotatedTwice(): Int64  {
+7
+}
+
+@MyAnnotation["hello"]
+public func annotatedArgs(): Int64  {
+1
+}
+
+@Tag
+public func annotatedParam(p: Int64): Int64  {
+p
+}
+
+public func findGfunc(name: String): GlobalFunctionInfo {
+    let arr = PackageInfo.get("upstream").functions.toArray()
+    for (f in arr) {
+        if (f.name == name) {
+            return f
+        }
+    }
+    throw Exception("not found: " + name)
+}
+
