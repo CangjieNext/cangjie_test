@@ -16,7 +16,18 @@ foreign class M {
     public func foo2(): JArray<MyClass>
 }
 
-// ASSERT: scan sema_java_mirror_method_arg_must_be_java_mirror
-// ASSERT: scan 'Class-JArray<Class-MyClass>' is not java-compatible type
+/* SCAN-IN
+error: JArray can only be used with Java-compatible types
+  ==> java_mirror_jarray_illegal_type_argument.cj:15:32:
+   | 
+15 |     public func foo1(a: JArray<MyClass>): Unit
+   |                                ^^^^^^^ 
+   | 
 
-// ASSERT: scan sema_java_mirror_method_ret_unsupported
+error: JArray can only be used with Java-compatible types
+  ==> java_mirror_jarray_illegal_type_argument.cj:16:32:
+   | 
+16 |     public func foo2(): JArray<MyClass>
+   |                                ^^^^^^^ 
+   | 
+*/
