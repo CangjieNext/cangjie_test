@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// Test: @JavaImpl common instance field (no initializer) is accessed through accessors
+// Scenario: A common class declares an uninitialized instance field, the specific side
+//           implements it as @JavaImpl and reads/writes the field through common methods.
+// Expected: The specific side compiles (the uninitialized field must not be reported by
+//           sema_class_uninitialized_field; it is zero-initialized and relocated to the
+//           registry companion) and the Java run observes the values.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && mkdir -p build
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc --experimental src/cj/common.cj --output-type chir --output-dir build %import_java_interop
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc --experimental src/cj/specific.cj --common-part-chir=build/demo.chir --common-part-cjo=build/demo.cjo --output-type dylib -o build/libdemo.so %import_java_interop --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/cj/*.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && LD_LIBRARY_PATH=$CANGJIE_HOME/runtime/lib/linux_x86_64_cjnative:./build:$LD_LIBRARY_PATH %java %cp_cj_loader_java_interop demo.MyMain 2>& 1 | compare %f
+
+/* SCAN-IN
+value=0
+value=5
+bump=6
+value=6
+*/
