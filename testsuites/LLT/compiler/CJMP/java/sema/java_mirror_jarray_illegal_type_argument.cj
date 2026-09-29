@@ -13,18 +13,18 @@ class M {
 }
 
 /* SCAN-IN
-error: argument type of java-mirrored function must be of @JavaMirror type
-  ==> java_mirror_jarray_illegal_type_argument.cj:11:22:
+error: JArray can only be used with Java-compatible types
+  ==> java_mirror_jarray_illegal_type_argument.cj:11:32:
    | 
 11 |     public func foo1(a: JArray<MyClass>): Unit
-   |                      ^^^^^^^^^^^^^^^^^^ 
+   |                                ^^^^^^^ 
    | 
 
-error: return type 'Class-JArray<Class-MyClass>' of function inside @JavaMirror class is not supported
-  ==> java_mirror_jarray_illegal_type_argument.cj:12:25:
+error: JArray can only be used with Java-compatible types
+  ==> java_mirror_jarray_illegal_type_argument.cj:12:32:
    | 
 12 |     public func foo2(): JArray<MyClass>
-   |                         ^^^^^^^^^^^^^^^ 
+   |                                ^^^^^^^ 
    | 
 */
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
@@ -32,4 +32,3 @@ error: return type 'Class-JArray<Class-MyClass>' of function inside @JavaMirror 
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
-
