@@ -18,9 +18,6 @@ import std.unittest.*
 import std.unittest.testmacro.*
 import std.time.*
 
-@When[os != "Linux"]
-let res_string = "2023/02/11 11:11:11 <+07>"
-@When[os == "Linux"]
 let res_string = "2023/02/11 11:11:11 +07"
 
 @Test
