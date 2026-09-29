@@ -16,5 +16,5 @@ func late_to_register_validator() {
     let validator = { _: Any => UnknownOptionType }
     // validator should be initialized at static initialization, before unittest fremework runs
     let e = @AssertThrows[UnittestOptionValidationException](registerOptionValidator("option1", validator))
-    @PowerAssert(e.toString() == "UnittestOptionValidationException: Validator registry closed. Move your validator on top level.")
+    @PowerAssert(e.toString() == "UnittestOptionValidationException: Validator registry is closed. Move your validator on top level.")
 }

@@ -11,12 +11,12 @@
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args --no-color 2>&1 | compare %f
 // ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: First argument is NaN.
 // ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Second argument is NaN.
-// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Absolute delta is NaN.
-// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Relative delta is NaN.
-// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Absolute delta must be in interval [0.0, Float32.Max). Actual delta: inf.
-// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Relative delta must be in interval [0.0, Float32.Max). Actual delta: inf.
-// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Absolute delta must be in interval [0.0, Float32.Max). Actual delta: -0.
-// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Relative delta must be in interval [0.0, Float32.Max). Actual delta: -0.
+// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Absolute delta value is NaN.
+// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Relative delta value is NaN.
+// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Absolute delta value must be in interval [0.0, Float32.Max), got: 'inf'.
+// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Relative delta value must be in interval [0.0, Float32.Max), got: 'inf'.
+// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Absolute delta value must be in interval [0.0, Float32.Max), got: '-0
+// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Relative delta value must be in interval [0.0, Float32.Max), got: '-0
 // ASSERT: scan PASSED: 5, SKIPPED: 0, ERROR: 8
 // ASSERT: scan FAILED: 0
 

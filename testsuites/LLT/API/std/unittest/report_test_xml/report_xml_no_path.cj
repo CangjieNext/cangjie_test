@@ -8,7 +8,7 @@
 // DEPENDENCE: ./xmlparser
 // EXEC: %compiler %cmp_opt  %f -o %output %cmp_utest_opt
 // EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --no-color --report-format=xml 2>&1 | compare %f
-// ASSERT: scan --report-path directory should be specified since --report-format is specified
+// ASSERT: scan '--report-path' directory should be specified since '--report-format' is specified.
 
 import std.unittest.*
 import std.unittest.testmacro.*
