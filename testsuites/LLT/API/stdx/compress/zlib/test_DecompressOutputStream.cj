@@ -17,10 +17,16 @@ import std.fs.*
 class CompressOutputStreamTest {
     @TestCase
     func inputBufferEmptyOutputStreamEmpty(): Unit {
+        // 未写入任何压缩数据即关闭：压缩流未完成，close 报告数据不完整
         var dest: ByteBuffer = ByteBuffer()
         var decompressOutputStream: DecompressOutputStream = DecompressOutputStream(dest)
         decompressOutputStream.write(Array<Byte>())
-        decompressOutputStream.close()
+        try {
+            decompressOutputStream.close()
+            @Assert(false)
+        } catch (e: ZlibException) {
+            @Expect(e.message, "Unexpected end of compressed data.")
+        }
         @Expect(dest.remainLength, 0)
     }
 
@@ -29,8 +35,13 @@ class CompressOutputStreamTest {
         var dest: ByteBuffer = ByteBuffer()
         var decompressOutputStream: DecompressOutputStream = DecompressOutputStream(dest, bufLen: 256)
         decompressOutputStream.flush()
+        try {
+            decompressOutputStream.close()
+            @Assert(false)
+        } catch (e: ZlibException) {
+            @Expect(e.message, "Unexpected end of compressed data.")
+        }
+        // 第二次 close 幂等，直接返回
         decompressOutputStream.close()
-        decompressOutputStream.close()
-        @Expect(true)
     }
 }
