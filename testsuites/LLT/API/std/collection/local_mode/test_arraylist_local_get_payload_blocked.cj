@@ -7,14 +7,13 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
-// BLOCKED (LM-DOC-20260910 T305, C7/runtime barrier): ArrayList.get/first/last
-// Some payloads must be asserted exactly (Int64) and String must retain its
-// mode/type slots.  The 0907 SDK aborts while materializing the Some payload
-// into a local Option with `F Barrier::WriteGeneric does not support local
-// object`.  Restore EXEC when that payload path is fixed.
+// T305: ArrayList.get/first/last Some payloads asserted exactly (Int64) with
+// String retaining its mode/type slots.
+// UPDATE 2026-09-29: runs ALL PASSED on the 2026-09-28 SDK; the earlier
+// `Barrier::WriteGeneric does not support local object` abort record is obsolete.
 
 import std.collection.*
 import std.core.*

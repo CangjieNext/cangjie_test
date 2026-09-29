@@ -7,10 +7,15 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// BLOCKED-SOURCE: ListOfCopyable<T> is missing its required ReadOnlyList<T> parent
-//   interface in the 0907 SDK (C1/C2). The true interface static receiver probe below
-//   must remain disabled until that source declaration is restored; no concrete
-//   ArrayList receiver is used as a substitute.
+// BLOCKED (runtime): ListOfCopyable<T> <: ReadOnlyList<T> is declared and every
+//   add/remove/removeIf/clear/[]= member carries its @local? form, so the probes
+//   below now compile.  Invoking them through the interface static receiver
+//   aborts at BOTH -O0 and -O2 with
+//     F extensionData is nullptr, ti: std.collection:ArrayList<Int64>,
+//       itf: std.collection:ListOfCopyable<Int64>
+//   i.e. the runtime has no extension data for a @local? interface receiver.
+//   Restore EXEC when that path is fixed; a concrete ArrayList receiver is not
+//   used as a substitute, since it would not exercise the interface receiver.
 // DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // DISABLED-EXEC: %run %run_opt %output %run_args
 

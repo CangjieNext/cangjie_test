@@ -7,14 +7,14 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// EXPECTED-COMPILE-FAIL: T302 Collection<T> @local! constructor overload is absent
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
-// BLOCKED (LM-DOC-20260910 T302, C5): the document requires
-// ArrayList(Collection<String> @local!) for Array-backed and ArrayList-backed
-// collections.  The 0907 SDK exposes only Array<T> @local!; keep both
-// doc-correct positive calls here until that overload is exported.
+// T302: ArrayList(Collection<String> @local!) for Array-backed and
+// ArrayList-backed collections.
+// UPDATE 2026-09-29: both overloads resolve and the case runs ALL PASSED on the
+// 2026-09-28 SDK, so the earlier EXPECTED-COMPILE-FAIL / DISABLED-EXEC record
+// (which described the 0907 SDK exporting only Array<T> @local!) is obsolete.
 
 import std.collection.*
 import std.core.*

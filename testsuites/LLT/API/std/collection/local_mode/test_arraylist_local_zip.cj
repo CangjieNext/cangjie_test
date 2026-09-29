@@ -7,17 +7,15 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
-// BLOCKED (LM-DOC-20260910 T333, C7/RT-1/C3): this zip-only process keeps
-// double-empty/left-empty/right-empty/left-short/equal/right-short inputs and
-// exact Int64×String tuple payload expectations.  The first non-empty result
-// fill aborts rc=134 with `field must reference heap object, current local
-// object or null`; String tuple payload is also covered by C7.  The doc-valid
-// q `other` combinations are preserved below; the 0907 SDK's signature is
-// incorrectly narrowed to `other @local!` and is tested separately by
-// test_arraylist_local_zip_types_blocked.cj.
+// T333: zip-only process keeping double-empty/left-empty/right-empty/left-short/
+// equal/right-short inputs with exact Int64 x String tuple payload expectations.
+// UPDATE 2026-09-29: runs ALL PASSED on the 2026-09-28 SDK; the earlier
+// `field must reference heap object, current local object or null` abort record
+// is obsolete.  The 0907 SDK's mis-narrowed `other @local!` signature is tested
+// separately by test_arraylist_local_zip_types_blocked.cj.
 
 import std.collection.*
 import std.core.*

@@ -7,15 +7,13 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
-// BLOCKED (LM-DOC-20260910 T334, C7/RT-1): enumerate-only process with empty
-// and [a,b] inputs.  Expected result is exact
-// ArrayList<(Int64,String)>@local! with (0,"a"),(1,"b"); runtime aborts rc=134
-// with `field must reference heap object, current local object or null` when
-// the non-empty tuple result stores local/reference payload.  Int64 indices
-// and String payload expectations remain doc-correct.
+// T334: enumerate-only process with empty and [a,b] inputs.  Expected result is
+// an exact ArrayList<(Int64,String)> @local! with (0,"a"),(1,"b").
+// UPDATE 2026-09-29: the case runs ALL PASSED on the 2026-09-28 SDK; the earlier
+// "field must reference heap object" abort record is obsolete.
 
 import std.collection.*
 import std.core.*

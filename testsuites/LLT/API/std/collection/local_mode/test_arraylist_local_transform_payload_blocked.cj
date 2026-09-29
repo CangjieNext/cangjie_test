@@ -7,13 +7,12 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
-// BLOCKED (LM-DOC-20260910 T320-T329, RT-1/C7): non-empty transforms retain
-// doc-correct exact result/content/callback assertions.  The first result
-// allocation/fill aborts with `F Barrier::WriteGeneric does not support local
-// object`; reduce Some payloads additionally hit the local Option barrier.
+// T320-T329: non-empty transforms with exact result/content/callback assertions.
+// UPDATE 2026-09-29: runs ALL PASSED on the 2026-09-28 SDK; the earlier
+// `Barrier::WriteGeneric does not support local object` abort record is obsolete.
 // No UnimplementedException or wrong current behavior is accepted as success.
 
 import std.collection.*
