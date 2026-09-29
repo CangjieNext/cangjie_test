@@ -52,20 +52,16 @@ class DecompressTruncatedInputTest {
     }
 
     @TestCase
-    func truncatedGzipCloseAfterPartialReadException(): Unit {
-        // 部分明文已读出后直接 close，须报告数据不完整
+    func truncatedGzipCloseAfterPartialRead(): Unit {
+        // 部分明文读出后直接 close：与主流语言(Java/Go/Python)一致，close 仅释放资源不报错；
+        // 完整性由 read 路径保证(数据截断时 read 抛异常)
         let full = makeGzip("truncated input test")
         let truncated = full.slice(0, full.size - 1)
         let decompressor = DecompressInputStream(ByteBuffer(truncated), wrap: GzipFormat, bufLen: 16)
         let out = Array<UInt8>(4, repeat: 0)
         let n = decompressor.read(out)
         @Assert(n > 0)
-        try {
-            decompressor.close()
-            @Assert(false)
-        } catch (e: ZlibException) {
-            @Expect(e.message, "Unexpected end of compressed data.")
-        }
+        decompressor.close()
     }
 
     @TestCase
