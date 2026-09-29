@@ -17,23 +17,25 @@ import std.fs.*
 @Test
 class DecompressInputStreamTest {
     @TestCase
-    func inputStreamEmptyOutputBufferEmpty(): Unit {
+    func inputStreamEmptySourceException(): Unit {
+        // 空输入不是合法压缩流，read 应报"压缩数据提前结束"，而非返回 0
         var source: ByteBuffer = ByteBuffer()
         var tempBuf: Array<UInt8> = Array<UInt8>(1024, repeat: 0)
 
         var decompressInputStream: DecompressInputStream = DecompressInputStream(source)
-        var dest: ByteBuffer = ByteBuffer()
-        while (true) {
-            var readNum = decompressInputStream.read(tempBuf)
-            if (readNum > 0) {
-                dest.write(tempBuf.slice(0, readNum).toArray())
-            } else {
-                break
+        try {
+            decompressInputStream.read(tempBuf)
+        } catch (e: ZlibException) {
+            @Expect(e.message, "Unexpected end of compressed data.")
+            try {
+                decompressInputStream.close()
+            } catch (e2: ZlibException) {
+                @Expect(e2.message, "Unexpected end of compressed data.")
             }
+            return
         }
-        decompressInputStream.close()
 
-        @Expect(dest.remainLength, 0)
+        @Assert(false)
     }
 
     @TestCase
