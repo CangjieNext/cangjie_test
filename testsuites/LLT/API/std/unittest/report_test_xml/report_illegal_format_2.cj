@@ -7,7 +7,7 @@
  */
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --no-color --report-path=reports --report-format=illegalformat 2>&1 | compare %f
-// ASSERT: scan Unsupported test report format: illegalformat
+// ASSERT: scan Unsupported test report format: expected "XML" or "XML-PER-PACKAGE", got 'illegalformat'.
 
 import std.unittest.*
 import std.unittest.testmacro.*
