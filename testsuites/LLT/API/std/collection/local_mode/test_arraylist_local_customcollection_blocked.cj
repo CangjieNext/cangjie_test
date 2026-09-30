@@ -10,16 +10,23 @@
 // DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // DISABLED-EXEC: %run %run_opt %output %run_args
 //
-// BLOCKED (std, not yet implemented): T318/T422, P420.  A heap CustomCollection
+// BLOCKED (std, partially fixed): T318/T422, P420.  A heap CustomCollection
 // widened to Collection<Int64> @local? is the documented positive source for bulk
-// add, but both add(all:) branches in std only specialise Array<T> and
-// ArrayList<T> and fall through to
-//   case _ => throw IllegalArgumentException("Unsupported collection type for @local? add.")
-// (collection/array_list.cj:3227; the @local! branch does the same at :516), so the
-// custom collection never contributes.  A custom source cannot be widened to
-// Collection<Int64> @local! either (only @local? accepts a heap origin), so there is
-// no way to reach the generic path from a test.  Restore EXEC when the branches
-// handle an arbitrary Collection (e.g. via toArray()).
+// add, but the @local? paths still specialise only Array<T> and ArrayList<T>:
+//
+//   init(this @local?, Collection<T> @local?)   case _ => "...@local? ArrayList init."   (:311)
+//   add(this @local!,  Collection<T> @local?)   case _ => "...@local? add."              (:3271)
+//   add(this @local?,  Collection<T> @local?)   case _ => "...@local? add."              (:3271)
+//
+// UPDATE 2026-09-30 (std 3c5eba4a52): the @local! constructor now falls back to
+// `elements.toArray()` and accepts an arbitrary Collection; the @local?-receiver
+// paths above were not part of that change and still throw.  Verified: the
+// @local? constructor raises "Unsupported collection type for @local? ArrayList
+// init." and @local? add(all:) raises "Unsupported collection type for @local?
+// add." on modal_type-20260928.
+//
+// This case drives the @local? path, so it stays disabled.  Restore EXEC when the
+// @local? receiver handles an arbitrary Collection (e.g. via toArray()).
 // Other bulk-add sources (Array/ArrayList) are covered by
 // test_arraylist_copyable_extension.cj.
 import std.collection.*
