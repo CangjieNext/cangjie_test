@@ -6,35 +6,31 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
-// DEPENDENCE: caserunner.cj
-// EXEC: %compiler %cmp_opt %f caserunner.cj -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
-// ASSERT: scan-not AssertionError
-// ASSERT: scan-not Exception
+// EXEC:  %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %run %run_opt %output %run_utest_opt %run_args 
+
 import std.math.*
 
-main() {
-    CaseRunner<Bool>().runCasesTrue(
-        [
-            round(nan16).isNaN(),
-            round(-nan16).isNaN()
-        ],
-        description: "public func round(x: Float16) : Float16 - NaN handling"
-    )
-    CaseRunner<Bool>().runCasesTrue(
-        [
-            round(nan32).isNaN(),
-            round(-nan32).isNaN()
-        ],
-        description: "public func round(x: Float32) : Float32 - NaN handling"
-    )
-    CaseRunner<Bool>().runCasesTrue(
-        [
-            round(nan64).isNaN(),
-            round(-nan64).isNaN()
-        ],
-        description: "public func round(x: Float64) : Float64 - NaN handling"
-    )
-    return 0
+/**
+ * Test description: Test round with NaN input
+ */
+@Test
+class RoundNaNTest {
+    @TestCase
+    func testRoundFloat16NaN(): Unit {
+        @Expect(round(Float16.NaN).isNaN())
+        @Expect(round(-Float16.NaN).isNaN())
+    }
+
+    @TestCase
+    func testRoundFloat32NaN(): Unit {
+        @Expect(round(Float32.NaN).isNaN())
+        @Expect(round(-Float32.NaN).isNaN())
+    }
+
+    @TestCase
+    func testRoundFloat64NaN(): Unit {
+        @Expect(round(Float64.NaN).isNaN())
+        @Expect(round(-Float64.NaN).isNaN())
+    }
 }
