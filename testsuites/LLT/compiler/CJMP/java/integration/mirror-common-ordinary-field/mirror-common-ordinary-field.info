@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// Test: an ordinary (unmarked) field of a common class becomes an FFI field on the @JavaMirror specific side
+// Scenario: Common class declares an ordinary instance field (no `common`/`specific` modifier, no
+//           initializer, no specific redeclaration). The specific side is a @JavaMirror of a Java
+//           class with the same field. The field must be converted to a mirror property backed by
+//           the Java field (not left as Cangjie storage).
+// Expected: Reads of the field observe the Java value, writes reach the Java field through the
+//           generated setter, and an ordinary common method reading the field observes the update.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && mkdir -p build
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc --experimental src/cj/common.cj --output-type chir --output-dir build %import_java_interop
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc --experimental src/cj/specific.cj --common-part-chir=build/pkgcj.chir --common-part-cjo=build/pkgcj.cjo --output-type dylib -o build/libdemo.so %import_java_interop --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/pkgj/OrdField.java src/java/cj/*.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && LD_LIBRARY_PATH=$CANGJIE_HOME/runtime/lib/linux_x86_64_cjnative:./build:$LD_LIBRARY_PATH %java %cp_cj_loader_java_interop pkgcj.MyMain 2>& 1 | compare %f
+
+/* SCAN-IN
+id=7
+id=42
+getId=42
+*/
