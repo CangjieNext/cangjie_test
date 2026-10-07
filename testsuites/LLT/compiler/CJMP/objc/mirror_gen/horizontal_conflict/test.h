@@ -12,10 +12,6 @@
 @end
 
 @protocol P3
-@property int foo;
-@end
-
-@protocol P4
 @property (readonly) int foo;
 @end
 
@@ -25,29 +21,36 @@
 @interface M2 <P1, P2, P3>
 @end
 
-@interface M3 <P2, P1, P3>
+@interface M3 : A <P3>
 @end
 
-@interface M4 : A <P3>
+@interface M4 : A <P3, P1, P2>
 @end
 
-@interface M5 <P1, P3, P2>
+@interface B
+- (void)bar:(int)x;
 @end
 
-@interface M6 : A <P4, P1, P2>
+@protocol P4
+- (void)bar:(int)x;
 @end
 
-@protocol P7
+@protocol P5
+@optional
+- (void)bar:(int)x;
 @end
 
-@protocol P8
+@interface M5 : B <P4, P5, P1>
 @end
 
-@protocol P9
+@interface M6 <P4, P5, P1>
 @end
 
-@interface M7 : A <P7, P8, P9>
+@interface M7 <P1, P5, P4>
 @end
 
-@interface M8 <P7, P8, P9>
+@protocol PP5 <P5>
+@end
+
+@interface M8 <P4, PP5, P1>
 @end

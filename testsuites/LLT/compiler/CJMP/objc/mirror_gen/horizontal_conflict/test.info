@@ -27,55 +27,58 @@ public interface P2 {
 
 @ObjCMirror
 public interface P3 {
-    mut prop foo: Int32
-}
-
-@ObjCMirror
-public interface P4 {
     prop foo: Int32
 }
 
 @ObjCMirror
-public open class M1 <: A & P1 /*& P2 & P3*/ {
+public open class M1 <: A & P1 & P2 /*& P3*/ {
 }
 
 @ObjCMirror
-public open class M2 <: P1 /*& P2 & P3*/ {
+public open class M2 <: P1 & P2 & P3 {
 }
 
 @ObjCMirror
-public open class M3 <: P2 /*& P1 & P3*/ {
+public open class M3 <: A /*& P3*/ {
 }
 
 @ObjCMirror
-public open class M4 <: A & P3 {
+public open class M4 <: A /*& P3*/ & P1 & P2 {
 }
 
 @ObjCMirror
-public open class M5 <: P1 & P3 /*& P2*/ {
+public open class B {
+    @ForeignName["bar:"] public open func bar(x: Int32): Unit
 }
 
 @ObjCMirror
-public open class M6 <: A /*& P4*/ & P1 /*& P2*/ {
+public interface P4 {
+    @ForeignName["bar:"] func bar(x: Int32): Unit
 }
 
 @ObjCMirror
-public interface P7 {
+public interface P5 {
+    @ObjCOptional
+    @ForeignName["bar:"] func bar(x: Int32): Unit
 }
 
 @ObjCMirror
-public interface P8 {
+public open class M5 <: B & P4 /*& P5*/ & P1 {
 }
 
 @ObjCMirror
-public interface P9 {
+public open class M6 <: P4 /*& P5*/ & P1 {
 }
 
 @ObjCMirror
-public open class M7 <: A & P7 & P8 & P9 {
+public open class M7 <: P1 & P5 /*& P4*/ {
 }
 
 @ObjCMirror
-public open class M8 <: P7 & P8 & P9 {
+public interface PP5 <: P5 {
+}
+
+@ObjCMirror
+public open class M8 <: P4 /*& PP5*/ & P1 {
 }
 */
