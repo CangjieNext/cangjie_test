@@ -41,3 +41,9 @@ CJNATIVE/repo/publish
 
 # Excluded until compiler issue with `--import-path` and `CJMP` is fixed
 CJNATIVE/common_platform/merging/packages
+
+# Excluded until compiler issue with mangled names of CJMP extends is fixed:
+# an extend expanded from '@Test' in the common part gets the file of the specific part,
+# and extends in common and specific files with the same name get the same mangled name.
+CJNATIVE/source_sets/tests_in_common
+CJNATIVE/source_sets/custom_source_set_tests
