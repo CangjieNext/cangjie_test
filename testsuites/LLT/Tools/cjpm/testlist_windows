@@ -89,3 +89,9 @@ CJNATIVE/build/git_local/multiple_module_git_12
 # 中心仓联调用例，线下看护
 CJNATIVE/repo/download
 CJNATIVE/repo/publish
+
+# Excluded until compiler issue with mangled names of CJMP extends is fixed:
+# an extend expanded from '@Test' in the common part gets the file of the specific part,
+# and extends in common and specific files with the same name get the same mangled name.
+CJNATIVE/source_sets/tests_in_common
+CJNATIVE/source_sets/custom_source_set_tests
