@@ -5,6 +5,9 @@ cmake-build-debug/*
 output
 output-*
 build
+# Keep the cjpm LLT tests tracked, they live under a `build` directory
+!testsuites/LLT/Tools/cjpm/CJNATIVE/build
+!testsuites/LLT/Tools/cjpm/CJNATIVE/build/**
 *.swp
 *.swo
 .json

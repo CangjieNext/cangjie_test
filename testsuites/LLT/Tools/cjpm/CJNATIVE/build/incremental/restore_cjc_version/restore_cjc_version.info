@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-0: cd %n && mkdir -p fakebin && printf '#!/bin/bash\nif [ "$1" = "-v" ] && [ -f .fake-version ]; then\n  echo "Cangjie Compiler: $(cat .fake-version) (cjnative)"\n  "$CANGJIE_HOME/bin/cjc" -v | grep ^Target:\n  exit 0\nfi\nexec "$CANGJIE_HOME/bin/cjc" "$@"\n' > fakebin/cjc && chmod +x fakebin/cjc && echo 0.9.8-incremental-testfake > .fake-version && PATH=$PWD/fakebin:$PATH %cjpm build -i
+// EXEC: cd %n && rm .fake-version && PATH=$PWD/fakebin:$PATH %cjpm build -i -V 2>&1 | compare %f
+// ASSERT: scan Compiling package `default.e`
+// ASSERT: scan Compiling package `default`:
+// ASSERT: scan cjpm build success
