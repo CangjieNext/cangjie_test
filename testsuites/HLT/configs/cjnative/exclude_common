@@ -108,3 +108,27 @@ Tools/cjfmt/cli/options/cjfmt_cli_601.info
 Tools/cjfmt/line_length/line_length_02_boundary_121/line_length_02_boundary_121.info
 Tools/cjfmt/macro/macro_08_blank_line_vars/macro_08_blank_line_vars.info
 Tools/cjfmt/multiline_comment/multiline_comment_03_toplevel_alignment/multiline_comment_03_toplevel_alignment.info
+
+# 已知的不可达告警BUG
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/C16_guard_false.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/C16_guard_short_circuit.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/C6_merged_reasons.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/E1_twr_nothing.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP10_enum_ctor_guard_value.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP11_opt_guard_opaque_call.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP12_elvis_none_lhs.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP13_elvis_none_both_sides_execute.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP14_elvis_stale_reassign.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP1_const_guard_false_live_successor.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP2_const_guard_false_multi_live_catcher.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP3_bool_selector_guard_false.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP4_tuple_selector_guard_false.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP5_const_arith_guard.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP6_const_neg_guard.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP7_var_propagated_selector.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP8_enum_nopayload_guard_false.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/FP9_opt_ctor_guard_value.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/R2_all_alts_excluded.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/S5_nested_transfer.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/S6_receiver_callee.cj
+compiler/cjnative/Chir/DeadCodeWarnning/enhancement/X4_body_no_recursion.cj
