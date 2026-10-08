@@ -10,7 +10,7 @@ import my_test1.*
 // LEVEL: 1
 // DEPENDENCE: my_test1.cj my_test2.cj
 // (target_ios_simulator)EXEC: %compiler   %cmp_opt  %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %compile_lib_opt --experimental --lto=full --output-type=staticlib my_test2.cj -o my_test2.bc
-// (target_ios_simulator)EXEC-PIPE-1: %compiler   %cmp_opt   --lto-keep-pkg-visibility="" %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %compile_lib_opt  --experimentals --lto=full my_test1.cj my_test2.bc --output-type=dylib -o libmy_test1.so 2>&1 | compare %f 
+// (target_ios_simulator)EXEC-PIPE-1: %compiler   %cmp_opt   --lto-keep-pkg-visibility="" %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %compile_lib_opt  --experimentals --lto=full my_test1.cj my_test2.bc --output-type=dylib -o libmy_test1.dylib 2>&1 | compare %f 
 // ASSERT: scan invalid option: '--experimentals'.
 
 
