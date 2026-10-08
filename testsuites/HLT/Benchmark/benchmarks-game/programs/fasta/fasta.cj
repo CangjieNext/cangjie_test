@@ -16,6 +16,7 @@ package fasta
 
 import std.io.*
 import std.fs.*
+import std.env.*
 import std.convert.*
 import std.sync.*
 import std.collection.*
@@ -76,8 +77,7 @@ let HomoSap_values : Array<Float64> = [
 let HomoSap_cumulative : Array<Float64> = makeCumulative (HomoSap_values)
 
 let WIDTH = 60 // Fold lines after WIDTH bytes
-let out = File("/dev/stdout", Write)
-let bos = BufferedOutputStream(out)
+let bos = BufferedOutputStream(getStdOut())
 let RANDOM_BUF_SIZE = WIDTH * 1000
 let OUT_BUF_SIZE    = (WIDTH + 1) * 1000
 
@@ -268,5 +268,4 @@ main(args: Array<String>){
     fastaRandom(5*n, HomoSap_keys, HomoSap_cumulative)
 
     bos.flush()
-    out.close()
 }

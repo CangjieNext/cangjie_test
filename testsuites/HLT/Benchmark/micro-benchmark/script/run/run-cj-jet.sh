@@ -33,6 +33,7 @@ export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M"
 function read_testlist() {
     while read line
     do
+        line=${line%$'\r'}
         echo $line
         if [ -n "$line" ]; then
             if [ $api = "cffi" ]; then
@@ -291,8 +292,9 @@ function get_result() {
     cd $base/../testlist/
     while read line
     do
+        line=${line%$'\r'}
         sed -i '/ Benchmark/!d' $result_log
-        grep $line $result_log > $base/temp.txt
+        grep "$line" "$result_log" > $base/temp.txt
         awk -F '|' '{gsub(/ /, "",$(NF-6)); gsub(/[ -]/, "",$(NF-5)); gsub(/,/, "_",$(NF-5)); print $(NF-6)$(NF-5) $(NF-1)}' $base/temp.txt >> $base/result.txt
     done < $testlist
 
@@ -386,6 +388,8 @@ function main() {
         get_result
     elif [ $api = "libast_scene" ]; then
         get_result
+    elif [ $api = "json" ] || [ $api = "io" ] || [ $api = "convert" ] || [ $api = "expression" ]; then
+        get_result
     elif [ $api = "server_http" ]; then
         cd  $base/../run
         bash $base/../run/server_http.sh jet
@@ -407,9 +411,6 @@ function main() {
     elif [ $api = "objectpool" ]; then
         cd  $base/../result
         sed -i '/Benchmark/!d' result-jet-objectpool.list
-    elif [ $api = "expression" ]; then
-        cd  $base/../result
-        sed -i '/Benchmark/!d' result-jet-expression.list
     fi
 }
 

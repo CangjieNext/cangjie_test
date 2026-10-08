@@ -22,7 +22,7 @@ if [[ "$api" == "client_http" ]] || [[ "$api" == "client_http2" ]] || \
    [[ "$api" == "loop" ]] || [[ "$api" == "oldjson" ]] || \
    [[ "$api" == "server_http" ]] || [[ "$api" == "server_http2" ]] || \
    [[ "$api" == "server_https" ]] || [[ "$api" == "url" ]] || [[ "$api" == "serialize" ]]; then
-    import_cangjie_stdx="-L$CANGJIE_STDX_PATH -lstdx.encoding.json -lstdx.serialization.serialization -lstdx.serialization -lstdx.net.http -lstdx.net.tls -lstdx.net.tls.common -lstdx.net -lstdx.logger -lstdx.log -lstdx.encoding.url -lstdx.encoding.json.stream -lstdx.crypto.keys -lstdx.crypto.x509 -lstdx.crypto.kit -lstdx.crypto.crypto -lstdx.crypto.digest -lstdx.crypto.common -lstdx.crypto -lstdx.encoding.hex -lstdx.encoding.base64 -lstdx.encoding -lstdx.compress.zlib -lstdx.compress -lstdx --import-path $CANGJIE_STDX_PATH -ldl"
+    import_cangjie_stdx="-L$CANGJIE_STDX_PATH -lstdx.encoding.json -lstdx.serialization.serialization -lstdx.serialization -lstdx.net.http -lstdx.net.tls -lstdx.net.tls.common -lstdx.net -lstdx.logger -lstdx.log -lstdx.encoding.url -lstdx.encoding.json.stream -lstdx.crypto.keys -lstdx.crypto.x509 -lstdx.crypto.kit -lstdx.crypto.crypto -lstdx.crypto.digest -lstdx.crypto.common -lstdx.crypto -lstdx.encoding.hex -lstdx.encoding.base64 -lstdx.encoding -lstdx.compress.zlib -lstdx.compress -lstdx -lpthread --import-path $CANGJIE_STDX_PATH -ldl"
 else
     import_cangjie_stdx=
 fi
@@ -34,6 +34,7 @@ export cjStackSize=64mb
 function read_testlist() {
     while read line
     do
+        line=${line%$'\r'}
         echo $line
         if [ -n "$line" ]; then
             if [ $api = "cffi" ]; then
@@ -303,8 +304,9 @@ function get_result() {
 
     while read line
     do
+        line=${line%$'\r'}
         sed -i '/ Benchmark/!d' $result_log
-        grep $line $result_log > $base/temp.txt
+        grep "$line" "$result_log" > $base/temp.txt
         awk -F '|' '{gsub(/ /, "",$(NF-6)); gsub(/[ -]/, "",$(NF-5)); gsub(/,/, "_",$(NF-5)); print $(NF-6)$(NF-5) $(NF-1)}' $base/temp.txt >> $base/result.txt
     done < $testlist
 
@@ -398,6 +400,8 @@ function main() {
         get_result
     elif [ $api = "libast_scene" ]; then
         get_result
+    elif [ $api = "json" ] || [ $api = "io" ] || [ $api = "convert" ] || [ $api = "expression" ]; then
+        get_result
     elif [ $api = "server_http" ]; then
         cd  $base/../run
         bash $base/../run/server_http.sh cj
@@ -419,9 +423,6 @@ function main() {
     elif [ $api = "objectpool" ]; then
         cd  $base/../result
         sed -i '/Benchmark/!d' result-cj-objectpool.list
-    elif [ $api = "expression" ]; then
-        cd  $base/../result
-        sed -i '/Benchmark/!d' result-cj-expression.list
     fi
 }
 
