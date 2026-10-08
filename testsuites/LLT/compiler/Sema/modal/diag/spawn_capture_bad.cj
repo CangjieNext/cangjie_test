@@ -25,10 +25,10 @@ error: cannot access local variable b of 'Class-C @local?' type defined outside 
   ==> spawn_capture_bad.cj:16:17:
    | 
 14 |     let b: C@local? = C()
-   |     ~~~~~~~~~~~~~~~~~~~~~ 
+   |     ~~~~~~~~~~~~~~~~~~~~~ variable declared here
 15 |     spawn {
 16 |         println(b.p)
-   |                 ^ variable declared here
+   |                 ^ 
    | 
 
 1 error generated, 1 error printed.

@@ -146,9 +146,9 @@ exclave func collectInfo(v: JsonValue @local!, out: ArrayList<Info>): Unit {
 func myParse(): ArrayList<Info> {
     let data = "origin.json"
     println("begin heap size=${getAllocatedHeapSize()}")
-    let raw = String.fromUtf8(File.readFrom(data))
+    let raw = String.fromUtf8(File.readFromLocal(data))
     println("readfile heap size=${getAllocatedHeapSize()}")
-    let jv: JsonValue @local! = JsonValue.fromStrLocal(raw)
+    let jv: JsonValue @local! = JsonValue.fromStr(raw)
     println("parseJson heap size=${getAllocatedHeapSize()}")
     let out = ArrayList<Info>()
     collectInfo(jv, out)
