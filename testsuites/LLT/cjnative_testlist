@@ -132,8 +132,6 @@ compiler/Sema/modal/decl/defaultparam/default_param.cj
 # composition in modal type requires redesign
 compiler/Sema/modal/expr/composition/local_good.cj
 compiler/Sema/modal/expr/composition/local_good2.cj
-# incremental
-compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/AddExtends/InterfaceExtend0to1_CPointer.cj
 # CHIR plugin
 API/stdx/AOP_tests/custom_plugin/chir_anno/case_chir_anno.cj
 # runtime signal sigsegv signal

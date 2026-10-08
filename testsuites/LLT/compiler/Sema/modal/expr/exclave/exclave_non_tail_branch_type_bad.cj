@@ -38,5 +38,5 @@ func annotated(c: C @local!, x: Bool): Any {
 
 main() {}
 
-// ASSERT: scan-1 "DiagKind": "sema_bad_internal_local_return",
+// ASSERT: scan-1 "DiagKind": "sema_internal_local_return",
 // ASSERT: scan-1 "DiagKind": "sema_mismatched_types",
