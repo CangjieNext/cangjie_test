@@ -1,0 +1,38 @@
+{
+  "bin": {},
+  "pkg-build": {
+    "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep/src": {
+      "package": "dep",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1785738999,
+      "dependencies": [],
+      "std-dependencies": [
+        {
+          "std.core": []
+        }
+      ],
+      "features": [],
+      "product": true,
+      "testUsed": false,
+      "mockUsed": false
+    },
+    "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep/src/aoo": {
+      "package": "dep.aoo",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1785738999,
+      "dependencies": [],
+      "std-dependencies": [
+        {
+          "std.core": []
+        }
+      ],
+      "features": [],
+      "product": true,
+      "testUsed": false,
+      "mockUsed": false
+    }
+  },
+  "pkg-test": {}
+}

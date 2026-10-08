@@ -1,0 +1,1 @@
+/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/build/incremental/incremental_40/incremental_40.info

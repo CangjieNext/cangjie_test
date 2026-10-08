@@ -1,0 +1,260 @@
+{
+  "resolves": [
+    {
+      "rootPackageName": "dep",
+      "modulePath": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": {
+          "roots": [
+            "src"
+          ],
+          "graph": {
+            "src": {
+              "indeg": [],
+              "outdeg": []
+            }
+          },
+          "toposort": [
+            "src"
+          ],
+          "data": {
+            "src": {
+              "sourceSetDir": "src",
+              "srcDir": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep/src",
+              "features": [],
+              "product": true,
+              "configuredProduct": true,
+              "outputSuffix": ""
+            }
+          }
+        }
+      },
+      "fullName": "dep",
+      "isMacroPackage": false,
+      "output-type": "dynamic",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [],
+      "std-requires": [
+        {
+          "std.core": []
+        }
+      ],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    },
+    {
+      "rootPackageName": "dep",
+      "modulePath": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": {
+          "roots": [
+            "src"
+          ],
+          "graph": {
+            "src": {
+              "indeg": [],
+              "outdeg": []
+            }
+          },
+          "toposort": [
+            "src"
+          ],
+          "data": {
+            "src": {
+              "sourceSetDir": "src",
+              "srcDir": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep/src/aoo",
+              "features": [],
+              "product": true,
+              "configuredProduct": true,
+              "outputSuffix": ""
+            }
+          }
+        }
+      },
+      "fullName": "dep.aoo",
+      "isMacroPackage": false,
+      "output-type": "dynamic",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [],
+      "std-requires": [
+        {
+          "std.core": []
+        }
+      ],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    },
+    {
+      "rootPackageName": "demo",
+      "modulePath": ".",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": {
+          "roots": [
+            "src"
+          ],
+          "graph": {
+            "src": {
+              "indeg": [],
+              "outdeg": []
+            }
+          },
+          "toposort": [
+            "src"
+          ],
+          "data": {
+            "src": {
+              "sourceSetDir": "src",
+              "srcDir": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/src/macro_definition",
+              "features": [],
+              "product": true,
+              "configuredProduct": true,
+              "outputSuffix": ""
+            }
+          }
+        }
+      },
+      "fullName": "demo.macro_definition",
+      "isMacroPackage": true,
+      "output-type": "dynamic",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [
+        "dep.aoo"
+      ],
+      "std-requires": [
+        {
+          "std.ast": [
+            "std.collection",
+            "std.core"
+          ]
+        },
+        {
+          "std.collection": [
+            "std.core",
+            "std.math"
+          ]
+        },
+        {
+          "std.core": []
+        },
+        {
+          "std.math": [
+            "std.core"
+          ]
+        }
+      ],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    },
+    {
+      "rootPackageName": "demo",
+      "modulePath": ".",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": {
+          "roots": [
+            "src"
+          ],
+          "graph": {
+            "src": {
+              "indeg": [],
+              "outdeg": []
+            }
+          },
+          "toposort": [
+            "src"
+          ],
+          "data": {
+            "src": {
+              "sourceSetDir": "src",
+              "srcDir": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/src",
+              "features": [],
+              "product": true,
+              "configuredProduct": true,
+              "outputSuffix": ""
+            }
+          }
+        }
+      },
+      "fullName": "demo",
+      "isMacroPackage": false,
+      "output-type": "executable",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [
+        "demo.macro_definition",
+        "dep.aoo"
+      ],
+      "std-requires": [
+        {
+          "std.core": []
+        }
+      ],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    }
+  ],
+  "binDeps": {},
+  "crossBinDeps": {}
+}

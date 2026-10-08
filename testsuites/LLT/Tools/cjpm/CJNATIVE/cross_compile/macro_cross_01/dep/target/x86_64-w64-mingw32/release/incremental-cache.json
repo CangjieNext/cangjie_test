@@ -1,0 +1,50 @@
+{
+  "compile~dep|x86_64-w64-mingw32|false|false|dynamic|": {
+    "value": [
+      {
+        "path": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep/target/x86_64-w64-mingw32/release/dep/libdep.dll",
+        "checkKind": "check-exists"
+      },
+      {
+        "path": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep/target/x86_64-w64-mingw32/release/dep/dep.cjo",
+        "checkKind": "check-timestamp"
+      }
+    ],
+    "inputHash": -7901794647927202800,
+    "outputHash": -5189841069040586642
+  },
+  "read~dep.aoo|": {
+    "value": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep/src/aoo",
+    "inputHash": 0,
+    "outputHash": 3155947213437206441
+  },
+  "read~dep|": {
+    "value": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep/src",
+    "inputHash": 0,
+    "outputHash": 3155947213437206441
+  },
+  "compile~dep.aoo|x86_64-w64-mingw32|false|false|static|": {
+    "value": [
+      {
+        "path": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep/target/x86_64-w64-mingw32/release/dep/libdep.aoo.a",
+        "checkKind": "check-exists"
+      },
+      {
+        "path": "/opt/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/cross_compile/macro_cross_01/dep/target/x86_64-w64-mingw32/release/dep/dep.aoo.cjo",
+        "checkKind": "check-timestamp"
+      }
+    ],
+    "inputHash": -5563842854035967650,
+    "outputHash": -5189841069040586642
+  },
+  "options~dep.aoo|x86_64-w64-mingw32|false|false|": {
+    "value": -1734445337266322886,
+    "inputHash": 0,
+    "outputHash": -1734445337266322886
+  },
+  "options~dep|x86_64-w64-mingw32|false|false|": {
+    "value": -6761003264344808683,
+    "inputHash": 0,
+    "outputHash": -6761003264344808683
+  }
+}
