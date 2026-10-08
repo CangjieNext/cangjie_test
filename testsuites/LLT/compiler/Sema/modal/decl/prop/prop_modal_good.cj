@@ -26,8 +26,12 @@ class C {
     }
     mut prop val3: Int64 {
         get() { 3 }
+        set(value) {
+            let _ = value
+        }
     }
     mut prop val3: Int64 @local! {
+        get() { 3 }
         set(value) {
             let _ = value
         }

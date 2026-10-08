@@ -20,7 +20,7 @@ struct P <: Copyable {
 }
 main() {}
 /* SCAN
-error: exclave must be used in func with @local! non copy param or @local!/@local? non copy return type
+error: exclave must be used in function with @local! non copy param or @local!/@local? non copy return type
   ==> getter_exclave_bad.cj:18:17:
    | 
 18 |         get() { exclave { 1 } }

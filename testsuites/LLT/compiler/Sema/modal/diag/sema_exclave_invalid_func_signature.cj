@@ -17,7 +17,7 @@ exclave func foo(a: String @local?): Unit {
 main() {}
 
 /* SCAN
-error: exclave must be used in func with @local! non copy param or @local!/@local? non copy return type
+error: exclave must be used in function with @local! non copy param or @local!/@local? non copy return type
   ==> sema_exclave_invalid_func_signature.cj:10:5:
    | 
 10 |       exclave {
@@ -27,7 +27,7 @@ error: exclave must be used in func with @local! non copy param or @local!/@loca
    | |_____^
    | 
 
-error: exclave must be used in func with @local! non copy param or @local!/@local? non copy return type
+error: exclave must be used in function with @local! non copy param or @local!/@local? non copy return type
   ==> sema_exclave_invalid_func_signature.cj:14:1:
    | 
 14 | exclave func foo(a: String @local?): Unit {

@@ -10,7 +10,7 @@ abstract class C {
 }
 main() {}
 /* SCAN
-error: abstract func 'foo' cannot be exclave
+error: abstract function 'foo' cannot be exclave
  ==> sema_abstract_exclave_func.cj:9:25:
   | 
 9 |     public exclave func foo(): String @local!

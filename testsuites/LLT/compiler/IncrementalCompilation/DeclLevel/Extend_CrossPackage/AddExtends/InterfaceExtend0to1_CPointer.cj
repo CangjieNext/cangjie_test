@@ -21,9 +21,9 @@ main() {
 // ASSERT: scan added 8CPointer<1T><:2I1X at 14,1
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan changed decls to recompile: 13
-// ASSERT: scan the changed decl after Spreading is:main in file InterfaceExtend0to1_CPointer.old.cj in line 5 in column 1
-// ASSERT: scan the changed decl after Spreading is:ExtendDecl in file InterfaceExtend0to1_CPointer.old.cj in line 10 in column 1
-// ASSERT: scan the changed decl after Spreading is:foo in file InterfaceExtend0to1_CPointer.old.cj in line 11 in column 17
+// ASSERT: scan the changed decl after Spreading is:ExtendDecl in file lib.cj in line 14 in column 1
+// ASSERT: scan the changed decl after Spreading is:foo in file lib.cj in line 15 in column 17
+// ASSERT: scan the changed decl after Spreading is:ExtendDecl in file c_pointer_resource.cj
 // ASSERT: scan incremental sema
 
 

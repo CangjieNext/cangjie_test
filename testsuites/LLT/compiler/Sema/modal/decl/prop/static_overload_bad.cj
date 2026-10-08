@@ -18,7 +18,7 @@ class C {
 main() {}
 
 /* SCAN
-error: static prop cannot be overloaded
+error: static property cannot be overloaded
   ==> static_overload_bad.cj:11:5:
    | 
 11 |       static prop p: String {
@@ -28,7 +28,7 @@ error: static prop cannot be overloaded
    | |_____^
    | 
 
-error: static prop cannot be overloaded
+error: static property cannot be overloaded
   ==> static_overload_bad.cj:14:5:
    | 
 14 |       static prop p: String @local! {
