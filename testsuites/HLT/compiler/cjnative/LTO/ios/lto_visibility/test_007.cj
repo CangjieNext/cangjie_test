@@ -1,0 +1,15 @@
+package tmp_test
+import my_test1.*
+
+// LEVEL: 1
+// DEPENDENCE: my_test1.cj my_test2.cj
+// (target_ios_simulator)EXEC: %compiler %cmp_opt %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %compile_lib_opt --experimental --lto=thin --output-type=staticlib my_test2.cj -o my_test2.bc
+// (target_ios_simulator)EXEC: %compiler %cmp_opt --lto-keep-pkg-visibility="" %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %compile_lib_opt --experimental --lto=thin my_test1.cj my_test2.bc --output-type=dylib -o libmy_test1.dylib
+// (target_ios_simulator)EXEC-1: nm libmy_test1.dylib | grep -E "T.*(hw)"
+// (target_ios_simulator)EXEC-1: nm libmy_test1.dylib | grep -E "T.*(foo)"
+// (target_ios_simulator)EXEC-1: nm libmy_test1.dylib | grep -E "T.*(fxx)"
+
+main(): Int64 {
+    hw()
+    return 0
+}
