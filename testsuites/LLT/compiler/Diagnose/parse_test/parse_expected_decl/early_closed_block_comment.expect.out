@@ -1,0 +1,15 @@
+error: expected declaration, found '*'
+  ==> early_closed_block_comment.cj:13:33:
+   | 
+13 |  * 目录搜索支持 glob：**/* 表示任意层级
+   |                          ^ expected declaration here
+   | 
+   # note: only declarations or macro expressions can be used in the top-level
+note: the block comment ends here and the text after it is parsed as code; if this text should be commented out, use a line comment or split the '*/' sequence (for example '** / *')
+  ==> early_closed_block_comment.cj:13:31:
+   | 
+13 |  * 目录搜索支持 glob：**/* 表示任意层级
+   |                        ^^ 
+   | 
+
+1 error generated, 1 error printed.

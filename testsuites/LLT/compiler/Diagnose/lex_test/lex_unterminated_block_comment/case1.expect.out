@@ -8,5 +8,6 @@ error: unterminated block comment
 17 | | 
    | |_^ unterminated block comment
    | 
+   # note: block comments can be nested; a '/*' inside a comment opens a nested comment which must also be closed with '*/'
 
 1 error generated, 1 error printed.
