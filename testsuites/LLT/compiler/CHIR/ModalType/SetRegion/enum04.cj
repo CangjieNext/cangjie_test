@@ -6,24 +6,16 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../pick_defination.py
-// EXEC: %compiler %n.cj %dumpCHIRDebug
-// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Canonicalization.chirtxt "Func @_CGV7default1pHv" | compare %f
+// EXEC: %compiler %n.cj %dumpCHIRDebug -o %output
+// RUN-EXEC: %run %run_opt %output
+// EXEC: %python pick_defination.py enum04_CHIR/[0-9]*_Canonicalization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
 // ASSERT: scan StartRegion()
 // ASSERT: scan EndRegion()
 
-class C {
-    init() {
-        x =3
-    }
-    exclave init(this @local!) {
-        x = 7
-    }
-    var x: Int
-}
-
-let p = C() @local!.x
-var q = C() @local!.x
 
 main() {
-    println(p-q)
+    let x: Option<Int64> @local! = Option<Int64>.Some(1)
+    if (x.isSome()) {
+        return
+    }
 }
