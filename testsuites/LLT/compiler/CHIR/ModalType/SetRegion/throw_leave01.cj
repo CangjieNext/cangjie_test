@@ -6,8 +6,9 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../pick_defination.py
-// EXEC: %compiler %n.cj %dumpCHIRDebug -Woff unused
-// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Canonicalization.chirtxt "Func @_CN7default1fHv" | compare %f
+// EXEC: %compiler %n.cj %dumpCHIRDebug -Woff unused -o %output
+// RUN-EXEC: %run %run_opt %output
+// EXEC: %python pick_defination.py throw_leave01_CHIR/[0-9]*_Canonicalization.chirtxt "Func @_CN7default1fHv" | compare %f
 // ASSERT: scan-1 StartRegion()
 // ASSERT: scan-1 EndRegion()
 
