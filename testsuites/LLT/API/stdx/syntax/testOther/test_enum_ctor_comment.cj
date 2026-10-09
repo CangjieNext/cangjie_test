@@ -149,4 +149,34 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString().replace("\r\n", "\n"), input.replace("\r\n", "\n"))
     }
+
+    @TestCase
+    func testRewriterIdentityWalk() {
+        // Regression guard for the comment binding fix: the rewriter pairs every
+        // green CommentGroupList child of a Body with the red-tree comment queue
+        // one by one. The doc comments of pipe-prefixed constructors are reported
+        // through the constructors themselves, so an identity rewrite must neither
+        // throw nor lose/misplace those comments.
+        let node = parseFile("enum_ctor_comment.cj")
+        let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
+        let rewriter = ASTRewriter()
+        let newFile = rewriter.walk(file)
+        @Assert((newFile as SourceFile).isSome())
+        for (decl in file.topLevelDecls) {
+            if (let Some(enumDecl) <- (decl as EnumDecl)) {
+                let newDecl = rewriter.walk(enumDecl)
+                if (let Some(newEnum) <- (newDecl as EnumDecl)) {
+                    @Expect(newEnum.name, enumDecl.name)
+                    @Expect(newEnum.toString(), enumDecl.toString())
+                    for (member in newEnum.body.memberDecls) {
+                        if (let Some(ctor) <- (member as EnumConstructor)) {
+                            @Expect(ctor.comments.size, 1)
+                        }
+                    }
+                } else {
+                    @FailExpect("rewritten decl is not an EnumDecl")
+                }
+            }
+        }
+    }
 }
