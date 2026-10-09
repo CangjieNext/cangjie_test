@@ -22,8 +22,8 @@ public struct ObjCCompat {
     public var b: Int32 = 0
 }
 
-@ObjCMirror
-public open class M {
+@ObjC
+public open foreign class M {
     protected var a: ObjCPointer<Int32>
     protected var b: ObjCPointer<?M>
     protected var c: ObjCPointer<CType>
