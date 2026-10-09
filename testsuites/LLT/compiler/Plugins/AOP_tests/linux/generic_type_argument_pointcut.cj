@@ -6,7 +6,7 @@
 
 // (CJNATIVE and Linux)EXEC-PIPE-0: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin %weave_aspects_plugin
 // (CJNATIVE and Linux)EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_args | compare %f
-// (CJNATIVE and Linux)ASSERT: scan exact=1\nwildcard=1\nprocessIntegers\nwildcard=1\nprocessStrings\nexactHits=1\nwildcardHits=2\n
+// (CJNATIVE and Linux)ASSERT: scan exact=1\nwildcard=1\ntyped=2\nprocessIntegers\nwildcard=1\nprocessStrings\nexactHits=1\nwildcardHits=2\ntypedHits=1\n
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
@@ -14,6 +14,7 @@ import stdx.aspect_cj.*
 
 var exactHits: Int64 = 0
 var wildcardHits: Int64 = 0
+var typedHits: Int64 = 0
 
 @InsertAtEntry[
     packageName: "default",
@@ -41,6 +42,19 @@ public func wildcardArrayElement(args: Array<Any>): Unit {
     println("wildcard=${args.size}")
 }
 
+@InsertAtEntry[
+    packageName: "default",
+    className: "",
+    methodName: "processIntegers",
+    isStatic: false,
+    recursive: false,
+    funcTypeStr: "(Array<Int64>)->Unit"
+]
+public func typedArrayElement(values: Array<Int64>): Unit {
+    typedHits++
+    println("typed=${values.size}")
+}
+
 public func processIntegers(values: Array<Int64>): Unit {
     println("processIntegers")
 }
@@ -54,5 +68,6 @@ main() {
     processStrings(["a"])
     println("exactHits=${exactHits}")
     println("wildcardHits=${wildcardHits}")
+    println("typedHits=${typedHits}")
     0
 }
