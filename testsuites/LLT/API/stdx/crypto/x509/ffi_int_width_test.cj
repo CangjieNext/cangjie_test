@@ -6,8 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // DEPENDENCE: ./files ./fault
-// EXEC: %clang %clang_shared_opt -o ./fault/libcr17fault.so ./fault/cr17_i2d_fault.c -ldl && %clang -c -o ./fault/cr17_faultctl.o ./fault/cr17_faultctl.c && ar rcs ./fault/libcr17faultctl.a ./fault/cr17_faultctl.o && %compiler  %import-cangjie-stdx  -L./fault -lcr17faultctl %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC: %set_stdx_path LD_PRELOAD=./fault/libcr17fault.so %run %run_opt %n.%suffix %run_utest_opt %run_args
+// EXEC: %clang %clang_shared_opt -o ./fault/libcr17fault.so ./fault/cr17_crypto_shim.c -ldl -lcrypto && %clang -c -o ./fault/cr17_faultctl.o ./fault/cr17_faultctl.c && ar rcs ./fault/libcr17faultctl.a ./fault/cr17_faultctl.o && %compiler  %import-cangjie-stdx  -L./fault -lcr17faultctl %cmp_opt -o %n.%suffix %f %cmp_utest_opt
+// RUN-EXEC: %set_stdx_path STDX_OPENSSL_CRYPTO_FILE=./fault/libcr17fault.so STDX_OPENSSL_SSL_FILE=libssl.so.3 LD_PRELOAD=./fault/libcr17fault.so %run %run_opt %n.%suffix %run_utest_opt %run_args
 
 import std.fs.*
 import std.time.*
