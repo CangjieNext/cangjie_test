@@ -308,6 +308,17 @@ class JsonSiblingDivergenceTest {
         @Expect(streamReadFloat("1e400"), None)
         @Expect(streamReadFloat("1e-1000"), Some(0.0))
         @Expect(streamReadFloat("1e99999999999999999999"), None)
+        // An exponent magnitude of exactly 2^63 must throw OverflowException
+        // for both signs: for a positive sign the Int64 conversion of the
+        // UInt64 magnitude would wrap to Int64.Min and silently turn the
+        // overflow into an underflow to 0.0. Neighbors stay as before:
+        // 2^63-1 overflows to Infinity (rejected as non-finite), 2^63+1 and
+        // 20-digit magnitudes trip the magnitude/accumulation checks.
+        @Expect(streamReadFloat("1e9223372036854775808"), None)
+        @Expect(streamReadFloat("1e-9223372036854775808"), None)
+        @Expect(streamReadFloat("1e9223372036854775807"), None)
+        @Expect(streamReadFloat("1e9223372036854775809"), None)
+        @Expect(streamReadFloat("1e-9223372036854775809"), None)
     }
 
     // CR-15 F: garbage suffixes after a complete number token are left in
