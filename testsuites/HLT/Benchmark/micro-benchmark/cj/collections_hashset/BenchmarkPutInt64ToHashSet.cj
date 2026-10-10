@@ -22,7 +22,7 @@ import std.runtime.*
 public class Test_Put_Int64_To_HashSet {
 
     @Bench[len in [32, 256, 2048, 16384, 131072]]
-    func BenchmarkAddToHashset(len: Int64): Unit {
+    func BenchmarkAddToHashset_Int64(len: Int64): Unit {
         blackBox(generatHashSet(len, 1))
     }
 }

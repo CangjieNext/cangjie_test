@@ -37,7 +37,7 @@ public class Test_UTF8_Read_Mode {
     }
 
     @Bench[data in fileData]
-    func BenchmarkReadUTF8_count_by_1(data: ByteBuffer): Unit {
+    func BenchmarkReadUTF8_count_by_1_(data: ByteBuffer): Unit {
         data.seek(Begin(0))
         let input = StringReader(data)
         var count = 0
@@ -48,7 +48,7 @@ public class Test_UTF8_Read_Mode {
     }
 
     @Bench[data in fileData]
-    func BenchmarkReadUTF8_count_all(data: ByteBuffer): Unit {
+    func BenchmarkReadUTF8_count_all_(data: ByteBuffer): Unit {
         data.seek(Begin(0))
         let input = StringReader(data)
         let content = input.readToEnd()
@@ -56,7 +56,7 @@ public class Test_UTF8_Read_Mode {
     }
 
     @Bench[data in fileData]
-    func BenchmarkReadUTF8_count_lines(data: ByteBuffer): Unit {
+    func BenchmarkReadUTF8_count_lines_(data: ByteBuffer): Unit {
         data.seek(Begin(0))
         let input = StringReader(data)
         var count = 0

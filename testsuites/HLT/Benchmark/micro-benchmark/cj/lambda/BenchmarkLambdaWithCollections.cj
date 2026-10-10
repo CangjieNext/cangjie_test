@@ -35,22 +35,22 @@ public class TestLambdaWithCollections {
     }
 
     @Bench[reps in [512, 1024, 2048, 4096]]
-    func BenchmarkLambdaWithCollections_ArrayInit_(reps: Int64): Array<Int64> {
+    func BenchmarkLambdaWithCollections_ArrayInit(reps: Int64): Array<Int64> {
         blackBox(Array<Int64>(reps, {index: Int64 => 2 * index}))
     }
 
     @Bench[reps in [512, 1024, 2048, 4096]]
-    func BenchmarkLambdaWithCollections_ArrayListInit_(reps: Int64): ArrayList<Int64> {
+    func BenchmarkLambdaWithCollections_ArrayListInit(reps: Int64): ArrayList<Int64> {
         blackBox(ArrayList<Int64>(reps, {index: Int64 => 2 * index}))
     }
 
     @Bench[data in dataStrategy]
-    func BenchmarkLambdaWithCollections_Reduce_(data: ArrayList<Int64>): Int64 {
+    func BenchmarkLambdaWithCollections_Reduce(data: ArrayList<Int64>): Int64 {
         blackBox(reduce({ x: Int64, y: Int64 => x + y })(data).getOrThrow())
     }
 
     @Bench[data in dataStrategy]
-    func BenchmarkLambdaWithCollections_FilterReduce_(data: ArrayList<Int64>): Int64 {
+    func BenchmarkLambdaWithCollections_FilterReduce(data: ArrayList<Int64>): Int64 {
         blackBox(reduce({ x: Int64, y: Int64 => x + y })(
             filter({ k: Int64 =>
                 k % 2 == 1
@@ -59,7 +59,7 @@ public class TestLambdaWithCollections {
     }
 
     @Bench[data in dataStrategy]
-    func BenchmarkLambdaWithCollections_FilterMapReduce_(data: ArrayList<Int64>): Int64 {
+    func BenchmarkLambdaWithCollections_FilterMapReduce(data: ArrayList<Int64>): Int64 {
         blackBox(reduce({ x: Int64, y: Int64 => x + y })(
             map({ k: Int64 => 2 * k })(
                 filter({ k: Int64 =>
@@ -70,7 +70,7 @@ public class TestLambdaWithCollections {
     }
 
     @Bench[data in dataStrategyToSort]
-    func BenchmarkLambdaWithCollections_SortBy_(data: ArrayList<Int64>): ArrayList<Int64> {
+    func BenchmarkLambdaWithCollections_SortBy(data: ArrayList<Int64>): ArrayList<Int64> {
         data.sortBy(comparator: { x: Int64, y: Int64 =>
             if (x == y) {
                 EQ

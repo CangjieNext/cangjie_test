@@ -77,7 +77,7 @@ public class Test_Json_Read_String {
     }
 
     @Bench[data in readerData]
-    func BenchmarkJsonReadString_G10(data: JsonReader): Unit {
+    func BenchmarkJsonReadString_G10_(data: JsonReader): Unit {
         testReadStrings(data)
     }
 }

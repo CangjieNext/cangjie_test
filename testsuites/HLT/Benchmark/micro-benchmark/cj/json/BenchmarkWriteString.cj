@@ -66,7 +66,7 @@ public class Test_Json_Write_String {
     }
 
     @Bench[data in writerData]
-    func BenchmarkJsonWriteString_G10(data: (JsonWriter, String, Int64)): Unit {
+    func BenchmarkJsonWriteString_G10_(data: (JsonWriter, String, Int64)): Unit {
         testWriteStrings(data[0], data[2], data[1])
     }
 }
