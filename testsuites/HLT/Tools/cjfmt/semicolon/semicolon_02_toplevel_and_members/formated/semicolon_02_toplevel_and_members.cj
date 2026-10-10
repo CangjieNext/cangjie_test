@@ -16,6 +16,7 @@ class C {
 }
 
 var g1: Int64 = 3;
+
 let g2: Int64 = 4;
 
 func f(): Int64 {
