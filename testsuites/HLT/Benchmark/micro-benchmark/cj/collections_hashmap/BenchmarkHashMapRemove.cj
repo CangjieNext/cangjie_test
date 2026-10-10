@@ -49,7 +49,7 @@ public class Test_HashMap_Remove {
     }
 
     @Bench[x in hashMapStrategy]
-    func BenchmarkHashMapRemove_(x: HashMap<String, Int64>): Unit {
+    func BenchmarkHashMapRemove(x: HashMap<String, Int64>): Unit {
         for (v in keys) {
             x.remove(v)
         }

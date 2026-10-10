@@ -38,7 +38,7 @@ public class Test_Init_Collection_In_HashSet {
     }
 
     @Bench[data in initData]
-    func BenchmarkInitCollectionInHashSet(data: Array<Int64>): Unit {
+    func BenchmarkInitCollectionInHashSet_Int64(data: Array<Int64>): Unit {
         blackBox(HashSet<Int64>(data))
     }
 }

@@ -41,7 +41,7 @@ public class Test_HashMap_Put_Float64_Reserve {
     }
 
     @Bench[x in hashMapStrategy]
-    func BenchmarkHashMapPut_Float64_(x: HashMap<Float64, Int64>): Unit {
+    func BenchmarkHashMapPut_Float64_Reserve(x: HashMap<Float64, Int64>): Unit {
         for (v in keys) {
             x.add(v, 0)
         }

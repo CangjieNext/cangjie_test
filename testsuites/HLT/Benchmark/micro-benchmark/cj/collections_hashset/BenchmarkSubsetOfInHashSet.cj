@@ -44,7 +44,7 @@ public class Test_SubsetOf_In_HashSet {
     }
 
     @Bench[data in existData]
-    func BenchmarkSubsetOf_Exist(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
+    func BenchmarkSubsetOfInHashset_Exist_Int64(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
         blackBox(data[1].subsetOf(data[0]))
     }
 
@@ -58,7 +58,7 @@ public class Test_SubsetOf_In_HashSet {
     }
 
     @Bench[data in nonexistData]
-    func BenchmarkSubsetOf_Nonexist(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
+    func BenchmarkSubsetOfInHashset_Nonexist_Int64(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
         blackBox(data[1].subsetOf(data[0]))
     }
 }
