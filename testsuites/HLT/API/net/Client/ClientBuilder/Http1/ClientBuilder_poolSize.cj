@@ -64,7 +64,7 @@ public class Test_poolSize {
             client.send(r1)
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "Too many connections to the same server!")
+            @Expect(e.message, "Too many connections to the same server.")
         }
 
         @Expect(flag, true)
@@ -77,7 +77,7 @@ public class Test_poolSize {
             let client = ClientBuilder().poolSize(0).build()
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message, "The poolSize must be greater than 0.")
+            @Expect(e.message, "Invalid argument 'size': expected a positive value, got 0.")
         }
         @Expect(flag, true)
     }
@@ -89,7 +89,7 @@ public class Test_poolSize {
             let client = ClientBuilder().poolSize(-1).build()
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message, "The poolSize must be greater than 0.")
+            @Expect(e.message, "Invalid argument 'size': expected a positive value, got -1.")
         }
         @Expect(flag, true)
     }

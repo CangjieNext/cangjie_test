@@ -33,7 +33,7 @@ class test_with_kill {
             process.terminate()
         } catch (e: ProcessException) {
             cnt++
-            @Expect(e.message, "Process pid \"${process.pid}\" not exist, not allow kill process.")
+            @Expect(e.message, "Process \'${process.pid}\' does not exist.")
         }
         @Expect(cnt, 1)
     }

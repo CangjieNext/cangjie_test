@@ -24,13 +24,13 @@
     if (self.$registryId == -1) {
         [NSException raise: @"Use before Cangjie counterpart is initialized" format: @"selector `%@` is overridden in Cangjie and cannot be used before Cangjie counterpart is initialized", NSStringFromSelector(_cmd)];
     }
-    return (__bridge_transfer CustomName*)CJImpl_ObjC_CustomName_a_get(self.$registryId);
+    return (__bridge_transfer CustomName*)CJImpl_ObjC_CustomName_a_get(self.$registryId, (__bridge void*)self);
 }
 - (void)setA:(CustomName*)value {
     if (self.$registryId == -1) {
         [NSException raise: @"Use before Cangjie counterpart is initialized" format: @"selector `%@` is overridden in Cangjie and cannot be used before Cangjie counterpart is initialized", NSStringFromSelector(_cmd)];
     }
-    CJImpl_ObjC_CustomName_a_set(self.$registryId, (__bridge void*)value);
+    CJImpl_ObjC_CustomName_a_set(self.$registryId, (__bridge void*)self, (__bridge_retained void*)value);
 }
 */
 

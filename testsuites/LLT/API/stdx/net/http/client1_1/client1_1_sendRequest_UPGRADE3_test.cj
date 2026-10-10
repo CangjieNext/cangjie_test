@@ -53,7 +53,7 @@ class TestConnNodeSendRequestUPGRADE3 {
             client.upgrade(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Response missing Location header, status code: 308.")
+            @Expect(e.message, "Response missing Location header, status code: '308'.")
         }
 
         let (resp3, _) = client.upgrade(r)

@@ -29,7 +29,7 @@ class Test_hmac_init_exception_01 {
         try {
             HMAC(key, algorithm)
         } catch (e: CryptoException) {
-            @Expect(e.message,"The key cannot be empty.")
+            @Expect(e.message,"Key is empty.")
             sum += 1
         }
         @Expect(sum, 1)

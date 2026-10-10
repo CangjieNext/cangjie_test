@@ -4,17 +4,18 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE: pkg.cj
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %enableO2 pkg.cj %compile_lib_opt -o test0.%middle
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableO2 test0.%middle %f -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC-PIPE-0: %run %run_opt %output %run_args
+// LEVEL: 0
+// DEPENDENCE: ../../../pick_defination.py pkg.cj
+// EXEC: %compiler %cmp_opt %enableO2 %enableDevirtualization pkg.cj %compile_lib_opt -o test0.%middle
+// EXEC: %compiler %cmp_opt %enableO2 %enableDevirtualization %dumpCHIRDebug -Woff all test0.%middle %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "WHOLE" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(@_CIN3pkg1AIG_E1aHv$l
+// ASSERT: scan-not Invoke(Class-_CN3pkg2IIIG_E<Int64>&->@_CN3pkg2IIIG_E1aHv
 
 import pkg.*
 
 main() {
     let a: II<Int64> = A<Int64>()
-    a.a()
+    a.a() - 1
 }
-
-// ASSERT: scan [Devirtualization] The function call to a at [16,5] was optimized.
-// ASSERT: scan The Apply node in the line:21 and the column:9, was optimized by Function Inline

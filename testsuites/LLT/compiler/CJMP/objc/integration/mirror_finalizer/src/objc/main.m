@@ -8,16 +8,26 @@
 #import <Foundation/Foundation.h>
 
 int main(int argc, char** argv) {
-    int64_t counter;
+    int64_t live;
+
     @autoreleasepool {
         A* a = [[A alloc] init];
-        counter = [a test];
+
+        // `test` reads the live count before creating a mirror of its own and returns once that mirror is
+        // gone again, so what it returns is what has to be left standing when it comes back: `a` alone.
+        live = [a test];
+        if ([M counter] != live) {
+            printf("objc: leaked in pool = %lld\n", (long long)([M counter] - live));
+            return 1;
+        }
     }
 
-    int64_t mCounter = [M counter];
-    if (counter - 1 == mCounter) {
-        return 0;
+    // Draining the pool drops the last reference Objective-C holds to `a`, the one @ObjCImpl instance in
+    // this test that Objective-C created itself. Nothing else keeps its peer alive, so it has to be gone.
+    if ([M counter] != 0) {
+        printf("objc: left after pool = %lld\n", (long long)[M counter]);
+        return 2;
     }
 
-    return counter;
+    return 0;
 }

@@ -43,7 +43,7 @@ class Test_Format_RFC1123 {
             DateTime.parse(s, fmt)
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Assert(e.message, "Fail to parse at index 25: \".\" should be \" \".")
+            @Assert(e.message, "Failed to parse at index 25: expected ' ', got '.'.")
             @Assert(true)
         }
     }
@@ -90,7 +90,7 @@ class Test_Format_RFC3339 {
             DateTime.parse(s, fmt)
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Assert(e.message, "Extar value, start at index 25.")
+            @Assert(e.message, "Extra value starting at index 25.")
             @Assert(true)
         }
     }
@@ -137,7 +137,7 @@ class Test_Format_SelfDefine {
             DateTime.parse(s, fmt)
             @Assert(false)
         } catch (e: TimeParseException) {
-            @Assert(e.message, "Extar value, start at index 26.")
+            @Assert(e.message, "Extra value starting at index 26.")
             @Assert(true)
         }
     }

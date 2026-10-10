@@ -7,12 +7,11 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-
-var res :Int64 = 0
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -27,26 +26,26 @@ public class Test_suit {
 
     @Bench
     func BenchmarkStringHashCode_N8(): Unit {
-        res = str1.hashCode()
+        blackBox(str1.hashCode())
     }
 
     @Bench
     func BenchmarkStringHashCode_N32(): Unit {
-        res = str1_32.hashCode()
+        blackBox(str1_32.hashCode())
     }
 
     @Bench
     func BenchmarkStringHashCode_N256(): Unit {
-        res = str1_256.hashCode()
+        blackBox(str1_256.hashCode())
     }
 
     @Bench
     func BenchmarkStringHashCode_N1k(): Unit {
-        res = str1k.hashCode()
+        blackBox(str1k.hashCode())
     }
 
     @Bench
     func BenchmarkStringHashCode_N1m(): Unit {
-        res = str1m.hashCode()
+        blackBox(str1m.hashCode())
     }
 }

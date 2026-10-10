@@ -19,6 +19,6 @@ class MyActor {
 main() {}
 
 /* SCAN-IN
-Actor framework: macro failed to expand.
-Macro options: priority must be an integer literal inside the range [1..10].
+Actor framework: Failed to expand macro:
+Macro options: 'priority' must be an integer literal in the range [1..10].
 */

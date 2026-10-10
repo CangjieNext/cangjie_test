@@ -17,7 +17,7 @@ main(): Int64 {
         var hashmap1: HashMap<Int8, String> = HashMap<Int8, String>(-1)
         ()
     } catch (e: IllegalArgumentException) {
-        if (e.toString() != "IllegalArgumentException: Invalid size of HashMap: -1.") {
+        if (e.toString() != "IllegalArgumentException: Invalid capacity '-1': expected a non-negative value.") {
             return 1
         }
     }

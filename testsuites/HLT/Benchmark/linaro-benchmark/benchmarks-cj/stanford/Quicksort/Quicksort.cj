@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping %f -o %output
 
 import std.process.*
 import std.time.*

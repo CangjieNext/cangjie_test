@@ -78,7 +78,7 @@ MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEVDNRctvxL9uNRmqtwm5Y6Z/60wNU
         } catch (e: CryptoException) {
             sum += 1
             println(e.message)
-            @Expect(e.message.contains("No PUBLIC KEY entry found in PEM file."))
+            @Expect(e.message, "No 'PUBLIC KEY' entry found in PEM file.")
         }
         @Expect(sum, 1)
     }

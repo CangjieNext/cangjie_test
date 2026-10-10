@@ -5,6 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 let a = []
+
 let b = [1, 2, 3]
 
 class albumState <: State {

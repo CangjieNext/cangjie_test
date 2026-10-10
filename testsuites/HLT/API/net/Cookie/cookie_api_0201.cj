@@ -22,7 +22,7 @@ main(): Int64 {
     try {
         var cookie1 = Cookie("", "79ab天")
     } catch (e: Exception) {
-        if (e.message != "Invalid cookie name.") {
+        if (e.message != "Invalid cookie name: ''.") {
             return 1
         }
     }

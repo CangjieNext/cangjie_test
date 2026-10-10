@@ -66,7 +66,7 @@ class Test_init_duration_period {
             var timer = Timer.repeat(Duration.millisecond * 100, Duration.nanosecond * -1, {=> cnt4 += 1}) // period 为负数
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Assert(e.message, "Interval cannot be less than or equal to Duration.Zero.")
+            @Assert(e.message, "Invalid argument 'interval': must be positive, got -1ns.")
         }
         @Assert(flag, true)
     }
@@ -78,7 +78,7 @@ class Test_init_duration_period {
             var timer = Timer.repeat(Duration.millisecond * 100, Duration.Zero, {=> cnt5 += 1}) // period 为0
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Assert(e.message, "Interval cannot be less than or equal to Duration.Zero.")
+            @Assert(e.message, "Invalid argument 'interval': must be positive, got 0s.")
         }
         @Assert(flag, true)
     }

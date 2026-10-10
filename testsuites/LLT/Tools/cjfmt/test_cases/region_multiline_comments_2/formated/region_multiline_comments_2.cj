@@ -42,6 +42,7 @@ class A { /*
    long comment
 
  */
+
 class A {
     func a() {
         /* let a = 1

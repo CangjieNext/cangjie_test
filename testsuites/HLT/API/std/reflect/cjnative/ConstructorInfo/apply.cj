@@ -27,7 +27,7 @@ class Test {
             (TypeInfo.of<C1>() as ClassTypeInfo).getOrThrow().getConstructor().apply(12);
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalArgumentException: The input parameter item does not comply with the required quantity.")
+            @Expect(e.toString(), "IllegalArgumentException: Invalid argument count: expected 0, got 1.")
         }
         // 实参类型匹配失败。
         try {
@@ -38,14 +38,14 @@ class Test {
                 .apply(true, 12);
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalTypeException: The input parameter does not match the type of the input parameter required by the function.")
+            @Expect(e.toString(), "IllegalTypeException: Parameter type mismatch: expected 'Rune', got 'Int64'.")
         }
         // 试图构建抽象类。
         try {
             (TypeInfo.of<C3>() as ClassTypeInfo).getOrThrow().getConstructor().apply();
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "InvocationTargetException: Abstract constructor cannot apply.")
+            @Expect(e.toString(), "InvocationTargetException: Cannot invoke abstract constructor.")
         }
         // 构造器内部抛出异常。
         try {

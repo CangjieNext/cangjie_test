@@ -16,6 +16,6 @@ import stdx.actors.macros.*
 open class MyActor {}
 
 /* SCAN-IN
-Actor framework: macro failed to expand.
+Actor framework: Failed to expand macro:
 @Actor macro: class declaration cannot be abstract nor open nor sealed.
  */

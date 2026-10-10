@@ -7,22 +7,26 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx %optimization_level_2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg --test -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
 
-import stdx.encoding.json.*
-import std.io.*
+
 import std.time.*
-import std.convert.*
+import std.runtime.*
 
-let reps = 100000000
-public var m = 2
-public var n = 2
-public var k = 2
-public var l = 2
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_If_Else {
 
-func benchmarkIfElseD1(): Unit {
-    for (i in 0..reps) {
+    static var m = 2
+    static var n = 2
+    static var k = 2
+    static var l = 2
+
+    @Bench
+    func BenchmarkIfElseD1(): Unit {
         if (n > 16) {
             n = 16
         } else if (n > 15) {
@@ -56,11 +60,11 @@ func benchmarkIfElseD1(): Unit {
         } else {
             n = 1
         }
+        blackBox(n)
     }
-}
 
-func benchmarkIfElseD2(): Unit {
-    for (i in 0..reps) {
+    @Bench
+    func BenchmarkIfElseD2(): Unit {
         if (n > 16) {
             if (m > 16) {
                 n = 16
@@ -158,11 +162,12 @@ func benchmarkIfElseD2(): Unit {
                 n = 2
             }
         }
+        blackBox(n)
+        blackBox(m)
     }
-}
 
-func benchmarkIfElseD4(): Unit {
-    for (i in 0..reps) {
+    @Bench
+    func BenchmarkIfElseD4(): Unit {
         if (n > 16) {
             if (m > 16) {
                 if (l > 16) {
@@ -388,36 +393,9 @@ func benchmarkIfElseD4(): Unit {
                 n = 4
             }
         }
+        blackBox(n)
+        blackBox(m)
+        blackBox(k)
+        blackBox(l)
     }
-}
-
-func timeBenchmarkIfElseD1(): Unit {
-    var startTime = DateTime.now()
-    benchmarkIfElseD1()
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkIfElseD1: " + perTime.format(".3") + " ns/op")
-}
-
-func timeBenchmarkIfElseD2(): Unit {
-    var startTime = DateTime.now()
-    benchmarkIfElseD2()
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkIfElseD2: " + perTime.format(".3") + " ns/op")
-}
-
-func timeBenchmarkIfElseD4(): Unit {
-    var startTime = DateTime.now()
-    benchmarkIfElseD4()
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkIfElseD4: " + perTime.format(".3") + " ns/op")
-}
-
-main(): Int64 {
-    timeBenchmarkIfElseD1()
-    timeBenchmarkIfElseD2()
-    timeBenchmarkIfElseD4()
-    return 0
 }

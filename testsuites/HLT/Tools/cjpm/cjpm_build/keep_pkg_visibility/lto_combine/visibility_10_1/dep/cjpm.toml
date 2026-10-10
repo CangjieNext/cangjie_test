@@ -46,7 +46,10 @@ level = "thin"
   path-option = ["inner_dep/target/aarch64-linux-android35/release/inner_dep"] 
 
 [target.arm-linux-android23.bin-dependencies]
-  path-option = ["inner_dep/target/arm-linux-android23/release/inner_dep"] 
+  path-option = ["inner_dep/target/arm-linux-android23/release/inner_dep"]
+
+[target.aarch64-linux-android23.bin-dependencies]
+  path-option = ["inner_dep/target/aarch64-linux-android23/release/inner_dep"] 
 
 [target.x86_64-linux-ohos]
   compile-option = "-B=${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/bin --sysroot=${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/sysroot"
@@ -65,4 +68,7 @@ level = "thin"
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
 
 [target.arm-linux-android23]
+  compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
+
+[target.aarch64-linux-android23]
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"

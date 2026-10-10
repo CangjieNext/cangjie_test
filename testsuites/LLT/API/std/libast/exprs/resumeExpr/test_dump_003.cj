@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %enableEH %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC-PIPE-0: %run %set_stdx_path %run_opt %output %run_args 2>&1 | compare %f
 internal import std.ast.*
@@ -16,50 +24,25 @@ main() : Int64 {
     return 0
 }
 
-/* SCAN
-ResumeExpr {
-  -keywordR: Token {
-    value: "resume"
-    kind: RESUME
-    pos: 6: 25
-  }
-  -keywordT: Token {
-    value: "throwing"
-    kind: THROWING
-    pos: 6: 32
-  }
-  -throwingExpr: RefExpr {
-    -identifier: Token {
-      value: "bla"
-      kind: IDENTIFIER
-      pos: 6: 41
-    }
-  }
-}
-ResumeExpr {
-  -keywordR: Token {
-    value: "resume"
-    kind: RESUME
-    pos: 6: 25
-  }
-  -keywordT: Token {
-    value: "throwing"
-    kind: THROWING
-    pos: 6: 32
-  }
-  -throwingExpr: RefExpr {
-    -identifier: Token {
-      value: "bla"
-      kind: IDENTIFIER
-      pos: 6: 41
-    }
-  }
-}
-*/
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan ResumeExpr {
+// ASSERT: scan -keywordR: Token {
+// ASSERT: scan value: "resume"
+// ASSERT: scan kind: RESUME
+// ASSERT: scan -keywordT: Token {
+// ASSERT: scan value: "throwing"
+// ASSERT: scan kind: THROWING
+// ASSERT: scan -throwingExpr: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "bla"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan ResumeExpr {
+// ASSERT: scan -keywordR: Token {
+// ASSERT: scan value: "resume"
+// ASSERT: scan kind: RESUME
+// ASSERT: scan -keywordT: Token {
+// ASSERT: scan value: "throwing"
+// ASSERT: scan kind: THROWING
+// ASSERT: scan -throwingExpr: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "bla"
+// ASSERT: scan kind: IDENTIFIER

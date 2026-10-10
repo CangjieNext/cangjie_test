@@ -32,13 +32,13 @@ class Test_jsonvalue_parse_fastpath_01 {
     @TestCase
     func test_invalid_integer_forms_keep_parse_errors(): Unit {
         let leadingZero = @AssertThrows[JsonException](JsonValue.fromStr("01"))
-        @Expect(leadingZero.toString().contains("Non-standard"))
+        @Expect(leadingZero.toString().contains("Invalid JSON data"))
 
         let overflowPositive = @AssertThrows[JsonException](JsonValue.fromStr("9223372036854775808"))
-        @Expect(overflowPositive.toString().contains("Non-standard"))
+        @Expect(overflowPositive.toString().contains("Invalid JSON data"))
 
         let overflowNegative = @AssertThrows[JsonException](JsonValue.fromStr("-9223372036854775809"))
-        @Expect(overflowNegative.toString().contains("Non-standard"))
+        @Expect(overflowNegative.toString().contains("Invalid JSON data"))
     }
 
     @TestCase

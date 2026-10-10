@@ -59,7 +59,7 @@ public class ActorTest {
             let fut = a.bar(21, priority: 11)
             let res = fut.get()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Priority must be in the range [1..10].")
+            @Expect(e.message, "Invalid argument 'priority': expected a value in [1..10], got '11'.")
         }
     }
 }

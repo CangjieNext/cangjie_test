@@ -11,12 +11,8 @@
 // EXEC: %compiler %cmp_macro parseDeclFragment_define.cj
 // EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
-// ASSERT: scan expected declaration, found 'x'
 // ASSERT: scan An exception has occurred:
-// ASSERT: scan ParseASTException
-// ASSERT: scan parsing decl fragment error.
-// ASSERT: scan macro evaluation has failed for macro call 'M'
-
+// ASSERT: scan ParseASTException: Failed to parse decl fragment.
 internal import std.ast.*
 import define.*
 

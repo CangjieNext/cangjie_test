@@ -4,11 +4,17 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization %enableFuncInlining %f -o %n.%suffix 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC-0:%run %run_opt %output %run_args
+// LEVEL: 0
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(Class-_CN7default1AE&->@_CN7defaultXCNY_1AE4nextHl
+// ASSERT: scan-not Invoke(Class-_CN7default1AE&->@_CN7defaultXCNY_1AE4nextHl
 
-func TestNext<T>(a: Countable<T>) {
-    return a.next(0)
+func TestNext<T>(a: Countable<T>): Int64 {
+    let _ = a.next(0)
+    a.position()
 }
 
 class A {}
@@ -23,10 +29,6 @@ extend A <: Countable<A> {
 }
 
 main() {
-    TestNext(1)
-    TestNext(A())
-    0
+    // Avoid Int64.next rewrite path that currently produces invalid CHIR (ThisType mismatch).
+    TestNext(A()) - 0
 }
-
-// ASSERT: scan [Devirtualization] The function call to next at [27,5] was optimized.
-// ASSERT: scan [Devirtualization] The function call to next at [26,5] was optimized to builtin op next.

@@ -52,7 +52,7 @@ public class TarLargeHeaderSizeOOMTest {
             Tar.extract(fromTar: "${EXPECTED_DIRECTORY}/oomflaw/tarball_large_header_size_oom.tar", destDir: OUTPUT_DIRECTORY, overwrite: true)
             success = true
         } catch (e: Exception) {
-            @Assert(e.message.contains("Invalid tar entry size 8589934591: exceeds tar archive size 3072."))
+            @Assert(e.message == "Invalid tar entry size: '8589934591' exceeds archive size '3072'.")
             success = false
         }
         @Assert(!success)

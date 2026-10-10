@@ -4,15 +4,16 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC:%run %run_opt %output %run_args > %devirFile 2>&1
-// ASSERT: scan [Devirtualization] The function call to f2 at [37,5] was optimized.
-// ASSERT: scan [Devirtualization] The function call to f1 at [37,10] was optimized.
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace
-// (DEBUG_OPTION)EXEC: %compiler %n.cj -o %n.nonDevir.out
-// (DEBUG_OPTION)EXEC: %n.nonDevir.out > %nonDevirFile 2>&1
-// (DEBUG_OPTION)EXEC: %diff %devirFile %nonDevirFile
+// LEVEL: 0
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// Negative: nested I1-typed calls stay Invoke on I1 default methods.
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN7defaultU00000003DhOdL4TestHCNY_2I1El" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Invoke(Class-_CN7defaultU00000003DhOdL2I1E&->@_CN7defaultU00000003DhOdL2I12f1Hl
+// ASSERT: scan Invoke(Class-_CN7defaultU00000003DhOdL2I1E&->@_CN7defaultU00000003DhOdL2I12f2Hl
+// ASSERT: scan-not Apply(Class-_CN7defaultU00000003DhOdL2I1E&->@_CN7defaultU00000003DhOdL2I12f1Hl
+// ASSERT: scan-not Apply(Class-_CN7defaultU00000003DhOdL2I1E&->@_CN7defaultU00000003DhOdL2I12f2Hl
 
 private interface I1 {
     func f1(a: Int64): Int64 {
@@ -38,6 +39,5 @@ private func Test(a: I1, c: Int64) {
 }
 
 main() {
-    Test(B(), 2)
-    0
+    Test(B(), 2) - 9
 }

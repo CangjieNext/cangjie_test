@@ -93,7 +93,7 @@ class Test_Path_ToCanonical_HashCode {
             try {
                 canonicalize(Path(str))
             } catch (e: FSException) {
-                @Expect(e.message.contains("Failed to canonical: the input path " +'`${pathbody[sum]}`'+" may not exist or permission denied!"))
+                @Expect(e.message.contains("Failed to canonicalize path") && e.message.contains("does not exist or permission denied"))
                 sum += 1
             }
         }

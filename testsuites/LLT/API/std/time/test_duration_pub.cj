@@ -10,7 +10,7 @@ internal import std.time.*
 
 let OK = "ok"
 let ERR = "err"
-let ARITHMETIC_EXCEPTION_OF_DURATION = "Out of range of representation of 'Duration'!"
+let ARITHMETIC_EXCEPTION_OF_DURATION = "Duration value overflow."
 let HOUR_PER_DAY: Int64 = 24
 let MS_PER_SECS: Int64 = 1000
 let US_PER_MS: Int64 = 1000

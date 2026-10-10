@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 internal import std.ast.{MatchExpr, Tokens}
 
@@ -24,46 +25,26 @@ main() {
     matchCase.dump()
 }
 
-/* SCAN
-case 1 | 2 => 0
-
-MatchCase {
-  -keywordC: Token {
-    value: "case"
-    kind: CASE
-    pos: 17: 13
-  }
-  -patterns: 0, ConstPattern {
-    -litConstExpr: LitConstExpr {
-      -literal: Token {
-        value: "1"
-        kind: INTEGER_LITERAL
-        pos: 17: 18
-      }
-    }
-  }
-  -patterns: 1, ConstPattern {
-    -litConstExpr: LitConstExpr {
-      -literal: Token {
-        value: "2"
-        kind: INTEGER_LITERAL
-        pos: 17: 22
-      }
-    }
-  }
-  -arrow: Token {
-    value: "=>"
-    kind: DOUBLE_ARROW
-    pos: 17: 24
-  }
-  -block: Block {
-    -nodes: 0, LitConstExpr {
-      -literal: Token {
-        value: "0"
-        kind: INTEGER_LITERAL
-        pos: 17: 27
-      }
-    }
-  }
-}
-*/
+// ASSERT: scan case 1 | 2 => 0
+// ASSERT: scan MatchCase {
+// ASSERT: scan -keywordC: Token {
+// ASSERT: scan value: "case"
+// ASSERT: scan kind: CASE
+// ASSERT: scan -patterns: 0, ConstPattern {
+// ASSERT: scan -litConstExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "1"
+// ASSERT: scan kind: INTEGER_LITERAL
+// ASSERT: scan -patterns: 1, ConstPattern {
+// ASSERT: scan -litConstExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "2"
+// ASSERT: scan kind: INTEGER_LITERAL
+// ASSERT: scan -arrow: Token {
+// ASSERT: scan value: "=>"
+// ASSERT: scan kind: DOUBLE_ARROW
+// ASSERT: scan -block: Block {
+// ASSERT: scan -nodes: 0, LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "0"
+// ASSERT: scan kind: INTEGER_LITERAL

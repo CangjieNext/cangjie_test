@@ -4,18 +4,25 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// EXEC-PIPE-0: %run %run_opt %output %run_args
-// ASSERT: scan-not [Devirtualization] The function call to get at [28,5] was optimized.
+// LEVEL: 0
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization --no-sub-pkg %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_Devirtualization.chirtxt "WHOLE" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Invoke(Class-_CN7default1IIG_E<Generic-_CN7default3gooIG_HvE2K1E>&->@_CN7default1IIG_E3getHv
 
 interface I<K> {
-    func get() {}
+    func get(): Int64 {
+        0
+    }
 }
 
 open class Key<K, V> <: I<K> {}
 
 class Key2<K, V> <: Key<K, V> {
-    public func get() {}
+    public func get(): Int64 {
+        1
+    }
 }
 
 func foo<K, V, G>(): I<K> {
@@ -23,11 +30,11 @@ func foo<K, V, G>(): I<K> {
     return Key<K, G>()
 }
 
-public func goo<K1>() {
+public func goo<K1>(): Int64 {
     let a: I<K1> = foo<K1, Int32, Int64>()
     a.get() // => Key<K1, Int64>
 }
 
 main() {
-    0
+    goo<Int64>() - 0
 }

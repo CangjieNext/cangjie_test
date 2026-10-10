@@ -394,10 +394,10 @@ class TreeMapCoverageTest {
     }
 
     @TestCase
-    func testEmptyMapForwardBackwardThrowNoneValue(): Unit {
+    func testEmptyMapForwardBackward(): Unit {
         let empty = TreeMap<Int64, Int64>()
-        @ExpectThrows[NoneValueException](empty.forward(0))
-        @ExpectThrows[NoneValueException](empty.backward(0))
+        @Expect(empty.forward(0).next().isNone(), true)
+        @Expect(empty.backward(0).next().isNone(), true)
     }
 
     @TestCase

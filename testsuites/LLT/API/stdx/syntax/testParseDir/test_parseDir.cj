@@ -109,7 +109,7 @@ x: Bool,
         try {
             let node = parsePackage("./sourceFile/package2")
         } catch (e: Exception) {
-            @Expect(e.message, "ParseException: found more than one package declaration for the package.")
+            @Expect(e.message, "Found more than one package declaration in package 'www.w.w.wx'.")
         }
     }
 

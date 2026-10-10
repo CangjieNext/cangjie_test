@@ -149,7 +149,7 @@ class Test_Dir_Iterators_Lists {
                     try {
                         call_api(path)
                     } catch (e: FSException) {
-                        @Expect(e.message.contains("Failed to obtain members in the directory"))
+                        @Expect(e.message, "Failed to obtain directory listing for '${path}'.")
                         sum += 1
                     }
                 }

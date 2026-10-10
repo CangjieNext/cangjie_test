@@ -193,19 +193,19 @@ class Testwebsocketconf_03 {
             websocket.write(CloseWebFrame, Array<UInt8>(4097, repeat: 97))
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+            @Expect(e.message.contains("Control frame payload length"))
         }
         try {
             websocket.write(PingWebFrame, Array<UInt8>(4097, repeat: 97))
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+            @Expect(e.message.contains("Control frame payload length"))
         }
         try {
             websocket.write(PongWebFrame, Array<UInt8>(4097, repeat: 97))
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+            @Expect(e.message.contains("Control frame payload length"))
         }
         websocket.closeConn()
         client.close()
@@ -232,19 +232,19 @@ class Testwebsocketconf_03 {
                 websocketServer.write(CloseWebFrame, Array<UInt8>(4097, repeat: 97))
                 @Expect(1, 2)
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+                @Expect(e.message.contains("Control frame payload length"))
             }
             try {
                 websocketServer.write(PingWebFrame, Array<UInt8>(4097, repeat: 97))
                 @Expect(1, 2)
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+                @Expect(e.message.contains("Control frame payload length"))
             }
             try {
                 websocketServer.write(PongWebFrame, Array<UInt8>(4097, repeat: 97))
                 @Expect(1, 2)
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+                @Expect(e.message.contains("Control frame payload length"))
             }
             websocketServer.closeConn()
         }

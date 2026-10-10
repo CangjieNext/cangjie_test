@@ -16,6 +16,6 @@ class MyActor {}
 main() {}
 
 /* SCAN-IN
-Actor framework: macro failed to expand.
-Macro options: enableReceiverPriority must take a boolean literal.
+Actor framework: Failed to expand macro:
+Macro options: 'enableReceiverPriority' must take a boolean literal.
 */

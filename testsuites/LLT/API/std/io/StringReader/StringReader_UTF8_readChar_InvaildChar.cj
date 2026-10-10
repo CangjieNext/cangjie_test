@@ -7,7 +7,7 @@
  */
 // EXEC: %compiler %cmp_opt %stdx-package -o %n.%suffix %f
 // EXEC: %run %run_opt %n.%suffix %run_args | compare %f
-// ASSERT: scan ContentFormatException: Invalid unicode scalar value.
+// ASSERT: scan ContentFormatException: Invalid Unicode scalar value: invalid leading byte '255' at index '58'.
 
 /*
  * Test description: Test the IOException for calss StringReader

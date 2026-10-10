@@ -32,7 +32,7 @@ class MonthTest {
             Month.of(13)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter ranges from 1 to 12")
+            @Expect(e.message, "Invalid month: expected 1 to 12, got 13.")
         }
     }
 

@@ -7,7 +7,7 @@
 // DEPENDENCE: define.cj
 // EXEC: %compiler %cmp_macro define.cj
 // EXEC: %run_macro %compiler %cmp_opt %f -o %output 2>&1 | compare %f
-// ASSERT: scan Exception: The 'key1' cannot get the Int64 type value!
+// ASSERT: scan Exception: Macro item 'key1' has a different type: expected 'Int64'.
 
 import define.*
 

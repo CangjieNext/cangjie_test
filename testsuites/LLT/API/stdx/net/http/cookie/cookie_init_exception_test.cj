@@ -32,51 +32,51 @@ class TestCookieInitException {
             let _ = Cookie("(0123456789", "0123456789")
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid cookie name.")
+            @Expect(e.message, "Invalid cookie name: '(0123456789'.")
         }
         try {
             let _ = Cookie("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "\"ABCDEFGHIJKLMNOPQRSTUVWXYZ")
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid cookie value.")
+            @Expect(e.message, "Invalid cookie value: '\"ABCDEFGHIJKLMNOPQRSTUVWXYZ'.")
         }
         try {
             let _ = Cookie("abcdefghijklmnopqrstuvwxyz", "\"abcdefghijklmnopqrstuvwxyz\"",
                 path: "abcdefghijklmnopqrstuvwxyz;")
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid cookie path.")
+            @Expect(e.message, "Invalid cookie path: 'abcdefghijklmnopqrstuvwxyz;'.")
         }
         try {
             let _ = Cookie("!#$%&*+-.^_`|~", "!#$%&*+-.^_`|~'", path: "/!#$%&*+-.^_`|~'/", domain: ".-xinhuanet.com")
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid cookie domain.")
+            @Expect(e.message, "Invalid cookie domain: '.-xinhuanet.com'.")
         }
         try {
             let _ = Cookie("a", "a", domain: ".xin$huanet.com")
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid cookie domain.")
+            @Expect(e.message, "Invalid cookie domain: '.xin$huanet.com'.")
         }
         try {
             let _ = Cookie("!#$%&*+-.^_`|~", "()<>@:/[]?={}", path: "/\\()<>@:/[]?={}/", domain: ".xinhuanet.com",
                 expires: time1)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid cookie expires.")
+            @Expect(e.message, "Invalid cookie expires: year is 2, but minimum is 1601.")
         }
         try {
             let _ = Cookie("2", "2", maxAge: -2)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid cookie maxAge.")
+            @Expect(e.message, "Invalid cookie maxAge: -2, but must be positive.")
         }
         try {
             let _ = Cookie("2", "2", maxAge: 0)
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid cookie maxAge.")
+            @Expect(e.message, "Invalid cookie maxAge: 0, but must be positive.")
         }
         let c = Cookie("2", "2", maxAge: 1)
         @Expect(c.toSetCookieString(), "2=2; Max-Age=1")

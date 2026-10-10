@@ -29,7 +29,7 @@ class test_01 {
     func test_ASTVistor_01() {
         // 目前syntax不支持Byte Literal，将导致parseFile报错
         let e = @AssertThrows[Exception](parseFile("class02.cj"))
-        @Assert(e.message, "Rune Byte literal is not supported in syntax")
+        @Assert(e.message, "Rune Byte literal is not currently supported.")
         // let filedecl = parseFile("class02.cj").node.getOrThrow()
         // let _visitor = MyVisitor_nochange()
         // _visitor.walk(filedecl)

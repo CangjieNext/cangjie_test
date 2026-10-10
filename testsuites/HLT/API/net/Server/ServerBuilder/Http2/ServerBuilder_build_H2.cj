@@ -50,7 +50,7 @@ public class Test_build_h2 {
             let server = ServerBuilder().tlsConfig(serverConfig()).port(0).build()
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message, "The IP address number is not set.")
+            @Expect(e.message, "Required parameter 'addr' is not set.")
         }
         @Expect(flag, true)
     }
@@ -62,7 +62,7 @@ public class Test_build_h2 {
             let server = ServerBuilder().addr("127.0.0.1").tlsConfig(serverConfig()).build()
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message, "The port number is not set.")
+            @Expect(e.message, "Required parameter 'port' is not set.")
         }
         @Expect(flag, true)
     }

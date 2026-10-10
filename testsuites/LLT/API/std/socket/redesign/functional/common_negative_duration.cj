@@ -23,7 +23,7 @@ class TestNegativeDuration {
             action()
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("duration cannot be negative"))
+            @Expect(e.message.contains("cannot be negative"))
         }
     }
 

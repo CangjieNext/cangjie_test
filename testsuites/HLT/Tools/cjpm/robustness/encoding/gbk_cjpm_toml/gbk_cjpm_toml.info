@@ -6,7 +6,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not Windows)EXEC: cd %n && python3 -c "open('cjpm.toml','wb').write(open('cjpm_template.toml','r').read().encode('gbk'))"
-// (Windows)EXEC: cd %n && python -c "open('cjpm.toml','wb').write(open('cjpm_template.toml','r').read().encode('gbk'))"
-// EXEC: cd %n && %cjpm build %cjpm_opt
+// (not Windows and native_compilation)EXEC: cd %n && python3 -c "open('cjpm.toml','wb').write(open('cjpm_template.toml','r').read().encode('gbk'))"
+// (Windows and native_compilation)EXEC: cd %n && python -c "open('cjpm.toml','wb').write(open('cjpm_template.toml','r').read().encode('gbk'))"
+// (native_compilation)EXEC: cd %n && %cjpm build %cjpm_opt
 // ASSERT: scan cjpm build success

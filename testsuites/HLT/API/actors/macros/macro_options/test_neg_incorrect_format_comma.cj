@@ -18,6 +18,6 @@ class MyActor {}
 main() {}
 
 /* SCAN-IN
-Actor framework: macro failed to expand.
+Actor framework: Failed to expand macro:
 Macro options: an option must be in the form of 'option1: value1, option2: value2'.
  */

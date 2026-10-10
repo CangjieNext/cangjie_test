@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 import std.ast.*
 import std.collection.*
@@ -38,123 +39,73 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN
-Cannot construct the 'Program' node.
-Program {
-  -featuresDirective: FeaturesDirective {
-      -keyword: Token {
-        value: "features"
-        kind: FEATURES
-        pos: 27: 61
-      }
-      -featuresSet: FeaturesSet {
-        -lCurl: Token {
-          value: "{"
-          kind: LCURL
-          pos: 27: 70
-        }
-        -FeatureId: FeatureId {
-          -identifier: Token {
-            value: "os"
-            kind: IDENTIFIER
-            pos: 27: 71
-          }
-          -dot: Token {
-            value: "."
-            kind: DOT
-            pos: 27: 73
-          }
-          -identifier: Token {
-            value: "Harmony"
-            kind: IDENTIFIER
-            pos: 27: 74
-          }
-        }
-        -rCurl: Token {
-          value: "}"
-          kind: RCURL
-          pos: 27: 81
-        }
-      }
-    }
-  -packageHeader: PackageHeader {
-      -keywordP: Token {
-        value: "package"
-        kind: PACKAGE
-        pos: 28: 53
-      }
-      -packageIdentifier: Token {
-        value: "a"
-        kind: IDENTIFIER
-        pos: 28: 61
-      }
-    }
-  -importLists: 0, ImportList {
-    -keywordI: Token {
-      value: "import"
-      kind: IMPORT
-      pos: 29: 71
-    }
-    -importKind: Single
-    -identifier: Token {
-      value: "b"
-      kind: IDENTIFIER
-      pos: 29: 78
-    }
-  }
-  -importLists: 1, ImportList {
-    -keywordI: Token {
-      value: "import"
-      kind: IMPORT
-      pos: 29: 100
-    }
-    -importKind: Single
-    -identifier: Token {
-      value: "c"
-      kind: IDENTIFIER
-      pos: 29: 107
-    }
-  }
-  -decls: 0, FuncDecl {
-    -keyword: Token {
-      value: "func"
-      kind: FUNC
-      pos: 30: 57
-    }
-    -identifier: Token {
-      value: "d"
-      kind: IDENTIFIER
-      pos: 30: 62
-    }
-    -funcParams: 0, FuncParam {
-      -identifier: Token {
-        value: "e"
-        kind: IDENTIFIER
-        pos: 30: 64
-      }
-      -colon: Token {
-        value: ":"
-        kind: COLON
-        pos: 30: 65
-      }
-      -paramType: RefType {
-        -identifier: Token {
-          value: "f"
-          kind: IDENTIFIER
-          pos: 30: 67
-        }
-      }
-    }
-    -declType: RefType {
-      -identifier: Token {
-        value: "g"
-        kind: IDENTIFIER
-        pos: 30: 71
-      }
-    }
-    -block: Block {
-    }
-  }
-}
-cnt = 1
-*/
+// ASSERT: scan Cannot construct the 'Program' node
+// ASSERT: scan Program {
+// ASSERT: scan -featuresDirective: FeaturesDirective {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "features"
+// ASSERT: scan kind: FEATURES
+// ASSERT: scan -featuresSet: FeaturesSet {
+// ASSERT: scan -lCurl: Token {
+// ASSERT: scan value: "{"
+// ASSERT: scan kind: LCURL
+// ASSERT: scan -FeatureId: FeatureId {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "os"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -dot: Token {
+// ASSERT: scan value: "."
+// ASSERT: scan kind: DOT
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "Harmony"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -rCurl: Token {
+// ASSERT: scan value: "}"
+// ASSERT: scan kind: RCURL
+// ASSERT: scan -packageHeader: PackageHeader {
+// ASSERT: scan -keywordP: Token {
+// ASSERT: scan value: "package"
+// ASSERT: scan kind: PACKAGE
+// ASSERT: scan -packageIdentifier: Token {
+// ASSERT: scan value: "a"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -importLists: 0, ImportList {
+// ASSERT: scan -keywordI: Token {
+// ASSERT: scan value: "import"
+// ASSERT: scan kind: IMPORT
+// ASSERT: scan -importKind: Single
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "b"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -importLists: 1, ImportList {
+// ASSERT: scan -keywordI: Token {
+// ASSERT: scan value: "import"
+// ASSERT: scan kind: IMPORT
+// ASSERT: scan -importKind: Single
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "c"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -decls: 0, FuncDecl {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "func"
+// ASSERT: scan kind: FUNC
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "d"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -funcParams: 0, FuncParam {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "e"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "f"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -declType: RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "g"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -block: Block {
+// ASSERT: scan cnt = 1

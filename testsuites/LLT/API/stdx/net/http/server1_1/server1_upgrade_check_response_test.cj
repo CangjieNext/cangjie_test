@@ -205,5 +205,5 @@ class TestServer11Upgrade {
     }
 }
 
-//ASSERT: scan HttpException: Status of response to CONNECT request must be 2XX
-//ASSERT: scan HttpException: Status of response to upgrade request must be 101
+//ASSERT: scan HttpException: Invalid response status '399' to CONNECT request
+//ASSERT: scan HttpException: Invalid response status '200' to upgrade request

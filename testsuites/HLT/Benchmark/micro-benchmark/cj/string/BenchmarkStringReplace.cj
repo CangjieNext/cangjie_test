@@ -7,12 +7,11 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-
-var res : String = ""
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -31,46 +30,46 @@ public class Test_suit {
 
     @Bench
     func BenchmarkStringReplace_N8(): Unit {
-        res = str1.replace("H", "R")
+        blackBox(str1.replace("H", "R"))
     }
 
     @Bench
     func BenchmarkStringReplace_N32(): Unit {
-        res = str1_32.replace("H", "R")
+        blackBox(str1_32.replace("H", "R"))
     }
 
     @Bench
     func BenchmarkStringReplace_N256(): Unit {
-        res = str1_256.replace("H", "R")
+        blackBox(str1_256.replace("H", "R"))
     }
 
     @Bench
     func BenchmarkStringReplace_N1k(): Unit {
-        res = str1k.replace("H", "R")
+        blackBox(str1k.replace("H", "R"))
     }
 
     @Bench
     func BenchmarkStringReplace_N1k_half(): Unit {
-        res = str1k_half.replace("H", "R")
+        blackBox(str1k_half.replace("H", "R"))
     }
 
     @Bench
     func BenchmarkStringReplace_N1k_all(): Unit {
-        res = str1k_all.replace("H", "R")
+        blackBox(str1k_all.replace("H", "R"))
     }
 
     @Bench
     func BenchmarkStringReplace_N1m(): Unit {
-        res = str1m.replace("H", "R")
+        blackBox(str1m.replace("H", "R"))
     }
 
     @Bench
     func BenchmarkStringReplace_N1m_half(): Unit {
-        res = str1m_half.replace("H", "R")
+        blackBox(str1m_half.replace("H", "R"))
     }
 
     @Bench
     func BenchmarkStringReplace_N1m_all(): Unit {
-        res = str1m_all.replace("H", "R")
+        blackBox(str1m_all.replace("H", "R"))
     }
 }

@@ -7,13 +7,14 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 
 import std.time.*
 import std.collection.*
 import std.random.Random
+import std.runtime.*
 
 
 var SAMPLES_NUM = 1
@@ -76,7 +77,7 @@ public class BenchmarkLambdaWithoutEscape {
             }
             sum = Int64(x)
         }
-        return sum
+        return blackBox(sum)
     }
 
     @Strategy
@@ -88,7 +89,7 @@ public class BenchmarkLambdaWithoutEscape {
     func BenchmarkLambdaWithoutEscape_LambdaWithoutContext_(cond: Int64): Int64 {
         let lambda = { x: Int64 => x + 2 }
         sum += lambdaUse(lambda, SAMPLES_NUM, cond)
-        return sum
+        return blackBox(sum)
     }
 
     @Bench[cond in getConditionNumber]
@@ -102,7 +103,7 @@ public class BenchmarkLambdaWithoutEscape {
             }
         }
         sum += lambdaUse(lambda, SAMPLES_NUM, cond)
-        return sum
+        return blackBox(sum)
     }
 
     @Bench[cond in getConditionNumber]
@@ -116,7 +117,7 @@ public class BenchmarkLambdaWithoutEscape {
             }
         }
         sum += lambdaUse(lambda, SAMPLES_NUM, cond)
-        return sum
+        return blackBox(sum)
     }
 
     func prob(n: Int64, limit: Int64): Bool {
@@ -187,7 +188,7 @@ public class BenchmarkLambdaWithoutEscape {
             let lambda = factory(i, 50, cond)
             sum += lambdaUse(lambda, SAMPLES_NUM, cond)
         }
-        return sum
+        return blackBox(sum)
     }
 
     @Bench[reps in [512], cond in getConditionNumber]
@@ -196,7 +197,7 @@ public class BenchmarkLambdaWithoutEscape {
             let lambda = factory(i, 99, cond)
             sum += lambdaUse(lambda, SAMPLES_NUM, cond)
         }
-        return sum
+        return blackBox(sum)
     }
 
     @Bench[reps in [512], cond in getConditionNumber]
@@ -205,7 +206,7 @@ public class BenchmarkLambdaWithoutEscape {
             let lambda = factory(i, 100, cond)
             sum += lambdaUse(lambda, SAMPLES_NUM, cond)
         }
-        return sum
+        return blackBox(sum)
     }
 
     @Bench[reps in [512], cond in getConditionNumber]
@@ -218,7 +219,7 @@ public class BenchmarkLambdaWithoutEscape {
             }
             sum += lambdaUse(lambda, SAMPLES_NUM, cond)
         }
-        return sum
+        return blackBox(sum)
     }
 
     @Bench[reps in [512], cond in getConditionNumber]
@@ -231,7 +232,7 @@ public class BenchmarkLambdaWithoutEscape {
             }
             sum += lambdaUse(lambda, SAMPLES_NUM, cond)
         }
-        return sum
+        return blackBox(sum)
     }
 
     @Bench[reps in [512], cond in getConditionNumber]
@@ -244,6 +245,6 @@ public class BenchmarkLambdaWithoutEscape {
             }
             sum += lambdaUse(lambda, SAMPLES_NUM, cond)
         }
-        return sum
+        return blackBox(sum)
     }
 }

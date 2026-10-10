@@ -20,4 +20,5 @@ foreign{
 main(){
     return 0
 }
-// ASSERT: scan parse_expected_no_modifier
+// ASSERT: scan parse_foreign_func_must_declare_return_type
+// ASSERT: scan parse_foreign_function_with_body

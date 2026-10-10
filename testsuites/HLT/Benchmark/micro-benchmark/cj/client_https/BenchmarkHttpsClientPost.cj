@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx %optimization_level_2 --no-sub-pkg %overflow_wrapping %f -o %output
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 --no-sub-pkg %overflow_wrapping %f -o %output
 // (只在测试机上可以执行） RUN-EXEC-PIPE: export cjHeapSize=16gb && export cjStackSize=64mb && export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %run_opt %output %run_args
 
 

@@ -26,4 +26,7 @@ foreign{
 main(){
     0
 }
-// ASSERT: scan parse_expected_no_modifier
+// ASSERT: scan sema_native_var_error
+// ASSERT: scan sema_native_var_error
+// ASSERT: scan sema_native_var_error
+// ASSERT: scan sema_native_var_error

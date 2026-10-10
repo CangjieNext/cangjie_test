@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output
 // RUN-EXEC-PIPE-1: %run_stdx %output %run_args 2>&1 | compare %f
 // ASSERT: scan gA==
-// ASSERT: scan Invalid utf8 byte sequence.
+// ASSERT: scan Invalid UTF-8: unexpected continuation byte '128' at index '0' (missing leading byte).
 
 import std.time.*
 import stdx.encoding.base64.*

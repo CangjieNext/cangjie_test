@@ -70,7 +70,7 @@ public class Test_initialWindowSize {
             let client = ClientBuilder().initialWindowSize(0).build()
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message.contains("InitialWindowSize should between 1 and 2147483647."))
+            @Expect(e.message, "Invalid initialWindowSize: must be between 1 and 2147483647, got 0.")
         }
         @Expect(flag, true)
     }
@@ -82,7 +82,7 @@ public class Test_initialWindowSize {
             let client = ClientBuilder().initialWindowSize(2147483648).build()
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message.contains("InitialWindowSize should between 1 and 2147483647."))
+            @Expect(e.message, "Invalid initialWindowSize: must be between 1 and 2147483647, got 2147483648.")
         }
         @Expect(flag, true)
     }

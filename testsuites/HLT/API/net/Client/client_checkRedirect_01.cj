@@ -10,7 +10,7 @@
 // DEPENDENCE: ../test.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output test.cj
 // RUN-EXEC-PIPE-1: %run_stdx %output %run_args 2>&1 | compare %f
-// ASSERT: scan HttpException: Redirect loop exceed 10 times.
+// ASSERT: scan Redirect loop exceeded 10 times
 
 import std.io.*
 import stdx.net.http.*

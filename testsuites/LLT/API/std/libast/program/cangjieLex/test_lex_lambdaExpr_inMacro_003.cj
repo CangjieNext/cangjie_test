@@ -8,7 +8,7 @@
 // DEPENDENCE: test_lex_lambdaExpr_inMacro_define_003.cj
 // EXEC: %compiler %cmp_macro test_lex_lambdaExpr_inMacro_define_003.cj
 // EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
-// EXEC: %run %run_opt %output %run_args
+// RUN-EXEC: %run %run_opt %output %run_args
 import define.*
 
 @M()

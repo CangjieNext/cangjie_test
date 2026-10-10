@@ -7,41 +7,38 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx %optimization_level_2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg --test -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
 
-import stdx.encoding.json.*
-import std.io.*
+
 import std.time.*
-import std.convert.*
+import std.runtime.*
 
-public var sum = 0
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_While {
 
-func benchmarkWhileD1() {
-    let reps = 100000
-    var n = 0
-    sum = 0
-    var startTime = DateTime.now()
-    for (i in 0..reps) {
-        n = 0
+    static var sum = 0
+
+    @Bench
+    func BenchmarkWhileD1(): Unit {
+        var n = 0
+        sum = 0
         while (n < 100000) {
             n++
             sum += n / 2
         }
+        blackBox(sum)
+        blackBox(n)
     }
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkWhileD1: " + perTime.format(".3") + " ns/op")
-}
 
-func benchmarkWhileD2() {
-    let reps = 100000
-    var m = 0
-    var n = 0
-    sum = 0
-    var startTime = DateTime.now()
-    for (i in 0..reps) {
-        n = 0
+    @Bench
+    func BenchmarkWhileD2(): Unit {
+        var n = 0
+        var m = 0
+        sum = 0
         while (n < 1000) {
             n++
             m = 0
@@ -50,21 +47,17 @@ func benchmarkWhileD2() {
                 sum += (n + m) / 2
             }
         }
+        blackBox(sum)
+        blackBox(n)
+        blackBox(m)
     }
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkWhileD2: " + perTime.format(".3") + " ns/op")
-}
 
-func benchmarkWhileD3() {
-    let reps = 100000
-    var m = 0
-    var n = 0
-    var j = 0
-    sum = 0
-    var startTime = DateTime.now()
-    for (i in 0..reps) {
-        n = 0
+    @Bench
+    func BenchmarkWhileD3(): Unit {
+        var n = 0
+        var m = 0
+        var j = 0
+        sum = 0
         while (n < 100) {
             n++
             m = 0
@@ -77,22 +70,19 @@ func benchmarkWhileD3() {
                 }
             }
         }
+        blackBox(sum)
+        blackBox(n)
+        blackBox(m)
+        blackBox(j)
     }
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkWhileD3: " + perTime.format(".3") + " ns/op")
-}
 
-func benchmarkWhileD4() {
-    let reps = 100000
-    var m = 0
-    var n = 0
-    var j = 0
-    var k = 0
-    sum = 0
-    var startTime = DateTime.now()
-    for (i in 0..reps) {
-        n = 0
+    @Bench
+    func BenchmarkWhileD4(): Unit {
+        var n = 0
+        var m = 0
+        var j = 0
+        var k = 0
+        sum = 0
         while (n < 100) {
             n++
             m = 0
@@ -109,16 +99,10 @@ func benchmarkWhileD4() {
                 }
             }
         }
+        blackBox(sum)
+        blackBox(n)
+        blackBox(m)
+        blackBox(j)
+        blackBox(k)
     }
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkWhileD4: " + perTime.format(".3") + " ns/op")
-}
-
-main(): Int64 {
-    benchmarkWhileD1()
-    benchmarkWhileD2()
-    benchmarkWhileD3()
-    benchmarkWhileD4()
-    return 0
 }

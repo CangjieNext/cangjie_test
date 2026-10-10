@@ -62,6 +62,9 @@ combine-all-deps = true
 
 [target.arm-linux-android23.bin-dependencies]
   path-option = ["dep/target/arm-linux-android23/release/dep"]
+
+[target.aarch64-linux-android23.bin-dependencies]
+  path-option = ["dep/target/aarch64-linux-android23/release/dep"]
 [target.x86_64-linux-ohos]
   compile-option = "-B=${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/bin --sysroot=${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/sysroot"
 
@@ -79,4 +82,7 @@ combine-all-deps = true
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
 
 [target.arm-linux-android23]
+  compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
+
+[target.aarch64-linux-android23]
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"

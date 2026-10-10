@@ -71,7 +71,7 @@ class BigIntaArithmeticTest {
             dividend.divAndMod(divisor)[0]
             @Expect(1,2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
         }
     }
 
@@ -128,7 +128,7 @@ class BigIntaArithmeticTest {
             quo_result = dividend.quo(divisor)
             @Expect(1,2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
         }
 
         try {
@@ -146,7 +146,7 @@ class BigIntaArithmeticTest {
             quo_result = dividend.quoAndRem(divisor)[0]
             @Expect(1,2)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "Divided by zero!")
+            @Expect(e.message, "Division by zero.")
         }
     }
 }

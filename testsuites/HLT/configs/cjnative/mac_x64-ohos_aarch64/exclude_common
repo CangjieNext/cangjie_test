@@ -81,3 +81,6 @@ API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
 
 # OHOS does not support reflection of enum type currently.
 API/std/reflect/cjnative/enum_type
+
+# std.concurrent is not built for OHOS
+API/std/concurrent

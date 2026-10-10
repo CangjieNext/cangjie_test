@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping %f -o %output
 // RUN-EXEC: %export cjHeapSize=16GB && %export JETVMPROP="-Xmx2G" && %run %run_opt %output %run_args
 
 import std.process.*

@@ -16,6 +16,6 @@ class MyActor1 {}
 main() {}
 
 /* SCAN-IN
-Actor framework: macro failed to expand.
+Actor framework: Failed to expand macro:
 @Actor macro: invalid option 'priority'.
 */

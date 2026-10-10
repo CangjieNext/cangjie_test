@@ -295,6 +295,8 @@ class ReportManager:
       return
     is_passed = True
     for result in results:
+      if result.returncode != 0:
+        is_passed = False
       if self.cfg.log_mode == VerbosityLevel.VERBOSE or result.returncode != 0:
         self.write_message('- compilation command:')
         self.write_message(f'\t{result.args}')

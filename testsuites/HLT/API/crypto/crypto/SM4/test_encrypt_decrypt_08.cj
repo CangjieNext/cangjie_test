@@ -54,6 +54,6 @@ class Test_encrypt_decrypt_08 {
         var iv = "1653627"
         var aad = "Additional authenticated data."
         let e = @AssertThrows[CryptoException](test_func_sm4_01(SM4(OperationMode.ECB, key.toArray()), ""))
-        @Expect(e.message, "Invalid key size.")
+        @Expect(e.message, "Invalid key size: expected '16' bytes, got '6' bytes.")
     }
 }

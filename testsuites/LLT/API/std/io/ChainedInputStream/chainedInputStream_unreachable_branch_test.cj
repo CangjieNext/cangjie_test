@@ -24,7 +24,7 @@ main() {
     try {
         readLen = chainedInputStream.read(buff)
     } catch (e: Exception) {
-        if (e.message != "The buffer cannot be empty!") {
+        if (e.message != "Invalid argument 'buffer': buffer size is 0.") {
             return 1
         }
     }

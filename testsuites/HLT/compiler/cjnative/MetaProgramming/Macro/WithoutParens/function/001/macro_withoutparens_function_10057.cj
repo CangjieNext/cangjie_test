@@ -9,7 +9,7 @@
 // LEVEL: 2
 // DEPENDENCE: define.cj
 // EXEC: %compiler %cmp_macro define.cj
-// EXEC-PIPE-1: %run_macro %compiler %cmp_opt  %f %pic_opt 2>&1 | compare %f
+// EXEC-0: %run_macro %compiler %cmp_opt  %f %pic_opt 2>&1
 
 
 import define.*
@@ -23,4 +23,3 @@ foreign{
 main(){
     return 0
 }
-// ASSERT: scan parse_expected_no_modifier

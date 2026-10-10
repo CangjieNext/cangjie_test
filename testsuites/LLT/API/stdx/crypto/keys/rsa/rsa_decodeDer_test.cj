@@ -69,7 +69,7 @@ class Test_rsa_decodeDer {
             RSAPrivateKey.decodeDer(der, password: "")
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Password shouldn't be empty"))
+            @Expect(e.message, "Password is empty.")
         }
         @Expect(sum, 1)
     }
@@ -95,7 +95,7 @@ class Test_rsa_decodeDer {
             RSAPrivateKey.decodeDer(der, password: None)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Load private key error"))
+            @Expect(e.message, "Failed to load private key.")
         }
         @Expect(sum, 1)
     }
@@ -108,7 +108,7 @@ class Test_rsa_decodeDer {
             RSAPublicKey.decodeDer(der)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Public key type error"))
+            @Expect(e.message, "Public key type mismatch.")
         }
         @Expect(sum, 1)
     }
@@ -121,7 +121,7 @@ class Test_rsa_decodeDer {
             RSAPublicKey.decodeDer(der)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Load PublicKey error"))
+            @Expect(e.message, "Failed to load public key.")
         }
         @Expect(sum, 1)
     }

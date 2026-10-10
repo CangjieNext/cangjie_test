@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// ASSERT: scan Macro options: enableReceiverPriority must take a boolean literal.
+// ASSERT: scan Macro options: 'enableReceiverPriority' must take a boolean literal.
 
 import stdx.actors.*
 import stdx.actors.macros.*

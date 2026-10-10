@@ -47,7 +47,7 @@ class TestClient1_1SendHttpBody2 {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The content-length is wrong.")
+            @Expect(e.message, "Invalid content-length: expected '10', but body size is '5'.")
         }
     }
 

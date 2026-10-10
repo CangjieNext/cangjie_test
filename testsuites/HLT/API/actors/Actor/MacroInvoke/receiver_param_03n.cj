@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// ASSERT: scan-6 Macro options: priority must be an integer literal inside the range [1..10].
+// ASSERT: scan-6 Macro options: 'priority' must be an integer literal in the range [1..10].
 
 import stdx.actors.*
 import stdx.actors.macros.*

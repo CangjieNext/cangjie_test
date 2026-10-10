@@ -18,6 +18,6 @@ class test_01{
     @TestCase
 func test_dirpath_010() {
     let e = @AssertThrows[Exception](parsePackage("./dir003\0"))
-    @Assert(e.message.contains("contains null character"))
+    @Assert(e.message.contains("Failed to read directory"))
 }
 }

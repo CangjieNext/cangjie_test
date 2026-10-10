@@ -27,9 +27,9 @@ class Test_OFB_CFB_CTR_init_02 {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.OFB,Array<Byte>(),paddingMode:PaddingMode.PKCS7Padding))
         let e1 = @AssertThrows[CryptoException](SM4(OperationMode.CFB,Array<Byte>(),paddingMode:PaddingMode.PKCS7Padding))
         let e2 = @AssertThrows[CryptoException](SM4(OperationMode.CTR,Array<Byte>(),paddingMode:PaddingMode.PKCS7Padding))
-        @Expect(e.message, "Invalid key size.")
-        @Expect(e1.message, "Invalid key size.")
-        @Expect(e2.message, "Invalid key size.")
+        @Expect(e.message, "Invalid key size: expected '16' bytes, got '0' bytes.")
+        @Expect(e1.message, "Invalid key size: expected '16' bytes, got '0' bytes.")
+        @Expect(e2.message, "Invalid key size: expected '16' bytes, got '0' bytes.")
     }
 
     @TestCase
@@ -37,9 +37,9 @@ class Test_OFB_CFB_CTR_init_02 {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.OFB,'123456789123456789'.toArray(),paddingMode:PaddingMode.PKCS7Padding))
         let e1 = @AssertThrows[CryptoException](SM4(OperationMode.CFB,'123456789123456789'.toArray(),paddingMode:PaddingMode.PKCS7Padding))
         let e2 = @AssertThrows[CryptoException](SM4(OperationMode.CTR,'123456789123456789'.toArray(),paddingMode:PaddingMode.PKCS7Padding))
-        @Expect(e.message, "Invalid key size.")
-        @Expect(e1.message, "Invalid key size.")
-        @Expect(e2.message, "Invalid key size.")
+        @Expect(e.message, "Invalid key size: expected '16' bytes, got '18' bytes.")
+        @Expect(e1.message, "Invalid key size: expected '16' bytes, got '18' bytes.")
+        @Expect(e2.message, "Invalid key size: expected '16' bytes, got '18' bytes.")
     }
 
     @TestCase
@@ -47,9 +47,9 @@ class Test_OFB_CFB_CTR_init_02 {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
         let e1 = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
         let e2 = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
-        @Expect(e.message, "Invalid tag size.")
-        @Expect(e1.message, "Invalid tag size.")
-        @Expect(e2.message, "Invalid tag size.")
+        @Expect(e.message, "Invalid tag size: must be between '12' and '16', got '100'.")
+        @Expect(e1.message, "Invalid tag size: must be between '12' and '16', got '100'.")
+        @Expect(e2.message, "Invalid tag size: must be between '12' and '16', got '100'.")
     }
 
     @TestCase
@@ -57,9 +57,9 @@ class Test_OFB_CFB_CTR_init_02 {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
         let e1 = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
         let e2 = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
-        @Expect(e.message, "Invalid tag size.")
-        @Expect(e1.message, "Invalid tag size.")
-        @Expect(e2.message, "Invalid tag size.")
+        @Expect(e.message, "Invalid tag size: must be between '12' and '16', got '17'.")
+        @Expect(e1.message, "Invalid tag size: must be between '12' and '16', got '17'.")
+        @Expect(e2.message, "Invalid tag size: must be between '12' and '16', got '17'.")
     }
 
     @TestCase
@@ -67,9 +67,9 @@ class Test_OFB_CFB_CTR_init_02 {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.OFB,'1234567891234567'.toArray(),iv:'123456789123456'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
         let e1 = @AssertThrows[CryptoException](SM4(OperationMode.CFB,'1234567891234567'.toArray(),iv:'123456789123456'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
         let e2 = @AssertThrows[CryptoException](SM4(OperationMode.CTR,'1234567891234567'.toArray(),iv:'123456789123456'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
-        @Expect(e.message, "Invalid iv size.")
-        @Expect(e1.message, "Invalid iv size.")
-        @Expect(e2.message, "Invalid iv size.")
+        @Expect(e.message, "Invalid IV size: expected '16' bytes, got '15' bytes.")
+        @Expect(e1.message, "Invalid IV size: expected '16' bytes, got '15' bytes.")
+        @Expect(e2.message, "Invalid IV size: expected '16' bytes, got '15' bytes.")
     }
 
     @TestCase
@@ -77,9 +77,9 @@ class Test_OFB_CFB_CTR_init_02 {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.OFB,'1234567891234567'.toArray(),iv:''.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
         let e1 = @AssertThrows[CryptoException](SM4(OperationMode.CFB,'1234567891234567'.toArray(),iv:''.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
         let e2 = @AssertThrows[CryptoException](SM4(OperationMode.CTR,'1234567891234567'.toArray(),iv:''.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
-        @Expect(e.message, "Invalid iv size.")
-        @Expect(e1.message, "Invalid iv size.")
-        @Expect(e2.message, "Invalid iv size.")
+        @Expect(e.message, "Invalid IV size: expected '16' bytes, got '0' bytes.")
+        @Expect(e1.message, "Invalid IV size: expected '16' bytes, got '0' bytes.")
+        @Expect(e2.message, "Invalid IV size: expected '16' bytes, got '0' bytes.")
     }
 
     @TestCase

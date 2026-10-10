@@ -9,7 +9,8 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: regex error.*expected expression after \'\?\', found \'\]\'
+// ASSERT: scan An exception has occurred:
+// ASSERT: scan ParseASTException: Failed to parse expr.
 import std.ast.*
 import std.collection.*
 

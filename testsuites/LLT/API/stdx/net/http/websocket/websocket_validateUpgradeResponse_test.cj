@@ -47,49 +47,49 @@ class TestWebSocketValidateUpgradeResponse {
             WebSocket.upgradeFromClient(client, u)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, the handshake response has a wrong Upgrade header field.")
+            @Expect(e.message, "WebSocket upgrade failed: invalid 'Upgrade' header field.")
         }
         // upgrade 2 to server 2
         try {
             WebSocket.upgradeFromClient(client, u)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, the handshake response lacks Connection: Upgrade header field.")
+            @Expect(e.message, "WebSocket upgrade failed: missing 'Connection: Upgrade' header field.")
         }
         // upgrade 3 to server 3
         try {
             WebSocket.upgradeFromClient(client, u)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, the handshake response lacks Sec-Websocket-Accept header field.")
+            @Expect(e.message, "WebSocket upgrade failed: missing 'Sec-WebSocket-Accept' header field.")
         }
         // upgrade 4 to server 4
         try {
             WebSocket.upgradeFromClient(client, u)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, the handshake response has a wrong accept string.")
+            @Expect(e.message, "WebSocket upgrade failed: invalid 'Sec-WebSocket-Accept' header value.")
         }
         // upgrade 5 to server 5
         try {
             WebSocket.upgradeFromClient(client, u)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, websocket extensions not supported yet.")
+            @Expect(e.message, "WebSocket upgrade failed: WebSocket extensions are not supported.")
         }
         // upgrade 6 to server 6
         try {
             WebSocket.upgradeFromClient(client, u)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, the handshake response must have one or null subprotocol.")
+            @Expect(e.message, "WebSocket upgrade failed: invalid 'Sec-WebSocket-Protocol' header, must have exactly one value.")
         }
         // upgrade 7 to server 7
         try {
             WebSocket.upgradeFromClient(client, u, subProtocols: subProtocols)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, the handshake response has wrong subprotocol.")
+            @Expect(e.message, "WebSocket upgrade failed: invalid 'Sec-WebSocket-Protocol' header, unexpected protocol 'foo'.")
         }
 
         client.close()

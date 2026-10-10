@@ -73,6 +73,6 @@ _0=0; _1=1; 0=0; 1=1
 _0=0; _1=1; 0=0; 1=1
 
 
-Invalid cookie domain.
+Invalid cookie domain: ''.
 ok
  */

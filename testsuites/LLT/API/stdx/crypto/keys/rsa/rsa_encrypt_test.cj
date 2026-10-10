@@ -109,7 +109,7 @@ class Test_rsa_encrypt {
             bas3.read(buf)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Decrypt error"))
+            @Expect(e.message, "Failed to decrypt data.")
         }
         @Expect(sum, 1)
     }
@@ -136,7 +136,7 @@ class Test_rsa_encrypt {
             bas3.read(buf)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Decrypt error"))
+            @Expect(e.message, "Failed to decrypt data.")
         }
         @Expect(sum, 1)
     }
@@ -155,7 +155,7 @@ class Test_rsa_encrypt {
             rsaPub.encrypt(bas1, bas2, padType: PSS(encOpt))
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("PSSOption only use in sign or verify."))
+            @Expect(e.message, "PSSOption is only applicable to signing or verification operations.")
         }
         @Expect(sum, 1)
     }
@@ -179,7 +179,7 @@ class Test_rsa_encrypt {
             rsaPri.decrypt(bas2, bas3, padType: PSS(encOpt2))
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("PSSOption only use in sign or verify."))
+            @Expect(e.message, "PSSOption is only applicable to signing or verification operations.")
         }
         @Expect(sum, 1)
     }
@@ -200,7 +200,7 @@ class Test_rsa_encrypt {
             rsaPub.encrypt(bas1, bas2, padType: OAEP(encOpt))
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("RSA_key_size smaller that (2 * hash_size - 2)"))
+            @Expect(e.message, "RSA key size is smaller than (2 * hash size - 2).")
         }
         @Expect(sum, 1)
     }

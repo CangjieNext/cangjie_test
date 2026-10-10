@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// (LLVM) EXEC: %compiler %cmp_opt %optimization_level_2 --no-sub-pkg %f -o %output
+// (LLVM) EXEC: %compiler %cmp_opt -O2 --no-sub-pkg %f -o %output
 // (LLVM) RUN-EXEC: %export cjHeapSize=512mb && %run %run_opt %output %run_args 2>&1 | compare %f
 // (LLVM) ASSERT: scan ms
 

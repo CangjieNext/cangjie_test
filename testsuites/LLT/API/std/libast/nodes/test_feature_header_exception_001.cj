@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 import std.ast.*
 import std.collection.*
@@ -40,75 +48,41 @@ main(): Int64 {
     println("cnt = ${cnt}")
     return 0
 }
-/* SCAN
-Cannot construct the 'FeaturesDirective' node.
-FeaturesDirective {
-  -annotation: 0, Annotation {
-    -identifier: NonProduct
-  }
-  -keyword: Token {
-    value: "features"
-    kind: FEATURES
-    pos: 21: 37
-  }
-  -featuresSet: FeaturesSet {
-    -lCurl: Token {
-      value: "{"
-      kind: LCURL
-      pos: 29: 29
-    }
-    -FeatureId: FeatureId {
-      -identifier: Token {
-        value: "os"
-        kind: IDENTIFIER
-        pos: 24: 32
-      }
-      -dot: Token {
-        value: "."
-        kind: DOT
-        pos: 25: 25
-      }
-      -identifier: Token {
-        value: "linux"
-        kind: IDENTIFIER
-        pos: 24: 35
-      }
-    }
-    -comma: : Token {
-      value: ","
-      kind: COMMA
-      pos: 31: 36
-    }
-    -FeatureId: FeatureId {
-      -identifier: Token {
-        value: "os"
-        kind: IDENTIFIER
-        pos: 27: 32
-      }
-      -dot: Token {
-        value: "."
-        kind: DOT
-        pos: 28: 25
-      }
-      -identifier: Token {
-        value: "darwin"
-        kind: IDENTIFIER
-        pos: 27: 35
-      }
-    }
-    -rCurl: Token {
-      value: "}"
-      kind: RCURL
-      pos: 32: 29
-    }
-  }
-}
-cnt = 1
-*/
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan Cannot construct the 'FeaturesDirective' node
+// ASSERT: scan FeaturesDirective {
+// ASSERT: scan -annotation: 0, Annotation {
+// ASSERT: scan -identifier: NonProduct
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "features"
+// ASSERT: scan kind: FEATURES
+// ASSERT: scan -featuresSet: FeaturesSet {
+// ASSERT: scan -lCurl: Token {
+// ASSERT: scan value: "{"
+// ASSERT: scan kind: LCURL
+// ASSERT: scan -FeatureId: FeatureId {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "os"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -dot: Token {
+// ASSERT: scan value: "."
+// ASSERT: scan kind: DOT
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "linux"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -comma: : Token {
+// ASSERT: scan value: ","
+// ASSERT: scan kind: COMMA
+// ASSERT: scan -FeatureId: FeatureId {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "os"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -dot: Token {
+// ASSERT: scan value: "."
+// ASSERT: scan kind: DOT
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "darwin"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -rCurl: Token {
+// ASSERT: scan value: "}"
+// ASSERT: scan kind: RCURL
+// ASSERT: scan cnt = 1

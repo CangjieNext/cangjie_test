@@ -83,5 +83,5 @@ class TestServer11ResponseTrailer2 {
 }
 
 /* SCAN-IN
-Malformed trailer field in header.
+Invalid trailer header: contains forbidden field.
  */

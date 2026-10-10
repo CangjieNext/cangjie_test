@@ -64,11 +64,11 @@ class Test_arraylist_of_add_remove_04 {
     func test_arraylist_of_add_remove_03(): Unit {
         var arrlist = ArrayList.of(Array<String>())
         let e = @AssertThrows[IndexOutOfBoundsException](arrlist.add("-1", at:-1))
-        @Expect(e.message.contains("index: -1, size: 0"))
+        @Expect(e.message.contains("Invalid index '-1': expected 0 to '0'"))
         arrlist.add("zps")
         arrlist.add("1", at: 1)
         let e1 = @AssertThrows[IndexOutOfBoundsException](arrlist.add("2", at:3))
-        @Expect(e1.message.contains("index: 3, size: 2"))
+        @Expect(e1.message.contains("Invalid index '3': expected 0 to '2'"))
     }
 
     @TestCase

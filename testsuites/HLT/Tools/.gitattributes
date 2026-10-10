@@ -1,0 +1,1 @@
+testsuites/HLT/Tools/cjdb/datacom/aaa_ohos_hap/libohos_app_cangjie_entry.so filter=lfs diff=lfs merge=lfs -text

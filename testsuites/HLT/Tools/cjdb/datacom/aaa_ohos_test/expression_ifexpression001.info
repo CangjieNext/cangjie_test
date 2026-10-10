@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE: ../../cjdb_test.py  ../../basecase/past_basic/066_debug_lambda.cj
+// (target_ohos) EXEC: python3 cjdb_test.py expression_ifexpression001.info 066_debug_lambda %run_env
+
+test#
+cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
+b,b 066_debug_lambda.cj:21,066_debug_lambda.cj:21
+AOT r,r,-> 21
+c,c,21
+expr~ expr if (true) {var ifa = 10; globals_i64++};globals_i64~\(Int64\)[\s\S]*65
+expr~ expr if (false) {var ifa = 10; globals_i64--};globals_i64~\(Int64\)[\s\S]*65
+q,q,

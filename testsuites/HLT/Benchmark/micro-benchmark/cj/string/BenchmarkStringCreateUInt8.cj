@@ -7,12 +7,11 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-
-var str = ""
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -28,35 +27,35 @@ public class Test_suit {
     @Bench
     func BenchmarkStringCreateUInt8_N8(): Unit {
         unsafe {
-            str = String.fromUtf8Unchecked(arr1)
+            blackBox(String.fromUtf8Unchecked(arr1))
         }
     }
 
     @Bench
     func BenchmarkStringCreateUInt8_N32(): Unit {
         unsafe {
-            str = String.fromUtf8Unchecked(arr1_32)
+            blackBox(String.fromUtf8Unchecked(arr1_32))
         }
     }
 
     @Bench
     func BenchmarkStringCreateUInt8_N256(): Unit {
         unsafe {
-            str = String.fromUtf8Unchecked(arr1_256)
+            blackBox(String.fromUtf8Unchecked(arr1_256))
         }
     }
 
     @Bench
     func BenchmarkStringCreateUInt8_N1K(): Unit {
         unsafe {
-            str = String.fromUtf8Unchecked(arr2)
+            blackBox(String.fromUtf8Unchecked(arr2))
         }
     }
 
     @Bench
     func BenchmarkStringCreateUInt8_N1M(): Unit {
         unsafe {
-            str = String.fromUtf8Unchecked(arr3)            
+            blackBox(String.fromUtf8Unchecked(arr3))
         }
     }
 }

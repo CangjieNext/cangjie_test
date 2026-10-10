@@ -19,25 +19,25 @@ class Test_ECB_CBC_init_01 {
     @TestCase
     func test_ECB_init_01(): Unit {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.ECB,Array<Byte>(),paddingMode:PaddingMode.PKCS7Padding))
-        @Expect(e.message, "Invalid key size.")
+        @Expect(e.message, "Invalid key size: expected '16' bytes, got '0' bytes.")
     }
 
     @TestCase
     func test_ECB_init_02(): Unit {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.ECB,'123456789123456789'.toArray(),paddingMode:PaddingMode.PKCS7Padding))
-        @Expect(e.message, "Invalid key size.")
+        @Expect(e.message, "Invalid key size: expected '16' bytes, got '18' bytes.")
     }
 
     @TestCase
     func test_ECB_init_03(): Unit {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100, iv: "1234567".toArray()))
-        @Expect(e.message, "Invalid tag size.")
+        @Expect(e.message, "Invalid tag size: must be between '12' and '16', got '100'.")
     }
 
     @TestCase
     func test_ECB_init_04(): Unit {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17, iv: "1234567".toArray()))
-        @Expect(e.message, "Invalid tag size.")
+        @Expect(e.message, "Invalid tag size: must be between '12' and '16', got '17'.")
     }
 
     @TestCase
@@ -86,37 +86,37 @@ class Test_ECB_CBC_init_01 {
     @TestCase
     func test_CBC_init_08(): Unit {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.CBC,Array<Byte>(),paddingMode:PaddingMode.PKCS7Padding))
-        @Expect(e.message, "Invalid key size.")
+        @Expect(e.message, "Invalid key size: expected '16' bytes, got '0' bytes.")
     }
 
     @TestCase
     func test_CBC_init_09(): Unit {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.CBC,'123456789123456789'.toArray(),paddingMode:PaddingMode.PKCS7Padding))
-        @Expect(e.message, "Invalid key size.")
+        @Expect(e.message, "Invalid key size: expected '16' bytes, got '18' bytes.")
     }
 
     @TestCase
     func test_CBC_init_10(): Unit {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
-        @Expect(e.message, "Invalid tag size.")
+        @Expect(e.message, "Invalid tag size: must be between '12' and '16', got '100'.")
     }
 
     @TestCase
     func test_CBC_init_11(): Unit {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
-        @Expect(e.message, "Invalid tag size.")
+        @Expect(e.message, "Invalid tag size: must be between '12' and '16', got '17'.")
     }
 
     @TestCase
     func test_CBC_init_12(): Unit {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.CBC,'1234567891234567'.toArray(),iv:'123456789123456'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
-        @Expect(e.message, "Invalid iv size.")
+        @Expect(e.message, "Invalid IV size: expected '16' bytes, got '15' bytes.")
     }
 
     @TestCase
     func test_CBC_init_13(): Unit {
         let e = @AssertThrows[CryptoException](SM4(OperationMode.CBC,'1234567891234567'.toArray(),iv:''.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
-        @Expect(e.message, "Invalid iv size.")
+        @Expect(e.message, "Invalid IV size: expected '16' bytes, got '0' bytes.")
     }
 
     @TestCase

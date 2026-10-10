@@ -7,11 +7,14 @@
 // (CJNATIVE) EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 // (CJNATIVE) EXEC-PIPE-0: %run %run_opt %output %run_args
 
+
+
 class A <: Exception {}
 
 main() {
     try {
         throw A();
+        // EXPECT: chir_dce_unreachable_expression_hint
         1 + 1
     } catch (_) {
         2 + 2
@@ -23,19 +26,20 @@ main() {
 
 /* SCAN
 warning: unreachable expression
-  ==> testDCEThrow04.cj:15:9:
+  ==> testDCEThrow04.cj:18:9:
    | 
-14 |         throw A();
+16 |         throw A();
    |         ~~~~~~~~~ any code following this expression is unreachable
-15 |         1 + 1
+17 |         // EXPECT: chir_dce_unreachable_expression_hint
+18 |         1 + 1
    |         ^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unused result of the operator:'+'
-  ==> testDCEThrow04.cj:17:11:
+  ==> testDCEThrow04.cj:20:11:
    | 
-17 |         2 + 2
+20 |         2 + 2
    |           ^ unused result of the operator
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`

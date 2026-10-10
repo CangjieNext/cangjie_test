@@ -13,13 +13,34 @@
 import std.unittest.*
 import std.unittest.testmacro.*
 
-main() {
+main():Unit {
+    @When[os=="iOS"]
+    var size:Int64=3
+    @When[os!="iOS"]
+    var size:Int64=2
     let _thread = spawn { sleep(Duration.second * 3) }
-    sleep(Duration.second)
-    let _thread_infos = ThreadSnapshot.dumpAllThreads()
+    func findThread(id: Int64, infos: Array<ThreadSnapshot>): ThreadSnapshot {
+        for (info in infos) {
+            if (info.id == id) {
+                return info
+            }
+        }
+        throw IllegalArgumentException("Thread id ${id} not found in thread snapshots")
+    }
+    var _thread_infos = ThreadSnapshot.dumpAllThreads()
+    var _thread_info = findThread(_thread.thread.id, _thread_infos)
+    var _retry = 0
+    while (_retry < 100) {
+        _thread_infos = ThreadSnapshot.dumpAllThreads()
+        @Assert(_thread_infos.size, size)
+        _thread_info = findThread(_thread.thread.id, _thread_infos)
+        if (match(_thread_info.state) { case ThreadState.Pending => true; case _ => false }) {
+            break
+        }
+        sleep(Duration.millisecond * 100)
+        _retry++
+    }
     @Assert(_thread.thread.state.toString(), "Pending")
-    @Assert(_thread_infos.size, 2)
-    let _thread_info = _thread_infos[0]
     @Assert(_thread_info.id is Int64)
     @Assert(_thread_info.name, "")
     match(_thread_info.state) {

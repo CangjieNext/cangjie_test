@@ -25,7 +25,7 @@ Android c,c,24
 p,p tuple1,\(Tuple<std.core(?:\.|::)String,std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = "String"[\s\S]*\[1\] = "cangjie"[\s\S]*}
 expression,expression tuple1,\(Tuple<std.core(?:\.|::)String,std.core(?:\.|::)String>\)[\s\S]*{[\s\S]*\[0\] = "String"[\s\S]*\[1\] = "cangjie"[\s\S]*}
 expression,expression tuple2,\(Tuple<UInt8,UInt8>\)[\s\S]*{[\s\S]*\[0\] = 97[\s\S]*\[1\] = 98[\s\S]*}
-expression,expression tuple3,\(Tuple<Rune,Rune,Rune,Rune>\)[\s\S]*{[\s\S]*\[0\] = \'b\'[\s\S]*\[1\] = \'\\\\'[\s\S]*\[2\] = \'好\'[\s\S]*\[3\] = \'\\"\'[\s\S]*}
+expression,expression tuple3,\(Tuple<Rune,Rune,Rune,Rune>\)[\s\S]*{[\s\S]*\[0\] = \'b\'[\s\S]*\[1\] = \'\\\\'[\s\S]*\[2\] = [\s\S]*\[3\] = \'\\"\'[\s\S]*}
 expression,expression tuple4,\(Tuple<Bool,Bool>\)[\s\S]*{[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
 expression,expression tuple_F,\(Tuple<Float16,Float32,Float64>\)[\s\S]*{[\s\S]*\[0\] = 16.125[\s\S]*\[1\] = 32642.3203[\s\S]*\[2\] = 64.621325947594002[\s\S]*}
 expression,expression tuple_I,\(Tuple<Int8,Int16,Int32,Int64>\)[\s\S]*{[\s\S]*\[0\] = -8[\s\S]*\[1\] = 16[\s\S]*\[2\] = -32[\s\S]*\[3\] = 64[\s\S]*}

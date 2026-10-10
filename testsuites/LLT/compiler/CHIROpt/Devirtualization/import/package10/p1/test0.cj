@@ -4,10 +4,11 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// LEVEL: 0
 package test0
 
 public interface I {
-    func Foo() {
-        println("Foo from I")
+    func Foo(): Int64 {
+        1
     }
 }

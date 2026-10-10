@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 internal import std.ast.*
 
@@ -38,8 +38,8 @@ main(): Int64 {
 }
 
 /* SCAN-IN
-orgName should not be empty
-orgName should not be empty
-Illegal TokenKind, TokenKind should be DOUBLE_COLON
+Organization name is empty.
+Organization name is empty.
+Illegal token kind: expected 'DOUBLE_COLON', got 'DOT'.
 cnt = 3
  */

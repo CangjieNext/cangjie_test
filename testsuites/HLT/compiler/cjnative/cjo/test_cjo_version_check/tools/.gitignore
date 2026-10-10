@@ -1,0 +1,7 @@
+# 运行时由 cjo_mutate.py 现场解压的平台二进制(zip 才是分发形态,勿提交解压产物)
+flatc
+flatc.exe
+flatc-mac
+flatc-linux
+flatc-win.exe
+*.tmp*

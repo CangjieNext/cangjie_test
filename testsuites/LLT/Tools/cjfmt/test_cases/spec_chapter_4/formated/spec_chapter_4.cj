@@ -159,6 +159,7 @@ var scoreResult: String = match (score) {
     case 90 | 100 => "excellent" // matched
     case _ => "not a valid score"
 }
+
 let score1 = 80
 var result: String = match {
     case score1 < 60 => "fail"
@@ -232,6 +233,7 @@ var rectangleArea1: Int32 = match (normalPt) {
     case _: Point => normalPt.x * normalPt.y // matched
     case _ => 0
 }
+
 var rectangleArea2: Int32 = match (colorPt) {
     case cpt: Point => cpt.x * cpt.y // matched
     case _ => 0
@@ -246,12 +248,14 @@ enum TimeUnit {
 }
 
 let oneYear = TimeUnit.Year(1.0)
+
 var howManyHours: Float32 = match (oneYear) {
     case Year(y) => y * Float32(365 * 24) // matched
     case Month(y, m) => y * Float32(365 * 24) + m * Float32(30 * 24)
     case Day(y, m, d) => y * Float32(365 * 24) + m * Float32(30 * 24) + d * Float32(24)
     case Hour(y, m, d, h) => y * Float32(365 * 24) + m * Float32(30 * 24) + d * Float32(24) + h
 }
+
 let twoYear = TimeUnit.Year(2.0)
 var howManyYears: Float32 = match (twoYear) {
     case Year(y) | Month(y, m) => y // error: variable cannot be introduced in patterns connected by '|'
@@ -281,6 +285,7 @@ enum TimeUnit {
 }
 
 let oneYear = TimeUnit.Year(1.0)
+
 var howManyHours: Float32 = match (oneYear) { // error: match must be exhaustive
     case Year(y) => y * Float32(365 * 24)
     case Month(y, m) => y * Float32(365 * 24) + m * Float32(30 * 24)

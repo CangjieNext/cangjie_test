@@ -13,6 +13,6 @@ import stdx.actors.macros.*
 struct MyActor {}
 
 /* SCAN-IN
-Actor framework: macro failed to expand.
+Actor framework: Failed to expand macro:
 @Actor macro: must be a class declaration.
 */

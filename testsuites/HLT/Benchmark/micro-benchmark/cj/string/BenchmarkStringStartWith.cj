@@ -7,12 +7,11 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-
-var res : Bool = false
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -25,16 +24,16 @@ public class Test_suit {
 
     @Bench
     func BenchmarkStringStartWith_N1(): Unit {
-        res = str1.startsWith("H")
+        blackBox(str1.startsWith("H"))
     }
 
     @Bench
     func BenchmarkStringStartWith_N1k(): Unit {
-        res = str1k.startsWith("H")
+        blackBox(str1k.startsWith("H"))
     }
 
     @Bench
     func BenchmarkStringStartWith_N1m(): Unit {
-        res = str1m.startsWith("H")
+        blackBox(str1m.startsWith("H"))
     }
 }

@@ -56,7 +56,7 @@ class TestConcurrentWrite5 {
                 let s = upgrade(ctx)
                 s.close()
             } catch (e: HttpException) {
-                @Expect(e.message, "Already responded.")
+                @Expect(e.message, "Response has already been sent.")
             }
         }
     }

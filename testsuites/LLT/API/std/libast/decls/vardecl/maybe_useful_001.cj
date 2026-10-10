@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt %f -o %output
-// EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 
 internal import std.ast.*
 
@@ -14,57 +22,29 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-description: const, token_id: 93, token_literal_value: const, fileID: 1, line: 8, column: 9
-VarDecl {
-  -keyword: Token {
-    value: "const"
-    kind: CONST
-    pos: 8: 9
-  }
-  -pattern: TuplePattern {
-    -patterns: 0, VarPattern {
-      -identifier: Token {
-        value: "a"
-        kind: IDENTIFIER
-        pos: 8: 16
-      }
-    }
-    -patterns: 1, VarPattern {
-      -identifier: Token {
-        value: "b"
-        kind: IDENTIFIER
-        pos: 8: 18
-      }
-    }
-  }
-  -assign: Token {
-    value: "="
-    kind: ASSIGN
-    pos: 8: 21
-  }
-  -expr: TupleLiteral {
-    -elements: 0, LitConstExpr {
-      -literal: Token {
-        value: "1"
-        kind: INTEGER_LITERAL
-        pos: 8: 24
-      }
-    }
-    -elements: 1, LitConstExpr {
-      -literal: Token {
-        value: "2"
-        kind: INTEGER_LITERAL
-        pos: 8: 27
-      }
-    }
-  }
-}
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan description: const, token_id: 93, token_literal_value: const
+// ASSERT: scan VarDecl {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "const"
+// ASSERT: scan kind: CONST
+// ASSERT: scan -pattern: TuplePattern {
+// ASSERT: scan -patterns: 0, VarPattern {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "a"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -patterns: 1, VarPattern {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "b"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -assign: Token {
+// ASSERT: scan value: "="
+// ASSERT: scan kind: ASSIGN
+// ASSERT: scan -expr: TupleLiteral {
+// ASSERT: scan -elements: 0, LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "1"
+// ASSERT: scan kind: INTEGER_LITERAL
+// ASSERT: scan -elements: 1, LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "2"
+// ASSERT: scan kind: INTEGER_LITERAL

@@ -14,6 +14,10 @@ import std.random.*
 import std.unittest.*
 import std.unittest.testmacro.*
 
+@When[os=="iOS"]
+var count:Int64=21
+@When[os!="iOS"]
+var count:Int64=20
 let all_count = 20
 var ready_count = 0
 var running_count = 0
@@ -63,5 +67,5 @@ main() {
         @Assert(_thread_info.toString().contains("ThreadSnapshot(id=${_thread_info.id}, name=, state=${_thread_info.state})"))
     }
     println("ready: ${ready_count}, running: ${running_count}, pending: ${pending_count}, terminated: ${terminated_count}")
-    @Assert(ready_count + running_count + pending_count, all_count + 1)
+    @Assert(ready_count + running_count + pending_count, count + 1)
 }

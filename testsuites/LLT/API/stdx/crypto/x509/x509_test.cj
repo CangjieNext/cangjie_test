@@ -28,7 +28,7 @@ class Test_x509 {
         try {
             Pem.decode("-----BEGIN -----\n-----END -----\n")
         } catch (e: CryptoException) {
-            @Expect(e.message.contains("PEM file body cannot be empty"))
+            @Expect(e.message.contains("PEM body is empty"))
         }
     }
 

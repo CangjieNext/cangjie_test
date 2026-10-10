@@ -40,6 +40,8 @@ struct CStruct {
     enum Enum e;
     C* c;
     id<P> p;
+    id id_;
     struct CStruct* c_struct;
 }
+- (instancetype)init;
 @end

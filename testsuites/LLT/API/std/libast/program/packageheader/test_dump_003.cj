@@ -5,8 +5,9 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 internal import std.ast.*
 
@@ -33,71 +34,47 @@ main() {
     println("cnt = ${cnt}")
 }
 
-/* SCAN
-description: macro, token_id: 88, token_literal_value: macro, fileID: 1, line: 18, column: 40
-description: package, token_id: 83, token_literal_value: package, fileID: 1, line: 19, column: 34
-description: identifier, token_id: 137, token_literal_value: orgA, fileID: 1, line: 20, column: 33
-description: double_colon, token_id: 163, token_literal_value: ::, fileID: 1, line: 21, column: 38
-description: identifier, token_id: 137, token_literal_value: pkgA, fileID: 1, line: 22, column: 43
-description: dot, token_id: 0, token_literal_value: ., fileID: 1, line: 23, column: 42
-description: identifier, token_id: 137, token_literal_value: subB, fileID: 1, line: 22, column: 48
-description: dot, token_id: 0, token_literal_value: ., fileID: 1, line: 23, column: 44
-description: identifier, token_id: 137, token_literal_value: package, fileID: 1, line: 24, column: 43
-description: newline, token_id: 143, token_literal_value: \n, fileID: 1, line: 24, column: 50
-macro package orgA :: pkgA.subB.package
-
-10
-PackageHeader {
-  -modifier: Token {
-    value: "internal"
-    kind: INTERNAL
-    pos: 17: 36
-  }
-  -keywordM: Token {
-    value: "macro"
-    kind: MACRO
-    pos: 18: 40
-  }
-  -keywordP: Token {
-    value: "package"
-    kind: PACKAGE
-    pos: 19: 34
-  }
-  -orgName: Token {
-    value: "orgA"
-    kind: IDENTIFIER
-    pos: 20: 33
-  }
-  -orgSepartaor: Token {
-    value: "::"
-    kind: DOUBLE_COLON
-    pos: 21: 38
-  }
-  prefixPath: 0: Token {
-    value: "pkgA"
-    kind: IDENTIFIER
-    pos: 22: 43
-  }
-  dot: 0: Token {
-    value: "."
-    kind: DOT
-    pos: 23: 42
-  }
-  prefixPath: 1: Token {
-    value: "subB"
-    kind: IDENTIFIER
-    pos: 22: 48
-  }
-  dot: 1: Token {
-    value: "."
-    kind: DOT
-    pos: 23: 44
-  }
-  -packageIdentifier: Token {
-    value: "package"
-    kind: IDENTIFIER
-    pos: 24: 43
-  }
-}
-cnt = 0
-*/
+// ASSERT: scan description: macro, token_id: 88, token_literal_value: macro
+// ASSERT: scan description: package, token_id: 83, token_literal_value: package
+// ASSERT: scan description: identifier, token_id: 137, token_literal_value: orgA
+// ASSERT: scan description: double_colon, token_id: 163, token_literal_value: ::
+// ASSERT: scan description: identifier, token_id: 137, token_literal_value: pkgA
+// ASSERT: scan description: dot, token_id: 0, token_literal_value:
+// ASSERT: scan description: identifier, token_id: 137, token_literal_value: subB
+// ASSERT: scan description: dot, token_id: 0, token_literal_value:
+// ASSERT: scan description: identifier, token_id: 137, token_literal_value: package
+// ASSERT: scan description: newline, token_id: 143, token_literal_value: \\n
+// ASSERT: scan macro package orgA :: pkgA.subB.package
+// ASSERT: scan 10
+// ASSERT: scan PackageHeader {
+// ASSERT: scan -modifier: Token {
+// ASSERT: scan value: "internal"
+// ASSERT: scan kind: INTERNAL
+// ASSERT: scan -keywordM: Token {
+// ASSERT: scan value: "macro"
+// ASSERT: scan kind: MACRO
+// ASSERT: scan -keywordP: Token {
+// ASSERT: scan value: "package"
+// ASSERT: scan kind: PACKAGE
+// ASSERT: scan -orgName: Token {
+// ASSERT: scan value: "orgA"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -orgSepartaor: Token {
+// ASSERT: scan value: "::"
+// ASSERT: scan kind: DOUBLE_COLON
+// ASSERT: scan prefixPath: 0: Token {
+// ASSERT: scan value: "pkgA"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan dot: 0: Token {
+// ASSERT: scan value: "."
+// ASSERT: scan kind: DOT
+// ASSERT: scan prefixPath: 1: Token {
+// ASSERT: scan value: "subB"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan dot: 1: Token {
+// ASSERT: scan value: "."
+// ASSERT: scan kind: DOT
+// ASSERT: scan -packageIdentifier: Token {
+// ASSERT: scan value: "package"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan cnt = 0

@@ -9,7 +9,7 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %stdx-library-path %link-eh %f -o %output
 // RUN-EXEC-PIPE-1: %run_stdx %output %run_args 2>&1 | compare %f
-// ASSERT: scan UnhandledCommand: Unhandled command
+// ASSERT: scan UnhandledCommand: Unhandled command: no enclosing handler handles this command.
 
 import stdx.effect.*
 

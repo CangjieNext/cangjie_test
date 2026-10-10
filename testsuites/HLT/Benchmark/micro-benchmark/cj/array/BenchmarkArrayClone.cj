@@ -7,10 +7,11 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
+import std.runtime.*
 
 // 仓颉对二三维数组为浅拷贝
 @Test
@@ -24,26 +25,24 @@ public class Test_Array_Clone {
     static var arr_2048 = Array<Int64>(2048, repeat: 0)
     static var arr_1048576 = Array<Int64>(1048576, repeat: 0)
 
-    static var tmp_arr = Array<Int64>()
-
     @Bench
     func BenchmarkArrayCloneD1_N32() {
-        tmp_arr = arr_32.clone()
+        blackBox(arr_32.clone())
     }
 
     @Bench
     func BenchmarkArrayCloneD1_N256() {
-        tmp_arr = arr_256.clone()
+        blackBox(arr_256.clone())
     }
 
     @Bench
     func BenchmarkArrayCloneD1_N2048() {
-        tmp_arr = arr_2048.clone()
+        blackBox(arr_2048.clone())
     }
 
     @Bench
     func BenchmarkArrayCloneD1_N1048576() {
-        tmp_arr = arr_1048576.clone()
+        blackBox(arr_1048576.clone())
     }
 
 }

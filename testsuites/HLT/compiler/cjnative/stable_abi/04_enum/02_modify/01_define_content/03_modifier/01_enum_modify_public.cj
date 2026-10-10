@@ -24,7 +24,7 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // TEST CJCPL
-// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
+// E-EXEC-PIPE: %cjcompat %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Enum declaration visible outside the module made protected or internal.
 // ASSERT: scan-not [API]

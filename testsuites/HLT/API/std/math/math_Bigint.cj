@@ -65,12 +65,12 @@ class BigintTest {
         try {
             int.format("你好仓颉")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Wrong format string"))
+            @Expect(e.message.contains("Invalid format string"))
         }
         try {
             int.format("")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Wrong format string"))
+            @Expect(e.message.contains("Invalid format string"))
         }
     }
 
@@ -83,7 +83,7 @@ class BigintTest {
             int.format("20G")
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Wrong format string"))
+            @Expect(e.message.contains("Invalid format string"))
         }
     }
 
@@ -106,19 +106,19 @@ class BigintTest {
             BigInt.parse("-9.9e9nihao")
         } catch (e: IllegalArgumentException) {
             println(e.toString())
-            @Expect(e.message.contains("Invalid string"))
+            @Expect(e.message.contains("Invalid character at index"))
         }
         try {
             BigInt.parse("")
         } catch (e: IllegalArgumentException) {
             println(e.toString())
-            @Expect(e.message.contains("Invalid string"))
+            @Expect(e.message.contains("String value is empty"))
         }
         try {
             BigInt.parse("-0B020101")
         } catch (e: IllegalArgumentException) {
             println(e.toString())
-            @Expect(e.message.contains("Invalid string"))
+            @Expect(e.message.contains("Invalid character at index"))
         }
     }
 
@@ -161,21 +161,21 @@ class BigintTest {
             BigInt.parse("-9.9e9nihao", radix: 2)
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid string"))
+            @Expect(e.message.contains("Invalid character at index"))
         }
         try {
             BigInt.parse("", radix: 2)
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
             println(e.toString())
-            @Expect(e.message.contains("Invalid string"))
+            @Expect(e.message.contains("String value is empty"))
         }
 
         try {
             BigInt.parse("f98059", radix: 10)
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid string"))
+            @Expect(e.message.contains("Invalid character at index"))
         }
     }
 

@@ -4,8 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %cmp_opt %f -o %output
-// EXEC: %run %run_opt %output %run_args
+// Every direct child of the sealed root is covered, so the wildcard is unreachable.
+// EXEC-PIPE-0: %frontendCompiler %cmp_opt %diag_json %typecheck %f 2>&1 | compare %f
+
+// ASSERT: scan-1 "DiagKind": "sema_unreachable_pattern"
 
 public open class A {}
 
@@ -22,10 +24,6 @@ func f1(obj: C) {
         case v1: C1 => 0
         case v2: C2 => 1
         case v3: C3 => 2
-        case _ => 3 // need wildcard
+        case _ => 3
     }
-}
-
-main() {
-    f1(C1())
 }

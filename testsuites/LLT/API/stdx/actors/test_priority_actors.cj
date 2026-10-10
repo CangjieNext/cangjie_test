@@ -158,13 +158,13 @@ public class PriorityActorClassTest {
             let fut1 = a.post<Unit>({ => 42}, priority: 0)
             fut1.get()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Priority must be in the range [1..10].")
+            @Expect(e.message, "Invalid argument 'priority': expected a value in [1..10], got '0'.")
         }
         try {
             let fut2 = a.post<Unit>({ => 43}, priority: 11)
             fut2.get()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Priority must be in the range [1..10].")
+            @Expect(e.message, "Invalid argument 'priority': expected a value in [1..10], got '11'.")
         }
     }
 

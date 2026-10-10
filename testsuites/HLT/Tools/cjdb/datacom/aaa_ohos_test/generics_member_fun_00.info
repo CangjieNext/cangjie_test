@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_member.cj
+// (target_ohos) EXEC: python3 cjdb_test.py generics_member_fun_00.info generics_member %run_env
+
+test#
+cjdb,cjdb --no-use-colors generics_member,generics_member
+b,b generics_member.cj:59,generics_member.cj:59
+AOT r,r,-> 59
+c,c,59
+p, p a1,\(Int8\)[\s\S]*8
+p, p a,\(Int8\)[\s\S]*8
+p, p a2,\(Int16\)[\s\S]*16
+p, p b,\(Int16\)[\s\S]*16
+p, p a3,\(Int32\)[\s\S]*32
+p, p c,\(Int32\)[\s\S]*32
+p, p a4,\(Int64\)[\s\S]*64
+p, p d,\(Int64\)[\s\S]*64
+q,q,

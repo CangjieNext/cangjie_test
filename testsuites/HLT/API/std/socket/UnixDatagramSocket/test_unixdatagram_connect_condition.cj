@@ -137,7 +137,7 @@ class Test_Unixdatagram_Connect {
         try {
             unixdatagramsocket2.connect(addr1)
         } catch (e: SocketException) {
-            @Expect(e.message.contains("The socket is not bound"), true)
+            @Expect(e.message.contains("Socket is not bound"), true)
             println(e.message)
             sum += 1
         }
@@ -172,7 +172,7 @@ class Test_Unixdatagram_Connect {
         try {
             unixdatagramsocket2.disconnect()
         } catch (e: SocketException) {
-            @Expect(e.message.contains("The socket is not bound"), true)
+            @Expect(e.message.contains("Socket is not bound"), true)
             println(e.message)
             sum += 1
         }

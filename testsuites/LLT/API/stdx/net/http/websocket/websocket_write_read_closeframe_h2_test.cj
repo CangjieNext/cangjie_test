@@ -67,20 +67,20 @@ class TestWebSocketWriteAndReadCloseFramesH2 {
             websocket.write(CloseWebFrame, "2".toArray())
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Invalid close payload.")
+            @Expect(e.message, "Invalid close frame payload: length is '1'.")
         }
 
         try {
             websocket.write(CloseWebFrame, [0u8, 232u8, 110u8, 111u8, 114u8, 109u8, 97u8, 108u8])
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Invalid close status code.")
+            @Expect(e.message, "Invalid close status code '232'.")
         }
         try {
             websocket.write(CloseWebFrame, ("aa" + text).toArray())
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "All control frames must have a payload length of 125 bytes or less.")
+            @Expect(e.message, "Control frame payload length '126' exceeds maximum 125.")
         }
         // send close frame by write() 
         websocket.write(CloseWebFrame, Array<UInt8>())
@@ -94,7 +94,7 @@ class TestWebSocketWriteAndReadCloseFramesH2 {
             websocket.read()
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "The connection is closed.")
+            @Expect(e.message, "WebSocket connection is closed.")
         }
 
         sleep(Duration.millisecond * 1000)
@@ -128,14 +128,14 @@ class TestWebSocketWriteAndReadCloseFramesH2 {
             websocketServer.writeCloseFrame(status: 200, reason: "normal")
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Invalid status code.")
+            @Expect(e.message, "Invalid close status code '200'.")
         }
 
         try {
             websocketServer.writeCloseFrame(status: 1000, reason: text)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "All control frames must have a payload length of 125 bytes or less.")
+            @Expect(e.message, "Close frame payload length '126' exceeds maximum 125.")
         }
 
         websocketServer.writeCloseFrame()

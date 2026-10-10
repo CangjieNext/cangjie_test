@@ -80,7 +80,7 @@ class DiffReporter:
     general.add_argument('first', help='First json report file for comparing')
     general.add_argument('second', help='Second json report file for comparing')
     general.add_argument('-o', '--output-file', action='store', dest='report_file',
-                        help='Path to the file to save the comparsion result. If it was not set, then print to console')
+                        help='Path to the file to save the comparison result. If it was not set, then print to console')
     general.add_argument('-t', '--report-type', action='store', dest='report_type',
                         help='Test report type (default: plain) **html type is not supported yet**', choices=['plain', 'html'], default='plain')
 
@@ -99,7 +99,7 @@ class DiffReporter:
     log_diff.add_argument('--include-same', action='store_true', dest='not_skip_same', default=False,
                         help='Don\'t skip tests with same logs in log difference report')
     log_diff.add_argument('--compare-commands', action='store_true', dest='comp_commands', default=False,
-                        help='Add compile and execute commands in the logs comparsion')
+                        help='Add compile and execute commands in the logs comparison')
     log_diff.add_argument('--unify-paths', action='store_true', dest='unify_paths', default=False,
                         help='Replace \'\\\' to \'/\' in logs (useful to check results from different OSes)')
 
@@ -120,10 +120,11 @@ class DiffReporter:
       self.second = args.second
       self._logger.debug('Second data file: %s', self.second)
     else:
-      if exists(args.first) and isfile(args.first):
+      if not (exists(args.first) and isfile(args.first)):
         self._logger.error('Path to the first data file is wrong: %s', args.first)
-      if exists(args.second) and isfile(args.second) :
+      if not (exists(args.second) and isfile(args.second)):
         self._logger.error('Path to the second data file is wrong: %s', args.second)
+      exit(1)
 
     # output file
     if args.report_file is None:

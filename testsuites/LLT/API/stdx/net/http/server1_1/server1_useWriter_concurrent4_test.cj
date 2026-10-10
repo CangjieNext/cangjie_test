@@ -57,7 +57,7 @@ class TestConcurrentWrite4 {
             try {
                 WebSocket.upgradeFromServer(ctx)
             } catch (e: WebSocketException) {
-                @Expect(e.message, "Already responded.")
+                @Expect(e.message, "Response already sent.")
             }
         }
     }

@@ -25,4 +25,4 @@ class C{}
 main(){
     return 0
 }
-// ASSERT: scan parse_expected_no_modifier
+// ASSERT: scan parse_illegal_modifier_in_scope

@@ -6,24 +6,49 @@
 
 // (CJNATIVE) EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
+
+
 class A <: Exception {}
 
 main() {
-    try {throw try {throw A();A()} finally {}}
+    try {
+        throw try {
+            throw A()
+            // EXPECT: chir_dce_unreachable_expression_hint
+            A()
+        } finally {}
+    }
     finally {}
+    // EXPECT: chir_dce_unreachable_expression_hint
     return 0
 }
 
 /* SCAN
 warning: unreachable expression
-  ==> testDCEThrow01.cj:12:31:
+  ==> testDCEThrow01.cj:18:13:
    | 
-12 |     try {throw try {throw A();A()} finally {}}
-   |                     ~~~~~~~~~ ^^^ unreachable expression
-   |                     |
-   |                     any code following this expression is unreachable
+16 |             throw A()
+   |             ~~~~~~~~~ any code following this expression is unreachable
+17 |             // EXPECT: chir_dce_unreachable_expression_hint
+18 |             A()
+   |             ^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-1 warning generated, 1 warning printed.
+warning: unreachable expression
+  ==> testDCEThrow01.cj:23:5:
+   | 
+14 |       try {
+   |  _____~
+15 | |         throw try {
+   | | ...
+21 | |     finally {}
+   | |______________~ any code following this expression is unreachable
+22 |       // EXPECT: chir_dce_unreachable_expression_hint
+23 |       return 0
+   |       ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+2 warnings generated, 2 warnings printed.
 */

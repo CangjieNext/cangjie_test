@@ -67,7 +67,7 @@ class HMACTest {
         anomalyAssert(
             "testInvlidInit_01",
             caseException01,
-            "This hash is not supported."
+            "Unsupported hash type."
         )
         var caseException02: ?Exception = None
         try {
@@ -80,7 +80,7 @@ class HMACTest {
         anomalyAssert(
             "testInvlidInit_02",
             caseException02,
-            "The key cannot be empty."
+            "Key is empty."
         )
         var caseException03: ?Exception = None
         try {
@@ -92,7 +92,7 @@ class HMACTest {
         anomalyAssert(
             "testInvlidInit_02",
             caseException03,
-            "The key cannot be empty."
+            "Key is empty."
         )
     }
 
@@ -183,7 +183,7 @@ class HMACTest {
         anomalyAssert(
             "testInvlidWriteAndFinish_01",
             caseException01,
-            "HMAC write failed, digest calculation has been completed."
+            "Digest calculation already completed."
         )
         var caseException02: ?Exception = None
         try {
@@ -197,7 +197,7 @@ class HMACTest {
         anomalyAssert(
             "testInvlidWriteAndFinish_02",
             caseException02,
-            "HMAC finish failed, digest calculation has been completed."
+            "Digest calculation already completed."
         )
     }
 

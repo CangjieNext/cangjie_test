@@ -1,0 +1,19 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[[packages]]
+filters = { include = ["test0", "test1", "test12319864000", "龍壬正", "𠲖", "正", "日", "月"] }
+package-name = "cjworld"
+output-path = "."
+
+[output-roots.default]
+path = "mirrors"
+
+[sources.all]
+paths = ["0test.h", "1test.h", "19864000test123.h", "龍壬正.h", "𠲖.h", "正.h", "日.h", "月.h"]
+
+[sources-mixins.default]
+sources = [".*"]

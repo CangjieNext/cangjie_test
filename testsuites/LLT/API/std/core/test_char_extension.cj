@@ -179,7 +179,7 @@ class RuneExtensionTest {
         } catch (e: IllegalArgumentException) {
             caseException01 = e
         }
-        anomalyAssert("testInvalidFromUtf8_01", caseException01, "Invalid utf8 byte sequence.")
+        anomalyAssert("testInvalidFromUtf8_01", caseException01, "Invalid UTF-8 byte sequence: unexpected continuation byte at index '0'.")
 
         var caseException02: ?Exception = None
         try {
@@ -187,14 +187,14 @@ class RuneExtensionTest {
         } catch (e: IllegalArgumentException) {
             caseException02 = e
         }
-        anomalyAssert("testInvalidFromUtf8_02", caseException02, "Invalid unicode scalar value.")
+        anomalyAssert("testInvalidFromUtf8_02", caseException02, "Invalid Unicode scalar value: invalid leading byte '250' at index '5'.")
         var caseException03: ?Exception = None
         try {
             Rune.fromUtf8([250u8, 170u8, 170u8, 170u8, 170u8], 0)
         } catch (e: IllegalArgumentException) {
             caseException03 = e
         }
-        anomalyAssert("testInvalidFromUtf8_03", caseException03, "Invalid unicode scalar value.")
+        anomalyAssert("testInvalidFromUtf8_03", caseException03, "Invalid Unicode scalar value: invalid leading byte '250' at index '0'.")
 
         // Test 5-byte UTF-8 sequence (0xF8 = 0b11111000) - should be rejected
         var arr5Byte: Array<UInt8> = [0b11111000, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
@@ -204,7 +204,7 @@ class RuneExtensionTest {
         } catch (e: IllegalArgumentException) {
             caseException04 = e
         }
-        anomalyAssert("testInvalidFromUtf8_5byte_0xF8", caseException04, "Invalid unicode scalar value.")
+        anomalyAssert("testInvalidFromUtf8_5byte_0xF8", caseException04, "Invalid Unicode scalar value: invalid leading byte '248' at index '0'.")
 
         // Test 5-byte UTF-8 sequence (0xFB = 0b11111011) - should be rejected
         var arr5Byte2: Array<UInt8> = [0b11111011, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
@@ -214,7 +214,7 @@ class RuneExtensionTest {
         } catch (e: IllegalArgumentException) {
             caseException05 = e
         }
-        anomalyAssert("testInvalidFromUtf8_5byte_0xFB", caseException05, "Invalid unicode scalar value.")
+        anomalyAssert("testInvalidFromUtf8_5byte_0xFB", caseException05, "Invalid Unicode scalar value: invalid leading byte '251' at index '0'.")
 
         // Test 6-byte UTF-8 sequence (0xFC = 0b11111100) - should be rejected
         var arr6Byte: Array<UInt8> = [0b11111100, 0b10000000, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
@@ -224,7 +224,7 @@ class RuneExtensionTest {
         } catch (e: IllegalArgumentException) {
             caseException06 = e
         }
-        anomalyAssert("testInvalidFromUtf8_6byte_0xFC", caseException06, "Invalid unicode scalar value.")
+        anomalyAssert("testInvalidFromUtf8_6byte_0xFC", caseException06, "Invalid Unicode scalar value: invalid leading byte '252' at index '0'.")
 
         // Test 6-byte UTF-8 sequence (0xFD = 0b11111101) - should be rejected
         var arr6Byte2: Array<UInt8> = [0b11111101, 0b10000000, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
@@ -234,7 +234,7 @@ class RuneExtensionTest {
         } catch (e: IllegalArgumentException) {
             caseException07 = e
         }
-        anomalyAssert("testInvalidFromUtf8_6byte_0xFD", caseException07, "Invalid unicode scalar value.")
+        anomalyAssert("testInvalidFromUtf8_6byte_0xFD", caseException07, "Invalid Unicode scalar value: invalid leading byte '253' at index '0'.")
     }
 
     /*
@@ -295,7 +295,7 @@ class RuneExtensionTest {
         anomalyAssert(
             "testInvalidRuneExtension_01",
             caseException01,
-            "Byte index 5 is not a Rune boundary, it is inside '￿'."
+            "Byte index '5' is not a Rune boundary, it is inside '￿'."
         )
 
         // Test 5-byte UTF-8 leading byte (0xF8 = 0b11111000)
@@ -309,7 +309,7 @@ class RuneExtensionTest {
         anomalyAssert(
             "testInvalidUtf8Size_5byte_0xF8",
             caseException02,
-            "Invalid UTF-8 character."
+            "Invalid UTF-8 character: byte '248' is not a valid leading byte."
         )
 
         // Test 5-byte UTF-8 leading byte (0xFB = 0b11111011)
@@ -323,7 +323,7 @@ class RuneExtensionTest {
         anomalyAssert(
             "testInvalidUtf8Size_5byte_0xFB",
             caseException03,
-            "Invalid UTF-8 character."
+            "Invalid UTF-8 character: byte '251' is not a valid leading byte."
         )
 
         // Test 6-byte UTF-8 leading byte (0xFC = 0b11111100)
@@ -337,7 +337,7 @@ class RuneExtensionTest {
         anomalyAssert(
             "testInvalidUtf8Size_6byte_0xFC",
             caseException04,
-            "Invalid UTF-8 character."
+            "Invalid UTF-8 character: byte '252' is not a valid leading byte."
         )
 
         // Test 6-byte UTF-8 leading byte (0xFD = 0b11111101)
@@ -351,7 +351,7 @@ class RuneExtensionTest {
         anomalyAssert(
             "testInvalidUtf8Size_6byte_0xFD",
             caseException05,
-            "Invalid UTF-8 character."
+            "Invalid UTF-8 character: byte '253' is not a valid leading byte."
         )
     }
 
@@ -391,7 +391,7 @@ class RuneExtensionTest {
         anomalyAssert(
             "testInvalidIntoUtf8Array_01",
             caseException01,
-            "The bytecode position occupied by this character is outside the range of the array."
+            "Rune requires '3' bytes for UTF-8 encoding, but array has only '2' bytes available from index '2'."
         )
 
         var caseException02: ?Exception = None
@@ -403,7 +403,7 @@ class RuneExtensionTest {
         anomalyAssert(
             "testInvalidIntoUtf8Array_02",
             caseException02,
-            "The bytecode position occupied by this character is outside the range of the array."
+            "Rune requires '1' bytes for UTF-8 encoding, but array has only '0' bytes available from index '4'."
         )
     }
 

@@ -22,7 +22,7 @@ main(): Int64 {
         fs3.write(b)
         ()
     } catch (e: FSException) {
-        if (!Regex("^FSException: The file `.+` does not have the write permission.$").matches(e.toString())) {
+        if (!Regex("^FSException: Cannot write to file '.+': file does not have write permission\\.$").matches(e.toString())) {
             return 1
         }
     }

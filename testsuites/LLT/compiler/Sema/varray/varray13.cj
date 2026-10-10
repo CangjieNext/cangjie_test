@@ -25,9 +25,7 @@ warning: unreachable expression
   ==> varray13.cj:14:9:
    | 
 14 |         var arr1: VArray<Nothing, $5> = VArray<Nothing, $5>(repeat: continue)
-   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^any code following this expression is unreachable
-   |         |
-   |         unreachable expression
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 

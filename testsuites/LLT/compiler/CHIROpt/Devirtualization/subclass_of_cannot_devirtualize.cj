@@ -4,11 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args
-// ASSERT: scan-not Devirtualization
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace
+// LEVEL: 0
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableDevirtualization %dumpCHIRDebug -Woff all %n.cj
+// Negative: A-typed parameter in bar stays Invoke even when runtime value is B.
+// EXEC: %python pick_defination.py test0_CHIR/[0-9]*_Devirtualization.chirtxt "Func @_CN5test03barHCNY_1AE" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan-not Invoke(Class-_CN5test01AE&->@_CN5test01A3fooHv
+// ASSERT: scan Apply(Class-_CN5test01BE&->@_CN5test01B3fooHv
 
 package test0
 
@@ -22,11 +25,11 @@ public class B <: A {
     }
 }
 
-func bar(a: A) {
+func bar(a: A): Int64 {
     a.foo() //invoke
 }
 
 main() {
     var a: A = B()
-    bar(a)
+    bar(a) - 0
 }

@@ -8,11 +8,12 @@
 
 // LEVEL: 3
 // DEPENDENCE: inputs.cj utils.cj visitors.cj
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -28,12 +29,12 @@ class TestParseEnumDecl {
 
     @Bench
     func BenchmarkParseEnumDecl_001() : Unit {
-        let enumDecl = (parseDecl(gqlSerializeInput1) as EnumDecl).getOrThrow()
+        blackBox((parseDecl(gqlSerializeInput1) as EnumDecl).getOrThrow())
     }
 
     @Bench
     func BenchmarkParseEnumDecl_002() : Unit {
-        let enumDecl = (parseDecl(gqlSerializeInput2) as EnumDecl).getOrThrow()
+        blackBox((parseDecl(gqlSerializeInput2) as EnumDecl).getOrThrow())
     }
 
 }

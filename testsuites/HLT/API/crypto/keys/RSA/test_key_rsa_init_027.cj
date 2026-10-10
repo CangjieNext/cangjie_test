@@ -26,7 +26,7 @@ class Test_key_rsa_init_027 {
             RSAPrivateKey(511, BigInt("5"))
             @Expect(false)
         } catch (e: CryptoException) {
-            @Expect(e.message, "Key size too small, low security level.")
+            @Expect(e.message, "Key size is too small: '511' bits, minimum is '512' bits.")
         }
     }
 
@@ -36,7 +36,7 @@ class Test_key_rsa_init_027 {
             RSAPrivateKey(Int32.Min, BigInt("3"))
             @Expect(false)
         } catch (e: CryptoException) {
-            @Expect(e.message, "Key size too small, low security level.")
+            @Expect(e.message, "Key size is too small: '-2147483648' bits, minimum is '512' bits.")
         }
     }
 
@@ -46,7 +46,7 @@ class Test_key_rsa_init_027 {
             RSAPrivateKey(16385, BigInt("3"))
             @Expect(false)
         } catch (e: CryptoException) {
-            @Expect(e.message, "Key size too long.")
+            @Expect(e.message, "Key size is too large: '16385' bits, maximum is '16384' bits.")
         }
     }
 
@@ -56,7 +56,7 @@ class Test_key_rsa_init_027 {
             RSAPrivateKey(512, BigInt("0"))
             @Expect(false)
         } catch (e: CryptoException) {
-            @Expect(e.message, "Public exponent value is invalid because it is an even number.")
+            @Expect(e.message, "Invalid public exponent '0': must be odd.")
         }
     }
 
@@ -66,7 +66,7 @@ class Test_key_rsa_init_027 {
             RSAPrivateKey(512, BigInt("1"))
             @Expect(false)
         } catch (e: CryptoException) {
-            @Expect(e.message, "Public exponent value is too small.")
+            @Expect(e.message, "Invalid public exponent '1': expected at least '3'.")
         }
     }
 
@@ -76,7 +76,7 @@ class Test_key_rsa_init_027 {
             RSAPrivateKey(512, BigInt("2"))
             @Expect(false)
         } catch (e: CryptoException) {
-            @Expect(e.message, "Public exponent value is invalid because it is an even number.")
+            @Expect(e.message, "Invalid public exponent '2': must be odd.")
         }
     }
 
@@ -86,7 +86,7 @@ class Test_key_rsa_init_027 {
             RSAPrivateKey(512, BigInt("4"))
             @Expect(false)
         } catch (e: CryptoException) {
-            @Expect(e.message, "Public exponent value is invalid because it is an even number.")
+            @Expect(e.message, "Invalid public exponent '4': must be odd.")
         }
     }
 }

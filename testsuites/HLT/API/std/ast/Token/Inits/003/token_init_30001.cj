@@ -9,7 +9,7 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %use_ast %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan IllegalArgumentException: TokenKind(dot) and Value(abc) not matched.
+// ASSERT: scan IllegalArgumentException: TokenKind 'dot' does not match value 'abc'.
 
 
 import std.ast.*

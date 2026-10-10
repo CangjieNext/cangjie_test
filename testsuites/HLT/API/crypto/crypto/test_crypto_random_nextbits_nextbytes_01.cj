@@ -50,7 +50,7 @@ class Test_random_nextbits_01 {
     func secureRandomNextBitsException(): Unit {
         let r = SecureRandom()
         let e = @AssertThrows[IllegalArgumentException](r.nextBits(0))
-        @Expect(e.message, "Bits cannot be 0.")
+        @Expect(e.message, "Invalid argument 'bits': cannot be 0.")
         @ExpectThrows[IllegalArgumentException](r.nextBits(65))
         @ExpectThrows[IllegalArgumentException](r.nextBits(128))
     }

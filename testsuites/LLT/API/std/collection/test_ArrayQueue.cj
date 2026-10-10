@@ -165,6 +165,6 @@ class Test_Queue {
     @TestCase
     func test_arrayqueue_init_notblank_03(): Unit {
         let e = @AssertThrows[IllegalArgumentException](ArrayQueue<Int64>(-100))
-        @Expect(e.message.contains("The capacity must be greater than or equal to 0: -100."))
+        @Expect(e.message.contains("Invalid capacity '-100': expected a non-negative value"))
     }
 }

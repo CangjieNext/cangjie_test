@@ -7,7 +7,7 @@
  */
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_args
-// ASSERT: scan throw exception while running CHIR plugin: ThrowPlugin
+// ASSERT: scan Exception thrown while running CHIR plugin 'ThrowPlugin'.
 // ASSERT: scan success: false
 // ASSERT: scan length: 0
 // executeCHIRPlugins：插件抛异常时捕获并返回失败

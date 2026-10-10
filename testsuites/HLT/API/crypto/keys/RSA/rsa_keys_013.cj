@@ -34,7 +34,7 @@ class Test_rsa_keys_013 {
         try {
             rsaPri.decrypt(bas2, bas3, padType: PKCS1)
         } catch (e: CryptoException) {
-            @Expect(e.message, "Decrypt error.")
+            @Expect(e.message, "Failed to decrypt data.")
         }
 
         var buf = Array<Byte>(str.size, repeat: 0)

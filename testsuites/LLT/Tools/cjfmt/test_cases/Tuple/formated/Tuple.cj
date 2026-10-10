@@ -8,7 +8,6 @@ let tuplePIE = (3.14, "PIE")
 var pointOne = (2.4, 3.5)
 var pointTwo = (2, 3, 4)
 var pointThree = ((2, 3), 4)
-
 var (x, y) = multiValues(8, 24)
 
 func multiValues(a: Int32, b: Int32) {

@@ -8,7 +8,7 @@
 
 // (LLVM) DEPENDENCE: %n.c
 // (LLVM) EXEC: %clang %clang_opt %n.c -o %cffi_output
-// (LLVM) EXEC: %compiler %cmp_opt %ffic_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg -o %output
+// (LLVM) EXEC: %compiler %cmp_opt %ffic_opt -O2 %overflow_wrapping --no-sub-pkg -o %output
 // (LLVM) RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %run %run_opt %output %run_utest_opt %run_args
 
 import std.time.*

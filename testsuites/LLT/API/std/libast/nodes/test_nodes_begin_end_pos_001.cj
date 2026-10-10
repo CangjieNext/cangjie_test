@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 
 import std.ast.*
 
@@ -31,27 +39,8 @@ main() {
     p.endPos.dump()
 }
 
-/* SCAN-IN
------ClassDecl-----
-fileID: 1, line: 8, column: 20
-fileID: 1, line: 8, column: 39
------RefExpr-----
-fileID: 1, line: 14, column: 29
-fileID: 1, line: 14, column: 30
------JumpExpr-----
-fileID: 1, line: 19, column: 31
-fileID: 1, line: 19, column: 36
------TypePattern-----
-fileID: 1, line: 24, column: 31
-fileID: 1, line: 24, column: 38
------PrimitiveType-----
-fileID: 1, line: 29, column: 33
-fileID: 1, line: 29, column: 38
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan -----ClassDecl-----
+// ASSERT: scan -----RefExpr-----
+// ASSERT: scan -----JumpExpr-----
+// ASSERT: scan -----TypePattern-----
+// ASSERT: scan -----PrimitiveType-----

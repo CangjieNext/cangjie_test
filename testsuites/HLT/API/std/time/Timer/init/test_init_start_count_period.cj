@@ -50,7 +50,7 @@ class Test_start_count_period {
             var timer = Timer.repeatTimes(0, Duration.Zero, Duration.millisecond * 100, {=> cnt3 += 1})
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message, "Count cannot be less than or equal to 0.")
+            @Expect(e.message, "Invalid argument 'count': must be positive, got 0.")
         }
         @Expect(flag, true)
     }
@@ -62,7 +62,7 @@ class Test_start_count_period {
             var timer = Timer.repeatTimes(-1, Duration.Zero, Duration.millisecond * 100, {=> cnt3 += 1})
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message, "Count cannot be less than or equal to 0.")
+            @Expect(e.message, "Invalid argument 'count': must be positive, got -1.")
         }
         @Expect(flag, true)
     }
@@ -74,7 +74,7 @@ class Test_start_count_period {
             var timer = Timer.repeatTimes(5, Duration.Zero, Duration.Zero, {=> cnt3 += 1})
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message, "Interval cannot be less than or equal to Duration.Zero.")
+            @Expect(e.message, "Invalid argument 'interval': must be positive, got 0s.")
         }
         @Expect(flag, true)
     }
@@ -86,7 +86,7 @@ class Test_start_count_period {
             var timer = Timer.repeatTimes(5, Duration.Zero, Duration.nanosecond * -1, {=> cnt3 += 1})
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message, "Interval cannot be less than or equal to Duration.Zero.")
+            @Expect(e.message, "Invalid argument 'interval': must be positive, got -1ns.")
         }
         @Expect(flag, true)
     }

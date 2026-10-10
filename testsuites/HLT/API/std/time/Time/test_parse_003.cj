@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt   %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan Exception
-// ASSERT: scan Fail to parse at index 2: ":" should be integer.
+// ASSERT: scan Failed to parse at index 2: expected an integer, got ':'.
 
 import std.time.*
 

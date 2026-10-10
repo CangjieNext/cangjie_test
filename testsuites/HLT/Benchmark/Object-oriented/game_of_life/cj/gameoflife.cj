@@ -8,7 +8,7 @@
 
 // LEVEL: 3
 // DEPENDENCE: ../data.txt
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping %f -o %output
 // (not Windows) RUN-EXEC: %export cjHeapSize=768mb && %export JETVMPROP="-Djet.gc.heaplimit=768m" && %run %run_opt %output 3 %run_args
 
 import std.fs.*

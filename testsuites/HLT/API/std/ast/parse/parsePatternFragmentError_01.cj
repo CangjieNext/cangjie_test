@@ -11,12 +11,8 @@
 // EXEC: %compiler %cmp_macro parsePatternFragmentError_define.cj
 // EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
-// ASSERT: scan expected pattern, found keyword 'case'
 // ASSERT: scan An exception has occurred:
-// ASSERT: scan ParseASTException
-// ASSERT: scan parsing pattern fragment error.
-// ASSERT: scan macro evaluation has failed for macro call 'M'
-
+// ASSERT: scan ParseASTException: Failed to parse pattern fragment.
 internal import std.ast.*
 import define.*
 

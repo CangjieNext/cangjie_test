@@ -9,10 +9,8 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: regex An exception has occurred:
-// ASSERT: scan ParseASTException
-// ASSERT: scan parsing expr error
-
+// ASSERT: scan An exception has occurred:
+// ASSERT: scan ParseASTException: Failed to parse expr.
 import std.ast.*
 
 main(): Int64 {

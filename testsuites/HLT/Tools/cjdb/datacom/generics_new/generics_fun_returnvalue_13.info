@@ -27,8 +27,8 @@ p, p c1.vlistc,\(std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] =
 AOT p, p default::C1::vlist,\(std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p globals_list,\(std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 locals, locals,\(std.collection(?:\.|::)ArrayList<Int64>\) llist = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(default(?:\.|::)S1\) s1 = {[\s\S]*vlists = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(default(?:\.|::)C1\) c1 = {[\s\S]*vlistc = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-globals, globals,\(std.collection(?:\.|::)ArrayList<Int64>\) default(?:\.|::)C1::vlist = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-globals, globals,\(std.collection(?:\.|::)ArrayList<Int64>\) default(?:\.|::)globals_list = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p default::C1::vlist,\(std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p default::globals_list,\(std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 b, b genericsfun_return.cj:162,genericsfun_return.cj:162
 c,c,162
 p, p e,\(std.collection(?:\.|::)ArrayList<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*

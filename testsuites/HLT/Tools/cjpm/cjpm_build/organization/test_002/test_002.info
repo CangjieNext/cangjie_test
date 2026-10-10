@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm test --no-color --no-progress | compare %f
+// ASSERT: regex-1 TP: .*\.\*
+// ASSERT: regex-1 TP: huawei::test\.\*
+// ASSERT: regex TOTAL: 3
+// ASSERT: regex PASSED: 3, SKIPPED: 0, ERROR: 0
+// ASSERT: regex FAILED: 0
+// ASSERT: regex cjpm test success
+// EXEC: cd %n && %cjpm test --no-color --no-progress --report-format=xml-per-package
+// EXEC: cd %n && ls ./target/release/reports/tests/test-test@huawei.xml ./target/release/reports/tests/test-test.koo@huawei.xml ./target/release/reports/tests/test-test.zoo@huawei.xml

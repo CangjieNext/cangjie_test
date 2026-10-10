@@ -81,7 +81,7 @@ class TestClient1_1CheckClAndTe2 {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The content-length and transfer-encoding can not be set together.")
+            @Expect(e.message, "Both content-length and transfer-encoding are present.")
         }
 
         client.close()

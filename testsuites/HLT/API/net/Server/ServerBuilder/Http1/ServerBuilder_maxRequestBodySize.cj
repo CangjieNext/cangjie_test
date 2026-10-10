@@ -51,7 +51,7 @@ public class Test_maxRequestBodySize {
             let server = ServerBuilder().addr("127.0.0.1").port(0).maxRequestBodySize(-1).build()
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message.contains("Body size shouldn't be negative"))
+            @Expect(e.message, "Invalid argument 'size': expected a non-negative value, got '-1'.")
         }
         @Expect(flag, true)
     }

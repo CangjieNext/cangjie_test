@@ -25,7 +25,7 @@ main() {
         var ret = strReader.readToEnd()
         sb.append(ret)
     } catch (e: FSException) {
-        if (!Regex("^FSException: The file `.+` not opened, can not to read.$").matches(e.toString())) {
+        if (!Regex("^FSException: Cannot read file '.+': file is not opened\\.$").matches(e.toString())) {
             return 1
         }
     }

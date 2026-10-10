@@ -18,6 +18,7 @@ class A {}
    long comment
 
  */
+
 class A {}
 
 /*
@@ -49,6 +50,7 @@ class A {
        long comment
 
      */
+
     func c() {}
 
     /*

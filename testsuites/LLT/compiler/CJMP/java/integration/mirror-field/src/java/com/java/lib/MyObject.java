@@ -19,6 +19,8 @@ public class MyObject {
         this.x = true;
         System.out.println("java: var x init");
     }
+    public Object obj;
+    public static Object sobj = "Object";
     public boolean x;
     public final short y;
     public static int sx;

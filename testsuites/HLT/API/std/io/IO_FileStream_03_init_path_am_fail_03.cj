@@ -20,7 +20,7 @@ main(): Int64 {
         var fs1 = File(fileName, ReadWrite)
         ()
     } catch (e: FSException) {
-        if (!e.toString().contains("FSException: Failed to open the file")) {
+        if (!e.toString().contains("FSException: Failed to open file")) {
             return 1
         }
     }

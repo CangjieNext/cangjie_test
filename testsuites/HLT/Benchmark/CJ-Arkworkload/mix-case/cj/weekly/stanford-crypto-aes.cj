@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// O2编译时间过长，会timeout，测试头用O0编译，性能测试时加上%optimization_level_2
+// O2编译时间过长，会timeout，测试头用O0编译，性能测试时加上-O2
 // EXEC: %compiler %cmp_opt --no-sub-pkg %f -o %output
 // RUN-EXEC: %export cjHeapSize=512mb && %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan ms

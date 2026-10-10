@@ -146,7 +146,7 @@ class TestClient1_1SendHttpBody {
         try {
             client.send(r)
         } catch (e: Exception) {
-            @Expect(e.message, "The content-length or transfer-encoding should be set if there is a body.")
+            @Expect(e.message, "Content-length or transfer-encoding is required for request body.")
         }
         client.close()
         serverSocket.close()

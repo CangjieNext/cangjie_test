@@ -280,7 +280,7 @@ class Testwebsocketconf_04 {
                 websocketServer.write(CloseWebFrame, Array<UInt8>(126, repeat: 97))
                 @Expect(1, 2)
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+                @Expect(e.message, "Control frame payload length '126' exceeds maximum 125.")
             }
             let websocketFrame1 = websocketServer.read()
             @Expect(websocketFrame1.fin, true)

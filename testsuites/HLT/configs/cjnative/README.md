@@ -56,9 +56,9 @@ hle 工具进行 C 胶水层生成
 
 hle 工具进行 ArkTS 胶水层生成
 
-## `cjcpl`
+## `cjcompat`
 
-cjcpl 工具
+cjcompat 工具
 
 ## `old_cjo`
 

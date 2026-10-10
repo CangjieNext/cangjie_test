@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping %f -o %output
 // RUN-EXEC: %export cjHeapSize=1gb && %export JETVMPROP="-Djet.gc.heaplimit=1g" && %run %run_opt %output 100000000 1 3 %run_args
 // RUN-EXEC: %export cjHeapSize=1gb && %export JETVMPROP="-Djet.gc.heaplimit=1g" && %run %run_opt %output 100000000 8 3 %run_args
 // RUN-EXEC: %export cjHeapSize=1gb && %export JETVMPROP="-Djet.gc.heaplimit=1g" && %run %run_opt %output 100000000 16 3 %run_args 2>&1 | compare %f
