@@ -17,6 +17,7 @@ class P {
      * star line here
        starless again
      */
+
     public func v(): Int64 {
         /*
                 only starless

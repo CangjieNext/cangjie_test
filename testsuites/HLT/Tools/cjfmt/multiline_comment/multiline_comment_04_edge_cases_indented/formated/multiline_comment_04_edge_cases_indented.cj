@@ -31,6 +31,7 @@ class E {
     /* first line content
      * star second
      */
+
     public func m(): Unit {
         /*
          * in func
