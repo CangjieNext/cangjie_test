@@ -28,7 +28,7 @@ public class Test_Remove_Int64_From_HashSet {
     }
 
     @Bench[data in hashSetData]
-    func BenchmarkRemoveFromHashset(data: (HashSet<Int64>, ArrayList<Int64>)): Unit {
+    func BenchmarkRemoveFromHashset_Int64(data: (HashSet<Int64>, ArrayList<Int64>)): Unit {
         var tmpSet = HashSet<Int64>(data[0])
         for (key in data[1]) {
             blackBox(tmpSet.remove(key))

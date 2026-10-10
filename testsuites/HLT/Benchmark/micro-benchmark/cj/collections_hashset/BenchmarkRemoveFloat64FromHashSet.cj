@@ -28,7 +28,7 @@ public class Test_Remove_Float64_From_HashSet {
     }
 
     @Bench[data in hashSetData]
-    func BenchmarkRemoveFromHashset(data: (HashSet<Float64>, ArrayList<Float64>)): Unit {
+    func BenchmarkRemoveFromHashset_Float64(data: (HashSet<Float64>, ArrayList<Float64>)): Unit {
         var tmpSet = HashSet<Float64>(data[0])
         for (key in data[1]) {
             blackBox(tmpSet.remove(key))

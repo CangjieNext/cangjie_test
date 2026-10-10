@@ -27,7 +27,7 @@ public class Test_Contains_String_In_HashSet {
     }
 
     @Bench[data in hashSetData]
-    func BenchmarkContainsInHashset(data: (HashSet<String>, ArrayList<String>)): Unit {
+    func BenchmarkContainsInHashset_String(data: (HashSet<String>, ArrayList<String>)): Unit {
         for (key in data[1]) {
             blackBox(data[0].contains(key))
         }
