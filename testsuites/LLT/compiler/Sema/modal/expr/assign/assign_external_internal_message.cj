@@ -30,14 +30,14 @@ func internalReceivesExternal(pc: C@local!) {
 
 main() {}
 /* SCAN
-error: cannot assign external @local! to expression of 'internal Class-D @local!' type
+error: cannot assign internal @local! to expression of 'external Class-D @local!' type
   ==> assign_external_internal_message.cj:23:5:
    | 
 23 |     pc.d = d
    |     ^^^^^^^^ 
    | 
 
-error: cannot assign internal @local! to expression of 'external Class-D @local!' type
+error: cannot assign external @local! to expression of 'internal Class-D @local!' type
   ==> assign_external_internal_message.cj:28:5:
    | 
 28 |     d = pc.d
