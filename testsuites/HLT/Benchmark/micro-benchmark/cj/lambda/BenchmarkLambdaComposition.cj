@@ -27,21 +27,21 @@ public class TestLambdaComposition {
     static let k2 = { x: Int64 => Float64(x) * 2.25 }
 
     @Bench[i in [512]]
-    func BenchmarkLambdaComposition_(i: Int32): Int64 {
+    func BenchmarkLambdaComposition(i: Int32): Int64 {
         let lambda = f ~> g_h
         blackBox(lambda)
         lambda(i)
     }
 
     @Bench[i in [512]]
-    func BenchmarkLambdaComposition2_(i: Int32): Int64 {
+    func BenchmarkLambdaComposition2(i: Int32): Int64 {
         let lambda = f ~> g_h ~> k1
         blackBox(lambda)
         lambda(i)
     }
 
     @Bench[i in [512]]
-    func BenchmarkLambdaComposition3_(i: Int32): Int64 {
+    func BenchmarkLambdaComposition3(i: Int32): Int64 {
         let lambda = f ~> g_h ~> k2 ~> g_h
         blackBox(lambda)
         lambda(i)

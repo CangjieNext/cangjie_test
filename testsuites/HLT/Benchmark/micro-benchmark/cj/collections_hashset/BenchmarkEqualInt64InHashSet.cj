@@ -45,7 +45,7 @@ public class Test_Equal_Int64_In_HashSet {
     }
 
     @Bench[data in partEqualData]
-    func BenchmarkEqualInt64InHashSet_PartEqual(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
+    func BenchmarkEqualInt64InHashSet_PartEqual_Int64(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
         blackBox(data[0] == data[1])
     }
 
@@ -59,7 +59,7 @@ public class Test_Equal_Int64_In_HashSet {
     }
 
     @Bench[data in diffSizeData]
-    func BenchmarkEqualInt64InHashSet_DiffSize(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
+    func BenchmarkEqualInt64InHashSet_DiffSize_Int64(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
         blackBox(data[0] == data[1])
     }
 
@@ -73,7 +73,7 @@ public class Test_Equal_Int64_In_HashSet {
     }
 
     @Bench[data in unEqualData]
-    func BenchmarkEqualInt64InHashSet_UnEqual(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
+    func BenchmarkEqualInt64InHashSet_UnEqual_Int64(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
         blackBox(data[0] == data[1])
     }
 
@@ -86,7 +86,7 @@ public class Test_Equal_Int64_In_HashSet {
     }
 
     @Bench[data in allEqualData]
-    func BenchmarkEqualInt64InHashSet_AllEqual(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
+    func BenchmarkEqualInt64InHashSet_AllEqual_Int64(data: (HashSet<Int64>, HashSet<Int64>)): Unit {
         blackBox(data[0] == data[1])
     }
 }
