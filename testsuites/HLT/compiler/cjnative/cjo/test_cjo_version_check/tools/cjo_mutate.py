@@ -17,10 +17,11 @@
 #   --generate <base.cjo> <out.cjo> --set-cjo-version M.m.p [--set-version-string S]
 #
 # 资源定位:flatc 与 CjoFormat.fbs 只在本脚本所在目录(tools/)查找,其他路径一律不搜;
-#   各平台 flatc 以 zip 入库,首次使用解压到本目录。
+#   各平台 flatc 以 zip 入库(linux 分架构),首次使用解压到本目录。
 # 门禁语义:接受 minor<=cur 且 major<=cur(含 (0,0,0)=缺版本形态),任一超出即拒绝。
 import argparse
 import os
+import platform
 import random
 import re
 import shutil
@@ -30,14 +31,29 @@ import tempfile
 import zipfile
 
 
-# 各平台 flatc 以 zip 入库(包内单个二进制),首次使用解压到本脚本所在目录后直接复用。
-_FLATC_SPECIFIC = {'win': 'flatc-win.exe', 'mac': 'flatc-mac', 'linux': 'flatc-linux'}
-_FLATC_GENERIC = {'win': 'flatc.exe', 'mac': 'flatc', 'linux': 'flatc'}
-_FLATC_ZIPS = {  # 本平台 zip 候选名(平台名优先,通名兜底)
-    'win': ('flatc-win.zip', 'flatc-windows.zip', 'flatc.zip'),
-    'mac': ('flatc-mac.zip', 'flatc-macos.zip', 'flatc-darwin.zip', 'flatc.zip'),
-    'linux': ('flatc-linux.zip', 'flatc.zip'),
+# 各平台 flatc 以 zip 入库(包内单个二进制),首次使用解压到本脚本所在目录后直接复用;
+# linux 按机器架构细分(x64 包以 ubuntu18 为基线发行版构建,glibc 兼容面最广),win/mac 不分架构。
+_FLATC_LINUX_ARCH = {  # platform.machine() → flatc 二进制专属名
+    'x86_64': 'flatc-linux-x64-ubuntu18',
+    'amd64': 'flatc-linux-x64-ubuntu18',
+    'aarch64': 'flatc-linux-aarch64',
+    'arm64': 'flatc-linux-aarch64',
 }
+_FLATC_GENERIC = {'win': 'flatc.exe', 'mac': 'flatc', 'linux': 'flatc'}
+
+
+def _flatc_specific_name(key):
+    """本平台 flatc 二进制专属名(linux 再按机器架构细分,未收录架构退回平台通名)。"""
+    if key == 'linux':
+        return _FLATC_LINUX_ARCH.get(platform.machine().lower(), 'flatc-linux')
+    return 'flatc-win.exe' if key == 'win' else 'flatc-mac'
+
+
+def _flatc_zip_candidates(key):
+    """本平台 zip 候选名(专属架构名优先,linux 旧平台名/通名兜底)。"""
+    if key == 'linux':
+        return (_flatc_specific_name(key) + '.zip', 'flatc-linux.zip', 'flatc.zip')
+    return ('flatc-%s.zip' % key,)
 
 
 def _platform_key():
@@ -63,30 +79,33 @@ def locate_tool(name):
 def locate_flatc():
     """找本平台 flatc:仅脚本所在目录内 专属名 → 本平台 zip(首次解压) → 通名。
 
-    专属名优先于通名,避免同目录内他平台 flatc 被误用。
+    专属名优先于通名,避免同目录内他平台/他架构 flatc 被误用;linux 再按机器架构细分。
     """
     key = _platform_key()
     d = _tools_dir()
-    cand = os.path.join(d, _FLATC_SPECIFIC[key])
+    specific = _flatc_specific_name(key)
+    cand = os.path.join(d, specific)
     if os.path.isfile(cand):
         return cand
-    for zname in _FLATC_ZIPS[key]:
+    for zname in _flatc_zip_candidates(key):
         zcand = os.path.join(d, zname)
         if os.path.isfile(zcand):
-            return _extract_flatc_zip(zcand)
+            return _extract_flatc_zip(zcand, specific)
     cand = os.path.join(d, _FLATC_GENERIC[key])
     if os.path.isfile(cand):
         return cand
-    raise SystemExit('cjo_mutate.py: cannot locate flatc for %s (searched only %s; '
-                     '请确认本平台 flatc 二进制或 zip 与本脚本同目录)' % (key, d))
+    arch = platform.machine().lower() if key == 'linux' else '-'
+    raise SystemExit('cjo_mutate.py: cannot locate flatc for %s (%s) (searched only %s; '
+                     '请确认本平台/本架构 flatc 二进制或 zip 与本脚本同目录)'
+                     % (key, arch, d))
 
 
-def _extract_flatc_zip(zip_path):
+def _extract_flatc_zip(zip_path, specific):
     """解包 flatc zip 到 zip 同级目录(即脚本所在目录),返回本平台二进制路径。
 
     并发解压按"已存在且等长则跳过 + 临时名原子替换"防撕裂。
     """
-    bases = (_FLATC_SPECIFIC[_platform_key()], _FLATC_GENERIC[_platform_key()])
+    bases = (specific, _FLATC_GENERIC[_platform_key()])
     outdir = os.path.dirname(os.path.abspath(zip_path))
     try:
         with zipfile.ZipFile(zip_path) as zf:

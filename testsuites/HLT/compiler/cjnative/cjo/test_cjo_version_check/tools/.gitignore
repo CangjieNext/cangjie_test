@@ -4,4 +4,6 @@ flatc.exe
 flatc-mac
 flatc-linux
 flatc-win.exe
+flatc-linux-x64-ubuntu18
+flatc-linux-aarch64
 *.tmp*
