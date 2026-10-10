@@ -374,6 +374,8 @@ function main() {
         get_result
     elif [ $api = "collections_hashmap" ]; then
         get_result
+    elif [ $api = "collections_hashset" ]; then
+        get_result
     elif [ $api = "collections_arraydeque" ]; then
         get_result
     elif [ $api = "collections_arraystack" ]; then
@@ -387,6 +389,8 @@ function main() {
     elif [ $api = "collections_treeset" ]; then
         get_result
     elif [ $api = "reflect" ]; then
+        get_result
+    elif [ $api = "atomic" ]; then
         get_result
     elif [ $api = "loop" ]; then
         get_result
