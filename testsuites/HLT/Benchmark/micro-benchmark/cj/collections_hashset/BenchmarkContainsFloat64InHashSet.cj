@@ -27,7 +27,7 @@ public class Test_Contains_Float64_In_HashSet {
     }
 
     @Bench[data in hashSetData]
-    func BenchmarkContainsInHashset(data: (HashSet<Float64>, ArrayList<Float64>)): Unit {
+    func BenchmarkContainsInHashset_Float64(data: (HashSet<Float64>, ArrayList<Float64>)): Unit {
         for (key in data[1]) {
             blackBox(data[0].contains(key))
         }

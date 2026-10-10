@@ -30,7 +30,7 @@ public class Test_ArrayList_PrependAll {
     }
 
     @Bench[x in arrayListStrategy]
-    func BenchmarkHashMapPut_Float64_(x: ArrayList<Int64>): Unit {
+    func BenchmarkArrayListPrependAll_Int64(x: ArrayList<Int64>): Unit {
         x.add(all: prepend, at: 0)
     }
 }

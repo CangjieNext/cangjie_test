@@ -23,7 +23,7 @@ public class Test_Forin_Range {
     let _range = [1000, 1000_000, 1000_000_000]
 
     @Bench[count in _range]
-    func BenchmarkForinRangeWhere_UnClosed_N_(count: Int64): Unit {
+    func BenchmarkForinRangeWhere_UnClosed_N(count: Int64): Unit {
         for (j in 0..count where j % 2 == 1) {
             sum += j
         }
@@ -31,7 +31,7 @@ public class Test_Forin_Range {
     }
 
     @Bench[count in _range]
-    func BenchmarkForinRangeWhere_Closed_N_(count: Int64): Unit {
+    func BenchmarkForinRangeWhere_Closed_N(count: Int64): Unit {
         for (j in 0..=count where j % 2 == 1) {
             sum += j
         }

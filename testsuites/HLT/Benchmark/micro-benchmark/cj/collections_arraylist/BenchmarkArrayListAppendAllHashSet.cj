@@ -30,7 +30,7 @@ public class Test_ArrayList_AppendAll_HashSet {
     }
 
     @Bench[x in hashmapStrategy, input in dataStrategy]
-    func BenchmarkHashSetAppendAll_N(x: ArrayList<Int64>, input: HashSet<Int64>): Unit {
+    func BenchmarkArrayListAppendAllHashSet_N(x: ArrayList<Int64>, input: HashSet<Int64>): Unit {
         x.add(all: input)
     }
 }
