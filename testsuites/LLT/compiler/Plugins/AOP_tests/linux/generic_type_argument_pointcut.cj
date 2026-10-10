@@ -6,7 +6,7 @@
 
 // (CJNATIVE and Linux)EXEC-PIPE-0: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %collect_aspects_plugin %weave_aspects_plugin
 // (CJNATIVE and Linux)EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_args | compare %f
-// (CJNATIVE and Linux)ASSERT: scan exact=1\nwildcard=1\ntyped=2\nprocessIntegers\nwildcard=1\nprocessStrings\nexactHits=1\nwildcardHits=2\ntypedHits=1\n
+// (CJNATIVE and Linux)ASSERT: scan processIntegers:exact=1,wildcard=1,typed=1\nprocessStrings:exact=1,wildcard=2,typed=1\nexactHits=1\nwildcardHits=2\ntypedHits=1\n
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
@@ -26,7 +26,16 @@ var typedHits: Int64 = 0
 ]
 public func exactArrayElement(args: Array<Any>): Unit {
     exactHits++
-    println("exact=${args.size}")
+    if (args.size != 1) {
+        throw IllegalArgumentException("wrong exact argument count")
+    }
+    match (args[0]) {
+        case values: Array<Int64> =>
+            if (values.size != 2 || values[0] != 1 || values[1] != 2) {
+                throw IllegalArgumentException("wrong exact array values")
+            }
+        case _ => throw IllegalArgumentException("wrong exact array type")
+    }
 }
 
 @InsertAtEntry[
@@ -39,7 +48,9 @@ public func exactArrayElement(args: Array<Any>): Unit {
 ]
 public func wildcardArrayElement(args: Array<Any>): Unit {
     wildcardHits++
-    println("wildcard=${args.size}")
+    if (args.size != 1) {
+        throw IllegalArgumentException("wrong wildcard argument count")
+    }
 }
 
 @InsertAtEntry[
@@ -52,15 +63,19 @@ public func wildcardArrayElement(args: Array<Any>): Unit {
 ]
 public func typedArrayElement(values: Array<Int64>): Unit {
     typedHits++
-    println("typed=${values.size}")
+    if (values.size != 2 || values[0] != 1 || values[1] != 2) {
+        throw IllegalArgumentException("wrong typed array values")
+    }
 }
 
 public func processIntegers(values: Array<Int64>): Unit {
-    println("processIntegers")
+    // All entry advices must run before the body; their relative order is not
+    // part of the pointcut matching contract.
+    println("processIntegers:exact=${exactHits},wildcard=${wildcardHits},typed=${typedHits}")
 }
 
 public func processStrings(values: Array<String>): Unit {
-    println("processStrings")
+    println("processStrings:exact=${exactHits},wildcard=${wildcardHits},typed=${typedHits}")
 }
 
 main() {
