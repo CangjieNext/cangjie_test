@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// (LLVM) EXEC: %compiler %cmp_opt %optimization_level_2 --fast-math %overflow_wrapping %f -o %output
+// (LLVM) EXEC: %compiler %cmp_opt -O2 --fast-math %overflow_wrapping %f -o %output
 // (JET) EXEC: %compiler %cmp_opt %overflow_wrapping %f -o %output
 
 import std.fs.*

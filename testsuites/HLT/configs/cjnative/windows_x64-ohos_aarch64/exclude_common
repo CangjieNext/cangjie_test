@@ -439,3 +439,6 @@ API/std/console/stdin/test_stdin_windows_35.cj
 
 # OHOS does not support reflection of enum type currently.
 API/std/reflect/cjnative/enum_type
+
+# std.concurrent is not built for OHOS
+API/std/concurrent

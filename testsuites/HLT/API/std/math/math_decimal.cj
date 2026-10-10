@@ -40,7 +40,7 @@ class DecimalTest {
         try {
             dec1.divAndMod(dec3)
         } catch (e: ArithmeticException) {
-            @Expect(e.message.contains("Divided by zero"))
+            @Expect(e.message.contains("Division by zero"))
         }
     }
 
@@ -185,12 +185,12 @@ class DecimalTest {
         try {
             Decimal.parse("-9.9e9nihao")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("[digit, sign]"))
+            @Expect(e.message.contains("String exponent value contains invalid character"))
         }
         try {
             Decimal.parse("")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("String value cannot be empty"))
+            @Expect(e.message.contains("String value is empty"))
         }
     }
 
@@ -199,7 +199,7 @@ class DecimalTest {
         try {
             let int = Decimal.parse("nihaocangjie")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("[digit, '.', e, sign]"))
+            @Expect(e.message.contains("String value contains invalid character"))
         }
     }
 

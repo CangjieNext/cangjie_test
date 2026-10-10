@@ -84,7 +84,7 @@ class Test_tlsclientconf_01 {
         try {
             CustomCA(X509Certificate.decodeFromPem(pemcli).map({c => c}))
         } catch (e: Exception) {
-            @Expect(e.message.contains("Failed to parse base64 encoded PEM body"))
+            @Expect(e.message.contains("Failed to parse PEM: invalid base64 content"))
             sum1 += 1
         }
         @Expect(sum1, 1)

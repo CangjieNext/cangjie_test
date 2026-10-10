@@ -23,28 +23,28 @@ class Test_parse_g {
         try {
             let res2 = DateTime.parse("2023/04/20 19:52:23 +00:00 AD", "yyyy/MM/dd HH:mm:ss OOOO G")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Extar value, start at index 28.")
+            @Expect(e.message, "Extra value starting at index 28.")
             cnt += 1
         }
 
         try {
             let res3 = DateTime.parse("2023/04/20 19:52:23 +00:00 Anno Domini", "yyyy/MM/dd HH:mm:ss OOOO G")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Extar value, start at index 28.")
+            @Expect(e.message, "Extra value starting at index 28.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/20 19:52:23 +00:00 0", "yyyy/MM/dd HH:mm:ss OOOO G")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Illegal era value.")
+            @Expect(e.message, "Invalid era value '0'.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/04/20 19:52:23 +00:00 a", "yyyy/MM/dd HH:mm:ss OOOO G")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Illegal era value.")
+            @Expect(e.message, "Invalid era value 'a'.")
             cnt += 1
         }
 
@@ -59,28 +59,28 @@ class Test_parse_g {
         try {
             let res2 = DateTime.parse("2023/04/20 19:52:23 +00:00 A", "yyyy/MM/dd HH:mm:ss OOOO GG")
         } catch (e2: TimeParseException) {
-            @Expect(e2.message, "Illegal era value.")
+            @Expect(e2.message, "Invalid era value: insufficient length.")
             cnt += 1
         }
 
         try {
             let res3 = DateTime.parse("2023/04/20 19:52:23 +00:00 Anno Domini", "yyyy/MM/dd HH:mm:ss OOOO GG")
         } catch (e3: TimeParseException) {
-            @Expect(e3.message, "Illegal era value.")
+            @Expect(e3.message, "Invalid era value 'An'.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/20 19:52:23 +00:00 00", "yyyy/MM/dd HH:mm:ss OOOO GG")
         } catch (e4: TimeParseException) {
-            @Expect(e4.message, "Illegal era value.")
+            @Expect(e4.message, "Invalid era value '00'.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/04/20 19:52:23 +00:00 ad", "yyyy/MM/dd HH:mm:ss OOOO GG")
         } catch (e5: TimeParseException) {
-            @Expect(e5.message, "Illegal era value.")
+            @Expect(e5.message, "Invalid era value 'ad'.")
             cnt += 1
         }
 
@@ -95,28 +95,28 @@ class Test_parse_g {
         try {
             let res2 = DateTime.parse("2023/04/20 19:52:23 +00:00 A", "yyyy/MM/dd HH:mm:ss OOOO GGG")
         } catch (e2: TimeParseException) {
-            @Expect(e2.message, "Illegal era value.")
+            @Expect(e2.message, "Invalid era value: insufficient length.")
             cnt += 1
         }
 
         try {
             let res3 = DateTime.parse("2023/04/20 19:52:23 +00:00 AD", "yyyy/MM/dd HH:mm:ss OOOO GGG")
         } catch (e3: TimeParseException) {
-            @Expect(e3.message, "Illegal era value.")
+            @Expect(e3.message, "Invalid era value: insufficient length.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/20 19:52:23 +00:00 00", "yyyy/MM/dd HH:mm:ss OOOO GGG")
         } catch (e4: TimeParseException) {
-            @Expect(e4.message, "Illegal era value.")
+            @Expect(e4.message, "Invalid era value: insufficient length.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/04/20 19:52:23 +00:00 ad", "yyyy/MM/dd HH:mm:ss OOOO GGG")
         } catch (e5: TimeParseException) {
-            @Expect(e5.message, "Illegal era value.")
+            @Expect(e5.message, "Invalid era value: insufficient length.")
             cnt += 1
         }
 

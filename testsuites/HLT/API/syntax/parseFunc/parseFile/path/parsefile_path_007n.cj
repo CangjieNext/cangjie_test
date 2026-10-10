@@ -18,6 +18,6 @@ class test_01{
     @TestCase
 func test_filepath_007() {
     let e = @AssertThrows[Exception](parseFile("./file/file001.acj"))
-    @Assert(e.message, "IOException: The file extension of the source file must be 'cj'.")
+    @Assert(e.message, "Invalid file extension: expected 'cj', got 'acj'.")
 }
 }

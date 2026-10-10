@@ -125,7 +125,7 @@ class Test_X509_certificaterequest_init {
         try {
             let csrInfo = X509CertificateRequestInfo(IPAddresses: [ip1, ip3])
         } catch (e: X509Exception) {
-            @Expect(e.message.contains("Illegal IP address"))
+            @Expect(e.message.contains("invalid IP address"))
             println(e.message)
         }
     }
@@ -135,7 +135,7 @@ class Test_X509_certificaterequest_init {
         try {
             let csr = X509CertificateRequest(ec, signatureAlgorithm: SHA384WithRSA)
         } catch (e: X509Exception) {
-            @Expect(e.message.contains("Private key type not match to signatureAlgorithm"))
+            @Expect(e.message.contains("Private key type does not match"))
             println(e.message)
         }
     }
@@ -145,7 +145,7 @@ class Test_X509_certificaterequest_init {
         try {
             let csr = X509CertificateRequest(ec, signatureAlgorithm: UnknownSignatureAlgorithm)
         } catch (e: X509Exception) {
-            @Expect(e.message.contains("X509 create certificate failed: Not supported UnknownSignatureAlgorithm."))
+            @Expect(e.message.contains("'UnknownSignatureAlgorithm' is not supported"))
             println(e.message)
         }
     }

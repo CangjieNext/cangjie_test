@@ -51,7 +51,7 @@ class Test_tlsprivatekey_pwd_01 {
         try {
             GeneralPrivateKey.decodeFromPem(pemData, password:"")
         } catch (e:CryptoException) {
-            @Expect(e.message.contains("Password shouldn't be empty"))
+            @Expect(e.message, "Password is empty.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -64,7 +64,7 @@ class Test_tlsprivatekey_pwd_01 {
         try {
             GeneralPrivateKey.decodeFromPem(pemData, password:"\0")
         } catch (e:CryptoException) {
-            @Expect(e.message.contains("Password shouldn't contain zero byte"))
+            @Expect(e.message, "Password contains zero byte.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -111,7 +111,7 @@ class Test_tlsprivatekey_pwd_01 {
         try {
             GeneralPrivateKey.decodeFromPem(pemData, password:"")
         } catch (e:CryptoException){
-            @Expect(e.message.contains("Password shouldn't be empty"))
+            @Expect(e.message, "Password is empty.")
             sum += 1
         }
         @Expect(sum , 1)
@@ -124,7 +124,7 @@ class Test_tlsprivatekey_pwd_01 {
         try {
             GeneralPrivateKey.decodeFromPem(pemData, password:"\0")
         } catch (e:CryptoException){
-            @Expect(e.message.contains("Password shouldn't contain zero byte"))
+            @Expect(e.message, "Password contains zero byte.")
             sum += 1
         }
         @Expect(sum , 1)

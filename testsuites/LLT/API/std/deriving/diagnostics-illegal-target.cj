@@ -66,14 +66,7 @@ error: Deriving is only supported for classes, enums and structs
    |     ^^^^ 
    | 
 
-error: Deriving is only supported for classes, enums and structs: ParseASTException: 
-[31merror[0m: expected declaration, found 'A'
-  [36m| [0m
-  [36m| [0mA() { }[0m
-  [36m| [0m[31m^ expected declaration here[0m
-  [36m| [0m
-
-parsing decl error.
+error: Deriving is only supported for classes, enums and structs: ParseASTException: Failed to parse decl.
   ==> diagnostics-illegal-target.cj:26:5:
    | 
 26 |     A() {}
@@ -87,28 +80,14 @@ error: Deriving is only supported for classes, enums and structs
    |     ^^^^ 
    | 
 
-error: Deriving is only supported for classes, enums and structs: ParseASTException: 
-[31merror[0m: expected declaration, found 'param'
-  [36m| [0m
-  [36m| [0mparam: String[0m
-  [36m| [0m[31m^^^^^ expected declaration here[0m
-  [36m| [0m
-
-parsing decl error.
+error: Deriving is only supported for classes, enums and structs: ParseASTException: Failed to parse decl.
   ==> diagnostics-illegal-target.cj:33:9:
    | 
 33 |         param: String
    |         ^^^^^ 
    | 
 
-error: Deriving is only supported for classes, enums and structs: ParseASTException: 
-[31merror[0m: expected '{', found '('
-  [36m| [0m
-  [36m| [0mclass z()[0m
-  [36m| [0m       [31m^ expected '{' here[0m
-  [36m| [0m
-
-parsing decl error.
+error: Deriving is only supported for classes, enums and structs: ParseASTException: Failed to parse decl.
   ==> diagnostics-illegal-target.cj:38:8:
    | 
 38 | (class z())

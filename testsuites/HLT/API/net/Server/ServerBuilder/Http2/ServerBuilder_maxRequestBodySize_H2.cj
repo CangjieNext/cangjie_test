@@ -81,7 +81,7 @@ public class Test_maxRequestBodySize_h2 {
                 .build()
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message.contains("Body size shouldn't be negative"))
+            @Expect(e.message, "Invalid argument 'size': expected a non-negative value, got '-1'.")
         }
         @Expect(flag, true)
     }

@@ -72,5 +72,5 @@ class TestServer11SingleLineLimit {
 }
 
 /* SCAN-IN
-Single header size out of limit 32768.
+Single header size exceeds limit '32768'.
  */

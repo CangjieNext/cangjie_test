@@ -205,7 +205,7 @@ class OperationTest {
             arr2 |> skip<Int64>(-1)
             @Expect("Should throw exception", "arr2 |> skip<Int64>(-1)")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Skip count cannot less than 0!")
+            @Expect(e.message, "Invalid argument 'count': expected a non-negative value, got '-1'.")
         }
 
         @Expect(collectArray<Int64>(arr2 |> take<Int64>(3)), [0, 1, 2])
@@ -214,7 +214,7 @@ class OperationTest {
             arr2 |> take<Int64>(-1)
             @Expect("Should throw exception", "arr2 |> skip<Int64>(-1)")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Take count cannot less than 0!")
+            @Expect(e.message, "Invalid argument 'count': expected a non-negative value, got '-1'.")
         }
 
         @Expect(collectArray<Int64>(arr2 |> step<Int64>(2)), [0, 2, 4, 6, 8])
@@ -223,14 +223,14 @@ class OperationTest {
             arr2 |> step<Int64>(0)
             @Expect("Should throw exception", "arr2 |> skip<Int64>(-1)")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Step count must be greater than 0!")
+            @Expect(e.message, "Invalid argument 'count': expected a positive value, got '0'.")
         }
 
         try {
             arr2 |> step<Int64>(-1)
             @Expect("Should throw exception", "arr2 |> skip<Int64>(-1)")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Step count must be greater than 0!")
+            @Expect(e.message, "Invalid argument 'count': expected a positive value, got '-1'.")
         }
     }
 
@@ -278,7 +278,7 @@ class OperationTest {
             arr2.iterator().skip(-1)
             @Expect("Should throw exception", "arr2 |> skip<Int64>(-1)")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Skip count cannot less than 0!")
+            @Expect(e.message, "Invalid argument 'count': expected a non-negative value, got '-1'.")
         }
 
         @Expect(collectArray<Int64>(arr2.iterator().take(3)), [0, 1, 2])
@@ -287,7 +287,7 @@ class OperationTest {
             arr2.iterator().take(-1)
             @Expect("Should throw exception", "arr2 |> skip<Int64>(-1)")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Take count cannot less than 0!")
+            @Expect(e.message, "Invalid argument 'count': expected a non-negative value, got '-1'.")
         }
 
         @Expect(collectArray<Int64>(arr2.iterator().step(2)), [0, 2, 4, 6, 8])
@@ -296,14 +296,14 @@ class OperationTest {
             arr2.iterator().step(0)
             @Expect("Should throw exception", "arr2 |> skip<Int64>(-1)")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Step count must be greater than 0!")
+            @Expect(e.message, "Invalid argument 'count': expected a positive value, got '0'.")
         }
 
         try {
             arr2.iterator().step(-1)
             @Expect("Should throw exception", "arr2 |> skip<Int64>(-1)")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Step count must be greater than 0!")
+            @Expect(e.message, "Invalid argument 'count': expected a positive value, got '-1'.")
         }
     }
 }

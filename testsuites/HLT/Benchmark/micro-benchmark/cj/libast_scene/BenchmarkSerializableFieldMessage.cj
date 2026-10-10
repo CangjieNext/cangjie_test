@@ -8,11 +8,12 @@
 
 // LEVEL: 3
 // DEPENDENCE: inputs.cj utils.cj visitors.cj
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -260,61 +261,61 @@ public var dependencies: HashMap < String, JSONSchemaPropsOrStringArray >= HashM
     @Bench
     func BenchmarkSerializableFieldMessage_001() {
         for ((val1, val2) in this.serializableInput1) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_002() {
         for ((val1, val2) in this.serializableInput2) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_003() {
         for ((val1, val2) in this.serializableInput3) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_004() {
         for ((val1, val2) in this.serializableInput4) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_005() {
         for ((val1, val2) in this.patchMetaInput1) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_006() {
         for ((val1, val2) in this.patchMetaInput2) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_007() {
         for ((val1, val2) in this.patchMetaInput3) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_008() {
         for ((val1, val2) in this.patchMetaInput4) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_009() {
         for ((val1, val2) in this.genericSingleResourceInput1) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
     @Bench
     func BenchmarkSerializableFieldMessage_010() {
         for ((val1, val2) in this.genericSingleResourceInput2) {
-            this.handleMessages(val1, val2)
+            blackBox(this.handleMessages(val1, val2))
         }
     }
 }

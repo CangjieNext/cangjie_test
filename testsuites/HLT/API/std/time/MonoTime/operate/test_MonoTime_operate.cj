@@ -32,13 +32,13 @@ class MonoTime_Operate_Test {
             let m5 = basem1 + duraMax
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The result exceeds the range of 'MonoTime'.")
+            @Expect(e.message, "Arithmetic overflow: result exceeds MonoTime range.")
         }
         try {
             let m6 = basem1 + durMin
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The result exceeds the range of 'MonoTime'.")
+            @Expect(e.message, "Arithmetic overflow: result exceeds MonoTime range.")
         }
         let m11 = m3 + Duration.second - Duration.second
         @Expect(m11, m3)
@@ -63,13 +63,13 @@ class MonoTime_Operate_Test {
         try {
             let m9 = basem1 - duraMax
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The result exceeds the range of 'MonoTime'.")
+            @Expect(e.message, "Arithmetic overflow: result exceeds MonoTime range.")
         }
         try {
             let m10 = basem1 - durMin
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The result exceeds the range of 'MonoTime'.")
+            @Expect(e.message, "Arithmetic overflow: result exceeds MonoTime range.")
         }
         let m12 = m7 - Duration.second + Duration.second
         @Expect(m7, m12)

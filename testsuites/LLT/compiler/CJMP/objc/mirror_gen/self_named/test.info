@@ -32,16 +32,22 @@ public type T10 = Int32
 
 public type T11 = Int32
 
+public type T12 = Int32
+
+public type T13 = CPointer<T12>
+
 @C
 public struct S {
     public var T1: T1 = 0
     public var T2: CPointer<T2> = CPointer<T2>()
+    public var T12: T13 = CPointer<T12>()
 }
 
 @ObjCMirror
 public open class M {
     // protected var S: S
     // protected var T1: ObjCPointer<T1>
+    // protected var T12: ObjCPointer<T12> /*T13*/
     // public open func T2(): T2
     // public open func T3(): ObjCPointer<T3>
     @ForeignName["foo:"] public open func foo(T3: T3): Unit

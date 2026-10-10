@@ -81,7 +81,7 @@ class Test_rsa_sign {
             rsaPub.verify(sha512Instance, md, sig, padType: PKCS1)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Sign error"))
+            @Expect(e.message, "Failed to sign data.")
         }
         @Expect(sum, 1)
     }
@@ -110,7 +110,7 @@ class Test_rsa_sign {
             PSSOption(-1)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Salt length can not less than 0"))
+            @Expect(e.message, "Salt length cannot be negative.")
         }
         @Expect(sum, 1)
     }
@@ -130,7 +130,7 @@ class Test_rsa_sign {
             rsaPri.sign(sha512Instance, md, padType: OAEP(opt))
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("OAEPOption only use in encrypt or decrypt"))
+            @Expect(e.message, "OAEPOption is only applicable to encryption or decryption operations.")
         }
         @Expect(sum, 1)
     }
@@ -155,7 +155,7 @@ class Test_rsa_sign {
             rsaPub.verify(sha224Instance, md, sig, padType: OAEP(opt))
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("OAEPOption only use in encrypt or decrypt"))
+            @Expect(e.message, "OAEPOption is only applicable to encryption or decryption operations.")
         }
         @Expect(sum, 1)
     }

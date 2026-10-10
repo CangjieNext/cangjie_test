@@ -43,7 +43,7 @@ class TestConnNodeSendRequestUPGRADE {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Request header Upgrade is only supported in method upgrade or upgradeFromClient.")
+            @Expect(e.message, "Upgrade header requires using upgrade() or upgradeFromClient() method.")
         }
         // upgrade request must have Upgrade
         let r2 = HttpRequestBuilder().url(u).build()
@@ -59,7 +59,7 @@ class TestConnNodeSendRequestUPGRADE {
             client.upgrade(r3)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Only HTTP/1.1 support upgrade.")
+            @Expect(e.message, "Only HTTP/1.1 supports upgrade.")
         }
         // TRACE with body
         let r4 = HttpRequestBuilder().trace().url(u).header("upgrade", "websocekt").body("ab".toArray()).build()
@@ -67,7 +67,7 @@ class TestConnNodeSendRequestUPGRADE {
             client.upgrade(r4)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "TRACE request can not contain content.")
+            @Expect(e.message, "TRACE request cannot contain content.")
         }
         // CONNECT
         let r5 = HttpRequestBuilder().url(u).connect().header("upgrade", "websocekt").build()

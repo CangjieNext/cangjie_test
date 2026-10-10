@@ -84,7 +84,7 @@ public class Test_writeTimeout {
         @Expect(client.writeTimeout, Duration.Zero)
         let request = HttpRequestBuilder().body(body).url("https://127.0.0.1:${s.port}/dd").version(HTTP2_0).build()
         let e = @AssertThrows[HttpTimeoutException | SocketException | HttpException](client.send(request))
-        @Expect(e.message.contains("Client2_0 write request timeout") || e.message.contains("Connection refused") || e.message.contains("Stream closed"))
+        @Expect(e.message.contains("Write request timeout") || e.message.contains("Connection refused") || e.message.contains("Stream closed"))
         client.close()
         s.close()
     }

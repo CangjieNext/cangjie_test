@@ -7,14 +7,13 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
 import std.collection.*
 import stdx.crypto.crypto.*
-
-var element = Option<Int64>.None
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -50,42 +49,42 @@ public class Test_HashMap_Get_Int64 {
     @Bench
     public func BenchmarkHashMapGet_Int64_16(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapGet_Int64_128(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapGet_Int64_1024(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapGet_Int64_8192(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapGet_Int64_65536(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 
     @Bench
     public func BenchmarkHashMapGet_Int64_1048576(): Unit {
         for (v in keys) {
-            element = hashmap.get(v)
+            blackBox(hashmap.get(v))
         }
     }
 }

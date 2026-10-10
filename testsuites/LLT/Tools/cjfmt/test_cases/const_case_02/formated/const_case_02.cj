@@ -7,7 +7,6 @@
 package pkg
 
 public const (a, b) = (1, 2)
-
 public const x = 0
 
 public const func f() {

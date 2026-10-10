@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC-PIPE-0: %run %run_opt %output %run_args 2>&1 | compare %f
 
@@ -13,29 +21,13 @@ main() {
     return 0
 }
 
-/* SCAN-IN
-FuncDecl {
-  -annotations: 0, Annotation {
-    -identifier: Frozen
-  }
-  -keyword: Token {
-    value: "func"
-    kind: FUNC
-    pos: 8: 24
-  }
-  -identifier: Token {
-    value: "testFunc"
-    kind: IDENTIFIER
-    pos: 8: 29
-  }
-  -block: Block {
-  }
-}
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan FuncDecl {
+// ASSERT: scan -annotations: 0, Annotation {
+// ASSERT: scan -identifier: Frozen
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "func"
+// ASSERT: scan kind: FUNC
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "testFunc"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -block: Block {

@@ -28,14 +28,17 @@ class C1 {
 let all_count = 20
 var ready_count = 0
 var running_count = 0
-
+@When[os=="iOS"]
+var count:Int64=21
+@When[os!="iOS"]
+var count:Int64=20
 main() {
     let _ = Array<Future<Unit>>(all_count) { _ =>
         spawn { C1.foo() }
     }
     sleep(Duration.second * 3)
     let _thread_infos = ThreadSnapshot.dumpAllThreads()
-    @Assert(_thread_infos.size, all_count + 1)
+    @Assert(_thread_infos.size, count + 1)
     for (_thread_info_id in 0..all_count) {
         let _thread_info = _thread_infos[_thread_info_id]
         match(_thread_info.state) {

@@ -42,7 +42,7 @@ class TestConnNodeSendRequestTRACE {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "TRACE request can not contain content.")
+            @Expect(e.message, "TRACE request cannot contain content.")
         }
         println("send_request_TRACE_test")
     }

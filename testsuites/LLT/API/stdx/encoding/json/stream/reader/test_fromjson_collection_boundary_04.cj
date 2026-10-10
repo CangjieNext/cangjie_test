@@ -67,7 +67,7 @@ class Test_fromjson_collection_boundary_04 {
     @TestCase
     func test_uint64_decimal_overflow_is_reported(): Unit {
         let e = @AssertThrows[OverflowException](UInt64.fromJson(readerOf("18446744073709551616")))
-        @Expect(e.message, "The next number is out of range for UInt64.")
+        @Expect(e.message, "Number is out of range for UInt64.")
     }
 
     @TestCase

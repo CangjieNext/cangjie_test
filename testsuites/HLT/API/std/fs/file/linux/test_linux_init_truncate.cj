@@ -57,14 +57,14 @@ class Test_Init_Truncate {
         try {
             File("", Read)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input path is empty.")
+            @Expect(e.message, "Invalid argument 'path': cannot be empty.")
             sum += 1
         }
         for (str in illegal_str) {
             try {
                 File(str, Read)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The input path value ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "Invalid argument 'path': value '${unsafe { str.rawData() }}' contains null character.")
                 sum += 1
             }
         }
@@ -80,7 +80,7 @@ class Test_Init_Truncate {
                 File(Path(str), Read)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
+                @Expect(e.message, "Cannot open file: parent directory '${parpath}' does not exist.")
                 sum += 1
             }
         }
@@ -125,7 +125,7 @@ class Test_Init_Truncate {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` not opened, can not to read.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.+': file is not opened.$").matches(e.message))
             sum += 1
         }
         @Expect(sum, 1)
@@ -145,7 +145,7 @@ class Test_Init_Truncate {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Assert(Regex("^The file `.+` does not have the read permission.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.+': file does not have read permission.$").matches(e.message))
             sum += 1
         }
         file.close()

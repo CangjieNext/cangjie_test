@@ -33,6 +33,7 @@ export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M"
 function read_testlist() {
     while read line
     do
+        line=${line%$'\r'}
         echo $line
         if [ -n "$line" ]; then
             if [ $api = "cffi" ]; then
@@ -93,6 +94,14 @@ function read_testlist() {
                 run_ast_benchmark $line
             elif [ $api = "reflect" ]; then
                 run_reflect_benchmark $line
+            elif [ $api = "json" ]; then
+                run_string_benchmark $line
+            elif [ $api = "io" ]; then
+                run_string_benchmark $line
+            elif [ $api = "convert" ]; then
+                run_string_benchmark $line
+            elif [ $api = "expression" ]; then
+                run_string_benchmark $line
             else
                 run_benchmark $line
             fi
@@ -200,8 +209,8 @@ function run_collections_hashset_benchmark() {
     cd "$base/../../cj/collections_hashset"
     result="result-jet-collections_hashset.list"
     benchmark=$1
-    cjc ${benchmark}.cj common_collection.cj $opt -o ${benchmark}.cbc
-    res=`timeout 1800 cj --cbc-path $CANGJIE_STDX_PATH ./${benchmark}.cbc`
+    cjc ${benchmark}.cj common_collection.cj $opt -o ${benchmark}.cbc --test
+    res=`timeout 1800 cj --cbc-path $CANGJIE_STDX_PATH ./${benchmark}.cbc --bench --no-color`
     if [ -n "$res" ]; then
         echo "$res" >> "$base/$result"
     else
@@ -270,8 +279,8 @@ function run_atomic_aarch64_benchmark(){
     mod="$base/../../cj/atomic"
     cd $mod
 
-    cjc ${benchmark}.cj $opt -o ${benchmark}.cbc
-    res=`timeout 1800 cj --cbc-path $CANGJIE_STDX_PATH ./${benchmark}.cbc`
+    cjc ${benchmark}.cj $opt -o ${benchmark}.cbc --test
+    res=`timeout 1800 cj --cbc-path $CANGJIE_STDX_PATH ./${benchmark}.cbc --bench --no-color`
     if [ -n "$res" ]; then
         echo "$res" >> "$base/$result"
     else
@@ -283,8 +292,9 @@ function get_result() {
     cd $base/../testlist/
     while read line
     do
+        line=${line%$'\r'}
         sed -i '/ Benchmark/!d' $result_log
-        grep $line $result_log > $base/temp.txt
+        grep "$line" "$result_log" > $base/temp.txt
         awk -F '|' '{gsub(/ /, "",$(NF-6)); gsub(/[ -]/, "",$(NF-5)); gsub(/,/, "_",$(NF-5)); print $(NF-6)$(NF-5) $(NF-1)}' $base/temp.txt >> $base/result.txt
     done < $testlist
 
@@ -378,6 +388,8 @@ function main() {
         get_result
     elif [ $api = "libast_scene" ]; then
         get_result
+    elif [ $api = "json" ] || [ $api = "io" ] || [ $api = "convert" ] || [ $api = "expression" ]; then
+        get_result
     elif [ $api = "server_http" ]; then
         cd  $base/../run
         bash $base/../run/server_http.sh jet
@@ -399,9 +411,6 @@ function main() {
     elif [ $api = "objectpool" ]; then
         cd  $base/../result
         sed -i '/Benchmark/!d' result-jet-objectpool.list
-    elif [ $api = "expression" ]; then
-        cd  $base/../result
-        sed -i '/Benchmark/!d' result-jet-expression.list
     fi
 }
 

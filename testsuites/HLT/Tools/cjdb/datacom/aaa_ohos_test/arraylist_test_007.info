@@ -1,0 +1,21 @@
+﻿/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// (target_ohos) DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_baseVar.cj
+// (target_ohos) EXEC: python3 cjdb_test.py arraylist_test_007.info ArrayList_baseVar %run_env
+
+test#
+cjdb,cjdb --no-use-colors ArrayList_baseVar,ArrayList_baseVar
+b,b ArrayList_baseVar.cj:43,ArrayList_baseVar.cj:43
+AOT r,r,-> 43
+c,c,43
+p,p Arrlist_bool,\(std[.]collection(?:\.|::)ArrayList<Bool>\)[\s\S]*{[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*\[2\] = true[\s\S]*}
+p,p Arrlist_rune,\(std[.]collection(?:\.|::)ArrayList<Rune>\)[\s\S]*{[\s\S]*\[0\] = 'c'[\s\S]*\[6\] = 'e'[\s\S]*\[9\] = 'y'[\s\S]*}
+p,p Arrlist_I8,\(std[.]collection(?:\.|::)ArrayList<Int8>\)[\s\S]*{[\s\S]*\[0\] = 8[\s\S]*\[1\] = 3[\s\S]*\[2\] = 4[\s\S]*}
+q,q,

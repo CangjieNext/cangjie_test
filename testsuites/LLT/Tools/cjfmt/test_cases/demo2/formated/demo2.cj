@@ -9,6 +9,7 @@ package Components
 /*
  * Component
  */
+
 class ListItem <: Component {
     // class body
     var content: Array<Component>

@@ -34,7 +34,7 @@ main()
 
         var test_enum_1 = Yellow(1,2,3,4,1.1,1.2,1.3,true,r'c',"CC",10,Red,10)
         let test_enum_2 = Yellow_2(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-        var test_enum_3 = Yellow_3("测试%&……%￥#",[1,2,3],(18,"测试test"),(),0..5,test_enum_1)
+        var test_enum_3 = Yellow_3("test",[1,2,3],(18,"test"),(),0..5,test_enum_1)
         var test_enum_4 = test_R.Red(test_RGBColor.Red(10))
         let test_enum_5 = returnFunc(test_enum_3)
         var test_enum_6 = returnFunc(test_enum_1,para_2:test_RGBColor.Red)

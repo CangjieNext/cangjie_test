@@ -1,0 +1,20 @@
+﻿/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+main(): Int64 {
+    var a = 0
+    var b = 0
+    var c = 0
+    var d = a + b + c
+    var e = a * b + c * d
+    if (a > b && c > d) {
+        return 0
+    } else {
+        return 1
+    }
+}

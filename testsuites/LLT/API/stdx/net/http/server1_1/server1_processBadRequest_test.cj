@@ -97,15 +97,15 @@ class ProcessBadRequest {
 }
 
 /* SCAN-IN
-The logic of content-length and transfer-encoding is incorrect.
+Invalid content-length and transfer-encoding combination.
  */
 
 /* SCAN-IN
-Invalid value for expect
+Invalid expect header value
  */
 
 /* SCAN-IN
-Malformed trailer field
+Invalid trailer header
  */
 
 /* SCAN-IN

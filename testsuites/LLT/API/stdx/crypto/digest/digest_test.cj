@@ -98,13 +98,13 @@ class Test_digest {
         try {
             digestInstance.write(str.toArray())
         } catch (e: CryptoException) {
-            @Assert(e.message, name+" write failed, digest calculation has been completed.")
+            @Assert(e.message, "Digest calculation already completed.")
             num++
         }
         try {
             digestInstance.finish()
         } catch (e: CryptoException) {
-            @Assert(e.message, name+" finish failed, digest calculation has been completed.")
+            @Assert(e.message, "Digest calculation already completed.")
             num++
         }
         digestInstance.reset()
@@ -113,7 +113,7 @@ class Test_digest {
         try {
             digestInstance.finish(to: md)
         } catch (e: CryptoException) {
-            @Assert(e.message, "The length of output is not equal to the digest length.")
+            @Assert(e.message, "Output length '${md.size}' does not match digest length '${digestInstance.size}'.")
             num++
         }
         @Assert(num, 3)

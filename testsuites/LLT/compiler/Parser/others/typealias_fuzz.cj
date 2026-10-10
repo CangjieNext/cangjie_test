@@ -13,10 +13,10 @@ type C = ?A<O
 
 /* SCAN
 error: unclosed delimiter: '<'
-  ==> typealias_fuzz.cj:11:13:
+  ==> typealias_fuzz.cj:11:14:
    | 
 11 | type C = ?A<O
-   |            ~^ expected '>' here
+   |            ~ ^ expected '>' here
    |            |
    |            to match this opening '<'
    | 

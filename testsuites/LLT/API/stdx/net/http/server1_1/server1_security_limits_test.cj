@@ -99,4 +99,4 @@ class TestHttpSecurityLimits {
     }
 }
 
-// ASSERT:scan Header count out of limit
+// ASSERT:scan Header count

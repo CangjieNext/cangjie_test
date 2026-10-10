@@ -1,0 +1,15 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc cj/*.cj %compile_shared_lib_opt %import_java_interop --output-javagen-dir=java/cjworld
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && sed -i "s/\loadLibrary(\"cjworld\")/loadLibrary(\"newcjworld\")/g" java/cjworld/*.java
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop java/cjworld/LinkImpl.java java/Main.java
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && %java -Djava.library.path=. %cp_cj_loader_java_interop:./java Main 2>&1 | compare %f
+
+/* SCAN-IN
+Hello from LinkImpl.boo()
+*/

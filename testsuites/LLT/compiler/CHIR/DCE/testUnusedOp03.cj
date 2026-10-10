@@ -6,6 +6,12 @@
 
 //EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
+
+
+
+
+
+
 private func foo() {
     (return 99) + 1
 }
@@ -33,9 +39,9 @@ main() {
 
 /* SCAN
 warning: unreachable 'operator'
-  ==> testUnusedOp03.cj:10:19:
+  ==> testUnusedOp03.cj:16:19:
    | 
-10 |     (return 99) + 1
+16 |     (return 99) + 1
    |      ~~~~~~~~~    ^ unreachable 'operator'
    |      |
    |      any code following this expression is unreachable
@@ -43,17 +49,17 @@ warning: unreachable 'operator'
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unused expression
-  ==> testUnusedOp03.cj:14:5:
+  ==> testUnusedOp03.cj:20:5:
    | 
-14 |     1 + (return 99)
+20 |     1 + (return 99)
    |     ^ unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unreachable 'operator'
-  ==> testUnusedOp03.cj:14:7:
+  ==> testUnusedOp03.cj:20:7:
    | 
-14 |     1 + (return 99)
+20 |     1 + (return 99)
    |       ^  ~~~~~~~~~ any code following this expression is unreachable
    |       |
    |       unreachable 'operator'
@@ -61,33 +67,54 @@ warning: unreachable 'operator'
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unused function:'test'
-  ==> testUnusedOp03.cj:17:1:
+  ==> testUnusedOp03.cj:23:1:
    | 
-17 |   private func test(a: Int64, b: Int64) {
+23 |   private func test(a: Int64, b: Int64) {
    |  _^
-18 | |     a + b
-19 | | }
+24 | |     a + b
+25 | | }
    | |_^ unused function
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unused result of the operator:'+'
-  ==> testUnusedOp03.cj:23:11:
+  ==> testUnusedOp03.cj:29:11:
    | 
-23 |     foo() + bar()
+29 |     foo() + bar()
    |           ^ unused result of the operator
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-warning: unreachable expression
-  ==> testUnusedOp03.cj:29:20:
+warning: unreachable 'call'
+  ==> testUnusedOp03.cj:35:5:
    | 
-29 |     test(return 0, foo() + 1)
+35 |     test(return 0, foo() + 1)
+   |     ^^^^ ~~~~~~~~ any code following this expression is unreachable
+   |     |
+   |     unreachable 'call'
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable expression
+  ==> testUnusedOp03.cj:35:20:
+   | 
+35 |     test(return 0, foo() + 1)
    |          ~~~~~~~~  ^^^^^^^^^ unreachable expression
    |          |
    |          any code following this expression is unreachable
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-6 warnings generated, 6 warnings printed.
+warning: unreachable expression
+  ==> testUnusedOp03.cj:37:5:
+   | 
+35 |     test(return 0, foo() + 1)
+   |     ~~~~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+36 | 
+37 |     return 0
+   |     ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+8 warnings generated, 8 warnings printed.
 */

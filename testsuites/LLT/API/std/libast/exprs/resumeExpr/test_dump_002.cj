@@ -6,6 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %enableEH %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC-PIPE-0: %run %set_stdx_path %run_opt %output %run_args 2>&1 | compare %f
 internal import std.ast.*
@@ -24,43 +25,25 @@ main() : Int64 {
     return 0
 }
 
-/* SCAN
-ResumeExpr {
-  -keywordR: Token {
-    value: "resume"
-    kind: RESUME
-    pos: 14: 25
-  }
-  -keywordW: Token {
-    value: "with"
-    kind: WITH
-    pos: 14: 32
-  }
-  -withExpr: RefExpr {
-    -identifier: Token {
-      value: "bla"
-      kind: IDENTIFIER
-      pos: 14: 37
-    }
-  }
-}
-ResumeExpr {
-  -keywordR: Token {
-    value: "resume"
-    kind: RESUME
-    pos: 14: 25
-  }
-  -keywordW: Token {
-    value: "with"
-    kind: WITH
-    pos: 14: 32
-  }
-  -withExpr: RefExpr {
-    -identifier: Token {
-      value: "bla"
-      kind: IDENTIFIER
-      pos: 14: 37
-    }
-  }
-}
-*/
+// ASSERT: scan ResumeExpr {
+// ASSERT: scan -keywordR: Token {
+// ASSERT: scan value: "resume"
+// ASSERT: scan kind: RESUME
+// ASSERT: scan -keywordW: Token {
+// ASSERT: scan value: "with"
+// ASSERT: scan kind: WITH
+// ASSERT: scan -withExpr: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "bla"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan ResumeExpr {
+// ASSERT: scan -keywordR: Token {
+// ASSERT: scan value: "resume"
+// ASSERT: scan kind: RESUME
+// ASSERT: scan -keywordW: Token {
+// ASSERT: scan value: "with"
+// ASSERT: scan kind: WITH
+// ASSERT: scan -withExpr: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "bla"
+// ASSERT: scan kind: IDENTIFIER

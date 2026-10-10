@@ -28,28 +28,28 @@ class Test_parse_month {
         try {
             let res4 = DateTime.parse("2023/00/17 19:52:23 +00:00", "yyyy/M/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Month value must be in [1, 12].")
+            @Expect(e.message, "Invalid month value: expected 1 to 12.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/13/17 19:52:23 +00:00", "yyyy/M/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Month value must be in [1, 12].")
+            @Expect(e.message, "Invalid month value: expected 1 to 12.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/113/17 19:52:23 +00:00", "yyyy/M/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 7: \"3\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 7: expected '/', got '3'.")
             cnt += 1
         }
 
         try {
             let res7 = DateTime.parse("2023//17 19:52:23 +00:00", "yyyy/M/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 5: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 5: expected an integer, got '/'.")
             cnt += 1
         }
         @Expect(cnt, 4)
@@ -66,28 +66,28 @@ class Test_parse_month {
         try {
             let res3 = DateTime.parse("2023/1/17 19:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 6: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 6: expected an integer, got '/'.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/011/17 19:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 7: \"1\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 7: expected '/', got '1'.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/JAN/17 19:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 5: \"J\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 5: expected an integer, got 'J'.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023//17 19:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 5: \"/\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 5: expected an integer, got '/'.")
             cnt += 1
         }
         @Expect(cnt, 4)
@@ -104,28 +104,28 @@ class Test_parse_month {
         try {
             let res3 = DateTime.parse("2023/Ja/17 19:52:23 +00:00", "yyyy/MMM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/Jann/17 19:52:23 +00:00", "yyyy/MMM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 8: \"n\" should be \"/\".")
+            @Expect(e.message, "Failed to parse at index 8: expected '/', got 'n'.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/11/17 19:52:23 +00:00", "yyyy/MMM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023//17 19:52:23 +00:00", "yyyy/MMM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
         @Expect(cnt, 4)
@@ -142,28 +142,28 @@ class Test_parse_month {
         try {
             let res3 = DateTime.parse("2023/Ja/17 19:52:23 +00:00", "yyyy/MMMM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/Jann/17 19:52:23 +00:00", "yyyy/MMMM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/11/17 19:52:23 +00:00", "yyyy/MMMM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023//17 19:52:23 +00:00", "yyyy/MMMM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse dayOfWeek or month.")
+            @Expect(e.message, "Failed to parse day of week or month.")
             cnt += 1
         }
         @Expect(cnt, 4)

@@ -72,7 +72,7 @@ var b = b + 1)""")
             let rewrite = ASTRewriteBinary2()
             let _ = rewrite.walk(varDecl, detach: true)          
         } catch (e: Exception) {
-            @Expect(e.message, "RewriteException: The type of the rewritten node does not match the type of the original node.")
+            @Expect(e.message, "The kind of the rewritten node does not match the kind of the original node.")
         }
     }
 }

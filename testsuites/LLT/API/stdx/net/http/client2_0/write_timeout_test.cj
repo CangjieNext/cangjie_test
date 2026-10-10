@@ -49,7 +49,7 @@ class TestWriteTimeout {
             client.send(req)
             @Expect(false)
         } catch (e: HttpTimeoutException) {
-            @Expect(e.message, "Client2_0 write request timeout.")
+            @Expect(e.message, "Write request timeout.")
         }
         let req2 = HttpRequestBuilder()
             .version(HTTP2_0)

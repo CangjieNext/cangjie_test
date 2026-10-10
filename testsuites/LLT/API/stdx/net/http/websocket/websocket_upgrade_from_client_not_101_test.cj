@@ -50,7 +50,7 @@ class TestWebSocketUpgradeFromClientNot101 {
             try {
                 WebSocket.upgradeFromClient(client, u)
             } catch (e: WebSocketException) {
-                @Expect(e.message, "Upgrade to websocket failed, the status code should be 101, but received 204.")
+                @Expect(e.message, "WebSocket upgrade failed: invalid status code '204', expected 101.")
             }
         }
 
@@ -60,7 +60,7 @@ class TestWebSocketUpgradeFromClientNot101 {
             try {
                 WebSocket.upgradeFromClient(client, u2)
             } catch (e: WebSocketException) {
-                @Expect(e.message, "Upgrade to websocket failed, the status code should be 101, but received 200.")
+                @Expect(e.message, "WebSocket upgrade failed: invalid status code '200', expected 101.")
             }
         }
 

@@ -19,4 +19,4 @@ main():Int64{
 	return 0
 }
 // ASSERT: scan parse_expected_left_brace
-// ASSERT: scan parse_expected_character
+// ASSERT: scan-not parse_expected_character

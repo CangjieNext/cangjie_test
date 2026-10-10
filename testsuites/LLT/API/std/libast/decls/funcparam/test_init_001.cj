@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // DEPENDENCE: define_001.cj
 // EXEC: %compiler %cmp_macro define_001.cj
 // EXEC: %run_macro %compiler %cmp_opt %f | compare %f
@@ -26,212 +34,122 @@ main() {
     0
 }
 
-/* SCAN-IN
-constructor funcParam:
-FuncParam {
-  -modifiers: 0, Modifier {
-    -keyword: Token {
-      value: "public"
-      kind: PUBLIC
-      pos: 10: 12
-    }
-  }
-  -keyword: Token {
-    value: "let"
-    kind: LET
-    pos: 10: 19
-  }
-  -identifier: Token {
-    value: "a"
-    kind: IDENTIFIER
-    pos: 10: 23
-  }
-  -colon: Token {
-    value: ":"
-    kind: COLON
-    pos: 10: 24
-  }
-  -paramType: RefType {
-    -identifier: Token {
-      value: "String"
-      kind: IDENTIFIER
-      pos: 10: 26
-    }
-  }
-}
-constructor funcParam:
-FuncParam {
-  -modifiers: 0, Modifier {
-    -keyword: Token {
-      value: "public"
-      kind: PUBLIC
-      pos: 11: 12
-    }
-  }
-  -keyword: Token {
-    value: "let"
-    kind: LET
-    pos: 11: 19
-  }
-  -identifier: Token {
-    value: "b"
-    kind: IDENTIFIER
-    pos: 11: 23
-  }
-  -not: Token {
-    value: "!"
-    kind: NOT
-    pos: 11: 24
-  }
-  -colon: Token {
-    value: ":"
-    kind: COLON
-    pos: 11: 25
-  }
-  -paramType: RefType {
-    -identifier: Token {
-      value: "String"
-      kind: IDENTIFIER
-      pos: 11: 27
-    }
-  }
-}
-constructor funcParam:
-FuncParam {
-  -modifiers: 0, Modifier {
-    -keyword: Token {
-      value: "public"
-      kind: PUBLIC
-      pos: 12: 12
-    }
-  }
-  -keyword: Token {
-    value: "let"
-    kind: LET
-    pos: 12: 19
-  }
-  -identifier: Token {
-    value: "c"
-    kind: IDENTIFIER
-    pos: 12: 23
-  }
-  -not: Token {
-    value: "!"
-    kind: NOT
-    pos: 12: 24
-  }
-  -colon: Token {
-    value: ":"
-    kind: COLON
-    pos: 12: 25
-  }
-  -paramType: RefType {
-    -identifier: Token {
-      value: "String"
-      kind: IDENTIFIER
-      pos: 12: 27
-    }
-  }
-  -assign: Token {
-    value: "="
-    kind: ASSIGN
-    pos: 12: 34
-  }
-  -expr: LitConstExpr {
-    -literal: Token {
-      value: ""
-      kind: STRING_LITERAL
-      pos: 12: 36
-    }
-  }
-}
-constructor funcParam:
-FuncParam {
-  -identifier: Token {
-    value: "a"
-    kind: IDENTIFIER
-    pos: 16: 12
-  }
-  -colon: Token {
-    value: ":"
-    kind: COLON
-    pos: 16: 13
-  }
-  -paramType: PrimitiveType {
-    -keyword: Token {
-      value: "Int64"
-      kind: INT64
-      pos: 16: 15
-    }
-  }
-}
-constructor funcParam:
-FuncParam {
-  -identifier: Token {
-    value: "b"
-    kind: IDENTIFIER
-    pos: 17: 12
-  }
-  -not: Token {
-    value: "!"
-    kind: NOT
-    pos: 17: 13
-  }
-  -colon: Token {
-    value: ":"
-    kind: COLON
-    pos: 17: 14
-  }
-  -paramType: PrimitiveType {
-    -keyword: Token {
-      value: "Int64"
-      kind: INT64
-      pos: 17: 16
-    }
-  }
-}
-constructor funcParam:
-FuncParam {
-  -identifier: Token {
-    value: "c"
-    kind: IDENTIFIER
-    pos: 18: 12
-  }
-  -not: Token {
-    value: "!"
-    kind: NOT
-    pos: 18: 13
-  }
-  -colon: Token {
-    value: ":"
-    kind: COLON
-    pos: 18: 14
-  }
-  -paramType: PrimitiveType {
-    -keyword: Token {
-      value: "Float64"
-      kind: FLOAT64
-      pos: 18: 16
-    }
-  }
-  -assign: Token {
-    value: "="
-    kind: ASSIGN
-    pos: 18: 24
-  }
-  -expr: LitConstExpr {
-    -literal: Token {
-      value: "1.0"
-      kind: FLOAT_LITERAL
-      pos: 18: 26
-    }
-  }
-}
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan constructor funcParam:
+// ASSERT: scan FuncParam {
+// ASSERT: scan -modifiers: 0, Modifier {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "public"
+// ASSERT: scan kind: PUBLIC
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "let"
+// ASSERT: scan kind: LET
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "a"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "String"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan constructor funcParam:
+// ASSERT: scan FuncParam {
+// ASSERT: scan -modifiers: 0, Modifier {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "public"
+// ASSERT: scan kind: PUBLIC
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "let"
+// ASSERT: scan kind: LET
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "b"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -not: Token {
+// ASSERT: scan value: "!"
+// ASSERT: scan kind: NOT
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "String"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan constructor funcParam:
+// ASSERT: scan FuncParam {
+// ASSERT: scan -modifiers: 0, Modifier {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "public"
+// ASSERT: scan kind: PUBLIC
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "let"
+// ASSERT: scan kind: LET
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "c"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -not: Token {
+// ASSERT: scan value: "!"
+// ASSERT: scan kind: NOT
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "String"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -assign: Token {
+// ASSERT: scan value: "="
+// ASSERT: scan kind: ASSIGN
+// ASSERT: scan -expr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: ""
+// ASSERT: scan kind: STRING_LITERAL
+// ASSERT: scan constructor funcParam:
+// ASSERT: scan FuncParam {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "a"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: PrimitiveType {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "Int64"
+// ASSERT: scan kind: INT64
+// ASSERT: scan constructor funcParam:
+// ASSERT: scan FuncParam {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "b"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -not: Token {
+// ASSERT: scan value: "!"
+// ASSERT: scan kind: NOT
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: PrimitiveType {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "Int64"
+// ASSERT: scan kind: INT64
+// ASSERT: scan constructor funcParam:
+// ASSERT: scan FuncParam {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "c"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -not: Token {
+// ASSERT: scan value: "!"
+// ASSERT: scan kind: NOT
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: PrimitiveType {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "Float64"
+// ASSERT: scan kind: FLOAT64
+// ASSERT: scan -assign: Token {
+// ASSERT: scan value: "="
+// ASSERT: scan kind: ASSIGN
+// ASSERT: scan -expr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "1.0"
+// ASSERT: scan kind: FLOAT_LITERAL

@@ -43,7 +43,7 @@ class Test_stdIn {
             subProcess.stdIn.write(buffer)
         } catch (e: ProcessException) {
             cnt++
-            @Expect(e.message, "Invaild outputStream.")
+            @Expect(e.message, "Invalid output stream.")
         }
         subProcess.wait()
         @Expect(cnt, 1)
@@ -57,7 +57,7 @@ class Test_stdIn {
             subProcess.stdIn.write(buffer)
         } catch (e: ProcessException) {
             cnt++
-            @Expect(e.message, "Invaild outputStream.")
+            @Expect(e.message, "Invalid output stream.")
         }
         subProcess.wait()
         @Expect(cnt, 1)
@@ -94,7 +94,7 @@ class Test_stdIn {
             subProcess.stdIn.write(buffer)
         } catch (e: ProcessException) {
             cnt++
-            @Expect(e.message, "Invaild outputStream.")
+            @Expect(e.message, "Invalid output stream.")
         }
         subProcess.wait()
         @Expect(cnt, 1)

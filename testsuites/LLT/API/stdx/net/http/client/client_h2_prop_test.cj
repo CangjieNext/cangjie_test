@@ -48,12 +48,12 @@ class TestClientH2 {
         try {
             ClientBuilder().tlsConfig(clientConfig()).initialWindowSize(0).build()
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message.contains("InitialWindowSize should between 1 and 2147483647"))
+            @Assert(e.message.contains("Invalid initialWindowSize: must be between 1 and 2147483647"))
         }
         try {
             ClientBuilder().tlsConfig(clientConfig()).initialWindowSize(UInt32(2 ** 32 - 1)).build()
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message.contains("InitialWindowSize should between 1 and 2147483647"))
+            @Assert(e.message.contains("Invalid initialWindowSize: must be between 1 and 2147483647"))
         }
         try {
             ClientBuilder().tlsConfig(clientConfig()).maxConcurrentStreams(0).build()
@@ -63,12 +63,12 @@ class TestClientH2 {
         try {
             ClientBuilder().tlsConfig(clientConfig()).maxFrameSize(UInt32(2 ** 10)).build()
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message.contains("MaxFrameSize should between 2^14 and 2^24-1"))
+            @Assert(e.message.contains("Invalid maxFrameSize: must be between 2^14 and 2^24-1"))
         }
         try {
             ClientBuilder().tlsConfig(clientConfig()).maxFrameSize(UInt32(2 ** 24)).build()
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message.contains("MaxFrameSize should between 2^14 and 2^24-1"))
+            @Assert(e.message.contains("Invalid maxFrameSize: must be between 2^14 and 2^24-1"))
         }
     }
 

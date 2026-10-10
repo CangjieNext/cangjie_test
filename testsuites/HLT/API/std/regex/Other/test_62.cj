@@ -11,7 +11,7 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
 // (not iOS) EXEC: %compiler %cmp_opt asan.%middle %f -o %output
 // (not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
-// ASSERT: scan RegexException: Compilation for pattern `a******b` failed at offset 2: quantifier does not follow a repeatable item.
+// ASSERT: scan RegexException: Failed to compile pattern 'a******b' at offset 2: quantifier does not follow a repeatable item.
 
 import std.regex.*
 import asan.*

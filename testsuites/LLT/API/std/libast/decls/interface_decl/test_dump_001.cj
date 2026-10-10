@@ -1,7 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // DEPENDENCE: %n.expect
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output > %n.txt
-// EXEC: %diff %n.expect %n.txt
+// RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
+//
 
 internal import std.ast.*
 internal import std.collection.*
@@ -51,10 +59,75 @@ main(): Int64 {
     interfaceDecl.dump()
     return 0
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+
+// ASSERT: scan InterfaceDecl {
+// ASSERT: scan -modifiers: 0, Modifier {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "public"
+// ASSERT: scan kind: PUBLIC
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "interface"
+// ASSERT: scan kind: INTERFACE
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "A"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -upperBound: Token {
+// ASSERT: scan value: "<:"
+// ASSERT: scan kind: UPPERBOUND
+// ASSERT: scan -superTypes: 0, RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "T1"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -superTypes: 1, RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "T2"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -superTypes: 2, RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "T3"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -body: Body {
+// ASSERT: scan -decls: 0, FuncDecl {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "func"
+// ASSERT: scan kind: FUNC
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "foo"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -funcParams: 0, FuncParam {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "res"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "String"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -funcParams: 1, FuncParam {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "count"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "int64"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -block: Block {
+// ASSERT: scan -nodes: 0, VarDecl {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "var"
+// ASSERT: scan kind: VAR
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "a"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -assign: Token {
+// ASSERT: scan value: "="
+// ASSERT: scan kind: ASSIGN
+// ASSERT: scan -expr: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "res"
+// ASSERT: scan kind: IDENTIFIER

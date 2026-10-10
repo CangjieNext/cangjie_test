@@ -56,7 +56,7 @@ class TestClient1_1reconnect2 {
             client.send(r)
             @Expect("right", "wrong")
         } catch (e: Exception) {
-            @Expect(e.message, "Too many connections to the same server!")
+            @Expect(e.message, "Too many connections to the same server.")
         }
 
         // waiting for all connections in the connection pool to be closed by the server

@@ -8,11 +8,12 @@
 
 // LEVEL: 3
 // DEPENDENCE: inputs.cj utils.cj visitors.cj
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -39,36 +40,36 @@ class TestParseFuncDecl {
  
     @Bench
     func BenchmarkParseFuncDecl001() : Unit {
-        let funcDecl = (parseDecl(scoperInlineInput1) as FuncDecl).getOrThrow()
+        blackBox((parseDecl(scoperInlineInput1) as FuncDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseFuncDecl002() : Unit {
-        let funcDecl = (parseDecl(deleteStrategyInlineInput1) as FuncDecl).getOrThrow()
+        blackBox((parseDecl(deleteStrategyInlineInput1) as FuncDecl).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseFuncDecl003() : Unit {
-        let funcDecl = (parseDecl(symmetryAttrInput1) as FuncDecl).getOrThrow()
+        blackBox((parseDecl(symmetryAttrInput1) as FuncDecl).getOrThrow())
         ()
     } 
 
     @Bench
     func BenchmarkParseFuncDecl004() : Unit {
-        let funcDecl = (parseDecl(builderInput1) as FuncDecl).getOrThrow()
+        blackBox((parseDecl(builderInput1) as FuncDecl).getOrThrow())
     }
 
     @Bench
     func BenchmarkParseFuncDecl005() : Unit {
-        let funcDecl = (parseDecl(builderInput2) as FuncDecl).getOrThrow()
+        blackBox((parseDecl(builderInput2) as FuncDecl).getOrThrow())
     }
  
     @Bench
     func BenchmarkParseFuncDecl006() : Unit {
-        let funcDecl = (parseDecl(builderInput3) as FuncDecl).getOrThrow()
+        blackBox((parseDecl(builderInput3) as FuncDecl).getOrThrow())
     }
     @Bench
     func BenchmarkParseFuncDecl007() : Unit {
-        let funcDecl = (parseDecl(builderInput4) as FuncDecl).getOrThrow()
+        blackBox((parseDecl(builderInput4) as FuncDecl).getOrThrow())
     }
 }

@@ -46,9 +46,9 @@ public class Test_UnixSocketAddress_Init {
         UnixSocketAddress(arr)
         let arr1 = Array<Byte>(MAX_UDS_PATH_LENGTH + 1, repeat: 11)
         var e = @AssertThrows[IllegalArgumentException](UnixSocketAddress(arr1))
-        @Expect(e.message.contains("Path size(${MAX_UDS_PATH_LENGTH + 1}) is too long"))
+        @Expect(e.message.contains("Path size '${MAX_UDS_PATH_LENGTH + 1}' is too long"))
         e = @AssertThrows[IllegalArgumentException](UnixSocketAddress(String.fromUtf8(arr1)))
-        @Expect(e.message.contains("Path size(${MAX_UDS_PATH_LENGTH + 1}) is too long"))
+        @Expect(e.message.contains("Path size '${MAX_UDS_PATH_LENGTH + 1}' is too long"))
     }
 
     @TestCase
@@ -63,12 +63,12 @@ public class Test_UnixSocketAddress_Init {
         let addr1_1: UnixSocketAddress = UnixSocketAddress("./path01")
         @Expect(addr1 == addr1_1)
         let path_str = canonicalize(Path("./path01")).toString()
-        if (path_str.toArray().size <= 108) {
+        if (path_str.toArray().size <= MAX_UDS_PATH_LENGTH) {
             let addr1_2: UnixSocketAddress = UnixSocketAddress(canonicalize(Path("./path01")).toString())
             @Expect(addr1 != addr1_2) //不做规范化处理
         } else {
             let e = @AssertThrows[IllegalArgumentException](UnixSocketAddress(path_str))
-            @Expect(e.message.contains("Path size(${path_str.toArray().size}) is too long"))
+            @Expect(e.message.contains("Path size '${path_str.toArray().size}' is too long"))
         }
 
         let addr2: UnixSocketAddress = UnixSocketAddress("./path02")

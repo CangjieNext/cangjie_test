@@ -186,7 +186,7 @@ class LocalTest {
             let refexpr = RefExpr(quote(refexpraa))
             refexpr.commas = Tokens(Array(2, repeat: Token(DOT)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be COMMA"))
+            @Expect(e.message.contains("expected 'COMMA', got 'DOT'."))
         }
     }
 
@@ -196,7 +196,7 @@ class LocalTest {
             let refType = RefType(quote(refTypeaa))
             refType.commas = Tokens(Array(2, repeat: Token(DOT)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be COMMA"))
+            @Expect(e.message.contains("expected 'COMMA', got 'DOT'."))
         }
     }
 
@@ -206,7 +206,7 @@ class LocalTest {
             let qualifiedType = QualifiedType(quote(A.b<Int64, String>))
             qualifiedType.commas = Tokens(Array(2, repeat: Token(DOT)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be COMMA"))
+            @Expect(e.message.contains("expected 'COMMA', got 'DOT'."))
         }
     }
 
@@ -216,7 +216,7 @@ class LocalTest {
             let funcType = FuncType(quote((Int64, Int32) -> Array<String>))
             funcType.commas = Tokens(Array(2, repeat: Token(DOT)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be COMMA"))
+            @Expect(e.message.contains("expected 'COMMA', got 'DOT'."))
         }
     }
 
@@ -226,7 +226,7 @@ class LocalTest {
             let enumPattern = EnumPattern()
             enumPattern.commas = Tokens(Array(2, repeat: Token(DOT)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be COMMA"))
+            @Expect(e.message.contains("expected 'COMMA', got 'DOT'."))
         }
     }
 
@@ -236,7 +236,7 @@ class LocalTest {
             let tuplePattern = TuplePattern()
             tuplePattern.commas = Tokens(Array(2, repeat: Token(DOT)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be COMMA"))
+            @Expect(e.message.contains("expected 'COMMA', got 'DOT'."))
         }
     }
 
@@ -257,7 +257,7 @@ class LocalTest {
         try {
             classDecl.constraintCommas = Tokens(Array(2, repeat: Token(DOT)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be COMMA"))
+            @Expect(e.message.contains("expected 'COMMA', got 'DOT'."))
         }
     }
 
@@ -267,7 +267,7 @@ class LocalTest {
             let typenode = PrimitiveType()
             typenode.colon = Token(COMMA)
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be COLON"))
+            @Expect(e.message.contains("expected 'COLON', got 'COMMA'."))
         }
     }
 
@@ -288,7 +288,7 @@ class LocalTest {
         try {
             structDecl.superTypeBitAnds = Tokens(Array(2, repeat: Token(DOT)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be BITAND"))
+            @Expect(e.message.contains("expected 'BITAND', got 'DOT'."))
         }
     }
 
@@ -307,7 +307,7 @@ class LocalTest {
         try {
             interfaceDecl.superTypeBitAnds = Tokens(Array(2, repeat: Token(DOT)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be BITAND"))
+            @Expect(e.message.contains("expected 'BITAND', got 'DOT'."))
         }
     }
 
@@ -326,7 +326,7 @@ class LocalTest {
         try {
             enumDecl.superTypeBitAnds = Tokens(Array(2, repeat: Token(DOT)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be BITAND"))
+            @Expect(e.message.contains("expected 'BITAND', got 'DOT'."))
         }
     }
 
@@ -345,7 +345,7 @@ class LocalTest {
         try {
             extendDecl.superTypeBitAnds = Tokens(Array(2, repeat: Token(BITOR)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be BITAND"))
+            @Expect(e.message.contains("expected 'BITAND', got 'BITOR'."))
         }
     }
 
@@ -355,7 +355,7 @@ class LocalTest {
             let matchCase = MatchCase()
             matchCase.bitOrs = Tokens(Array(2, repeat: Token(COMMA)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be BITOR"))
+            @Expect(e.message.contains("expected 'BITOR', got 'COMMA'."))
         }
     }
 
@@ -365,7 +365,7 @@ class LocalTest {
             let genericConstraint = GenericConstraint()
             genericConstraint.bitAnds = Tokens(Array(2, repeat: Token(COMMA)))
         } catch (e: ASTException) {
-            @Expect(e.message.contains("TokenKind should be BITAND"))
+            @Expect(e.message.contains("expected 'BITAND', got 'COMMA'."))
         }
     }
 }

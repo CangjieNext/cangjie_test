@@ -127,7 +127,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "func",
-        help='函数名，如 Func @_CGV7default1pHv',
+        help='函数名，如 Func @_CGV7default1pHv；传 WHOLE/./ * 则输出整文件',
     )
     args = parser.parse_args()
 
@@ -136,10 +136,24 @@ if __name__ == "__main__":
         print(f"no file matched: {args.path}")
         raise SystemExit(1)
     if len(paths) > 1:
-        print(f"error: path regex matched {len(paths)} files, expected exactly 1:")
-        for p in paths:
-            print(f"  {p}")
-        raise SystemExit(1)
+        # Same pass may run twice (e.g. UselessFuncElimination); take the latest dump.
+        def _stage_num(p: Path) -> int:
+            prefix = p.name.split("_", 1)[0]
+            return int(prefix) if prefix.isdigit() else -1
+
+        numbered = [p for p in paths if _stage_num(p) >= 0]
+        if len(numbered) == len(paths) and len({p.name.split("_", 1)[-1] for p in paths}) == 1:
+            paths = [max(numbered, key=_stage_num)]
+        else:
+            print(f"error: path regex matched {len(paths)} files, expected exactly 1:")
+            for p in paths:
+                print(f"  {p}")
+            raise SystemExit(1)
+
+    # func == "." / "*" / "WHOLE": print the whole chir file (package-level asserts).
+    if args.func in (".", "*", "WHOLE"):
+        print(paths[0].read_text(encoding="utf-8"), end="")
+        raise SystemExit(0)
 
     try:
         body = extract_func_body(paths[0], args.func)

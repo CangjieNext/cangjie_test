@@ -10,9 +10,8 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 
-// ASSERT: scan expected declaration, found 'x'
 // ASSERT: scan An exception has occurred:
-// ASSERT: scan parsing decl fragment error.
+// ASSERT: scan ParseASTException: Failed to parse decl fragment.
 internal import std.ast.*
 
 main() {

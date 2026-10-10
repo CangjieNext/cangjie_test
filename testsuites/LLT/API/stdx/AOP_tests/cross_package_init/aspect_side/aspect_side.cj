@@ -9,9 +9,11 @@
 package aspect_side
 
 import stdx.aspect_cj.*
+import state_side.*
 
 @InsertAtEntry[packageName: "default", className: "", methodName: "woven", isStatic: false,
     recursive: false, funcTypeStr: "()->Unit"]
 public func crossAspect(): Unit {
+    println("ready=${readReady()}")
     println("#----- cross aspect -----#")
 }

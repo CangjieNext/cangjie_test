@@ -22,7 +22,7 @@ if [[ "$api" == "client_http" ]] || [[ "$api" == "client_http2" ]] || \
    [[ "$api" == "loop" ]] || [[ "$api" == "oldjson" ]] || \
    [[ "$api" == "server_http" ]] || [[ "$api" == "server_http2" ]] || \
    [[ "$api" == "server_https" ]] || [[ "$api" == "url" ]] || [[ "$api" == "serialize" ]]; then
-    import_cangjie_stdx="-L$CANGJIE_STDX_PATH -lstdx.encoding.json -lstdx.serialization.serialization -lstdx.serialization -lstdx.net.http -lstdx.net.tls -lstdx.net.tls.common -lstdx.net -lstdx.logger -lstdx.log -lstdx.encoding.url -lstdx.encoding.json.stream -lstdx.crypto.keys -lstdx.crypto.x509 -lstdx.crypto.kit -lstdx.crypto.crypto -lstdx.crypto.digest -lstdx.crypto.common -lstdx.crypto -lstdx.encoding.hex -lstdx.encoding.base64 -lstdx.encoding -lstdx.compress.zlib -lstdx.compress -lstdx --import-path $CANGJIE_STDX_PATH -ldl"
+    import_cangjie_stdx="-L$CANGJIE_STDX_PATH -lstdx.encoding.json -lstdx.serialization.serialization -lstdx.serialization -lstdx.net.http -lstdx.net.tls -lstdx.net.tls.common -lstdx.net -lstdx.logger -lstdx.log -lstdx.encoding.url -lstdx.encoding.json.stream -lstdx.crypto.keys -lstdx.crypto.x509 -lstdx.crypto.kit -lstdx.crypto.crypto -lstdx.crypto.digest -lstdx.crypto.common -lstdx.crypto -lstdx.encoding.hex -lstdx.encoding.base64 -lstdx.encoding -lstdx.compress.zlib -lstdx.compress -lstdx -lpthread --import-path $CANGJIE_STDX_PATH -ldl"
 else
     import_cangjie_stdx=
 fi
@@ -34,6 +34,7 @@ export cjStackSize=64mb
 function read_testlist() {
     while read line
     do
+        line=${line%$'\r'}
         echo $line
         if [ -n "$line" ]; then
             if [ $api = "cffi" ]; then
@@ -94,6 +95,14 @@ function read_testlist() {
                 run_ast_benchmark $line
             elif [ $api = "reflect" ]; then
                 run_reflect_benchmark $line
+            elif [ $api = "json" ]; then
+                run_string_benchmark $line
+            elif [ $api = "io" ]; then
+                run_string_benchmark $line
+            elif [ $api = "convert" ]; then
+                run_string_benchmark $line
+            elif [ $api = "expression" ]; then
+                run_string_benchmark $line
             else
                 run_benchmark $line
             fi
@@ -152,6 +161,8 @@ function run_server_benchmark() {
     benchmark=$1
     cjc ${benchmark}.cj $opt -o ${benchmark}.out
     timeout 1800 ./${benchmark}.out &
+    # Wait for server to be ready before h2load/JMeter starts sending requests
+    sleep 5
     echo "${benchmark} started."
 }
 
@@ -201,8 +212,8 @@ function run_collections_hashset_benchmark() {
     cd "$base/../../cj/collections_hashset"
     result="result-cj-collections_hashset.list"
     benchmark=$1
-    cjc ${benchmark}.cj common_collection.cj $opt -o ${benchmark}.out
-    res=`timeout 1800 ./${benchmark}.out`
+    cjc ${benchmark}.cj common_collection.cj $opt -o ${benchmark}.out --test
+    res=`timeout 1800 ./${benchmark}.out --bench --no-color`
     if [ -n "$res" ]; then
         echo "$res" >> "$base/$result"
     else
@@ -273,14 +284,14 @@ function run_atomic_aarch64_benchmark(){
 
     if [[ "${optimized[@]}" =~ $benchmark ]]; then
         if [[ $(uname -m) == "aarch64" ]]; then
-            cjc ${benchmark}.cj $opt $lto --target-cpu=tsv110 --experimental -o ${benchmark}.out
+            cjc ${benchmark}.cj $opt $lto --target-cpu=tsv110 --experimental -o ${benchmark}.out --test
         else
-            cjc ${benchmark}.cj $opt $lto -o ${benchmark}.out
+            cjc ${benchmark}.cj $opt $lto -o ${benchmark}.out --test
         fi
     elif [[ ! "${optimized[@]}" =~ $benchmark ]]; then
-        cjc ${benchmark}.cj $opt -o ${benchmark}.out
+        cjc ${benchmark}.cj $opt -o ${benchmark}.out --test
     fi
-    res=`timeout 1800 ./${benchmark}.out`
+    res=`timeout 1800 ./${benchmark}.out --bench --no-color`
     if [ -n "$res" ]; then
         echo "$res" >> "$base/$result"
     else
@@ -293,8 +304,9 @@ function get_result() {
 
     while read line
     do
+        line=${line%$'\r'}
         sed -i '/ Benchmark/!d' $result_log
-        grep $line $result_log > $base/temp.txt
+        grep "$line" "$result_log" > $base/temp.txt
         awk -F '|' '{gsub(/ /, "",$(NF-6)); gsub(/[ -]/, "",$(NF-5)); gsub(/,/, "_",$(NF-5)); print $(NF-6)$(NF-5) $(NF-1)}' $base/temp.txt >> $base/result.txt
     done < $testlist
 
@@ -388,6 +400,8 @@ function main() {
         get_result
     elif [ $api = "libast_scene" ]; then
         get_result
+    elif [ $api = "json" ] || [ $api = "io" ] || [ $api = "convert" ] || [ $api = "expression" ]; then
+        get_result
     elif [ $api = "server_http" ]; then
         cd  $base/../run
         bash $base/../run/server_http.sh cj
@@ -409,9 +423,6 @@ function main() {
     elif [ $api = "objectpool" ]; then
         cd  $base/../result
         sed -i '/Benchmark/!d' result-cj-objectpool.list
-    elif [ $api = "expression" ]; then
-        cd  $base/../result
-        sed -i '/Benchmark/!d' result-cj-expression.list
     fi
 }
 

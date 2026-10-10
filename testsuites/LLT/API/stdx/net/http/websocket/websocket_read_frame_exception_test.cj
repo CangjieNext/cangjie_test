@@ -63,7 +63,7 @@ class TestWebSocketReadFrameException {
             websocket.read()
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "The websocket connection is failed, since receiving an invalid mask message.")
+            @Expect(e.message, "WebSocket connection failed: invalid mask bit.")
         }
         sleep(Duration.millisecond * 200)
         websocket.closeConn()
@@ -146,7 +146,7 @@ class TestWebSocketReadFrameException {
             websocket.read()
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "The websocket connection is failed, since extensions not supported yet, rsv must be 0.")
+            @Expect(e.message, "WebSocket connection failed: RSV bits must be 0, extensions are not supported.")
         }
         sleep(Duration.millisecond * 200)
         websocket.closeConn()
@@ -214,7 +214,7 @@ class TestWebSocketReadFrameException {
             websocket.read()
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "The websocket connection is failed, since receiving a message with invalid frame type.")
+            @Expect(e.message, "WebSocket connection failed: invalid frame type.")
         }
         sleep(Duration.millisecond * 200)
         websocket.closeConn()

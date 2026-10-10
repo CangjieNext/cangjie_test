@@ -54,7 +54,7 @@ class Test_directory_creat_readfrom_02 {
         for (str in illegal_path_string) {
             let e = @AssertThrows[IllegalArgumentException](Directory.createTemp(str))
             println(e.message.toString())
-            @Expect(e.message.contains("The input path is empty.") || e.message.contains("The input path value [0] contains null character."))
+            @Expect(e.message.contains("cannot be empty") || e.message.contains("contains null character"))
         }
     }
 
@@ -63,7 +63,7 @@ class Test_directory_creat_readfrom_02 {
         var illegal_path_string = ["", "\0"]
         for (str in illegal_path_string) {
             let e = @AssertThrows[IllegalArgumentException](Directory.createTemp(Path(str)))
-            @Expect(e.message.contains("The input path is empty.") || e.message.contains("The input path value [0] contains null character."))
+            @Expect(e.message.contains("cannot be empty") || e.message.contains("contains null character"))
         }
     }
 

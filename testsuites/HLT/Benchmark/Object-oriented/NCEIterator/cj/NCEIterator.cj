@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping %f -o %output
 // RUN-EXEC: %run %run_opt %output 3 %run_args
 
 import std.collection.ArrayList

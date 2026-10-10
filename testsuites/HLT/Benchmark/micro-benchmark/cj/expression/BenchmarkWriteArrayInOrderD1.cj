@@ -7,40 +7,71 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx %optimization_level_2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg --test -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
+
 
 import std.time.*
-import std.convert.*
-import std.convert.*
+import std.runtime.*
 
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_Write_Array_In_Order_D1 {
 
-let memberLen: Array<(Int64,Int64)> = [(32,1000000), (256,50000), (2048,1000), (16384,500), (131072,100), (1048576,100)]//Go does not have test cases that match 131072 and 1048576.
+    static var arrD1_32 = Array<Int64>(32, repeat: 0)
+    static var arrD1_256 = Array<Int64>(256, repeat: 0)
+    static var arrD1_2048 = Array<Int64>(2048, repeat: 0)
+    static var arrD1_16384 = Array<Int64>(16384, repeat: 0)
+    static var arrD1_131072 = Array<Int64>(131072, repeat: 0)
+    static var arrD1_1048576 = Array<Int64>(1048576, repeat: 0)
 
-func timeBenchmarkWriteArrayInOrderD1(len: Int64, reps: Int64): Unit {
-    var valArr: Array<Int64> = Array<Int64>(len, repeat: 0)
-    var startTime = DateTime.now()
-    var i = 0
-    while (i < reps) {
-        var j = 0
-        while (j < len) {
-            valArr[j] = j
-            j = j + 1
+    @Bench
+    func BenchmarkWriteArrayInOrderD1_N32(): Unit {
+        for (i in 0..32) {
+            arrD1_32[i] = i
         }
-        i = i + 1
-    }
-    var endTime = DateTime.now()
-    // 防止O2优化
-    println(valArr.size)
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-
-    println("BenchmarkWriteArrayInOrderD1_N${len}: ${perTime.format(".2")} ns/op")
-}
-
-main(): Int32 {
-    for (i in 0..memberLen.size) {
-        timeBenchmarkWriteArrayInOrderD1(memberLen[i][0],memberLen[i][1])
+        blackBox(arrD1_32[0])
     }
 
-    return 0
+    @Bench
+    func BenchmarkWriteArrayInOrderD1_N256(): Unit {
+        for (i in 0..256) {
+            arrD1_256[i] = i
+        }
+        blackBox(arrD1_256[0])
+    }
+
+    @Bench
+    func BenchmarkWriteArrayInOrderD1_N2048(): Unit {
+        for (i in 0..2048) {
+            arrD1_2048[i] = i
+        }
+        blackBox(arrD1_2048[0])
+    }
+
+    @Bench
+    func BenchmarkWriteArrayInOrderD1_N16384(): Unit {
+        for (i in 0..16384) {
+            arrD1_16384[i] = i
+        }
+        blackBox(arrD1_16384[0])
+    }
+
+    @Bench
+    func BenchmarkWriteArrayInOrderD1_N131072(): Unit {
+        for (i in 0..131072) {
+            arrD1_131072[i] = i
+        }
+        blackBox(arrD1_131072[0])
+    }
+
+    @Bench
+    func BenchmarkWriteArrayInOrderD1_N1048576(): Unit {
+        for (i in 0..1048576) {
+            arrD1_1048576[i] = i
+        }
+        blackBox(arrD1_1048576[0])
+    }
 }

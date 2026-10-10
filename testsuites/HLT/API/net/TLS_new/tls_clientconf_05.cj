@@ -139,7 +139,7 @@ class Test_tlsclientconf_05 {
         try {
             clientConf.serverName = "\0"
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("contain null character"))
+            @Expect(e.message.contains("contains null character"))
             sum += 1
         }
         @Expect(sum, 1)

@@ -26,28 +26,28 @@ class Test_parse_day {
         try {
             let res3 = DateTime.parse("2023/04/0 19:52:23 +00:00", "yyyy/MM/d HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Day of April in 2023 must be in [1, 30].")
+            @Expect(e.message, "Invalid day '0' for April 2023: expected 1 to 30.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/00 19:52:23 +00:00", "yyyy/MM/d HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Day of April in 2023 must be in [1, 30].")
+            @Expect(e.message, "Invalid day '0' for April 2023: expected 1 to 30.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2000/02/30 19:52:23 +00:00", "yyyy/MM/d HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Day of February in 2000 must be in [1, 29].")
+            @Expect(e.message, "Invalid day '30' for February 2000: expected 1 to 29.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/04/dd 19:52:23 +00:00", "yyyy/MM/d HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 8: \"d\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 8: expected an integer, got 'd'.")
             cnt += 1
         }
 
@@ -65,28 +65,28 @@ class Test_parse_day {
         try {
             let res3 = DateTime.parse("2023/04/0 19:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 9: \" \" should be integer.")
+            @Expect(e.message, "Failed to parse at index 9: expected an integer, got ' '.")
             cnt += 1
         }
 
         try {
             let res4 = DateTime.parse("2023/04/00 19:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Day of April in 2023 must be in [1, 30].")
+            @Expect(e.message, "Invalid day '0' for April 2023: expected 1 to 30.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2000/02/30 19:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Day of February in 2000 must be in [1, 29].")
+            @Expect(e.message, "Invalid day '30' for February 2000: expected 1 to 29.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/04/dd 19:52:23 +00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 8: \"d\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 8: expected an integer, got 'd'.")
             cnt += 1
         }
 
@@ -106,21 +106,21 @@ class Test_parse_day {
         try {
             let res4 = DateTime.parse("2023/01/01 19:52:23 +00:00 0001", "yyyy/MM/dd HH:mm:ss OOOO D")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Day of year can not be equal to 0.")
+            @Expect(e.message, "Day of year cannot be zero.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/01/01 19:52:23 +00:00 2", "yyyy/MM/dd HH:mm:ss OOOO D")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "DayOfMonth value does not match dayOfYear.")
+            @Expect(e.message, "Day of month and day of year are inconsistent.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/01/01 19:52:23 +00:00 s", "yyyy/MM/dd HH:mm:ss OOOO D")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: dayOfYear value should be integer.")
+            @Expect(e.message, "Failed to parse at index 27: day of year must be an integer.")
             cnt += 1
         }
     }
@@ -136,21 +136,21 @@ class Test_parse_day {
         try {
             let res4 = DateTime.parse("2023/01/01 19:52:23 +00:00 0001", "yyyy/MM/dd HH:mm:ss OOOO DD")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Day of year can not be equal to 0.")
+            @Expect(e.message, "Day of year cannot be zero.")
             cnt += 1
         }
 
         try {
             let res5 = DateTime.parse("2023/01/01 19:52:23 +00:00 2", "yyyy/MM/dd HH:mm:ss OOOO DD")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "DayOfMonth value does not match dayOfYear.")
+            @Expect(e.message, "Day of month and day of year are inconsistent.")
             cnt += 1
         }
 
         try {
             let res6 = DateTime.parse("2023/01/01 19:52:23 +00:00 s", "yyyy/MM/dd HH:mm:ss OOOO DD")
         } catch (e: TimeParseException) {
-            @Expect(e.message, "Fail to parse at index 27: dayOfYear value should be integer.")
+            @Expect(e.message, "Failed to parse at index 27: day of year must be an integer.")
             cnt += 1
         }
     }

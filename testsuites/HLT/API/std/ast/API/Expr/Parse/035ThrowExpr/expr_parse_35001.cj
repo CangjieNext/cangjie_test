@@ -9,8 +9,8 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %use_ast %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: regex expected expression after keyword 'throw', found '<EOF>'
-
+// ASSERT: scan An exception has occurred:
+// ASSERT: scan ParseASTException: Failed to parse expr.
 import std.ast.*
 
 main() {

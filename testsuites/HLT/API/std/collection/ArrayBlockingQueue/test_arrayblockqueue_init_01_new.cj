@@ -44,7 +44,7 @@ class Test_arrayblockqueue {
         try {
             ArrayBlockingQueue<Int64>(0)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid size of ArrayBlockingQueue: 0"))
+            @Expect(e.message.contains("Invalid capacity '0': expected a positive value"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -52,7 +52,7 @@ class Test_arrayblockqueue {
         try {
             ArrayBlockingQueue<String>(0)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid size of ArrayBlockingQueue: 0"))
+            @Expect(e.message.contains("Invalid capacity '0': expected a positive value"))
             sum += 1
         }
         @Expect(sum, 2)
@@ -63,7 +63,7 @@ class Test_arrayblockqueue {
         try {
             ArrayBlockingQueue<Int64>(-1)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid size of ArrayBlockingQueue: -1"))
+            @Expect(e.message.contains("Invalid capacity '-1': expected a positive value"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -71,7 +71,7 @@ class Test_arrayblockqueue {
         try {
             ArrayBlockingQueue<String>(-9223372036854775808)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid size of ArrayBlockingQueue: -9223372036854775808"))
+            @Expect(e.message.contains("Invalid capacity '-9223372036854775808': expected a positive value"))
             sum += 1
         }
         @Expect(sum, 2)

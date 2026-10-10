@@ -21,6 +21,10 @@ var running_count = 0
 var pending_count = 0
 let terminated_count = AtomicInt64(0)
 let random = Random()
+@When[os=="iOS"]
+var count:Int64=21
+@When[os!="iOS"]
+var count:Int64=20
 
 class C1 {
     public static func foo() {
@@ -61,5 +65,5 @@ main() {
         @Assert(_thread_info.toString().contains("ThreadSnapshot(id=${_thread_info.id}, name=, state=${_thread_info.state})"))
     }
     println("ready: ${ready_count}, running: ${running_count}, pending: ${pending_count}, terminated: ${terminated_count.load()}")
-    @Assert(ready_count + running_count + pending_count + terminated_count.load(), all_count + 1)
+    @Assert(ready_count + running_count + pending_count + terminated_count.load(), count + 1)
 }

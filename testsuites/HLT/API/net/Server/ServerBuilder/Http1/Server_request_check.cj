@@ -61,21 +61,21 @@ public class Test_request_check {
             let response = client.send(request1)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "Chunked should not be set more than once.")
+            @Expect(e.message, "Invalid transfer-encoding: 'chunked' appears more than once.")
         }
 
         try {
             let response = client.send(request2)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "The last value of transfer-encoding must be chunked.")
+            @Expect(e.message, "Invalid transfer-encoding: last value must be 'chunked'.")
         }
 
         try {
             let response = client.send(request3)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "The last value of transfer-encoding must be chunked.")
+            @Expect(e.message, "Invalid transfer-encoding: last value must be 'chunked'.")
         }
         @Expect(cnt, 3)
 
@@ -117,21 +117,21 @@ public class Test_request_check {
             let response = client.send(request1)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "The content-length should not be negative.")
+            @Expect(e.message, "Invalid content-length: value is negative.")
         }
 
         try {
             let response = client.send(request2)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "The content-length invalid.")
+            @Expect(e.message, "Invalid content-length value.")
         }
 
         try {
             let response = client.send(request2)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "The content-length invalid.")
+            @Expect(e.message, "Invalid content-length value.")
         }
         @Expect(cnt, 3)
     }

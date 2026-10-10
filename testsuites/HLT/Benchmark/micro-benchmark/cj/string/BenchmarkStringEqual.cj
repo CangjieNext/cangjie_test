@@ -7,12 +7,11 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
-
-var res : Bool = false
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -34,31 +33,31 @@ public class Test_suit {
 
     @Bench
     func BenchmarkStringEqual_N1_equal(): Unit {
-        res = str1 == str1_equal
+        blackBox(str1 == str1_equal)
     }
 
     @Bench
     func BenchmarkStringEqual_N1_notEqual(): Unit {
-        res = str1 == str1_notEqual
+        blackBox(str1 == str1_notEqual)
     }
 
     @Bench
     func BenchmarkStringEqual_N1k_equal(): Unit {
-        res = str1k == str1k_equal
+        blackBox(str1k == str1k_equal)
     }
 
     @Bench
     func BenchmarkStringEqual_N1k_notEqual(): Unit {
-        res = str1k == str1k_notEqual
+        blackBox(str1k == str1k_notEqual)
     }
 
     @Bench
     func BenchmarkStringEqual_N1m_equal(): Unit {
-        res = str1m == str1m_equal
+        blackBox(str1m == str1m_equal)
     }
 
     @Bench
     func BenchmarkStringEqual_N1m_notEqual(): Unit {
-        res = str1m == str1m_notEqual
+        blackBox(str1m == str1m_notEqual)
     }
 }

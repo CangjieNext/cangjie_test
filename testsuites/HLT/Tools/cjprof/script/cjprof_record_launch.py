@@ -24,7 +24,7 @@ def recording_launch(samplingfreq, inputfile, outputfile, run_env):
     """
     print("\n -------- cjprof record {0} {1} {2} -------- \n".format(inputfile, '-f ' + str(samplingfreq),
                                                                      '-o ' + outputfile))
-    pwd = os.environ['PASSWORD']
+    pwd = os.environ.get('PASSWORD', '')
     cangjie_home = os.environ['CANGJIE_HOME']
     cmd = "cjprof record {0} {1} {2}".format(inputfile, '-f ' + str(samplingfreq), '-o ' + outputfile)
     cmd = f'echo {pwd} | sudo -S bash -c "source {cangjie_home}/envsetup.sh ; {cmd}"'

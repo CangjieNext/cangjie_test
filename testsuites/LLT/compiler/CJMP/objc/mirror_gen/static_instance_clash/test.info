@@ -12,9 +12,9 @@
 /* SCAN-IN
 @ObjCMirror
 public open class M {
-    @ForeignName["foo:"] public open func foo(x: Int32): Unit
+    @ForeignName["foo:"] public open func foo_(x: Int32): Unit
     public open mut prop foo: Int32
-    @ForeignName["foo:"] public static func fooStatic(x: Int32): Unit
+    @ForeignName["foo:"] public static func fooStatic_(x: Int32): Unit
     @ForeignName["foo"] public static mut prop fooStatic: Int32
 }
 */

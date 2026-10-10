@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC-PIPE-0: %run %run_opt %output %run_args 2>&1 | compare %f
 
@@ -19,92 +27,50 @@ main(): Int64 {
     return 0;
 }
 
-/* SCAN-IN
-LitConstExpr {
-  -literal: Token {
-    value: "1"
-    kind: INTEGER_LITERAL
-    pos: 7: 24
-  }
-}
-2
-BinaryExpr {
-  -leftExpr: LitConstExpr {
-    -literal: Token {
-      value: "1"
-      kind: INTEGER_LITERAL
-      pos: 7: 26
-    }
-  }
-  -op: Token {
-    value: "+"
-    kind: ADD
-    pos: 7: 27
-  }
-  -rightExpr: LitConstExpr {
-    -literal: Token {
-      value: "1"
-      kind: INTEGER_LITERAL
-      pos: 7: 28
-    }
-  }
-}
-10
-BinaryExpr {
-  -leftExpr: BinaryExpr {
-    -leftExpr: BinaryExpr {
-      -leftExpr: LitConstExpr {
-        -literal: Token {
-          value: "2"
-          kind: INTEGER_LITERAL
-          pos: 9: 6
-        }
-      }
-      -op: Token {
-        value: "-"
-        kind: SUB
-        pos: 9: 7
-      }
-      -rightExpr: LitConstExpr {
-        -literal: Token {
-          value: "2"
-          kind: INTEGER_LITERAL
-          pos: 9: 8
-        }
-      }
-    }
-    -op: Token {
-      value: "-"
-      kind: SUB
-      pos: 9: 9
-    }
-    -rightExpr: LitConstExpr {
-      -literal: Token {
-        value: "3"
-        kind: INTEGER_LITERAL
-        pos: 9: 10
-      }
-    }
-  }
-  -op: Token {
-    value: "+"
-    kind: ADD
-    pos: 9: 11
-  }
-  -rightExpr: LitConstExpr {
-    -literal: Token {
-      value: "2"
-      kind: INTEGER_LITERAL
-      pos: 9: 12
-    }
-  }
-}
-17
-*/
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "1"
+// ASSERT: scan kind: INTEGER_LITERAL
+// ASSERT: scan 2
+// ASSERT: scan BinaryExpr {
+// ASSERT: scan -leftExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "1"
+// ASSERT: scan kind: INTEGER_LITERAL
+// ASSERT: scan -op: Token {
+// ASSERT: scan value: "+"
+// ASSERT: scan kind: ADD
+// ASSERT: scan -rightExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "1"
+// ASSERT: scan kind: INTEGER_LITERAL
+// ASSERT: scan 10
+// ASSERT: scan BinaryExpr {
+// ASSERT: scan -leftExpr: BinaryExpr {
+// ASSERT: scan -leftExpr: BinaryExpr {
+// ASSERT: scan -leftExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "2"
+// ASSERT: scan kind: INTEGER_LITERAL
+// ASSERT: scan -op: Token {
+// ASSERT: scan value: "-"
+// ASSERT: scan kind: SUB
+// ASSERT: scan -rightExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "2"
+// ASSERT: scan kind: INTEGER_LITERAL
+// ASSERT: scan -op: Token {
+// ASSERT: scan value: "-"
+// ASSERT: scan kind: SUB
+// ASSERT: scan -rightExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "3"
+// ASSERT: scan kind: INTEGER_LITERAL
+// ASSERT: scan -op: Token {
+// ASSERT: scan value: "+"
+// ASSERT: scan kind: ADD
+// ASSERT: scan -rightExpr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "2"
+// ASSERT: scan kind: INTEGER_LITERAL
+// ASSERT: scan 17

@@ -23,8 +23,7 @@ warning: unreachable expression
   ==> function_return_bottom_01.cj:16:5:
    | 
 16 |       while (return ()) {
-   |       ^      ~~~~~~~~~ any code following this expression is unreachable
-   |  _____|
+   |  _____^
 17 | |         print("yes")
 18 | |     }
    | |_____^ unreachable expression

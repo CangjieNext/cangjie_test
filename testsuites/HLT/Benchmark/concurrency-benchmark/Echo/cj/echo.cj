@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping %f -o %output
 // RUN-EXEC: export cjProcessorNum=32 && export JETVMPROP="-Djet.cj.use.fibers -Djet.fiber.carrier.count=32 -Djet.fiber.syscalls.control.disable=true" && %run %run_opt %output -iter 10000 -connections 100 %run_args
 
 import std.net.*

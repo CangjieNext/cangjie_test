@@ -9,7 +9,7 @@
 // LEVEL: 0
 // DEPENDENCE: test_fj.txt
 // (not Windows) EXEC: %compiler %cmp_opt -o %output %f
-// (not Windows) RUN-EXEC: ln -s test_fj.txt mylink
+// (not Windows) RUN-EXEC: rm -rf mylink && ln -s test_fj.txt mylink
 // (not Windows) RUN-EXEC: %run %run_opt %output %run_args
 
 import std.posix.*

@@ -34,7 +34,7 @@ class TestClientClose {
         try {
             client.get("http://127.0.0.1:80")
         } catch (e: HttpException) {
-            @Expect(e.message.contains("This client has already closed."))
+            @Expect(e.message.contains("Client is already closed."))
         }
     }
 }

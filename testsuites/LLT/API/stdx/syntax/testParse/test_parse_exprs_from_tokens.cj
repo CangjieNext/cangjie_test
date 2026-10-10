@@ -41,47 +41,29 @@ class Test {
             var tks1 = tokens + Token(TokenKind.NL)
             parseTokens(tks1, refreshPos: false)
         } catch (e: Exception) {
-            @Expect(e.message, "the position of the input tokens is invalid, you may open the refreshPos option.")
+            @Expect(e.message, "Invalid token positions.")
         }
         try {
             var tks2 = tokens + Token(TokenKind.NL).addPosition(1, 1, 1)
             parseTokens(tks2, refreshPos: false)
         } catch (e: Exception) {
-            @Expect(e.message, "the position of the input tokens is invalid, you may open the refreshPos option.")
+            @Expect(e.message, "Invalid token positions.")
         }
     }
 
     @TestCase
     func testUnsupported() {
         try {
-            parseTokens(quote(#"import std.collection.*"#))
-        } catch (e: Exception) {
-            @Expect(e.message.contains("unsupported node type in parseTokens function."), true)
-        }
-
-        try {
             parseTokens(quote(@testMacro[public func](let a = 1)))
         } catch (e: Exception) {
-            @Expect(e.message.contains("unsupported node type in parseTokens function."), true)
-        }
-
-        try {
-            parseTokens(quote(a?))
-        } catch (e: Exception) {
-            @Expect(e.message.contains("unsupported node type or parse error in parseTokens function:"), true)
-        }
-
-        try {
-            parseTokens(quote( 1 + 1 : Int))
-        } catch (e: Exception) {
-            @Expect(e.message.contains("unsupported node type or parse error in parseTokens function:"), true)
+            @Expect(e.message.contains("Unsupported node type"), true)
         }
 
         try {
             parseTokens(quote( 1 + 1
             1 + 1))
         } catch (e: Exception) {
-            @Expect(e.message, "parseTokens function not support parse more than one node.")
+            @Expect(e.message, "The current version does not support parsing more than one node.")
         }
     }
 

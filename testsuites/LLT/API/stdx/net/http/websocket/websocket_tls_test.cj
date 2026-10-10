@@ -49,7 +49,7 @@ class TestWebSocketWSS {
             (websocket, headers) = WebSocket.upgradeFromClient(client, u)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "TLS must be configured when HTTPS requests are sent.")
+            @Expect(e.message, "TLS configuration is required for HTTPS requests.")
         }
         client.close()
         println("websocket_tls_test_ok")

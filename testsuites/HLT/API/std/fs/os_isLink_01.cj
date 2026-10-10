@@ -11,7 +11,7 @@
 // (not Windows) EXEC: %compiler %cmp_opt caserunner.cj -o %output %f
 // (not Windows) RUN-EXEC: rm -rf a/b; mkdir -p a/b
 // (not Windows) RUN-EXEC: rm -rf dir; mkdir dir
-// (not Windows) RUN-EXEC: ln -s test_fj.txt testlink
+// (not Windows) RUN-EXEC: rm -rf testlink && ln -s test_fj.txt testlink
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // (not Windows) ASSERT: scan-not AssertionError
 

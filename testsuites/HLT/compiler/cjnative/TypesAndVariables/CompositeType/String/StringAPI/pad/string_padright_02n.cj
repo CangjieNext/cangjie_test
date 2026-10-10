@@ -9,7 +9,7 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: regex-auto IllegalArgumentException: Negative totalWidth
+// ASSERT: regex-auto IllegalArgumentException: Invalid argument 'totalWidth': expected a non-negative value, got '-1'.
 
 func run(): Int64 {
     var s1: String = "hello Char lang"

@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 import std.ast.*
 import std.collection.*
@@ -33,56 +41,31 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-Cannot construct the 'PackageHeader' node.
-8
-PackageHeader {
-  -modifier: Token {
-    value: "&&"
-    kind: AND
-    pos: 19: 36
-  }
-  -keywordM: Token {
-    value: "macro"
-    kind: MACRO
-    pos: 20: 40
-  }
-  -keywordP: Token {
-    value: "package"
-    kind: PACKAGE
-    pos: 21: 34
-  }
-  prefixPath: 0: Token {
-    value: "prefix1"
-    kind: IDENTIFIER
-    pos: 22: 43
-  }
-  dot: 0: Token {
-    value: "."
-    kind: DOT
-    pos: 23: 42
-  }
-  prefixPath: 1: Token {
-    value: "prefix2"
-    kind: IDENTIFIER
-    pos: 22: 51
-  }
-  dot: 1: Token {
-    value: "."
-    kind: DOT
-  }
-  -packageIdentifier: Token {
-    value: "package"
-    kind: IDENTIFIER
-    pos: 24: 43
-  }
-}
-cnt = 1
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan Cannot construct the 'PackageHeader' node
+// ASSERT: scan 8
+// ASSERT: scan PackageHeader {
+// ASSERT: scan -modifier: Token {
+// ASSERT: scan value: "&&"
+// ASSERT: scan kind: AND
+// ASSERT: scan -keywordM: Token {
+// ASSERT: scan value: "macro"
+// ASSERT: scan kind: MACRO
+// ASSERT: scan -keywordP: Token {
+// ASSERT: scan value: "package"
+// ASSERT: scan kind: PACKAGE
+// ASSERT: scan prefixPath: 0: Token {
+// ASSERT: scan value: "prefix1"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan dot: 0: Token {
+// ASSERT: scan value: "."
+// ASSERT: scan kind: DOT
+// ASSERT: scan prefixPath: 1: Token {
+// ASSERT: scan value: "prefix2"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan dot: 1: Token {
+// ASSERT: scan value: "."
+// ASSERT: scan kind: DOT
+// ASSERT: scan -packageIdentifier: Token {
+// ASSERT: scan value: "package"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan cnt = 1

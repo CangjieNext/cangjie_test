@@ -8,7 +8,7 @@
 // EXEC: %compiler %cmp_macro expr_macro.cj
 // ERRCHECK: %run_macro %compiler %cmp_opt %f -o %output
 
-// ASSERT:scan unexpected _ wildcard
+// ASSERT:scan ParseASTException: Failed to parse expr.
 
 import expr_macro.*
 

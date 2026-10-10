@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC-PIPE-0: %run %run_opt %output %run_args 2>&1 | compare %f
 
@@ -21,95 +29,50 @@ main() {
     return 0
 }
 
-/* SCAN-IN
-FuncDecl {
-  -keyword: Token {
-    value: "func"
-    kind: FUNC
-    pos: 10: 10
-  }
-  -identifier: Token {
-    value: "x"
-    kind: IDENTIFIER
-    pos: 10: 15
-  }
-  -block: Block {
-    -nodes: 0, Block {
-      -nodes: 0, CallExpr {
-        -callFunc: RefExpr {
-          -identifier: Token {
-            value: "test"
-            kind: IDENTIFIER
-            pos: 11: 21
-          }
-        }
-      }
-    }
-    -nodes: 1, TryExpr {
-      -keywordT: Token {
-        value: "try"
-        kind: TRY
-        pos: 12: 13
-      }
-      -tryBlock: Block {
-      }
-      -keywordsC: 0, Token {
-        value: "catch"
-        kind: CATCH
-        pos: 13: 15
-      }
-      -catchPatterns: 0, ExceptTypePattern {
-        -pattern: VarPattern {
-          -identifier: Token {
-            value: "e"
-            kind: IDENTIFIER
-            pos: 13: 21
-          }
-        }
-        -colon: Token {
-          value: ":"
-          kind: COLON
-          pos: 13: 22
-        }
-        -types: 0, RefType {
-          -identifier: Token {
-            value: "ASTException"
-            kind: IDENTIFIER
-            pos: 13: 24
-          }
-        }
-      }
-      -catchBlocks: 0, Block {
-      }
-      -keywordsC: 1, Token {
-        value: "catch"
-        kind: CATCH
-        pos: 14: 15
-      }
-      -catchPatterns: 1, WildcardPattern {
-        -wildcard: Token {
-          value: "_"
-          kind: WILDCARD
-          pos: 14: 21
-        }
-      }
-      -catchBlocks: 1, Block {
-      }
-      -keywordF: Token {
-        value: "finally"
-        kind: FINALLY
-        pos: 15: 15
-      }
-      -finallyBlock: Block {
-      }
-    }
-  }
-}
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan FuncDecl {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "func"
+// ASSERT: scan kind: FUNC
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "x"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -block: Block {
+// ASSERT: scan -nodes: 0, Block {
+// ASSERT: scan -nodes: 0, CallExpr {
+// ASSERT: scan -callFunc: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "test"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -nodes: 1, TryExpr {
+// ASSERT: scan -keywordT: Token {
+// ASSERT: scan value: "try"
+// ASSERT: scan kind: TRY
+// ASSERT: scan -tryBlock: Block {
+// ASSERT: scan -keywordsC: 0, Token {
+// ASSERT: scan value: "catch"
+// ASSERT: scan kind: CATCH
+// ASSERT: scan -catchPatterns: 0, ExceptTypePattern {
+// ASSERT: scan -pattern: VarPattern {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "e"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -types: 0, RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "ASTException"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -catchBlocks: 0, Block {
+// ASSERT: scan -keywordsC: 1, Token {
+// ASSERT: scan value: "catch"
+// ASSERT: scan kind: CATCH
+// ASSERT: scan -catchPatterns: 1, WildcardPattern {
+// ASSERT: scan -wildcard: Token {
+// ASSERT: scan value: "_"
+// ASSERT: scan kind: WILDCARD
+// ASSERT: scan -catchBlocks: 1, Block {
+// ASSERT: scan -keywordF: Token {
+// ASSERT: scan value: "finally"
+// ASSERT: scan kind: FINALLY
+// ASSERT: scan -finallyBlock: Block {

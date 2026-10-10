@@ -20,5 +20,5 @@ Android c,c,18
 CJVM c,c,
 AOT expr:expr x:\(Int64\)[\s\S]*2
 c,c,26
-AOT expr~expr Color.Green(7)~\(default(?:\.|::)Color\)[\s\S]*{\s+constructor = Green\s+arg_1 = 7[\s\S]*}
+AOT expr~expr Color.Green(7)~\(default(?:\.|::)Color\)[\s\S]*constructor = Green[\s\S]*arg_1 = 7[\s\S]*}
 q,q,

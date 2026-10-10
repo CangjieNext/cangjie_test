@@ -54,7 +54,7 @@ class TestConnNodeGetTrailer2 {
             readAll(1, resp)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message.contains("Invalid field line"))
+            @Expect(e.message.contains("Invalid header field line"))
         }
 
         resp = client.send(r)
@@ -62,7 +62,7 @@ class TestConnNodeGetTrailer2 {
             readAll(5, resp)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message.contains("Invalid field line"))
+            @Expect(e.message.contains("Invalid header field line"))
         }
 
         resp = client.send(r)
@@ -70,7 +70,7 @@ class TestConnNodeGetTrailer2 {
             readAll(5, resp)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message.contains("Invalid field line"))
+            @Expect(e.message.contains("Invalid header field line"))
         }
 
         client.close()

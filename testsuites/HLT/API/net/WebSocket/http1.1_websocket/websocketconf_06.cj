@@ -54,7 +54,7 @@ class Testwebsocketconf_06 {
                 websocketServer.writeCloseFrame(status: 0, reason: "normal")
                 @Expect(1, 2)
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("Invalid status code"))
+                @Expect(e.message.contains("Invalid close status code"))
             }
             websocketServer.closeConn()
         }
@@ -83,7 +83,7 @@ class Testwebsocketconf_06 {
             websocket.writeCloseFrame(status: 999, reason: "normal")
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("Invalid status code"))
+            @Expect(e.message.contains("Invalid close status code"))
         }
         websocket.closeConn()
         client.close()
@@ -111,7 +111,7 @@ class Testwebsocketconf_06 {
                 websocketServer.writeCloseFrame(status: 1015, reason: "normal")
                 @Expect(1, 2)
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("Invalid status code"))
+                @Expect(e.message.contains("Invalid close status code"))
             }
             websocketServer.closeConn()
         }
@@ -140,7 +140,7 @@ class Testwebsocketconf_06 {
             websocket.writeCloseFrame(status: 5000, reason: "normal")
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("Invalid status code"))
+            @Expect(e.message.contains("Invalid close status code"))
         }
         websocket.closeConn()
         client.close()
@@ -168,7 +168,7 @@ class Testwebsocketconf_06 {
                 websocketServer.writeCloseFrame(status: 1006, reason: "normal")
                 @Expect(1, 2)
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("Invalid status code"))
+                @Expect(e.message.contains("Invalid close status code"))
             }
             websocketServer.closeConn()
         }
@@ -197,7 +197,7 @@ class Testwebsocketconf_06 {
             websocket.writeCloseFrame(status: 1005, reason: "normal")
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("Invalid status code"))
+            @Expect(e.message.contains("Invalid close status code"))
         }
         websocket.closeConn()
         client.close()
@@ -226,7 +226,7 @@ class Testwebsocketconf_06 {
                 websocketServer.writeCloseFrame(status: 1004, reason: text)
                 @Expect(1, 2)
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+                @Expect(e.message.contains("Close frame payload length"))
             }
             websocketServer.closeConn()
         }
@@ -255,7 +255,7 @@ class Testwebsocketconf_06 {
             websocket.writeCloseFrame(status: 1007, reason: text)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("All control frames must have a payload length of 125 bytes or less"))
+            @Expect(e.message.contains("Close frame payload length"))
         }
         websocket.closeConn()
         client.close()
@@ -314,7 +314,7 @@ class Testwebsocketconf_06 {
             websocket.read()
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("The connection is closed"))
+            @Expect(e.message.contains("WebSocket connection is closed"))
         }
         sleep(Duration.millisecond * 600)
         client.close()

@@ -39,7 +39,7 @@ class TestAccept {
             ipv4_socket.accept()
             @Expect(1, 2)
         } catch (e: SocketException) {
-            @Expect(e.message.contains("Failed to accept: Failed to obtain the local address: An invalid argument was supplied."), true)
+            @Expect(e.message, "Failed to accept: Failed to obtain the local address: An invalid argument was supplied.")
             ipv4_socket.close()
         }
     }
@@ -89,7 +89,7 @@ class TestAccept {
             ipv4_socket.accept(timeout: Duration.second * (-1))
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Timeout should not be negative."), true)
+            @Expect(e.message, "Timeout cannot be negative.")
             ipv4_socket.close()
         }
     }

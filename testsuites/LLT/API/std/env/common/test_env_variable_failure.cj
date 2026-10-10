@@ -20,7 +20,7 @@ public class Test_env_variable_failure {
             setVariable("a=b", "c")
             @Expect(false)
         } catch (e: EnvException) {
-            @Expect(e.message.contains("Failed to set variable a=b."))
+            @Expect(e.message.contains("Failed to set variable 'a=b'."))
         }
     }
 
@@ -30,7 +30,7 @@ public class Test_env_variable_failure {
             removeVariable("a=b")
             @Expect(false)
         } catch (e: EnvException) {
-            @Expect(e.message.contains("Failed to remove variable a=b."))
+            @Expect(e.message.contains("Failed to remove variable 'a=b'."))
         }
     }
 }

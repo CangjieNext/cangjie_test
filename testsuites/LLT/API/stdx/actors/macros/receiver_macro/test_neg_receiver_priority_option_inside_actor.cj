@@ -19,6 +19,6 @@ class MyActor {
 }
 
 /* SCAN-IN
-Actor framework: macro failed to expand.
+Actor framework: Failed to expand macro:
 @Receiver macro: priority option can only be used inside @Actor[enableReceiverPriority: true].
 */

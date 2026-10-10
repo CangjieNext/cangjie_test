@@ -69,5 +69,5 @@ class TestServer11MutilpeHost {
 }
 
 /* SCAN-IN
-Host should be only one.
+Duplicate Host header.
  */

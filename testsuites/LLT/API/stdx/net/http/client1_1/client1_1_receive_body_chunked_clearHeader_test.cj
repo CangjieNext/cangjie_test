@@ -59,7 +59,7 @@ class TestClient1_1ReceiveChunkedBodyClearHeader {
             readAll(500, response2)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Trailer section can not contain raw CR.")
+            @Expect(e.message, "Trailer section cannot contain raw CR.")
         }
 
         client.close()

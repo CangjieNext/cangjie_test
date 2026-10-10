@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan expected ';' or '<NL>', found ','
+// ASSERT: scan ParseASTException: Failed to parse decl.
 
 import std.ast.*
 import std.collection.*

@@ -1,12 +1,16 @@
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (CJNATIVE and not Windows) EXEC-PIPE-0: %frontendCompiler %dumpCHIRDebug  %f -o %n.%suffix 2>&1
-// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR/[0-9]*\_ClearBlocksMarkAsUnreachable.chir | compare %f
-// (CJNATIVE and not Windows) ASSERT: scan-not [unreachable]
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %dumpCHIRDebug -Woff unused %n.cj
+// EXEC: %python pick_defination.py "default_CHIR/[0-9]*_ClearBlocksMarkAsUnreachable.chirtxt" "Func @_CN7default3fooHv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// Local lambda match should not leave unreachable-marked blocks in foo.
+// ASSERT: scan srcCodeIdentifier: foo
+// ASSERT: scan-not [unreachable]
 
 func foo(): Int64 {
     var a = 999
@@ -22,4 +26,5 @@ func foo(): Int64 {
 
 main() {
     foo()
+    return 0
 }

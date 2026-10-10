@@ -22,7 +22,7 @@ func test_dirpath_012() {
     fileinfo.setReadable(false)
     @Expect(fileinfo.canRead(), false)
     let e = @AssertThrows[Exception](parsePackage("./dir002"))
-    @Assert(e.message.contains("IOException: Failed to obtain members in the directory"))
+    @Assert(e.message.contains("Failed to read directory './dir002'"))
     fileinfo.setReadable(true)
 }
 }

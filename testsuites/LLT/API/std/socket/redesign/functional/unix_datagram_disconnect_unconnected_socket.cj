@@ -48,7 +48,7 @@ class Test_UnixDatagram_Disconnect_Unconnected {
             udSocket.disconnect()
             @Assert(false)
         } catch (e: SocketException) {
-            @Expect(e.message, "The socket is not bound: invoke bind() first.")
+            @Expect(e.message, "Socket is not bound.")
         }
         udSocket.close()
     }

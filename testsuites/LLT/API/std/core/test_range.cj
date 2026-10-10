@@ -105,7 +105,7 @@ class RangeTest {
         anomalyAssert(
             "testInvalidRangeInit_01",
             caseException01,
-            "The value of the step should not be zero."
+            "Invalid argument 'step': must be non-zero."
         )
     }
 }

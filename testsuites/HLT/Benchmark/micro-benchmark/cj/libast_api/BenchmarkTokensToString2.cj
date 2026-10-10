@@ -8,11 +8,12 @@
 
 // LEVEL: 3
 // DEPENDENCE: inputs.cj utils.cj visitors.cj
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -102,24 +103,24 @@ class TestVarDeclsTypeNodeTokensToString {
 
     @Bench
     func BenchmarkTokensToString2_VarDecl_declType_001():Unit {
-        this.watchAttrOuterInput1.toString()
+        blackBox(this.watchAttrOuterInput1.toString())
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecl_declType_002():Unit {
-        this.storagePropAttrInput1.toString()
+        blackBox(this.storagePropAttrInput1.toString())
         ()
     }  
 
 
     @Bench 
     func BenchmarkTokensToString2_VarDecls_type_001(): Unit {
-        let str = genericSingleResourceInput1.toString()
+        blackBox(genericSingleResourceInput1.toString())
         ()
     }
     @Bench 
     func BenchmarkTokensToString2_VarDecls_type_002(): Unit {
-        let str = internalGenericListResourceInput1.toString()
+        blackBox(internalGenericListResourceInput1.toString())
         ()
     }
 
@@ -127,49 +128,49 @@ class TestVarDeclsTypeNodeTokensToString {
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_003():Unit {
         for (tokens in customDialogInput1) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_004():Unit {
         for (tokens in componentInput1) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_005():Unit {
         for (tokens in componentInput2) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_006():Unit {
         for (tokens in componentInput3) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_007():Unit {
         for (tokens in componentInput4) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_008():Unit {
         for (tokens in componentInput5) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }
     @Bench
     func BenchmarkTokensToString2_VarDecls_type_009():Unit {
         for (tokens in componentInput6) {
-            tokens.toString()
+            blackBox(tokens.toString())
         }
         ()
     }

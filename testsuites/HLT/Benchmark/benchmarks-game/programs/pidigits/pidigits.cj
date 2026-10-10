@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// (LLVM) EXEC: %compiler %cmp_opt %optimization_level_2 --fast-math %overflow_wrapping %f -o %output
+// (LLVM) EXEC: %compiler %cmp_opt -O2 --fast-math %overflow_wrapping %f -o %output
 // (JET) EXEC: %compiler %cmp_opt %overflow_wrapping %f -o %output
 // (LLVM) RUN-EXEC-PIPE: %export cjHeapSize=16GB && %run time %run_opt %output 10000 %run_args 1> log.txt
 // (JET) RUN-EXEC-PIPE: %export JETVMPROP=-Xmx2G && time cj %run_opt %output 10000 %run_args 1> log.txt

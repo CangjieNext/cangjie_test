@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 internal import std.ast.{ImportList, Token}
 
@@ -21,32 +22,19 @@ main() {
     importList1.toTokens() |> println
 }
 
-/* SCAN
-import std.ast.*
-
-ImportList {
-  -keywordI: Token {
-    value: "import"
-    kind: IMPORT
-    pos: 18: 47
-  }
-  -importKind: All
-  prefixPath: 0: Token {
-    value: "std"
-    kind: IDENTIFIER
-    pos: 18: 54
-  }
-  prefixPath: 1: Token {
-    value: "ast"
-    kind: IDENTIFIER
-    pos: 18: 58
-  }
-  -identifier: Token {
-    value: "*"
-    kind: MUL
-    pos: 18: 62
-  }
-}
-import std.ast.*
-
-*/
+// ASSERT: scan import std.ast.*
+// ASSERT: scan ImportList {
+// ASSERT: scan -keywordI: Token {
+// ASSERT: scan value: "import"
+// ASSERT: scan kind: IMPORT
+// ASSERT: scan -importKind: All
+// ASSERT: scan prefixPath: 0: Token {
+// ASSERT: scan value: "std"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan prefixPath: 1: Token {
+// ASSERT: scan value: "ast"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "*"
+// ASSERT: scan kind: MUL
+// ASSERT: scan import std.ast.*

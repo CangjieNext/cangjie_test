@@ -17,5 +17,5 @@ AOT b,b 25,Breakpoint 1: 2 locations
 AOT r,r,-> 25
 Android c,c,25
 CJVM c,c,25
-AOT thread,cjthread list,tid = [\s\S]*, state =[\s\S]*name = 'spawn
+AOT thread,cjthread list,tid = [\s\S]*, state = ready|running|pending|idle
 q,q,

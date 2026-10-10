@@ -130,7 +130,7 @@ class TreeMapTest {
             var _ = TreeMap<Int64, Int64>(-10, {K => (K, K)})
             @Expect("Should throw exception", "")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid size of TreeMap: -10.")
+            @Expect(e.message, "Invalid size '-10': expected a non-negative value.")
         }
 
         const N: Int64 = 1000
@@ -149,7 +149,7 @@ class TreeMapTest {
             let _ = TreeMap<Int64, Int64>(-1, {i => (i, i)})
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid size of TreeMap: -1.")
+            @Expect(e.message, "Invalid size '-1': expected a non-negative value.")
         }
     }
 
@@ -415,7 +415,7 @@ class TreeMapTest {
             var _ = map1[1]
             @Expect("Should throw exception", "var _ = map1[1]")
         } catch (e: NoneValueException) {
-            @Expect(e.message, "Value does not exist!")
+            @Expect(e.message, "Value does not exist.")
         }
 
         let eleNames: Array<(String, Int64)> = [("赵", 1), ("钱", 2), ("孙", 3), ("李", 4), ("周", 5), ("吴", 6),

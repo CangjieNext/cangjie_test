@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx %optimization_level_2 --no-sub-pkg %overflow_wrapping %f -o %output
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 --no-sub-pkg %overflow_wrapping %f -o %output
 
 import stdx.net.http.*
 import std.net.*

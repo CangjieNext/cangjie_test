@@ -116,4 +116,4 @@ public class Test_maxConcurrentStreams {
     }
 }
 
-//ASSERT:scan HttpException: Write push related to stream 4, num of active push streams exceeds SettingsMaxConcurrentStreams, which is set by client
+//ASSERT:scan HttpException: Number of active push streams for push stream ID '4' exceeds SettingsMaxConcurrentStreams '1'.

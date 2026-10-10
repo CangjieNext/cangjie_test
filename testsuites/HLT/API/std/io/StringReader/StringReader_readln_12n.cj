@@ -33,7 +33,7 @@ ABCDEFG"""
             }
         }
     } catch (e: ContentFormatException) {
-        if (e.message != "Invalid utf8 byte sequence.") {
+        if (e.message != "Invalid UTF-8: unexpected continuation byte '176' at index '3' (missing leading byte).") {
             return 1
         }
     }

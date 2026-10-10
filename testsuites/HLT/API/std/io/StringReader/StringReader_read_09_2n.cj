@@ -29,7 +29,7 @@ main() {
             }
         }
     } catch (e: ContentFormatException) {
-        if (e.message != "Invalid unicode scalar value.") {
+        if (e.message != "Invalid Unicode scalar value: invalid leading byte '255' at index '4'.") {
             return 1
         }
     }

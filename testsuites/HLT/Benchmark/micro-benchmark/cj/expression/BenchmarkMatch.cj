@@ -7,22 +7,29 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx %optimization_level_2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg --test -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
 
-import stdx.encoding.json.*
-import std.io.*
+
 import std.time.*
-import std.convert.*
+import std.runtime.*
 
-let reps = 10000000
-public var a: Int64 = 16
-public var b: Float64 = 0.0
-public var c: Rune = '~'
-public var d: Int8 = 0
+public enum Month {
+    January | February | March | April | May | June | July | August | September | October | November | December
+}
 
-func benchmarkMatchD1() {
-    for (i in 0..reps) {
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_Match {
+
+    static var a: Int64 = 16
+    static var b: Float64 = 0.0
+    static var month: Month = December
+
+    @Bench
+    func BenchmarkMatchD1(): Unit {
         b = match (a) {
             case 1 => 1.5
             case 2 => 2.5
@@ -41,11 +48,11 @@ func benchmarkMatchD1() {
             case 15 => 15.5
             case _ => 16.5
         }
+        blackBox(a)
     }
-}
 
-func benchmarkMatchD2() {
-    for (i in 0..reps) {
+    @Bench
+    func BenchmarkMatchD2(): Unit {
         b = match (a) {
             case 1 => 1.5
             case 2 => 2.5
@@ -67,11 +74,11 @@ func benchmarkMatchD2() {
                     case _ => 16.6
                 }
         }
+        blackBox(a)
     }
-}
 
-func benchmarkMatchD4() {
-    for (i in 0..reps) {
+    @Bench
+    func BenchmarkMatchD4(): Unit {
         b = match (a) {
             case 1 => 1.5
             case 2 => 2.5
@@ -98,20 +105,11 @@ func benchmarkMatchD4() {
                         }
                 }
         }
+        blackBox(a)
     }
-}
 
-public enum Month {
-    January | February | March | April | May | June | July | August | September | October | November | December
-}
-public var month: Month = December
-/**
-* Return Int64 value of the Month instance.
-*
-* @return a number represents the Month.
-*/
-func benchmarkMatchD6() {
-    for (i in 0..reps) {
+    @Bench
+    func BenchmarkMatchD6(): Unit {
         a = match (month) {
             case January => 1
             case February => 2
@@ -126,46 +124,6 @@ func benchmarkMatchD6() {
             case November => 11
             case December => 12
         }
+        blackBox(a)
     }
-}
-
-func timeBenchmarkMatchD1(): Unit {
-    var startTime = DateTime.now()
-    benchmarkMatchD1()
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkMatchD1: " + perTime.format(".3") + " ns/op")
-}
-
-func timeBenchmarkMatchD2(): Unit {
-    var startTime = DateTime.now()
-    benchmarkMatchD2()
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkMatchD2: " + perTime.format(".3") + " ns/op")
-}
-
-func timeBenchmarkMatchD4(): Unit {
-    var startTime = DateTime.now()
-    benchmarkMatchD4()
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkMatchD4: " + perTime.format(".3") + " ns/op")
-}
-
-func timeBenchmarkMatchD6(): Unit {
-    var startTime = DateTime.now()
-    benchmarkMatchD6()
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-    println("BenchmarkMatchD6: " + perTime.format(".3") + " ns/op")
-}
-
-main(): Int64 {
-    timeBenchmarkMatchD1()
-    timeBenchmarkMatchD2()
-    timeBenchmarkMatchD4()
-    timeBenchmarkMatchD6()
-    println("a = ${a}, b = ${b}, c = ${c}, d = ${d}")
-    return 0
 }

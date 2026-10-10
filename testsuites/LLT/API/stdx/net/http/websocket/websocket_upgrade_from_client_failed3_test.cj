@@ -71,5 +71,5 @@ class TestWebSocketUpgradeFromServerH2 {
     }
 }
 /* SCAN-IN
-Upgrade to websocket failed, the status code should be 200, but received HTTP/2.0 101 Switching Protocols
+WebSocket upgrade failed: invalid status code '101', expected 200.
  */

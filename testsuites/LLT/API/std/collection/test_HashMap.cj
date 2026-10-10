@@ -118,13 +118,13 @@ class HashMapTest {
             var _ = HashMap<Int64, Int64>(-10)
             @Expect("Should throw exception", "")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid size of HashMap: -10.")
+            @Expect(e.message, "Invalid capacity '-10': expected a non-negative value.")
         }
         try {
             var _ = HashMap<String, Int64>(-3)
             @Expect("Should throw exception", "")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid size of HashMap: -3.")
+            @Expect(e.message, "Invalid capacity '-3': expected a non-negative value.")
         }
     }
 
@@ -144,7 +144,7 @@ class HashMapTest {
             var _ = HashMap<Int64, Int64>(-10, {K => (K, K)})
             @Expect("Should throw exception", "")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid size of HashMap: -10.")
+            @Expect(e.message, "Invalid size '-10': expected a non-negative value.")
         }
     }
 
@@ -225,7 +225,7 @@ class HashMapTest {
             var _: String = map1[0]
             @Expect("Should throw exception", "")
         } catch (e: NoneValueException) {
-            @Expect(e.message, "Value does not exist!\n")
+            @Expect(e.message, "Value does not exist.")
         }
 
         var map2: HashMap<Int64, String> = HashMap<Int64, String>([(1, "1"), (8, "8"), (3, "3")])
@@ -233,7 +233,7 @@ class HashMapTest {
             var _: String = map2[0]
             @Expect("Should throw exception", "")
         } catch (e: NoneValueException) {
-            @Expect(e.message, "Value does not exist!\n")
+            @Expect(e.message, "Value does not exist.")
         }
         @Expect(map2[1], "1")
         @Expect(map2[3], "3")
@@ -405,6 +405,22 @@ class HashMapTest {
         map.reserve(8)
         @Expect(map.size, 10)
         @Expect(map.capacity, 24)
+    }
+
+    @TestCase
+    func reserveAtRemainingCapacity(): Unit {
+        var map: HashMap<Int64, Int64> = HashMap<Int64, Int64>(
+            [(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25), (6, 36), (7, 49), (8, 64), (9, 81)])
+        map.reserve(6)
+        @Expect(map.capacity, 16)
+
+        var iter = map.iterator()
+        map.reserve(6)
+        @Expect(map.capacity, 16)
+
+        let entry = iter.next().getOrThrow()
+        @Expect(entry[0], 0)
+        @Expect(entry[1], 0)
     }
 
     @TestCase

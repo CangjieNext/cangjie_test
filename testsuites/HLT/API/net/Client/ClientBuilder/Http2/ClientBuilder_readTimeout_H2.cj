@@ -124,7 +124,7 @@ public class Test_readTimeout {
         let request = HttpRequestBuilder().url("https://127.0.0.1:${s.port}/dd").version(HTTP2_0).build()
         let e = @AssertThrows[HttpTimeoutException | SocketException](client.send(request))
         println(e.message)
-        @Expect(e.message.contains("Client2_0 receive response for stream 1 timeout.") || e.message.contains("Connection refused") || e.message.contains("Stream closed") || e.message.contains("Failed to connect"))
+        @Expect(e.message.contains("Receive response timeout for stream") || e.message.contains("Connection refused") || e.message.contains("Stream closed") || e.message.contains("Failed to connect"))
         client.close()
         s.close()
     }

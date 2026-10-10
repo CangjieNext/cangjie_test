@@ -6,6 +6,8 @@
 
 // EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
+
+
 class A <: Exception & Resource {
     public func isClosed() {
         throw B()
@@ -44,14 +46,26 @@ main() {
 
 /* SCAN
 warning: unreachable expression
-  ==> testDCEThrow03.cj:12:9:
+  ==> testDCEThrow03.cj:14:9:
    | 
-11 |         throw B()
+13 |         throw B()
    |         ~~~~~~~~~ any code following this expression is unreachable
-12 |         var a = 1
+14 |         var a = 1
    |         ^^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-1 warning generated, 1 warning printed.
+warning: unreachable expression
+  ==> testDCEThrow03.cj:44:5:
+   | 
+42 |       try (a: A = A()) {
+   |  _____~
+43 | |     } finally {}
+   | |________________~ any code following this expression is unreachable
+44 |       return 0
+   |       ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+2 warnings generated, 2 warnings printed.
 */

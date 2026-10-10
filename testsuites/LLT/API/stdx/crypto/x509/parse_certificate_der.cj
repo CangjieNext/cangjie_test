@@ -54,7 +54,7 @@ class Test_X509_certificate_pemformat {
         try {
             X509Certificate.decodeFromDer(derData)
         } catch (e: Exception) {
-            @Expect(e.message.contains("The field is not a sequence: DerType(class: Universal, typeIdentifier: 2, primitive: true)"))
+            @Expect(e.message.contains("The field is not a sequence: 'DerType(class: Universal, typeIdentifier: 2, primitive: true)'"))
             println(e.message)
             sum += 1
         }
@@ -67,7 +67,7 @@ class Test_X509_certificate_pemformat {
         try {
             X509Certificate.decodeFromDer(derData)
         } catch (e: Exception) {
-            @Expect(e.message.contains("X509Cert init failed: signatureAlgorithm must contain the same algorithm identifier as the signature field in the sequence tbsCertificate."))
+            @Expect(e.message.contains("X509Cert init failed: signature algorithm mismatch between certificate and signature field."))
             println(e.message)
             sum += 1
         }

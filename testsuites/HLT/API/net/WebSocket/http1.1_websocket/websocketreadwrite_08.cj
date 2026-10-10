@@ -72,7 +72,7 @@ class Testwebsocketreadwrite_08 {
             try {
                 websocketServer.write(BinaryWebFrame, Array<UInt8>(4097, repeat: 10))
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("No more data frames can be sent after sending a Close frame"))
+                @Expect(e.message.contains("Cannot send data frames after Close frame"))
                 sum2 += 1
             }
             @Expect(sum2, 1)
@@ -80,14 +80,14 @@ class Testwebsocketreadwrite_08 {
             try {
                 websocketServer.write(BinaryWebFrame, Array<UInt8>(4097, repeat: 10))
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("The connection is closed"))
+                @Expect(e.message.contains("WebSocket connection is closed"))
                 sum2 += 1
             }
             @Expect(sum2, 2)
             try {
                 websocketServer.write(PingWebFrame, Array<UInt8>(125, repeat: 10))
             } catch (e: WebSocketException) {
-                @Expect(e.message.contains("The connection is closed"))
+                @Expect(e.message.contains("WebSocket connection is closed"))
                 sum2 += 1
             }
             @Expect(sum2, 3)
@@ -120,7 +120,7 @@ class Testwebsocketreadwrite_08 {
         try {
             websocket.write(TextWebFrame, Array<UInt8>(4096, repeat: 10))
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("No more data frames can be sent after sending a Close frame"))
+            @Expect(e.message.contains("Cannot send data frames after Close frame"))
             sum1 += 1
         }
         @Expect(sum1, 1)
@@ -128,14 +128,14 @@ class Testwebsocketreadwrite_08 {
         try {
             websocket.write(BinaryWebFrame, Array<UInt8>(4097, repeat: 10))
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("The connection is closed"))
+            @Expect(e.message.contains("WebSocket connection is closed"))
             sum1 += 1
         }
         @Expect(sum1, 2)
         try {
             websocket.write(PingWebFrame, Array<UInt8>(125, repeat: 10))
         } catch (e: WebSocketException) {
-            @Expect(e.message.contains("The connection is closed"))
+            @Expect(e.message.contains("WebSocket connection is closed"))
             sum1 += 1
         }
         @Expect(sum1, 3)

@@ -11,10 +11,10 @@
 // RUN-EXEC-PIPE-0: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
 //ASSERT: scan [HttpEngineConn1#readRequest] exception: SocketTimeoutException
 //ASSERT: scan ()
-//ASSERT: scan Buffer size should be positive, got 0
-//ASSERT: scan Buffer size should be positive, got -9223372036854775808
-//ASSERT: scan Buffer size should be positive, got 0
-//ASSERT: scan Buffer size should be positive, got -9223372036854775808
+//ASSERT: scan Invalid send buffer size: must be positive, got '0'.
+//ASSERT: scan Invalid send buffer size: must be positive, got '-9223372036854775808'.
+//ASSERT: scan Invalid receive buffer size: must be positive, got '0'.
+//ASSERT: scan Invalid receive buffer size: must be positive, got '-9223372036854775808'.
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.time.*

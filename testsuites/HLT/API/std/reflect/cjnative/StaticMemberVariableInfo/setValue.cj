@@ -36,7 +36,7 @@ class Test {
                 .setValue(13);
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalSetException: Attempt to modify immutable variable 'c1_public_readonly_static_member_variable_1'.")
+            @Expect(e.toString(), "IllegalSetException: Cannot modify immutable variable 'c1_public_readonly_static_member_variable_1'.")
         }
 
         // 新值类型不匹配。
@@ -47,7 +47,7 @@ class Test {
                 .getStaticVariable("c1_public_mutable_static_member_variable_1")
                 .setValue("hello")
         } catch (e: Exception) {
-            @Expect(e.toString(), "IllegalTypeException: The input newValue should be \"Int64\", but now it`s \"String\"")
+            @Expect(e.toString(), "IllegalTypeException: Invalid type for 'newValue': expected 'Int64', got 'String'.")
         }
     }
     @TestCase

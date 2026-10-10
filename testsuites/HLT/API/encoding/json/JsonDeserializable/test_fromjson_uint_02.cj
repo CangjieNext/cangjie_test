@@ -62,7 +62,7 @@ class Test_fromjson_uint_02 {
             UInt8.fromJson(reader)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message,"The next number is out of range for UInt8.")
+            @Expect(e.message,"Number is out of range for UInt8.")
         }
     }
 
@@ -112,7 +112,7 @@ class Test_fromjson_uint_02 {
             UInt16.fromJson(reader)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message,"The next number is out of range for UInt16.")
+            @Expect(e.message,"Number is out of range for UInt16.")
         }
     }
 
@@ -162,7 +162,7 @@ class Test_fromjson_uint_02 {
             UInt32.fromJson(reader)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message,"The next number is out of range for UInt32.")
+            @Expect(e.message,"Number is out of range for UInt32.")
         }
     }
 
@@ -176,7 +176,7 @@ class Test_fromjson_uint_02 {
             UInt32.fromJson(reader)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message,"The next number is out of range for UInt32.")
+            @Expect(e.message,"Number is out of range for UInt32.")
         }
     }
 
@@ -226,7 +226,7 @@ class Test_fromjson_uint_02 {
             UIntNative.fromJson(reader)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message,"The next number is out of range for UIntNative.")
+            @Expect(e.message,"Number is out of range for UIntNative.")
         }
     }
 
@@ -240,7 +240,7 @@ class Test_fromjson_uint_02 {
             UIntNative.fromJson(reader)
             @Expect(false)
         } catch (e: OverflowException) {
-            @Expect(e.message,"The next number is out of range for UIntNative.")
+            @Expect(e.message,"Number is out of range for UIntNative.")
         }
     }
 }

@@ -45,7 +45,7 @@ class TestClient1_1Request2 {
                 @Expect(e.message, "Invalid url address or proxy address.")
             }
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message.contains("Port must contain digits only"))
+            @Expect(e.message.contains("Port contains non-digit characters"))
         }
     }
 
@@ -63,7 +63,7 @@ class TestClient1_1Request2 {
                 @Expect(e.message, "Invalid url address or proxy address.")
             }
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message.contains("Port must contain digits only"))
+            @Expect(e.message.contains("Port contains non-digit characters"))
         }
         println("request_test2_ok")
     }

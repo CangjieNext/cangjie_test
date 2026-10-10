@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %optimization_level_2 --no-sub-pkg %f -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt -O2 --no-sub-pkg %f -o %output
 // RUN-EXEC: %export cjHeapSize=512mb && %run_stdx %output %run_args 2>&1 | compare %f
 // ASSERT: scan ms
 import stdx.encoding.json.*

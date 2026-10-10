@@ -53,7 +53,7 @@ class Test {
             let node = parsePackage(path)
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: The input path `${path}` does not exist.")
+            @Expect(e.message, "Failed to read directory '${path}'.")
         }
         @Expect(count, 1)
     }
@@ -66,7 +66,7 @@ class Test {
             let node = parsePackage(path)
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: The input path `${path}` is not a directory.")
+            @Expect(e.message, "Failed to read directory '${path}'.")
         }
         @Expect(count, 1)
     }
@@ -90,7 +90,8 @@ class Test {
             let node = parsePackage("sourceFile/parse_dir/test_file_ln")
         } catch (e: Exception) {
             count += 1
-            @Assert(Regex("^IOException: Failed to canonical path `.*` return -2: \"No such file or directory\".$").matches(e.message))
+            println(e.message)
+            @Assert(Regex("^Failed to read file '.*'.$").matches(e.message))
         }
         @Expect(count, 1)
     }
@@ -116,7 +117,7 @@ class Test {
             let node = parsePackage("sourceFile/parse_dir/test_file_chmod")
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: The file is not readable.")
+            @Expect(e.message.contains("is not readable"), true)
         }
         @Expect(count, 1)
     }

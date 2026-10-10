@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 import std.ast.*
 import std.collection.*
@@ -87,26 +95,16 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-description: case, token_id: 100, token_literal_value: case, fileID: 1, line: 12, column: 30
-BinaryExpr {
-  -leftExpr:   -rightExpr: }
-1
-|
-case() | =>
-description: where, token_id: 114, token_literal_value: where, fileID: 1, line: 51, column: 30
-case
-BinaryExpr {
-  -leftExpr:   -rightExpr: }
-description: double_arrow, token_id: 46, token_literal_value: =>, fileID: 1, line: 70, column: 27
-Block {
-}
-cnt = 0
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan description: case, token_id: 100, token_literal_value: case
+// ASSERT: scan BinaryExpr {
+// ASSERT: scan -leftExpr:   -rightExpr: }
+// ASSERT: scan 1
+// ASSERT: scan |
+// ASSERT: scan case() | =>
+// ASSERT: scan description: where, token_id: 114, token_literal_value: where
+// ASSERT: scan case
+// ASSERT: scan BinaryExpr {
+// ASSERT: scan -leftExpr:   -rightExpr: }
+// ASSERT: scan description: double_arrow, token_id: 46, token_literal_value: =>
+// ASSERT: scan Block {
+// ASSERT: scan cnt = 0

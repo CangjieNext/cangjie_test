@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// (target_ios_simulator)EXEC: cd %n/dep/inner_dep && %cjpm build %cjpm_opt
+// (target_ios_simulator)EXEC: cd %n/dep && %cjpm build %cjpm_opt
+// (target_ios_simulator)EXEC: cd %n/dep1 && %cjpm build %cjpm_opt
+// (target_ios_simulator)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
+// ASSERT: regex Compiling package `b`: [\s\S]*.*target[/|\\][\s\S]*release[/|\\]b[/|\\]b.aoo.bc
+// ASSERT: regex Compiling package `b`: [\s\S]*libb.a
+// ASSERT: scan cjpm build success
+// (target_ios_simulator)EXEC-1: cd %n && cd %release_dir/b && nm libb.a | grep -E "D.*(depaoo)"
+// (target_ios_simulator)EXEC-1: cd %n && cd %release_dir/b && nm libb.a | grep -E "D.*(depcoo)"
+// (target_ios_simulator)EXEC-1: cd %n && cd %release_dir/b && nm libb.a | grep -E "T.*(testinner_dep)"
+// (target_ios_simulator)EXEC-1: cd %n && cd %release_dir/b && nm libb.a | grep -E "T.*(dep1testaoo)"
+// (target_ios_simulator)EXEC: cd %n && cd %release_dir/b && nm libb.a | grep -E "T.*(testmain)"
+// (target_ios_simulator)EXEC: cd %n && cd %release_dir/b && nm libb.a | grep -E "T.*(testdep1)"

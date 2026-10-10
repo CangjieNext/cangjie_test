@@ -7,6 +7,9 @@
 // EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 // EXEC-PIPE-0: %run %run_opt %output %run_args
 
+
+
+
 func test1() {
     1..2 : (return 0)
     return 1
@@ -23,53 +26,49 @@ main() {
 
 /* SCAN
 warning: unused expression
-  ==> testDCEApply05.cj:11:5:
+  ==> testDCEApply05.cj:14:5:
    | 
-11 |     1..2 : (return 0)
+14 |     1..2 : (return 0)
    |     ^ unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unreachable expression
-  ==> testDCEApply05.cj:11:5:
+  ==> testDCEApply05.cj:14:5:
    | 
-11 |     1..2 : (return 0)
-   |     ^^^^^^^^^^^^^^^^^any code following this expression is unreachable
-   |     |
-   |     unreachable expression
+14 |     1..2 : (return 0)
+   |     ^^^^^^^^^^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unused expression
-  ==> testDCEApply05.cj:11:8:
+  ==> testDCEApply05.cj:14:8:
    | 
-11 |     1..2 : (return 0)
+14 |     1..2 : (return 0)
    |        ^ unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unused expression
-  ==> testDCEApply05.cj:16:5:
+  ==> testDCEApply05.cj:19:5:
    | 
-16 |     1..=2 : (return 0)
+19 |     1..=2 : (return 0)
    |     ^ unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unreachable expression
-  ==> testDCEApply05.cj:16:5:
+  ==> testDCEApply05.cj:19:5:
    | 
-16 |     1..=2 : (return 0)
-   |     ^^^^^^^^^^^^^^^^^^any code following this expression is unreachable
-   |     |
-   |     unreachable expression
+19 |     1..=2 : (return 0)
+   |     ^^^^^^^^^^^^^^^^^^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unused expression
-  ==> testDCEApply05.cj:16:9:
+  ==> testDCEApply05.cj:19:9:
    | 
-16 |     1..=2 : (return 0)
+19 |     1..=2 : (return 0)
    |         ^ unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`

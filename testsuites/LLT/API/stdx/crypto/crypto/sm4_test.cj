@@ -47,7 +47,7 @@ class Test_sm4 {
             test_func_sm4_01(SM4(mode, key.toArray(), iv: iv.toArray()), "hello cangjie!")
         } catch (e: CryptoException) {
             num++
-            @Expect(e.message, "Invalid iv size.")
+            @Expect(e.message, "Invalid IV size: expected '16' bytes, got '15' bytes.")
         }
         @Expect(num, 1)
     }
@@ -61,7 +61,7 @@ class Test_sm4 {
             test_func_sm4_01(SM4(mode, key.toArray(), iv: iv.toArray()), "hello cangjie!")
         } catch (e: CryptoException) {
             num++
-            @Expect(e.message, "Invalid key size.")
+            @Expect(e.message, "Invalid key size: expected '16' bytes, got '10' bytes.")
         }
         @Expect(num, 1)
     }
@@ -75,7 +75,7 @@ class Test_sm4 {
             test_func_sm4_01(SM4(mode, key.toArray(), iv: iv.toArray(), paddingMode: PaddingMode.NoPadding), "1")
         } catch (e: CryptoException) {
             num++
-            @Expect(e.message, "Encrypt failed.")
+            @Expect(e.message, "Encryption finalization failed.")
         }
         @Expect(num, 1)
     }
@@ -163,7 +163,7 @@ class Test_sm4 {
             SM4(OperationMode.GCM, key.toArray(), tagSize: 10, iv: iv.toArray())
         } catch (e: CryptoException) {
             num++
-            @Expect(e.message, "Invalid tag size.")
+            @Expect(e.message, "Invalid tag size: must be between '12' and '16', got '10'.")
         }
         @Expect(num, 1)
     }

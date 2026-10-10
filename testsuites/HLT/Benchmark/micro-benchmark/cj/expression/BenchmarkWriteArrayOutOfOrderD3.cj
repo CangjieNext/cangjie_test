@@ -7,49 +7,43 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx %optimization_level_2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg --test -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
+
 
 import std.time.*
-import std.convert.*
-import std.convert.*
+import std.runtime.*
 
-let step: Int64 = 64
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_Write_Array_Out_Of_Order_D3 {
 
+    static var arrD3_32 = Array<Array<Array<Int64>>>(32, {i => Array<Array<Int64>>(32, {i => Array<Int64>(32, repeat: 0)})})
+    static var arrD3_256 = Array<Array<Array<Int64>>>(256, {i => Array<Array<Int64>>(256, {i => Array<Int64>(256, repeat: 0)})})
 
-let memberLen: Array<(Int64, Int64)> = [(32, 1000000), (256, 1000000)]
-
-func timeBenchmarkWriteArrayOutOfOrderD3(len: Int64, reps: Int64, step: Int64): Unit {
-    var targetArrD2: Array<Array<Int64>> = Array<Array<Int64>>(len, repeat: Array<Int64>(len, repeat: 0))
-    var targetArrD3: Array<Array<Array<Int64>>> = Array<Array<Array<Int64>>>(len, repeat: targetArrD2)
-    var startTime = DateTime.now()
-    var i = 0
-    while (i < reps) {
-        var j = 0
-        while (j < len) {
-            var k = 0
-            while (k < len) {
-                var n = 0
-                while (n < len) {
-                    targetArrD3[j][k][n] = j + k - n
-                    n = n + step
+    @Bench
+    func BenchmarkWriteArrayOutOfOrderD3_N32(): Unit {
+        for (k in 0..32:64) {
+            for (j in 0..32:64) {
+                for (i in 0..32:64) {
+                    arrD3_32[k][j][i] = i
                 }
-                k = k + step
             }
-            j = j + step
         }
-        i = i + 1
-    }
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
-
-    println("BenchmarkWriteArrayOutOfOrderD3_N${len}: ${perTime.format(".2")} ns/op")
-}
-
-main(): Int32 {
-    for (i in 0..memberLen.size) {
-        timeBenchmarkWriteArrayOutOfOrderD3(memberLen[i][0],memberLen[i][1], step)
+        blackBox(arrD3_32[0][0][0])
     }
 
-    return 0
+    @Bench
+    func BenchmarkWriteArrayOutOfOrderD3_N256(): Unit {
+        for (k in 0..256:64) {
+            for (j in 0..256:64) {
+                for (i in 0..256:64) {
+                    arrD3_256[k][j][i] = i
+                }
+            }
+        }
+        blackBox(arrD3_256[0][0][0])
+    }
 }

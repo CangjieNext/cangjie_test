@@ -11,6 +11,7 @@ internal import systemlib.*
 /**
  * [Detect Aesthetics Score] example, used to detect image.
  */
+
 class detectState <: State {
     var score: float64
     var result: String

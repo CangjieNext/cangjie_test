@@ -1,11 +1,17 @@
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %enableO2 %disableCodegen -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff unused %n.cj
+// EXEC: %python pick_defination.py "default_CHIR/[0-9]*_ConstantPropagation.chirtxt" "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// Nested const Rune match folded; MultiBranch rewritten.
+// ASSERT: scan srcCodeIdentifier: main
+// ASSERT: scan-not MultiBranch(
+// ASSERT: scan Constant(0i)
 
 main() {
     let c = r'a'
@@ -20,6 +26,3 @@ main() {
     }
     return t
 }
-
-// ASSERT: scan [DCE] The MultiBranch expression at [12,13] has been deleted
-// ASSERT: scan [DCE] The MultiBranch expression at [13,36] has been deleted

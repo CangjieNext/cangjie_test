@@ -37,7 +37,7 @@ class Test_Udp_Disconnect_Unconnected {
             udpsocket.disconnect()
             @Assert(false)
         } catch (e: SocketException) {
-            @Expect(e.message, "The socket is not bound: invoke bind() first.")
+            @Expect(e.message, "Socket is not bound.")
         }
         udpsocket.close()
     }

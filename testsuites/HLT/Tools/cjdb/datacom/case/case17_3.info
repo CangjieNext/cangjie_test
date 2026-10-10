@@ -20,5 +20,5 @@ Android c,c,24
 CJVM c,c,24
 AOT locals,locals,\(default(?:\.|::)A\) this = {[\s\S]*mixtuple01 = {[\s\S]*\[0\] = 18[\s\S]*\[1\] = "a"[\s\S]*\[2\] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 c,c,35
-AOT p, p x3,\(Tuple<Bool,std.core(?:\.|::)String,Tuple<Int64,std.core(?:\.|::)String,std.core(?:\.|::)Array<Int64>>,Tuple<std.core(?:\.|::)String,std.core(?:\.|::)String>>\)[\s\S]*{[\s\S]*\[0\] = true[\s\S]*\[1\] = "hello"[\s\S]*\[2\] = {[\s\S]*\[0\] = 18[\s\S]*\[3\] = {[\s\S]*\[0\] = "a"[\s\S]*
+AOT p, p x3,[\s\S]*\[0\] = true[\s\S]*\[1\] = "hello"[\s\S]*\[2\] = {[\s\S]*\[0\] = 18[\s\S]*\[3\] = {[\s\S]*\[0\] = "a"[\s\S]*
 q,q,

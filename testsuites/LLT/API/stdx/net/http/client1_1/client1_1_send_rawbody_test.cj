@@ -47,7 +47,7 @@ class TestClient1_1SendBody {
             client.send(r)
             @Expect(1, 2)
         } catch (e: Exception) {
-            @Expect(e.message, "The content-length is wrong.")
+            @Expect(e.message, "Invalid content-length: expected '100', but body size is '5'.")
         }
 
         client.close()

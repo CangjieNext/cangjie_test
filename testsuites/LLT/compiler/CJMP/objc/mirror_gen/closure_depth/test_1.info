@@ -49,6 +49,8 @@ public open class M <: BaseClass & BaseProtocol {
     protected var e: Enum
     protected var c: ?C
     protected var p: ?P
+    protected var id_: ?ObjCId
     protected var c_struct: ObjCPointer<CStruct>
+    public init()
 }
 */

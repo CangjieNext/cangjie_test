@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 
 internal import std.ast.*
 
@@ -28,87 +36,46 @@ main() {
     return 0
 }
 
-/* SCAN-IN
-FuncDecl {
-  -identifier: Token {
-    value: "set"
-    kind: IDENTIFIER
-    pos: 10: 13
-  }
-  -funcParams: 0, FuncParam {
-    -identifier: Token {
-      value: "x"
-      kind: IDENTIFIER
-      pos: 10: 17
-    }
-    -paramType:   }
-  -block: Block {
-    -nodes: 0, CallExpr {
-      -callFunc: RefExpr {
-        -identifier: Token {
-          value: "println"
-          kind: IDENTIFIER
-          pos: 10: 20
-        }
-      }
-      -arguments: 0, Argument {
-        -expr: LitConstExpr {
-          -literal: Token {
-            value: "after_set"
-            kind: STRING_LITERAL
-            pos: 10: 28
-          }
-        }
-      }
-    }
-  }
-}
-FuncDecl {
-  -identifier: Token {
-    value: "get"
-    kind: IDENTIFIER
-    pos: 9: 13
-  }
-  -block: Block {
-    -nodes: 0, CallExpr {
-      -callFunc: RefExpr {
-        -identifier: Token {
-          value: "println"
-          kind: IDENTIFIER
-          pos: 9: 19
-        }
-      }
-      -arguments: 0, Argument {
-        -expr: LitConstExpr {
-          -literal: Token {
-            value: "after_get"
-            kind: STRING_LITERAL
-            pos: 9: 27
-          }
-        }
-      }
-    }
-    -nodes: 1, ReturnExpr {
-      -keyword: Token {
-        value: "return"
-        kind: RETURN
-        pos: 9: 40
-      }
-      -expr: LitConstExpr {
-        -literal: Token {
-          value: "0"
-          kind: INTEGER_LITERAL
-          pos: 9: 47
-        }
-      }
-    }
-  }
-}
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan FuncDecl {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "set"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -funcParams: 0, FuncParam {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "x"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -paramType:   }
+// ASSERT: scan -block: Block {
+// ASSERT: scan -nodes: 0, CallExpr {
+// ASSERT: scan -callFunc: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "println"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -arguments: 0, Argument {
+// ASSERT: scan -expr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "after_set"
+// ASSERT: scan kind: STRING_LITERAL
+// ASSERT: scan FuncDecl {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "get"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -block: Block {
+// ASSERT: scan -nodes: 0, CallExpr {
+// ASSERT: scan -callFunc: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "println"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -arguments: 0, Argument {
+// ASSERT: scan -expr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "after_get"
+// ASSERT: scan kind: STRING_LITERAL
+// ASSERT: scan -nodes: 1, ReturnExpr {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "return"
+// ASSERT: scan kind: RETURN
+// ASSERT: scan -expr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "0"
+// ASSERT: scan kind: INTEGER_LITERAL

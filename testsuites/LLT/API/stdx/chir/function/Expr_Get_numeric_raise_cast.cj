@@ -42,5 +42,5 @@ main() {
     bb.appendExpr(nc)
     let ra = RaiseException.create(v)
     bb.appendExpr(ra)
-    println("cast raise: ${nc.overflow == OverflowStrategy.Wrapping} ${ra.result.ty == UnitType.get()}")
+    println("cast raise: ${nc.overflow == OverflowStrategy.Wrapping} ${ra.isTerminator() && ra.tryGetResult().isNone()}")
 }

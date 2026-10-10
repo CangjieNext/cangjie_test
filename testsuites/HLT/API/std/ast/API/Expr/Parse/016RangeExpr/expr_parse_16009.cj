@@ -9,8 +9,8 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %use_ast %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan expected operator or end of expression, found ':'
-
+// ASSERT: scan An exception has occurred:
+// ASSERT: scan ParseASTException: Failed to parse expr.
 import std.ast.*
 
 main() {

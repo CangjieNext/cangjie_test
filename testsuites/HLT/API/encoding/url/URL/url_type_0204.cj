@@ -18,7 +18,7 @@ main(): Int64 {
     try {
         let s = URL.parse(i)
     } catch(e: UrlSyntaxException) {
-        if (!e.toString().contains("The userinfo contains an invalid encoding sequence")) {
+        if (!e.toString().contains("Userinfo contains an invalid encoding sequence.")) {
             return 1
         }
     }

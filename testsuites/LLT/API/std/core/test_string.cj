@@ -485,7 +485,7 @@ class StringTest {
         try {
             string.padStart(-1, padding: "abc")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Negative totalWidth.")
+            @Expect(e.message, "Invalid argument 'totalWidth': expected a non-negative value, got '-1'.")
         }
         @Expect(string.padStart(string.size -1, padding:"abc"), string)
         @Expect(string.padStart(string.size + 1, padding:"abc"), "abcCangJie仓颉")
@@ -495,7 +495,7 @@ class StringTest {
         try {
             string.padEnd(-1, padding: "abc")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Negative totalWidth.")
+            @Expect(e.message, "Invalid argument 'totalWidth': expected a non-negative value, got '-1'.")
         }
         @Expect(string.padEnd(string.size + 1, padding:"abc"), "CangJie仓颉abc")
         @Expect(string.padEnd(string.size + 2, padding:"abc"), "CangJie仓颉abc")
@@ -551,7 +551,7 @@ class StringTest {
         try {
             string * (-6)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Negative count.")
+            @Expect(e.message, "Invalid argument 'count': expected a non-negative value, got '-6'.")
         }
 
         @Expect(string * 0, "")
@@ -568,42 +568,42 @@ class StringTest {
             string[0..9 : 3]
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "the value of the step should be '1'")
+            @Expect(e.message, "String slice step must be 1, got '3'.")
         }
 
         try {
             string[..8]
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message, "Invalid UTF-8 byte sequence: index '8' is not a code point boundary.")
         }
 
         try {
             string[9..]
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message, "Invalid UTF-8 byte sequence: index '9' is not a code point boundary.")
         }
 
         try {
             string[-1..4]
             @Expect(false)
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "Invalid range start: -1 or end: 4")
+            @Expect(e.message, "Invalid range: start is '-1', end is '4', but size is '13'.")
         }
 
         try {
             string[2..14]
             @Expect(false)
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "Invalid range start: 2 or end: 14")
+            @Expect(e.message, "Invalid range: start is '2', end is '14', but size is '13'.")
         }
 
         try {
             string[6..1]
             @Expect(false)
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "Invalid range start: 6 or end: 1")
+            @Expect(e.message, "Invalid range: start is '6', end is '1', but size is '13'.")
         }
 
         try {
@@ -692,14 +692,14 @@ class StringTest {
             String.fromUtf8([147u8, 147u8, 136u8])
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message, "Invalid UTF-8: unexpected continuation byte '147' at index '0' (missing leading byte).")
         }
 
         try {
             String.fromUtf8([0b11110100u8, 0b10111111u8, 0b10111111u8, 0b10111110u8])
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid unicode scalar value.")
+            @Expect(e.message, "Invalid UTF-8: code point at index '0' exceeds Unicode maximum U+10FFFF.")
         }
     }
 
@@ -716,7 +716,7 @@ class StringTest {
             }
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message, "Invalid UTF-8: need 3 bytes from index '3', but only '1' byte(s) available.")
         }
     }
 
@@ -931,7 +931,7 @@ class StringTest {
             let _ = baseStr * 5000
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size of String is too large.")
+            @Expect(e.message, "String size exceeds maximum allowed size '4294967295'.")
         }
     }
 
@@ -965,7 +965,7 @@ class StringTest {
             str.padStart(Int64.Max, padding: padding)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size of String is too large.")
+            @Expect(e.message, "String size '9223372036854775807' exceeds maximum allowed size '4294967295'.")
         }
     }
 
@@ -977,7 +977,7 @@ class StringTest {
             str.padEnd(Int64.Max, padding: padding)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size of String is too large.")
+            @Expect(e.message, "String size '9223372036854775807' exceeds maximum allowed size '4294967295'.")
         }
     }
 
@@ -989,7 +989,7 @@ class StringTest {
             let _ = String.join(strArray, delimiter: "-")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size of String is too large.")
+            @Expect(e.message, "String size exceeds maximum allowed size '4294967295'.")
         }
     }
 
@@ -1002,7 +1002,7 @@ class StringTest {
             let _ = String.join(strArray, delimiter: largeDelimiter)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size of String is too large.")
+            @Expect(e.message, "String size exceeds maximum allowed size '4294967295'.")
         }
     }
 
@@ -1014,7 +1014,7 @@ class StringTest {
             let _ = baseStr.replace("a", largeReplacement)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size of String is too large.")
+            @Expect(e.message, "String size exceeds maximum allowed size '4294967295'.")
         }
     }
 
@@ -1026,7 +1026,7 @@ class StringTest {
             let _ = baseStr.replace("", largeInsert)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The size of String is too large.")
+            @Expect(e.message, "String size exceeds maximum allowed size '4294967295'.")
         }
     }
 

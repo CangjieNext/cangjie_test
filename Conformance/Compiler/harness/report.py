@@ -165,7 +165,7 @@ class Reporter:
       if args.sort_by == 'path':
         self.sort_by = 'test_path'
       elif args.sort_by == 'timeout':
-        self.sort_by = 'timeout factor'
+        self.sort_by = 'timeout_factor'
       elif args.sort_by == 'status':
         self.sort_by = 'result'
       else:
@@ -182,7 +182,7 @@ class Reporter:
       if args.filter_by == 'path':
         self.filter_by = 'test_path'
       elif args.filter_by == 'timeout':
-        self.filter_by = 'timeout factor'
+        self.filter_by = 'timeout_factor'
       elif args.filter_by == 'status':
         self.filter_by = 'result'
       else:

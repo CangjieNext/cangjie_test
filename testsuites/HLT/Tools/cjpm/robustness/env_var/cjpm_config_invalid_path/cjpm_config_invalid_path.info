@@ -6,6 +6,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not Windows)EXEC: cd %n && export CJPM_CONFIG=/nonexistent/path/12345 && %cjpm build %cjpm_opt
-// (Windows)EXEC: cd %n && set "CJPM_CONFIG=C:\nonexistent\path\12345" && %cjpm build %cjpm_opt
+// (not Windows and native_compilation)EXEC: cd %n && export CJPM_CONFIG=/nonexistent/path/12345 && %cjpm build %cjpm_opt
+// (Windows and native_compilation)EXEC: cd %n && set "CJPM_CONFIG=C:\nonexistent\path\12345" && %cjpm build %cjpm_opt
 // ASSERT: scan cjpm build success

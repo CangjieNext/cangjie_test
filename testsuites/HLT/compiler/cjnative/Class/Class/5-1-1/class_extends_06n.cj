@@ -23,4 +23,4 @@ class Data <: Base & <: Base1 {
     public var res1: Int32 = two
 }
 // ASSERT: scan parse_expected_type
-// ASSERT: scan parse_expected_decl
+// ASSERT: scan-not parse_expected_decl

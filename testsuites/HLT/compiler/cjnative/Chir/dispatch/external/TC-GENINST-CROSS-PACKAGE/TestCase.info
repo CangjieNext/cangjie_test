@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// Level: 1
+// Description:
+// TC-GENINST-CROSS-PACKAGE | 跨包扩展/缓存隔离最小工程(cjpm 多包)。
+// pkg_a(static) 导出 I+A,根包(executable) import pkg_a 并实例化触发跨包按需查询,断言运行输出 TRACE_OK(跨包命中 pkg_a.A.foo,无陈旧复用/串包)。
+// DEPENDENCE: cjpm.toml pkg_a src
+// EXEC: cjpm build
+// RUN-EXEC: cjpm run
+// ASSERT: scan TRACE_OK
+// ASSERT: scan-not MISMATCH

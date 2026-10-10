@@ -178,13 +178,13 @@ class TestWebSocketUpgradeFromServerFailed {
     }
 }
 
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request lacks Upgrade: websocket header field
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request to websocket must be an HTTP/1.1 or higher request
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request to websocket must be a GET request
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request's sec-websocket-key header value is invalid
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request's sec-websocket-version must be 13
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request lacks Upgrade: websocket header field
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request lacks sec-websocket-key header field
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request's sec-websocket-key header value is invalid
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request lacks sec-websocket-version header field
-//ASSERT:scan Exception during process: WebSocketException: the upgrade request's sec-websocket-version must be 13
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: missing 'Upgrade: websocket' header field.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: upgrade request requires HTTP/1.1 or higher.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: upgrade request must use GET method.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: invalid 'Sec-WebSocket-Key' header value.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: 'Sec-WebSocket-Version' header must be 13.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: missing 'Upgrade: websocket' header field.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: missing 'Sec-WebSocket-Key' header field.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: invalid 'Sec-WebSocket-Key' header value.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: missing 'Sec-WebSocket-Version' header field.
+//ASSERT:scan Exception during process: WebSocketException: WebSocket upgrade failed: 'Sec-WebSocket-Version' header must be 13.

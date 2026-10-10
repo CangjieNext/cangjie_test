@@ -14,16 +14,10 @@ import stdx.encoding.json.*
 
 main(): Int64 {
     var jsonstrBefore = "{\"name\":\"app\nle\"}"
-    var jv = JsonValue.fromStr(jsonstrBefore)
-    var jsonstrExpect = #"{
-  "name": "app\nle"
-}"#
-    var jsonstrAfter = jv.toJsonString()
-    println(jsonstrAfter)
-    if (jsonstrExpect != jsonstrAfter) {
-        println(1)
-        return 1
+    try {
+        JsonValue.fromStr(jsonstrBefore)
+    } catch (_: JsonException) {
+        return 0
     }
-    println(0)
-    return 0
+    return 1
 }

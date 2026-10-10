@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 internal import std.ast.{MacroDecl, Token, ASTException, TokenKind}
 
@@ -32,62 +33,36 @@ main() {
     decl1.toTokens() |> println
 }
 
-/* SCAN
-No declType
-()
-MacroDecl {
-  -block: Block {
-  }
-}
-MacroDecl {
-  -modifiers: 0, Modifier {
-    -keyword: Token {
-      value: "public"
-      kind: PUBLIC
-      pos: 26: 9
-    }
-  }
-  -keyword: Token {
-    value: "macro"
-    kind: MACRO
-    pos: 26: 16
-  }
-  -identifier: Token {
-    value: "foo"
-    kind: IDENTIFIER
-    pos: 26: 22
-  }
-  -funcParams: 0, FuncParam {
-    -identifier: Token {
-      value: "input"
-      kind: IDENTIFIER
-      pos: 26: 26
-    }
-    -colon: Token {
-      value: ":"
-      kind: COLON
-      pos: 26: 31
-    }
-    -paramType: RefType {
-      -identifier: Token {
-        value: "Tokens"
-        kind: IDENTIFIER
-        pos: 26: 33
-      }
-    }
-  }
-  -block: Block {
-    -nodes: 0, RefExpr {
-      -identifier: Token {
-        value: "input"
-        kind: IDENTIFIER
-        pos: 27: 13
-      }
-    }
-  }
-}
-public macro foo(input: Tokens) {
-    input
-}
-
-*/
+// ASSERT: scan No declType
+// ASSERT: scan ()
+// ASSERT: scan MacroDecl {
+// ASSERT: scan -block: Block {
+// ASSERT: scan MacroDecl {
+// ASSERT: scan -modifiers: 0, Modifier {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "public"
+// ASSERT: scan kind: PUBLIC
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "macro"
+// ASSERT: scan kind: MACRO
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "foo"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -funcParams: 0, FuncParam {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "input"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -colon: Token {
+// ASSERT: scan value: ":"
+// ASSERT: scan kind: COLON
+// ASSERT: scan -paramType: RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "Tokens"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -block: Block {
+// ASSERT: scan -nodes: 0, RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "input"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan public macro foo(input: Tokens) {
+// ASSERT: scan input

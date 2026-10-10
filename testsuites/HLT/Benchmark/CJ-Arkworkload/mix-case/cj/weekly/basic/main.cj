@@ -8,7 +8,7 @@
 
 // LEVEL: 3
 // DEPENDENCE: basic.cj  lexer.cj  random.cj  statement.cj
-// EXEC: %compiler %cmp_opt %optimization_level_2 --no-sub-pkg *.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 --no-sub-pkg *.cj -o %output
 // RUN-EXEC: %export cjHeapSize=512mb && %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan ms
 

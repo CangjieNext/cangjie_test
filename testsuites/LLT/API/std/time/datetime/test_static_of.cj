@@ -90,7 +90,7 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Year value must be in [-999,999,999, 999,999,999].")
+            @Expect(e.message, "Invalid year value '1000000000': expected -999,999,999 to 999,999,999.")
         }
 
         try {
@@ -98,7 +98,7 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Year value must be in [-999,999,999, 999,999,999].")
+            @Expect(e.message, "Invalid year value '1000000000': expected -999,999,999 to 999,999,999.")
         }
 
         try {
@@ -106,7 +106,7 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Year value must be in [-999,999,999, 999,999,999].")
+            @Expect(e.message, "Invalid year value '-1000000000': expected -999,999,999 to 999,999,999.")
         }
 
         try {
@@ -114,7 +114,7 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Year value must be in [-999,999,999, 999,999,999].")
+            @Expect(e.message, "Invalid year value '-1000000000': expected -999,999,999 to 999,999,999.")
         }
     }
 
@@ -125,7 +125,7 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Month value must be in the range [1, 12].")
+            @Expect(e.message, "Invalid month '0': expected 1 to 12.")
         }
 
         try {
@@ -133,7 +133,7 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Month value must be in the range [1, 12].")
+            @Expect(e.message, "Invalid month '13': expected 1 to 12.")
         }
     }
     @TestCase
@@ -142,7 +142,7 @@ public class StaticOfTest {
             DateTime.of(year: 2001, month: 2, dayOfMonth: 29, hour: 23, minute: 59, second: 59, nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Day of February in 2001 must be in [1, 28].")
+            @Expect(e.message, "Invalid day '29' for February 2001: expected 1 to 28.")
         }
 
         try {
@@ -156,7 +156,7 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Day of February in 2001 must be in [1, 28].")
+            @Expect(e.message, "Invalid day '29' for February 2001: expected 1 to 28.")
         }
 
         try {
@@ -174,7 +174,7 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Hour must be in [0, 23].")
+            @Expect(e.message, "Invalid hour '24': expected 0 to 23.")
         }
 
         try {
@@ -182,21 +182,21 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Hour must be in [0, 23].")
+            @Expect(e.message, "Invalid hour '-1': expected 0 to 23.")
         }
 
         try {
             DateTime.of(year: 2001, month: 2, dayOfMonth: 28, hour: 24, minute: 59, second: 59, nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Hour must be in [0, 23].")
+            @Expect(e.message, "Invalid hour '24': expected 0 to 23.")
         }
 
         try {
             DateTime.of(year: 2001, month: 2, dayOfMonth: 28, hour: -1, minute: 59, second: 59, nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Hour must be in [0, 23].")
+            @Expect(e.message, "Invalid hour '-1': expected 0 to 23.")
         }
     }
 
@@ -207,7 +207,7 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Minute must be in [0, 59].")
+            @Expect(e.message, "Invalid minute '60': expected 0 to 59.")
         }
 
         try {
@@ -215,21 +215,21 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Minute must be in [0, 59].")
+            @Expect(e.message, "Invalid minute '-1': expected 0 to 59.")
         }
 
         try {
             DateTime.of(year: 2001, month: 2, dayOfMonth: 28, hour: 23, minute: 60, second: 59, nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Minute must be in [0, 59].")
+            @Expect(e.message, "Invalid minute '60': expected 0 to 59.")
         }
 
         try {
             DateTime.of(year: 2001, month: 2, dayOfMonth: 28, hour: 23, minute: -1, second: 59, nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Minute must be in [0, 59].")
+            @Expect(e.message, "Invalid minute '-1': expected 0 to 59.")
         }
     }
 
@@ -240,7 +240,7 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Second must be in [0, 59].")
+            @Expect(e.message, "Invalid second '60': expected 0 to 59.")
         }
 
         try {
@@ -248,21 +248,21 @@ public class StaticOfTest {
                 nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Second must be in [0, 59].")
+            @Expect(e.message, "Invalid second '-1': expected 0 to 59.")
         }
 
         try {
             DateTime.of(year: 2001, month: 2, dayOfMonth: 28, hour: 23, minute: 59, second: 60, nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Second must be in [0, 59].")
+            @Expect(e.message, "Invalid second '60': expected 0 to 59.")
         }
 
         try {
             DateTime.of(year: 2001, month: 2, dayOfMonth: 28, hour: 23, minute: 59, second: -1, nanosecond: 999999999)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Second must be in [0, 59].")
+            @Expect(e.message, "Invalid second '-1': expected 0 to 59.")
         }
     }
 
@@ -273,7 +273,7 @@ public class StaticOfTest {
                 nanosecond: 1000000000)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Nanosecond must be in [0, 999,999,999].")
+            @Expect(e.message, "Invalid nanosecond '1000000000': expected 0 to 999,999,999.")
         }
 
         try {
@@ -281,21 +281,21 @@ public class StaticOfTest {
                 nanosecond: 1000000000)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Nanosecond must be in [0, 999,999,999].")
+            @Expect(e.message, "Invalid nanosecond '1000000000': expected 0 to 999,999,999.")
         }
 
         try {
             DateTime.of(year: 2001, month: 2, dayOfMonth: 28, hour: 23, minute: 59, second: 59, nanosecond: -1000000000)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Nanosecond must be in [0, 999,999,999].")
+            @Expect(e.message, "Invalid nanosecond '-1000000000': expected 0 to 999,999,999.")
         }
 
         try {
             DateTime.of(year: 2001, month: 2, dayOfMonth: 28, hour: 23, minute: 59, second: 59, nanosecond: -1000000000)
             @Assert(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Nanosecond must be in [0, 999,999,999].")
+            @Expect(e.message, "Invalid nanosecond '-1000000000': expected 0 to 999,999,999.")
         }
     }
 

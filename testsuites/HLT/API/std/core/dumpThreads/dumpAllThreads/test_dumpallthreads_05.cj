@@ -14,13 +14,17 @@ import std.unittest.*
 import std.unittest.testmacro.*
 
 main():Unit {
+    @When[os=="iOS"]
+    var size:Int64=2
+    @When[os!="iOS"]
+    var size:Int64=1
     let _thread = spawn { 
         return 0
     }
     sleep(Duration.second)
     let _thread_infos = ThreadSnapshot.dumpAllThreads()
     // 这里线程被回收无法获取
-    @Assert(_thread_infos.size, 1)
+    @Assert(_thread_infos.size, size)
     @Assert(_thread.thread.state.toString(), "Terminated")
     @Assert(_thread.get(), 0)
 }

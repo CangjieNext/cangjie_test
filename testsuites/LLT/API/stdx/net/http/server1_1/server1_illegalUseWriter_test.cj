@@ -79,5 +79,5 @@ class TestServer11illegalUseWriter {
 }
 
 /* SCAN-IN
-The body cannot be sent in chunked mode in HTTP/1.0
+Chunked transfer encoding is not supported in HTTP/1.0.
  */

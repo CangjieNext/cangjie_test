@@ -25,7 +25,7 @@ class Test_SymbolicLink {
     func create_illegal_01() {
         File.create("./tempfile").close()
         let e = @AssertThrows[FSException](SymbolicLink.create("tempfile", to: "./tempfile"))
-        @Expect(e.message == "File exists." || e.message.contains("Failed to create symbolic link `tempfile` to `./tempfile` return -17"))
+        @Expect(e.message == "File exists." || e.message.contains("Failed to create symbolic link 'tempfile' to './tempfile'"))
         remove("./tempfile")
     }
 
@@ -33,7 +33,7 @@ class Test_SymbolicLink {
     func create_illegal_02() {
         File.create("./tempfile").close()
         let e = @AssertThrows[IllegalArgumentException](SymbolicLink.create("temp", to: "./tempfile\0"))
-        @Expect(e.message, "The input path 'to' value [46, 47, 116, 101, 109, 112, 102, 105, 108, 101, 0] contains null character.")
+        @Expect(e.message, "Invalid argument 'to': value '[46, 47, 116, 101, 109, 112, 102, 105, 108, 101, 0]' contains null character.")
         remove("./tempfile")
     }
 
@@ -41,7 +41,7 @@ class Test_SymbolicLink {
     func create_illegal_03() {
         File.create("./tempfile").close()
         let e = @AssertThrows[IllegalArgumentException](SymbolicLink.create("", to: "./tempfile"))
-        @Expect(e.message, "The input path 'link' is empty.")
+        @Expect(e.message, "Invalid argument 'link': cannot be empty.")
         remove("./tempfile")
     }
 
@@ -49,7 +49,7 @@ class Test_SymbolicLink {
     func create_illegal_04() {
         File.create("./tempfile").close()
         let e = @AssertThrows[FSException](SymbolicLink.create("./dir/aa", to: "./tempfile"))
-        @Expect(e.message == "No such file or directory." || e.message.contains("Failed to create symbolic link `./dir/aa` to `./tempfile` return -2"))
+        @Expect(e.message == "No such file or directory." || e.message.contains("Failed to create symbolic link './dir/aa' to './tempfile'"))
         remove("./tempfile")
     }
 
@@ -92,7 +92,7 @@ class Test_SymbolicLink {
         File.appendTo("./a/b/c/file.txt", data)
         @Expect(exists("./a0/b/c/d/temp"), true)
         let e = @AssertThrows[FSException](File.readFrom("./a0/b/c/d/temp"))
-        @Expect(e.message.contains("Failed to open the file"))
+        @Expect(e.message.contains("Failed to open file"))
         remove("./a", recursive: true)
         remove("./a0", recursive: true)
     }
@@ -114,7 +114,7 @@ class Test_SymbolicLink {
         @Expect(exists("./a0/b/c/d/temp"), false)
         @Expect(exists("./a0/b/c/temp"), true)
         let e = @AssertThrows[FSException](File.readFrom("./a0/b/c/temp"))
-        @Expect(e.message.contains("Failed to open the file"))
+        @Expect(e.message.contains("Failed to open file"))
         remove("./a", recursive: true)
         remove("./a0", recursive: true)
     }

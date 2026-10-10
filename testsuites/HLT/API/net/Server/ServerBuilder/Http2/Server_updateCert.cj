@@ -63,7 +63,7 @@ class TestServer11TlsAllRightTest {
             server.updateCert("./files/end_ecdsa.cer", "./files/end_ecdsa_private_key.pem")
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "The TLS certificate is not configured.")
+            @Expect(e.message, "TLS certificate is not configured.")
         }
         @Expect(flag, true)
         server.close()

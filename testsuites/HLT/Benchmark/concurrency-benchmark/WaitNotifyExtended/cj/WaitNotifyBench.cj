@@ -9,7 +9,7 @@
 // LEVEL: 3
 // DEPENDENCE: WaitNotifyBase.cj
 // DEPENDENCE: WaitNotifySingleLock.cj
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping %f WaitNotifySingleLock.cj WaitNotifyBase.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping %f WaitNotifySingleLock.cj WaitNotifyBase.cj -o %output
 // RUN-EXEC: export cjProcessorNum=32 && export JETVMPROP="-Djet.cj.use.fibers -Djet.fiber.carrier.count=32 -Djet.fiber.syscalls.control.disable=true" && %run %run_opt %output base s=0 p=16 c=16 v=4 %run_args
 // RUN-EXEC: export cjProcessorNum=32 && export JETVMPROP="-Djet.cj.use.fibers -Djet.fiber.carrier.count=32 -Djet.fiber.syscalls.control.disable=true" && %run %run_opt %output base s=0 p=32 c=32 v=4 %run_args
 // RUN-EXEC: export cjProcessorNum=32 && export JETVMPROP="-Djet.cj.use.fibers -Djet.fiber.carrier.count=32 -Djet.fiber.syscalls.control.disable=true" && %run %run_opt %output base s=0 p=64 c=64 v=4 %run_args

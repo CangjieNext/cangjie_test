@@ -1,0 +1,79 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+/*
+*- @TestCaseID: TC-0
+*- @TestCaseName: std.reflect — InstancePropertyInfo — SimplePropClass × valid × fromGetInstanceProperty
+*- @TestCaseType: 功能测试
+*- @Design Description: 基于反射API等价类划分方法，消费 Rule 预言，验证 InstancePropertyInfo 反射行为
+*- @Condition: 用例的预置条件
+*   -#仓颉工具链环境已正确安装
+*   -#被测类型的源文件已编译为动态库
+*- @Brief: 描述测试步骤
+*   -#获取 InstancePropertyInfo 引用（getInstanceProperty / instanceProperties）
+*   -#通过 Rule 预言验证 name/typeInfo/modifiers/annotations/getValue/setValue/相等性 的返回结果或异常路径
+*- @Expect: 用例的预期结果
+*   -#所有@Expect/@ExpectThrows断言通过，反射API返回值/异常与Rule预言一致
+*- @Priority: P0
+*/
+
+// Description:
+// DEPENDENCE: utils upstream
+// EXEC: %compiler %cmp_opt %compile_lib_opt -p utils
+// EXEC: %compiler %cmp_opt %compile_lib_opt -p upstream
+// EXEC: %compiler %cmp_opt %f -L . -lutils -lupstream -o %output %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+
+import std.unittest.*
+import std.unittest.common.*
+import std.unittest.testmacro.*
+import utils.*
+import upstream.*
+import std.reflect.*
+@Test
+class TestInstanceProp {
+    @TestCase
+    func testCase0(): Unit {
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").name, "label")
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").typeInfo.name, "String")
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").modifiers.toArray().size, 0i64)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").annotations.toArray().size, 0i64)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").toString(), "prop label: String")
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").hashCode() == ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").hashCode(), true)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").isAbstract(), false)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").isMutable(), false)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").isOpen(), false)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").findAllAnnotations<PropAnnotation>().size, 0i64)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").findAnnotation<PropAnnotation>().isNone(), true)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").getAllAnnotations().size, 0i64)
+        @Expect(TypeInfo.of(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").getValue(SimplePropClass())).name == "String")
+        @ExpectThrows[IllegalSetException](ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label").setValue(SimplePropClass(), "new-value"))
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").name, "count")
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").typeInfo.name, "Int64")
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").modifiers.toArray().size, 1i64)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").annotations.toArray().size, 0i64)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").toString(), "mut prop count: Int64")
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").hashCode() == ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").hashCode(), true)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").isAbstract(), false)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").isMutable(), true)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").isOpen(), false)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").findAllAnnotations<PropAnnotation>().size, 0i64)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").findAnnotation<PropAnnotation>().isNone(), true)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").getAllAnnotations().size, 0i64)
+        @Expect(TypeInfo.of(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").getValue(SimplePropClass())).name == "Int64")
+        let propInstance = SimplePropClass()
+        ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").setValue(propInstance, 100i64)
+        @Expect[anyValue](ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count").getValue(propInstance), 100i64)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label") == ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label"), true)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label") != ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label"), false)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label") == ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count"), false)
+        @Expect(ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("label") != ClassTypeInfo.get("upstream.SimplePropClass").getInstanceProperty("count"), true)
+    }
+
+}
+
