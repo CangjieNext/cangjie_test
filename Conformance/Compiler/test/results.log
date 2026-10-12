@@ -1,0 +1,52 @@
+2026-10-12 09:52:13.332604: Config:
+	work_directory : C:\cangjie_1008\cangjie_test\Conformance\Compiler\test
+	binary_output_path : C:\cangjie_1008\cangjie_test\Conformance\Compiler\test\bin
+	test_run_output_path : C:\cangjie_1008\cangjie_test\Conformance\Compiler\test\test_res
+	cj : cj
+	cjc : cjc
+	cc : clang
+	cxx : clang++
+	java : java
+	javac : javac
+	tests_root_path : C:\cangjie_1008\cangjie_test\Conformance\Compiler\testsuite
+	tests : ['*src\\tests\\02_types\\01_value_types\\10_struct_type\\a02\\test_a02_01.cj']
+	level : 
+	run_mode : RunMode.mixed
+	cj_flags : 
+	cjc_flags : 
+	cc_flags : 
+	cxx_flags : 
+	java_flags : 
+	javac_flags : 
+	compilation_threads : 4
+	execution_threads : 4
+	base_timeout : 30.0
+	is_jet : False
+	filters : []
+	replay : False
+	excluded_tests : []
+	included_tests : []
+	test_report_mode : plain
+	log_file : C:\cangjie_1008\cangjie_test\Conformance\Compiler\test\results.log
+	log_mode : VerbosityLevel.SHORT
+	log_no_color : True
+	profile : False
+	cj_version : None
+	cjc_version : Cangjie Compiler: 1.1.0-beta.24 (cjnative)
+	cc_version : clang version 21.1.7
+	cxx_version : clang version 21.1.7
+	java_version : "java -version" failed to run
+	javac_version : "javac -version" failed to run
+
+2026-10-12 09:52:13.333419: Start discovering tests
+2026-10-12 09:52:14.246454: Discovered 1 tests in C:\cangjie_1008\cangjie_test\Conformance\Compiler\testsuite
+2026-10-12 09:52:14.246607: Testing started
+2026-10-12 09:52:16.830064: Default libraries compiled successfully
+2026-10-12 09:52:17.840283: (1/1) [Failed]  02_01_10_a02_01 [0.649s/-]
+2026-10-12 09:52:17.840672: Failed tests list:
+	src\tests\02_types\01_value_types\10_struct_type\a02\test_a02_01.cj //02_01_10_a02_01
+
+2026-10-12 09:52:17.840846: Errored tests list:
+
+2026-10-12 09:52:17.840949: Test results: Total: 1, Passed 0, Failed 1, Errored 0, Skipped 0, Incomplete 0 (3.594s)
+2026-10-12 09:52:17.851747: Metadata about test run saved at C:\cangjie_1008\cangjie_test\Conformance\Compiler\test\results.log.json file.

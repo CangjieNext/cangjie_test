@@ -14,4 +14,4 @@
 
 package a.b
 
-public class AuxTestA0202<T> {}
+protected class MyClass<T> {}

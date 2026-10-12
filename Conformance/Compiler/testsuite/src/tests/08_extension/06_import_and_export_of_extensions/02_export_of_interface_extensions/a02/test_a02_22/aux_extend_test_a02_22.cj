@@ -43,6 +43,6 @@ internal interface I5 {
 }
 
 
-extend <T> AuxTestA0222<T> <: I1 & I2 & I3 & I4 & I5 {
+extend <T> AuxTestA0222<T> <: I1 & AuxExtendTestA0222 & I3 & I4 & I5 {
 
 }

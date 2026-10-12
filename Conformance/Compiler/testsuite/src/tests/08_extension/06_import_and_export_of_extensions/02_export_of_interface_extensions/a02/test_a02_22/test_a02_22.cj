@@ -36,7 +36,7 @@
 package e
 
 import utils.assert.Assert
-import d.{AuxTestA0222,I2}
+import d.{AuxTestA0222,AuxExtendTestA0222}
 
 
 main() {

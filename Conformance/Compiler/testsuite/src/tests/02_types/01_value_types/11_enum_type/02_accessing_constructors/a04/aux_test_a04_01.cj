@@ -7,6 +7,7 @@
  */
 /*
   @Structure:       complex-aux
+  @Dependencies:    aux_test_a04_02.cj
 */
 
 package p1

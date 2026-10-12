@@ -8,6 +8,8 @@
 /*
   @Description:     Defines a package pkg2_type for test.
 
+  @Dependencies:    aux_test_a03_01.cj
+
   @Structure:       complex-aux
 */
 

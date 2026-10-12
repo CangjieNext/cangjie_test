@@ -26,6 +26,6 @@
 import p2.AuxTestA0302
 
 main() {
-    S(1)
+    AuxTestA0302(1)
     0
 }

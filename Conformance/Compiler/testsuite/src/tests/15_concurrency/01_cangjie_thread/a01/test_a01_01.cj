@@ -28,5 +28,5 @@
 */
 
 main(): Int64 {
-    test_body(6, 32 * 1024)
+    test_body(6, 8 * 1024)
 }

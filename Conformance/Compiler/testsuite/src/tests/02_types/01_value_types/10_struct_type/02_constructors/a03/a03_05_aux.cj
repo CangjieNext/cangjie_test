@@ -19,7 +19,7 @@
 package p05
 
 public struct A0305Aux {
-    A() {}
+    A0305Aux() {}
 }
 
 main() {

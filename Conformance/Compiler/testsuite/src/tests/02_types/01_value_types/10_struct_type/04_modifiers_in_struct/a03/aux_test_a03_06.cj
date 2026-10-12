@@ -15,5 +15,5 @@
 package p6
 
 public struct AuxTestA0306 {
-    private S(_: Int64) {}
+    private AuxTestA0306(_: Int64) {}
 }
