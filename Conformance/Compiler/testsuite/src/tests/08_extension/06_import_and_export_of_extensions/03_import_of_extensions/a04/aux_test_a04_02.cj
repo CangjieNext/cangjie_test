@@ -8,15 +8,17 @@
 /*
   @Description:     Defines a package pkg2 for example.
 
+  @Dependencies:    aux_test_a04_01.cj
+
   @Structure:       complex-aux
 */
 
 package pkg2
 
-import pkg1.Foo
+import pkg1.AuxTestA0401
 
 public interface AuxTestA0402 {
     func f(): Unit {}
 }
 
-extend AuxTestA0401 <: I1 {} // ok, external
+extend AuxTestA0401 <: AuxTestA0402 {} // ok, external

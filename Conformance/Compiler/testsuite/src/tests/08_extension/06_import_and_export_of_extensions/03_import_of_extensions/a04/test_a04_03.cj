@@ -52,13 +52,15 @@
 
   @Structure:       complex-main
 
-  @Dependencies:    aux_test_a04_02.cj
+  @Dependencies:    aux_test_a04_01.cj aux_test_a04_02.cj aux_test_a04_03.cj
 
 */
 
 package pkg4
 
-import pkg3.AuxTestA0402 // error
+import pkg1.AuxTestA0401
+import pkg2.AuxTestA0402 // error
+import pkg3.AuxTestA0403 // error
 
 main() {
 }

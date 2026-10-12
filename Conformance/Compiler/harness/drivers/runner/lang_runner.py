@@ -190,20 +190,45 @@ class LangRunner(BaseRunner):
       i, k = 0, 0
       while i <= k:
         for dependency in packages[package][i].dependencies:
-          key = dependency.module + '_' + dependency.package
-          if key not in packages:
-            packages[key] = [dependency]
-            nodes_to_process.append(key)
+          dep_key = dependency.module + '_' + dependency.package
+          if dep_key not in packages:
+            packages[dep_key] = [dependency]
+            nodes_to_process.append(dep_key)
           else:
-            packages[key].append(dependency)
+            packages[dep_key].append(dependency)
         i += 1
         k = len(packages[package])-1
 
+    # Build every dependency before its dependents: perform a post-order DFS
+    # from the test so dependency packages come first and the test's own package
+    # is built last. Dependencies are visited in reverse order to keep the
+    # historical build order for aux files that import other packages without
+    # declaring them in their headers.
+    visited = set()
+    order = []
+
+    def visit(pkg_key):
+      if pkg_key in visited:
+        return
+      visited.add(pkg_key)
+      for file in reversed(packages[pkg_key]):
+        for dependency in reversed(file.dependencies):
+          visit(dependency.module + '_' + dependency.package)
+      order.append(pkg_key)
+
+    visit(key)
+
     res = []
-    for tests in packages.values():
-      res.append(tests)
-    res[0] = res[0][1:]  # Remove test itself
-    return res[::-1]    # Reverse to build from the end of the dependency tree
+    for pkg_key in order:
+      seen_paths = set()
+      group = []
+      for file in packages[pkg_key]:
+        if file.test_path not in seen_paths:
+          seen_paths.add(file.test_path)
+          group.append(file)
+      res.append(group)
+    res[-1] = [file for file in res[-1] if file is not test]  # Remove test itself
+    return res
 
   def _prepare_dependencies(self, test: Test, output_dir: str) -> str:
     pkg_depends = ''
@@ -273,7 +298,8 @@ class LangRunner(BaseRunner):
 
       if self.dependency_registry[lib_file].returncode != 0:
         test.compile_res = CompletedProcess('', stderr='The dependecies compile failed'.encode('utf-8'), returncode=1)
-        test.execute_res = CompletedProcess('', stderr=b'the dependencies compile failed', returncode=2)
+        if not test.is_negative:
+          test.execute_res = CompletedProcess('', stderr=b'the dependencies compile failed', returncode=2)
         break
 
     return pkg_depends, macro_depends

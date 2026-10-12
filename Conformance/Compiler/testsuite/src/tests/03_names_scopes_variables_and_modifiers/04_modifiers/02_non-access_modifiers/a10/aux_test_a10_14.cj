@@ -11,9 +11,9 @@
   @Structure:    complex-aux
 */
 
-package aux_test_a02_14
+package aux_test_a10_14
 
-sealed class C1 {
+sealed abstract class C1 {
     public let currentYear = "2023"
 
     public var currentDay = 10

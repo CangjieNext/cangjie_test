@@ -19,7 +19,7 @@
 package p06
 
 public struct A0306Aux {
-    private A() {}
+    private A0306Aux() {}
 }
 
 main() {

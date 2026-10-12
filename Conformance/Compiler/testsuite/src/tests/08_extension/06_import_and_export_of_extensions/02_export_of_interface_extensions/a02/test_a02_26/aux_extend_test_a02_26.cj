@@ -27,6 +27,6 @@ protected interface I12 {}
 private interface I13 {}
 extend Int64 <: I11 & I12 & I13 {}
 
-extend <T> AuxTestA0227<T> <: I where T <: I11 & I12 & I13 {
+extend <T> AuxTestA0226<T> <: I where T <: I11 & I12 & I13 {
 
 }

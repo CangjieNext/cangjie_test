@@ -43,7 +43,7 @@
   @Description: Check that correctly defined structs, according to rules above, are compiled correctly.
 
   @Mode:        compileOnly
-  @Negative:    yes
+  @Negative:    no
   @Structure:   single
 */
 
@@ -110,14 +110,14 @@ struct Struct07 {
 }
 
 struct Struct08 {
-    prop let prop1: Rune {
+    prop prop1: Rune {
         get() {
             r'A'
         }
     }
 
     var propVar: Bool = false
-    public prop var prop2: Bool {
+    public mut prop prop2: Bool {
         get() {
             propVar;
         }

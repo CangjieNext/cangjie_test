@@ -19,7 +19,7 @@ import utils.assert.Assert
 public struct AuxTestA0701 {
     public static let statV: Int64 = 6
     public let v: Int64
-    public static prop let statP: Int64 {
+    public static prop statP: Int64 {
         get() { 7 }
     }
     public static func statF() { 8 }
@@ -27,7 +27,7 @@ public struct AuxTestA0701 {
 
     public init(a: Int64) { this.v = a }
 
-    public prop let p: Int64 {
+    public prop p: Int64 {
         get() { 2 }
     }
 

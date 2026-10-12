@@ -18,21 +18,20 @@
 
   @Mode:         compileonly
   @Negative:     yes
-  @Structure:    complex-main
-  @Dependencies: test/aux_test_a13_03.cj
-  @Issue:        0006124
-
+  @Structure:    single
+  @Issue:       0006124
 
 */
 
-package test_a13_03
-
-import test.AuxTestA1303.prop_x as a_prop_x
-
-main() {
-  let x = a_prop_x
-  return 0
+class A {
+  var x: Int64 = 0
+  prop x: Int64 {
+    get() {
+      1
+    }
+  }
 }
 
-
-
+main() {
+  return 0
+}
