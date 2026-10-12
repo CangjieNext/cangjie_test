@@ -1,4 +1,18 @@
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %disableCodegen %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan-not Class-_CN7default1SE& = Load(
+// ASSERT: regex GetElementRef\(%\d+, 0\) // loc: "class2.cj"-37-5
+// ASSERT: regex GetElementRef\(%\d+, 0\) // loc: "class2.cj"-38-5
+// ASSERT: regex GetElementRef\(%\d+, 0\) // loc: "class2.cj"-44-5
+// ASSERT: regex GetElementRef\(%\d+, 0\) // loc: "class2.cj"-45-5
 
 class S {
     var x: Float64
@@ -31,18 +45,3 @@ main(): Int64 {
     foo(a)
     return 0
 }
-
-// ASSERT: scan [RLE] The usages of the result of Load at [23,9] have been replaced by the value at [22,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [24,5] have been replaced by the value at [22,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [25,9] have been replaced by the value at [22,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [26,9] have been replaced by the value at [22,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [27,9] have been replaced by the value at [22,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [29,9] have been replaced by the value at [28,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [30,9] have been replaced by the value at [29,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [31,9] have been replaced by the value at [29,5]
-
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
-// This source file is part of the Cangjie project, licensed under Apache-2.0
-// with Runtime Library Exception.
-//
-// See https://cangjie-lang.cn/pages/LICENSE for license information.

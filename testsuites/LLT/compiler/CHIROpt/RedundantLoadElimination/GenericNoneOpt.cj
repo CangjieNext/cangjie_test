@@ -4,11 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %cmp_opt %debugCHIROpt %enableO2 %f -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)RUN-EXEC-PIPE: %run %run_opt %output
-
-// ASSERT: scan [RLE] The usages of the result of Load at [57,13] have been replaced by the value at [57,13]
-// ASSERT: scan [RLE] The usages of the result of Load at [60,16] have been replaced by the value at [57,13]
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default1EIRNY_2SAEE11static_testHY2_" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: regex-begin %(?P<v>\d+): Struct-_CN7default2SAE = Load\(%\d+\) // loc: "GenericNoneOpt.cj"-59-13
+// ASSERT: regex-after Store\(%(?P=v), %\d+\)
+// ASSERT: regex-not = Load\(%\d+\) // loc: "GenericNoneOpt.cj"-62
 
 interface I1 {
     mut prop p1: Int64 {
