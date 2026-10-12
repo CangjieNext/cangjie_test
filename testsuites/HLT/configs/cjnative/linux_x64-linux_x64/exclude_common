@@ -3,3 +3,13 @@
 # with Runtime Library Exception.
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# AOP issues https://gitcode.com/Cangjie/cangjie_stdx/issues/396
+API/stdx/aspect_cj/test_aop_oracle/TC-AOP-ORACLE-6.cj
+API/stdx/aspect_cj/test_aop_param/TC-AOP-PARAM-2.cj
+API/stdx/aspect_cj/test_aop_param/TC-AOP-PARAM-5.cj
+API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-15.cj
+API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-25.cj
+API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-27.cj
+API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-29.cj
+API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-5.cj
