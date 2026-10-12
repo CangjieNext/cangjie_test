@@ -4,7 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %disableCodegen %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default3fooHb" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: regex = Load\(%\d+\) // loc: "primitive3.cj"-26-13
+// ASSERT: regex-begin %(?P<v>\d+): Int64 = Load\(@_CN7default3gv2E\)
+// ASSERT: regex-after Apply\(@CJ_CORE_PrintSigned, %(?P=v)
+// ASSERT: regex-not = Load\(%\d+\) // loc: "primitive3.cj"-28
 
 func goo(x: Int64) {
     x + x
@@ -23,9 +30,6 @@ func foo(cond: Bool) {
 }
 
 main() {
-    foo(true);
+    foo(false);
     0
 }
-
-// ASSERT: scan [RLE] The usages of the result of Load at [21,17] have been replaced by the value at [20,9]
-// ASSERT: regex-not \[RLE\] The usages of the result of Load at \[19,.*\] have been replaced by the value at .*

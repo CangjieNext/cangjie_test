@@ -4,9 +4,11 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %cmp_opt %enableO2 %f -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan try2 v2 is: Finally
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan srcCodeIdentifier: main
 
 main() {
     var v2 = "Thrown"
@@ -14,13 +16,14 @@ main() {
         try {
             throw Exception()
         } finally {
-            println("try1 v2 is: " + v2)
             v2 = "Finally"
         }
     }
     try {
         foo2()
     } catch (e: Exception) {
-        println("try2 v2 is: " + v2)
+        if (v2 != "Finally") {
+            throw Exception()
+        }
     }
 }

@@ -4,8 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %compiler %cmp_opt %debugCHIROpt %enableO2 %n.cj -o %output | compare %f
-// (DEBUG_OPTION)RUN-EXEC: %run %run_opt %output %run_args
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: regex-begin Store\(@_CN7default3Aoo4moo4Hv
+// ASSERT: regex-after Apply\(Class-_CN7default3AooE->@_CN7default3Aoo4moo4Hv\)
+// ASSERT: regex-not \(\) -> Int64 = Load\(
 
 class Aoo {
     public static var b: Int32 = 2
@@ -26,6 +31,3 @@ main(): Int64 {
     }
     return 0
 }
-
-// ASSERT: scan The Apply node in the line:24 and the column:9, was optimized by Function Inline
-// ASSERT: scan [RLE] The usages of the result of Load at [18,16] have been replaced by the value at [17,9]
