@@ -14,4 +14,4 @@
 
 package a.b 
 
-public class AuxTestA0205{}
+internal class MyClass {}

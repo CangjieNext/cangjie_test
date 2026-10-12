@@ -40,6 +40,6 @@ import a.c.*
 
 
 main() {
-    var myClassImpl = AuxTestA0202<Int64>()
+    var myClassImpl = MyClass<Int64>()
     Assert.equals(1, myClassImpl.test1())
 }

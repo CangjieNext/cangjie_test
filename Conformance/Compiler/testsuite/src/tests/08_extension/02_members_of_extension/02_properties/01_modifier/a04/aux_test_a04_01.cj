@@ -13,7 +13,9 @@
 
 package pkg1
 
-public type MyType = (String, Rune)
+public class MyType {
+    public init(a: String, b: Rune) {}
+}
 
 extend MyType {
     prop p: Bool { 
@@ -41,6 +43,6 @@ public enum MyEnum { A }
 
 extend MyEnum {
     prop p: Rune { 
-        get() { 'f' }
+        get() { r'f' }
     }
 }

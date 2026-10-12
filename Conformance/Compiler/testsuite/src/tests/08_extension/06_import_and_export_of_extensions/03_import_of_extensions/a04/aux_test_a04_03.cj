@@ -8,13 +8,17 @@
 /*
   @Description:     Defines a package pkg3 for example.
 
+  @Dependencies:    aux_test_a04_01.cj
+
   @Structure:       complex-aux
 */
 
 package pkg3
 
-import pkg1.Foo
+import pkg1.AuxTestA0401
 
 public interface AuxTestA0403 {
     func f(): Unit {}
 }
+
+extend AuxTestA0401 <: AuxTestA0403 {} // ok, external

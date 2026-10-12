@@ -17,7 +17,7 @@
                     in another package.
 
   @Mode:            compileonly
-  @Negative:        yes
+  @Negative:        no
   @Structure:       complex-main
   @Dependencies:    aux_test_a07_01.cj
   @CompileWarning:  no

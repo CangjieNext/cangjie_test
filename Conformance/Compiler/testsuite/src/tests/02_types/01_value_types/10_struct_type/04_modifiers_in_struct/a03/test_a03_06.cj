@@ -26,5 +26,5 @@
 import p6.AuxTestA0306
 
 main() {
-    S(1)
+    AuxTestA0306(1)
 }

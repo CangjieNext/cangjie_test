@@ -14,10 +14,10 @@
 
 package b
 
-public import a.MyClass
+public import a.AuxTestA0401
 
 public interface AuxExtendTestA0401 {
-    func test1():Unit
+    func test1():Int64
 }
 
 extend AuxTestA0401 {
@@ -26,4 +26,4 @@ extend AuxTestA0401 {
     }
 }
 
-extend AuxTestA0401 <: I1 {}
+extend AuxTestA0401 <: AuxExtendTestA0401 {}

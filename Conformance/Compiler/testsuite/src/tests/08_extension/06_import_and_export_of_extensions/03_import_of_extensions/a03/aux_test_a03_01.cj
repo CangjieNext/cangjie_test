@@ -20,6 +20,8 @@ public struct MyStruct {}
 
 public enum MyEnum { J }
 
+public class MyType {}
+
 
 extend MyClass {
     public func myFunc() { 1 }
@@ -30,5 +32,9 @@ extend MyStruct {
 }
 
 extend MyEnum {
+    public func myFunc() { 1 }
+}
+
+extend MyType {
     public func myFunc() { 1 }
 }

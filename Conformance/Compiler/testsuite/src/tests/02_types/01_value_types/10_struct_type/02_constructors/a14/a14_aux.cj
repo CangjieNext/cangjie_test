@@ -17,7 +17,7 @@
 
 package a14_neg
 
-public struct A14Aux {
+public struct InvisibleParameters {
     public InvisibleParameters(
         private var priv_var_u: Int64,
         private let priv_let_u: Int64,
