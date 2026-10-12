@@ -84,3 +84,6 @@ API/std/reflect/cjnative/enum_type
 
 # std.concurrent is not built for OHOS
 API/std/concurrent
+
+# AOP issues https://gitcode.com/Cangjie/cangjie_stdx/issues/396
+API/stdx/aspect_cj
