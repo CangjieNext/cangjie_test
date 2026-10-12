@@ -136,3 +136,5 @@ API/std/reflect
 
 # flaky testcases
 API/std/os/process/test_kill
+
+# AOP issues https://gitcode.com/Cangjie/cangjie_stdx/issues/396
