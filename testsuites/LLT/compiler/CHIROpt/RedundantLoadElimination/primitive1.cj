@@ -4,7 +4,16 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %disableCodegen %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default3fooHv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Load(@_CN7default3gv1E)
+// ASSERT: scan Load(@_CN7default3gv2E)
+// ASSERT: regex-begin %(?P<v>\d+): Int64 = Load\(@_CN7default3gv1E\)
+// ASSERT: regex-after Apply\(@CJ_CORE_PrintSigned, %(?P=v)
+// ASSERT: regex-after Add\(%(?P=v), %(?P=v)\)
+// ASSERT: regex-not Int64 = Load\(%\d+\)
 
 var gv1 = 1;
 var gv2 = 2
@@ -21,8 +30,3 @@ main() {
     foo();
     0
 }
-
-// ASSERT: scan [RLE] The usages of the result of Load at [14,13] have been replaced by the value at [13,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [15,13] have been replaced by the value at [13,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [15,17] have been replaced by the value at [13,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [17,13] have been replaced by the value at [16,5]
