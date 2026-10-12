@@ -4,7 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %disableCodegen %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default3fooHv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan-not Class-_CN7default2CAE& = Load(
+// ASSERT: regex GetElementRef\(%\d+, 0\) // loc: "class1.cj"-25-13
+// ASSERT: regex StoreElementRef\(%\d+, %\d+, 0\) // loc: "class1.cj"-26-5
+// ASSERT: regex StoreElementRef\(%\d+, %\d+, 0\) // loc: "class1.cj"-28-5
 
 class CA {
     var x = 1
@@ -24,7 +31,3 @@ func foo() {
 main() {
     foo()
 }
-
-// ASSERT: scan [RLE] The usages of the result of Load at [18,13] have been replaced by the value at [17,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [19,5] have been replaced by the value at [17,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [21,5] have been replaced by the value at [20,5]

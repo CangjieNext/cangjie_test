@@ -4,7 +4,16 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %disableCodegen %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default3fooHb" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Apply(@CJ_CORE_PrintSigned, %5
+// ASSERT: scan Add(%5, %5)
+// ASSERT: scan Load(%3) // loc: "primitive2.cj"-34-13
+// ASSERT: scan-not Load(%3) // loc: "primitive2.cj"-29
+// ASSERT: scan-not Load(%3) // loc: "primitive2.cj"-31
+// ASSERT: scan-not Load(%3) // loc: "primitive2.cj"-36
 
 func goo(x: Int64) {
     x + x
@@ -31,8 +40,3 @@ main() {
     foo(true);
     0
 }
-
-// ASSERT: scan [RLE] The usages of the result of Load at [20,17] have been replaced by the value at [18,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [22,13] have been replaced by the value at [18,5]
-// ASSERT: regex-not \[RLE\] The usages of the result of Load at \[25,.*\] have been replaced by the value at .*
-// ASSERT: scan [RLE] The usages of the result of Load at [27,13] have been replaced by the value at [26,5]

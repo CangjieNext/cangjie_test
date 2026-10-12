@@ -28,7 +28,6 @@ compiler/CHIROpt/O2Optimization
 compiler/CHIROpt/Optimizations
 compiler/CHIROpt/RedundantFuture
 compiler/CHIROpt/RedundantGetOrThrowElimination
-compiler/CHIROpt/RedundantLoadElimination
 compiler/CHIROpt/SanCovPass
 compiler/CHIROpt/UnitUnify
 compiler/CHIROpt/UselessAllocateElimination

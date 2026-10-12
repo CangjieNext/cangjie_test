@@ -4,7 +4,15 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %disableCodegen %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// DEPENDENCE: ../pick_defination.py foo.c
+// EXEC: %clang %clang_shared_opt foo.c -o libfoo.%dylib_suffix
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj -L . -l foo
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %pwd_to_ld_path %run main
+// ASSERT: scan Load(%1) // loc: "inout2.cj"-24-13
+// ASSERT: scan-not Load(%1) // loc: "inout2.cj"-25
+// ASSERT: scan-not Load(%1) // loc: "inout2.cj"-26
+// ASSERT: scan Load(%1) // loc: "inout2.cj"-30-13
 
 foreign func PlusOne(ptr: CPointer<Int32>): Unit
 
@@ -21,8 +29,3 @@ main() {
     } finally {}
     println(a)
 }
-
-// ASSERT: regex-not \[RLE\] The usages of the result of Load at \[8,.*\] have been replaced
-// ASSERT: scan [RLE] The usages of the result of Load at [17,13] have been replaced by the value at [16,13]
-// ASSERT: scan [RLE] The usages of the result of Load at [18,13] have been replaced by the value at [16,13]
-// ASSERT: regex-not [RLE] The usages of the result of Load at [12,.*] have been replaced

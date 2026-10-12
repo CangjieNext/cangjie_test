@@ -4,7 +4,12 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %disableCodegen %enableChir2RGetOrThrowE -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default3fooHv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan-not Tuple(Int64,Rune) = Load(%1)
+// ASSERT: scan Field(%12, 1) // loc: "tuple1.cj"-22-5
 
 func goo(x: (Int64, Rune)) {
     println(x[1])
@@ -21,6 +26,3 @@ main() {
     foo();
     0
 }
-
-// ASSERT: scan [RLE] The usages of the result of Load at [15,13] have been replaced by the value at [14,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [17,9] have been replaced by the value at [16,5]

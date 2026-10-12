@@ -4,7 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %disableCodegen %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default3fooHb" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Field(%7, 0) // loc: "struct2.cj"-36-5
+// ASSERT: scan Load(%3) // loc: "struct2.cj"-38-9
+// ASSERT: scan Load(%3) // loc: "struct2.cj"-41-9
 
 struct SC {
     var y = 111
@@ -39,7 +45,3 @@ main() {
     foo(true);
     0
 }
-
-// ASSERT: scan [RLE] The usages of the result of Load at [30,9] have been replaced by the value at [29,5]
-// ASSERT: regex-not \[RLE\] The usages of the result of Load at \[32,.*\] have been replaced by the value at \[29,5\]
-// ASSERT: regex-not \[RLE\] The usages of the result of Load at \[35,.*\] have been replaced by the value at \[29,5\]
