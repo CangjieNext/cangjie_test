@@ -6,7 +6,7 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
 
-// ASSERT: scan-12 error: ObjCFunc can only be used with function type over Objective-C compatible types
+// ASSERT: scan-14 error: ObjCFunc can only be used with function type over Objective-C compatible types
 
 package objc.test
 
@@ -43,5 +43,9 @@ func g(): ObjCFunc<String> {
 }
 
 func h(): ObjCFunc<(String) -> Float64> {
+    return ObjCFunc(invalidFuncPtr)
+}
+
+func i(): ObjCFunc<(Unit) -> Float64> {
     return ObjCFunc(invalidFuncPtr)
 }

@@ -740,6 +740,10 @@ STDX 根目录的绝对路径
 
 保存动态库版本 STDX 的目录的绝对路径
 
+## `host-cangjie-dynamic-stdx-path`
+
+host 平台保存动态库版本 STDX 的目录的绝对路径，本地编译取 `$CANGJIE_STDX_PATH/../../dynamic/stdx`，交叉编译取 `$CANGJIE_LOCAL_STDX_PATH/../../dynamic/stdx`
+
 ## `cangjie_static_extern_stdx_path`
 
 保存静态库extern版本 STDX 的目录的绝对路径

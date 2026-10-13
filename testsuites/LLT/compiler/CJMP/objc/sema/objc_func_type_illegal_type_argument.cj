@@ -28,6 +28,10 @@ func e(): ObjCFunc<(Int64, ObjCPointer<Int64>, String) -> Float64> {
     return unsafe { zeroValue() }
 }
 
+func f(): ObjCFunc<(Unit) -> Float64> {
+    return unsafe { zeroValue() }
+}
+
 /* SCAN-IN
 error: ObjCFunc can only be used with function type over Objective-C compatible types
   ==> objc_func_type_illegal_type_argument.cj:11:20:
@@ -66,4 +70,12 @@ error: ObjCFunc can only be used with function type over Objective-C compatible 
    | 
 27 | func e(): ObjCFunc<(Int64, ObjCPointer<Int64>, String) -> Float64> {
    |                                                ^^^^^^ 
+*/
+
+/* SCAN-IN
+error: ObjCFunc can only be used with function type over Objective-C compatible types
+  ==> objc_func_type_illegal_type_argument.cj:31:21:
+   | 
+31 | func f(): ObjCFunc<(Unit) -> Float64> {
+   |                     ^^^^
 */

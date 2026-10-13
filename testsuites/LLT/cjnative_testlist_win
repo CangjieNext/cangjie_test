@@ -12,6 +12,7 @@ API/std/net
 API/std/socket
 API/std/posix/test_os_posix_sysinfo.cj
 API/std/process/common
+API/std/process/windows/test_empty_argument.cj
 API/std/reflect/annotations.cj
 API/std/reflect/dynloading_cjnative_test1.cj
 API/std/reflect/dynloading_cjnative_test2.cj

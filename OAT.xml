@@ -37,7 +37,8 @@
                 <filteritem type="filepath" name="testsuites/HLT/Tools/cjpm/robustness/empty_file/empty_source_cj/src/main.cj" desc="empty_file健壮性测试夹具：空文件，无需许可头"/>
                 <filteritem type="filepath" name="testsuites/HLT/Tools/cjpm/robustness/empty_file/empty_repo_config/cangjie-repo.toml" desc="empty_file健壮性测试夹具：空文件，无需许可头"/>
                 <filteritem type="filepath" name="testsuites/HLT/Tools/cjpm/robustness/empty_file/empty_cjpm_lock/cjpm.lock" desc="empty_cjpm_lock健壮性测试夹具：空cjpm.lock文件，无需许可头"/>
-                <filteritem type="filepath" name="testsuites/HLT/compiler/cjnative/cjo/test_cjo_version_check/tools/flatc.zip" desc="用于CJO文件内容变异"/>
+                <filteritem type="filepath" name="testsuites/HLT/compiler/cjnative/cjo/test_cjo_version_check/tools/flatc-linux-aarch64.zip" desc="用于CJO文件内容变异"/>
+                <filteritem type="filepath" name="testsuites/HLT/compiler/cjnative/cjo/test_cjo_version_check/tools/flatc-linux-x64-ubuntu18.zip" desc="用于CJO文件内容变异"/>
                 <filteritem type="filepath" name="testsuites/HLT/compiler/cjnative/cjo/test_cjo_version_check/tools/flatc-mac.zip" desc="用于CJO文件内容变异"/>
                 <filteritem type="filepath" name="testsuites/HLT/compiler/cjnative/cjo/test_cjo_version_check/tools/flatc-win.zip" desc="用于CJO文件内容变异"/>
             </filefilter>

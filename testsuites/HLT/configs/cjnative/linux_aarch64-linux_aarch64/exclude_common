@@ -34,3 +34,6 @@ compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj
 API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj
 
 API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
+
+# cjbind temporarily does not support Linux aarch64 https://gitcode.com/Cangjie/cangjie_tools/issues/721
+Tools/hle/c

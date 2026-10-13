@@ -436,3 +436,6 @@ Tools\cjcov\cjcov_special_filename\cjcov_special_filename_017\cjcov_special_file
 Tools\cjcov\cjcov_special_filename\cjcov_special_filename_018\cjcov_special_filename_018.info
 
 API/std/console/stdin/test_stdin_windows_35.cj
+
+# AOP issues https://gitcode.com/Cangjie/cangjie_stdx/issues/396
+API\stdx\aspect_cj

@@ -1,0 +1,25 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[dependencies]
+  leaf = { path = "../leaf" }
+
+[package]
+  cjc-version = "1.0.0"
+  compile-option = ""
+  description = "middle module that remaps features onto leaf"
+  link-option = ""
+  name = "mid"
+  output-type = "dynamic"
+  target-dir = ""
+  version = "1.0.0"
+
+[profile]
+  experimental = true
+
+[[feature]]
+name = "user.mid.gate"
+mapping = [ "user.leaf._1", "user.leaf._2" ]

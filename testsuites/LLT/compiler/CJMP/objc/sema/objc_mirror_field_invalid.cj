@@ -5,8 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %frontendCompiler %dump-parse %cmp_opt %f -o %output %compile_shared_lib_opt 2>& 1 | compare %f
-// ASSERT: scan-6 error: Objective-C mirror property type must be Objective-C compatible
-// ASSERT: scan 6 errors generated, 6 errors printed
+// ASSERT: scan-8 error: Objective-C mirror property type must be Objective-C compatible
+// ASSERT: scan 8 errors generated, 8 errors printed
 
 import objc.lang.*
 
@@ -18,8 +18,10 @@ class M {
    public let a: String
    public let b: Array<Int64>
    public let c: A
+   public let d: Unit
 
    public var aMut: String
    public var bMut: Array<Int64>
    public var cMut: A
+   public var dMut: Unit
 }
