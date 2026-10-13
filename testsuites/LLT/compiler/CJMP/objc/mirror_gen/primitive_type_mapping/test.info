@@ -10,13 +10,28 @@
 // EXEC: ObjCInteropGen test.toml
 // EXEC: %cat test.cj | compare %f
 /* SCAN-IN
+public type uint32_t = Int32
+
+public type int_fast32_t = Int64
+
+public type size_t = Int32
+
 public type UserDefinedImportantTypeDef = Int32
+
+public type E = Int32
+
+public type EE = Int32
+
+public type EEE = UInt32
+public const A: EEE = 0
+public const B: EEE = 1
+public const C: EEE = 2
 
 @ObjCMirror
 public open class M {
-    @ForeignName["foo:"] public open func foo(x: Int32): Unit
-    @ForeignName["bar:"] public open func bar(x: Int64): Unit
-    @ForeignName["baz:"] public open func baz(x: Int32): Unit
+    @ForeignName["foo:with:"] public open func fooWith(x: Int32, y: Int32): Unit
+    @ForeignName["bar:with:"] public open func barWith(x: Int64, y: Int32): Unit
+    @ForeignName["baz:with:"] public open func bazWith(x: Int32, y: UInt32): Unit
     @ForeignName["foobarbaz:"] public open func foobarbaz(x: UserDefinedImportantTypeDef): Unit
 }
 */

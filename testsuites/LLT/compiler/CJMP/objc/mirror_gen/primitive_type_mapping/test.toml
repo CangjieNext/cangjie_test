@@ -1,0 +1,7 @@
+[[packages]]
+filters = [".*"]
+package-name = "cjworldA"
+output-path = "."
+
+[sources.all]
+paths = ["test.h"]
