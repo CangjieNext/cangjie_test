@@ -41,8 +41,10 @@ public specific interface  A {
 }
 
 // SEPARATE-FILE: main.cj
-// EXEC-PIPE-0: %compiler %noColor main.cj -lcmp -L. --import-path=./p2/cmp.cjo -o %output
-// RUN: %run %output 2>&1 | compare %f
+// EXEC-0: %compiler %noColor main.cj --import-path=. -L. -lcmp -o %output
+// (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:. %run %output 2>&1 | compare %f
+// (CJNATIVE and Windows)EXEC-PIPE: set PATH=.;%PATH% && %run %output 2>&1 | compare %f
+// (CJNATIVE and Darwin)EXEC-PIPE: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:. %run %output 2>&1 | compare %f
 import cmp.*
 
 class B <: A {
@@ -65,4 +67,5 @@ foo
 boo
 goo
 doo
+notImplementedInInterface
 */ 
