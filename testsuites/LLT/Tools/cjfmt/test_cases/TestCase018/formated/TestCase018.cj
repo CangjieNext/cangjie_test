@@ -32,7 +32,6 @@ func g() {
     let c = p.A // ok
     F(1)
     E.F(1) // ok
-
     // p.F(1) // ok
     let x: C // error
     let y: p.C
