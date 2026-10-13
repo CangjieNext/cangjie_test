@@ -15,11 +15,11 @@
  * @Condition: 仓颉工具链及 stdx.aspect_cj 扩展库已安装
  * @Brief: 1. 构造违规：注解 packageName 含路径分隔符等非法段
  * @Brief: 2. collect 阶段编译失败，断言报错锚
- * @Expect: 编译报错含「expected a non-empty valid Cangjie package name」
+ * @Expect: 编译报错含「invalid package name pattern」及原始非法包名
  */
 // LEVEL: 2
 // EXEC-PIPE-1: %compiler %import-cangjie-stdx -lstdx.aspect_cj %cmp_opt %f -o %output --plugin=%host-cangjie-dynamic-stdx-path/libstdx.collect_aspects.%host_dylib_suffix 2>&1 | compare %f
-// ASSERT: scan expected a non-empty valid Cangjie package name
+// ASSERT: scan invalid package name pattern 'AOP..demo1/bad'
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

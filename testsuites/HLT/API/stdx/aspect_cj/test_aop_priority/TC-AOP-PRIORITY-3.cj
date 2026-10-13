@@ -15,11 +15,11 @@
  * @Condition: 仓颉工具链及 stdx.aspect_cj 扩展库已安装
  * @Brief: 1. 构造同时触发 invalid_package_name_over_instance_to_global_static 两违规的切面代码
  * @Brief: 2. collect 阶段编译，断言报错锚为先检查的违规
- * @Expect: 报错锚 = expected a non-empty valid Cangjie package name
+ * @Expect: 报错锚 = invalid package name pattern，包含原始非法包名
  */
 // LEVEL: 2
 // EXEC-PIPE-1: %compiler %import-cangjie-stdx -lstdx.aspect_cj %cmp_opt %f -o %output --plugin=%host-cangjie-dynamic-stdx-path/libstdx.collect_aspects.%host_dylib_suffix 2>&1 | compare %f
-// ASSERT: scan expected a non-empty valid Cangjie package name
+// ASSERT: scan invalid package name pattern 'AOP..demo1/bad'
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
