@@ -26,5 +26,5 @@ public class M {
     public func twoParams(first: Int64, second: Float64): Unit
 
     @ForeignName["fiveParams:second:third:fourth:fifth:"]
-    public func fiveParams(first: ObjCPointer<Int64>, second: IntNative, third: PrimitiveType, fourth: Bool, fifth: ObjCPointer<Unit>): Unit
+    public func fiveParams(first: ObjCPointer<Int64>, second: IntNative, third: PrimitiveType, fourth: Bool, fifth: ObjCPointer<Byte>): Unit
 }

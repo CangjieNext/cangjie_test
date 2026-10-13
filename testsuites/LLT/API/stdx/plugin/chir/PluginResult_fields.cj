@@ -10,7 +10,7 @@
 // PluginResult.length / success / data（经 deserialize 校验）
 
 /* SCAN
-length: 56
+length preserved: true
 success: true
 data ok: true
 */
@@ -34,7 +34,8 @@ main() {
     PluginManager.registerCHIRPlugin({ => MyPlugin() })
     unsafe {
         let result = executeCHIRPlugins(data, length)
-        println("length: ${result.length}")
+        // A no-op plugin preserves the serialized size; it is not a fixed ABI constant.
+        println("length preserved: ${result.length == length && result.length > 0}")
         println("success: ${result.success}")
         let outPkg = deserializePackage(result.data, result.length)
         println("data ok: ${outPkg.name == "demo"}")

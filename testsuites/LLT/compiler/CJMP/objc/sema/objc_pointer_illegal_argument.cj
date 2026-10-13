@@ -6,10 +6,16 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
 
-// ASSERT: scan error: ObjCPointer can only be used with Objective-C compatible types
+// ASSERT: scan-2 error: ObjCPointer can only be used with Objective-C compatible types
 
 import objc.lang.*
 
 func foo(): ObjCPointer<String> {
+    return unsafe { zeroValue() }
+}
+
+// Unit remains valid as a function result or CPointer<Unit> (void*), but not
+// as the element of an ObjCPointer after the interop Unit-position checks.
+func unitPointee(): ObjCPointer<Unit> {
     return unsafe { zeroValue() }
 }

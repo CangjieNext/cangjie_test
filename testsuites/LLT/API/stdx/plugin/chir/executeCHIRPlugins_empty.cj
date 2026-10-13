@@ -11,7 +11,8 @@
 
 /* SCAN
 success: true
-length: 56
+length preserved: true
+data ok: true
 */
 
 import stdx.plugin.manager.*
@@ -23,7 +24,10 @@ main() {
     unsafe {
         let result = executeCHIRPlugins(data, length)
         println("success: ${result.success}")
-        println("length: ${result.length}")
+        // Empty plugin execution must round-trip the current CHIR format unchanged.
+        println("length preserved: ${result.length == length && result.length > 0}")
+        let outPkg = deserializePackage(result.data, result.length)
+        println("data ok: ${outPkg.name == "demo"}")
         freeSerializedMemory()
     }
 }

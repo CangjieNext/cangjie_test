@@ -24,7 +24,7 @@ public class N {
     public func twoParams(first: M, second: Float64): A
 
     @ForeignName["fiveParams:second:third:fourth:fifth:"]
-    public func fiveParams(first: ObjCPointer<A>, second: IntNative, third: Float64, fourth: A, fifth: ObjCPointer<Unit>): M
+    public func fiveParams(first: ObjCPointer<A>, second: IntNative, third: Float64, fourth: A, fifth: ObjCPointer<Byte>): M
 }
 
 @ObjCImpl
