@@ -10,7 +10,7 @@
 // (CJNATIVE and Linux)EXEC-0: %compiler %import-cangjie-stdx %cmp_opt main.cj -o %output %weave_aspects_plugin
 // (CJNATIVE and Linux)EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_args | compare %f
 // (CJNATIVE and Linux)EXEC-0: %compiler %import-cangjie-stdx %cmp_opt adapter.cj --output-type=dylib -lstdx.chir -lstdx.plugin.manager -o libreplacement_rules.so
-// (CJNATIVE and Linux)EXEC-0: %compiler %import-cangjie-stdx %cmp_opt main.cj --experimental --emit-chir-annotation-metadata --plugin=./libreplacement_rules.so -o %output
+// (CJNATIVE and Linux)EXEC-0: %set_stdx_path %compiler %import-cangjie-stdx %cmp_opt main.cj --experimental --emit-chir-annotation-metadata --plugin=./libreplacement_rules.so -o %output
 // (CJNATIVE and Linux)EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan 111\n111\n121\n121\n131\n131
 // ASSERT: scan-not core dumped

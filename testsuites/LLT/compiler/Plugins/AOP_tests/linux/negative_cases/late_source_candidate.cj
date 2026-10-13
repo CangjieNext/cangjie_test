@@ -5,7 +5,7 @@
 //
 // Exempting unnamed plugin helpers must not exempt new named source bodies.
 // (CJNATIVE and Linux)EXEC-0: %compiler %import-cangjie-stdx %cmp_opt plugin.cj --output-type=dylib -o liblate.so
-// (CJNATIVE and Linux)EXEC-PIPE-1: %compiler %import-cangjie-stdx %cmp_opt main.cj --experimental --emit-chir-annotation-metadata --plugin=./liblate.so -o %output 2>&1 | compare %f
+// (CJNATIVE and Linux)EXEC-PIPE-1: %set_stdx_path %compiler %import-cangjie-stdx %cmp_opt main.cj --experimental --emit-chir-annotation-metadata --plugin=./liblate.so -o %output 2>&1 | compare %f
 // ASSERT: scan build-phase-invalid: late aspect candidate
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace

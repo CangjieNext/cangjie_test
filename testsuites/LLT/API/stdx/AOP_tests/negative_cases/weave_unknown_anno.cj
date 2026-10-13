@@ -8,7 +8,7 @@
 
 // Weave-only: a well-named but unknown anno class in the .annoinfo file.
 
-// EXEC-PIPE-0: printf '%s\n' 'default' 'dummyInit' 'UnknownAnno' 'default' 'dummyAspect' '0' 'false' 'false' 'default' '' 'woven' '()->Unit' 'false' 'false' > default-default.annoinfo && export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %weave_aspects_plugin 2>&1 | compare %f
+// EXEC-PIPE-1: printf '%s\n' 'default' 'dummyInit' 'UnknownAnno' 'default' 'dummyAspect' '0' 'false' 'false' 'default' '' 'woven' '()->Unit' 'false' 'false' > default-default.annoinfo && export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %weave_aspects_plugin 2>&1 | compare %f
 // ASSERT: scan Unknown annotation class name 'UnknownAnno'.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace

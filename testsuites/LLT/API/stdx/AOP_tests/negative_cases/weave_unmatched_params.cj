@@ -10,7 +10,7 @@
 // paramsNum does not. Collect would have rejected this pair; hand-written
 // annoinfo is required to reach prepareArguments' unmatched-arity check.
 
-// EXEC-PIPE-0: printf '%s\n' 'default' 'dummyInit' 'InsertAtEntry' 'default' 'dummyAspect' '2' 'false' 'false' 'default' '' 'woven' '()->Unit' 'false' 'false' > default-default.annoinfo && export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %weave_aspects_plugin 2>&1 | compare %f
+// EXEC-PIPE-1: printf '%s\n' 'default' 'dummyInit' 'InsertAtEntry' 'default' 'dummyAspect' '2' 'false' 'false' 'default' '' 'woven' '()->Unit' 'false' 'false' > default-default.annoinfo && export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler %import-cangjie-stdx %cmp_opt %f -o %output %weave_aspects_plugin 2>&1 | compare %f
 // ASSERT: scan Parameter count mismatch
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace

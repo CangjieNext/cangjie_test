@@ -39,6 +39,19 @@ env["LD_LIBRARY_PATH"] = f"{stdx}:{sdk / 'runtime/lib' / triple}:{sdk / 'lib' / 
 root = Path(tempfile.mkdtemp(prefix="aspect-rules-llt-"))
 print("retained test directory:", root)
 
+# Match packaged SDKs with platform-directory symlinks without modifying the SDK.
+sdk_alias = root / "sdk"
+sdk_alias.mkdir()
+for entry in sdk.iterdir():
+    alias = sdk_alias / entry.name
+    if entry.name == "lib":
+        alias.mkdir()
+        for library in entry.iterdir():
+            (alias / library.name).symlink_to(library.resolve(), target_is_directory=library.is_dir())
+    else:
+        alias.symlink_to(entry.resolve(), target_is_directory=entry.is_dir())
+env["CANGJIE_HOME"] = str(sdk_alias)
+
 def run(command):
     result = subprocess.run([str(value) for value in command], env=env, text=True,
                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)

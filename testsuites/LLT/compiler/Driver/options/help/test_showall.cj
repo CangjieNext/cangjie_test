@@ -59,6 +59,10 @@ Options:
   --dump-ir                   Dump human readable IR
   --dump-all                  Dump all of AST, CHIR, IR
   --dump-to-screen            Dump to screen instead of file
+  --emit-chir-annotation-metadata
+                              Emit compiler-resolved annotation identities and scalar fields in CHIR (Experimental)
+  --aspect-import-symbols <value>
+                              Import exact exported aspect symbols from a build-generated list (Experimental)
   --emit-chir                 emit CHIR serialization file of the specified phase. Candidate phases:
     <value>=raw                 emit CHIR before compiler optimization
     <value>=opt                 emit CHIR after compiler optimization (default)
