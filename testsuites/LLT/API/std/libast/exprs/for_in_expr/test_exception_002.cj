@@ -163,9 +163,12 @@ value: "b"
 description: illegal, token_id: 162, token_literal_value:
 */
 /*SCAN-IN
+ASTException: Illegal token kind: expected 'WHERE', got 'AND'.
+*/
+/*SCAN-IN
 description: for, token_id: 104, token_literal_value: for
 */
 /*SCAN-IN
 ASTException: Illegal token kind: expected 'FOR', got 'AND'.
 */
-// ASSERT: scan cnt = 7
+// ASSERT: scan cnt = 8

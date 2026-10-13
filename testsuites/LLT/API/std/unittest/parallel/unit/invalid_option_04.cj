@@ -7,7 +7,7 @@
  */
 // EXEC: %compiler %cmp_opt %f %cmp_utest_opt -o %output
 // EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --parallel=0.5 --no-color 2>&1 | compare %f
-// ASSERT: scan UnittestOptionValidationException: Option 'parallel' (parallel.toString='0.500000') type is not valid.
+// ASSERT: scan UnittestOptionValidationException: Option 'parallel' (parallel.toString='0.500000') has invalid type.
 
 @Test
 func test(): Unit {}

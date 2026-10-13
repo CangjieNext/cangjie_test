@@ -7,6 +7,6 @@
  */
 // EXEC: %compiler %cmp_opt %cmp_utest_opt -o %n.%suffix %f
 // EXEC-PIPE-1: %run %run_opt %n.%suffix %run_utest_opt %run_args --no-color --not-defined 2>&1 | compare %f
-// ASSERT: scan Option 'notDefined' has no validators. Use @UnittestOption macro.
+// ASSERT: scan Option 'notDefined' has no validators. Use '@UnittestOption' macro.
 
 // NOTE: There is no validator for 'notDefined' option passed in CLI

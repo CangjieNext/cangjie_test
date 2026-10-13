@@ -8,7 +8,7 @@
 // EXEC: %compiler %cmp_opt %f %cmp_utest_opt -o %output
 // EXEC-PIPE-1: %run %run_opt %output %run_args --no-color --parallel=3 --progress-entries-limit=-1 2>&1 | compare %f
 
-// ASSERT: scan Wrong --progressEntriesLimit option argument format. Provided: -1. Parameter format: non-negative integer value
+// ASSERT: scan Wrong '--progressEntriesLimit' option argument format. Expected format: non-negative integer value, got: '-1'.
 
 import std.sync.*
 import std.unittest.*

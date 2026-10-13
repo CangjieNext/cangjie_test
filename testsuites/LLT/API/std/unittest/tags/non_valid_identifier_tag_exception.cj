@@ -7,7 +7,7 @@
  */
 // RUN-EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %cmp_utest_opt 2>&1 | compare %f
 // ASSERT: scan-3 Illegal parameters for @Tag
-// ASSERT: scan-3 @Tag macro has no passed arguments or one of the tags is not valid identifier
+// ASSERT: scan-3 @Tag macro has no passed arguments or one of the tags is not a valid identifier
 
 @Test
 @Tag["NotSoNice", Nice, 3]
