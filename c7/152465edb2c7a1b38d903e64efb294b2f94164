@@ -1,0 +1,76 @@
+testsuites/LLT/compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/AddExtends/InterfaceExtend0to1_CPointer.cj
+  s_fb366f7e094062::t_83ecd8c55c2031 26
+  s_fb366f7e094062::t_7f8a49523937a8 24-25
+testsuites/LLT/cjnative_testlist
+  s_fb366f7e094062::t_b0af03caad71d4 132,134,142
+  h_7fa24ec5a32f2d 126-127
+testsuites/LLT/compiler/Sema/modal/diag/sema_abstract_exclave_func.cj
+  s_3ec84b7d0ce897::t_603eac5dce5070 13
+testsuites/LLT/compiler/Sema/modal/decl/prop/static_overload_bad.cj
+  s_3ec84b7d0ce897::t_a5653035c672a2 21,31
+testsuites/LLT/compiler/Sema/modal/expr/assign/assign_external_internal_message.cj
+  s_fb366f7e094062::t_465966b0d585ab 33-40
+  s_fb366f7e094062::t_443fcec5cbfb40 30-32
+  s_fb366f7e094062::t_900d9c9eccbe60 41-43
+  h_7fa24ec5a32f2d 1-29,44-48
+testsuites/LLT/compiler/Sema/modal/diag/sema_exclave_invalid_func_signature.cj
+  s_3ec84b7d0ce897::t_7a6d014a734b30 30
+  s_3ec84b7d0ce897::t_39105881b4012f 20
+testsuites/LLT/compiler/Sema/modal/decl/prop/prop_modal_good.cj
+  s_3ec84b7d0ce897::t_c6ae8c05668725 29-31,34
+testsuites/LLT/compiler/Sema/modal/decl/prop/getter_exclave_bad.cj
+  s_3ec84b7d0ce897::t_4ff5e2d37699b9 23
+testsuites/HLT/Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_005.info
+  s_3ec84b7d0ce897::t_c8c32edf7968d5 25
+testsuites/HLT/Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
+  s_3ec84b7d0ce897::t_dc6e0c912e87fc 28
+testsuites/HLT/compiler/cjnative/Expressions/FlowExpression/support_type/007/flow_type_70001.cj
+  h_7fa24ec5a32f2d 18-19
+testsuites/HLT/compiler/cjnative/Expressions/Relational_Operators/Relate_bitwise/bitwise002/bitwise00217.cj
+  h_7fa24ec5a32f2d 20
+testsuites/HLT/compiler/cjnative/Expressions/Relational_Operators/Relate_logical/logical002/logical00211.cj
+  h_7fa24ec5a32f2d 28
+testsuites/HLT/compiler/cjnative/Expressions/Relational_Operators/Relate_logical/logical004/logical00411.cj
+  h_7fa24ec5a32f2d 28
+testsuites/HLT/compiler/cjnative/TypesAndVariables/TypeConversion/PrimitiveTypeConversion/conversion007/conversion00702.cj
+  h_7fa24ec5a32f2d 18
+testsuites/HLT/configs/cjnative/exclude_common
+  h_7fa24ec5a32f2d 44-48
+testsuites/LLT/compiler/Sema/modal/diag/spawn_capture_bad.cj
+  h_7fa24ec5a32f2d 28,31
+testsuites/LLT/compiler/Sema/modal/expr/exclave/exclave_non_tail_branch_type_bad.cj
+  h_7fa24ec5a32f2d 41
+testsuites/LLT/compiler/Sema/modal/perf/json.cj
+  h_7fa24ec5a32f2d 149,151
+testsuites/LLT/compiler/Sema/modal/types/copy/copy_ctor_modal_exact.cj
+  h_7fa24ec5a32f2d 1-41
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c7152465edb2c7a1b38d903e64efb294b2f94164",
+  "prompts": {},
+  "humans": {
+    "h_7fa24ec5a32f2d": {
+      "author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    }
+  },
+  "sessions": {
+    "s_3ec84b7d0ce897": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4a8f14d8-7266-42bf-89fc-68cd132176d4",
+        "model": "default"
+      },
+      "human_author": null
+    },
+    "s_fb366f7e094062": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3f5aa8ec-4e4f-4a1c-b8f7-16744e182322",
+        "model": "unknown"
+      },
+      "human_author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    }
+  }
+}
