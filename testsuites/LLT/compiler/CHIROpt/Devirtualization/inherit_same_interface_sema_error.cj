@@ -5,8 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// ASSERT: scan interface function 'f1' must be implemented in 'A1'
+// EXEC: %compiler %cmp_opt %enableDevirtualization -Woff all %f -o %n.%suffix
+// EXEC: %run %run_opt %n.%suffix 2>&1 | compare %f
 
 interface I1 {
     func f1(a: Int64): Unit {
@@ -43,3 +43,9 @@ main() {
     Test2(A1())
     Test(A1())
 }
+
+/* SCAN
+I2 f1
+I2 f1
+I2 f1
+*/

@@ -7,18 +7,17 @@
  */
 
 /*
- * TC-GENINST-NEG_diamond_default_conflict | 菱形多默认冲突 | 期望 DiagKind=sema_interface_member_must_be_implemented
- * 需求 design-spec §3/§6; dt-design 异常用例3 相关(菱形形态)。菱形 I1,I2<:D,C<:I1&I2,默认经两路径到达,编译期拒绝。
- * 手写落地(已验证 cjc 拒绝 + DiagKind 匹配)。
- * 本用例不得作为 runtime trace 用例:预期编译失败。
+ * TC-GENINST-NEG_diamond_default_conflict | 菱形同一默认实现 | 现编译通过并运行
+ * 需求 design-spec §3/§6; dt-design 异常用例3 相关(菱形形态)。菱形 I1,I2<:D,C<:I1&I2,默认经两路径到达,
+ * 为同一实例化下的同一默认实现,合并去重后不再要求显式实现。
+ * 本用例为正向:编译通过并运行,校验默认实现可用。文件路径保留 negative/NEG_ 前缀以避免破坏既有引用。
  */
 // Level: 1
 // Description:
-// NEG NEG_diamond_default_conflict | 菱形继承两默认冲突且无显式消歧被拒绝。
-// 负向用例:预期编译失败,不得作为 runtime trace 用例。
-// 通过 --diagnostic-format=json 取符号化 DiagKind,断言命中 sema_interface_member_must_be_implemented。
-// EXEC-PIPE-1: %compiler %cmp_opt %f --diagnostic-format=json -o %output 2>&1 | compare %f
-// ASSERT: scan sema_interface_member_must_be_implemented
+// NEG_diamond_default_conflict | 菱形继承中,同一实例化接口的默认实现经两条路径到达,合并去重。
+// 正向用例:编译通过并运行,命中 TRACE_OK。
+// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 
 package packageA
 
@@ -47,3 +46,7 @@ main(): Unit {
         println("MISMATCH " + __trace.toString())
     }
 }
+
+/* SCAN
+TRACE_OK
+*/

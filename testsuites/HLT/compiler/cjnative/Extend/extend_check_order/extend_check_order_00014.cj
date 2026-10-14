@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt %f -o %output
-// ASSERT: scan sema_interface_member_must_be_implemented
+// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 interface I1 {
     func foo() {

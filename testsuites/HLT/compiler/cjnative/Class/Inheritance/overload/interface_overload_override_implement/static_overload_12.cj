@@ -7,7 +7,8 @@
  */
 
 // LEVEL: 0
-// EXEC-PIPE-1: %compiler %cmp_opt %f 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 interface Data2 {
     static func foo(a: Int64): Int64 {
@@ -26,4 +27,3 @@ main(): Int64 {
     }
     return 0
 }
-// ASSERT: scan sema_interface_member_must_be_implemented
