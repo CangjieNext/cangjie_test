@@ -1,0 +1,20 @@
+testsuites/LLT/Tools/cjlint/rule_G_FUN_02/func_02_test_case_13/func_02_test_case_13.info
+  h_fe069fe836a3e3 1-9
+testsuites/LLT/Tools/cjlint/rule_G_FUN_02/func_02_test_case_14/func_02_test_case_14.info
+  h_fe069fe836a3e3 6,9
+testsuites/LLT/Tools/cjlint/rule_G_FUN_02/func_02_test_case_13/src/test.cj
+  h_fe069fe836a3e3 1-21
+testsuites/LLT/Tools/cjlint/rule_G_FUN_02/func_02_test_case_14/src/test.cj
+  h_fe069fe836a3e3 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "2ee307df28e942a72c168c49e905b3047e46ae89",
+  "prompts": {},
+  "humans": {
+    "h_fe069fe836a3e3": {
+      "author": "zxudong <zxudong.zhang@huawei.com>"
+    }
+  }
+}

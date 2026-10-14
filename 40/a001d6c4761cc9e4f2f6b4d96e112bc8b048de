@@ -1,0 +1,18 @@
+testsuites/HLT/Tools/cjlint/rules/G_ERR_03/g_err_03_0022/g_err_03_0022.info
+  h_fe069fe836a3e3 12
+testsuites/HLT/Tools/cjlint/rules/G_FUN_02/g_fun_02_024/g_fun_02_024.info
+  h_fe069fe836a3e3 12
+testsuites/HLT/Tools/cjlint/rules/G_SYN_01/g_syn_01_041/g_syn_01_041.info
+  h_fe069fe836a3e3 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "40a001d6c4761cc9e4f2f6b4d96e112bc8b048de",
+  "prompts": {},
+  "humans": {
+    "h_fe069fe836a3e3": {
+      "author": "zxudong <zxudong.zhang@huawei.com>"
+    }
+  }
+}
