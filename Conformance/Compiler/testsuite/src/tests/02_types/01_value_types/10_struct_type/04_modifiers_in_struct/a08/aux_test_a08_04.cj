@@ -15,7 +15,7 @@
 package p4
 
 public struct AuxTestA0804{
-    prop let p: Int64 {
+    prop p: Int64 {
         get() { 1 }
     }
 }

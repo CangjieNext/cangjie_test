@@ -15,5 +15,5 @@
 package p2
 
 public struct AuxTestA0302 {
-    S(_: Int64) {}
+    AuxTestA0302(_: Int64) {}
 }

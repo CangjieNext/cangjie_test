@@ -34,6 +34,6 @@ package pkg2
 import pkg1.*
 
 main(): Unit {
-    var myVar: MyType = ("12", 'D')
+    var myVar: MyType = MyType("12", r'D')
     print("${myVar.p}")    
 }
