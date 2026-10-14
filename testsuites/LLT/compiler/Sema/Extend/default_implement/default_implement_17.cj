@@ -4,10 +4,12 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 
 interface I<T> {
     func foo(a: T): Unit {
+        let _ = a
         println(1)
     }
 }
@@ -31,19 +33,5 @@ main() {
 }
 
 /* SCAN
-error: interface function 'foo' must be implemented in 'extend A'
-  ==> default_implement_17.cj:19:1:
-   | 
-19 | extend A<Int64> <: I<Int64> {}
-   | ^ 
-   | 
-
-error: interface function 'foo' must be implemented in 'extend B'
-  ==> default_implement_17.cj:25:1:
-   | 
-25 | extend B<Int64> <: I1<Int64> {}
-   | ^ 
-   | 
-
-2 errors generated, 2 errors printed.
+1
 */

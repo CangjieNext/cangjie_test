@@ -4,7 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-1: %compiler %cmp_opt %n.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %n.cj -o %output
+// EXEC: %run %run_opt %output %run_args
 
 main(): Int64 {
     if (B<String, Int64>().m != 1) {
@@ -28,21 +29,3 @@ class B<T, V> <: I<T> & I<V> {
         }
     }
 }
-
-/* SCAN
-error: interface function 'foo' must be implemented in 'J'
-  ==> generic_inheritance_nongeneric_funcParameters.cj:22:1:
-   | 
-22 | interface J<T, V> <: I<T> & I<V> {}
-   | ^ 
-   | 
-
-error: interface function 'foo' must be implemented in 'B'
-  ==> generic_inheritance_nongeneric_funcParameters.cj:24:1:
-   | 
-24 | class B<T, V> <: I<T> & I<V> {
-   | ^ 
-   | 
-
-2 errors generated, 2 errors printed.
-*/
