@@ -1,0 +1,19 @@
+testsuites/LLT/compiler/CodegenCJNative/generic/generic_nested_struct_field.cj
+  s_2545c05790c400::t_9be38086fa0263 1-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "09357579df4e77fa85b47d96f2e3b339a69a1426",
+  "prompts": {},
+  "sessions": {
+    "s_2545c05790c400": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a05bdd-d23f-72da-975c-2da3f659fb47",
+        "model": "k3-256k"
+      },
+      "human_author": "yanjs <yejiasheng3@huawei.com>"
+    }
+  }
+}
