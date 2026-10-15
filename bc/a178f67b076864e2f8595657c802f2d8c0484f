@@ -1,0 +1,36 @@
+testsuites/LLT/compiler/Sema/modal/infer/pending_ideal_upper_bound_scope_constraint_good.cj
+  s_b518e47e3bb29b::t_4cd5cc375747ea 1-31
+testsuites/LLT/compiler/Sema/modal/infer/pending_ideal_upper_bound_scope_good.cj
+  s_c3dcecd856bed5::t_c857e774812900 1-33
+testsuites/LLT/compiler/Sema/modal/infer/func_arg_lambda_ideal_upper_bound_good.cj
+  s_c3dcecd856bed5::t_94f17e35a28558 1-48
+testsuites/LLT/compiler/Sema/modal/infer/func_arg_lambda_ideal_literal_good.cj
+  s_c3dcecd856bed5::t_e83894c2d0e1c1 40-42
+  s_c3dcecd856bed5::t_02933da36686c6 1-39,50-66
+  s_c3dcecd856bed5::t_f9c37bbee128b1 43-46
+  s_c3dcecd856bed5::t_ae54e3875180a0 47-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "bca178f67b076864e2f8595657c802f2d8c0484f",
+  "prompts": {},
+  "sessions": {
+    "s_b518e47e3bb29b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2a4ea1e4-6e08-4df4-b028-b9cd3d71445e",
+        "model": "DeepSeek-V4.1-Flash"
+      },
+      "human_author": "huohuixin <huohuixin@huawei.com>"
+    },
+    "s_c3dcecd856bed5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9d7d3e87-e428-4c5a-b67c-4dfa0666515f",
+        "model": "DeepSeek-V4.1-Flash"
+      },
+      "human_author": null
+    }
+  }
+}
