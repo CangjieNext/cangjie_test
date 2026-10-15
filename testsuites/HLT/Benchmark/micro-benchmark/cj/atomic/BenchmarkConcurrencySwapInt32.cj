@@ -14,7 +14,7 @@ import std.sync.*
 import std.time.*
 import std.runtime.*
 
-var reps = 1000
+var reps = 10
 
 class WaitGroup {
     var m: Monitor = Monitor()
