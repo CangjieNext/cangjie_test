@@ -123,8 +123,6 @@ compiler/Sema/generics/generic_subst_perf.cj
 
 
 # modal type
-# runtime abort
-compiler/Sema/modal/perf/json.cj
 
 # problem of implementing default member of interface, this is not caused by local mode
 API/stdx/net/http/server/serve_tls_test.cj
@@ -142,7 +140,6 @@ compiler/Sema/modal/expr/array_lit2.cj
 # still OOM: local alloc outside region after exclave call / Option.Some @local! (remain after #1165 PRs)
 compiler/Sema/modal/expr/exclave/call_generic_with_copytype.cj
 compiler/Sema/modal/expr/option_some_local.cj
-
 
 # daignose is changed
 compiler/Parser/function/missing_func_keyword.cj

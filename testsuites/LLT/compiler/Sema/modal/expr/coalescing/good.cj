@@ -13,7 +13,7 @@ class A {
     exclave init(this @local!, n: Int64) { this.n = n }
 }
 
-exclave func use(o: Option<A> @local!): A {
+exclave func use(o: Option<A> @local!): A @local! {
     o ?? A(0)
 }
 

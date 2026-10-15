@@ -140,14 +140,14 @@ func collectInfo(v: JsonValue, out: ArrayList<Info>): Unit {
 
 func myParse(): ArrayList<Info> {
     let data = "origin.json"
-    println("begin heap size=${getAllocatedHeapSize()}")
+    println("${getAllocatedHeapSize()}")
     let raw = String.fromUtf8(File.readFrom(data))
-    println("readfile heap size=${getAllocatedHeapSize()}")
+    println("${getAllocatedHeapSize()}")
     let jv: JsonValue = JsonValue.fromStr(raw)
-    println("parseJson heap size=${getAllocatedHeapSize()}")
+    println("${getAllocatedHeapSize()}")
     let out = ArrayList<Info>()
     collectInfo(jv, out)
-    println("end heap size=${getAllocatedHeapSize()}")
+    println("${getAllocatedHeapSize()}")
     out
 }
 
