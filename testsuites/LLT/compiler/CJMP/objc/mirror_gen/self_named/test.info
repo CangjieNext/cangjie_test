@@ -38,6 +38,7 @@ public open class M {
     // protected var T12: ObjCPointer<T12> /*T13*/
     // public open func T2(): T2
     // public open func T3(): ObjCPointer<T3>
+    // prover
     @ForeignName["foo:"] public open func foo(T3: T3): Unit
     // @ForeignName["T4:"] public open func T4(x: T4): Unit
     // @ForeignName["T5:"] public open func T5(x: ObjCPointer<T5>): Unit
