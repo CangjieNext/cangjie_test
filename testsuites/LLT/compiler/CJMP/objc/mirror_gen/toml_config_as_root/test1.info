@@ -10,7 +10,6 @@
 // EXEC: %mkdir sub && %move test.toml sub/ && %move empty.toml sub/ && %move test2.h sub/
 // EXEC: ObjCInteropGen sub/test.toml 2>&1 | compare %f
 /* SCAN-IN
-Consider using $ROOT_TOML_DIR to reference TOML file `empty.toml` from `sub/test.toml` or set the `--cd` option.
-TOML file `empty.toml` doesn't exist
+Consider using $ROOT_TOML_DIR to reference TOML file `empty.toml`
 */
 

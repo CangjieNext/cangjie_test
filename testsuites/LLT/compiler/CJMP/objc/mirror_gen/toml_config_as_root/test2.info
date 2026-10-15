@@ -10,8 +10,6 @@
 // EXEC: %mkdir sub && %move test.toml sub/ && %move test2.h sub/
 // EXEC: ObjCInteropGen --cd sub/test.toml 2>&1 | compare %f
 /* SCAN-IN
-Consider using $PWD to reference TOML file `empty.toml` from `sub/test.toml`
-You set the `--cd` option, all relative paths are resolved from the parent directory of the passed TOML file.
-TOML file `empty.toml` doesn't exist
+Consider using $PWD to reference TOML file `empty.toml`
 */
 
