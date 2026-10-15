@@ -4,9 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// Verify CJ_MCC_GetAllocatedLocalObjectSize: it is zero without live local
-// objects, grows with local objects while their scope is active, ignores heap
-// objects, and falls back once the owning scope returns.
+// Verify CJ_MCC_GetAllocatedLocalObjectSize: it is zero without active local
+// regions, reports the reserved native chunk capacity while a scope is active,
+// ignores heap objects, and falls back once the owning scope returns.
 // EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan local object size pass
@@ -49,14 +49,24 @@ func check(condition: Bool, label: String): Unit {
 func scopedLocalObjects(): Int64 {
     let scopeStart = localObjectBytes()
     var sum: Int64 = 0
+    var afterFirst: Int64 = 0
+    var afterSecond: Int64 = 0
     for (i in 0..100) {
         let value: LocalValue @local! = LocalValue(i) @local!
         sum += value.value
+        if (i == 0) {
+            afterFirst = localObjectBytes()
+        }
+        if (i == 1) {
+            afterSecond = localObjectBytes()
+        }
     }
     let scopeEnd = localObjectBytes()
-    // 100 objects with three Int64 fields each occupy at least 100 * 24 bytes.
-    check(scopeStart == 0, "empty scope reports zero")
-    check(scopeEnd - scopeStart >= 100 * 24, "counter grows with local objects")
+    // Two small local objects fit in the initial 4 KiB native chunk.  The
+    // reported size is the chunk capacity, rather than their payload bytes.
+    check(afterFirst >= 4 * 1024, "first local object reserves a native chunk")
+    check(afterSecond == afterFirst, "second local object reuses reserved chunk")
+    check(scopeEnd >= afterSecond && scopeEnd >= scopeStart, "active local region remains accounted")
 
     // Heap allocations must not be counted as local object bytes.
     let beforeHeap = localObjectBytes()
