@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// Payload constants are not propagated yet; constructor fragments are still grouped across enum table branches.
+// Verify enum table diagnostics group or-pattern alternatives that span constructor groups.
 // EXEC-PIPE-0: %compiler %cmp_opt -O2 %f -o %output 2>&1 | compare %f
 
 enum Mode {
@@ -36,6 +36,16 @@ warning: unreachable pattern
    | 
 19 |         case Left(1) | Right(1) => 0
    |                        ^^^^^^^^ 
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
+
+/* SCAN-IN
+warning: unreachable pattern
+  ==> enum_table_cross_constructor_or.cj:20:14:
+   | 
+20 |         case _ => 1
+   |              ^ 
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 */
