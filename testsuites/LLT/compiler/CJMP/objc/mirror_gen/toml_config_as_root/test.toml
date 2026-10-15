@@ -4,10 +4,12 @@
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+imports = ["empty.toml"]
+
 [sources.all]
-paths = ["../test.h"]
+paths = ["../test.h", "$PWD/test1.h", "$ROOT_TOML_DIR/test2.h"]
 
 [[packages]]
-filters = { include = ["M"] }
+filters = ["M", "N", "K"]
 package-name = "cjworld"
 output-path = "."
