@@ -1,0 +1,33 @@
+testsuites/LLT/API/std/libast/tokens/cangjieLex/test_cangjieLex_eh_define.cj
+  s_6da088aca49efc::t_c1252b32f7c875 56-65
+  s_6da088aca49efc::t_eddd291801bcbe 2
+  s_6da088aca49efc::t_ba8b0b7eb50aa3 18-23
+  s_6da088aca49efc::t_d8587114cbec26 47-54
+  s_6da088aca49efc::t_14edcab0528c82 1,3-17,24,26,29,32,35,41-43,46,66-68
+  s_6da088aca49efc::t_c3d8a66c931c57 25,27-28,30-31,33-34,36-39
+  s_6da088aca49efc::t_64fc5f0b171bca 44-45,55
+  s_6da088aca49efc::t_374c21d056eee0 40
+testsuites/LLT/API/std/libast/tokens/cangjieLex/test_cangjieLex_eh.cj
+  s_6da088aca49efc::t_e7e9654c4c229a 10-11
+  s_6da088aca49efc::t_eee1fe47a72517 12-13
+  s_6da088aca49efc::t_dc9db295dc4fd5 1,3-9,14-20
+  s_6da088aca49efc::t_0d3656773969ca 2
+testsuites/LLT/API/std/libast/tokens/cangjieLex/test_cangjieLex_eh_neg.cj
+  s_6da088aca49efc::t_7d83064b534e03 1-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "9133eb49afaa83c5e834b58cee12516bae8a9334",
+  "prompts": {},
+  "sessions": {
+    "s_6da088aca49efc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c07d6510-5277-489b-b31d-3f916e893b13",
+        "model": "glm-5.3-flash"
+      },
+      "human_author": null
+    }
+  }
+}
