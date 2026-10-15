@@ -143,26 +143,37 @@ exclave func collectInfo(v: JsonValue @local!, out: ArrayList<Info>): Unit {
     }
 }
 
+func heap() {
+    getAllocatedHeapSize()
+}
+func heap2() {
+    getAllocatedHeapSize() + getAllocatedLocalObjectSize()
+}
+
 func myParse(): ArrayList<Info> {
-    let data = "origin.json"
-    println("begin heap size=${getAllocatedHeapSize()}")
-    let raw = String.fromUtf8(File.readFromLocal(data))
-    println("readfile heap size=${getAllocatedHeapSize()}")
+    let data: String @local! = "origin.json"
+    let s0: String @local! = "${heap()} ${heap2()}"
+    println(s0)
+    let raw = String.fromUtf8(File.readFrom(data))
+    let s1: String @local! = "${heap()} ${heap2()}"
+    println(s1)
     let jv: JsonValue @local! = JsonValue.fromStr(raw)
-    println("parseJson heap size=${getAllocatedHeapSize()}")
+    let s2: String @local! = "${heap()} ${heap2()}"
+    println(s2)
     let out = ArrayList<Info>()
     collectInfo(jv, out)
-    println("end heap size=${getAllocatedHeapSize()}")
+    let s3: String @local! = "${heap()} ${heap2()}"
+    println(s3)
     out
 }
 
 main() {
     // 20 times for performance, run only 1 for CI
-    // for (i in 0..20) {
+    for (i in 0..20) {
         let info = myParse()
         for (i in info) {
             let s = "${i.a}-${i.b}-${i.value}"
             blackBox(s)
         }
-    // }
+    }
 }

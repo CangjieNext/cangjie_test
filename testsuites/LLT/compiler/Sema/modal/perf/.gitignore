@@ -6,3 +6,6 @@
 main
 old
 *_CHIR/
+heap.dat
+heap.png
+*.t
