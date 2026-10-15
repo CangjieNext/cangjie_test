@@ -30,16 +30,6 @@ func buildString(length: Int64): String {
     return str.toString()
 }
 
-func repFor(len: Int64): Int64 {
-    if (len <= 1024) {
-        1000000
-    } else if (len == 4096) {
-        100000
-    } else {
-        10000
-    }
-}
-
 func getReader(n: Int64, length: Int64): JsonReader {
     var out = ByteBuffer()
     var w = JsonWriter(out)
@@ -67,13 +57,14 @@ func testReadStrings(r: JsonReader) {
 
 @Test
 @Configure[minDuration: Duration.second * 3]
+@Configure[batchSize: 1]
 @Configure[warmup: Duration.second]
 @Measure[TimeNow(Nanos)]
 public class Test_Json_Read_String {
 
     @Strategy[len in [4, 8, 16, 64, 256, 1024, 4096, 16384, 131072]]
-    func readerData(len: Int64): GenerateEachInputProvider<JsonReader> {
-        GenerateEachInputProvider { => getReader(repFor(len), len) }
+    func readerData(len: Int64): BatchSizeOneInputProvider<JsonReader> {
+        BatchSizeOneInputProvider { => getReader(10, len) } // G10: 10 strings per invocation
     }
 
     @Bench[data in readerData]

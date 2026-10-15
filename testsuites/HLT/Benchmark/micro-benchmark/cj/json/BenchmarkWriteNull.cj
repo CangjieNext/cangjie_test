@@ -15,7 +15,7 @@ import std.io.*
 import std.time.*
 import std.unittest.*
 
-let reps = 1000000
+let reps = 10
 
 func testWriteNull(w: JsonWriter, n: Int64) {
     w.startArray()
@@ -33,13 +33,14 @@ func getWriter(): JsonWriter {
 
 @Test
 @Configure[minDuration: Duration.second * 3]
+@Configure[batchSize: 1]
 @Configure[warmup: Duration.second]
 @Measure[TimeNow(Nanos)]
 public class Test_Json_Write_Null {
 
     @Strategy
-    func writerData(): GenerateEachInputProvider<JsonWriter> {
-        GenerateEachInputProvider { => getWriter() }
+    func writerData(): BatchSizeOneInputProvider<JsonWriter> {
+        BatchSizeOneInputProvider { => getWriter() }
     }
 
     @Bench[data in writerData]

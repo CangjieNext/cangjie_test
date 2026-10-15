@@ -15,7 +15,7 @@ import std.io.*
 import std.time.*
 import std.unittest.*
 
-let reps = 1000000
+let reps = 10
 
 func getReader(): JsonReader {
     var out = ByteBuffer()
@@ -43,13 +43,14 @@ func testReadBool(r: JsonReader) {
 
 @Test
 @Configure[minDuration: Duration.second * 3]
+@Configure[batchSize: 1]
 @Configure[warmup: Duration.second]
 @Measure[TimeNow(Nanos)]
 public class Test_Json_Read_Bool {
 
     @Strategy
-    func readerData(): GenerateEachInputProvider<JsonReader> {
-        GenerateEachInputProvider { => getReader() }
+    func readerData(): BatchSizeOneInputProvider<JsonReader> {
+        BatchSizeOneInputProvider { => getReader() }
     }
 
     @Bench[data in readerData]

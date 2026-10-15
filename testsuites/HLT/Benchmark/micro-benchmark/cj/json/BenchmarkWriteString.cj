@@ -30,16 +30,6 @@ func buildString(length: Int64): String {
     return str.toString()
 }
 
-func repFor(len: Int64): Int64 {
-    if (len <= 1024) {
-        1000000
-    } else if (len == 4096) {
-        100000
-    } else {
-        10000
-    }
-}
-
 func testWriteStrings(w: JsonWriter, n: Int64, str: String) {
     w.startArray()
     for (_ in 0..n) {
@@ -56,13 +46,14 @@ func getWriter(): JsonWriter {
 
 @Test
 @Configure[minDuration: Duration.second * 3]
+@Configure[batchSize: 1]
 @Configure[warmup: Duration.second]
 @Measure[TimeNow(Nanos)]
 public class Test_Json_Write_String {
 
     @Strategy[len in [4, 8, 16, 64, 256, 1024, 4096, 16384, 131072]]
-    func writerData(len: Int64): GenerateEachInputProvider<(JsonWriter, String, Int64)> {
-        GenerateEachInputProvider { => (getWriter(), buildString(len), repFor(len)) }
+    func writerData(len: Int64): BatchSizeOneInputProvider<(JsonWriter, String, Int64)> {
+        BatchSizeOneInputProvider { => (getWriter(), buildString(len), 10) } // G10: 10 strings per invocation
     }
 
     @Bench[data in writerData]
