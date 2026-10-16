@@ -13,7 +13,7 @@
 import stdx.encoding.json.*
 
 main(): Int64 {
-    var jsonstrBefore = "{\"name\":\"app\tle\"}"
+    var jsonstrBefore = "{\"name\":\"app\\tle\"}"
     var jv = JsonValue.fromStr(jsonstrBefore)
     var jsonstrExpect = #"{
   "name": "app\tle"
