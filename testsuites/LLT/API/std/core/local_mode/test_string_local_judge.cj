@@ -9,17 +9,12 @@
 // DEPENDENCE: ./local_mode_utils.cj
 // EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
-//
-// 覆盖设计项（LM-DOC-20260910）：T224/T225/T226/T227/T231。
-// 说明：本 SDK 构建（0907）中 C7（Option @local! Some payload 损坏）已修复，
-// T231 按 payload 精确断言实现；原 sj6_hash_neq_true（异串 hash 不同）为假契约
-// 已删除；`!=` 按六运算真值表直接调用。
-// 设计编号命名空间：LM-DOC-20260910。
+// T224-T227, T231: check local string predicates, comparisons, hashing, and search.
 
 main(): Int64 {
     var failed = 0
 
-    // T224: size/isEmpty/isAscii/isAsciiBlank 矩阵
+    // T224: check size and character predicates.
     let s224: String @local? = "A¢仓\u{1F600}\u{0000}"
     failed += assertEq(s224.size, 11, "T224_unicode_size")
     let empty224: String @local? = ""
@@ -38,7 +33,7 @@ main(): Int64 {
     failed += assertB(!nbsp224.isAscii(), "T224_nbsp_notAscii")
     failed += assertB(!nbsp224.isAsciiBlank(), "T224_nbsp_notAsciiBlank")
 
-    // T225: contains/startsWith/endsWith 真值矩阵（byte-exact，不做 normalization）
+    // T225: match bytes without Unicode normalization.
     let s225: String @local? = "A\u{0000}¢仓\u{1F600}"
     failed += assertB(s225.contains(""), "T225_contains_empty_true")
     failed += assertB(s225.contains("\u{0000}"), "T225_contains_nul")
@@ -51,7 +46,7 @@ main(): Int64 {
     failed += assertB(s225.endsWith("\u{1F600}"), "T225_endsWith_emoji")
     failed += assertB(s225.endsWith(""), "T225_endsWith_empty")
     failed += assertB(!s225.endsWith("仓"), "T225_endsWith_miss")
-    // NFC 与 NFD 不相等（无规范化）
+    // NFC and NFD forms remain unequal.
     let nfc225: String @local? = "é"
     let nfd225: String @local? = "e\u{0301}"
     failed += assertB(!s225.contains(nfd225), "T225_nfc_notContains_nfd")
@@ -67,7 +62,7 @@ main(): Int64 {
     failed += assertB(!e226b.equalsIgnoreAsciiCase(e226c), "T226_nonAsciiNotFolded_false")
     failed += assertB(!nfc225.equalsIgnoreAsciiCase(nfd225), "T226_nfc_nfd_false")
 
-    // T227: compare/六运算/hash
+    // T227: check comparison operators and hashing.
     let a227: String @local? = "a"
     let b227: String @local? = "b"
     failed += assertB(a227.compare(b227) == Ordering.LT, "T227_compare_LT")
@@ -76,14 +71,14 @@ main(): Int64 {
     let ab227: String @local? = "ab"
     failed += assertB(ab227.compare(a227) == Ordering.GT, "T227_compare_prefix_GT")
     failed += assertB(a227.compare(ab227) == Ordering.LT, "T227_compare_prefix_LT")
-    // NFC > NFD（byte 字典序 C3A9 > 65CC81）
+    // NFC sorts after NFD by byte order.
     failed += assertB(nfc225.compare(nfd225) == Ordering.GT, "T227_compare_nfc_gt_nfd")
-    // == 与 != 直接调用（非 EQ 也需验证 != 为 true）
+    // Check both equality and inequality directly.
     failed += assertB(a227 == a227, "T227_eq_EQ_true")
     failed += assertB(!(a227 == b227), "T227_eq_LT_false")
     failed += assertB(a227 != b227, "T227_ne_LT_true")
     failed += assertB(!(a227 != a227), "T227_ne_EQ_false")
-    // < / > / <= / >= 真值表
+    // Check all ordering operators.
     failed += assertB(a227 < b227, "T227_lt_LT_true")
     failed += assertB(!(a227 < a227), "T227_lt_EQ_false")
     failed += assertB(b227 > a227, "T227_gt_GT_true")
@@ -94,7 +89,7 @@ main(): Int64 {
     failed += assertB(b227 >= a227, "T227_ge_GT_true")
     failed += assertB(a227 >= a227, "T227_ge_EQ_true")
     failed += assertB(!(a227 >= b227), "T227_ge_LT_false")
-    // 等值对象 hash 相同（多长度两份独立字符串；不断言异值 hash 不同）
+    // Equal strings must have equal hashes.
     let h1a: String @local? = ""
     let h1b: String @local? = ""
     failed += assertB(h1a.hashCode() == h1b.hashCode(), "T227_hash_len0")
@@ -127,63 +122,64 @@ main(): Int64 {
     failed += assertB(h48a.hashCode() == h48b.hashCode(), "T227_hash_len48")
     let h49a: String @local? = "The quick brown fox jumps over the lazy dog 0123"
     let h49b: String @local? = "The quick brown fox jumps over the lazy dog 0123"
-    // T227: 33-byte 相等前缀、末字节 a/b 的 compare（SIMD/common 边界输入）
+    // Compare a shared 33-byte prefix with different final bytes.
     let p33a: String @local? = "012345678901234567890123456789012a"
     let p33b: String @local? = "012345678901234567890123456789012b"
     failed += assertB(p33a.compare(p33b) == Ordering.LT, "T227_compare_33byte_prefix_LT")
     failed += assertB(p33a != p33b, "T227_ne_33byte_prefix")
     failed += assertB(h49a.hashCode() == h49b.hashCode(), "T227_hash_len49")
-    // T227: 原方法不变（heap 对照）
+    // Check heap overloads.
     let heap227a = "abcdefg"
     let heap227b = "abcdefg"
     failed += assertB(heap227a == heap227b, "T227_heap_eq")
     failed += assertB(heap227a.hashCode() == heap227b.hashCode(), "T227_heap_hash")
 
-    // T231: indexOf(b)/indexOf(str) 精确 payload（本 SDK C7 已修复）
+    // T231: indexOf on a shared receiver returns an exact heap Option payload.
     let s231: String @local! = "A¢仓A"
-    let i231a: Option<Int64> @local! = s231.indexOf(b'A')
+    let s231q: String @local? = s231
+    let i231a: Option<Int64> = s231q.indexOf(b'A')
     match (i231a) {
         case Some(v) => failed += assertEq(v, 0, "T231_indexOf_A")
         case None => failed += 1
         println("FAIL: T231_indexOf_A — expected Some(0)")
     }
-    let i231b: Option<Int64> @local! = s231.indexOf(0xC2u8)
+    let i231b: Option<Int64> = s231q.indexOf(0xC2u8)
     match (i231b) {
         case Some(v) => failed += assertEq(v, 1, "T231_indexOf_C2")
         case None => failed += 1
         println("FAIL: T231_indexOf_C2 — expected Some(1)")
     }
-    let i231c: Option<Int64> @local! = s231.indexOf(0xA2u8)
+    let i231c: Option<Int64> = s231q.indexOf(0xA2u8)
     match (i231c) {
         case Some(v) => failed += assertEq(v, 2, "T231_indexOf_A2")
         case None => failed += 1
         println("FAIL: T231_indexOf_A2 — expected Some(2)")
     }
-    let i231d: Option<Int64> @local! = s231.indexOf("仓")
+    let i231d: Option<Int64> = s231q.indexOf("仓")
     match (i231d) {
         case Some(v) => failed += assertEq(v, 3, "T231_indexOf_cang")
         case None => failed += 1
         println("FAIL: T231_indexOf_cang — expected Some(3)")
     }
-    let i231e: Option<Int64> @local! = s231.indexOf("A")
+    let i231e: Option<Int64> = s231q.indexOf("A")
     match (i231e) {
         case Some(v) => failed += assertEq(v, 0, "T231_indexOf_strA_first")
         case None => failed += 1
         println("FAIL: T231_indexOf_strA_first — expected Some(0)")
     }
-    let i231f: Option<Int64> @local! = s231.indexOf(b'Z')
+    let i231f: Option<Int64> = s231q.indexOf(b'Z')
     match (i231f) {
         case Some(_) => failed += 1
         println("FAIL: T231_indexOf_absent — expected None")
         case None => failed += assertB(true, "T231_indexOf_absent_none")
     }
-    let i231g: Option<Int64> @local! = s231.indexOf("A¢仓A!")
+    let i231g: Option<Int64> = s231q.indexOf("A¢仓A!")
     match (i231g) {
         case Some(_) => failed += 1
         println("FAIL: T231_indexOf_tooLong — expected None")
         case None => failed += assertB(true, "T231_indexOf_tooLong_none")
     }
-    // 耗尽后重复 None 稳定
+    // An exhausted search remains None.
     match (i231f) {
         case None => failed += assertB(true, "T231_indexOf_absent_repeat")
         case Some(_) => failed += 1

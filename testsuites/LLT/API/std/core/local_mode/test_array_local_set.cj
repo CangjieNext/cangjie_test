@@ -7,17 +7,9 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
 // EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
-//
-// BLOCKED（设计项 LM-DOC-20260910：T121/T122/T123/T124/T125）：所有正向
-// local! 写入族均会在当前 runtime 进入 `Barrier::WriteGeneric does not support
-// local object` 并以 SIGABRT rc=134 终止（String 引用、Int64/generic payload
-// 都可复现）。因此本文件只保留 doc-correct 的精确值、异常、失败原子性与
-// overlap/memmove 断言；SDK/runtime 实现 local-object 写屏障后恢复 EXEC。
-// 这些是规范正向测试，不是语言负例；不能把当前 abort 改成成功 oracle。
-// 设计编号命名空间：LM-DOC-20260910。
+// T121-T125: check local array writes, boundaries, and failed-copy atomicity.
 
 func setNegative(): Int64 {
     -1
@@ -31,13 +23,12 @@ func setFour(): Int64 {
 main(): Int64 {
     var failed = 0
 
-    // T121: arbitrary non-Copyable element type is accepted by local! []=.
-    // This first valid write intentionally demonstrates the current blocker.
+    // T121: local element assignment supports non-Copyable values.
     let text121: Array<String> @local! = ["before", "keep"]
     let replacement121: String @local! = "after"
     text121[0] = replacement121
     failed += assertB(text121[0] == "after", "T121_string_index_set_value")
-    // Doc-correct Int64 variant (same local! overload):
+    // Check the same assignment with Int64 elements.
     let ints121: Array<Int64> @local! = [1, 2]
     ints121[1] = 9
     failed += assertEq(ints121[1], 9, "T121_int64_index_set_value")
@@ -52,45 +43,24 @@ main(): Int64 {
         println("FAIL: T121_index_past_end — expected IndexOutOfBoundsException")
     } catch (e: IndexOutOfBoundsException) {}
 
-    // T122: range-set legality checks precede the write. The target must remain
-    // unchanged for every rejected range; valid overlap is snapshot/memmove.
-    // The 0907 compiler's local range-set lowering is itself a broken LLVM
-    // intrinsic when exception paths are present, so the exact probes stay in
-    // comments in this disabled runtime-blocked case.
-    // let range122: Array<Int64> @local! = [0, 1, 2, 3]
-    // let value122: Array<Int64> @local! = [7, 8]
-    // let stepTwo122 = Range<Int64>(0, 4, 2, true, false, false)
-    // try {
-    //     range122[stepTwo122] = value122
-    //     failed += 1
-    //     println("FAIL: T122_range_step — expected IllegalArgumentException")
-    // } catch (e: IllegalArgumentException) {}
-    // try {
-    //     let badOrder122 = Range<Int64>(3, 2, 1, true, false, false)
-    //     range122[badOrder122] = [7]
-    //     failed += 1
-    //     println("FAIL: T122_range_order — expected IndexOutOfBoundsException")
-    // } catch (e: IndexOutOfBoundsException) {}
-    // try {
-    //     let badEnd122 = Range<Int64>(1, 5, 1, true, false, false)
-    //     range122[badEnd122] = [7, 8, 9, 10]
-    //     failed += 1
-    //     println("FAIL: T122_range_end — expected IndexOutOfBoundsException")
-    // } catch (e: IndexOutOfBoundsException) {}
-    // try {
-    //     range122[1..3] = [7]
-    //     failed += 1
-    //     println("FAIL: T122_range_size — expected IllegalArgumentException")
-    // } catch (e: IllegalArgumentException) {}
-    // T122/T125 exact overlap expectations after the write barrier is fixed:
-    // let rightShift122: Array<Int64> @local! = [0, 1, 2, 3, 4]
-    // rightShift122[1..4] = rightShift122[0..3]
-    // expected [0, 0, 1, 2, 4], not sequential-write pollution [0,0,0,0,4].
-    // let leftShift122: Array<Int64> @local! = [0, 1, 2, 3, 4]
-    // leftShift122[0..3] = leftShift122[1..4]
-    // expected [1, 2, 3, 3, 4].
+    // A local array accepts a shared Range with a matching source length.
+    let srcBang: Array<Int64> @local! = [7, 8, 9]
+    let arrE1: Array<Int64> @local! = [0, 0, 0, 9]
+    let rE1: Range<Int64> @local? = 0..3
+    arrE1[rE1] = srcBang
+    failed += assertEq(arrE1[0], 7, "E1_range_local_q_set_0")
+    failed += assertEq(arrE1[1], 8, "E1_range_local_q_set_1")
+    failed += assertEq(arrE1[2], 9, "E1_range_local_q_set_2")
+    failed += assertEq(arrE1[3], 9, "E1_range_local_q_set_outside")
+    // Check range assignment with a literal range.
+    let arrE1b: Array<Int64> @local! = [1, 2, 3, 4]
+    arrE1b[1..3] = [5, 6]
+    failed += assertEq(arrE1b[1], 5, "E1_range_literal_set_1")
+    failed += assertEq(arrE1b[2], 6, "E1_range_literal_set_2")
 
-    // T123: fill, swap, and reverse boundary/error matrix.
+    // Range-assignment overlap is covered in test_array_local_overlap_assignment.cj.
+
+    // T123: check fill, swap, and reverse boundaries.
     let empty123: Array<Int64> @local! = []
     empty123.fill(9)
     failed += assertEq(empty123.size, 0, "T123_fill_empty_size")
@@ -131,7 +101,7 @@ main(): Int64 {
     failed += assertEq(reverseOdd123[2], 2, "T123_reverse_odd_middle")
     failed += assertEq(reverseOdd123[4], 0, "T123_reverse_odd_4")
 
-    // T124: offset copyTo normal, zero length, MC/DC errors and destination atomicity.
+    // T124: rejected copyTo calls must leave the destination unchanged.
     let source124: Array<Int64> @local! = [1, 2, 3, 4]
     let destination124: Array<Int64> @local! = [0, 0, 0, 0]
     source124.copyTo(destination124, 1, 1, 2)
@@ -185,19 +155,7 @@ main(): Int64 {
         println("FAIL: T124_full_copy_short_dst — expected IllegalArgumentException")
     } catch (e: IllegalArgumentException) {}
 
-    // T125: full and offset same-rawptr overlap, plus arbitrary String elements.
-    // Doc-correct exact results after barrier recovery:
-    // let sameRawRight125: Array<Int64> @local! = [0, 1, 2, 3, 4]
-    // sameRawRight125.copyTo(sameRawRight125, 0, 1, 4)
-    // expected [0, 0, 1, 2, 3].
-    // let sameRawLeft125: Array<Int64> @local! = [0, 1, 2, 3, 4]
-    // sameRawLeft125.copyTo(sameRawLeft125, 1, 0, 4)
-    // expected [1, 2, 3, 4, 4].
-    // let sourceSlice125: Array<String> @local! = ["a", "b", "c", "d"]
-    // let destinationSlice125: Array<String> @local! = sourceSlice125.slice(1, 3)
-    // let sourceView125: Array<String> @local! = sourceSlice125.slice(0, 3)
-    // sourceView125.copyTo(destinationSlice125, 0, 1, 2)
-    // expected sourceSlice125 values ["a", "a", "b", "d"].
+    // T125: copyTo overlap requires a separate compiler-lowering regression test.
 
     if (failed > 0) {
         println("${failed} test(s) FAILED")

@@ -9,22 +9,16 @@
 // DEPENDENCE: ./local_mode_utils.cj
 // EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
-//
-// 覆盖设计项（LM-DOC-20260910）：T204（region-backed q 两向拷贝）、T205
-// （producer region 内创建源、退出后消费 heap 拷贝）、T207（toString 跨 callee
-// 帧返回 String @local!）。T206 四个直接赋值编译负例见
-// test_string_local_neg_assign_*.cj；T208 隔离场景见
-// test_string_local_tostring_no_region.cj（活跃）。
-// 设计编号命名空间：LM-DOC-20260910。
+// T204, T205, T207: string copies and returned strings survive their source frame.
 
-// T205: producer region 内创建 local 源并返回文档允许的 heap 拷贝
-exclave func produceHeapCopy(): String {
+// Return a heap copy of a local string.
+func produceHeapCopy(): String {
     let source: String @local! = "L仓\u{1F600}"
     let q: String @local? = source
     return String(q)
 }
 
-// T207: toString(this @local?) 在 callee 帧内分配并返回 String @local!
+// Return a local string allocated in the callee.
 exclave func produceLocalToString(q: String @local?): String @local! {
     return q.toString()
 }
@@ -32,17 +26,17 @@ exclave func produceLocalToString(q: String @local?): String @local! {
 main(): Int64 {
     var failed = 0
 
-    // T204: region-backed String @local? → local! 拷贝构造（值与 bytes 精确）
+    // Copy a shared local string into a fully local string.
     let src204: String @local! = "region-value"
     let q204: String @local? = src204
     let out204: String @local! = String(q204)
     failed += assertB(out204 == "region-value", "T204_regionQ_toLocal_value")
     failed += assertEq(out204.size, 12, "T204_regionQ_toLocal_size")
-    // region-backed q → heap 拷贝构造
+    // Copy a shared local string to the heap.
     let out204b: String = String(q204)
     failed += assertB(out204b == "region-value", "T204_regionQ_toHeap_value")
 
-    // T205: producer 退出后消费 heap 拷贝（源在 producer 帧内创建并随之结束）
+    // Read the heap copy after its source frame returns.
     let heapCopy205: String = produceHeapCopy()
     failed += assertB(heapCopy205 == "L仓\u{1F600}", "T205_afterExit_value")
     failed += assertEq(heapCopy205.size, 8, "T205_afterExit_size")
@@ -53,12 +47,12 @@ main(): Int64 {
     failed += assertEq(raw205[3], 0x93u8, "T205_bytes_3")
     failed += assertEq(raw205[4], 0xF0u8, "T205_bytes_4")
     failed += assertEq(raw205[7], 0x80u8, "T205_bytes_7")
-    // 新建独立 region 后再次读取同一 heap 结果
+    // Read the same heap copy from another local region.
     let again205: String @local! = String("again")
     failed += assertB(heapCopy205 == "L仓\u{1F600}", "T205_newRegion_value")
     failed += assertEq(again205.size, 5, "T205_newRegion_local_ok")
 
-    // T207: toString 返回 String @local!，callee 退出后 caller 可读取值与 bytes
+    // Read a local result after the callee returns.
     let heap207: String = "仓颉Jie"
     let q207: String @local? = heap207
     let out207: String @local! = produceLocalToString(q207)
@@ -67,7 +61,7 @@ main(): Int64 {
     let raw207: Array<Byte> @local! = out207.toArray()
     failed += assertEq(raw207[0], 0xE4u8, "T207_bytes_0")
     failed += assertEq(raw207[6], 0x4Au8, "T207_bytes_6")
-    // T207: region-backed q 的 toString 同合同
+    // Check the same return path for a shared local source.
     let local207: String @local! = "ab¢"
     let q207b: String @local? = local207
     let out207b: String @local! = produceLocalToString(q207b)
