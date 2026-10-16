@@ -256,7 +256,15 @@ public class JsonNumberTest {
         unsafe { bas.write(jsonStr.rawData()) }
         var reader = JsonReader(bas)
         @Expect(reader.peek(), JsonToken.JsonNumber)
-        @Expect(reader.readValue<Float64>(), Float64.Inf)
+        // 1e1333 overflows Float64 to +Infinity; the reader rejects the
+        // non-finite value instead of returning it.
+        var caught = false
+        try {
+            reader.readValue<Float64>()
+        } catch (e: IllegalStateException) {
+            caught = true
+        }
+        @Expect(caught, true)
     }
 
     @TestCase
@@ -266,7 +274,14 @@ public class JsonNumberTest {
         unsafe { bas.write(jsonStr.rawData()) }
         var reader = JsonReader(bas)
         @Expect(reader.peek(), JsonToken.JsonNumber)
-        @Expect(reader.readValue<Float64>(), -Float64.Inf)
+        // -1e1333 overflows Float64 to -Infinity; likewise rejected.
+        var caught = false
+        try {
+            reader.readValue<Float64>()
+        } catch (e: IllegalStateException) {
+            caught = true
+        }
+        @Expect(caught, true)
     }
 
     @TestCase
