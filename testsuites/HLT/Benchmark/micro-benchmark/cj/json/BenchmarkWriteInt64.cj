@@ -18,8 +18,8 @@ import std.unittest.*
 let reps = 10
 
 func testWriteInt64(w: JsonWriter, n: Int64) {
-    for (i in 0..n) {
-        w.writeValue<Int64>(i)
+    for (_ in 0..n) {
+        w.writeValue<Int64>(888) // same value as java counterpart
     }
 }
 

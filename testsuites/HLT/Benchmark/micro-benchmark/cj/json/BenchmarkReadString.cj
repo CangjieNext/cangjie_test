@@ -46,13 +46,15 @@ func getReader(n: Int64, length: Int64): JsonReader {
 }
 
 func testReadStrings(r: JsonReader) {
+    var value: String = ""
     while (let Some(v) <- r.peek()) {
         match(v) {
-            case JsonString => r.readValue<String>()
-            case EndArray => return
+            case JsonString => value = r.readValue<String>()
+            case EndArray => break
             case _ => r.skip()
         }
     }
+    blackBox(value)
 }
 
 @Test

@@ -21,8 +21,8 @@ func getReader(): JsonReader {
     var out = ByteBuffer()
     var w = JsonWriter(out)
     w.startArray()
-    for (i in 0..reps) {
-        w.writeValue<Int64>(i)
+    for (_ in 0..reps) {
+        w.writeValue<Int64>(888) // same value as java counterpart
     }
     w.endArray()
     w.flush()
@@ -32,13 +32,15 @@ func getReader(): JsonReader {
 }
 
 func testReadNumber(r: JsonReader) {
+    var value: Int64 = 0
     while (let Some(v) <- r.peek()) {
         match(v) {
-            case JsonNumber => r.readValue<Int64>()
-            case EndArray => return
+            case JsonNumber => value = r.readValue<Int64>()
+            case EndArray => break
             case _ => r.skip()
         }
     }
+    blackBox(value)
 }
 
 @Test
