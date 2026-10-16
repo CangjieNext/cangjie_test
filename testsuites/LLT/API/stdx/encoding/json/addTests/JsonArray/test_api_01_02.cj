@@ -11,17 +11,17 @@ import stdx.encoding.json.*
 
 main(): Int64 {
     var initFunc = JsonArray()
-    // add 非法参数
+    // Reject an Array argument to add.
     var result = initFunc.add([1, 2, 3])
     return 0
 }
 
 /* SCAN
 error: mismatched types
-  ==> test_api_01_02.cj:15:18:
+  ==> test_api_01_02.cj:15:31:
    | 
 15 |     var result = initFunc.add([1, 2, 3])
-   |                  ^^^^^^^^^^^^ expected 'Class-JsonArray @local!', found 'Class-JsonArray'
+   |                               ^^^^^^^^^ expected 'Class-JsonValue', found 'Array'
    | 
 
 1 error generated, 1 error printed.

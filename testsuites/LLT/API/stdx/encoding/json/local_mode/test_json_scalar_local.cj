@@ -5,22 +5,10 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已实现 stdx JSON
-// local 重载，本文件恢复 EXEC。唯一例外：T503 Int64.Min 行因 stdx
-// JsonInt.toString 取负溢出缺陷（json_object.cj:413）移入
-// test_json_int_min_overflow_blocked.cj。
-// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 下本用例 cjc+run ALL PASSED，run 步骤恢复 EXEC。
 // LEVEL: 0
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
-//
-// LM-DOC-20260910: T502-T505.  The local scalar constructors only copy scalar
-// fields; this file deliberately keeps container mutation and parser negative
-// controls in their own files.
-//
-// T504 is SPEC-UNKNOWN for the textual policy of NaN and infinities.  It checks
-// only that each heap/local serializer entry has the same outcome.  It does not
-// require a particular spelling or require either mode to accept the value.
+// T502, T503, T505: check local scalar values, serialization boundaries, and escaping.
 
 import stdx.encoding.json.*
 
@@ -50,7 +38,7 @@ func checkHeapSerializers(label: String, value: JsonValue, want: String): Int64 
     failed
 }
 
-exclave func checkLocalNull(): Int64 {
+func checkLocalNull(): Int64 {
     var failed: Int64 = 0
     let value: JsonNull @local! = JsonNull() @local!
     if (kindCode(value.kind()) != 0) { failed += fail("T502_null_kind") }
@@ -61,7 +49,7 @@ exclave func checkLocalNull(): Int64 {
     failed
 }
 
-exclave func checkLocalBool(raw: Bool, want: String, suffix: String): Int64 {
+func checkLocalBool(raw: Bool, want: String, suffix: String): Int64 {
     var failed: Int64 = 0
     let value: JsonBool @local! = JsonBool(raw) @local!
     if (kindCode(value.kind()) != 1) { failed += fail("T502_bool_${suffix}_kind") }
@@ -77,7 +65,7 @@ exclave func checkLocalBool(raw: Bool, want: String, suffix: String): Int64 {
     failed
 }
 
-exclave func checkLocalInt(raw: Int64, want: String, suffix: String): Int64 {
+func checkLocalInt(raw: Int64, want: String, suffix: String): Int64 {
     var failed: Int64 = 0
     let value: JsonInt @local! = JsonInt(raw) @local!
     if (kindCode(value.kind()) != 2) { failed += fail("T502_int_${suffix}_kind") }
@@ -93,7 +81,7 @@ exclave func checkLocalInt(raw: Int64, want: String, suffix: String): Int64 {
     failed
 }
 
-exclave func checkLocalFloat(raw: Float64, want: String, suffix: String): Int64 {
+func checkLocalFloat(raw: Float64, want: String, suffix: String): Int64 {
     var failed: Int64 = 0
     let value: JsonFloat @local! = JsonFloat(raw) @local!
     if (kindCode(value.kind()) != 3) { failed += fail("T502_float_${suffix}_kind") }
@@ -108,7 +96,7 @@ exclave func checkLocalFloat(raw: Float64, want: String, suffix: String): Int64 
     failed
 }
 
-exclave func checkLocalFloatIntCtor(): Int64 {
+func checkLocalFloatIntCtor(): Int64 {
     let value: JsonFloat @local! = JsonFloat(42) @local!
     var failed: Int64 = 0
     if (value.getValue() != 42.0) { failed += fail("T502_float_int_ctor_getValue") }
@@ -152,7 +140,7 @@ func floatOutcomeHeap(raw: Float64, method: Int64): Int64 {
     }
 }
 
-exclave func floatOutcomeLocal(raw: Float64, method: Int64): Int64 {
+func floatOutcomeLocal(raw: Float64, method: Int64): Int64 {
     let value: JsonFloat @local! = JsonFloat(raw) @local!
     try {
         if (method == 0) { let _: String @local! = value.toString() }
@@ -182,18 +170,14 @@ func checkNonFinite(raw: Float64, suffix: String): Int64 {
 main(): Int64 {
     var failed: Int64 = 0
 
-    // T502/T503: scalar constructors, exact Copyable getters, and all four
-    // serializer members on local and heap receivers.
+    // T502, T503: check constructors, getters, and all serializers.
     failed += checkLocalNull()
     failed += checkLocalBool(false, "false", "false")
     failed += checkLocalBool(true, "true", "true")
     failed += checkLocalInt(0, "0", "zero")
     failed += checkLocalInt(-7, "-7", "negative")
     failed += checkLocalInt(Int64.Max, "9223372036854775807", "max")
-    // T503: Int64.Min must round-trip through every local serializer.  The old
-    // OverflowException: sub defect in JsonInt.toString is fixed; the assertion
-    // is active so a regression fails the case instead of being skipped.
-    failed += checkLocalInt(Int64.Min, "-9223372036854775808", "min")
+    failed += checkLocalInt(Int64.Min, "-9223372036854775808", "int_min")
     failed += checkLocalFloat(1.5, "1.500000", "fraction")
     failed += checkLocalFloat(42.0, "42.000000", "from_int_value")
     failed += checkLocalFloatIntCtor()
@@ -209,8 +193,7 @@ main(): Int64 {
     if (heapFloat.getValue() != 1.5) { failed += fail("T502_heap_float_getValue") }
     failed += checkHeapSerializers("T503_heap_float", heapFloat, "1.500000")
 
-    // T505: constructor payload and escaping are byte-exact.  The html-safe
-    // serializer changes only '&'; quote, backslash and controls always escape.
+    // T505: preserve string payloads and HTML-safe escaping.
     let rawEmpty: String @local! = ""
     let escEmpty: String @local! = "\"\""
     failed += checkLocalString(rawEmpty, escEmpty, escEmpty, "empty")

@@ -6,23 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
-// Evidence: cjc+run ALL PASSED (T518/T519/T531)。 T531 heap half 格式化期望对齐 pretty layout。
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
-//
-// LM-DOC-20260910: T518/T519.  This file is the read-only constructor and
-// accessor probe for JsonArray.  Constructor alias/copy behavior is not a
-// contract (F13), so only initial contents are observed.
-//
-// JsonArray.add(this @local!, JsonValue @local!) is a visible local-field write.
-// It is exercised actively below (T519): on the current runtime it aborts with
-// `heap object must not reference non-heap object`
-// (runtime/src/CompilerCalls.cpp:357), so the row fails until local-object
-// element writes are supported by the runtime.
-//
-// No mutating ArrayList call is used here; the supported constructor form is
-// covered below.  The independent add row above is the only T519 write probe.
+// T518, T519, T531: check local JsonArray construction, access, mutation, and shared heap views.
 
 import stdx.encoding.json.*
 import std.collection.*
@@ -117,7 +103,7 @@ exclave func checkLocalArrayHalf(array: JsonArray @local!, label: String): Int64
     if (view.getItems().size != 2) { failed += fail("${label}_getItems_size") }
     failed
 }
-exclave func checkHeapArrayHalf(array: JsonArray, label: String): Int64 {
+func checkHeapArrayHalf(array: JsonArray, label: String): Int64 {
     let view: JsonArray @local? = array
     var failed: Int64 = 0
     match (view.kind()) {
@@ -152,9 +138,7 @@ exclave func checkHeapArrayHalf(array: JsonArray, label: String): Int64 {
 
 main(): Int64 {
     var failed: Int64 = 0
-    // T518: local ArrayList constructor with an initial [1] payload.  The
-    // constructor itself is the supported construction path; no add call is
-    // made in this active read-only file.
+    // T518: construct from a local ArrayList containing one element.
     let elem: JsonValue @local! = JsonInt(1) @local!
     let elems: ArrayList<JsonValue> @local! = ArrayList<JsonValue>()
     elems.add(elem)
@@ -167,23 +151,20 @@ main(): Int64 {
     let empty: JsonArray @local! = JsonArray() @local!
     failed += checkEmptyLocalArray(empty, "T518_noarg")
 
-    // T518: an initial Array payload is observed through the Array-taking local
-    // constructor.  The source array is not mutated afterwards.
+    // T518: construct from a local Array.
     let e1: JsonValue @local! = JsonInt(1) @local!
     let e2: JsonValue @local! = JsonString("x") @local!
     let source: Array<JsonValue> @local! = [e1, e2]
     let fromArray: JsonArray @local! = JsonArray(source) @local!
     failed += checkLocalArray(fromArray, "T518_array_ctor")
     if (source.size != 2) { failed += fail("T518_array_ctor_source_size") }
-    // T531: heap-provenance concrete Array widened to local?; its read and
-    // concrete half formatter must remain available with heap String results.
+    // T531: access and render a shared view of a heap array.
     let heapSource: String = "[1,\"x\"]"
     let heapValue: JsonValue = JsonValue.fromStr(heapSource)
     let heapArray: JsonArray = heapValue.asArray()
     failed += checkHeapArrayHalf(heapArray, "T531_heap_array_half")
 
-    // T518: parser drives the package-private capacity constructor and nested
-    // read-only paths.
+    // T518: parse nested arrays.
     let document: String @local! = "[1,\"x\"]"
     let parsedValue: JsonValue @local! = JsonValue.fromStr(document)
     let parsed: JsonArray @local! = parsedValue.asArray()
@@ -192,16 +173,11 @@ main(): Int64 {
     }
     if (parsed.getItems().size != 2) { failed += fail("T518_parser_getItems") }
 
-    // T519: local! and widened local? receiver accessors distinguish None from
-    // []-operator JsonException without checking exception text.
+    // T519: distinguish an absent index from an explicit JsonNull.
     failed += checkLocalArray(parsed, "T519_parser_local")
     failed += checkLocalArrayHalf(parsed, "T519_parser_half")
 
-    // T519: JsonArray.add(this @local!, JsonValue @local!) is a visible
-    // local-field write.  Active (not skipped): on the current runtime it aborts
-    // with `heap object must not reference non-heap object`
-    // (runtime/src/CompilerCalls.cpp:357), so this row fails until the runtime
-    // supports local-object element writes.
+    // T519: append a value and read it through local and shared receivers.
     let afterAdd: JsonArray @local! = JsonArray() @local!
     afterAdd.add(JsonString("x") @local!)
     afterAdd.add(JsonInt(1) @local!)

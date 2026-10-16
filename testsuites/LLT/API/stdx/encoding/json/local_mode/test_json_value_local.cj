@@ -6,17 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
-// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 下本用例 cjc+run ALL PASSED，run 步骤恢复 EXEC。
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
-//
-// LM-DOC-20260910: T500/T501/T506/T507.  This file covers the JsonValue
-// facade only.  Container mutation and parser malformed-input controls live in
-// their dedicated files.
-// T516 raw control-character rejection is intentionally not asserted here; the
-// source string fast path currently lacks that check and is isolated in
-// test_json_raw_controls_blocked.cj.
+// T500, T501, T504: check local JsonValue kinds and conversions.
 
 import stdx.encoding.json.*
 
@@ -80,7 +72,7 @@ exclave func checkLocalAsSuccess(src: String @local!, expectedKind: Int64, label
     failed
 }
 
-exclave func checkIntToFloat(): Int64 {
+func checkIntToFloat(): Int64 {
     let source: String @local! = "-42"
     let value: JsonValue @local! = JsonValue.fromStr(source)
     let converted: JsonFloat @local! = value.asFloat()
@@ -104,7 +96,7 @@ exclave func expectWrongKind(value: JsonValue @local!, target: Int64, label: Str
     }
 }
 
-exclave func checkWrongKinds(): Int64 {
+func checkWrongKinds(): Int64 {
     var failed: Int64 = 0
     let nullSrc: String @local! = "null"
     let boolSrc: String @local! = "true"
@@ -150,8 +142,7 @@ exclave func checkWrongKinds(): Int64 {
 main(): Int64 {
     var failed: Int64 = 0
 
-    // T500/T501: all seven kinds through a local JsonValue static type, with
-    // local serializer result slots and a read-only half-mode view.
+    // T500, T501: check all seven kinds through JsonValue.
     let nullSrc: String @local! = "null"
     let boolSrc: String @local! = "true"
     let intSrc: String @local! = "1"
@@ -167,7 +158,7 @@ main(): Int64 {
     failed += checkLocalDocument(arraySrc, 5, "[1]", "T500_T501_array")
     failed += checkLocalDocument(objectSrc, 6, "{\"k\":1}", "T500_T501_object")
 
-    // Every concrete asX success and the documented Int -> Float widening.
+    // Check concrete conversions and integer-to-float widening.
     let asIntSrc: String @local! = "-42"
     failed += checkLocalAsSuccess(nullSrc, 0, "T506_null")
     failed += checkLocalAsSuccess(boolSrc, 1, "T506_bool")

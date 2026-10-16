@@ -6,18 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
-// Evidence: cjc+run ALL PASSED (T505/T508-T515)。 T515 solidus 期望由 \/ 修正为 /（RFC 合法转义，payload 不含反斜杠）。
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
-//
-// LM-DOC-20260910: T508/T510-T517/T535.  Parser observations deliberately
-// assert only JsonException type for rejected input.  Row/column/complete
-// message text is not a contract (F4/F11).
-//
-// T509's heap-origin String @local? without an unrelated local anchor is an
-// isolated probe in test_json_fromstr_no_region.cj (F5); this file does not use
-// a region anchor to make that case look healthy.
+// T505, T508-T517, T535: check local parsing, malformed input, escapes, and depth limits.
 
 import stdx.encoding.json.*
 
@@ -47,7 +38,8 @@ exclave func parseLocal(src: String @local!, wantedKind: Int64, wantedText: Stri
     failed
 }
 
-exclave func parseLocalQuestion(src: String @local?, wantedKind: Int64, wantedText: String, label: String): Int64 {
+// This helper returns a Copyable value and does not require exclave.
+func parseLocalQuestion(src: String @local?, wantedKind: Int64, wantedText: String, label: String): Int64 {
     let value: JsonValue @local! = JsonValue.fromStr(src)
     var failed: Int64 = 0
     if (kindCode(value.kind()) != wantedKind) { failed += fail("${label}_kind") }
@@ -120,7 +112,7 @@ exclave func expectLocalString(src: String @local!, wantedPayload: String @local
     0
 }
 
-exclave func checkDepthBoundary(): Int64 {
+func checkDepthBoundary(): Int64 {
     var failed: Int64 = 0
     var depth100: String @local! = ""
     for (_ in 0..100) { depth100 = depth100 + "[" }
@@ -167,7 +159,7 @@ exclave func checkDepthBoundary(): Int64 {
 main(): Int64 {
     var failed: Int64 = 0
 
-    // T508: root dispatch, local result type, and heap/local structural parity.
+    // T508: check root kinds and equality with heap parsing.
     let nullSrc: String @local! = "null"
     let trueSrc: String @local! = "true"
     let falseSrc: String @local! = "false"
@@ -210,8 +202,7 @@ main(): Int64 {
     failed += parseLocal(trailing, 2, "1", "T508_trailing_whitespace")
     failed += parseHeap("1\t ", 2, "1", "T508_trailing_heap")
 
-    // T510: keyword/root dispatch rejects spelling, case, truncation and
-    // non-JSON leading characters with exactly JsonException.
+    // T510: reject malformed keywords and trailing text.
     let nul: String @local! = "nul"
     let nulL: String @local! = "nulL"
     let n: String @local! = "n"
@@ -238,7 +229,7 @@ main(): Int64 {
     failed += expectHeapError("TRUE", "T510_heap_TRUE")
     failed += expectHeapError("FALSE", "T510_heap_FALSE")
 
-    // T511: array first-item/comma/close paths and malformed separators.
+    // T511: check array separators and closing brackets.
     let emptyArray: String @local! = "[]"
     let oneArray: String @local! = "[1]"
     let manyArray: String @local! = "[1,2,\"x\"]"
@@ -255,8 +246,7 @@ main(): Int64 {
     failed += expectHeapError("[1 2]", "T511_heap_missing_comma")
     failed += expectHeapError("[1,]", "T511_heap_trailing_comma")
 
-    // T512: object key/colon/member paths; multi-key checks use membership,
-    // never HashMap iteration order.
+    // T512: check object members without relying on map order.
     let emptyObject: String @local! = "{}"
     let oneObject: String @local! = "{\"\":1}"
     let nestedObject: String @local! = "{\"中\":[null,{\"k\":\"v\"}]}"
@@ -285,8 +275,7 @@ main(): Int64 {
     failed += expectLocalError("{", "T512_eof_after_open")
     failed += expectHeapError("{a:1}", "T512_heap_unquoted_key")
 
-    // T514: documented radix extensions and invalid number forms.  Values are
-    // checked exactly; H/L behavior must agree for every legal prefix.
+    // T514: check supported radix prefixes and reject malformed numbers.
     let bLower: String @local! = "0b101"
     let bUpper: String @local! = "0B101"
     let oLower: String @local! = "0o17"
@@ -299,8 +288,7 @@ main(): Int64 {
     failed += expectLocalInt(oUpper, 15, "T514_0O17_local")
     failed += expectLocalInt(xLower, 31, "T514_0x1f_local")
     failed += expectLocalInt(xUpper, 31, "T514_0X1F_local")
-    // T513: decimal dispatch.  Dot/exponent forms are JsonFloat even when
-    // their mathematical value is integral; plain in-range forms are JsonInt.
+    // T513: decimal points and exponents produce JsonFloat values.
     failed += expectLocalInt("0", 0, "T513_zero")
     failed += expectLocalInt("-0", 0, "T513_negative_zero")
     failed += expectLocalInt("-42", -42, "T513_negative_int")
@@ -372,7 +360,7 @@ main(): Int64 {
     failed += expectHeapError("NaN", "T514_heap_bad_nan")
     failed += expectHeapError("Infinity", "T514_heap_bad_infinity")
 
-    // T515: valid escape forms, including BMP and a valid surrogate pair.
+    // T515: decode escapes, BMP characters, and surrogate pairs.
     let plainPayload: String @local! = "abc"
     let plainText: String @local! = "\"abc\""
     let plainSrc: String @local! = "\"abc\""
@@ -394,7 +382,7 @@ main(): Int64 {
     let emojiText: String @local! = "\"😀\""
     failed += expectLocalString("\"\\ud83d\\ude00\"", emojiPayload, emojiText, "T515_surrogate_pair")
 
-    // T516: malformed escapes, surrogate combinations and unterminated text.
+    // T516: reject malformed escapes, surrogates, and unterminated strings.
     failed += expectLocalError("\"\\x\"", "T516_unknown_escape")
     failed += expectLocalError("\"\\u00\"", "T516_short_unicode")
     failed += expectLocalError("\"\\u00ZZ\"", "T516_nonhex_unicode")
@@ -405,12 +393,10 @@ main(): Int64 {
     failed += expectHeapError("\"\\x\"", "T516_heap_unknown_escape")
     failed += expectHeapError("\"\\ud800\"", "T516_heap_lone_surrogate")
 
-    // T517: parser depth boundary is 100 successful layers and 101 a controlled
-    // JsonException; no diagnostic text is part of this oracle.
+    // T517: accept 100 nested layers and reject 101.
     failed += checkDepthBoundary()
 
-    // T535: complete root consumption.  Empty and whitespace-only documents
-    // reject; trailing JSON whitespace is accepted; a second token is rejected.
+    // T535: reject empty input and trailing root content.
     let emptyRoot: String @local! = ""
     let spacesRoot: String @local! = "   "
     let tabsRoot: String @local! = "\t"

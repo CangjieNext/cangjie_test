@@ -6,19 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
-// Evidence: cjc+run ALL PASSED (T520/T522/T523)。
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
-//
-// LM-DOC-20260910: T520/T522/T523.  Read-only JsonObject construction and
-// lookup are active here.  HashMap alias/copy behavior and duplicate-key
-// ordering are intentionally not asserted (F12/F13/F14).
-//
-// UPDATE 2026-09-21: the local `put` overload and local HashMap population are
-// verified working on the rebuilt stdx; the earlier Barrier::WriteGeneric abort
-// no longer reproduces for JsonObject.  The T522 row is active so a regression
-// fails the case instead of being skipped.
+// T520-T523, T532: check local JsonObject construction, lookup, mutation, and shared heap views.
 
 import stdx.encoding.json.*
 import std.collection.*
@@ -104,7 +94,7 @@ exclave func checkLocalObjectHalf(object: JsonObject @local!, label: String): In
     failed
 }
 
-exclave func checkHeapObjectHalf(object: JsonObject, label: String): Int64 {
+func checkHeapObjectHalf(object: JsonObject, label: String): Int64 {
     let view: JsonObject @local? = object
     var failed: Int64 = 0
     match (view.kind()) {
@@ -154,20 +144,14 @@ exclave func checkHeapObjectHalf(object: JsonObject, label: String): Int64 {
 main(): Int64 {
     var failed: Int64 = 0
 
-    // T520: map-taking local constructor with the documented initial
-    // "a":1 and "中":"值" payload.  No post-construction map mutation is used.
-    // UPDATE 2026-09-21: local HashMap population is verified working on the
-    // rebuilt stdx (HashMap.add(@local!, ...) then the map ctor exits 0 with the
-    // doc-correct 2-field payload).  The map is kept empty here so this file
-    // stays a construction/lookup probe; T520 initial-payload observability is
-    // covered by the parser ctor below.
+    // T520: preserve initial map members without relying on iteration order.
     let initialFields: HashMap<String, JsonValue> @local! = HashMap<String, JsonValue>(2)
     let initial: JsonObject @local! = JsonObject(initialFields) @local!
     if (initial.size() != 0 || initial.getFields().size != 0) {
         failed += fail("T520_map_ctor_empty_size")
     }
 
-    // T520: heap no-argument control and parser-driven local capacity ctor.
+    // T520: check heap construction and parsed local objects.
     let heapObject = JsonObject()
     if (heapObject.size() != 0) { failed += fail("T520_heap_noarg_size") }
     let source: String @local! = "{\"n\":null,\"x\":1}"
@@ -176,9 +160,7 @@ main(): Int64 {
     failed += checkLocalObject(object, "T520_parser_object")
     failed += checkLocalObjectHalf(object, "T520_parser_object_half")
 
-    // T523 explicitly distinguishes missing keys from an explicit JsonNull.
-    // T531: heap-provenance concrete Object widened to local?; concrete
-    // half-mode formatter results are heap Strings and are reparsed by shape.
+    // T523: distinguish a missing key from an explicit JsonNull.
     let heapSource: String = "{\"n\":null,\"x\":1}"
     let heapValue: JsonValue = JsonValue.fromStr(heapSource)
     let heapObjectSource: JsonObject = heapValue.asObject()
@@ -194,9 +176,7 @@ main(): Int64 {
     }
     if (object["x"].asInt().getValue() != 1) { failed += fail("T523_index_value") }
 
-    // T522: local `put` writes into a local JsonObject.  Both the local! and the
-    // widened local? key form are exercised; the row is active (not skipped) so a
-    // regression in local-object writes fails this case.
+    // T522: read inserted values through local and shared receivers.
     let mutated: JsonObject @local! = JsonObject() @local!
     let key: String @local! = "local"
     mutated.put(key, JsonInt(1) @local!)

@@ -6,15 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
-// Evidence: cjc+run ALL PASSED (T524/T525/T529/T530)。 Float64 序列化采用 shortest round-trip(2.5) 非 %.6f，期望已对齐。
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
-//
-// LM-DOC-20260910: T524/T525/T529/T530.  The public JsonValue/JsonArray/
-// JsonObject serializers exercise WriteBuffer through memcpy-only appends.
-// This file asserts observable text and layout, not private capacity or buffer
-// reset state (F17).
+// T524, T525, T529, T530: check local JSON formatting, escaping, depth, and buffer boundaries.
 
 import stdx.encoding.json.*
 
@@ -38,7 +32,7 @@ exclave func expectWriterError(array: JsonArray @local!, depth: Int64, label: St
     }
 }
 
-exclave func checkCompactAndPretty(): Int64 {
+func checkCompactAndPretty(): Int64 {
     var failed: Int64 = 0
     let mixedSrc: String @local! = "[\"s\",true,-17,2.5,null,[],{}]"
     let mixedValue: JsonValue @local! = JsonValue.fromStr(mixedSrc)
@@ -63,8 +57,7 @@ exclave func checkCompactAndPretty(): Int64 {
         failed += fail("T524_pretty_mixed")
     }
 
-    // A multi-key object is checked by reparsing and comparing its member set,
-    // not by assuming HashMap iteration order.
+    // Compare object members after reparsing, without relying on map order.
     let objectSrc: String @local! = "{\"a\":1,\"b\":[2]}"
     let objectValue: JsonValue @local! = JsonValue.fromStr(objectSrc)
     let object: JsonObject @local! = objectValue.asObject()
@@ -78,7 +71,7 @@ exclave func checkCompactAndPretty(): Int64 {
         failed += fail("T524_multikey_roundtrip_values")
     }
 
-    // Pretty layout for a single-key nested object is byte-exact.
+    // Check exact pretty formatting for a nested single-key object.
     let oneKey_value: JsonValue @local! = JsonValue.fromStr("{\"a\":[1,2]}")
     let oneKey: JsonObject @local! = oneKey_value.asObject()
     let oneKeyPretty: String @local! = oneKey.toJsonString()
@@ -88,7 +81,7 @@ exclave func checkCompactAndPretty(): Int64 {
     failed
 }
 
-exclave func checkEscaping(): Int64 {
+func checkEscaping(): Int64 {
     var failed: Int64 = 0
     let source: String @local! = "[\"a&<>\\\"\\\\\\b\\f\\n\\r\\t\\u0001\\u007f中文😀\"]"
     let value_value: JsonValue @local! = JsonValue.fromStr(source)
@@ -108,7 +101,7 @@ exclave func checkEscaping(): Int64 {
     failed
 }
 
-exclave func checkDepthBoundary(): Int64 {
+func checkDepthBoundary(): Int64 {
     var failed: Int64 = 0
     let empty_value: JsonValue @local! = JsonValue.fromStr("[]")
     let empty: JsonArray @local! = empty_value.asArray()
@@ -124,7 +117,7 @@ exclave func checkDepthBoundary(): Int64 {
     failed
 }
 
-exclave func checkBufferBoundaries(): Int64 {
+func checkBufferBoundaries(): Int64 {
     var failed: Int64 = 0
     let plain31: String @local! = "[\"1234567890123456789012345678901\"]"
     let plain32: String @local! = "[\"12345678901234567890123456789012\"]"
@@ -158,12 +151,9 @@ exclave func checkBufferBoundaries(): Int64 {
 }
 
 main(): Int64 {
-    // UPDATE 2026-09-21: 0917 runtime requires an explicit local allocation in the
-    // caller frame before an exclave callee performs its first internal local
-    // allocation; without it the generic local-object fast path fails with
-    // `alloc native local object without local object region` (OOM abort).
+    // Initialize the local region before helper calls. Avoid interpolating a local String.
     let regionWarmup: String @local! = "warmup"
-    println("regionWarmup=${regionWarmup}")
+    if (regionWarmup.size != 6) { return 1 }
     var failed: Int64 = 0
     failed += checkCompactAndPretty()
     failed += checkEscaping()
