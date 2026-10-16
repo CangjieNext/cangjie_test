@@ -20,9 +20,8 @@ import std.runtime.*
 @Configure[warmup: Duration.second]
 public class Test_Forin_Range {
     var sum = 0
-    let _range = [1000, 1000_000, 1000_000_000]
 
-    @Bench[count in _range]
+    @Bench[count in [1000, 1000_000, 1000_000_000]]
     func BenchmarkForinRange_UnClosed_N(count: Int64): Unit {
         for (j in 0..count) {
             sum += j
@@ -30,7 +29,7 @@ public class Test_Forin_Range {
         blackBox(sum)
     }
 
-    @Bench[count in _range]
+    @Bench[count in [1000, 1000_000, 1000_000_000]]
     func BenchmarkForinRange_Closed_N(count: Int64): Unit {
         for (j in 0..=count) {
             sum += j
