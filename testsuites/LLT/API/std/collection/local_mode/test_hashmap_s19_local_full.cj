@@ -9,21 +9,13 @@
 // DEPENDENCE: ./local_mode_utils.cj
 // EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
-//
-// URL 文档 §19「class HashMap<K, V>（全量适配）」正向覆盖（48 项中的可运行子集）：
-// 构造器族（含 Collection/Array/size+initElement 的 @local!/@local? 形态）、写面
-// （add(all!)/remove/removeIf/clear/reserve）、批量查（contains(all!)）、视图
-// （keys/values 的 @local!/@local? 形态）、产出（toArray(@local!)、clone(@local!)
-// 独立性、toString(@local?)、==(@local?)）、高阶函数（forEach/all/any/none/
-// mapValues×2/filter/fold/reduce）。
-//
-// 编译器限制导致不可实现的形态（entryView、@local? 的 toArray/clone 等）在
-// ./test_hashmap_s19_local_limits.cj 中按「显式拒绝」断言。
+// Cover local HashMap constructors, mutations, views, conversions, and higher-order operations.
+// Unsupported local operations are checked in test_hashmap_s19_local_limits.cj.
 
 import std.collection.*
 import std.core.*
 
-// 具名 exclave 函数作为 initElement：lambda 体不能直接产出 @local! 元素表达式。
+// Return a local pair from the constructor callback.
 exclave func s19KV(i: Int64): (String, Int64) @local! {
     let k: String @local! = "s${i}"
     (k, i * 10)
@@ -40,7 +32,7 @@ main(): Int64 {
     let k2: String @local! = "b"
     let k3: String @local! = "c"
 
-    // ---- 构造器：空 / Collection / Array / size+initElement / capacity ----
+    // Construct empty, populated, and capacity-reserved maps.
     let empty: HashMap<String, Int64> @local! = HashMap<String, Int64>() @local!
     failed += assertEq(empty.size, 0, "S19_ctor_empty_size")
 
@@ -61,7 +53,7 @@ main(): Int64 {
     let capped: HashMap<String, Int64> @local! = HashMap<String, Int64>(64) @local!
     failed += assertB(capped.capacity >= 64, "S19_ctor_capacity")
 
-    // ---- 写面：add / add(all!) / remove / remove(all!) / removeIf / clear / reserve ----
+    // Mutate entries individually and in bulk.
     let m: HashMap<String, Int64> @local! = HashMap<String, Int64>() @local!
     let v1: Int64 @local! = 1
     let v2: Int64 @local! = 2
@@ -122,7 +114,7 @@ main(): Int64 {
     rv.reserve(200)
     failed += assertB(rv.capacity >= 200 && rv.capacity > capBefore, "S19_reserve")
 
-    // ---- 访问与批量查 ----
+    // Read entries and check key collections.
     let qSrc: HashMap<String, Int64> @local! = HashMap<String, Int64>() @local!
     qSrc.add("a", 1)
     qSrc.add("b", 2)
@@ -143,7 +135,7 @@ main(): Int64 {
     probe.add("nope")
     failed += assertB(!q.contains(all: probe), "S19_q_contains_all_false")
 
-    // ---- 视图：keys / values（@local! 与 @local?） ----
+    // Iterate local keys and values views.
     let km: HashMap<String, Int64> @local! = HashMap<String, Int64>() @local!
     km.add("a", 1)
     km.add("b", 2)
@@ -174,7 +166,7 @@ main(): Int64 {
     failed += assertEq(vqcount, 3, "S19_values_q_iter_count")
     failed += assertEq(vqsum, 6, "S19_values_q_iter_sum")
 
-    // ---- 产出：toArray(@local!) / clone(@local!) / toString(@local?) / ==(@local?) ----
+    // Convert, clone, render, and compare local maps.
     let pairs: Array<(String, Int64)> @local! = km.toArray()
     failed += assertEq(pairs.size, 3, "S19_toarray_size")
     var psum = 0
@@ -194,6 +186,26 @@ main(): Int64 {
     let str: String @local! = kmQ.toString()
     failed += assertB(str.contains("a") && str.contains("b"), "S19_tostring_content")
 
+    // Use identical insertion order to compare local and heap rendering.
+    let kmPlain: HashMap<String, Int64> = HashMap<String, Int64>()
+    kmPlain.add("a", 1)
+    kmPlain.add("b", 2)
+    kmPlain.add("c", 3)
+    let plainOut: String = kmPlain.toString()
+    failed += assertB(str == plainOut, "S19_tostring_equal_plain")
+
+    // Check exact rendering of empty and single-entry maps.
+    let emptyBang: HashMap<String, Int64> @local! = HashMap<String, Int64>() @local!
+    let emptyQ: HashMap<String, Int64> @local? = emptyBang
+    let emptyStr: String @local! = emptyQ.toString()
+    failed += assertB(emptyStr == "[]", "S19_tostring_empty")
+
+    let oneBang: HashMap<String, Int64> @local! = HashMap<String, Int64>() @local!
+    oneBang.add("a", 1)
+    let oneQ: HashMap<String, Int64> @local? = oneBang
+    let oneStr: String @local! = oneQ.toString()
+    failed += assertB(oneStr == "[(a, 1)]", "S19_tostring_single")
+
     let e1: HashMap<String, Int64> @local! = HashMap<String, Int64>() @local!
     e1.add("k", 1)
     e1.add("j", 2)
@@ -208,7 +220,7 @@ main(): Int64 {
     e2.add("k", 99)
     failed += assertB(!(e1Q == e2Q), "S19_eq_unequal")
 
-    // ---- 高阶函数 ----
+    // Check higher-order operations.
     let hQ: HashMap<String, Int64> @local? = km
     failed += assertB(hQ.all({k: String @local?, v: Int64 @local? => v > 0}), "S19_all_true")
     failed += assertB(!hQ.all({k: String @local?, v: Int64 @local? => v > 1}), "S19_all_false")

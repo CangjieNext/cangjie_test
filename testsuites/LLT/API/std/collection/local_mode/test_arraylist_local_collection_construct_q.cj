@@ -9,9 +9,7 @@
 // DEPENDENCE: ./local_mode_utils.cj
 // EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
-//
-// gap audit 2026-09-24 #17（§9.1b）：ArrayList(Collection<T> @local?) 构造。
-// Array/ArrayList 来源走 match 分支（共享引用），其余实现按 @local! 版约定显式拒绝。
+// Collection constructors copy Array and ArrayList sources and use local toArray for other sources.
 
 import std.collection.*
 import std.core.*
@@ -25,6 +23,21 @@ class GaHeapCollection <: Collection<Int64> {
     }
     public func isEmpty(): Bool { items.size == 0 }
     public func toArray(): Array<Int64> { items }
+}
+
+// A custom collection with a local toArray implementation.
+class GaLocalCollection <: Collection<Int64> {
+    let items: Array<Int64>
+    init(items: Array<Int64>) { this.items = items }
+    public func iterator(): Iterator<Int64> { items.iterator() }
+    public prop size: Int64 {
+        get() { items.size }
+    }
+    public func isEmpty(): Bool { items.size == 0 }
+    public func toArray(): Array<Int64> { items.clone() }
+    public func toArray(this @local?): Array<Int64> @local? {
+        exclave { items.clone() }
+    }
 }
 
 main(): Int64 {
@@ -47,13 +60,21 @@ main(): Int64 {
 
     let heapCustom = GaHeapCollection([5, 6])
     let qCustom: Collection<Int64> @local? = heapCustom
-    var rejected = false
+    // The default local toArray implementation must throw.
+    var defaultThrew = false
     try {
         let _ = ArrayList<Int64>(qCustom) @local?
-    } catch (e: IllegalArgumentException) {
-        rejected = true
+    } catch (e: UnimplementedException) {
+        defaultThrew = true
     }
-    failed += assertB(rejected, "GA17_init_local_q_custom_rejected")
+    failed += assertB(defaultThrew, "GA17_init_local_q_custom_default_throw")
+
+    // A custom local toArray implementation supports construction.
+    let localCustom: Collection<Int64> @local? = GaLocalCollection([7, 8])
+    let fromLocalCustom: ArrayList<Int64> @local? = ArrayList<Int64>(localCustom) @local?
+    failed += assertEq(fromLocalCustom.size, 2, "GA17_init_local_q_custom_local_size")
+    failed += assertEq(fromLocalCustom[0], 7, "GA17_init_local_q_custom_local_elem0")
+    failed += assertEq(fromLocalCustom[1], 8, "GA17_init_local_q_custom_local_elem1")
 
     if (failed > 0) {
         println("${failed} test(s) FAILED")
