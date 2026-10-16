@@ -31,17 +31,16 @@ func buildString(length: Int64): String {
 }
 
 func testWriteStrings(w: JsonWriter, n: Int64, str: String) {
-    w.startArray()
     for (_ in 0..n) {
         w.writeValue(str)
     }
-    w.endArray()
-    w.flush()
 }
 
 func getWriter(): JsonWriter {
     var out = ByteBuffer()
-    return JsonWriter(out)
+    var w = JsonWriter(out)
+    w.startArray() // array begin, matching java @Setup(Level.Invocation)
+    return w
 }
 
 @Test

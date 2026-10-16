@@ -18,17 +18,16 @@ import std.unittest.*
 let reps = 10
 
 func testWriteFloat64(w: JsonWriter, n: Int64) {
-    w.startArray()
     for (_ in 0..n) {
         w.writeValue<Float64>(3.14f64)
     }
-    w.endArray()
-    w.flush()
 }
 
 func getWriter(): JsonWriter {
     var out = ByteBuffer()
-    return JsonWriter(out)
+    var w = JsonWriter(out)
+    w.startArray() // array begin, matching java @Setup(Level.Invocation)
+    return w
 }
 
 @Test

@@ -40,16 +40,16 @@ func getReader(n: Int64, length: Int64): JsonReader {
     }
     w.endArray()
     w.flush()
-    return JsonReader(out)
+    var r = JsonReader(out)
+    r.startArray() // array begin, matching java @Setup(Level.Invocation)
+    return r
 }
 
 func testReadStrings(r: JsonReader) {
-    r.startArray()
     while (let Some(v) <- r.peek()) {
         match(v) {
             case JsonString => r.readValue<String>()
-            case EndArray => r.endArray()
-                                return
+            case EndArray => return
             case _ => r.skip()
         }
     }

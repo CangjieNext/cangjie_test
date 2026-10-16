@@ -18,17 +18,16 @@ import std.unittest.*
 let reps = 10
 
 func testWriteNull(w: JsonWriter, n: Int64) {
-    w.startArray()
     for (_ in 0..n) {
         w.writeNullValue()
     }
-    w.endArray()
-    w.flush()
 }
 
 func getWriter(): JsonWriter {
     var out = ByteBuffer()
-    return JsonWriter(out)
+    var w = JsonWriter(out)
+    w.startArray() // array begin, matching java @Setup(Level.Invocation)
+    return w
 }
 
 @Test
