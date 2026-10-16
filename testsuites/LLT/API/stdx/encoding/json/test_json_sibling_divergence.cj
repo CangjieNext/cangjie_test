@@ -208,13 +208,12 @@ class JsonSiblingDivergenceTest {
         @Expect(rejected, true)
     }
 
-    // Control: JsonFloat.toString() and the without-escaping variants share
-    // the same guard.
+    // Control: JsonFloat.toString() and toJsonString() share the same
+    // NaN/Inf guard as the container serialization paths.
     @TestCase
     func treeWriterRejectsNanAllVariants(): Unit {
         var toStringRejected = false
-        var noEscapeRejected = false
-        var jsonNoEscapeRejected = false
+        var jsonRejected = false
         let jf = JsonFloat(makeNaN())
         try {
             let _ = jf.toString()
@@ -222,18 +221,12 @@ class JsonSiblingDivergenceTest {
             toStringRejected = true
         }
         try {
-            let _ = jf.toStringWithoutEscaping()
+            let _ = jf.toJsonString()
         } catch (_: Exception) {
-            noEscapeRejected = true
-        }
-        try {
-            let _ = jf.toJsonStringWithoutEscaping()
-        } catch (_: Exception) {
-            jsonNoEscapeRejected = true
+            jsonRejected = true
         }
         @Expect(toStringRejected, true)
-        @Expect(noEscapeRejected, true)
-        @Expect(jsonNoEscapeRejected, true)
+        @Expect(jsonRejected, true)
     }
 
     // Control: finite values keep round-tripping through the tree writer
