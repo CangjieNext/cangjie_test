@@ -666,7 +666,7 @@ public class AssertionCtx {
     public prop caller: String
     
     /**
-    * Says whether any error occured during run of assertion
+    * Says whether any error occurred during run of assertion
     */
     @!APILevel[since: "12", atomicservice : true]
     public prop hasErrors: Bool
@@ -730,7 +730,7 @@ public class AssertionCtx {
 * @param assert:       (AssertionCtx) -> T - capture of invocation of assertion with right arguments
 * @param optParentCtx: ?AssertionCtx       - first argument of @CustomAssertion function
 *
-* @throws AssertException if any occured in nested checks
+* @throws AssertException if any occurred in nested checks
 */
 @!APILevel[since: "12", atomicservice : true]
 public func invokeCustomAssert<T>(passedArgs: Array<String>, caller: String, assert: (AssertionCtx) -> T, optParentCtx!: ?AssertionCtx = None): T

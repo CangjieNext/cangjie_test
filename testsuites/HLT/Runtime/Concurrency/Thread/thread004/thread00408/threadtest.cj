@@ -11,11 +11,11 @@
 // (MAC) RUN-EXEC-PIPE: %export cjStackSize=1gb && %run %run_opt %output %run_args | compare %f
 // (not MAC) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 
-// ASSERT: scan Exception1 occured: Exception
-// ASSERT: scan Exception2 occured: Exception
-// ASSERT: scan Exception3 occured: Exception
-// ASSERT: scan Exception4 occured: Exception
-// ASSERT: scan Exception5 occured: Exception
+// ASSERT: scan Exception1 occurred: Exception
+// ASSERT: scan Exception2 occurred: Exception
+// ASSERT: scan Exception3 occurred: Exception
+// ASSERT: scan Exception4 occurred: Exception
+// ASSERT: scan Exception5 occurred: Exception
 // ASSERT: scan result1 = 0\n
 // ASSERT: scan result2 = 0\n
 // ASSERT: scan result3 = 0\n
@@ -65,27 +65,27 @@ main(): Int64 {
     try {
         result1 = fut1.get()
     } catch (e: Exception) {
-        print("Exception1 occured: ${e}\n")
+        print("Exception1 occurred: ${e}\n")
     }
     try {
         result2 = fut2.get()
     } catch (e: Exception) {
-        print("Exception2 occured: ${e}\n")
+        print("Exception2 occurred: ${e}\n")
     }
     try {
         result3 = fut3.get()
     } catch (e: Exception) {
-        print("Exception3 occured: ${e}\n")
+        print("Exception3 occurred: ${e}\n")
     }
     try {
         result4 = fut4.get()
     } catch (e: Exception) {
-        print("Exception4 occured: ${e}\n")
+        print("Exception4 occurred: ${e}\n")
     }
     try {
         result5 = fut5.get()
     } catch (e: Exception) {
-        print("Exception5 occured: ${e}\n")
+        print("Exception5 occurred: ${e}\n")
     }
     print("result1 = ${result1}\n")
     print("result2 = ${result2}\n")
