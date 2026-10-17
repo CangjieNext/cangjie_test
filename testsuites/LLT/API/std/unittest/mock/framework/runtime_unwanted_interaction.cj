@@ -41,7 +41,7 @@ public class RuntimeUnwantedInteraction {
         runtimeException<ExpectationFailedException>(
             [
                 "Only 1 invocations allowed by stub a.foo() declared",
-                "Previous invocations handled by this stub occured at"
+                "Previous invocations handled by this stub occurred at"
             ]
         ) {
             @On(a.foo()).returns(()).once().then().fails()
