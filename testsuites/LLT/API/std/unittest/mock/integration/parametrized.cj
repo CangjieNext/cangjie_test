@@ -106,7 +106,7 @@ func failedExpectation(a: Int64, b: Int64): Unit {
         Too few invocations for stub e.f(_, _) declared at parametrized.cj:97.
             Required: exactly 2 times
             Actual: 1
-            Invocations handled by this stub occured at:
+            Invocations handled by this stub occurred at:
  */
 
 /* SCAN-IN

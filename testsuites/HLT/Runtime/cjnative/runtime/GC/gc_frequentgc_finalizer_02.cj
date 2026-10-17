@@ -45,7 +45,7 @@ class GC_FrequentGCTest {
             try {
                 buf.get(i).getOrThrow().get()
             } catch (e: Exception) {
-                print("Exception occured: ${e}\n")
+                print("Exception occurred: ${e}\n")
             }
             i++
         }

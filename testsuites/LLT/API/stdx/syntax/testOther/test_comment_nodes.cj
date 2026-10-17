@@ -250,7 +250,7 @@ class Test {
     @TestCase
     func testParamList02() {
         /*
-        main() // comment belong to paramterList
+        main() // comment belong to parameterList
         {}
         */
 
@@ -258,7 +258,7 @@ class Test {
         let params = mainDecl.params
         var comments = params.comments
         @Expect(comments.size, 1)
-        @Expect(comments[0].content, "// comment belong to paramterList")
+        @Expect(comments[0].content, "// comment belong to parameterList")
         var pos = comments[0].nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([54, 8, 54, 41]).toArray())
     }

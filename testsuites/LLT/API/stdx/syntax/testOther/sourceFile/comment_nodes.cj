@@ -51,7 +51,7 @@ func f5() {
     return 0 + /* comment belong to 5 */ 5
 }
 
-main() // comment belong to paramterList
+main() // comment belong to parameterList
 {}
 
 

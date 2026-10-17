@@ -254,7 +254,7 @@ public class SpyTest {
             "Too few invocations for stub e.p(argThat(predicate)) declared at",
                 "Required: exactly 3 times",
                 "Actual: 2",
-                "Invocations handled by this stub occured at:",
+                "Invocations handled by this stub occurred at:",
                     "line_numbers.cj:67",
                     "line_numbers.cj:71",
                 "Listing matching invocations not handled by this stub:",
