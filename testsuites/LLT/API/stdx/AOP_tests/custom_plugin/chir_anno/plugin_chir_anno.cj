@@ -39,8 +39,13 @@ class ChirAnnoDump {
         var ext = 0
         var nonExt = 0
         for (f in pkg.functions) {
-            if (f.isImported() || f.isCompilerAdd()) {
+            // Only current-package source declarations have fixture-defined
+            // linkage counts; imported generic bodies vary with optimization.
+            if (f.packageName != pkg.name || f.isImported() || f.isCompilerAdd()) {
                 continue
+            }
+            if (let Some(parent) <- f.declaredParent) {
+                if (parent.genericDecl.isSome()) { continue }
             }
             if (f.isExternalLinkage()) {
                 ext++

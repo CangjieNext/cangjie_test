@@ -16,8 +16,13 @@ class FuncCountPlugin {
     public override func run(pkg: Package): Bool {
         var count = 0
         for (f in pkg.functions) {
-            if (f.isImported() || f.isCompilerAdd()) {
+            // Count this package's source declarations, not O2-materialized
+            // std.core bodies or concrete copies of generic class members.
+            if (f.packageName != pkg.name || f.isImported() || f.isCompilerAdd()) {
                 continue
+            }
+            if (let Some(parent) <- f.declaredParent) {
+                if (parent.genericDecl.isSome()) { continue }
             }
             count++
         }

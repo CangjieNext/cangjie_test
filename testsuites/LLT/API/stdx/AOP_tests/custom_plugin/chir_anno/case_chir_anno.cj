@@ -24,7 +24,7 @@
 // ASSERT: scan has sourceExpr Binary: true\n
 // ASSERT: scan has sourceExpr Quest: true\n
 // ASSERT: scan user ext linkage: 3\n
-// ASSERT: scan user non-ext linkage: 6\n
+// ASSERT: scan user non-ext linkage: 1\n
 // ASSERT: scan closure types: 0\n
 // ASSERT: scan chir anno probe ok\n
 // ASSERT: scan-not core dumped
@@ -46,6 +46,10 @@ enum Color {
     | Red
     | Green(Int64)
 }
+
+// Explicitly exercise non-external source linkage rather than counting
+// std.core generic bodies materialized in this package by optimization.
+private func privateLinkageProbe(): Int64 { 0 }
 
 main() {
     var arr = [1, 2, 3]
@@ -82,6 +86,6 @@ main() {
 
     let opt: ?Int64 = 1
     let q = opt ?? 0
-    println(sum + d.id() + q)
+    println(sum + d.id() + q + privateLinkageProbe())
     0
 }
