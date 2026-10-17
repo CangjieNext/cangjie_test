@@ -29,7 +29,7 @@ import stdx.aspect_cj.*
 
 @ReplaceFuncBody[packageName: "AOP_demo1", className: "WovenStruct", methodName: "wovenFunction", isStatic: false,
     recursive: false]
-public func annotatedFunction(self: WovenStruct, original: () -> Unit): Unit {
+public func annotatedFunction(self: WovenStruct, original: (WovenStruct) -> Unit): Unit {
     println("annotatedFunction")
 }
 
