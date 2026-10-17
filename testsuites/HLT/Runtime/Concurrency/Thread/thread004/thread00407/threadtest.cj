@@ -57,27 +57,27 @@ main(): Int64 {
     try {
         result1 = fut1.get()
     } catch (e: Exception) {
-        print("Exception1 occured: ${e}\n")
+        print("Exception1 occurred: ${e}\n")
     }
     try {
         result2 = fut2.get()
     } catch (e: Exception) {
-        print("Exception2 occured: ${e}\n")
+        print("Exception2 occurred: ${e}\n")
     }
     try {
         result3 = fut3.get()
     } catch (e: Exception) {
-        print("Exception3 occured: ${e}\n")
+        print("Exception3 occurred: ${e}\n")
     }
     try {
         result4 = fut4.get()
     } catch (e: Exception) {
-        print("Exception4 occured: ${e}\n")
+        print("Exception4 occurred: ${e}\n")
     }
     try {
         result5 = fut5.get()
     } catch (e: Exception) {
-        print("Exception5 occured: ${e}\n")
+        print("Exception5 occurred: ${e}\n")
     }
 
     print("result1 = ${result1}\n")

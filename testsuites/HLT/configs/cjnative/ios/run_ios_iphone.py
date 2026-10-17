@@ -209,7 +209,7 @@ def main():
             # Install to device
             result = run_cmd_with_log(["xcrun", "devicectl", "device", "install", "app", "--device", args.udid, args.temporary_product_directory + "/build/Build/Products/Debug-iphoneos/" + args.scheme + ".app"])
             if result.returncode != 0:
-                exit_with_unexpected_error("Errors occured while installing app on device!")
+                exit_with_unexpected_error("Errors occurred while installing app on device!")
 
             env = '{}'
             if os.path.exists(args.environment_file):
