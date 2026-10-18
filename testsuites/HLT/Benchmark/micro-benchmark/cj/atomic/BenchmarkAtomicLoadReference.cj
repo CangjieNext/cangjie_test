@@ -26,8 +26,8 @@ class A {
 public class Test_AtomicLoadReference {
 
     @Strategy
-    func atomicData(): GenerateEachInputProvider<AtomicReference<A>> {
-        GenerateEachInputProvider { => AtomicReference<A>(A(1)) }
+    func atomicData(): ImmutableInputProvider<AtomicReference<A>> {
+        ImmutableInputProvider(AtomicReference<A>(A(1)))
     }
 
     @Bench[data in atomicData]

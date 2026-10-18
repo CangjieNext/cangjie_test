@@ -28,7 +28,7 @@ public class Test_Remove_String_From_HashSet {
     }
 
     @Bench[data in hashSetData]
-    func BenchmarkRemoveFromHashset(data: (HashSet<String>, ArrayList<String>)): Unit {
+    func BenchmarkRemoveFromHashset_String(data: (HashSet<String>, ArrayList<String>)): Unit {
         var tmpSet = HashSet<String>(data[0])
         for (key in data[1]) {
             blackBox(tmpSet.remove(key))

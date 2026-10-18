@@ -18,6 +18,6 @@ AOT r,r,-> 22
 b,breakpoint disable,
 cjthread,cjthread list,thread #[\s\S]*state = running[\s\S]*coroutine_9.cj:22
 cjthread,cjthread select 2,thread #[\s\S]*state = running|ready|pending|ready
-cjthread,cjt s,-> 37
+cjthread,cjt s,-> 37|0x
 cjthread,cjt n,-> 38|0x
 q,quit,

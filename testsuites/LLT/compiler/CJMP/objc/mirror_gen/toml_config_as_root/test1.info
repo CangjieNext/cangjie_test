@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// DEPENDENCE: test.toml empty.toml test.h test1.h test2.h
+// EXEC: %mkdir sub && %move test.toml sub/ && %move empty.toml sub/ && %move test2.h sub/
+// EXEC: ObjCInteropGen sub/test.toml 2>&1 | compare %f
+/* SCAN-IN
+Consider using $ROOT_TOML_DIR to reference TOML file `empty.toml`
+*/
+

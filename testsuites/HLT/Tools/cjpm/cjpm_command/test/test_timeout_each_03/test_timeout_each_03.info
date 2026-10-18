@@ -10,4 +10,4 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm test src --timeout-each=abc 2>&1 | compare %f
 // ASSERT: scan UnittestCliOptionsFormatException
-// ASSERT: scan Wrong --timeout-each option argument format
+// ASSERT: scan Wrong '--timeout-each' option argument format

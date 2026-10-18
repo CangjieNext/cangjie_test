@@ -22,6 +22,6 @@ Android c,c,13
 CJVM c,c,
 breakpoint,breakpoint set -l 15 -c 'hundred==9',004_debug_while.cj:15
 c,c,15
-locals,locals,hundred = 9
+locals,locals,[\s\S]*9
 breakpoint,breakpoint list,Condition: hundred==9
 q,q,

@@ -26,12 +26,10 @@ class A {
 public class Test_AtomicSwapReference {
 
     @Strategy
-    func atomicData(): GenerateEachInputProvider<(AtomicReference<A>, A)> {
-        GenerateEachInputProvider {
-            let x = A(1)
-            let test = AtomicReference<A>(x)
-            (test, x)
-        }
+    func atomicData(): ImmutableInputProvider<(AtomicReference<A>, A)> {
+        let x = A(1)
+        let test = AtomicReference<A>(x)
+        ImmutableInputProvider((test, x))
     }
 
     @Bench[data in atomicData]
