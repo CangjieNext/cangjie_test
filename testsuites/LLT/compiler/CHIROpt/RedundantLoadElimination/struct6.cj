@@ -4,7 +4,12 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %disableCodegen %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default3fooHb" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: regex StoreElementRef\(%\d+, %\d+, 0\) // loc: "struct6.cj"-24-5
+// ASSERT: regex = Load\(%\d+\) // loc: "struct6.cj"-25-9
 
 struct SA {
     var x = 999
@@ -24,5 +29,3 @@ main() {
     foo(true);
     0
 }
-
-// ASSERT: regex-not \[RLE\] The usages of the result of Load at \[20,9\] have been replaced by the value at \[18,5\]

@@ -20,8 +20,8 @@ import std.unittest.*
 public class Test_AtomicStoreInt64 {
 
     @Strategy
-    func atomicData(): GenerateEachInputProvider<AtomicInt64> {
-        GenerateEachInputProvider { => AtomicInt64(0) }
+    func atomicData(): ImmutableInputProvider<AtomicInt64> {
+        ImmutableInputProvider(AtomicInt64(0))
     }
 
     @Bench[data in atomicData]

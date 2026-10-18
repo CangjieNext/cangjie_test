@@ -86,14 +86,14 @@ public class BenchmarkLambdaWithoutEscape {
     }
 
     @Bench[cond in getConditionNumber]
-    func BenchmarkLambdaWithoutEscape_LambdaWithoutContext_(cond: Int64): Int64 {
+    func BenchmarkLambdaWithoutEscape_LambdaWithoutContext(cond: Int64): Int64 {
         let lambda = { x: Int64 => x + 2 }
         sum += lambdaUse(lambda, SAMPLES_NUM, cond)
         return blackBox(sum)
     }
 
     @Bench[cond in getConditionNumber]
-    func BenchmarkLambdaWithoutEscape_SpecializedLambdaWithConstantContext_(cond: Int64): Int64 {
+    func BenchmarkLambdaWithoutEscape_SpecializedLambdaWithConstantContext(cond: Int64): Int64 {
         let condition = cond <= 42
         let lambda = { x: Int64 =>
             if (condition) {
@@ -107,7 +107,7 @@ public class BenchmarkLambdaWithoutEscape {
     }
 
     @Bench[cond in getConditionNumber]
-    func BenchmarkLambdaWithoutEscape_NotSpecializedLambdaWithConstantContext_(cond: Int64): Int64 {
+    func BenchmarkLambdaWithoutEscape_NotSpecializedLambdaWithConstantContext(cond: Int64): Int64 {
         let a = 5
         let lambda = { x: Int64 =>
             if (x + a > 15) {
@@ -183,7 +183,7 @@ public class BenchmarkLambdaWithoutEscape {
     }
 
     @Bench[reps in [512], cond in getConditionNumber]
-    func BenchmarkLambdaWithoutEscape_LambdaFactory50_(reps: Int64, cond: Int64): Int64 {
+    func BenchmarkLambdaWithoutEscape_LambdaFactory50(reps: Int64, cond: Int64): Int64 {
         for (i in 0..reps) {
             let lambda = factory(i, 50, cond)
             sum += lambdaUse(lambda, SAMPLES_NUM, cond)
@@ -192,7 +192,7 @@ public class BenchmarkLambdaWithoutEscape {
     }
 
     @Bench[reps in [512], cond in getConditionNumber]
-    func BenchmarkLambdaWithoutEscape_LambdaFactory99_(reps: Int64, cond: Int64): Int64 {
+    func BenchmarkLambdaWithoutEscape_LambdaFactory99(reps: Int64, cond: Int64): Int64 {
         for (i in 0..reps) {
             let lambda = factory(i, 99, cond)
             sum += lambdaUse(lambda, SAMPLES_NUM, cond)
@@ -201,7 +201,7 @@ public class BenchmarkLambdaWithoutEscape {
     }
 
     @Bench[reps in [512], cond in getConditionNumber]
-    func BenchmarkLambdaWithoutEscape_LambdaFactory100_(reps: Int64, cond: Int64): Int64 {
+    func BenchmarkLambdaWithoutEscape_LambdaFactory100(reps: Int64, cond: Int64): Int64 {
         for (i in 0..reps) {
             let lambda = factory(i, 100, cond)
             sum += lambdaUse(lambda, SAMPLES_NUM, cond)
@@ -210,7 +210,7 @@ public class BenchmarkLambdaWithoutEscape {
     }
 
     @Bench[reps in [512], cond in getConditionNumber]
-    func BenchmarkLambdaWithoutEscape_LambdaInlinedFactory50_(reps: Int64, cond: Int64): Int64 {
+    func BenchmarkLambdaWithoutEscape_LambdaInlinedFactory50(reps: Int64, cond: Int64): Int64 {
         for (i in 0..reps) {
             let lambda = if (prob(i, 50)) {
                 { x: Int64 => x + 2 }
@@ -223,7 +223,7 @@ public class BenchmarkLambdaWithoutEscape {
     }
 
     @Bench[reps in [512], cond in getConditionNumber]
-    func BenchmarkLambdaWithoutEscape_LambdaInlinedFactory99_(reps: Int64, cond: Int64): Int64 {
+    func BenchmarkLambdaWithoutEscape_LambdaInlinedFactory99(reps: Int64, cond: Int64): Int64 {
         for (i in 0..reps) {
             let lambda = if (prob(i, 99)) {
                 { x: Int64 => x + 2 }
@@ -236,7 +236,7 @@ public class BenchmarkLambdaWithoutEscape {
     }
 
     @Bench[reps in [512], cond in getConditionNumber]
-    func BenchmarkLambdaWithoutEscape_LambdaInlinedFactory100_(reps: Int64, cond: Int64): Int64 {
+    func BenchmarkLambdaWithoutEscape_LambdaInlinedFactory100(reps: Int64, cond: Int64): Int64 {
         for (i in 0..reps) {
             let lambda = if (prob(i, 100)) {
                 { x: Int64 => x + 2 }

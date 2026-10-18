@@ -17,8 +17,6 @@ public open class A {
     public open func foo(): PM
 }
 
-public type PA = A
-
 @ObjCMirror
 public open class M <: A {
     public open func foo(): PM

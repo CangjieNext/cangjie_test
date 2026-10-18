@@ -1,8 +1,8 @@
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * This source code is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -33,124 +33,60 @@ public class Test_Read_Array_Out_Of_Order {
     static let arrD3_32 = Array<Array<Array<Int64>>>(32, {i => Array<Array<Int64>>(32, {i => Array<Int64>(32, { i => i })})})
     static let arrD3_256 = Array<Array<Array<Int64>>>(256, {i => Array<Array<Int64>>(256, {i => Array<Int64>(256, { i => i })})})
 
-    @Bench[arrLen in [32]]
-    func BenchmarkReadArrayOutOfOrderD1_N32(arrLen: Int64): Unit {
+    @Bench[arrLen in [32, 256, 2048, 16384, 131072, 1048576]]
+    func BenchmarkReadArrayOutOfOrderD1_N(arrLen: Int64): Unit {
+        let arr = if (arrLen == 32) {
+            arrD1_32
+        } else if (arrLen == 256) {
+            arrD1_256
+        } else if (arrLen == 2048) {
+            arrD1_2048
+        } else if (arrLen == 16384) {
+            arrD1_16384
+        } else if (arrLen == 131072) {
+            arrD1_131072
+        } else {
+            arrD1_1048576
+        }
         var element = 0
         for (i in 0..arrLen:64) {
-            element = arrD1_32[i]
+            element = arr[i]
         }
         blackBox(element)
     }
 
-    @Bench[arrLen in [256]]
-    func BenchmarkReadArrayOutOfOrderD1_N256(arrLen: Int64): Unit {
-        var element = 0
-        for (i in 0..arrLen:64) {
-            element = arrD1_256[i]
+    @Bench[arrLen in [32, 256, 2048, 16384]]
+    func BenchmarkReadArrayOutOfOrderD2_N(arrLen: Int64): Unit {
+        let arr = if (arrLen == 32) {
+            arrD2_32
+        } else if (arrLen == 256) {
+            arrD2_256
+        } else if (arrLen == 2048) {
+            arrD2_2048
+        } else {
+            arrD2_16384
         }
-        blackBox(element)
-    }
-
-    @Bench[arrLen in [2048]]
-    func BenchmarkReadArrayOutOfOrderD1_N2048(arrLen: Int64): Unit {
-        var element = 0
-        for (i in 0..arrLen:64) {
-            element = arrD1_2048[i]
-        }
-        blackBox(element)
-    }
-
-    @Bench[arrLen in [16384]]
-    func BenchmarkReadArrayOutOfOrderD1_N16384(arrLen: Int64): Unit {
-        var element = 0
-        for (i in 0..arrLen:64) {
-            element = arrD1_16384[i]
-        }
-        blackBox(element)
-    }
-
-    @Bench[arrLen in [131072]]
-    func BenchmarkReadArrayOutOfOrderD1_N131072(arrLen: Int64): Unit {
-        var element = 0
-        for (i in 0..arrLen:64) {
-            element = arrD1_131072[i]
-        }
-        blackBox(element)
-    }
-
-    @Bench[arrLen in [1048576]]
-    func BenchmarkReadArrayOutOfOrderD1_N1048576(arrLen: Int64): Unit {
-        var element = 0
-        for (i in 0..arrLen:64) {
-            element = arrD1_1048576[i]
-        }
-        blackBox(element)
-    }
-
-    @Bench[arrLen in [32]]
-    func BenchmarkReadArrayOutOfOrderD2_N32(arrLen: Int64): Unit {
         var element = 0
         for (i in 0..arrLen:64) {
             for (j in 0..arrLen:64) {
-                element = arrD2_32[i][j]
+                element = arr[i][j]
             }
         }
         blackBox(element)
     }
 
-    @Bench[arrLen in [256]]
-    func BenchmarkReadArrayOutOfOrderD2_N256(arrLen: Int64): Unit {
-        var element = 0
-        for (i in 0..arrLen:64) {
-            for (j in 0..arrLen:64) {
-                element = arrD2_256[i][j]
-            }
+    @Bench[arrLen in [32, 256]]
+    func BenchmarkReadArrayOutOfOrderD3_N(arrLen: Int64): Unit {
+        let arr = if (arrLen == 32) {
+            arrD3_32
+        } else {
+            arrD3_256
         }
-        blackBox(element)
-    }
-
-    @Bench[arrLen in [2048]]
-    func BenchmarkReadArrayOutOfOrderD2_N2048(arrLen: Int64): Unit {
-        var element = 0
-        for (i in 0..arrLen:64) {
-            for (j in 0..arrLen:64) {
-                element = arrD2_2048[i][j]
-            }
-        }
-        blackBox(element)
-    }
-
-    @Bench[arrLen in [16384]]
-    func BenchmarkReadArrayOutOfOrderD2_N16384(arrLen: Int64): Unit {
-        var element = 0
-        for (i in 0..arrLen:64) {
-            for (j in 0..arrLen:64) {
-                element = arrD2_16384[i][j]
-            }
-        }
-        blackBox(element)
-    }
-
-    @Bench[arrLen in [32]]
-    func BenchmarkReadArrayOutOfOrderD3_N32(arrLen: Int64): Unit {
         var element = 0
         for (i in 0..arrLen:64) {
             for (j in 0..arrLen:64) {
                 for (k in 0..arrLen:64) {
-                    element = arrD3_32[i][j][k]
-                }
-            }
-        }
-        blackBox(element)
-    }
-
-    @Bench[arrLen in [256]]
-    func BenchmarkReadArrayOutOfOrderD3_N256(arrLen: Int64): Unit {
-        var element = 0
-        for (i in 0..arrLen:64) {
-            for (j in 0..arrLen:64) {
-                for (k in 0..arrLen:64) {
-                    element = arrD3_256[i][j][k]
+                    element = arr[i][j][k]
                 }
             }
         }

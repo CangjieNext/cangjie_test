@@ -44,7 +44,7 @@ public class Test_HashMap_Put_String {
     }
 
     @Bench[x in hashMapStrategy]
-    func BenchmarkHashMapPut_String_(x: HashMap<String, Int64>): Unit {
+    func BenchmarkHashMapPut_String(x: HashMap<String, Int64>): Unit {
         for (v in keys) {
             x.add(v, 0)
         }

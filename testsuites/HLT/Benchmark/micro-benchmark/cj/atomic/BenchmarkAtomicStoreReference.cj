@@ -26,12 +26,10 @@ class A {
 public class Test_AtomicStoreReference {
 
     @Strategy
-    func atomicData(): GenerateEachInputProvider<(AtomicReference<A>, A)> {
-        GenerateEachInputProvider {
-            let test = AtomicReference<A>(A(1))
-            let a = A(2)
-            (test, a)
-        }
+    func atomicData(): ImmutableInputProvider<(AtomicReference<A>, A)> {
+        let test = AtomicReference<A>(A(1))
+        let a = A(2)
+        ImmutableInputProvider((test, a))
     }
 
     @Bench[data in atomicData]

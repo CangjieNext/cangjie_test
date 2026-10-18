@@ -36,7 +36,7 @@ public class Test_Str2Float16 {
     }
 
     @Bench[data in floatArray]
-    func BenchmarkStr2Float16(data: ArrayList<String>): Unit {
+    func BenchmarkStr2Float16_List(data: ArrayList<String>): Unit {
         for (i in data) {
             blackBox(Float16.parse(i))
         }

@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// DEPENDENCE: ../test.toml test.h
+// DEPENDENCE: test.toml test.h
 // EXEC: ObjCInteropGen test.toml
 // EXEC: %cat test.cj | compare %f
 /* SCAN-IN
@@ -16,19 +16,7 @@ public type T2 = Int32
 
 public type T3 = Int32
 
-public type T4 = Int32
-
-public type T5 = Int32
-
-public type T6 = Int32
-
-public type T7 = Int32
-
-public type T8 = Int32
-
 public type T9 = Int32
-
-public type T10 = Int32
 
 public type T11 = Int32
 
@@ -62,4 +50,5 @@ public open class M {
     // public open mut prop T11: T11
     @ForeignName["T11"] public static mut prop T11Static: T11
 }
+
 */

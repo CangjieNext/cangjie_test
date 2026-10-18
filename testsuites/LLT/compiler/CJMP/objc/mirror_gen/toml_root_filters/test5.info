@@ -1,0 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// DEPENDENCE: test5.toml test.h
+// ERRCHECK: ObjCInteropGen test5.toml
+// ASSERT: scan The M root is assigned to both cjworldA and cjworldB packages

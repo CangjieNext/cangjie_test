@@ -4,7 +4,18 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %disableCodegen %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default3fooHb" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: regex-begin %(?P<v>\d+): Struct-_CN7default2SAE = Load\(%\d+\) // loc: "struct3.cj"-40-14
+// ASSERT: regex-after Field\(%(?P=v), 0\) // loc: "struct3.cj"-41-5
+// ASSERT: regex-begin %(?P<v>\d+): Struct-_CN7default2SAE = Load\(%\d+\) // loc: "struct3.cj"-43-9
+// ASSERT: regex-after Field\(%(?P=v), 0\) // loc: "struct3.cj"-43-5
+// ASSERT: regex-after Field\(%(?P=v), 0\) // loc: "struct3.cj"-44-5
+// ASSERT: regex-after Field\(%(?P=v), 0\) // loc: "struct3.cj"-45-5
+// ASSERT: regex-not = Load\(%\d+\) // loc: "struct3.cj"-44
+// ASSERT: regex-not = Load\(%\d+\) // loc: "struct3.cj"-45
 
 struct SC {
     var y = 111
@@ -37,7 +48,3 @@ func foo(cond: Bool) {
 main() {
     foo(true)
 }
-
-// ASSERT: scan [RLE] The usages of the result of Load at [30,9] have been replaced by the value at [29,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [33,9] have been replaced by the value at [32,9]
-// ASSERT: scan [RLE] The usages of the result of Load at [34,9] have been replaced by the value at [32,9]

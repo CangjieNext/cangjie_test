@@ -20,8 +20,8 @@ import std.unittest.*
 public class Test_AtomicCompareAndSwapUInt32 {
 
     @Strategy
-    func atomicData(): GenerateEachInputProvider<AtomicUInt32> {
-        GenerateEachInputProvider { => AtomicUInt32(1) }
+    func atomicData(): ImmutableInputProvider<AtomicUInt32> {
+        ImmutableInputProvider(AtomicUInt32(1))
     }
 
     @Bench[data in atomicData]

@@ -273,7 +273,11 @@ class LangRunner(BaseRunner):
 
       if self.dependency_registry[lib_file].returncode != 0:
         test.compile_res = CompletedProcess('', stderr='The dependecies compile failed'.encode('utf-8'), returncode=1)
-        test.execute_res = CompletedProcess('', stderr=b'the dependencies compile failed', returncode=2)
+        # For a negative compile-only test the dependency compile failure can be the
+        # expected outcome (e.g. an intentionally invalid macro lib), so keep the result
+        # derived from compile_res instead of marking the test as ERRORED.
+        if not (test.mode == TestRunMode.compilationOnly and test.is_negative):
+          test.execute_res = CompletedProcess('', stderr=b'the dependencies compile failed', returncode=2)
         break
 
     return pkg_depends, macro_depends

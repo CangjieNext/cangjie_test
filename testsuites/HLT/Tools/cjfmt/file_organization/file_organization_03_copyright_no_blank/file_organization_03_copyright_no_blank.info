@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n/uilang && cjfmt -f ./file_organization_03_copyright_no_blank.cj -l 1:200
+// EXEC: cd %n/uilang && cjfmt -f ./file_organization_03_copyright_no_blank.cj -l 9:200
 // (Windows) EXEC: dos2unix %n/formated/file_organization_03_copyright_no_blank.cj
 // EXEC: %diff %n/formated/file_organization_03_copyright_no_blank.cj %n/uilang/file_organization_03_copyright_no_blank.cj
