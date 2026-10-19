@@ -38,7 +38,7 @@ public open class P {
 
 @ObjCMirror
 public open class M {
-    public open mut prop foo: ObjCPointer<N>
+    public open mut prop foo: CPointer<N>
     @ForeignName["foo:"] public open func foo_(value: ?M): Unit
     @ForeignName["bar:"] public open func bar(value: ?P): Unit
     public open mut prop baz: ?P

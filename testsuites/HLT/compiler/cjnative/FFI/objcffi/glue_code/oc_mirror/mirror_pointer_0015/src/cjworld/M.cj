@@ -13,6 +13,6 @@ import objc.lang.*
 @ObjCMirror
 public open class M {
     public var a: Int64
-    public var aPtr: ObjCPointer<Unit>
+    public var aPtr: CPointer<Unit>
     public init()
 }

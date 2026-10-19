@@ -15,7 +15,7 @@ public class A <: M {
     public init() {}
     public open func f() {
         var m = M()
-        var v = m.fptr.call()
-        println("in cj f, ${v.read()}")
+        var v = unsafe { m.fptr() }
+        println("in cj f, ${unsafe { v.read() }}")
     }
 }

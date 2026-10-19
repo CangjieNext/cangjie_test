@@ -17,9 +17,9 @@ public class A <: M {
         var m = M()
         var p = m.goo()
         if (!p.isNull()) {
-            println("in cangjie foo, ${p.read()}")
-            p.write(())
-            println("in cangjie foo, ${p.read()}")
+            println("in cangjie foo, ${unsafe { p.read() }}")
+            unsafe { p.write(()) }
+            println("in cangjie foo, ${unsafe { p.read() }}")
         }
     }
 }

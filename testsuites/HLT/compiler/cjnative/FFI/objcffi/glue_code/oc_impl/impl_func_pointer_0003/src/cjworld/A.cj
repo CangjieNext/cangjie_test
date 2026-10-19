@@ -13,10 +13,10 @@ import objc.lang.*
 @ObjCImpl
 public class A <: M {
     public init() {}
-    public open func f1(): ObjCFunc<() -> Unit> {
+    public open func f1(): CFunc<() -> Unit> {
         this.fptr
     }
     public open func f2() {
-        f1().call()
+        unsafe { f1()() }
     }
 }

@@ -45,12 +45,12 @@ public struct CStruct {
 public open class M <: BaseClass & BaseProtocol {
     protected var x: Int32
     protected var i: Int1
-    protected var pf: ObjCPointer<ObjCPointer<ObjCFunc<() -> Unit> /*Func*/> /*PFunc*/>
+    protected var pf: CPointer<PFunc>
     protected var e: Enum
     protected var c: ?C
     protected var p: ?P
     protected var id_: ?ObjCId
-    protected var c_struct: ObjCPointer<CStruct>
+    protected var c_struct: CPointer<CStruct>
     public init()
 }
 */

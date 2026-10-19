@@ -15,6 +15,6 @@ public class A <: M {
     public init() {}
     public open func f() {
         var m = M()
-        m.fptr.call(1)
+        unsafe { m.fptr(1) }
     }
 }

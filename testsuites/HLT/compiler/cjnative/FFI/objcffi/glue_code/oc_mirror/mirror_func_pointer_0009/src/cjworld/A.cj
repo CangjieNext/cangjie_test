@@ -18,6 +18,6 @@ public class A <: M {
         var s = S()
         s.x = 1
         s.y = 1
-        m.fptr.call(s)
+        unsafe { m.fptr(s) }
     }
 }

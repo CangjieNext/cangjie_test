@@ -13,11 +13,11 @@ import objc.lang.*
 @ObjCImpl
 public class A <: M {
     public init() {}
-    public open func f1(): ObjCFunc<() -> S> {
+    public open func f1(): CFunc<() -> S> {
         this.fptr
     }
     public open func f2() {
-        var s = f1().call()
+        var s = unsafe { f1()() }
         println("in cj, ${s.x + s.y}")
     }
 }

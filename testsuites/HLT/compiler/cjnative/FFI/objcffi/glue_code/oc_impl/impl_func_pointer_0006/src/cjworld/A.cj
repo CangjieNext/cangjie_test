@@ -12,9 +12,9 @@ import objc.lang.*
 
 @ObjCImpl
 public class A <: M2 {
-    public var a: ObjCFunc<(Bool) -> Unit> = M1().fptr
+    public var a: CFunc<(Bool) -> Unit> = M1().fptr
     public init() {}
     public open func f() {
-        a.call(true)
+        unsafe { a(true) }
     }
 }

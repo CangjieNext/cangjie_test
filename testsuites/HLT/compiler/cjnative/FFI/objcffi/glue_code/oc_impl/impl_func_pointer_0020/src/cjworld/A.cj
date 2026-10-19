@@ -13,9 +13,9 @@ import objc.lang.*
 @ObjCImpl
 public class A <: M {
     public init() {}
-    public open func f1(a: ObjCFunc<() -> Unit>) {
+    public open func f1(a: ObjCFunc<(?ObjCId) -> Unit>) {
         var v = a.call
-        a.call()
+        a.call(None)
     }
     public open func f2() {
         f1(this.fptr)

@@ -14,6 +14,6 @@ import objc.lang.*
 public class A <: M {
     public init() {}
     public open func f() {
-        this.fptr.call()
+        unsafe { this.fptr() }
     }
 }
