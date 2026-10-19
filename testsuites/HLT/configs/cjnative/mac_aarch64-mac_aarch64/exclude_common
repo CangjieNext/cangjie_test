@@ -161,8 +161,10 @@ API/stdx/aspect_cj/test_aop_oracle/TC-AOP-ORACLE-4.cj
 API/stdx/aspect_cj/test_aop_oracle/TC-AOP-ORACLE-5.cj
 API/stdx/aspect_cj/test_aop_param/TC-AOP-PARAM-0.cj
 API/stdx/aspect_cj/test_aop_param/TC-AOP-PARAM-1.cj
+API/stdx/aspect_cj/test_aop_param/TC-AOP-PARAM-2.cj
 API/stdx/aspect_cj/test_aop_param/TC-AOP-PARAM-3.cj
 API/stdx/aspect_cj/test_aop_param/TC-AOP-PARAM-4.cj
+API/stdx/aspect_cj/test_aop_param/TC-AOP-PARAM-5.cj
 API/stdx/aspect_cj/test_aop_param/TC-AOP-PARAM-6.cj
 API/stdx/aspect_cj/test_aop_param/TC-AOP-PARAM-7.cj
 API/stdx/aspect_cj/test_aop_param/TC-AOP-PARAM-8.cj
@@ -197,8 +199,11 @@ API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-21.cj
 API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-22.cj
 API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-23.cj
 API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-24.cj
+API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-25.cj
 API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-26.cj
+API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-27.cj
 API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-28.cj
+API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-29.cj
 API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-3.cj
 API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-4.cj
 API/stdx/aspect_cj/test_aop_weave/TC-AOP-WEAVE-6.cj
