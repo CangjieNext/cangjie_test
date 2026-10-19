@@ -20,5 +20,18 @@ error: mismatched types
    |       ^^^^^^^^^^^^^^^ expected 'VArray<UInt8, $3>', found 'Struct-Array<UInt8>'
    | 
 
-1 error generated, 1 error printed.
+error: no matching function declaration for function call 'toArray'
+  ==> err_byte_string.cj:12:13:
+   | 
+12 |     f("123".toArray())
+   |             ^ 
+   | 
+note: found function member of 'Struct-String'
+   ==> (package std.core)string.cj:342:17:
+note: found function member of 'Struct-String'
+   ==> (package std.core)string.cj:350:25:
+note: found function member of 'Struct-String'
+   ==> (package std.core)string.cj:357:25:
+
+2 errors generated, 2 errors printed.
 */

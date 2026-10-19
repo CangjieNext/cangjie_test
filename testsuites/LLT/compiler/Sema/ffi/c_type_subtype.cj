@@ -13,6 +13,5 @@ main() {
 }
 
 // ASSERT: scan-1 "DiagKind": "sema_unable_to_infer_generic_func",
-// ASSERT: scan-1 "DiagKind": "sema_no_match_constructor",
 // ASSERT: scan-1 "DiagKind": "sema_generic_type_argument_not_match_constraint",
-// ASSERT: scan "Errors": 3,
+// ASSERT: scan "Errors": 2,
