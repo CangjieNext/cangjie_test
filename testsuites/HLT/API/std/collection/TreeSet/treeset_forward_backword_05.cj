@@ -82,17 +82,15 @@ class Test_treeset_forward_backward_05 {
         @Expect(findupper4, 498)
         @Expect(findlower4, -499)
         let cmap_clear = cmap.getOrThrow().clear()
-        try {
-            let findupper5 = cmap.getOrThrow().forward(-10, inclusive: false).next()
-        } catch (_: NoneValueException) {
-            sum += 1
+        match (cmap.getOrThrow().forward(-10, inclusive: false).next()) {
+            case None => sum += 1
+            case _ => ()
         }
         @Expect(sum, 5)
 
-        try {
-            let findlower5 = cmap.getOrThrow().backward(98, inclusive: false).next()
-        } catch (_: NoneValueException) {
-            sum += 1
+        match (cmap.getOrThrow().backward(98, inclusive: false).next()) {
+            case None => sum += 1
+            case _ => ()
         }
         @Expect(sum, 6)
     }
@@ -124,17 +122,15 @@ class Test_treeset_forward_backward_05 {
         @Expect(findupper2, "-100")
         @Expect(findlower2, "97")
         let cmap_clear = cmap_str.getOrThrow().clear()
-        try {
-            let findupper3 = cmap_str.getOrThrow().forward("-10", inclusive: false).next()
-        } catch (_: NoneValueException) {
-            sum += 1
+        match (cmap_str.getOrThrow().forward("-10", inclusive: false).next()) {
+            case None => sum += 1
+            case _ => ()
         }
         @Expect(sum, 3)
 
-        try {
-            let findlower3 = cmap_str.getOrThrow().backward("98", inclusive: false).next()
-        } catch (_: NoneValueException) {
-            sum += 1
+        match (cmap_str.getOrThrow().backward("98", inclusive: false).next()) {
+            case None => sum += 1
+            case _ => ()
         }
         @Expect(sum, 4)
     }
