@@ -1,0 +1,72 @@
+testsuites/LLT/Runtime/CJNative/local_mode/finalizer/finalizer_heap_field_reassign_gc.cj
+  s_38e13843a7808a::t_2e5f42e2997e98 65-67
+  s_38e13843a7808a::t_3b1657dfc36a75 1-9,11-64,68-76
+  h_257b3b6b5da395 10
+testsuites/LLT/Runtime/CJNative/local_mode/allocation/local_region_out_of_memory.cj
+  s_f2a775f049b001::t_4520532e3cb26e 1-28
+testsuites/LLT/Runtime/CJNative/local_mode/finalizer/finalizer_nested_region_field_reassign.cj
+  s_38e13843a7808a::t_3b1657dfc36a75 1-61,65-73
+  s_38e13843a7808a::t_2e5f42e2997e98 62-64
+testsuites/LLT/Runtime/CJNative/local_mode/finalizer/finalizer_local_heap_ref_gc.cj
+  s_38e13843a7808a::t_82439cb18df704 9,64
+  s_38e13843a7808a::t_35a91bffb1ec84 10,69
+  s_38e13843a7808a::t_52a2d01e483f48 1-8,11-63,65-68,70-73
+testsuites/LLT/Runtime/CJNative/local_mode/gc_root/nested_outer_owner_frame_slot_gc.cj
+  s_38e13843a7808a::t_cd53efd3fff4a2 1-69
+testsuites/LLT/Runtime/CJNative/local_mode/modal_write/constructor_local_heap_field_init.cj
+  s_38e13843a7808a::t_3b1657dfc36a75 1-39,41-43
+  s_38e13843a7808a::t_2e5f42e2997e98 40
+testsuites/LLT/Runtime/CJNative/local_mode/finalizer/finalizer_contains_local_heap_ref_gc.cj
+  s_38e13843a7808a::t_078594df771e2e 5-8,12,45-46,49-50,64,69,77-80,86-89,91,107
+  s_38e13843a7808a::t_fc9e7849a2d1fa 1-4,9-11,13-43,54-63,65-68,70-76,83-85,90,92-106,108-115
+  s_38e13843a7808a::t_35daf34efb22d1 44,47-48,51-53,81-82
+testsuites/LLT/Runtime/CJNative/local_mode/finalizer/finalizer_heap_slot_clear_gc.cj
+  s_38e13843a7808a::t_5df5b478c80ed0 50,58
+  s_38e13843a7808a::t_bb000efd75cbbf 1-49,51-57,59-69
+testsuites/LLT/Runtime/CJNative/local_mode/gc_root/nested_outer_slot_generic_array_gc.cj
+  s_38e13843a7808a::t_dcdbb12951a871 1-64
+testsuites/LLT/Runtime/CJNative/local_mode/gc_root/nested_outer_slot_relocation_gc.cj
+  s_38e13843a7808a::t_3da015af3eba76 18,48,56,58-59
+  s_38e13843a7808a::t_e70a0c7606c8bf 16,87,92,101-105,109-110
+  s_38e13843a7808a::t_eb1d24b1fdf686 1-8,14-15,17,19-31,34-37,45-47,49,54-55,57,60-61,65-66,72,74-75,77-79,85,88-89,91,93-98,100,106-108,111
+  s_38e13843a7808a::t_8b4d2aa6203d30 32
+  s_38e13843a7808a::t_1e31baf22d2be3 81-82
+  s_38e13843a7808a::t_24d6ecfea3cdb1 62,67,80
+  s_38e13843a7808a::t_f125fd6dd8a1fd 76
+  s_38e13843a7808a::t_830c12f5bdcf4d 68,70-71,73
+  s_38e13843a7808a::t_20031a76977c9d 33,50-53
+  s_38e13843a7808a::t_e7a8c95f8d07de 86,90,99
+  s_38e13843a7808a::t_be89b73b20ffc3 83-84
+  s_38e13843a7808a::t_f0b12f361b22e8 9-13,38-44,63-64,69
+testsuites/LLT/Runtime/CJNative/local_mode/memory_info/local_object_size.cj
+  s_38e13843a7808a::t_3145de155cef4a 7-9,52-53,57-62,65-69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "382f8ba6b4406e59da065f52dd5817099cf19dc7",
+  "prompts": {},
+  "humans": {
+    "h_257b3b6b5da395": {
+      "author": "kongbx <kongbingxin@huawei.com>"
+    }
+  },
+  "sessions": {
+    "s_38e13843a7808a": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a13841-c35a-71c3-ae91-299b18a8546b",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "kongbx <kongbingxin@huawei.com>"
+    },
+    "s_f2a775f049b001": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1336b-048a-77b3-aa72-e9550d442e45",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "kongbx <kongbingxin@huawei.com>"
+    }
+  }
+}
