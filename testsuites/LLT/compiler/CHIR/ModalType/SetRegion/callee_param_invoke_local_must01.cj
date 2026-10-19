@@ -13,10 +13,11 @@
 // ASSERT: scan-1 EndRegion()
 // ASSERT: scan Invoke(
 
-// Instance virtual call (`Invoke`): GetRawCallee takes the DynamicDispatch branch.
-// Abstract/open methods cannot carry optional params, so this uses `C@local!`
-// (rule 2b via IsMustLocalRegion). The local ctor Apply in the same body also
-// needs a region; the Invoke line is what guards the dispatch path.
+// Instance virtual call (`Invoke`): callee is resolved through DynamicDispatch.
+// Abstract/open methods cannot carry optional params, so this uses a
+// non-copyable `C@local!` formal — `caller` needs StartRegion for that Invoke.
+// The same body also constructs `C()` (exclave init `this @local!`), which
+// likewise requires a region; the Invoke line is what guards the dispatch path.
 class C {
     init() {
         x = 3
