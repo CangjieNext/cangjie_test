@@ -10,6 +10,8 @@
 
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 
+// ASSERT: scan sema_numeric_convert_must_be_numeric
+
 type word = UInt16
 
 main() {
