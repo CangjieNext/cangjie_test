@@ -13,9 +13,9 @@
 // ASSERT: scan-1 EndRegion()
 // ASSERT: scan InvokeStatic(
 
-// Static dynamic dispatch (`InvokeStatic`): GetRawCallee still goes through
-// DynamicDispatch. `I.call` invokes abstract `I.use` with a `C@local!` arg so
-// rule 2b applies at the call site inside `call`.
+// Static dynamic dispatch (`InvokeStatic`): callee is still resolved through
+// DynamicDispatch. `I.call` invokes abstract `I.use` with a non-copyable
+// `C@local!` arg, so the call site inside `call` needs StartRegion.
 class C {
     init() {
         x = 3
