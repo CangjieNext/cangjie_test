@@ -13,8 +13,10 @@
 // ASSERT: scan-not StartRegion()
 // ASSERT: scan-not EndRegion()
 
-// Virtual `Invoke` whose callee param is `C@local?` without a default: rule 2b
-// must not open a region in `caller` (passing an existing value is enough).
+// Virtual `Invoke` whose callee param is `C@local?` without a default.
+// Passing an existing value must not open StartRegion in `caller` — only
+// `local!`, or `local?` with a default-value function, forces a region via
+// the callee-param check.
 class C {
     init() {
         x = 3

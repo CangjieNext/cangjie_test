@@ -12,8 +12,9 @@
 // ASSERT: scan-not StartRegion()
 // ASSERT: scan-not EndRegion()
 
-// Callee param is `C@local?` but has no default. Passing an existing value must not
-// force a region on the caller (`foo`) under the tightened callee-param rule.
+// Callee param is `C@local?` but has no default. Passing an existing value must
+// not open StartRegion in `foo` — only `local!`, or `local?` with a
+// default-value function, forces a region via the callee-param check.
 class C {
     init() {
         x = 3
