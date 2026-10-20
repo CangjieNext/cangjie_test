@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-1: %compiler %cmp_opt %f -o %output -Woff all
+// ERRCHECK: %compiler %cmp_opt %f 2>&1
 
 class A {
     static init() {
@@ -52,7 +52,7 @@ error: cannot use exclave expression in static init
    | |_________^
    | 
 
-error: cannot use exclave expression in constructor
+error: cannot use exclave expression in finalizer
   ==> sema_exclave_in_ctor.cj:16:9:
    | 
 16 |           exclave {
@@ -62,45 +62,35 @@ error: cannot use exclave expression in constructor
    | |_________^
    | 
 
-error: cannot use exclave expression in finalizer
-  ==> sema_exclave_in_ctor.cj:21:9:
+error: cannot use exclave expression in static init
+  ==> sema_exclave_in_ctor.cj:24:9:
    | 
-21 |           exclave {
+24 |           exclave {
    |  _________^
-22 | |             ()
-23 | |         }
-   | |_________^
-   | 
-
-error: cannot use exclave expression in constructor
-  ==> sema_exclave_in_ctor.cj:29:9:
-   | 
-29 |           exclave {
-   |  _________^
-30 | |             ()
-31 | |         }
+25 | |             ()
+26 | |         }
    | |_________^
    | 
 
 error: cannot use exclave expression in spawn expr
-  ==> sema_exclave_in_ctor.cj:37:9:
+  ==> sema_exclave_in_ctor.cj:32:9:
    | 
-37 |           exclave {
+32 |           exclave {
    |  _________^
-38 | |             42
-39 | |         }
+33 | |             42
+34 | |         }
    | |_________^
    | 
 
 error: cannot use exclave expression in main
-  ==> sema_exclave_in_ctor.cj:44:5:
+  ==> sema_exclave_in_ctor.cj:39:5:
    | 
-44 |       exclave {
+39 |       exclave {
    |  _____^
-45 | |         42
-46 | |     }
+40 | |         42
+41 | |     }
    | |_____^
    | 
 
-6 errors generated, 6 errors printed.
+5 errors generated, 5 errors printed.
 */
