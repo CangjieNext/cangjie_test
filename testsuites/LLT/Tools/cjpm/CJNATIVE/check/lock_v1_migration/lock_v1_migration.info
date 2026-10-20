@@ -1,0 +1,42 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+
+// Build the Cangjie verifier and compute real artifact checksums for the cached registry fixtures.
+// EXEC: cd %n && %compiler verify_lock.cj -o verify_lock
+// EXEC: cd %n && find cache/repository/index -type f -exec sed -i '/^#/d; /^[[:space:]]*$/d' {} +
+// EXEC: cd %n && tar -czf adapter.cjp -C cache/repository/source/default adapter-1.0.0 && sha256sum adapter.cjp | cut -d ' ' -f 1 > adapter.sha256
+// EXEC: cd %n && tar -czf mock.cjp -C cache/repository/source/default mock-1.0.0 && sha256sum mock.cjp | cut -d ' ' -f 1 > mock.sha256
+// EXEC: cd %n && tar -czf core.cjp -C cache/repository/source/org core-1.0.0 && sha256sum core.cjp | cut -d ' ' -f 1 > core.sha256
+// EXEC: cd %n && sed -i "s/CHECKSUM/$(cat adapter.sha256)/g" cache/repository/index/default/ad/ap/adapter && sed -i "s/CHECKSUM/$(cat mock.sha256)/g" cache/repository/index/default/mo/ck/mock && sed -i "s/CHECKSUM/$(cat core.sha256)/g" cache/repository/index/org/co/re/core
+
+// Pin the initial Git commit in v0, then advance the branch to a newer version.
+// EXEC: cd %n/remote && git init -q && git checkout -qb main && git add . && git -c user.name=Fixture -c user.email=fixture@example.invalid -c commit.gpgsign=false commit -qm initial
+// EXEC: cd %n && git -C remote rev-parse HEAD > locked.commit && (cd remote && pwd -P) > remote.url && sed -i "s|REMOTE_URL|$(cat remote.url)|g; s/LOCK_COMMIT/$(cat locked.commit)/g" project/cjpm.toml project/cjpm.lock && cp project/cjpm.lock original-v0.lock
+// EXEC: cd %n/remote && sed -i 's/^version = "1.0.0"/version = "1.1.0"/' cjpm.toml && git add . && git -c user.name=Fixture -c user.email=fixture@example.invalid -c commit.gpgsign=false commit -qm newer
+
+// Exact lock comparison checks version pins, sources, checksums, full names, sorted/deduplicated edges and empty arrays.
+// EXEC: cd %n/project && %cjpm check
+// EXEC: cd %n && ./verify_lock migration > result.log && cp project/cjpm.lock first-v1.lock
+// EXEC: cd %n/project && %cjpm check
+// EXEC: cd %n && cmp project/cjpm.lock first-v1.lock && echo 'lock-v1 repeated read and write: passed' >> result.log
+
+// Normal resolution must omit test-only modules and edges.
+// EXEC: cd %n/project && %cjpm check --no-tests
+// EXEC: cd %n && ./verify_lock normal >> result.log
+
+// A v0 Git dependency without a branch must migrate to a commit-only source.
+// EXEC: cd %n && cp original-v0.lock project/cjpm.lock && sed -i 's/, branch = "main"//g' project/cjpm.lock && sed -i "s/branch = \"main\"/commitId = \"$(cat locked.commit)\"/" project/cjpm.toml
+// EXEC: cd %n/project && %cjpm check
+// EXEC: cd %n && ./verify_lock commit >> result.log && cp project/cjpm.lock commit-v1.lock
+// EXEC: cd %n/project && %cjpm check
+// EXEC: cd %n && cmp project/cjpm.lock commit-v1.lock && cat result.log | compare %f
+// ASSERT: scan lock-v1 migration: passed
+// ASSERT: scan lock-v1 repeated read and write: passed
+// ASSERT: scan lock-v1 normal: passed
+// ASSERT: scan lock-v1 commit: passed
