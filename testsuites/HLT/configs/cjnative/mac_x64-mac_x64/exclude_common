@@ -82,3 +82,5 @@ API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
 # MacOS does not support reflection currently.
 API/std/reflect
 
+# AOP issues https://gitcode.com/Cangjie/cangjie_stdx/issues/396
+API/stdx/aspect_cj/
