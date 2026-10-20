@@ -1,0 +1,10 @@
+An exception has occurred:
+IllegalStateException: worker boom
+	 at default::main::lambda.5()(/home/chaos/Work/gitcode/fork/specula-fix/std-cr-23/work/stdbuild/llt_baseline/test_future_get_oversized_timeout.cj:142)
+T1 FAIL: ArithmeticException leaked: ArithmeticException: The duration in nanosecond exceeds the range of 'Int64'.
+T2 PASS: get(exactly Int64.Max ns) returned 22
+T3 FAIL: ArithmeticException leaked: ArithmeticException: The duration in nanosecond exceeds the range of 'Int64'.
+T4 PASS: TimeoutException still thrown for short timeout
+T5 PASS: get(Duration.Max) on completed future returned 55
+T6 PASS: worker exception propagated through get(Duration.Max)
+TOTAL: 2 failure(s)
