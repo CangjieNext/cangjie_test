@@ -53,7 +53,7 @@ func nested(a: Int @local!): Unit {
 main() {}
 
 /* SCAN
-error: cannot use exclave expression in try block
+error: cannot use exclave expression in try-catch
   ==> exclave_in_try_catch_handle.cj:13:9:
    | 
 13 |           exclave {
@@ -63,7 +63,7 @@ error: cannot use exclave expression in try block
    | |_________^
    | 
 
-error: cannot use exclave expression in catch block
+error: cannot use exclave expression in try-catch
   ==> exclave_in_try_catch_handle.cj:25:9:
    | 
 25 |           exclave {
@@ -73,7 +73,7 @@ error: cannot use exclave expression in catch block
    | |_________^
    | 
 
-error: cannot use exclave expression in handle block
+error: cannot use exclave expression in try-handle
   ==> exclave_in_try_catch_handle.cj:35:9:
    | 
 35 |           exclave {
@@ -83,7 +83,7 @@ error: cannot use exclave expression in handle block
    | |_________^
    | 
 
-error: cannot use exclave expression in try block
+error: cannot use exclave expression in try-catch
   ==> exclave_in_try_catch_handle.cj:43:9:
    | 
 43 |           exclave {
