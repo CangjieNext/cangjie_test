@@ -50,10 +50,24 @@ func nested(a: Int @local!): Unit {
     }
 }
 
+func nestedCatch(a: Int @local!): Unit {
+    try { () } catch (_) {
+        try { () } catch (_) { () }
+        exclave { () }
+    }
+}
+
+func nestedHandle(a: Int @local!): Unit {
+    try { () } handle (_: Command<Unit>) {
+        try { () } handle (_: Command<Unit>) { () }
+        exclave { () }
+    }
+}
+
 main() {}
 
 /* SCAN
-error: cannot use exclave expression in try block
+error: cannot use exclave expression in try-catch
   ==> exclave_in_try_catch_handle.cj:13:9:
    | 
 13 |           exclave {
@@ -63,7 +77,7 @@ error: cannot use exclave expression in try block
    | |_________^
    | 
 
-error: cannot use exclave expression in catch block
+error: cannot use exclave expression in try-catch
   ==> exclave_in_try_catch_handle.cj:25:9:
    | 
 25 |           exclave {
@@ -73,7 +87,7 @@ error: cannot use exclave expression in catch block
    | |_________^
    | 
 
-error: cannot use exclave expression in handle block
+error: cannot use exclave expression in try-handle
   ==> exclave_in_try_catch_handle.cj:35:9:
    | 
 35 |           exclave {
@@ -83,7 +97,7 @@ error: cannot use exclave expression in handle block
    | |_________^
    | 
 
-error: cannot use exclave expression in try block
+error: cannot use exclave expression in try-catch
   ==> exclave_in_try_catch_handle.cj:43:9:
    | 
 43 |           exclave {
@@ -108,5 +122,19 @@ error: exclave cannot be nested
    | |__________~
    | 
 
-5 errors generated, 5 errors printed.
+error: cannot use exclave expression in try-catch
+  ==> exclave_in_try_catch_handle.cj:56:9:
+   | 
+56 |         exclave { () }
+   |         ^^^^^^^^^^^^^^ 
+   | 
+
+error: cannot use exclave expression in try-handle
+  ==> exclave_in_try_catch_handle.cj:63:9:
+   | 
+63 |         exclave { () }
+   |         ^^^^^^^^^^^^^^ 
+   | 
+
+7 errors generated, 7 errors printed.
 */
