@@ -1,0 +1,19 @@
+testsuites/LLT/compiler/CodegenCJNative/stable_abi/memory_layout/VArray.cj
+  s_aa84f6f777ffb9::t_147ebb62decfa4 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "451d8b9224dda42b0c617764a87c590b328c80d9",
+  "prompts": {},
+  "sessions": {
+    "s_aa84f6f777ffb9": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a13d39-6daa-75d1-8ac3-e2f0175e29db",
+        "model": "k3-256k"
+      },
+      "human_author": "yanjs <yejiasheng3@huawei.com>"
+    }
+  }
+}
