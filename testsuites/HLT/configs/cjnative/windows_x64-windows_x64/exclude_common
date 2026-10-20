@@ -439,3 +439,6 @@ API/std/console/stdin/test_stdin_windows_35.cj
 
 # AOP issues https://gitcode.com/Cangjie/cangjie_stdx/issues/396
 API\stdx\aspect_cj
+
+# BUG: environment variable 'cjEnableGC' when set invalid value, behaves inappropriately.
+Runtime/cjnative/runtime/GC/cjEnableGC

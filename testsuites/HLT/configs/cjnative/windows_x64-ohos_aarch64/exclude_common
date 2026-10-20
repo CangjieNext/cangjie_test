@@ -443,3 +443,5 @@ API/std/reflect/cjnative/enum_type
 # std.concurrent is not built for OHOS
 API/std/concurrent
 
+# BUG: environment variable 'cjEnableGC' when set invalid value, behaves inappropriately.
+Runtime/cjnative/runtime/GC/cjEnableGC

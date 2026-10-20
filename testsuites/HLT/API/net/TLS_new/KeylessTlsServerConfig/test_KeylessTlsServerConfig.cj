@@ -37,14 +37,14 @@ foreign func CJ_TLS_MockSign(
     written: CPointer<Int64>
 ): CPointer<Byte>
 
-foreign func der_blob_to_pkey(der: CPointer<UInt8>, der_len: Int64): CPointer<Unit>
+foreign func der_blob_to_pkey(der: CPointer<UInt8>, der_len: UIntNative): CPointer<Unit>
 
 private func obtainMockPkey(keyPath: String): CPointer<Unit> {
     let keyText = readTextFromFile(keyPath)
     let der: Array<Byte> = GeneralPrivateKey.decodeFromPem(keyText).encodeToDer().body
     unsafe {
         let derHandle = acquireArrayRawData(der)
-        let pk = der_blob_to_pkey(derHandle.pointer, der.size)
+        let pk = der_blob_to_pkey(derHandle.pointer, UIntNative(der.size))
         releaseArrayRawData(derHandle)
         return pk
     }

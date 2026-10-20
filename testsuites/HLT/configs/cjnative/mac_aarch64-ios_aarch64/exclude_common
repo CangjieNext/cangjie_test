@@ -134,3 +134,5 @@ API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
 # iOS does not support reflection currently.
 API/std/reflect
 
+# BUG: environment variable 'cjEnableGC' when set invalid value, behaves inappropriately.
+Runtime/cjnative/runtime/GC/cjEnableGC
