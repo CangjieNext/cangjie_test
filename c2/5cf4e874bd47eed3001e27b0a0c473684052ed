@@ -1,0 +1,19 @@
+testsuites/LLT/API/std/libast/darwin/test_ast_static_link_darwin.cj
+  s_127103cc490cc7::t_1b4fa59f34ba89 1-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c25cf4e874bd47eed3001e27b0a0c473684052ed",
+  "prompts": {},
+  "sessions": {
+    "s_127103cc490cc7": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ebd8168eaffeBJS0CWjgsW8q5s",
+        "model": "GLM-5.3-Flash"
+      },
+      "human_author": "jinbohang <jinbohang1@huawei.com>"
+    }
+  }
+}
