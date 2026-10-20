@@ -1,0 +1,8 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+{"organization": "", "name": "adapter", "version": "1.0.0", "dependencies": [{"name": "org::core", "require": "1.0.0", "target": null, "type": null, "output-type": null}], "sha256sum": "CHECKSUM", "yanked": false, "test-dependencies": [{"name": "org::core", "require": "1.0.0", "target": null, "type": null, "output-type": null}, {"name": "mock", "require": "1.0.0", "target": null, "type": null, "output-type": null}], "script-dependencies": [], "cjc-version": "1.0.0", "index-version": 1}
+{"organization": "", "name": "adapter", "version": "1.1.0", "dependencies": [{"name": "org::core", "require": "1.0.0", "target": null, "type": null, "output-type": null}], "sha256sum": "CHECKSUM", "yanked": false, "test-dependencies": [{"name": "org::core", "require": "1.0.0", "target": null, "type": null, "output-type": null}, {"name": "mock", "require": "1.0.0", "target": null, "type": null, "output-type": null}], "script-dependencies": [], "cjc-version": "1.0.0", "index-version": 1}
