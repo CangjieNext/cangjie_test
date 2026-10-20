@@ -43,9 +43,6 @@ compiler/cjnative/Packages/org_name/package_decl/no_package_name_2.cj
 # modal type
 # interface impl issue 1134
 compiler/cjnative/TypesAndVariables/immutable/immutable_range_02.cj
-# lambda infer
-compiler/cjnative/Expressions/OptionChaining/positive/PostfixAndPostfix/member_closure_01.cj
-compiler/cjnative/TypesAndVariables/CompositeType/NewEnum/Option/004/enum_option_40006.cj
 
 # https://gitcode.com/Cangjie/cangjie_test/issues/315
 compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj

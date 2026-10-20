@@ -4,7 +4,11 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-1: %compiler %cmp_opt %f -o %output -Woff all
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output -Woff all 2>&1 | compare %f
+
+class C {
+    init() {}
+}
 
 class A {
     static init() {
@@ -27,6 +31,17 @@ struct F {
     }
 }
 
+class G {
+    static init() {
+        // A lambda is a frame: its signature allows exclave, no "in static init" here.
+        let ok: (C @local!) -> Unit = { x => exclave { () } }
+    }
+    ~init() {
+        // Ill-signed lambda reports its signature error, not "in finalizer".
+        let bad: (Int64) -> Unit = { x => exclave { () } }
+    }
+}
+
 func foo() {
     spawn {
         exclave {
@@ -35,7 +50,21 @@ func foo() {
     }
 }
 
+func spawnLambda() {
+    spawn {
+        // The spawn's task lambda frame is skipped, so this still reports the spawn.
+        let f: (C @local!) -> Unit = { x => exclave { () } }
+    }
+}
+
 main(): Int64 {
+    // Nested func and lambda frames stop the forbidden-context search;
+    // whether exclave is allowed depends on their own signatures.
+    func nested(x: C @local!) {
+        exclave { () }
+    }
+    let ok: (C @local!) -> Unit = { x => exclave { () } }
+    let bad: (Int64) -> Unit = { x => exclave { () } }
     exclave {
         42
     }
@@ -43,64 +72,68 @@ main(): Int64 {
 
 /* SCAN
 error: cannot use exclave expression in static init
-  ==> sema_exclave_in_ctor.cj:11:9:
+  ==> sema_exclave_in_ctor.cj:15:9:
    | 
-11 |           exclave {
+15 |           exclave {
    |  _________^
-12 | |             ()
-13 | |         }
-   | |_________^
-   | 
-
-error: cannot use exclave expression in constructor
-  ==> sema_exclave_in_ctor.cj:16:9:
-   | 
-16 |           exclave {
-   |  _________^
-17 | |             ()
-18 | |         }
+16 | |             ()
+17 | |         }
    | |_________^
    | 
 
 error: cannot use exclave expression in finalizer
-  ==> sema_exclave_in_ctor.cj:21:9:
+  ==> sema_exclave_in_ctor.cj:20:9:
    | 
-21 |           exclave {
+20 |           exclave {
    |  _________^
-22 | |             ()
-23 | |         }
+21 | |             ()
+22 | |         }
    | |_________^
    | 
 
-error: cannot use exclave expression in constructor
-  ==> sema_exclave_in_ctor.cj:29:9:
+error: cannot use exclave expression in static init
+  ==> sema_exclave_in_ctor.cj:28:9:
    | 
-29 |           exclave {
+28 |           exclave {
    |  _________^
-30 | |             ()
-31 | |         }
+29 | |             ()
+30 | |         }
    | |_________^
+   | 
+
+error: exclave must be used in function with @local! non copy param or @local!/@local? non copy return type
+  ==> sema_exclave_in_ctor.cj:41:43:
+   | 
+41 |         let bad: (Int64) -> Unit = { x => exclave { () } }
+   |                                           ^^^^^^^^^^^^^^ 
    | 
 
 error: cannot use exclave expression in spawn expr
-  ==> sema_exclave_in_ctor.cj:37:9:
+  ==> sema_exclave_in_ctor.cj:47:9:
    | 
-37 |           exclave {
+47 |           exclave {
    |  _________^
-38 | |             42
-39 | |         }
+48 | |             42
+49 | |         }
    | |_________^
    | 
 
-error: cannot use exclave expression in main
-  ==> sema_exclave_in_ctor.cj:44:5:
+error: exclave must be used in function with @local! non copy param or @local!/@local? non copy return type
+  ==> sema_exclave_in_ctor.cj:67:39:
    | 
-44 |       exclave {
+67 |     let bad: (Int64) -> Unit = { x => exclave { () } }
+   |                                       ^^^^^^^^^^^^^^ 
+   | 
+
+error: cannot use exclave expression in main
+  ==> sema_exclave_in_ctor.cj:68:5:
+   | 
+68 |       exclave {
    |  _____^
-45 | |         42
-46 | |     }
+69 | |         42
+70 | |     }
    | |_____^
    | 
 
-6 errors generated, 6 errors printed.
+7 errors generated, 7 errors printed.
 */
