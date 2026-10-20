@@ -21,4 +21,5 @@ main():Int64{
     return 1
 }
 // ASSERT: scan parse_expected_name
-// ASSERT: scan parse_expected_character
+// ASSERT: scan parse_expected_name
+// ASSERT: scan parse_expected_name
