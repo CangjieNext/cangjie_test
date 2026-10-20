@@ -8,7 +8,7 @@
 
 import stdx.effect.Command
 
-func foo(a: Int @local!): Unit {
+func foo(a: Int): Unit {
     try {
         exclave {
             ()
@@ -18,7 +18,7 @@ func foo(a: Int @local!): Unit {
     }
 }
 
-func bar(a: Int @local!): Unit {
+func bar(a: Int): Unit {
     try {
         ()
     } catch (_) {
@@ -28,7 +28,7 @@ func bar(a: Int @local!): Unit {
     }
 }
 
-func baz(a: Int @local!): Unit {
+func baz(a: Int): Unit {
     try {
         ()
     } handle (_: Command<Unit>) {
@@ -38,7 +38,7 @@ func baz(a: Int @local!): Unit {
     }
 }
 
-func nested(a: Int @local!): Unit {
+func nested(a: Int): Unit {
     try {
         exclave {
             exclave {

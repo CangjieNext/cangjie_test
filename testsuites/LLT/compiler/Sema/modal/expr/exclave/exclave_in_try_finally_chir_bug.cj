@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %f
 
-exclave func finallyExclave(_: Int @local!): String @local? {
+exclave func finallyExclave(_: Int): String @local? {
     try {
         "ok"
     } catch (_) {
