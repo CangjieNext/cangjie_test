@@ -1,0 +1,112 @@
+testsuites/LLT/compiler/Sema/modal/perf/perf.sh
+  s_8b6b83e00d7947::t_534273659b787f 14-15
+  h_7fa24ec5a32f2d 1-13
+  s_d59527cea7c8b8::t_96220ab7e3d405 16-46
+testsuites/LLT/compiler/Sema/modal/perf/json.cj
+  s_07cb476b4dd19d::t_f3094f04a3d845 157
+  s_07cb476b4dd19d::t_fdbd5dd7853af5 154
+  h_7fa24ec5a32f2d 146-152,172,178
+  s_8b6b83e00d7947::t_874abe02106fe6 155-156,158-159,161-162,165-166
+testsuites/LLT/compiler/Sema/modal/runtime/array_local_half.cj
+  h_7fa24ec5a32f2d 1-20
+testsuites/LLT/compiler/Sema/modal/runtime/local_array.cj
+  h_7fa24ec5a32f2d 1-23
+testsuites/LLT/compiler/CHIR/ModalType/iscopyable_extend_cstruct_cast.cj
+  s_5330702bd29018::t_56a07940351c41 29-30
+  s_5330702bd29018::t_bb161a379cf0cf 31-32
+  s_5330702bd29018::t_280ba4f4c4c80f 1-28,33
+testsuites/LLT/compiler/CHIR/ModalType/hashcode_local_no_demode.cj
+  h_7fa24ec5a32f2d 7
+  s_5330702bd29018::t_5bdc2ce5b01815 1-6,8,19,21,24-26,29-31,36
+  s_5330702bd29018::t_eaec29738737bd 9-18,20,22-23,27-28,32-35
+testsuites/LLT/compiler/CHIR/ModalType/tuple_unit_elem_local.cj
+  s_5330702bd29018::t_2042cb6bb62d80 16-19
+  s_5330702bd29018::t_fd6cd7978ce712 1-15,20-29
+testsuites/LLT/compiler/Sema/modal/types/copy/generic_copyable_demode_good.cj
+  s_68eb9885f36f03::t_33564d15dcff7b 1-28
+testsuites/LLT/compiler/CHIR/ModalType/unit_arg_local_literal.cj
+  s_5330702bd29018::t_26c6d4868f340f 1-25
+testsuites/LLT/compiler/Sema/modal/perf/.gitignore
+  h_7fa24ec5a32f2d 9-11
+testsuites/LLT/compiler/Sema/modal/runtime/option_match_local_class.cj
+  s_b4748a4accc407::t_184087743295e1 1-32,34-40
+  s_b4748a4accc407::t_fdab17d52b1205 33
+testsuites/LLT/compiler/Sema/modal/perf/json-old.cj
+  h_7fa24ec5a32f2d 143,145,147,150
+testsuites/LLT/compiler/Sema/modal/runtime/option_generic_iface_local.cj
+  s_b4748a4accc407::t_200f0ef63ce989 1-33
+testsuites/LLT/compiler/CHIR/ModalType/exclave_interp_local_return.cj
+  s_79dd6c8d8c88ee::t_23058bd03f4e23 1-13
+testsuites/LLT/compiler/Sema/modal/expr/coalescing/good.cj
+  s_68eb9885f36f03::t_23017263d50dde 24-27,33
+  s_5330702bd29018::t_3ac51a254f6e41 16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ca6856b927d6f60f110eb37667c1e3d679d8e482",
+  "prompts": {},
+  "humans": {
+    "h_7fa24ec5a32f2d": {
+      "author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    }
+  },
+  "sessions": {
+    "s_07cb476b4dd19d": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "dafa578c-4f99-4730-a548-17fc3e71d033",
+        "model": "default"
+      },
+      "human_author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    },
+    "s_5330702bd29018": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "ecfd91c7-54f6-472e-b9be-b4fa346bde7f",
+        "model": "default"
+      },
+      "human_author": null
+    },
+    "s_68eb9885f36f03": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "cb75881d-813d-4a43-8581-0fce58b08376",
+        "model": "default"
+      },
+      "human_author": null
+    },
+    "s_79dd6c8d8c88ee": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "42a994b6-2e71-4f0d-a714-3e5f97d01768",
+        "model": "default"
+      },
+      "human_author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    },
+    "s_8b6b83e00d7947": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "61c86273-1290-44ec-af62-21228c784fbd",
+        "model": "default"
+      },
+      "human_author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    },
+    "s_b4748a4accc407": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e2f6674d-8c8a-41d1-b1ef-076409be6d16",
+        "model": "default"
+      },
+      "human_author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    },
+    "s_d59527cea7c8b8": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6567d052-893d-4013-8c43-717f4e297515",
+        "model": "default"
+      },
+      "human_author": null
+    }
+  }
+}
