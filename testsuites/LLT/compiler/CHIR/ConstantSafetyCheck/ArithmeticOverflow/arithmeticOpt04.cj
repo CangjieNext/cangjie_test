@@ -21,14 +21,14 @@ main() {}
 
 /* SCAN
 error: divide by zero
- ==> divByZero02.cj:8:12:
+ ==> arithmeticOpt04.cj:8:12:
   | 
 8 |    var c = 2 / (a - 1)
   |            ^^^^^^^^^^^ attempt to divide by zero
   | 
 
 error: divide by zero
-  ==> divByZero02.cj:16:12:
+  ==> arithmeticOpt04.cj:16:12:
    | 
 16 |    var c = 2 / (a - 1)
    |            ^^^^^^^^^^^ attempt to divide by zero
