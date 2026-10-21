@@ -1,0 +1,22 @@
+testsuites/LLT/API/std/libast/exprs/if_expr/test_exception_001.cj
+  h_6a43e5c473a09a 11
+testsuites/LLT/API/std/libast/decls/funcparam/test_exception_001.cj
+  h_6a43e5c473a09a 52
+testsuites/LLT/API/std/libast/exprs/match_expr/test_exception_004.cj
+  h_6a43e5c473a09a 11
+testsuites/LLT/API/std/libast/exprs/return_expr/test_exception_001.cj
+  h_6a43e5c473a09a 88
+testsuites/LLT/API/std/libast/exprs/match_expr/test_exception_003.cj
+  h_6a43e5c473a09a 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "cff556c4f1b0609c27f5229a0e6ffb42d0177c24",
+  "prompts": {},
+  "humans": {
+    "h_6a43e5c473a09a": {
+      "author": "Xu Zhaoheng <xuzhaoheng1@huawei.com>"
+    }
+  }
+}
