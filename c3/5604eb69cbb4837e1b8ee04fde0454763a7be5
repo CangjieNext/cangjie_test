@@ -1,0 +1,28 @@
+testsuites/LLT/Tools/cjfmt/test_cases/region_comments_2/formated/region_comments_2.cj
+  h_4d070aafa41132 15,17,20
+testsuites/HLT/Tools/cjfmt/cli/options/crlf_expect.cj
+  h_4d070aafa41132 5
+testsuites/HLT/Tools/cjfmt/cli/options/noend_expect.cj
+  h_4d070aafa41132 5
+testsuites/LLT/Tools/cjfmt/test_cases/Utf8Bom/formated/Utf8Bom.cj
+  h_4d070aafa41132 1,7-15
+  h_4d070aafa41132 2-6
+testsuites/LLT/Tools/cjfmt/test_cases/Utf8Bom/uilang/Utf8Bom.cj
+  h_4d070aafa41132 1,7-11
+  h_4d070aafa41132 2-6
+testsuites/LLT/Tools/cjfmt/test_cases/region_multiline_comments_2/formated/region_multiline_comments_2.cj
+  h_4d070aafa41132 14-15,17-18,21,23,61
+testsuites/LLT/Tools/cjfmt/test_cases/Utf8Bom/Utf8Bom.info
+  h_4d070aafa41132 1-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c35604eb69cbb4837e1b8ee04fde0454763a7be5",
+  "prompts": {},
+  "humans": {
+    "h_4d070aafa41132": {
+      "author": "Cangjie-SCH <sunchihao@h-partners.com>"
+    }
+  }
+}
