@@ -1,0 +1,19 @@
+testsuites/LLT/compiler/CHIR/MacroDiag/unused_function_2.cj
+  s_994e4339c69d1b::t_44f535f7647a76 25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8e7bdb8e7c5b84a97e7644307d3f9b94848a2683",
+  "prompts": {},
+  "sessions": {
+    "s_994e4339c69d1b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d0078850-d8e6-4b83-bb6e-518b9fdd8202",
+        "model": "GLM-5.3-Flash"
+      },
+      "human_author": "lixin <lixin656@huawei.com>"
+    }
+  }
+}
