@@ -1,0 +1,20 @@
+testsuites/LLT/API/std/net/ip_address_test.cj
+  s_7d6b7ce03cfc7a::t_337d3a32ed6665 56-64
+  s_7d6b7ce03cfc7a::t_cb223c0a101dd3 142-144
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "bd119b4cbf4d97e208ec42d87cfd4c27e3aa94fe",
+  "prompts": {},
+  "sessions": {
+    "s_7d6b7ce03cfc7a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fc8247b85ffeH1Oh4lJwbmrlP7",
+        "model": "Deepseek-V4-Flash-0731"
+      },
+      "human_author": "Chaos John <yujiahao8@huawei.com>"
+    }
+  }
+}
