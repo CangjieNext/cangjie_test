@@ -1,0 +1,34 @@
+testsuites/HLT/compiler/cjnative/MetaProgramming/Annotation/deprecated/deprecated_00040.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/compiler/cjnative/MetaProgramming/Macro/Invoke/invoke015/macro_invoke_15036.cj
+  h_6a43e5c473a09a 29-32
+testsuites/HLT/compiler/cjnative/MetaProgramming/Macro/Attribute/Invoke/010/macro_attri_invoke_01014.cj
+  h_6a43e5c473a09a 28
+testsuites/HLT/compiler/cjnative/MetaProgramming/Macro/Invoke/invoke015/macro_invoke_15034.cj
+  h_6a43e5c473a09a 29-32
+testsuites/HLT/compiler/cjnative/MetaProgramming/Macro/Attribute/Invoke/009/macro_attri_invoke_90009.cj
+  h_6a43e5c473a09a 23-24
+testsuites/HLT/compiler/cjnative/Function/Overload/Candidate/candidate002/function_overload_candidate_00206.cj
+  h_6a43e5c473a09a 24-25
+testsuites/HLT/compiler/cjnative/MetaProgramming/Macro/WithoutParens/function/002/macro_withoutparens_function_20009.cj
+  h_6a43e5c473a09a 25
+testsuites/HLT/compiler/cjnative/MetaProgramming/Macro/Invoke/invoke015/macro_invoke_15035.cj
+  h_6a43e5c473a09a 29-32
+testsuites/HLT/compiler/cjnative/MetaProgramming/Macro/Attribute/Invoke/010/macro_attri_invoke_01015.cj
+  h_6a43e5c473a09a 28
+testsuites/HLT/compiler/cjnative/MetaProgramming/Macro/Invoke/invoke015/macro_invoke_15033.cj
+  h_6a43e5c473a09a 30-33
+testsuites/HLT/compiler/cjnative/MetaProgramming/Macro/WithoutParens/function/001/macro_withoutparens_function_10057.cj
+  h_6a43e5c473a09a 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "d860a487bd842368304bfa7532812c9f0fedccf5",
+  "prompts": {},
+  "humans": {
+    "h_6a43e5c473a09a": {
+      "author": "Xu Zhaoheng <xuzhaoheng1@huawei.com>"
+    }
+  }
+}
