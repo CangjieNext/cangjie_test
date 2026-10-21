@@ -1,0 +1,25 @@
+testsuites/LLT/compiler/Sema/function/try_with_resource_generic_class_upper_bound.cj
+  s_482f90e573753f::t_ec023a6be98d85 1-42
+testsuites/LLT/compiler/Sema/function/try_with_resource_generic_multi_upper_bound.cj
+  s_482f90e573753f::t_865159deaccf67 1-42
+testsuites/LLT/compiler/Sema/function/try_with_resource_generic_upper_bound.cj
+  s_482f90e573753f::t_00bf34eb7117f1 1-44
+testsuites/LLT/compiler/Sema/function/try_with_resource_class_type_param.cj
+  s_482f90e573753f::t_867e2d9da4aa6a 1-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "51ae5043328240aa72e2b4519a5ec8d14c4cf9fd",
+  "prompts": {},
+  "sessions": {
+    "s_482f90e573753f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f12ae262-55a6-47df-8219-cc8037a4ee77",
+        "model": "DeepSeek-V4.1-Flash"
+      },
+      "human_author": "huohuixin <huohuixin@huawei.com>"
+    }
+  }
+}
