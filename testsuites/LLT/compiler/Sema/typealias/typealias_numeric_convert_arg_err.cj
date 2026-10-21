@@ -10,7 +10,7 @@
 
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 
-// ASSERT: scan sema_numeric_convert_must_be_numeric
+// ASSERT: scan the expression for numeric type conversion must have a numeric type
 
 type word = UInt16
 
