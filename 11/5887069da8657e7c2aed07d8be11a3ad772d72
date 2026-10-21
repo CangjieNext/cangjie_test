@@ -1,0 +1,561 @@
+testsuites/LLT/API/std/libast/decls/classdecl/test_error_001.cj
+  h_6a43e5c473a09a 12
+testsuites/LLT/compiler/Parser/ar/support_tuple_left_value/libast/negative/right_expression.cj
+  h_6a43e5c473a09a 6,10
+  h_6a43e5c473a09a 1-5
+testsuites/HLT/API/std/ast/API/Expr/Parse/027SpawnExpr/expr_parse_27004.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/031ClassDecl/expr_parse_31011.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/045LetPattern/expr_parser_04517n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/range_expr/test_exception_001.cj
+  h_6a43e5c473a09a 96-97,99-101,110,116
+testsuites/LLT/compiler/Macro/macroWithContext/SentInfo/nagetive_case1/call.cj
+  h_6a43e5c473a09a 10
+testsuites/LLT/API/std/libast/exprs/match_expr/test_exception_004.cj
+  h_6a43e5c473a09a 11-12
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25019.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/visitor_7003n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/trailing_closure_expr/test_exception_001.cj
+  h_6a43e5c473a09a 73-74,76-77,79-80
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/FuncType/func_type_003.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Parser/const/const_ast_func3.cj
+  h_6a43e5c473a09a 9
+  h_6a43e5c473a09a 1-5
+testsuites/LLT/compiler/Macro/feature/support_tuple_left_value/negative/unary/unary_nest_tuple_1.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/OptionType/expr_parse_40041.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/042MatchExpr/selector/expr_parse_42013.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/022WhileExpr/expr_parse_22004.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Parser/const/const_ast_variable5.cj
+  h_6a43e5c473a09a 6,9
+  h_6a43e5c473a09a 1-5
+testsuites/LLT/API/std/libast/exprs/array_litreral/test_exception_001.cj
+  h_6a43e5c473a09a 82-83,85-87,94,100
+testsuites/LLT/API/std/libast/exprs/if_expr/test_exception_001.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/API/std/ast/API/Expr/Parse/010IfExpr/expr_parse_010008.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/ThisType/this_type_001.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/022WhileExpr/expr_parse_22021.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/program/parse/test_exception_001.cj
+  h_6a43e5c473a09a 12
+testsuites/LLT/API/std/libast/program/parse/test_exception_005.cj
+  h_6a43e5c473a09a 12
+testsuites/HLT/API/std/ast/API/Expr/Parse/003/expr_parse_30010.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/macro_expand_expr/test_exception_001.cj
+  h_6a43e5c473a09a 124-125,127-128,130-131,133-134,140,146,158,164,167
+testsuites/LLT/API/std/libast/exprs/ref_expr/test_exception_001.cj
+  h_6a43e5c473a09a 73-74,84,87
+testsuites/HLT/API/std/ast/parse/parseDeclError.cj
+  h_6a43e5c473a09a 14
+testsuites/LLT/API/std/libast/decls/vardecl/test_error_001.cj
+  h_6a43e5c473a09a 12
+testsuites/HLT/API/std/ast/parse/parsePatternFragmentError_01.cj
+  h_6a43e5c473a09a 15
+testsuites/HLT/API/std/ast/API/Expr/Parse/032RecordDecl/expr_parse_32013.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Parser/ar/support_tuple_left_value/libast/negative/unary/unary_nest_tuple_1.cj
+  h_6a43e5c473a09a 6,10
+  h_6a43e5c473a09a 1-5
+testsuites/LLT/API/std/libast/exprs/performExpr/test_exception_001.cj
+  h_6a43e5c473a09a 70,78,80-81
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/optionalexpr_02n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/034TryExpr/expr_parse_34008.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/018VarDecl/expr_parse_18025.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/inout/inout_04.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/match_expr/test_exception_002.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/API/std/ast/API/Expr/Parse/041ExtendDecl/decl_parse_41016.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/parse/parseExprError_01.cj
+  h_6a43e5c473a09a 15
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/optionalexpr_08n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Parser/ar/support_tuple_left_value/libast/negative/unary/unary_nest_tuple_2.cj
+  h_6a43e5c473a09a 6,10
+  h_6a43e5c473a09a 1-5
+testsuites/LLT/API/std/libast/nodes/test_body_exception_001.cj
+  h_6a43e5c473a09a 51,53
+testsuites/HLT/API/std/ast/API/Expr/Parse/021AsExpr/expr_parse_21005.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/027SpawnExpr/expr_parse_27002.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/if_expr/test_exception_002.cj
+  h_6a43e5c473a09a 115-116,118-120,126,132,138,147
+testsuites/HLT/API/std/ast/parse/parsePatternError.cj
+  h_6a43e5c473a09a 14
+testsuites/LLT/API/std/libast/program/parse/test_exception_004.cj
+  h_6a43e5c473a09a 12
+testsuites/HLT/API/std/ast/API/Expr/Parse/019FuncDecl/expr_parse_19044.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Macro/feature/support_tuple_left_value/negative/unary/unary_nest_tuple_2.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25015.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/parse/parsePatternError_01.cj
+  h_6a43e5c473a09a 15
+testsuites/LLT/API/std/libast/parse/parseDecl_error_01.cj
+  h_6a43e5c473a09a 23
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25027.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/008/expr_parse_80011.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Parser/ar/support_tuple_left_value/libast/negative/left_tuple_literal.cj
+  h_6a43e5c473a09a 6,10
+  h_6a43e5c473a09a 1-5
+testsuites/LLT/API/std/libast/types/qualifiedtype/test_exception_001.cj
+  h_6a43e5c473a09a 64,68
+testsuites/LLT/API/std/libast/decls/funcparam/test_exception_001.cj
+  h_6a43e5c473a09a 10,52
+testsuites/HLT/API/std/ast/API/Expr/Parse/045LetPattern/expr_parser_04508n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/parse/parseExprFragmentError.cj
+  h_6a43e5c473a09a 14
+testsuites/LLT/API/std/libast/exprs/lit_const_expr/test_exception_001.cj
+  h_6a43e5c473a09a 42
+testsuites/LLT/API/std/libast/exprs/subscript_expr/test_exception_001.cj
+  h_6a43e5c473a09a 82-83,85-86,88-89,91-92,98,104
+testsuites/HLT/API/std/ast/DiagReport/DiagReport_05/macro_call.cj
+  h_6a43e5c473a09a 13
+testsuites/LLT/compiler/Macro/feature/support_tuple_left_value/negative/unary/unary_tuple_2.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/API/std/ast/parse/parseDeclFragmentError.cj
+  h_6a43e5c473a09a 14
+testsuites/HLT/API/std/ast/API/Expr/Parse/028SynchronizedExpr/expr_parse_28004.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/008/expr_parse_80003.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/016RangeExpr/expr_parse_16009.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/do_while_expr/test_exception_001.cj
+  h_6a43e5c473a09a 90-91,93-94,96-98,104,110,116,122
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/optionalexpr_01n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Macro/macroWithContext/enhances/setInfo/case7/define.cj
+  h_6a43e5c473a09a 26,32,38,44,50
+testsuites/LLT/compiler/Parser/others/quest.cj
+  h_6a43e5c473a09a 6,9
+  h_6a43e5c473a09a 1-5
+testsuites/HLT/API/std/ast/API/Expr/Parse/042MatchExpr/no_selector/expr_parse_42009.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/resumeExpr/test_exception_001.cj
+  h_6a43e5c473a09a 78,80-81
+testsuites/HLT/API/std/ast/parse/parseDeclFragmentError_01.cj
+  h_6a43e5c473a09a 15
+testsuites/LLT/API/std/libast/tokens/checkTokens/test_set_Block.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25024.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/037ForInExpr/expr_parse_37001.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/003/expr_parse_30015.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/quote_expr/test_exception_001.cj
+  h_6a43e5c473a09a 97-98,100-101,103-104,110,116,124
+testsuites/LLT/API/std/libast/exprs/synchronized_expr/test_exception_001.cj
+  h_6a43e5c473a09a 97-98,100-101,103-104,106-108,114,120,126
+testsuites/LLT/compiler/Parser/const/const_ast_func2.cj
+  h_6a43e5c473a09a 9
+  h_6a43e5c473a09a 1-5
+testsuites/LLT/compiler/Parser/ar/support_tuple_left_value/libast/negative/add_assign_right_tuple.cj
+  h_6a43e5c473a09a 6,10
+  h_6a43e5c473a09a 1-5
+testsuites/LLT/API/std/libast/types/parentype/test_exception_001.cj
+  h_6a43e5c473a09a 74,76,78
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/visitor_7001n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/throw_expr/test_exception_001.cj
+  h_6a43e5c473a09a 76,78-79
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/RefType/expr_parse_40009.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/diag_report/test_rang_exception.cj
+  h_6a43e5c473a09a 22
+testsuites/LLT/API/std/libast/parse/parseDecl_error_02.cj
+  h_6a43e5c473a09a 23
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25021.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/return_expr/test_exception_001.cj
+  h_6a43e5c473a09a 80-81,83-85,88,94
+testsuites/HLT/API/std/ast/API/Expr/Parse/014ArrayLit/expr_parse_014021.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/parse/parseProgram_error_01.cj
+  h_6a43e5c473a09a 22
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25026.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/IncrementalCompilation/DeclLevel/CompileArgs/cov.cj
+  h_6a43e5c473a09a 6,14
+  h_6a43e5c473a09a 1-5
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/ThisType/this_type_002.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/decls/vardecl/test_exception_001.cj
+  h_6a43e5c473a09a 10,32,44,56
+testsuites/HLT/API/std/ast/DiagReport/DiagReport_10/macro_call.cj
+  h_6a43e5c473a09a 13
+testsuites/HLT/API/std/ast/API/Expr/Parse/020IsExpr/expr_parse_20005.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/decls/extend_decl/test_exception_002.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25014.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/while_expr/test_exception_001.cj
+  h_6a43e5c473a09a 103-104,109-110,116,122,128
+testsuites/LLT/compiler/Parser/ar/support_tuple_left_value/libast/negative/unary/unary_tuple_1.cj
+  h_6a43e5c473a09a 6,10
+  h_6a43e5c473a09a 1-5
+testsuites/HLT/API/std/ast/API/Expr/Parse/031ClassDecl/expr_parse_32019.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/paren_expr/test_exception_001.cj
+  h_6a43e5c473a09a 92-93,95-97,106,109
+testsuites/HLT/API/std/ast/API/Expr/Parse/020IsExpr/expr_parse_20009.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/031ClassDecl/expr_parse_31006.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/tuple_literal/test_exception_001.cj
+  h_6a43e5c473a09a 86-87,92-93,100,106
+testsuites/HLT/API/std/ast/API/Expr/Parse/004/expr_parse_40012.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/002/expr_parse_20008.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25018.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25017.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/021AsExpr/expr_parse_21003.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/nodes/test_generic_constraint_exception_001.cj
+  h_6a43e5c473a09a 33
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25025.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/decls/funcdecl/test_exception_001.cj
+  h_6a43e5c473a09a 10,29
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25020.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/042MatchExpr/no_selector/expr_parse_42003.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/parse/parseExpr_error_01.cj
+  h_6a43e5c473a09a 21
+testsuites/LLT/API/std/libast/exprs/inc_or_dec_expr/test_exception_001.cj
+  h_6a43e5c473a09a 63-64,66-68
+testsuites/LLT/API/std/libast/types/reftype/test_exception_001.cj
+  h_6a43e5c473a09a 63,67
+testsuites/LLT/API/std/deriving/diagnostics-illegal-target.cj
+  h_6a43e5c473a09a 69,83,90
+testsuites/HLT/API/std/ast/API/Expr/Parse/028SynchronizedExpr/expr_parse_28002.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/041ExtendDecl/decl_parse_41004.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/nodes/test_package_header_exception_002.cj
+  h_6a43e5c473a09a 41-43
+testsuites/HLT/API/std/ast/API/Expr/Parse/021AsExpr/expr_parse_21009.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/044Main/expr_parse_04403.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/033InterfaceDecl/expr_parse_33006.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/optionalexpr_05n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/nodes/test_import_content_exception_001.cj
+  h_6a43e5c473a09a 40-42
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/RefType/expr_parse_40002.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/program/cangjieLex/test_lex_lambdaExpr_inMacro_005.cj
+  h_6a43e5c473a09a 11
+testsuites/LLT/API/std/libast/patterns/varorenumpattern/test_exception_001.cj
+  h_6a43e5c473a09a 37-38
+testsuites/HLT/API/std/ast/API/Expr/Parse/021AsExpr/expr_parse_21008.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/optional_expr/test_exception_001.cj
+  h_6a43e5c473a09a 68
+testsuites/LLT/API/std/libast/decls/primaryctordecl/test_exception_001.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/optionalexpr_09n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/016RangeExpr/expr_parse_16015.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Parser/ar/support_tuple_left_value/libast/negative/tuple_wildcard_single.cj
+  h_6a43e5c473a09a 6,10
+  h_6a43e5c473a09a 1-5
+testsuites/LLT/API/std/libast/exprs/let_pattern_expr/test_exception_001.cj
+  h_6a43e5c473a09a 88-89,91-93,99,108
+testsuites/HLT/API/std/ast/API/Expr/Parse/039VarWithPattern/expr_parse_39036.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/038TypeAliasDecl/expr_parse_38006.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/type_conv_expr/test_exception_001.cj
+  h_6a43e5c473a09a 91-92,97-98,104,110
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25022.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/017SubscriptExpr/expr_parse_17023.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/019FuncDecl/expr_parse_19019_01.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25005.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/types/functype/test_exception_001.cj
+  h_6a43e5c473a09a 74,80
+testsuites/HLT/API/std/ast/API/Expr/Parse/032RecordDecl/expr_parse_32006.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/unittest/options_validation/option_validator_scope.cj
+  h_6a43e5c473a09a 9
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25008.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/program/parse/test_exception_003.cj
+  h_6a43e5c473a09a 12
+testsuites/HLT/API/std/ast/parse/parseDeclError_01.cj
+  h_6a43e5c473a09a 15
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/optionalexpr_03n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/decls/funcdecl/test_error_001.cj
+  h_6a43e5c473a09a 12
+testsuites/HLT/API/std/ast/API/Expr/Parse/043Pattern/EnumPattern/enum_pattern_002.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/decls/funcdecl/test_error_002.cj
+  h_6a43e5c473a09a 12
+testsuites/LLT/API/std/libast/exprs/let_pattern_expr/enhanced_condition/test_dump_001.cj
+  h_6a43e5c473a09a 11
+testsuites/LLT/API/std/libast/tokens/checkTokens/test_set_Commas.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/API/std/ast/API/Expr/Parse/041ExtendDecl/decl_parse_41010.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/035ThrowExpr/expr_parse_35001.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/QualifiedType/expr_parse_40027.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Parser/ar/support_tuple_left_value/libast/negative/unary/unary_tuple_2.cj
+  h_6a43e5c473a09a 6,10
+  h_6a43e5c473a09a 1-5
+testsuites/HLT/API/std/ast/API/Expr/Parse/037ForInExpr/expr_parse_37031.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/045LetPattern/expr_parser_04516n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/program/parse/test_exception_002.cj
+  h_6a43e5c473a09a 12
+testsuites/HLT/API/std/ast/API/Expr/Tokens/tokens001/expr_settokens.cj
+  h_6a43e5c473a09a 189,199,209,219,229,239,260,270,291,310,329,348,358,368
+testsuites/HLT/API/std/ast/parse/parseProgramError_01.cj
+  h_6a43e5c473a09a 15
+testsuites/LLT/API/std/libast/exprs/lambda_expr/test_exception_001.cj
+  h_6a43e5c473a09a 101-102,104-105,107-108,114,120,126
+testsuites/LLT/API/std/libast/exprs/assign_expr/test_exception_001.cj
+  h_6a43e5c473a09a 66-67
+testsuites/LLT/API/std/libast/program/cangjieLex/test_lex_lambdaExpr_inMacro_002.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/API/std/ast/API/Expr/Parse/043Pattern/TypePattern/type_pattern_003.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Parser/ar/support_tuple_left_value/libast/negative/add_assign.cj
+  h_6a43e5c473a09a 6,10
+  h_6a43e5c473a09a 1-5
+testsuites/HLT/API/std/ast/API/Expr/Parse/033InterfaceDecl/expr_parse_33011.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/jump_expr/test_exception_002.cj
+  h_6a43e5c473a09a 38,40
+testsuites/LLT/API/std/libast/diag_report/test_fileid_exception.cj
+  h_6a43e5c473a09a 20
+testsuites/HLT/API/std/ast/API/Expr/Parse/019FuncDecl/expr_parse_19020.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/TupleType/tuple_type_005.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/patterns/wildcardPattern/test_exception_001.cj
+  h_6a43e5c473a09a 52-54
+testsuites/LLT/API/std/libast/tokens/checkTokens/test_set_Colon.cj
+  h_6a43e5c473a09a 11
+testsuites/LLT/API/std/libast/exprs/match_expr/test_exception_003.cj
+  h_6a43e5c473a09a 11-12
+testsuites/HLT/API/std/ast/API/Expr/Parse/031ClassDecl/expr_parse_32011.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/primitive_type_expr/test_exception_001.cj
+  h_6a43e5c473a09a 56-59
+testsuites/LLT/API/std/libast/parse/parseExpr_error_02.cj
+  h_6a43e5c473a09a 23
+testsuites/HLT/API/std/ast/API/Expr/Parse/003/expr_parse_30006.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/types/varraytype/test_exception_001.cj
+  h_6a43e5c473a09a 93,95,102
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/ParenType/expr_parse_40016.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/RefType/expr_parse_40003.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/039VarWithPattern/expr_parse_39012.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/parse/parseProgramError.cj
+  h_6a43e5c473a09a 14
+testsuites/LLT/compiler/Macro/feature/support_tuple_left_value/negative/unary/unary_tuple_1.cj
+  h_6a43e5c473a09a 11
+testsuites/LLT/API/std/libast/annotation/test_exception_002.cj
+  h_6a43e5c473a09a 43
+testsuites/HLT/API/std/ast/parse/parsePatternFragmentError.cj
+  h_6a43e5c473a09a 15
+testsuites/HLT/API/std/ast/API/Expr/Parse/031ClassDecl/expr_parse_32013.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/call_expr/test_exception_001.cj
+  h_6a43e5c473a09a 91-92,94-95,98-99,105,111
+testsuites/LLT/compiler/Macro/macroWithContext/enhances/setInfo/case7/call.cj
+  h_6a43e5c473a09a 1-6,19-23
+testsuites/LLT/API/std/libast/parse/parseExprFragment_error_02.cj
+  h_6a43e5c473a09a 23
+testsuites/HLT/API/std/ast/API/Expr/Parse/020IsExpr/expr_parse_20003.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/032RecordDecl/expr_parse_32019.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/035ThrowExpr/expr_parse_35025.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/034TryExpr/expr_parse_34023.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/optionalexpr_04n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25007.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25023.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/019FuncDecl/expr_parse_19038.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/varray_expr/test_exception_001.cj
+  h_6a43e5c473a09a 86-87,92-93,99,105
+testsuites/HLT/API/std/ast/API/Expr/Parse/047MacroDecl/expr_parser_04704n.cj
+  h_6a43e5c473a09a 23
+testsuites/HLT/API/std/ast/API/Expr/Parse/043Pattern/ExceptTypePattern/except_type_pattern_004.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/041ExtendDecl/decl_parse_41011.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/IncrementalCompilation/DeclLevel/issues/issue73/issue73/k.cj
+  h_6a43e5c473a09a 6,14
+  h_6a43e5c473a09a 1-5
+testsuites/HLT/API/std/ast/API/Expr/Parse/013ListLit/expr_parse_013021.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/visitor_7002n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/types/reftype/test_parse_004.cj
+  h_6a43e5c473a09a 11
+testsuites/LLT/API/std/libast/parse/parseExprFragment_error_01.cj
+  h_6a43e5c473a09a 21
+testsuites/LLT/API/std/libast/exprs/match_expr/test_exception_005.cj
+  h_6a43e5c473a09a 100-101,107,113,119,128,134
+testsuites/HLT/API/std/ast/API/Expr/Parse/023DoWhileExpr/expr_parse_23002.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/043Pattern/ExceptTypePattern/except_type_pattern_003.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/types/primitivetype/test_exception_001.cj
+  h_6a43e5c473a09a 39,48
+testsuites/LLT/API/std/libast/exprs/jump_expr/test_exception_001.cj
+  h_6a43e5c473a09a 67-68,70
+testsuites/HLT/API/std/ast/API/Expr/Parse/032RecordDecl/expr_parse_32011.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/003/expr_parse_30011.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/012TrailingClosureExpr/expr_parse_012006.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/optionalexpr_06n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/Token/Inits/003/token_init_30001.cj
+  h_6a43e5c473a09a 12
+testsuites/HLT/API/std/ast/API/Expr/Parse/023DoWhileExpr/expr_parse_23004.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/039VarWithPattern/expr_parse_39013.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/parse/parseExprFragmentError_01.cj
+  h_6a43e5c473a09a 15
+testsuites/LLT/API/std/libast/tokens/checkTokens/test_set_BitAnds.cj
+  h_6a43e5c473a09a 11
+testsuites/LLT/API/std/libast/exprs/try_expr/test_exception_001.cj
+  h_6a43e5c473a09a 150-151,153-154,162,168,172,174
+testsuites/LLT/API/std/libast/parse/parseExpr_error_03.cj
+  h_6a43e5c473a09a 20
+testsuites/LLT/API/std/libast/parse/parseDeclFragment_error_02.cj
+  h_6a43e5c473a09a 23
+testsuites/LLT/API/std/libast/tokens/pos/test_invalid_pos_error.cj
+  h_6a43e5c473a09a 11
+testsuites/LLT/API/std/libast/program/parse/test_parse_006.cj
+  h_6a43e5c473a09a 13
+testsuites/LLT/API/std/libast/exprs/spawn_expr/test_exception_001.cj
+  h_6a43e5c473a09a 121-122,128,134,140,149
+testsuites/LLT/API/std/libast/exprs/for_in_expr/test_exception_002.cj
+  h_6a43e5c473a09a 134-135,138-139,145,151,157,169
+testsuites/LLT/API/std/libast/exprs/wildcard_expr/test_exception_001.cj
+  h_6a43e5c473a09a 54-56
+testsuites/HLT/API/std/ast/API/Expr/Parse/022WhileExpr/expr_parse_22002.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Macro/module/test/call.cj
+  h_6a43e5c473a09a 11
+testsuites/HLT/API/std/ast/API/Expr/Parse/025IncOrDecExpr/expr_parse_25004.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/parse/parseExprError.cj
+  h_6a43e5c473a09a 14
+testsuites/HLT/API/std/ast/API/Expr/Parse/039VarWithPattern/expr_parse_39023.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/OptionType/expr_parse_40036.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Parser/const/const_ast_primaryctor4.cj
+  h_6a43e5c473a09a 6,9
+  h_6a43e5c473a09a 1-5
+testsuites/HLT/API/std/ast/API/Expr/Parse/031ClassDecl/expr_parse_32006.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/037ForInExpr/expr_parse_37008.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/nodes/test_annotation_exception_001.cj
+  h_6a43e5c473a09a 10,109,113
+testsuites/HLT/API/std/ast/API/Expr/Parse/011LambdaExpr/expr_parse_011025.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/optionalexpr_07n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/parse/parseDeclFragment_error_01.cj
+  h_6a43e5c473a09a 23
+testsuites/HLT/API/std/ast/API/Expr/Parse/040Type/QualifiedType/expr_parse_40034.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/019FuncDecl/expr_parse_19035.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/039VarWithPattern/expr_parse_39014.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Parser/const/const_ast_variable4.cj
+  h_6a43e5c473a09a 6,9
+  h_6a43e5c473a09a 1-5
+testsuites/HLT/API/std/ast/API/Expr/Parse/023DoWhileExpr/expr_parse_23021.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/043Pattern/TuplePattern/tuple_pattern_002.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/exprs/is_expr/test_exception_001.cj
+  h_6a43e5c473a09a 49-50,56
+testsuites/HLT/API/std/ast/API/Expr/Parse/046OptionalChainExpr/optionalexpr/visitor_7004n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/API/std/libast/nodes/test_generic_param_exception_001.cj
+  h_6a43e5c473a09a 75,77
+testsuites/LLT/API/std/libast/exprs/member_access/test_exception_001.cj
+  h_6a43e5c473a09a 109-110,112-114,120,126,132
+testsuites/LLT/API/std/libast/parse/parseProgram_error_02.cj
+  h_6a43e5c473a09a 23
+testsuites/LLT/API/std/libast/types/prefixtype/test_exception_001.cj
+  h_6a43e5c473a09a 66
+testsuites/LLT/API/std/libast/exprs/as_expr/test_exception_001.cj
+  h_6a43e5c473a09a 49-50,56
+testsuites/HLT/API/std/ast/API/Expr/Parse/045LetPattern/expr_parser_04507n.cj
+  h_6a43e5c473a09a 12-13
+testsuites/HLT/API/std/ast/API/Expr/Parse/018VarDecl/expr_parse_18023.cj
+  h_6a43e5c473a09a 12-13
+testsuites/LLT/compiler/Parser/const/const_ast_func4.cj
+  h_6a43e5c473a09a 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "115887069da8657e7c2aed07d8be11a3ad772d72",
+  "prompts": {},
+  "humans": {
+    "h_6a43e5c473a09a": {
+      "author": "Xu Zhaoheng <xuzhaoheng1@huawei.com>"
+    }
+  }
+}
