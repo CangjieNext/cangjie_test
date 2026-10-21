@@ -1,0 +1,109 @@
+testsuites/HLT/Benchmark/micro-benchmark/cj/loop/BenchmarkForinRange.cj
+  h_ec8cdfc26dd216 23-25,27-40,46-80,86
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/script/check_objc_pass.py
+  h_ec8cdfc26dd216 1-118
+testsuites/HLT/Benchmark/requirements-benchmark/mirrorcalls/script/check_objc_pass.py
+  h_ec8cdfc26dd216 1-130
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/M.cj
+  h_ec8cdfc26dd216 1-20
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/payloads/1K.json
+  h_ec8cdfc26dd216 1
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/kt-uses-objc/objcsample/M.m
+  h_ec8cdfc26dd216 1-60
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/script/platform_config.sh
+  h_ec8cdfc26dd216 1,7-57
+  h_ec8cdfc26dd216 2-6
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/kt-uses-objc/objcsample/Test.m
+  h_ec8cdfc26dd216 1-61
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/benchmark.cj
+  h_ec8cdfc26dd216 9-216
+  h_ec8cdfc26dd216 1-8
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/Macro.cj
+  h_ec8cdfc26dd216 1-53
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/run_and_check.sh
+  h_ec8cdfc26dd216 1-40
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/objcsample/M.h
+  h_ec8cdfc26dd216 1-18
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/M2.cj
+  h_ec8cdfc26dd216 1-74
+testsuites/HLT/Benchmark/requirements-benchmark/mirrorcalls/.gitignore
+  h_ec8cdfc26dd216 1-11
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/Test.cj
+  h_ec8cdfc26dd216 1-152
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/build.sh
+  h_ec8cdfc26dd216 1-51
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/script/normalize_byte_size.sh
+  h_ec8cdfc26dd216 1,7-45
+  h_ec8cdfc26dd216 2-6
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/payloads/100K.json
+  h_ec8cdfc26dd216 1
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/script/compare_results.py
+  h_ec8cdfc26dd216 1,7-875
+  h_ec8cdfc26dd216 2-6
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/payloads/1M.json
+  h_ec8cdfc26dd216 1
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/kt-uses-objc/objcsample/M.h
+  h_ec8cdfc26dd216 1-18
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/M5.cj
+  h_ec8cdfc26dd216 1-64
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/Payload.cj
+  h_ec8cdfc26dd216 1-54
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/M3.cj
+  h_ec8cdfc26dd216 1-59
+testsuites/HLT/Benchmark/micro-benchmark/cj/loop/BenchmarkForinRangeWhere.cj
+  h_ec8cdfc26dd216 23-25,27-56,62-80,86-87
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/run_compare_gcdiag.sh
+  h_ec8cdfc26dd216 1,8-385
+  h_ec8cdfc26dd216 2-7
+testsuites/HLT/Benchmark/requirements-benchmark/mirrorcalls/run_and_check.sh
+  h_ec8cdfc26dd216 1-59
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/run_and_check.sh
+  h_ec8cdfc26dd216 1-48
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/kt-uses-objc/build.sh
+  h_ec8cdfc26dd216 1-35
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/payloads/gen.py
+  h_ec8cdfc26dd216 1-2,8-169
+  h_ec8cdfc26dd216 3-7
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/M4.cj
+  h_ec8cdfc26dd216 1-64
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/persistent_baseline.cj
+  h_ec8cdfc26dd216 9-200
+  h_ec8cdfc26dd216 1-8
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/script/check_case25_pass.py
+  h_ec8cdfc26dd216 1-110
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/kt-uses-objc/KTWorld.kt
+  h_ec8cdfc26dd216 1-98
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/run.sh
+  h_ec8cdfc26dd216 1-2,5,8-28
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/.gitignore
+  h_ec8cdfc26dd216 1-5
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/.gitignore
+  h_ec8cdfc26dd216 1-11
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/payloads/10K.json
+  h_ec8cdfc26dd216 1
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/kt-uses-objc/api.def
+  h_ec8cdfc26dd216 1-5
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/objcsample/M.m
+  h_ec8cdfc26dd216 1-60
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/run_compare.sh
+  h_ec8cdfc26dd216 1,8-383
+  h_ec8cdfc26dd216 2-7
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/M1.cj
+  h_ec8cdfc26dd216 1-48
+testsuites/HLT/Benchmark/requirements-benchmark/cj-objc-benchmarks/cj-uses-objc/objcsample/Test.m
+  h_ec8cdfc26dd216 1-68
+testsuites/HLT/Benchmark/requirements-benchmark/case25_http_complex_json_stream/copygc/stream_transform.cj
+  h_ec8cdfc26dd216 9-172
+  h_ec8cdfc26dd216 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4038bf568d704d84a9c4d2b54612543e834ba0e2",
+  "prompts": {},
+  "humans": {
+    "h_ec8cdfc26dd216": {
+      "author": "yaoruili <yaoruili@huawei.com>"
+    }
+  }
+}
