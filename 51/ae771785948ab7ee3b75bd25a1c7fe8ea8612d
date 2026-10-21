@@ -1,0 +1,71 @@
+testsuites/LLT/API/stdx/syntax/testParse/test_parse_exprs_from_text.cj
+  h_6a43e5c473a09a 36,42,48,54,60,67
+testsuites/LLT/API/stdx/syntax/testParse/test_parse_exprs_from_tokens.cj
+  h_6a43e5c473a09a 44,50,59,66
+testsuites/HLT/API/syntax/parseFunc/parseFile/path/parsefile_path_010n.cj
+  s_8fad267c837c6a::t_3f64a016d729ef 21
+testsuites/LLT/API/stdx/syntax/testRewrite/test_rewrite_file.cj
+  s_8fad267c837c6a::t_5a984ed4263b82 113
+testsuites/HLT/API/syntax/parseFunc/parseFile/path/parsefile_path_006.cj
+  s_8fad267c837c6a::t_d79ac8916e0852 21
+testsuites/LLT/API/stdx/syntax/testParse/test_parse_package.cj
+  s_8fad267c837c6a::t_ca9d0bedbf9682 56
+  h_6a43e5c473a09a 93-94
+  s_8fad267c837c6a::t_bc3bcee3a487f1 120
+  s_8fad267c837c6a::t_fd76c2a1450875 69
+testsuites/HLT/API/syntax/parseFunc/parseDir/path/parsedir_path_007n.cj
+  s_8fad267c837c6a::t_7800bfc5d4cd7c 21
+testsuites/HLT/API/syntax/visit/ASTRewriter/test_rewriter_02.cj
+  s_8fad267c837c6a::t_c8d37314d5206f 32
+testsuites/HLT/API/syntax/parseFunc/parseDir/path/parsedir_path_009n.cj
+  s_8fad267c837c6a::t_b707e6dc25b555 21
+testsuites/HLT/API/syntax/parseFunc/parseFile/path/parsefile_path_007n.cj
+  s_8fad267c837c6a::t_140b209afb47c3 21
+testsuites/HLT/API/syntax/parseFunc/parseFile/path/parsefile_path_008n.cj
+  s_8fad267c837c6a::t_22c06149ba7293 21
+testsuites/HLT/API/syntax/parseFunc/parseFile/path/parsefile_path_006n.cj
+  s_8fad267c837c6a::t_70aa4f35599b5b 21
+testsuites/LLT/API/stdx/syntax/testParseDir/test_parseDir.cj
+  s_8fad267c837c6a::t_0a5645201e5061 112
+testsuites/LLT/API/stdx/syntax/testRewrite/test_rewrite_binary.cj
+  s_8fad267c837c6a::t_920673dd61d20f 75
+testsuites/HLT/API/syntax/parseFunc/parseDir/path/parsedir_path_008n.cj
+  s_8fad267c837c6a::t_53ee3acb6d00fe 21
+testsuites/HLT/API/syntax/parseFunc/parseFile/path/parsefile_path_009n.cj
+  s_8fad267c837c6a::t_039acca71753f7 21
+testsuites/HLT/API/syntax/parseFunc/parseDir/path/parsedir_path_010n.cj
+  s_8fad267c837c6a::t_0fabc2d60d0378 21
+testsuites/HLT/API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj
+  s_8fad267c837c6a::t_5b4c4e48cfa802 25
+testsuites/HLT/API/syntax/parseFunc/parseDir/path/parsedir_path_011n.cj
+  s_8fad267c837c6a::t_7eb1f1a5a3fca0 21
+testsuites/HLT/API/syntax/parseFunc/parseFile/path/parsefile_path_011n.cj
+  s_8fad267c837c6a::t_f07c8d4ab4fef6 24
+testsuites/LLT/API/stdx/syntax/testParse/test_parse_file.cj
+  s_8fad267c837c6a::t_046056b620cf6d 83
+  s_8fad267c837c6a::t_d59edf97b0bc3e 96
+  s_8fad267c837c6a::t_fe8b15b220b2c2 71
+  s_8fad267c837c6a::t_93517b70dd077a 59
+  s_8fad267c837c6a::t_bfb19f7acbc365 152
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "51ae771785948ab7ee3b75bd25a1c7fe8ea8612d",
+  "prompts": {},
+  "humans": {
+    "h_6a43e5c473a09a": {
+      "author": "Xu Zhaoheng <xuzhaoheng1@huawei.com>"
+    }
+  },
+  "sessions": {
+    "s_8fad267c837c6a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5dec1552-cecd-4589-a772-9c368413d4d3",
+        "model": "glm-5.3-flash"
+      },
+      "human_author": "Xu Zhaoheng <xuzhaoheng1@huawei.com>"
+    }
+  }
+}
