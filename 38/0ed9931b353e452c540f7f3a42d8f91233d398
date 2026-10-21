@@ -1,0 +1,25 @@
+testsuites/LLT/compiler/CodegenCJNative/varray/varray_size_overflow_struct_member01.cj
+  s_27b4e96e9c7897::t_76e44707726ce0 1-22
+testsuites/LLT/compiler/CodegenCJNative/varray/varray_size_overflow_struct_elem01.cj
+  s_27b4e96e9c7897::t_8f0e6280dda6f1 1-26
+testsuites/LLT/compiler/CodegenCJNative/varray/varray_size_overflow_lambda01.cj
+  s_27b4e96e9c7897::t_6f6d7b0ce62a07 1-21
+testsuites/LLT/compiler/CodegenCJNative/varray/varray_size_overflow_sum01.cj
+  s_27b4e96e9c7897::t_3a4126d179704e 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "380ed9931b353e452c540f7f3a42d8f91233d398",
+  "prompts": {},
+  "sessions": {
+    "s_27b4e96e9c7897": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019ffdd4-8ebf-7d97-b048-c42e6db041af",
+        "model": "k3-256k"
+      },
+      "human_author": "yanjs <yejiasheng3@huawei.com>"
+    }
+  }
+}

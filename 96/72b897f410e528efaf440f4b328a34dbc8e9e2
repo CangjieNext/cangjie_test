@@ -1,0 +1,19 @@
+testsuites/LLT/compiler/CodegenCJNative/varray/varray_size_overflow_wrap02.cj
+  s_27b4e96e9c7897::t_e9d68cc2947e8b 1-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "9672b897f410e528efaf440f4b328a34dbc8e9e2",
+  "prompts": {},
+  "sessions": {
+    "s_27b4e96e9c7897": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019ffdd4-8ebf-7d97-b048-c42e6db041af",
+        "model": "k3-256k"
+      },
+      "human_author": "yanjs <yejiasheng3@huawei.com>"
+    }
+  }
+}
