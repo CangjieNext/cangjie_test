@@ -1,0 +1,14 @@
+testsuites/HLT/Tools/cjpm/robustness/big_deps/deep_dependency_chain/deep_dependency_chain.info
+  h_45c8323f5f1dbf 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "338e1ac0ca76ddd4235ca097bafdcd5efa36784b",
+  "prompts": {},
+  "humans": {
+    "h_45c8323f5f1dbf": {
+      "author": "xdst <xiasong.831184@huawei.com>"
+    }
+  }
+}
