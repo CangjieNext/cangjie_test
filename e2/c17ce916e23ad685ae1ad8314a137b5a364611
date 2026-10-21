@@ -1,0 +1,14 @@
+testsuites/HLT/API/Regression/Fuzz/fuzz_cases/regression_fuzz_0035.cj
+  h_6a43e5c473a09a 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "e2c17ce916e23ad685ae1ad8314a137b5a364611",
+  "prompts": {},
+  "humans": {
+    "h_6a43e5c473a09a": {
+      "author": "Xu Zhaoheng <xuzhaoheng1@huawei.com>"
+    }
+  }
+}
