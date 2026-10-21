@@ -1,0 +1,35 @@
+testsuites/LLT/compiler/CodegenCJNative/varray/varray_size_overflow_global01.cj
+  h_b0aadd73204706 1-8,14,16-25
+  s_01cadf111de964::t_17b0272ed2f114 9-13,15
+testsuites/LLT/compiler/CodegenCJNative/varray/varray_size_overflow_large02.cj
+  h_b0aadd73204706 1-22
+testsuites/LLT/compiler/CodegenCJNative/varray/varray_size_overflow_large01.cj
+  h_b0aadd73204706 1-20
+testsuites/LLT/compiler/CodegenCJNative/varray/varray_size_overflow_wrap01.cj
+  h_b0aadd73204706 1-23
+testsuites/HLT/compiler/cjnative/TypesAndVariables/CompositeType/VArray/varray_0020.cj
+  h_b0aadd73204706 11
+testsuites/LLT/compiler/CodegenCJNative/varray/varray_size_overflow_nested01.cj
+  h_b0aadd73204706 1-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "98ee881bf4e53a54d4f985bd238dd2f0ec9d2963",
+  "prompts": {},
+  "humans": {
+    "h_b0aadd73204706": {
+      "author": "yanjs <yejiasheng3@huawei.com>"
+    }
+  },
+  "sessions": {
+    "s_01cadf111de964": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019fea54-e9b5-7723-aecf-97af4cc79a31",
+        "model": "k3-256k"
+      },
+      "human_author": null
+    }
+  }
+}
