@@ -1,0 +1,20 @@
+testsuites/HLT/API/std/core/dumpThreads/dumpAllThreads/test_dumpallthreads_02.cj
+  h_45c8323f5f1dbf 17-24,27-35,40,44,46-49
+testsuites/HLT/API/std/core/dumpThreads/dumpAllThreads/test_dumpallthreads_07.cj
+  h_45c8323f5f1dbf 37-45,48-58,66-75,79,82,86
+testsuites/HLT/API/std/core/dumpThreads/dumpAllThreads/test_dumpallthreads_06.cj
+  h_45c8323f5f1dbf 35-43,45-56,64-74,77,80,84
+testsuites/HLT/API/std/core/dumpThreads/dumpAllThreads/test_dumpallthreads_03.cj
+  h_45c8323f5f1dbf 18-38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "dec185465562c170a969756f874c53de60e94593",
+  "prompts": {},
+  "humans": {
+    "h_45c8323f5f1dbf": {
+      "author": "xdst <xiasong.831184@huawei.com>"
+    }
+  }
+}
