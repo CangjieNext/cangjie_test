@@ -1,0 +1,16 @@
+testsuites/LLT/Tools/cjlint/rule_G_VAR_03/var_03_test_case_02/var_03_test_case_02.info
+  h_fe069fe836a3e3 6-8
+testsuites/LLT/Tools/cjlint/rule_G_ERR_03/testcase_04/testcase_04.info
+  h_fe069fe836a3e3 6,9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "e9336af13deb4e1b09cbcf08edbd88a7dc89854d",
+  "prompts": {},
+  "humans": {
+    "h_fe069fe836a3e3": {
+      "author": "zxudong <zxudong.zhang@huawei.com>"
+    }
+  }
+}
