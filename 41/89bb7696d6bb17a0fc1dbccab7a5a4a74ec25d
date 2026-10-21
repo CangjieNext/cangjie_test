@@ -1,0 +1,28 @@
+testsuites/LLT/cjnative_testlist
+  h_f08a759313bce8 145
+testsuites/LLT/compiler/CodegenCJNative/demangle/decl/extend_outer_decl1.cj
+  h_f08a759313bce8 9
+testsuites/LLT/compiler/CodegenCJNative/demangle/decl/extend_outer_decl2.cj
+  h_f08a759313bce8 9
+testsuites/LLT/compiler/CodegenCJNative/demangle/type/default_param1.cj
+  h_f08a759313bce8 9
+testsuites/LLT/compiler/Mangle/Demangle/model_type/modal_type_01.cj
+  h_f08a759313bce8 1-24
+testsuites/LLT/compiler/Mangle/Demangle/model_type/modal_type_02.cj
+  h_f08a759313bce8 1-29
+testsuites/LLT/compiler/Mangle/Demangle/normal/normal_01.cj
+  h_f08a759313bce8 1-26
+testsuites/LLT/compiler/Mangle/Demangle/normal/normal_02.cj
+  h_f08a759313bce8 1-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "4189bb7696d6bb17a0fc1dbccab7a5a4a74ec25d",
+  "prompts": {},
+  "humans": {
+    "h_f08a759313bce8": {
+      "author": "yuqiaoyu <yujunqiang1@h-partners.com>"
+    }
+  }
+}
