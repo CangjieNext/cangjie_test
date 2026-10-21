@@ -1,0 +1,21 @@
+testsuites/LLT/compiler/Macro/issue/case3/define.cj
+  s_a38b643d99210e::t_1e4437ef378d70 1-13
+testsuites/LLT/compiler/Macro/issue/case3/test_foreign_block.cj
+  s_a38b643d99210e::t_311fe7f5f46774 1-37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "63daed480e34974d573aac8ce7d8811def8b5e5e",
+  "prompts": {},
+  "sessions": {
+    "s_a38b643d99210e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "319bcaa9-5c8c-4db6-8bc0-992b6953308f",
+        "model": "glm-5.3-flash"
+      },
+      "human_author": "lixin <lixin656@huawei.com>"
+    }
+  }
+}
