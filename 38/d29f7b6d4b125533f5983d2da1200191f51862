@@ -1,0 +1,52 @@
+testsuites/HLT/configs/cjnative/ios/ios_sign_runtime.sh
+  h_834af94b08725a 1-41
+testsuites/HLT/configs/cjnative/ios/ios_sim_common.sh
+  h_834af94b08725a 1-107
+testsuites/HLT/configs/cjnative/ios/run_ios_exe_testsuite.sh
+  h_834af94b08725a 1-102
+testsuites/HLT/configs/cjnative/ios/run_ios_executable.sh
+  h_834af94b08725a 1-89
+testsuites/HLT/configs/cjnative/ios/run_ios_simulator_executable.sh
+  h_834af94b08725a 1-56
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_aarch64_exe/O2.cfg
+  h_834af94b08725a 1-231
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_aarch64_exe/basic.cfg
+  h_834af94b08725a 1-230
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_aarch64_exe/exclude_common
+  h_834af94b08725a 1-272
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_aarch64_exe/lto.cfg
+  h_834af94b08725a 1-230
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_aarch64_exe/objc.cfg
+  h_834af94b08725a 1-231
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_aarch64_exe/objc_O2.cfg
+  h_834af94b08725a 1-232
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_aarch64_exe/objc_static.cfg
+  h_834af94b08725a 1-231
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_aarch64_exe/static_O2.cfg
+  h_834af94b08725a 1-231
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_x64_exe/O2.cfg
+  h_834af94b08725a 1-231
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_x64_exe/basic.cfg
+  h_834af94b08725a 1-230
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_x64_exe/exclude_common
+  h_834af94b08725a 1-272
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_x64_exe/lto.cfg
+  h_834af94b08725a 1-230
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_x64_exe/objc.cfg
+  h_834af94b08725a 1-231
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_x64_exe/objc_O2.cfg
+  h_834af94b08725a 1-232
+testsuites/HLT/configs/cjnative/mac_aarch64-ios_simulator_x64_exe/static_O2.cfg
+  h_834af94b08725a 1-231
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "38d29f7b6d4b125533f5983d2da1200191f51862",
+  "prompts": {},
+  "humans": {
+    "h_834af94b08725a": {
+      "author": "Al_bkt_for_brine <wubenteng1@huawei.com>"
+    }
+  }
+}
