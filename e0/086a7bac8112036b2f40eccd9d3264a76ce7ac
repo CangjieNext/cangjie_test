@@ -1,0 +1,14 @@
+testsuites/LLT/Tools/cjpm/CJNATIVE/check/lock_incompatible_version/cjpm.lock
+  h_4d070aafa41132 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e0086a7bac8112036b2f40eccd9d3264a76ce7ac",
+  "prompts": {},
+  "humans": {
+    "h_4d070aafa41132": {
+      "author": "Cangjie-SCH <sunchihao@h-partners.com>"
+    }
+  }
+}
