@@ -18,9 +18,7 @@ compiler/CHIR/ComputeAnnotations
 compiler/CHIR/InvokeNodetest
 compiler/CHIR/RemoveRedundantRet
 compiler/CHIR/ScalarReplacementOfArray
-compiler/CHIROpt/FlatForInExpr
 compiler/CHIROpt/FunctionInline
-compiler/CHIROpt/MarkClassHasInited
 compiler/CHIROpt/MergeBlocks
 compiler/CHIROpt/NoSideEffectMarker
 compiler/CHIROpt/NonVisibleWrapperClear
