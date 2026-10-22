@@ -17,4 +17,4 @@ class Data extend Base {
     public var res: Int32 = one
 }
 // ASSERT: scan parse_expected_left_brace
-// ASSERT: scan parse_expected_decl
+// ASSERT: scan-not parse_expected_decl
