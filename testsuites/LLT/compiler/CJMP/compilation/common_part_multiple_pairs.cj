@@ -55,3 +55,22 @@ package demo
 main() {
     println(fromA() + fromB())
 }
+
+// Two identical CJO inputs require two matching CHIR inputs. The digest of 'a' must be consumed only once.
+// SEPARATE-FILE: p3/p.cj
+// EXEC-PIPE-1: %compiler %noColor --experimental p3/p.cj --common-part-cjo=a/demo.cjo --common-part-cjo=a/demo.cjo --common-part-chir=a/demo.chir --common-part-chir=b/demo.chir --output-type=staticlib --output-dir ./p3 2>&1 | compare %f
+/* SCAN-IN
+error: common part cjo file '
+*/
+/* SCAN-IN
+does not match any common part chir file passed with '--common-part-chir'
+*/
+/* SCAN-IN
+note: the '.cjo' and '.chir' must come from the same common part compilation
+*/
+/* SCAN-IN
+1 error generated, 1 error printed.
+*/
+package demo
+
+main() {}

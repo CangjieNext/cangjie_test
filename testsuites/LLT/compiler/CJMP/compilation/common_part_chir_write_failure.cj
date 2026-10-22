@@ -34,3 +34,12 @@ Keep the CHIR output path of '--emit-chir=opt' as a directory.
 package demo
 
 main() {}
+
+// SEPARATE-FILE: temps/demo.chir/placeholder.txt
+Keep the CHIR output path of '--save-temps' as a directory.
+
+// SEPARATE-FILE: temps.cj
+// EXEC-PIPE-1: %compiler %diag_json --experimental temps.cj --save-temps ./temps --output-dir ./temps 2>&1 | compare %f
+package demo
+
+main() {}
