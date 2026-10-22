@@ -1,0 +1,27 @@
+testsuites/HLT/configs/cjnative/ios/ios_sign_runtime.sh
+  s_4a2e91be98ec34::t_e28dcce81791bb 1-41
+testsuites/HLT/configs/cjnative/ios/ios_sim_common.sh
+  s_4a2e91be98ec34::t_96bab1e154ed6e 1-107
+testsuites/HLT/configs/cjnative/ios/run_ios_exe_testsuite.sh
+  s_4a2e91be98ec34::t_ac93ba06a6da5a 1-102
+testsuites/HLT/configs/cjnative/ios/run_ios_executable.sh
+  s_4a2e91be98ec34::t_99bf9687eb726a 1-89
+testsuites/HLT/configs/cjnative/ios/run_ios_simulator_executable.sh
+  s_4a2e91be98ec34::t_5970c0888acec4 1-56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "28d6027795ecd9f0df6cea94b195bc894982e55c",
+  "prompts": {},
+  "sessions": {
+    "s_4a2e91be98ec34": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6019d5d0-b905-4a84-9f77-e0f1b200af6d",
+        "model": "GLM-5.3-Flash"
+      },
+      "human_author": "Al_bkt_for_brine <wubenteng1@huawei.com>"
+    }
+  }
+}
