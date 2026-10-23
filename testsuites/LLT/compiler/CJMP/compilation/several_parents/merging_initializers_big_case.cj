@@ -37,7 +37,7 @@ public let c = "c"
 public specific let x = "x_c"
 
 // SEPARATE-FILE: d/d.cj
-// EXEC: %compiler %noColor --experimental d/d.cj --common-part-chir=b/cmp.chir c/cmp.chir --common-part-cjo=b/cmp.cjo --common-part-cjo=c/cmp.cjo --output-type=chir --output-dir=d
+// EXEC: %compiler %noColor --experimental d/d.cj --common-part-chir=b/cmp.chir --common-part-chir=c/cmp.chir --common-part-cjo=b/cmp.cjo --common-part-cjo=c/cmp.cjo --output-type=chir --output-dir=d
 package cmp
 
 public let d = "d"
@@ -65,7 +65,7 @@ package cmp
 public let g = "g"
 
 // SEPARATE-FILE: h/h.cj
-// EXEC: %compiler %noColor --experimental h/h.cj --common-part-chir=d/cmp.chir f/cmp.chir --common-part-chir=g/cmp.chir --common-part-cjo=d/cmp.cjo --common-part-cjo=f/cmp.cjo --common-part-cjo=g/cmp.cjo --output-type=dylib
+// EXEC: %compiler %noColor --experimental h/h.cj --common-part-chir=d/cmp.chir --common-part-chir=f/cmp.chir --common-part-chir=g/cmp.chir --common-part-cjo=d/cmp.cjo --common-part-cjo=f/cmp.cjo --common-part-cjo=g/cmp.cjo --output-type=dylib
 package cmp
 
 public let h = "h"
@@ -73,8 +73,10 @@ public specific let x = "x_h"
 public specific let y = "y_h"
 
 // SEPARATE-FILE: main.cj
-// EXEC: %compiler %noColor --test main.cj -lcmp -L. -o %output
-// RUN: %run %output 2>&1 | compare %f
+// EXEC-0: %compiler %noColor main.cj --import-path=. -L. -lcmp -o %output
+// (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:. %run %output 2>&1 | compare %f
+// (CJNATIVE and Windows)EXEC-PIPE: set PATH=.;%PATH% && %run %output 2>&1 | compare %f
+// (CJNATIVE and Darwin)EXEC-PIPE: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:. %run %output 2>&1 | compare %f
 import cmp.*
 
 main(): Unit {
@@ -101,7 +103,6 @@ e
 f
 g
 h
-
 x_h
 y_h
 z_f
