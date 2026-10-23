@@ -20,10 +20,12 @@ main() {
 /* SCAN
 warning: unused function:'foo'
   ==> unused_function_1.cj:15:1:
-   | 
-15 | private func foo() {}
-   | ^ unused function
-   | 
+   |
+14 |   @M1
+   |   ____^ unused function
+15 |   private func foo() {}
+   |  _^
+   |
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 note: the warning originates in the macro `M1` (consider using `--debug-macro` for more info)
   ==> unused_function_1.cj:14:1:
