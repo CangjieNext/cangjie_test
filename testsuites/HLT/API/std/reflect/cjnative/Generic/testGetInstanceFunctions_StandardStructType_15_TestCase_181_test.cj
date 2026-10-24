@@ -40,7 +40,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(1i64, [TypeInfo.of<UInt32>(), TypeInfo.of<Int16>()], [GenericClassWith1TypeParameters<Int16>()])
             @Expect("assertion#5696: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -51,7 +51,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                     [GenericClassWith1TypeParameters<Int16>()])
             @Expect("assertion#5697: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -61,7 +61,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(1i64, [TypeInfo.of<Float32>(), TypeInfo.of<UInt32>(), TypeInfo.of<Int16>()], [])
             @Expect("assertion#5698: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -71,7 +71,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(StandardStructType<Bool, Int16, Float64>(), [TypeInfo.of<UInt32>(), TypeInfo.of<Int16>()], [])
             @Expect("assertion#5699: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -82,7 +82,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                     [TypeInfo.of<Float32>(), TypeInfo.of<UInt32>(), TypeInfo.of<Int16>(), TypeInfo.of<Float64>()], [])
             @Expect("assertion#5700: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -92,7 +92,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply("hello", [TypeInfo.of<Float32>(), TypeInfo.of<UInt32>(), TypeInfo.of<Int16>()], [])
             @Expect("assertion#5701: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -102,7 +102,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(StandardStructType<Bool, Int16, Float64>(), [TypeInfo.of<Float32>(), TypeInfo.of<UInt32>()], [])
             @Expect("assertion#5702: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -113,7 +113,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                     TypeInfo.of<Float64>()], [])
             @Expect("assertion#5703: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -124,7 +124,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                     [GenericClassWith1TypeParameters<Int16>(), 114.514000f64])
             @Expect("assertion#5704: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -135,7 +135,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                     [GenericClassWith1TypeParameters<Int16>(), 114.514000f64])
             @Expect("assertion#5705: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -147,7 +147,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                     [GenericClassWith1TypeParameters<Int16>(), 114.514000f64])
             @Expect("assertion#5706: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("类型检查失败")
         try {
@@ -158,7 +158,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                     [TypeInfo.of<Float32>(), TypeInfo.of<UInt32>(), TypeInfo.of<Int16>()], [()])
             @Expect("assertion#5707: not throw", "类型检查失败")
         } catch (e: IllegalTypeException) {
-            @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
+            @Expect(e.message, "Parameter type mismatch for generic function invocation.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -168,7 +168,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(1i64, [TypeInfo.of<UInt32>(), TypeInfo.of<Int16>()], [()])
             @Expect("assertion#5708: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -178,7 +178,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply("hello", [TypeInfo.of<Float32>(), TypeInfo.of<UInt32>()], [()])
             @Expect("assertion#5709: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -190,7 +190,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                     [GenericClassWith1TypeParameters<Int16>()])
             @Expect("assertion#5710: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -200,7 +200,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(StandardStructType<Bool, Int16, Float64>(), [TypeInfo.of<Float32>(), TypeInfo.of<UInt32>()], [])
             @Expect("assertion#5711: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -210,7 +210,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(StandardStructType<Bool, Int16, Float64>(), [TypeInfo.of<UInt32>(), TypeInfo.of<Int16>()], [])
             @Expect("assertion#5712: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -222,7 +222,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                     [GenericClassWith1TypeParameters<Int16>(), 114.514000f64])
             @Expect("assertion#5713: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -233,7 +233,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                     [TypeInfo.of<Float32>(), TypeInfo.of<UInt32>(), TypeInfo.of<Int16>(), TypeInfo.of<Float64>()], [()])
             @Expect("assertion#5714: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -243,7 +243,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(StandardStructType<Bool, Int16, Float64>(), [GenericClassWith1TypeParameters<Int16>()])
             @Expect("assertion#5715: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -253,7 +253,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(1i64, [GenericClassWith1TypeParameters<Int16>()])
             @Expect("assertion#5716: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -263,7 +263,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply("hello", [GenericClassWith1TypeParameters<Int16>()])
             @Expect("assertion#5717: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -273,7 +273,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(StandardStructType<Bool, Int16, Float64>(), [])
             @Expect("assertion#5718: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -283,7 +283,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(1i64, [])
             @Expect("assertion#5719: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -293,7 +293,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply("hello", [])
             @Expect("assertion#5720: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -303,7 +303,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(StandardStructType<Bool, Int16, Float64>(), [])
             @Expect("assertion#5721: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -313,7 +313,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(1i64, [])
             @Expect("assertion#5722: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -323,7 +323,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply("hello", [])
             @Expect("assertion#5723: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -334,7 +334,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                     [GenericClassWith1TypeParameters<Int16>(), 114.514000f64])
             @Expect("assertion#5724: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -344,7 +344,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(1i64, [GenericClassWith1TypeParameters<Int16>(), 114.514000f64])
             @Expect("assertion#5725: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -354,7 +354,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply("hello", [GenericClassWith1TypeParameters<Int16>(), 114.514000f64])
             @Expect("assertion#5726: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -364,7 +364,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(StandardStructType<Bool, Int16, Float64>(), [()])
             @Expect("assertion#5727: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -374,7 +374,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply(1i64, [()])
             @Expect("assertion#5728: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -384,7 +384,7 @@ class testGetInstanceFunctions_StandardStructType_15 {
                 .apply("hello", [()])
             @Expect("assertion#5729: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classInstanceMemberFunction_182' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("testcase TestCase_181 ends.")
     }

@@ -6,8 +6,10 @@
 
 # ======================== API exclude ========================
 
+# https://gitcode.com/Cangjie/cangjie_test/issues/523
 Tools/cjprof
 
+# https://gitcode.com/Cangjie/cangjie_test/issues/525
 Tools/cjpm/stdx/c/build_mock/build_mock.info
 
 # time 库时区相关信息不需要用户自己下载时区文件
@@ -206,9 +208,6 @@ API/std/socket/UnixSocket
 # ======================== Compiler exclude ========================
 # linux和win的命令行差异
 
-# old jffi can only be run with cjvm.
-compiler/cjnative/FFI/jffi
-
 # cannot find -ldl: No such file or directory （不支持 ldl）
 compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00785/c_ffi.cj
 compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00786/c_ffi.cj
@@ -251,10 +250,6 @@ compiler/cjnative/FFI/cffi/c_ffi_012/c_ffi_01201n/c_ffi_main.cj
 compiler/cli/Option/obfuscation/009/obfuscation_90302.cj
 compiler/cli/Option/obfuscation/009/obfuscation_93104.cj
 
-# source file 'spec_types_2.1.1.2OperatorsSupportedbyNumberTypes_04Self-increment_decrement.cj' doesn't exist
-compiler/cjnative/TypesAndVariables/spec/spec_types_2.1.1.2OperatorsSupportedbyNumberTypes_04Self-increment_decrement.cj
-compiler/cjnative/TypesAndVariables/spec/spec_types_2.1.1.2OperatorsSupportedbyNumberTypes_07supportedbyfloating-point.cj
-
 # 用例头待修改 linux和win命令行不适配的问题
 # invalid file or directory 'command_injection_0005.cj > a.txt'
 compiler/cli/command_injection/command_injection_0004.cj
@@ -266,7 +261,7 @@ compiler/cli/command_injection/command_injection_0025.cj
 compiler/cli/command_injection/command_injection_0015.cj
 compiler/cli/command_injection/command_injection_0013.cj
 
-#乱码
+# 乱码
 compiler/cli/command_injection/command_injection_0009.cj
 compiler/cli/command_injection/command_injection_0010.cj
 compiler/cli/command_injection/command_injection_0012.cj
@@ -286,13 +281,13 @@ compiler/cli/command_injection/command_injection_0028.cj
 compiler/cli/command_injection/command_injection_0030.cj
 compiler/cli/Option/other/option_other_00004.cj
 
-# rm不支持
+# rm 不支持
 compiler/cli/Option/library/option_library_00005.cj
 
 # cannot find -ltest
 compiler/cli/Option/library/option_library_00006.cj
 
-# CJVM, Windows, MAC not support parallel compile
+# Windows, MAC not support parallel compile
 compiler/cli/Option/parallel_compile
 
 # 不支持反引号
@@ -301,9 +296,6 @@ compiler/cli/Option/obfuscation/005/obfuscation_50002.cj
 compiler/cli/Option/obfuscation/006/obfuscation_60002.cj
 compiler/cli/Option/obfuscation/006/obfuscation_60002_1.cj
 compiler/cli/Option/obfuscation/007/obfuscation_70002.cj
-
-# Windows not support lto
-compiler/cli/Option/lto
 
 # ======================== Tools exclude ========================
 # CJLint
@@ -316,38 +308,9 @@ compiler/cli/Option/pgo/pgo_001.cj
 compiler/cli/Option/pgo/pgo_004.cj
 compiler/cli/Option/pgo/pgo_005.cj
 
-# https://gitcode.com/Cangjie/cangjie_test/issues/211
-compiler/cjnative/Packages/cjmp/cjmp_03018/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_03019/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_03020/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_03021/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_03022/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_03023/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_03024/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_04029/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_04038/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_04073/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_04076/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_04077/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_04082/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_04083/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_11037/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_11039/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_13007/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_16007/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_16009/test.cj
-
 # https://gitcode.com/Cangjie/cangjie_test/issues/315
-compiler\cjnative\Chir\CompileOption\plugin\testpath\test_plugin_path_03.cj
+compiler/cjnative\Chir\CompileOption\plugin\testpath\test_plugin_path_03.cj
 compiler\cjnative\Chir\CompileOption\plugin\testpath\test_plugin_path_04.cj
-
-# cjmp
-# While Cangjie toolchain for windows does not contain interop library
-# ObjectiveC interop tests should be excluded
-compiler/cjnative/FFI/objcffi/glue_code
-
-# cjpm本地可以通过看板失败，需后面对其环境适配用例
-Tools/cjpm/source_set/007/cross001/cross001.info
 
 API/syntax/parseFunc/parseDir/path/parsedir_path_004.cj
 API/syntax/parseFunc/parseFile/path/parsefile_path_004.cj
@@ -359,14 +322,14 @@ Tools\cjcov\cjcov_special_filename\cjcov_special_filename_017
 Tools\cjcov\cjcov_special_filename\cjcov_special_filename_018
 
 API\compress\ParamCheck\test_archive_param_check.cj
-API\std\ast\API\Expr\Parse\047MacroDecl\expr_parser_04704n.cj
 API\syntax\parseFunc\parseText\Expr\LitConstStrExpr\parseText_litconststrexpr003.cj
 API\syntax\parseFunc\parseTokens\Expr\LitConstStrExpr\parseTokens_litconststrexpr003.cj
 
 API/std/console/stdin/test_stdin_windows_35.cj
 
-# AOP issues https://gitcode.com/Cangjie/cangjie_stdx/issues/396
-API\stdx\aspect_cj
+# https://gitcode.com/Cangjie/cangjie_stdx/issues/396
+API/stdx/aspect_cj
 
-# BUG: environment variable 'cjEnableGC' when set invalid value, behaves inappropriately.
-Runtime/cjnative/runtime/GC/cjEnableGC
+# stdx.net.tls keyless 服务端在 windows 上初始化内置 provider 时挂死：
+# TlsSocket.server(KeylessTlsServerConfig) 永不返回（探针验证，与用例回调无关），待 stdx 修复后恢复
+API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj

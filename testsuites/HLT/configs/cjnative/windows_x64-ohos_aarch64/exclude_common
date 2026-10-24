@@ -6,17 +6,10 @@
 
 # ======================== API exclude ========================
 
+# https://gitcode.com/Cangjie/cangjie_test/issues/523
 Tools/cjprof
 
 Tools/cjpm/stdx/c/build_mock/build_mock.info
-
-# time 库时区相关信息不需要用户自己下载时区文件
-API/std/time/TimeZone/Location/test_load_001.cj
-API/std/time/TimeZone/Location/test_load_002.cj
-API/std/time/TimeZone/Location/test_load_003.cj
-API/std/time/TimeZone/Location/test_load_004.cj
-API/std/time/TimeZone/Location/test_load_005.cj
-API/std/time/TimeZone/Location/test_load_007.cj
 
 # windows不支持~,无法解析成绝对路径
 API/std/os/env/test_getArgs/test_getArgs_003/test_getArgs_003.cj
