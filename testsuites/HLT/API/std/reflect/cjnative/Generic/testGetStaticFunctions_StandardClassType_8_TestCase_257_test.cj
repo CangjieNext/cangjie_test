@@ -34,7 +34,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                     [GenericStructWith1TypeParameters<Float64>()])
             @Expect("assertion#7705: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -44,7 +44,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<Int64>(), [TypeInfo.of<Float32>()], [GenericStructWith1TypeParameters<Float64>()])
             @Expect("assertion#7706: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -54,7 +54,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<Int64>(), [], [])
             @Expect("assertion#7707: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -64,7 +64,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<StandardClassType<UInt8, UInt64, Float64>>(), [TypeInfo.of<Float32>()], [])
             @Expect("assertion#7708: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -74,7 +74,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<StandardClassType<UInt8, UInt64, Float64>>(), [], [])
             @Expect("assertion#7709: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -84,7 +84,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<Int64>(), [TypeInfo.of<Float32>()], [])
             @Expect("assertion#7710: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -95,7 +95,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                     [GenericStructWith1TypeParameters<Float64>(), 114.514000f64])
             @Expect("assertion#7711: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -106,7 +106,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                     [GenericStructWith1TypeParameters<Float64>(), 114.514000f64])
             @Expect("assertion#7712: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -116,7 +116,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<StandardClassType<UInt8, UInt64, Float64>>(), [], [()])
             @Expect("assertion#7713: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -126,7 +126,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<Int64>(), [TypeInfo.of<Float32>()], [()])
             @Expect("assertion#7714: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("成功调用")
         TypeInfo
@@ -142,7 +142,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<Int64>(), [GenericStructWith1TypeParameters<Float64>()])
             @Expect("assertion#7715: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardClassType<UInt8, UInt64, Float64> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardClassType<UInt8, UInt64, Float64>'.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -152,7 +152,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<StandardClassType<UInt8, UInt64, Float64>>(), [])
             @Expect("assertion#7716: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("类型错误")
         try {
@@ -162,7 +162,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<Int64>(), [])
             @Expect("assertion#7717: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardClassType<UInt8, UInt64, Float64> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardClassType<UInt8, UInt64, Float64>'.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -172,7 +172,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<StandardClassType<UInt8, UInt64, Float64>>(), [])
             @Expect("assertion#7718: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("类型错误")
         try {
@@ -182,7 +182,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<Int64>(), [])
             @Expect("assertion#7719: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardClassType<UInt8, UInt64, Float64> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardClassType<UInt8, UInt64, Float64>'.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -193,7 +193,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                     [GenericStructWith1TypeParameters<Float64>(), 114.514000f64])
             @Expect("assertion#7720: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 2.")
         }
         // logger.info("类型错误")
         try {
@@ -203,7 +203,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<Int64>(), [GenericStructWith1TypeParameters<Float64>(), 114.514000f64])
             @Expect("assertion#7721: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardClassType<UInt8, UInt64, Float64> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardClassType<UInt8, UInt64, Float64>'.")
         }
         // logger.info("类型检查失败")
         try {
@@ -213,7 +213,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<StandardClassType<UInt8, UInt64, Float64>>(), [()])
             @Expect("assertion#7722: not throw", "类型检查失败")
         } catch (e: IllegalTypeException) {
-            @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
+            @Expect(e.message, "Parameter type mismatch: expected 'dependency.GenericStructWith1TypeParameters<Float64>', got 'Unit'.")
         }
         // logger.info("类型错误")
         try {
@@ -223,7 +223,7 @@ class testGetStaticFunctions_StandardClassType_8 {
                 .apply(TypeInfo.of<Int64>(), [()])
             @Expect("assertion#7723: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardClassType<UInt8, UInt64, Float64> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardClassType<UInt8, UInt64, Float64>'.")
         }
         // logger.info("testcase TestCase_257 ends.")
     }

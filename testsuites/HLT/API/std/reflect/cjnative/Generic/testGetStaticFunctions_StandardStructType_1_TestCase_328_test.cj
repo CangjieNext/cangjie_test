@@ -39,7 +39,7 @@ class testGetStaticFunctions_StandardStructType_1 {
                 .apply(TypeInfo.of<Int64>(), [TypeInfo.of<UInt32>(), TypeInfo.of<Int16>()], [])
             @Expect("assertion#9672: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardStructType<Float32, Int32, Unit> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardStructType<Float32, Int32, Unit>'.")
         }
         // logger.info("类型错误")
         try {
@@ -50,7 +50,7 @@ class testGetStaticFunctions_StandardStructType_1 {
                     [114.514000f64])
             @Expect("assertion#9673: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardStructType<Float32, Int32, Unit> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardStructType<Float32, Int32, Unit>'.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -61,7 +61,7 @@ class testGetStaticFunctions_StandardStructType_1 {
                     [TypeInfo.of<UInt32>(), TypeInfo.of<Int16>()], [114.514000f64])
             @Expect("assertion#9674: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -72,7 +72,7 @@ class testGetStaticFunctions_StandardStructType_1 {
                     [TypeInfo.of<Float64>(), TypeInfo.of<UInt32>()], [])
             @Expect("assertion#9675: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -83,7 +83,7 @@ class testGetStaticFunctions_StandardStructType_1 {
                     [TypeInfo.of<Float64>(), TypeInfo.of<UInt32>(), TypeInfo.of<Int16>(), TypeInfo.of<Float64>()], [])
             @Expect("assertion#9676: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("类型错误")
         try {
@@ -93,7 +93,7 @@ class testGetStaticFunctions_StandardStructType_1 {
                 .apply(TypeInfo.of<Int64>(), [TypeInfo.of<Float64>(), TypeInfo.of<UInt32>()], [114.514000f64])
             @Expect("assertion#9677: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardStructType<Float32, Int32, Unit> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardStructType<Float32, Int32, Unit>'.")
         }
         // logger.info("类型错误")
         try {
@@ -105,7 +105,7 @@ class testGetStaticFunctions_StandardStructType_1 {
                     [114.514000f64])
             @Expect("assertion#9678: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardStructType<Float32, Int32, Unit> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardStructType<Float32, Int32, Unit>'.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -115,7 +115,7 @@ class testGetStaticFunctions_StandardStructType_1 {
                 .apply(TypeInfo.of<StandardStructType<Float32, Int32, Unit>>(), [])
             @Expect("assertion#9679: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classStaticMemberFunction_111' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -125,7 +125,7 @@ class testGetStaticFunctions_StandardStructType_1 {
                 .apply(TypeInfo.of<Int64>(), [])
             @Expect("assertion#9680: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classStaticMemberFunction_111' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -135,7 +135,7 @@ class testGetStaticFunctions_StandardStructType_1 {
                 .apply(TypeInfo.of<StandardStructType<Float32, Int32, Unit>>(), [114.514000f64])
             @Expect("assertion#9681: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classStaticMemberFunction_111' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -145,7 +145,7 @@ class testGetStaticFunctions_StandardStructType_1 {
                 .apply(TypeInfo.of<Int64>(), [114.514000f64])
             @Expect("assertion#9682: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classStaticMemberFunction_111' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("testcase TestCase_328 ends.")
     }
