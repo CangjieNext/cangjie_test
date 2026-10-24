@@ -39,7 +39,7 @@ class testGetStaticFunctions_StandardClassType_1 {
                 .apply(TypeInfo.of<Int64>(), [TypeInfo.of<UInt64>(), TypeInfo.of<Int64>()], [])
             @Expect("assertion#6961: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardClassType<UInt64, Float32, UInt64> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardClassType<UInt64, Float32, UInt64>'.")
         }
         // logger.info("类型错误")
         try {
@@ -50,7 +50,7 @@ class testGetStaticFunctions_StandardClassType_1 {
                     [114.514000f64])
             @Expect("assertion#6962: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardClassType<UInt64, Float32, UInt64> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardClassType<UInt64, Float32, UInt64>'.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -61,7 +61,7 @@ class testGetStaticFunctions_StandardClassType_1 {
                     [TypeInfo.of<UInt64>(), TypeInfo.of<Int64>()], [114.514000f64])
             @Expect("assertion#6963: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -72,7 +72,7 @@ class testGetStaticFunctions_StandardClassType_1 {
                     [TypeInfo.of<Int8>(), TypeInfo.of<UInt64>()], [])
             @Expect("assertion#6964: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -83,7 +83,7 @@ class testGetStaticFunctions_StandardClassType_1 {
                     [TypeInfo.of<Int8>(), TypeInfo.of<UInt64>(), TypeInfo.of<Int64>(), TypeInfo.of<Float64>()], [])
             @Expect("assertion#6965: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("类型错误")
         try {
@@ -93,7 +93,7 @@ class testGetStaticFunctions_StandardClassType_1 {
                 .apply(TypeInfo.of<Int64>(), [TypeInfo.of<Int8>(), TypeInfo.of<UInt64>()], [114.514000f64])
             @Expect("assertion#6966: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardClassType<UInt64, Float32, UInt64> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardClassType<UInt64, Float32, UInt64>'.")
         }
         // logger.info("类型错误")
         try {
@@ -105,7 +105,7 @@ class testGetStaticFunctions_StandardClassType_1 {
                     [114.514000f64])
             @Expect("assertion#6967: not throw", "类型错误")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Wrong typeInfo, excepted Int64 but dependency.StandardClassType<UInt64, Float32, UInt64> got.")
+            @Expect(e.message, "Invalid type info: expected 'Int64', got 'dependency.StandardClassType<UInt64, Float32, UInt64>'.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -115,7 +115,7 @@ class testGetStaticFunctions_StandardClassType_1 {
                 .apply(TypeInfo.of<StandardClassType<UInt64, Float32, UInt64>>(), [])
             @Expect("assertion#6968: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classStaticMemberFunction_2' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -125,7 +125,7 @@ class testGetStaticFunctions_StandardClassType_1 {
                 .apply(TypeInfo.of<Int64>(), [])
             @Expect("assertion#6969: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classStaticMemberFunction_2' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -135,7 +135,7 @@ class testGetStaticFunctions_StandardClassType_1 {
                 .apply(TypeInfo.of<StandardClassType<UInt64, Float32, UInt64>>(), [114.514000f64])
             @Expect("assertion#6970: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classStaticMemberFunction_2' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("函数为泛型，类型形参列表未指定")
         try {
@@ -145,7 +145,7 @@ class testGetStaticFunctions_StandardClassType_1 {
                 .apply(TypeInfo.of<Int64>(), [114.514000f64])
             @Expect("assertion#6971: not throw", "函数为泛型，类型形参列表未指定")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The generic function cannot be applied without `genericTypeArgs`.")
+            @Expect(e.message, "Generic function 'classStaticMemberFunction_2' requires 'genericTypeArgs' to invoke.")
         }
         // logger.info("testcase TestCase_219 ends.")
     }
