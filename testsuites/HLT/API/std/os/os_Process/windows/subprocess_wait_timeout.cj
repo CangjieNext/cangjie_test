@@ -84,7 +84,8 @@ class Test_subprocess_wait_timeout {
         try {
             sub.wait(timeout: Duration.nanosecond * 500000)
             @Expect(false)
-        } catch (_: TimeoutException) {
+        } catch (e: TimeoutException) {
+            @Expect(e.message, "")
         }
         @Expect(sub.wait(), 0)
     }
