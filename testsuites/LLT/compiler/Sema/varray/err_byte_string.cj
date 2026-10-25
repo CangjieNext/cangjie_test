@@ -27,11 +27,9 @@ error: no matching function declaration for function call 'toArray'
    |             ^ 
    | 
 note: found function member of 'Struct-String'
-   ==> (package std.core)string.cj:342:17:
+   ==> (package std.core)string.cj:372:17:
 note: found function member of 'Struct-String'
-   ==> (package std.core)string.cj:350:25:
-note: found function member of 'Struct-String'
-   ==> (package std.core)string.cj:357:25:
+   ==> (package std.core)string.cj:387:25:
 
 2 errors generated, 2 errors printed.
 */
