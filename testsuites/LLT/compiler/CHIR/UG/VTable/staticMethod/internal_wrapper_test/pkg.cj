@@ -4,15 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %cmp_opt %enableO2 %f -o %output
+package pkg
 
-func f(x: Int64): Int64 {
-    var flag = true
-    while (flag) {}
-
-    return x
-}
-
-main() {
-    f(1)
+public open class ca {
+    static func test() {
+    }
 }
