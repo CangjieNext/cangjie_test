@@ -8,20 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE: caserunner.cj test_fj_notnull_0.txt test_fj_notnull_1.txt test_fj_notnull_2.txt test_fj_notnull_3.txt test_fj_notnull_4.txt test_fj_notnull_5.txt test_fj_notnull_6.txt test_fj_notnull_7.txt test_fj_notnull_8.txt test_fj_notnull_9.txt test_fj_notnull_10.txt test_fj_notnull_11.txt
-// (not Windows) EXEC-PIPE: %compiler %cmp_opt caserunner.cj -o %output %f
-// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-r\-\-\-\-\-\-\-\-'| %grep 'test_fj_notnull_0.txt'
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-\-w\-\-\-\-\-\-\-'| %grep 'test_fj_notnull_1.txt'
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-\-\-x\-\-\-\-\-\-'| %grep 'test_fj_notnull_2.txt'
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-rwx\-\-\-\-\-\-'| %grep 'test_fj_notnull_3.txt'
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-\-\-\-r\-\-\-\-\-'| %grep 'test_fj_notnull_4.txt'
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-w\-\-\-\-'| %grep 'test_fj_notnull_5.txt'
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-\-x\-\-\-'| %grep 'test_fj_notnull_6.txt'
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-\-\-\-rwx\-\-\-' | %grep 'test_fj_notnull_7.txt'
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-\-\-r\-\-'| %grep 'test_fj_notnull_8.txt'
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-\-\-\-w\-'| %grep 'test_fj_notnull_9.txt'
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-\-\-\-\-x'| %grep 'test_fj_notnull_10.txt'
-// (not Windows)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-\-\-rwx'|%grep 'test_fj_notnull_11.txt'
+// (!target_win) EXEC-PIPE: %compiler %cmp_opt caserunner.cj -o %output %f
+// (!target_win) RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-r\-\-\-\-\-\-\-\-'| %grep 'test_fj_notnull_0.txt'
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-\-w\-\-\-\-\-\-\-'| %grep 'test_fj_notnull_1.txt'
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-\-\-x\-\-\-\-\-\-'| %grep 'test_fj_notnull_2.txt'
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-rwx\-\-\-\-\-\-'| %grep 'test_fj_notnull_3.txt'
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-\-\-\-r\-\-\-\-\-'| %grep 'test_fj_notnull_4.txt'
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-w\-\-\-\-'| %grep 'test_fj_notnull_5.txt'
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-\-x\-\-\-'| %grep 'test_fj_notnull_6.txt'
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-\-\-\-rwx\-\-\-' | %grep 'test_fj_notnull_7.txt'
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-\-\-r\-\-'| %grep 'test_fj_notnull_8.txt'
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-\-\-\-w\-'| %grep 'test_fj_notnull_9.txt'
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-\-\-\-\-x'| %grep 'test_fj_notnull_10.txt'
+// (!target_win)EXEC-PIPE: %ls -l| %grep '\-\-\-\-\-\-\-rwx'|%grep 'test_fj_notnull_11.txt'
 
 import std.posix.*
 
