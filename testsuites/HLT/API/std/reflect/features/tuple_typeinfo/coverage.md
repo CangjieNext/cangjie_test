@@ -1,6 +1,6 @@
-# class_TupleTypeInfo 覆盖率报告
+# tuple_typeinfo 覆盖率报告
 
-> Rule 驱动生成（design: test_designs/std/reflect/class_TupleTypeInfo）
+> Rule 驱动生成（design: test_designs/std/reflect/tuple_typeinfo）
 
 ## 1. 汇总
 

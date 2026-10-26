@@ -1,6 +1,6 @@
-# class_GenericTypeInfo 覆盖率报告
+# generic_typeinfo 覆盖率报告
 
-> Rule 驱动生成（design: test_designs/std/reflect/class_GenericTypeInfo）
+> Rule 驱动生成（design: test_designs/std/reflect/generic_typeinfo）
 
 ## 1. 汇总
 
@@ -46,7 +46,7 @@
 ## 4. 已知 doc-vs-cjc 差异（预期 FAIL 保留 / 环境不可构造裁剪）
 
 - `reflect/invalid/constraint/gti_generic_params_non_generic`：文档 L3092 承诺非泛型函数 genericParams 抛 InfoNotFoundException，cjc 1.2.0 实际返回空集合（probe X1 复核）→ test_gti_negative 用例预期 FAIL，为被测缺陷证据（铁律 2）。
-- `reflect/ec/GenericTypeInfo/superInterfaces`：文档 L13434 承诺返回接口集合（含 Any），cjc 1.2.0 对 GenericTypeInfo 访问该属性【无限挂起】（main/unittest均复现，最小复现 problem/gti_superinterfaces_hang_minimal.cj）——断言无法产生结果，model 层裁剪该条消费，对账呈现为 1 条已知 gap。
+- `reflect/ec/GenericTypeInfo/superInterfaces`：文档 L13434 承诺返回接口集合（含 Any），cjc 1.2.0 对 GenericTypeInfo 访问该属性【无限挂起】（main/unittest均复现；1.3.0-alpha.20260920003052 复验仍挂，2026-10-09 探针 GTI 直访即挂，15s timeout exit=124）——断言无法产生结果，model 层裁剪该条消费，对账呈现为 1 条已知 gap。
 - 约束泛型函数（pick<T> where T <: Iface）的 getFunction 反查：文档 L2998 手法应可用，cjc 1.2.0 实际抛 InfoNotFoundException（最小复现 problem/gti_constrained_generic_getfunction_notfound_minimal.cj）——model 层裁剪 pick × byGetFunction 组合 + gtiSameExpr 退化（Global_pick TC 仍覆盖）。
 - 泛型形参限定名不绑定宿主：id<T> 的 T 与 pick<T> 的 T qualifiedName 均为 "T"，== 为 true（文档 L2961 基于限定名称相等的推论）——design 层 ==/!= 差异 rule已修正为【不同名称】泛型形参间比较。
 

@@ -4,8 +4,8 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Rules | 13 |
-| Covered | 13 |
+| Total Rules | 15 |
+| Covered | 15 |
 | Gaps | 0 |
 | Coverage Rate | 100% |
 
@@ -13,9 +13,9 @@
 
 | CriterionKind | Covered | Total | Rate |
 |-------------|---------|-------|------|
-| Api | 13 | 13 | 100% |
+| Api | 15 | 15 | 100% |
 
-## Covered Features (13)
+## Covered Features (15)
 
 | Feature ID | Kind | Models | Methodologies |
 |------------|------|--------|---------------|
@@ -32,4 +32,6 @@
 | reflect/ec/GlobalVariableInfo/toString | Api | std.reflect — GlobalVariableInfo (var), std.reflect — GlobalVariableInfo (let), std.reflect — GlobalVariableInfo (const) | ec |
 | reflect/ec/GlobalVariableInfo/== | Api | std.reflect — GlobalVariableInfo (var), std.reflect — GlobalVariableInfo (let), std.reflect — GlobalVariableInfo (const) | ec |
 | reflect/ec/GlobalVariableInfo/!= | Api | std.reflect — GlobalVariableInfo (var), std.reflect — GlobalVariableInfo (let), std.reflect — GlobalVariableInfo (const) | ec |
+| reflect/ec/PackageInfo/getVariable | Api | std.reflect — GlobalVariableInfo (var), std.reflect — GlobalVariableInfo (let), std.reflect — GlobalVariableInfo (const), std.reflect — GlobalVariableInfo (可见性) | ec |
+| reflect/ec/PackageInfo/variables | Api | std.reflect — GlobalVariableInfo (var), std.reflect — GlobalVariableInfo (let), std.reflect — GlobalVariableInfo (const), std.reflect — GlobalVariableInfo (可见性) | ec |
 
