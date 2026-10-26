@@ -19,12 +19,6 @@ compiler/CHIR/InvokeNodetest
 compiler/CHIR/RemoveRedundantRet
 compiler/CHIR/ScalarReplacementOfArray
 compiler/CHIROpt/FunctionInline
-compiler/CHIROpt/MergeBlocks
-compiler/CHIROpt/NoSideEffectMarker
-compiler/CHIROpt/NonVisibleWrapperClear
-compiler/CHIROpt/O2Optimization
-compiler/CHIROpt/Optimizations
-compiler/CHIROpt/RedundantFuture
 compiler/CHIROpt/RedundantGetOrThrowElimination
 compiler/CHIROpt/SanCovPass
 compiler/CHIROpt/UnitUnify
