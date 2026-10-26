@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC: %compiler %f -o %output
-// EXEC-1: %run %run_opt %output %run_args
+// EXEC: %run %run_opt %output %run_args
 
 extend<T> Array<T> where T <: Equatable<T> {
     public func myContainsCE(this @local?, element: T @local?): Bool {
