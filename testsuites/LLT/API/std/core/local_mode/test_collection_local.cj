@@ -11,14 +11,8 @@
 //   运行时写屏障 "field must reference heap object, current local object or null"）
 //   已在当前 SDK/runtime 解决，T406-T409 全部按文档期望通过（T409 的
 //   Collection<T> @local! toArray 声明仍未落地，保留 SKIPPED 注释），本用例恢复活跃。
-// DISABLED (compiler/runtime defect): obtaining the elements through the
-// `Collection<T> @local?` interface slot returns an array of the right length whose elements are
-// all the zero value, while the same call on a concrete `@local?` receiver returns the real
-// elements. Min repro: a class with `func toArray(this @local?): Array<String> @local?` that
-// returns ["a", "b"]; `let i: Collection<String> @local? = c; i.toArray()` yields size 2 with
-// `[0] == "a"` false. Re-enable once interface-slot dispatch preserves the payload.
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 import std.core.*
 

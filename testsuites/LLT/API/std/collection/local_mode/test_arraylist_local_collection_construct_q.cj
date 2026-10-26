@@ -7,14 +7,8 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// DISABLED (compiler/runtime defect): obtaining the elements through the
-// `Collection<T> @local?` interface slot returns an array of the right length whose elements are
-// all the zero value, while the same call on a concrete `@local?` receiver returns the real
-// elements. Min repro: a class with `func toArray(this @local?): Array<String> @local?` that
-// returns ["a", "b"]; `let i: Collection<String> @local? = c; i.toArray()` yields size 2 with
-// `[0] == "a"` false. Re-enable once interface-slot dispatch preserves the payload.
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 // Collection constructors copy Array and ArrayList sources and use local toArray for other sources.
 
 import std.collection.*
