@@ -104,7 +104,7 @@ func tryExtractInfo(s: String): Option<Info> {
     if (!hasB) {
         return None<Info>
     }
-    Info(a, b, s[1..pipeIdx].toHeap())
+    Info(a, b, String(s[1..pipeIdx]))
 }
 
 func collectInfo(v: JsonValue, out: ArrayList<Info>): Unit {

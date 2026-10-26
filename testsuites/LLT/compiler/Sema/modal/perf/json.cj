@@ -109,7 +109,7 @@ func tryExtractInfo(s: String @local?): Option<Info> {
     if (!hasB) {
         return None<Info>
     }
-    Info(a, b, s[1..pipeIdx].toHeap())
+    Info(a, b, String(s[1..pipeIdx]))
 }
 
 exclave func collectInfo(v: JsonValue @local!, out: ArrayList<Info>): Unit {
@@ -128,9 +128,10 @@ exclave func collectInfo(v: JsonValue @local!, out: ArrayList<Info>): Unit {
                     }
                 case None => ()
             }
-            o.getFields().forEach({ _, child =>
-                exclave { collectInfo(child, out) }
-            })
+            let fs: HashMap<String, JsonValue> @local! = o.getFields()
+            for ((_, child) in fs) {
+                collectInfo(child, out)
+            }
         case a: JsonArray =>
             let n = a.size()
             for (i in 0..n) {
@@ -151,7 +152,7 @@ func heap2() {
 }
 
 func myParse(): ArrayList<Info> {
-    let data: String @local! = "origin.json"
+    let data: String = "origin.json"
     let s0: String @local! = "${heap()} ${heap2()}"
     println(s0)
     let raw = String.fromUtf8(File.readFrom(data))
