@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// Both generic branches share Root; calls must still use Leaf's implementation.
+// A Leaf-typed receiver makes CHIR resolve the shared generic root recursively.
 // EXEC: %compiler %cmp_opt -O0 %f -o %output
 // EXEC: %run %run_opt %output %run_args | compare %f
 // EXEC: %compiler %cmp_opt -O2 %f -o %output
@@ -28,9 +28,14 @@ interface Leaf <: Left<Int64> & Right<Int64> {
 
 struct Impl <: Leaf {}
 
+func callLeaf(value: Leaf): Int64 {
+    value.f(7)
+}
+
 main(): Int64 {
-    let value: Root<Int64> = Impl()
-    if (value.f(7) != 8) {
+    let leaf: Leaf = Impl()
+    let value: Root<Int64> = leaf
+    if (callLeaf(leaf) != 8 || value.f(7) != 8) {
         return 1
     }
     println("PASS")

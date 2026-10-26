@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// The implementation must remain callable through both independent roots.
+// Resolve C.f through both independent roots, then dispatch via C, A, and B.
 // EXEC: %compiler %cmp_opt -O0 %f -o %output
 // EXEC: %run %run_opt %output %run_args | compare %f
 // EXEC: %compiler %cmp_opt -O2 %f -o %output
@@ -18,14 +18,23 @@ interface B {
     func f(): Int64
 }
 
-struct Impl <: A & B {
+interface C <: A & B {
+    func f(): Int64
+}
+
+struct Impl <: C {
     public func f(): Int64 { 5 }
 }
 
+func callCombined(value: C): Int64 {
+    value.f()
+}
+
 main(): Int64 {
+    let combined: C = Impl()
     let a: A = Impl()
     let b: B = Impl()
-    if (a.f() + b.f() != 10) {
+    if (callCombined(combined) != 5 || a.f() + b.f() != 10) {
         return 1
     }
     println("PASS")

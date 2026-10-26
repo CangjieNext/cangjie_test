@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// Reusing root-query results must preserve instance dispatch and static lookup.
+// Child-interface receivers exercise root resolution before virtual dispatch.
 // EXEC: %compiler %cmp_opt -O0 %f -o %output
 // EXEC: %run %run_opt %output %run_args | compare %f
 // EXEC: %compiler %cmp_opt -O2 %f -o %output
@@ -27,9 +27,19 @@ interface Leaf <: Middle {
 
 struct Impl <: Leaf {}
 
+func callMiddle(value: Middle): Int64 {
+    value.f()
+}
+
+func callLeaf(value: Leaf): Int64 {
+    value.f()
+}
+
 main(): Int64 {
+    let middle: Middle = Impl()
+    let leaf: Leaf = Impl()
     let value: Root = Impl()
-    if (value.f() != 2 || Leaf.sf() != 2) {
+    if (callMiddle(middle) != 2 || callLeaf(leaf) != 2 || value.f() != 2 || Leaf.sf() != 2) {
         return 1
     }
     println("PASS")
