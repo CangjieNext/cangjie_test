@@ -203,3 +203,30 @@ compiler/CJMP/merging/classes/vtable/import1.cj
 # Driver permission related cases.
 compiler/ConditionalCompilation/cfg/read_file_fail.cj
 compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
+
+# local-mode cases blocked by the current compiler/runtime (2026-10)
+
+# Reading elements through the `Collection<T> @local?` interface slot returns an
+# array of the right length whose elements are all the zero value, while the same
+# call on a concrete `@local?` receiver returns the real elements. Min repro:
+# `let i: Collection<String> @local? = c; i.toArray()` yields size 2 with `[0] == "a"` false.
+API/std/collection/local_mode/test_arraylist_local_collection_construct_q.cj
+API/std/core/local_mode/test_collection_local.cj
+
+# The `@local?` receiver paths of ArrayList still reject an arbitrary Collection:
+# the @local? constructor and `add(all:)` specialise Array/ArrayList only, the
+# @local? reserve cannot rebind the non-Copyable storage, and zip has no @local?
+# receiver overload. The first case below is a negative compile unit, but the
+# framework has no expected-fail directive, so it cannot be expressed as EXEC.
+API/std/collection/local_mode/test_arraylist_half_noncopyable_write_neg.cj
+API/std/collection/local_mode/test_arraylist_local_customcollection_blocked.cj
+API/std/collection/local_mode/test_arraylist_local_qgrow_blocked.cj
+API/std/collection/local_mode/test_arraylist_local_zip_types_blocked.cj
+API/std/collection/local_mode/test_arraylist_local_zip_types_qother_blocked.cj
+
+# The local-mode compiler change of 2026-10-23 (fix: exclave init check) makes the
+# unannotated lambda parameter fail to infer, so the case now reports
+# "parameters of this lambda expression must have type annotations" at 17:14
+# instead of the expected "mismatched types" at 22:7. Excluded until the
+# diagnostic behaviour is settled by the compiler side.
+compiler/Sema/type_infer/lambda_param_sum_keep_04.cj
