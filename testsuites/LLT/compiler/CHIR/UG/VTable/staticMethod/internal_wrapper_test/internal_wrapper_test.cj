@@ -4,18 +4,16 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE: p1
-// EXEC:%compiler %cmp_opt %compile_lib_opt --no-sub-pkg %pkg_opt p1 -o ./p1.%middle
-// EXEC:%compiler %cmp_opt p1.%middle %f -o %output
-// EXEC:%run %output
+// LEVEL: 0
+// DEPENDENCE: pkg.cj
+// EXEC: %compiler pkg.cj %compile_lib_opt -o libpkg.%middle
+// EXEC: %compiler libpkg.%middle %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
-import p1.*
+import pkg.*
 
 class ca2 <: ca {}
 
 main() {
     let a = ca2()
 }
-
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace

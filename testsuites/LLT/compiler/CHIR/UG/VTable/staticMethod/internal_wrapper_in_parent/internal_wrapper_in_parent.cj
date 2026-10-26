@@ -4,14 +4,16 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package p2
+// LEVEL: 0
+// DEPENDENCE: pkg.cj
+// EXEC: %compiler pkg.cj %compile_lib_opt -o libpkg.%middle
+// EXEC: %compiler libpkg.%middle %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
-public open class cb {
-    static func test() {
-    }
-}
+import pkg.*
 
-class cc <: cb {
-    static func test() {
-    }
+class cc <: cb {}
+
+main() {
+    let a = cc()
 }
