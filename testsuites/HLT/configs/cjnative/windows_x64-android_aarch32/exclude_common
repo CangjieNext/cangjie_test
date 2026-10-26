@@ -7,71 +7,36 @@
 # https://gitcode.com/Cangjie/cangjie_test/issues/523
 Tools/cjprof
 
+# 用例指令依赖 host 侧 unix 工具（%chmod/%ls/%grep 等）：windows cfg 将 ls/grep
+# 映射为 dir/findstr、chmod 无映射，语义不符必败。待 windows runner 就绪 unix
+# 工具链后，将用例头 (!host_win) 改回 (!target_win) 并删除本组。
+API/net/handler/FileHandler/file_handler_init_03.cj
+API/net/handler/FileHandler/file_handler_init_09.cj
+API/net/handler/FileHandler/file_handler_init_12.cj
+API/net/handler/FileHandler/file_handler_init_15.cj
+API/net/handler/FileHandler/file_handler_init_15n.cj
+API/net/handler/FileHandler/file_handler_init_18n.cj
+API/std/fs/os_chmod_n_01.cj
+API/std/fs/os_chmod_n_04.cj
+API/std/fs/os_chown_0.cj
+API/std/fs/os_fchmod_n_01.cj
+API/std/fs/os_fchmod_n_03.cj
+
 Tools/cjpm/stdx/c/build_mock/build_mock.info
 
 # windows不支持~,无法解析成绝对路径
 API/std/os/env/test_getArgs/test_getArgs_003/test_getArgs_003.cj
 
-# windows没有"/"目录
-API/std/os/path/test_chdir/test_chdir_001/test_chdir_001.cj
-
-# windows不支持 chown
-API/std/fs/os_chown_0.cj
-API/std/fs/os_chown_1.cj
-API/std/fs/os_chown_2.cj
-API/std/fs/os_chown_3.cj
-API/std/fs/os_chown_4.cj
-
-# windows不支持常量O_NOCTTY、O_NOFOLLOW、O_NONBLOCK、O_SYNC
-# 常量不支持未在api文档中说明
-API/std/fs/os_const_01.cj
-API/std/fs/os_creat_01.cj
-API/std/fs/os_faccessat.cj
-
 # windows 不支持 fchmod
-API/std/fs/os_fchmod_n_01.cj
-API/std/fs/os_fchmod_n_02.cj
-API/std/fs/os_fchmod_n_03.cj
-API/std/fs/os_fchmod_n_04.cj
-API/std/fs/os_fchmod_n_05.cj
 API/std/os/file/test_fchmod/test_fchmod.cj
 
 # windows 不支持 fchmodat
-API/std/fs/os_fchmodat.cj
 API/std/os/file/test_fchmodat/test_fchmodat.cj
 
-# windows 不支持fchown
-API/std/fs/os_fchown.cj
-API/std/os/file/test_fchown/test_fchown.cj
-
-# windows 不支持fchownat
-API/std/fs/os_fchownat.cj
-API/std/os/file/test_fchownat/test_fchownat.cj
-
 # windows 不支持lchown
-API/std/fs/os_lchown.cj
-API/std/fs/os_lchown_1.cj
 API/std/fs/os_lchown_2.cj
 API/std/fs/os_lchown_3.cj
 API/std/fs/os_lchown_4.cj
-API/std/os/file/test_lchown/test_lchown.cj
-
-# windows 不支持openat64
-API/std/fs/os_openat64_01.cj
-API/std/fs/os_openat64_02.cj
-API/std/os/file/test_openat64/test_openat64.cj
-
-# windows 不支持openat
-API/std/fs/os_openat_01.cj
-API/std/os/file/test_openat/test_openat.cj
-
-# windows 不支持sethostname
-API/std/os/info/test_sethostname/test_sethostname_002/test_sethostname_002.cj
-API/std/os/info/test_sethostname/test_sethostname_001/test_sethostname_001.cj
-
-# windows 不支持fchdir
-API/std/os/path/test_fchdir/test_fchdir_001/test_fchdir_001.cj
-API/std/os/path/test_fchdir/test_fchdir_002/test_fchdir_002.cj
 
 # windows 不支持getgid
 API/std/os/process/test_getgid/test_getgid_001/test_getgid_001.cj
@@ -91,32 +56,11 @@ API/std/os/process/test_getpgid/test_getpgid_001/test_getpgid_001.cj
 # windows 不支持getpgrd
 API/std/os/process/test_getpgrp/test_getpgrp_001/test_getpgrp_001.cj
 
-# windows 不支持getppid
-API/std/os/process/test_getppid/test_getppid_001/test_getppid_001.cj
-
 # windows 不支持getuid
 API/std/os/process/test_getuid/test_getuid_001/test_getuid_001.cj
 
-# windows 不支持setpgrp
-API/std/os/process/test_setpgrp/test_setpgrp_001/test_setpgrp_001.cj
-
-# os.posix标准库函数不支持
-API/std/os/file/test_isType/test_isType.cj
-API/std/os/file/test_isLnk/test_isLnk.cj
-API/std/os/file/test_isSock/test_isSock.cj
-API/std/os/file/test_link/test_link.cj
-API/std/os/file/test_linkat/test_linkat.cj
-API/std/os/file/test_open64/test_open64.cj
-API/std/os/file/test_pread/test_pread.cj
-API/std/os/file/test_pwrite/test_pwrite.cj
-API/std/os/file/test_symlinkat/test_symlinkat.cj
-API/std/os/file/test_renameat/test_renameat.cj
-API/std/os/file/test_unlink/test_unlink.cj
-API/std/os/file/test_unlinkat/test_unlinkat.cj
-
 # windows 不支持ttyname
 API/std/os/tty/test_ttyname/test_ttyname_001/test_ttyname_001.cj
-API/std/os/tty/test_ttyname/test_ttyname_002/test_ttyname_002.cj
 
 # cmd不支持同一行中同时设置和读取变量
 API/std/os/env/test_currentDir/test_currentDir_001/test_currentDir_001.cj
@@ -129,24 +73,9 @@ API/std/os/env/test_getEnv/test_getEnv_004/test_getEnv_004.cj
 API/std/time/TimeZone/Location/test_load_008.cj
 
 # windows的差异适配
-API/std/io/file/io_seek_seekPosition_begin_03.cj
-API/std/fs/os_chmod_n_01.cj
-API/std/fs/os_chmod_n_02.cj
-API/std/fs/os_chmod_n_04.cj
 API/std/fs/os_isBlk_01.cj
-API/std/fs/os_isChr_01.cj
 API/std/fs/os_isLink_01.cj
-API/std/io/StringReader/StringReader_readUntil_char_19_01.cj
-API/std/io/StringReader/StringReader_readUntil_predicate_22_01.cj
-API/net/handler/FileHandler/file_handler_init_03.cj
 API/net/handler/FileHandler/file_handler_init_06.cj
-API/net/handler/FileHandler/file_handler_init_09.cj
-API/net/handler/FileHandler/file_handler_init_12.cj
-API/net/handler/FileHandler/file_handler_init_15.cj
-API/net/handler/FileHandler/file_handler_init_15n.cj
-API/net/handler/FileHandler/file_handler_init_18n.cj
-API/net/Client/ClientBuilder/Http2/ClientBuilder_sendRequest_and_getResponse.cj
-API/net/Server/ServerBuilder/Http2/ServerBuilder_servicePoolConfig_H2.cj
 
 # windows绑定socket时的SO_REUSEADDR，默认为true
 API/net/Server/ServerBuilder/Http1/ServerBuilder_afterBind.cj
@@ -160,7 +89,6 @@ API/std/os/process/test_kill/test_kill_002/test_kill_002.cj
 API/std/os/process/test_kill/test_kill_003/test_kill_003.cj
 API/std/os/process/test_kill/test_kill_004/test_kill_004.cj
 API/std/os/process/test_kill/test_kill_005/test_kill_005.cj
-API/std/os/process/test_kill/test_kill_006/test_kill_006.cj
 API/std/os/process/test_kill/test_kill_007/test_kill_007.cj
 API/std/os/process/test_kill/test_kill_008/test_kill_008.cj
 
@@ -169,14 +97,6 @@ API/std/fs/os_isFIFO_path_mode.cj
 
 # windows上的宏暂时都不支持
 API/std/os/file/test_access/test_access.cj
-API/std/os/file/test_dup2/test_dup2.cj
-API/std/os/file/test_lseek/test_lseek.cj
-API/std/os/file/test_read/test_read.cj
-API/std/os/file/test_remove/test_remove.cj
-API/std/os/file/test_rename/test_rename.cj
-API/std/os/file/test_write/test_write.cj
-API/std/os/file/test_chown/test_chown.cj
-API/std/unittest/option/test_option_081/test_option_081.cj
 
 # Filesystem: some command not support on windows
 API/std/fs/directory/linux
@@ -184,15 +104,8 @@ API/std/fs/fileinfo/linux
 API/std/fs/file/linux
 API/std/fs/path/linux
 
-# OS: chmod not support on windows
-API/std/os/chmod/test_chmod_linux_02.cj
-
 # Lead to win-daily fail: test-framework cannot kill subprocess when testcase timeout
 API/std/os/os_Process
-
-# Net: UnixSocket not support on windows
-API/std/socket/UnixDatagramSocket
-API/std/socket/UnixSocket
 
 # ======================== Compiler exclude ========================
 # linux和win的命令行差异
