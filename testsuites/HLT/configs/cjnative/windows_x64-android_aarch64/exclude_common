@@ -29,7 +29,6 @@ API/std/fs/os_creat_01.cj
 API/std/fs/os_faccessat.cj
 
 # windows 不支持 fchmod
-API/std/fs/os_fchmod_n_01.cj
 API/std/fs/os_fchmod_n_02.cj
 API/std/fs/os_fchmod_n_03.cj
 API/std/fs/os_fchmod_n_04.cj
@@ -287,7 +286,6 @@ compiler/cli/Option/library/option_library_00006.cj
 compiler/cli/Option/parallel_compile
 
 # 不支持反引号
-compiler/cli/Option/obfuscation/005/obfuscation_50001.cj
 compiler/cli/Option/obfuscation/005/obfuscation_50002.cj
 compiler/cli/Option/obfuscation/006/obfuscation_60002.cj
 compiler/cli/Option/obfuscation/006/obfuscation_60002_1.cj
