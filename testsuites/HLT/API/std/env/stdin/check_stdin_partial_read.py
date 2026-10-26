@@ -4,7 +4,7 @@
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-"""Verify that ConsoleReader.read returns available stdin bytes without false EOF."""
+"""Verify short reads through readSome and preserve the legacy stdin read contract."""
 
 import ast
 import os
@@ -69,7 +69,7 @@ class OutputReader:
         except queue.Empty:
             return
         raise AssertionError(
-            f"stdin read returned before data was available in {self.label!r} mode: "
+            f"stdin read returned before the expected input stage in {self.label!r} mode: "
             f"{kind} {value!r}"
         )
 
@@ -253,6 +253,33 @@ def run_file_case(command):
             cleanup_process(process, reader)
 
 
+def run_legacy_wait_case(command, *, line_wait):
+    mode = "legacy_line_wait" if line_wait else "legacy_wait"
+    first = b"abcd" if line_wait else b"abc\n"
+    second = b"\nTAIL" if line_wait else b"def\n"
+    process = start_process(command, mode, subprocess.PIPE)
+    reader = OutputReader(process.stdout, mode)
+    try:
+        assert_exact_lines([reader.read_line()], [b"READY"], mode)
+        process.stdin.write(first)
+        process.stdin.flush()
+        # This is a bounded observation after the child's readiness handshake,
+        # not proof that a particular scheduler has entered the blocking read.
+        reader.expect_quiet()
+        process.stdin.write(second)
+        process.stdin.flush()
+        expected = (
+            [format_read(b"abcd"), format_read(b"\n"), format_read(b"TAIL")]
+            if line_wait else [format_read(b"abc\ndef\n")]
+        )
+        assert_exact_lines([reader.read_line() for _ in expected], expected, mode)
+        # The old read must finish when its historical conditions are met,
+        # without requiring the writer to close the pipe.
+        wait_for_success(process, mode)
+    finally:
+        cleanup_process(process, reader)
+
+
 def run_pty_case(command):
     if os.name != "posix":
         return
@@ -278,6 +305,28 @@ def run_pty_case(command):
         if slave_fd >= 0:
             os.close(slave_fd)
         os.close(master_fd)
+
+
+def run_legacy_text_cases(command):
+    # Windows' historical redirected text path translates CRLF and stops at
+    # Ctrl-Z; POSIX preserves those bytes. Include a CR across the native cache
+    # boundary and lone CRs to catch lookahead loss or duplication.
+    for payload in (
+        b"a\r\nb\x1ac\r\n",
+        b"a\rb\r",
+        b"a" * 511 + b"\r\nTAIL\rX",
+        b"a" * 511 + b"\rX\n",
+    ):
+        expected = payload
+        if os.name == "nt":
+            expected = payload.split(b"\x1a", 1)[0].replace(b"\r\n", b"\n")
+        run_pipe_case(
+            command, payload, 2,
+            lambda lines, data=expected: assert_exact_lines(
+                lines, [format_read(data), format_read(b"")], "legacy_text"
+            ),
+            mode="legacy_text", close_stdin_before_read=True,
+        )
 
 
 def main():
@@ -398,10 +447,70 @@ def main():
     run_pipe_case(
         command,
         b"",
-        1,
-        lambda lines: assert_exact_lines(lines, [format_read(b"")], "eof"),
+        2,
+        lambda lines: assert_exact_lines(lines, [format_read(b"")] * 2, "eof"),
         mode="eof",
         close_stdin_before_read=True,
+    )
+    run_legacy_wait_case(command, line_wait=False)
+    run_legacy_wait_case(command, line_wait=True)
+    run_legacy_text_cases(command)
+    run_pipe_case(
+        command, b"a\r\nb\r\n", 3,
+        lambda lines: assert_exact_lines(
+            lines, [format_read(b"a"), format_read(b"\n" if os.name == "nt" else b"\r\n"),
+                    format_read(b"b\r\n")], "legacy_text_mixed"
+        ),
+        mode="legacy_text_mixed",
+    )
+    run_pipe_case(
+        command, b"", 1,
+        lambda lines: assert_exact_lines(lines, [format_read(b"")], "legacy_empty"),
+        mode="legacy_empty",
+    )
+    run_pipe_case(
+        command, b"abc", 2,
+        lambda lines: assert_exact_lines(
+            lines, [format_read(b"abc"), format_read(b"")], "legacy_eof"
+        ),
+        mode="legacy_eof", close_stdin_before_read=True,
+    )
+    run_pipe_case(
+        command, b"abcdef\nTAIL\n", 4,
+        lambda lines: assert_exact_lines(
+            lines,
+            [format_read(b"ab"), format_read(b"cdef\n"), format_read(b"TA"), format_read(b"IL\n")],
+            "legacy_mixed",
+        ),
+        mode="legacy_mixed",
+    )
+    run_pipe_case(
+        command, b"abcdef\nTAIL\n", 4,
+        lambda lines: assert_exact_lines(
+            lines,
+            [format_read(b"ab"), format_read(b"cde"), format_read(b"f\n"), b"Some(TAIL)"],
+            "reverse_legacy_mixed",
+        ),
+        mode="reverse_legacy_mixed",
+    )
+    run_pipe_case(
+        command, b"abcdef\nTAIL\n", 4,
+        lambda lines: assert_exact_lines(
+            lines,
+            [format_read(b"ab"), b"Some(cde)", format_read(b"f\n"), b"Some(TAIL)"],
+            "reverse_until_mixed",
+        ),
+        mode="reverse_until_mixed",
+    )
+    run_pipe_case(
+        command, bytes((0x00, 0x80, 0xFF)), 1,
+        lambda lines: assert_short_read(lines, bytes((0x00, 0x80, 0xFF)), 8, "slice"),
+        mode="slice",
+    )
+    run_pipe_case(
+        command, b"abcdefghij", 1,
+        lambda lines: assert_exact_lines(lines, [format_read(b"abcdefghij")], "accumulate"),
+        mode="accumulate", close_stdin_before_read=True,
     )
     run_file_case(command)
     run_pty_case(command)

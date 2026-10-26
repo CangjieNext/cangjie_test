@@ -16,12 +16,26 @@ import std.env.getStdIn
 import std.env.getVariable
 import std.io.*
 
+// A caller can opt into short-read semantics without changing InputStream.
+class StdinShortInput <: InputStream {
+    public func read(buffer: Array<Byte>): Int64 {
+        getStdIn().readSome(buffer)
+    }
+}
+
 main() {
-    let empty = getVariable("CJ_READ_FULLY_MODE") == Some("empty")
+    let mode = getVariable("CJ_READ_FULLY_MODE")
+    let empty = mode == Some("empty") || mode == Some("adapter_empty")
+    let adapter = mode == Some("adapter_complete") || mode == Some("adapter_incomplete") ||
+        mode == Some("adapter_empty")
     let buffer = Array<Byte>(if (empty) { 0 } else { 8 }, repeat: 0)
     print("READY\n", flush: true)
     try {
-        getStdIn().readFully(buffer)
+        if (adapter) {
+            readFully(StdinShortInput(), buffer)
+        } else {
+            getStdIn().readFully(buffer)
+        }
         print("FULL:${buffer}\n", flush: true)
     } catch (e: IOException) {
         print("INCOMPLETE:${buffer}\n", flush: true)

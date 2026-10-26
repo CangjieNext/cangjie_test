@@ -4,7 +4,7 @@
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-"""Check readFully completion, early EOF, and empty input with real child pipes."""
+"""Check member and adapted top-level readFully with real child pipes."""
 
 import os
 import queue
@@ -17,6 +17,7 @@ TIMEOUT = 10
 
 
 def run_case(command, mode):
+    scenario = mode[len("adapter_"):] if mode.startswith("adapter_") else mode
     environment = os.environ.copy()
     environment["CJ_READ_FULLY_MODE"] = mode
     process = subprocess.Popen(
@@ -43,12 +44,12 @@ def run_case(command, mode):
 
     try:
         expect(b"READY")
-        if mode == "empty":
+        if scenario == "empty":
             expect(b"FULL:[]")
         else:
             process.stdin.write(b"abc")
             process.stdin.flush()
-            if mode == "complete":
+            if scenario == "complete":
                 try:
                     unexpected = lines.get(timeout=0.3)
                 except queue.Empty:
@@ -83,7 +84,7 @@ def main():
     command = sys.argv[sys.argv.index("--") + 1:]
     if not command:
         raise ValueError("missing child command")
-    for mode in ("complete", "incomplete", "empty"):
+    for mode in ("complete", "incomplete", "empty", "adapter_complete", "adapter_incomplete", "adapter_empty"):
         run_case(command, mode)
         print(f"PASS readFully pipe {mode}")
 

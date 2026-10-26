@@ -73,7 +73,7 @@ struct FixedInput <: InputStream {
 }
 
 func fillGeneric<T>(input: T, buffer: Array<Byte>): Unit where T <: InputStream {
-    input.readFully(buffer)
+    readFully(input, buffer)
 }
 
 func check(value: Bool, name: String): Unit {
@@ -85,7 +85,7 @@ func check(value: Bool, name: String): Unit {
 func expectIncomplete(input: InputStream, buffer: Array<Byte>): Unit {
     var caught = false
     try {
-        input.readFully(buffer)
+        readFully(input, buffer)
     } catch (e: IOException) {
         caught = true
     }
@@ -97,18 +97,18 @@ main() {
     for (chunkSize in 1..=3) {
         let input = ChunkedInput(payload, chunkSize)
         let buffer = Array<Byte>(8, repeat: 0)
-        input.readFully(buffer)
+        readFully(input, buffer)
         check(buffer == payload, "ordered short reads")
         check(input.callCount() > 1, "multiple underlying reads")
     }
 
     let exact = ChunkedInput(payload, 8)
     let exactBuffer = Array<Byte>(8, repeat: 0)
-    exact.readFully(exactBuffer)
+    readFully(exact, exactBuffer)
     check(exactBuffer == payload && exact.callCount() == 1, "no read after filling")
 
     let emptyInput = ChunkedInput(payload, 1)
-    emptyInput.readFully(Array<Byte>(0, repeat: 0))
+    readFully(emptyInput, Array<Byte>(0, repeat: 0))
     check(emptyInput.callCount() == 0, "empty destination must not read")
 
     expectIncomplete(ChunkedInput(Array<Byte>(0, repeat: 0), 2), Array<Byte>(8, repeat: 0))
@@ -119,20 +119,20 @@ main() {
 
     let source = ChunkedInput("abcdefghij".toArray(), 3)
     let prefix = Array<Byte>(8, repeat: 0)
-    source.readFully(prefix)
+    readFully(source, prefix)
     let tail = Array<Byte>(2, repeat: 0)
-    source.readFully(tail)
+    readFully(source, tail)
     check(prefix == payload && tail == "ij".toArray(), "no input overread")
 
     let surrounding = Array<Byte>(10, repeat: 255)
-    ChunkedInput(payload, 2).readFully(surrounding.slice(1, 8))
+    readFully(ChunkedInput(payload, 2), surrounding.slice(1, 8))
     check(surrounding[0] == 255 && surrounding[9] == 255, "slice bounds")
     check(surrounding.slice(1, 8) == payload, "slice writes reach original array")
 
     var sourceError = false
     let failed = Array<Byte>(8, repeat: 0)
     try {
-        FailingInput().readFully(failed)
+        readFully(FailingInput(), failed)
     } catch (e: SourceReadException) {
         sourceError = true
     }
@@ -143,34 +143,34 @@ main() {
 
     let binary: Array<Byte> = [0, 255, 128, 10]
     let binaryBuffer = Array<Byte>(4, repeat: 0)
-    ChunkedInput(binary, 1).readFully(binaryBuffer)
+    readFully(ChunkedInput(binary, 1), binaryBuffer)
     check(binaryBuffer == binary, "binary data")
 
     let byteBuffer = Array<Byte>(8, repeat: 0)
-    ByteBuffer(payload).readFully(byteBuffer)
+    readFully(ByteBuffer(payload), byteBuffer)
     check(byteBuffer == payload, "ByteBuffer input")
 
     let interfaceInput: InputStream = ChunkedInput(payload, 2)
     let interfaceBuffer = Array<Byte>(8, repeat: 0)
-    interfaceInput.readFully(interfaceBuffer)
-    check(interfaceBuffer == payload, "interface-typed default method")
+    readFully(interfaceInput, interfaceBuffer)
+    check(interfaceBuffer == payload, "interface-typed input")
 
     let genericBuffer = Array<Byte>(8, repeat: 0)
     fillGeneric(ChunkedInput(payload, 3), genericBuffer)
-    check(genericBuffer == payload, "generic default method")
+    check(genericBuffer == payload, "generic input")
 
     let buffered = BufferedInputStream(ChunkedInput(payload, 2), 3)
     let bufferedBytes = Array<Byte>(8, repeat: 0)
-    buffered.readFully(bufferedBytes)
-    check(bufferedBytes == payload, "buffered input inherits default method")
+    readFully(buffered, bufferedBytes)
+    check(bufferedBytes == payload, "buffered input")
 
     let chained = ChainedInputStream([ByteBuffer("abc".toArray()), ByteBuffer("defgh".toArray())])
     let chainedBytes = Array<Byte>(8, repeat: 0)
-    chained.readFully(chainedBytes)
-    check(chainedBytes == payload, "chained input inherits default method")
+    readFully(chained, chainedBytes)
+    check(chainedBytes == payload, "chained input")
 
     let structBuffer = Array<Byte>(3, repeat: 0)
-    FixedInput().readFully(structBuffer)
-    check(structBuffer == "aaa".toArray(), "struct inherits default method")
+    readFully(FixedInput(), structBuffer)
+    check(structBuffer == "aaa".toArray(), "struct input")
     println("PASS readFully contract")
 }
