@@ -4,9 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package p1
+package pkg
 
-public open class ca {
+public open class cb {
+    static func test() {
+    }
+}
+
+class cc <: cb {
     static func test() {
     }
 }
