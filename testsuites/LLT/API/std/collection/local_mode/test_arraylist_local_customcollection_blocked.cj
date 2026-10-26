@@ -7,8 +7,8 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
 // BLOCKED (std, partially fixed): T318/T422, P420.  A heap CustomCollection
 // widened to Collection<Int64> @local? is the documented positive source for bulk

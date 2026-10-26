@@ -7,8 +7,8 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
 // BLOCKED (compiler + std message): T319/P354, C3.  ArrayList @local? reserve must
 // grow when free < additional.  Growing needs to rebind the non-Copyable myData

@@ -8,8 +8,8 @@
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
 // EXPECTED-COMPILE-FAIL: T332 doc-valid q other rejected by narrow ArrayList.zip(other @local!) SDK signature
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
 // BLOCKED-POSITIVE (LM-DOC-20260910 T332/T333, C3): inferred and explicit
 // bang-other calls are valid and retained.  The doc-valid q-other call below

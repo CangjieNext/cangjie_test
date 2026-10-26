@@ -7,12 +7,8 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// DISABLED (runtime defect): a generic `Option<T> @local!` / array transform whose element is a
-// local reference currently aborts with `heap object must not reference local object` in the
-// runtime (min repro: `exclave func f(): String @local! { ... }; let o: Option<String> @local! =
-// Some(f()) @local!; o.getOrThrow()`). Re-enable once the runtime barrier is fixed.
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 // Check local Option predicates, unwrapping, and heap overloads.
 
 import std.core.*

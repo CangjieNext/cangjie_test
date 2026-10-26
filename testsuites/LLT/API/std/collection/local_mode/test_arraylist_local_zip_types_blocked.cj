@@ -8,8 +8,8 @@
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
 // EXPECTED-COMPILE-FAIL: T332 ArrayList @local? receiver has no zip overload
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 //
 // LM-DOC-20260910 T332/T399: a q receiver is forbidden even though the
 // document permits a bang receiver with local!/q/heap other modes.  Keep this

@@ -8,8 +8,8 @@
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
 // EXPECTED-COMPILE-FAIL (T425): ArrayList<String> @local? index assignment has no satisfying local? setter
-// DISABLED-EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 import std.collection.*
 

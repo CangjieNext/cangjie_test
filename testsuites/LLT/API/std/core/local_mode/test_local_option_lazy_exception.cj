@@ -6,12 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// DISABLED (runtime defect): a generic `Option<T> @local!` / array transform whose element is a
-// local reference currently aborts with `heap object must not reference local object` in the
-// runtime (min repro: `exclave func f(): String @local! { ... }; let o: Option<String> @local! =
-// Some(f()) @local!; o.getOrThrow()`). Re-enable once the runtime barrier is fixed.
-// DISABLED-EXEC: %compiler %cmp_opt %f -o %output
-// DISABLED-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %run %run_opt %output %run_args
 
 class Calls {
     var count: Int64 = 0

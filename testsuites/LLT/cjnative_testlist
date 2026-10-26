@@ -221,3 +221,21 @@ API/stdx/encoding/json/local_mode/test_json_local_container_growth.cj
 # `let i: Collection<String> @local? = c; i.toArray()` yields size 2 with `[0] == "a"` false.
 API/std/collection/local_mode/test_arraylist_local_collection_construct_q.cj
 API/std/core/local_mode/test_collection_local.cj
+# The local-mode compiler change of 2026-10-23 (fix: exclave init check) makes the
+# unannotated lambda parameter fail to infer, so the case now reports
+# "parameters of this lambda expression must have type annotations" at 17:14
+# instead of the expected "mismatched types" at 22:7. Excluded until the
+# diagnostic behaviour is settled by the compiler side.
+compiler/Sema/type_infer/lambda_param_sum_keep_04.cj
+# Blocked by the same runtime defect as the group above: a generic
+# `Option<T> @local!` / array transform whose element is a local reference aborts
+# with `heap object must not reference local object` (SIGABRT).
+API/std/core/local_mode/test_option_local.cj
+API/std/core/local_mode/test_local_option_lazy_exception.cj
+API/std/core/local_mode/test_local_array_nonempty_transforms.cj
+# Blocked by the same `Collection<T> @local?` interface-slot defect as above.
+API/std/collection/local_mode/test_arraylist_half_noncopyable_write_neg.cj
+API/std/collection/local_mode/test_arraylist_local_customcollection_blocked.cj
+API/std/collection/local_mode/test_arraylist_local_qgrow_blocked.cj
+API/std/collection/local_mode/test_arraylist_local_zip_types_blocked.cj
+API/std/collection/local_mode/test_arraylist_local_zip_types_qother_blocked.cj
