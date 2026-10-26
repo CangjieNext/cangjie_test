@@ -4,8 +4,8 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Rules | 11 |
-| Covered | 11 |
+| Total Rules | 16 |
+| Covered | 16 |
 | Gaps | 0 |
 | Coverage Rate | 100% |
 
@@ -13,9 +13,9 @@
 
 | CriterionKind | Covered | Total | Rate |
 |-------------|---------|-------|------|
-| Api | 11 | 11 | 100% |
+| Api | 16 | 16 | 100% |
 
-## Covered Features (11)
+## Covered Features (16)
 
 | Feature ID | Kind | Models | Methodologies |
 |------------|------|--------|---------------|
@@ -30,4 +30,9 @@
 | reflect/ec/GlobalFunctionInfo/getAllAnnotations | Api | std.reflect — GlobalFunctionInfo (基本信息), std.reflect — GlobalFunctionInfo (泛型参数), std.reflect — GlobalFunctionInfo (注解) | ec |
 | reflect/ec/GlobalFunctionInfo/hashCode | Api | std.reflect — GlobalFunctionInfo (基本信息), std.reflect — GlobalFunctionInfo (泛型参数), std.reflect — GlobalFunctionInfo (注解) | ec |
 | reflect/ec/GlobalFunctionInfo/toString | Api | std.reflect — GlobalFunctionInfo (基本信息), std.reflect — GlobalFunctionInfo (泛型参数), std.reflect — GlobalFunctionInfo (注解) | ec |
+| reflect/ec/GlobalFunctionInfo/== | Api | std.reflect — GlobalFunctionInfo (基本信息), std.reflect — GlobalFunctionInfo (泛型参数), std.reflect — GlobalFunctionInfo (注解) | ec |
+| reflect/ec/GlobalFunctionInfo/!= | Api | std.reflect — GlobalFunctionInfo (基本信息), std.reflect — GlobalFunctionInfo (泛型参数), std.reflect — GlobalFunctionInfo (注解) | ec |
+| reflect/ec/PackageInfo/functions | Api | std.reflect — GlobalFunctionInfo (基本信息), std.reflect — GlobalFunctionInfo (泛型参数), std.reflect — GlobalFunctionInfo (注解) | ec |
+| reflect/ec/PackageInfo/getFunction | Api | std.reflect — GlobalFunctionInfo (基本信息), std.reflect — GlobalFunctionInfo (泛型参数), std.reflect — GlobalFunctionInfo (注解) | ec |
+| reflect/ec/PackageInfo/getFunctions | Api | std.reflect — GlobalFunctionInfo (基本信息), std.reflect — GlobalFunctionInfo (泛型参数), std.reflect — GlobalFunctionInfo (注解) | ec |
 
