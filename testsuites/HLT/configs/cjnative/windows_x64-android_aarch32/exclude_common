@@ -113,45 +113,7 @@ API/std/os/os_Process
 # old jffi can only be run with cjvm.
 compiler/cjnative/FFI/jffi
 
-# cannot find -ldl: No such file or directory （不支持 ldl）
-compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00785/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00786/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00787/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00788/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00790/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00791/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00789/c_ffi.cj
-
 # 命令有sed
-compiler/cjnative/FFI/cffi/c_ffi_012/c_ffi_01202n/c_ffi_main.cj
-compiler/cjnative/FFI/cffi/c_ffi_012/c_ffi_01203n/c_ffi_main.cj
-compiler/cjnative/FFI/cffi/c_ffi_012/c_ffi_01205n/c_ffi_main.cj
-compiler/cjnative/FFI/cffi/c_ffi_012/c_ffi_01206n/c_ffi_main.cj
-compiler/cjnative/FFI/cffi/c_ffi_006/c_ffi_00611n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_006/c_ffi_00621n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00704n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00708n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00719n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00801/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00801n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00802n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00803n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00804n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00805n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00809n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00810/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00811/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00812n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_009/c_ffi_00911n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_009/c_ffi_00912n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_009/c_ffi_00913n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_009/c_ffi_00914n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_011/c_ffi_01129n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_011/c_ffi_01130n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_011/c_ffi_01131n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_011/c_ffi_01132n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_011/c_ffi_01133n/c_ffi.cj
-compiler/cjnative/FFI/cffi/c_ffi_012/c_ffi_01201n/c_ffi_main.cj
 compiler/cli/Option/obfuscation/009/obfuscation_90302.cj
 compiler/cli/Option/obfuscation/009/obfuscation_93104.cj
 
