@@ -213,7 +213,11 @@ ffffff
         }
         */
         let enumDecl = (decls[6] as EnumDecl).getOrThrow()
-        let comments = enumDecl.body.comments
+        // The comment located before the pipe-prefixed constructor belongs to
+        // that constructor instead of the body.
+        @Expect(enumDecl.body.comments.size, 0)
+        let constructor = (enumDecl.body.memberDecls[0] as EnumConstructor).getOrThrow()
+        let comments = constructor.comments
         @Expect(comments.size, 1)
         @Expect(comments[0].content, ##"// comment"##)
     }
