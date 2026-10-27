@@ -179,4 +179,30 @@ class Test {
             }
         }
     }
+
+    @TestCase
+    func testRewriterWalkEnumDeclIdentity() {
+        // Focused guard for ASTRewriter().walk(enumDecl): an identity rewrite of
+        // a single EnumDecl must keep the text byte-exact and keep the doc
+        // comments bound to the pipe-prefixed constructors.
+        let node = parseFile("enum_ctor_comment.cj")
+        let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
+        var enumDeclCount = 0
+        for (decl in file.topLevelDecls) {
+            if (let Some(enumDecl) <- (decl as EnumDecl)) {
+                enumDeclCount++
+                let rewritten = ASTRewriter().walk(enumDecl)
+                let newEnum = (rewritten as EnumDecl).getOrThrow()
+                @Expect(newEnum.toString().replace("\r\n", "\n"), enumDecl.toString().replace("\r\n", "\n"))
+                @Expect(newEnum.body.memberDecls.size, enumDecl.body.memberDecls.size)
+                for (i in 0..enumDecl.body.memberDecls.size) {
+                    let oldCtor = (enumDecl.body.memberDecls[i] as EnumConstructor).getOrThrow()
+                    let newCtor = (newEnum.body.memberDecls[i] as EnumConstructor).getOrThrow()
+                    @Expect(newCtor.name, oldCtor.name)
+                    @Expect(newCtor.comments.size, oldCtor.comments.size)
+                }
+            }
+        }
+        @Expect(enumDeclCount, 2)
+    }
 }
