@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %cmp_opt %f -o %output 2>&1
+// EXEC: %compiler %local %cmp_opt %f -o %output 2>&1
 // RUN-EXEC: %run %run_opt %output %run_args
 
 

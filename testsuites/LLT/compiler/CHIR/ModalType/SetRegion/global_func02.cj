@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../pick_defination.py
-// EXEC: %compiler %n.cj %dumpCHIRDebug -o %output
+// EXEC: %compiler %local %n.cj %dumpCHIRDebug -o %output
 // EXEC: %python pick_defination.py global_func02_CHIR/[0-9]*_Canonicalization.chirtxt "Func @_CN7default6<main>Hv" | compare %f
 // ASSERT: scan StartRegion()
 // ASSERT: scan EndRegion()

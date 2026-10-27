@@ -6,7 +6,7 @@
 // local slot written in a nested region.  Before the preforward root scan
 // included registered local slots, the second iteration could read a stale
 // Array reference in Barrier::ReadGeneric.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan nested generic array gc: passed
 

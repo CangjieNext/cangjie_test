@@ -6,7 +6,7 @@
 
 // A local finalizer must be registered without allocation-domain failure and
 // run exactly once before its owning scope is released.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %disableAPC %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %disableAPC %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan inside finalizer scope: 5
 // ASSERT: scan local finalizer: 5

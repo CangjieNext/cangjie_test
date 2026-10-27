@@ -9,7 +9,7 @@
 
 // LEVEL: 0
 // EXEC: %mkdir tmps
-// EXEC: %compiler %cmp_opt %disableFuncInlining %disableAPC %save_temps_opt=tmps %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %disableAPC %save_temps_opt=tmps %f -o %output
 // EXEC: %llvmDissembler tmps/%n.bc
 // EXEC-PIPE: %run %run_opt %output %run_args && %cat tmps/%n.ll 2>&1 | compare %f
 // ASSERT: scan a.n + b.n = 3

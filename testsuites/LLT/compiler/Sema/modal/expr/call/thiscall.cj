@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %f %diag_json -Woff all 2>&1
+// ERRCHECK: %compiler %local %f %diag_json -Woff all 2>&1
 class C {
     exclave init(this @local!) {}
     func foo(this @local!, c: C @local!) {

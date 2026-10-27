@@ -8,7 +8,7 @@
 // S()@local! (RemoveMismatchedThisModeForCtorCall has no copy exemption).
 // S() without postfix modal still converts via copy mode erasure.
 
-// ERRCHECK: %compiler %f %cmp_opt -Woff all 2>&1
+// ERRCHECK: %compiler %local %f %cmp_opt -Woff all 2>&1
 
 struct S <: Copyable {
     let a = 1

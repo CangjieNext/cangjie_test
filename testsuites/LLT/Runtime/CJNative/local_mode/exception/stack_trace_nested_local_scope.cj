@@ -8,7 +8,7 @@
 // unwinds nested functions that each own a local object scope.
 // Backend optimization can inline internal frames, so force O0 to make the
 // stack-shape assertion deterministic in every LLT configuration.
-// EXEC: %compiler %cmp_opt -O0 %disableFuncInlining %disableAPC %f -o %output
+// EXEC: %compiler %local %cmp_opt -O0 %disableFuncInlining %disableAPC %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan local stack complete: true
 // ASSERT: scan local stack frames:

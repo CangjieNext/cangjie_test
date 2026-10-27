@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-1: %compiler %f -o %output %diag_json 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %local %f -o %output %diag_json 2>&1 | compare %f
 
 class C {
     init(this @local!) {

@@ -6,7 +6,7 @@
 // finalization, a nested local object creates another local-to-heap edge.
 // Repeated region teardown must preserve both heap object graphs through
 // re-entrant GC and reclaim each native region exactly once.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %disableAPC %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %disableAPC %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan finalizer local child count: 64
 // ASSERT: scan finalizer local child checksum: 167552

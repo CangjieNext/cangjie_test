@@ -11,7 +11,7 @@
 // A nested function owns another local region and triggers GC while the outer
 // region is still live. Heap targets are repeatedly replaced so that barriers,
 // root registries and relocation are exercised together.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan mixed graph stress: 3717660
 

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %diag_json %f -o %output -Woff all 2>&1
+// ERRCHECK: %compiler %local %diag_json %f -o %output -Woff all 2>&1
 
 func retCopy() {
     true

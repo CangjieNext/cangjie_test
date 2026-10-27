@@ -7,7 +7,7 @@
 // A lambda whose own signature does not allow exclave is diagnosed, even though an outer
 // function in the same scope has a non-copy @local! parameter.
 
-// ERRCHECK: %compiler %cmp_opt %f -Woff all %diag_json 2>&1
+// ERRCHECK: %compiler %local %cmp_opt %f -Woff all %diag_json 2>&1
 
 class C {
     init() {}

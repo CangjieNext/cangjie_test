@@ -6,7 +6,7 @@
 
 // Verify that a demode field in a stack struct keeps its heap target alive
 // across GC. Codegen passes a null managed base pointer for this value owner.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan stack demode gc: 91
 

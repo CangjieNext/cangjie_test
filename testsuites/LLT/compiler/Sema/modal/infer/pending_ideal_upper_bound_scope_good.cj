@@ -9,7 +9,7 @@
 // default. The instantiations are counted per expected type, so one of the two sites below that
 // keeps the Int64 default can no longer regress unnoticed.
 
-// EXEC: %compiler %noColor %cmp_opt %compile_lib_opt %f -Woff all --dump-chir --dump-to-screen | compare %f
+// EXEC: %compiler %local %noColor %cmp_opt %compile_lib_opt %f -Woff all --dump-chir --dump-to-screen | compare %f
 
 func id<T>(x: T): T { x }
 

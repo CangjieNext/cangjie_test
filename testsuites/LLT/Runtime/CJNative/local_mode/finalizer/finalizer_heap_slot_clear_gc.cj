@@ -6,7 +6,7 @@
 // replacing it with a local object is clearing it.  The old direct-root entry
 // must then skip the null slot during GC rather than retaining or dereferencing
 // its old heap target.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %disableAPC %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %disableAPC %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan finalizer heap slot cleared: true
 // ASSERT: scan finalizer heap slot clear count: 1

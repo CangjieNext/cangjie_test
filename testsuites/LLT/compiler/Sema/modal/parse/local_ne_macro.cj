@@ -5,8 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../macro/identity.macro.cj
-// EXEC: %compiler %cmp_macro identity.macro.cj
-// EXEC: %compiler %f
+// EXEC: %compiler %local %cmp_macro identity.macro.cj
+// EXEC: %compiler %local %f
 
 import identity_macro.*
 

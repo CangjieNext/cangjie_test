@@ -8,7 +8,7 @@
 // @local! local var inside its exclave is rejected by the existing
 // `sema_bad_capture_local` rule; Rule 2 does not also fire here.
 
-// EXEC-PIPE-1: %compiler %f -Woff all %diag_json 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %local %f -Woff all %diag_json 2>&1 | compare %f
 
 class C {
     init() {}

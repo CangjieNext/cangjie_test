@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %f %cmp_opt -Woff all 2>&1
+// ERRCHECK: %compiler %local %f %cmp_opt -Woff all 2>&1
 
 class Dog {}
 

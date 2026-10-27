@@ -5,8 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: %n.lib.cj
-// EXEC: %compiler %n.lib.cj %compile_lib_opt -o %n.%middle
-// ERRCHECK: %compiler %f -Woff all %diag_json %n.%middle 2>&1
+// EXEC: %compiler %local %n.lib.cj %compile_lib_opt -o %n.%middle
+// ERRCHECK: %compiler %local %f -Woff all %diag_json %n.%middle 2>&1
 import lib
 
 func foo() {

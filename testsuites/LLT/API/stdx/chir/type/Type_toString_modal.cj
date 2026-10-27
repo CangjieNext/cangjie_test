@@ -5,7 +5,7 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f
+// EXEC: %compiler %local %import-cangjie-stdx %cmp_opt -o %n.%suffix %f
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_args | compare %f
 // Type.toString() includes ModalInfo; Absent keeps the plain type name.
 

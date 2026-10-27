@@ -13,7 +13,7 @@
 // Resolved by context: the ideal literal type of the argument adopts the formal's return type, so
 // the Int64 default must not win over the contextual Int8.
 
-// EXEC: %compiler %cmp_opt %f -Woff all -o %output
+// EXEC: %compiler %local %cmp_opt %f -Woff all -o %output
 // EXEC: %run %run_opt %output | compare %f
 
 class Holder<T> {

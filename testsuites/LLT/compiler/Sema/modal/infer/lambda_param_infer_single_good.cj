@@ -6,7 +6,7 @@
 
 // A single unannotated lambda parameter adopts the @local! modal of the callee's formal.
 
-// EXEC: %compiler %cmp_opt %f -Woff all -o %output
+// EXEC: %compiler %local %cmp_opt %f -Woff all -o %output
 // EXEC: %run %run_opt %output | compare %f
 
 class C {

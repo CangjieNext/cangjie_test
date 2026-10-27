@@ -7,7 +7,7 @@
 // Primary ctor ordinary params must be @~local; var/let params
 // cannot have a modal at all. Spec rule 5.
 
-// EXEC-PIPE-1: %compiler %f %diag_json -Woff all --error-count-limit=all 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %local %f %diag_json -Woff all --error-count-limit=all 2>&1 | compare %f
 
 class C1 {
     C1(a: Int64 @local!) {}

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f -o %output
+// EXEC: %compiler %local %f -o %output
 // EXEC: %run %run_opt %output %run_args
 
 func foo(x: Array<Int64>, y!: Int64 = x.size) {

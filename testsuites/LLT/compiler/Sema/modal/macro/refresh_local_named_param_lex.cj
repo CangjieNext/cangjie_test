@@ -5,8 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: %n.macro.cj
-// EXEC: %compiler %cmp_macro %n.macro.cj
-// EXEC: %run_macro %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %local %cmp_macro %n.macro.cj
+// EXEC: %run_macro %compiler %local %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 import refresh_local_named_param_lex_macro.*

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-1: %compiler %f %compile_lib_opt
+// EXEC-1: %compiler %local %f %compile_lib_opt
 
 func baz() {
     let c: Int @local

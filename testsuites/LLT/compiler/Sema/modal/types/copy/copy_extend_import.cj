@@ -5,8 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: %n.pkg.cj
-// EXEC: %compiler %n.pkg.cj %compile_lib_opt -o %n.%middle
-// EXEC: %compiler %f -o %output %n.%middle
+// EXEC: %compiler %local %n.pkg.cj %compile_lib_opt -o %n.%middle
+// EXEC: %compiler %local %f -o %output %n.%middle
 // RUN-EXEC: %run %run_opt %output %run_args
 
 import pkga.*

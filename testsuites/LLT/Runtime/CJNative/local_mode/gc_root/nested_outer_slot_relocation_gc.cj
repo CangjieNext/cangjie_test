@@ -11,7 +11,7 @@
 // still retain and update those slots. Each round writes the same two fields,
 // which verifies that a registered RefField follows its current heap target
 // rather than the target present at registration time.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan nested outer slots: passed
 

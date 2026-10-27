@@ -7,7 +7,7 @@
 // Non-tail exclave expressions in both branches of an if, in a function without a return type
 // annotation; both exclave block types are Unit.
 
-// EXEC: %compiler %cmp_opt %f -Woff all -o %output
+// EXEC: %compiler %local %cmp_opt %f -Woff all -o %output
 
 class C {
     init() {}

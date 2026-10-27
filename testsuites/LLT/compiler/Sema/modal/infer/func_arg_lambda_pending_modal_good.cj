@@ -11,7 +11,7 @@
 // pending modal in its return type. An unresolved modal has to default to ~local, so the lambda is
 // usable as a plain () -> String value; leaving it pending is reported as an internal @ideal mode.
 
-// EXEC: %compiler %cmp_opt %f -Woff all -o %output
+// EXEC: %compiler %local %cmp_opt %f -Woff all -o %output
 // EXEC: %run %run_opt %output | compare %f
 
 class Holder<T> {

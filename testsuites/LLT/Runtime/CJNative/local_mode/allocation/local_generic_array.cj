@@ -6,7 +6,7 @@
 
 // Allocate Array<T> in local mode while T is still a generic type parameter,
 // forcing the llvm.cj.malloc.local.array.generic allocation path.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan local generic array size: 3
 

@@ -7,7 +7,7 @@
 // A local region has an independent allocation limit. The configured 4KB limit
 // is smaller than the local Int64 array payload, so the allocation must throw
 // LocalRegionOutOfMemoryError instead of falling back to the tracing heap.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: export cjLocalRegionMaxSize=4KB && %run %run_opt %output %run_args | compare %f
 // ASSERT: scan caught local region out of memory
 

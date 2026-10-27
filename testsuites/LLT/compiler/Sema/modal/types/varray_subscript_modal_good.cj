@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f
+// EXEC: %compiler %local %f
 
 func makeFull(): VArray<Int64, $2> @local! {
     VArray<Int64, $2> { i => i }

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-1: %compiler %f %diag_json -Woff all 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %local %f %diag_json -Woff all 2>&1 | compare %f
 
 // Inner type of a paren type must be a data type; modal is not allowed inside.
 func f1(a: (Int64 @local!)) {}

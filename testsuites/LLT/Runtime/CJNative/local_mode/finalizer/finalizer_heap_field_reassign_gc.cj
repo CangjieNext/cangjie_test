@@ -5,7 +5,7 @@
 // A local finalizer overwrites a previously registered local-to-heap slot.
 // The registry must retain the replacement, rather than the stale target,
 // across a moving collection.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %disableAPC %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %disableAPC %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan finalizer heap before: 2
 // ASSERT: scan finalizer heap after: 84

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE: %compiler %f %diag_json 2>&1 | compare %f
+// EXEC-PIPE: %compiler %local %f %diag_json 2>&1 | compare %f
 
 exclave func pt(v: String @local!) {
     println(v.size)

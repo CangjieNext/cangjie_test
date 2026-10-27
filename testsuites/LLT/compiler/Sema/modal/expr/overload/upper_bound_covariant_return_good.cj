@@ -10,7 +10,7 @@
 // return type is only needed for sum member lookup, where a member's return type does take part
 // in the signature.
 
-// EXEC: %compiler %cmp_opt %f -Woff all -o %output
+// EXEC: %compiler %local %cmp_opt %f -Woff all -o %output
 
 open class Base {}
 class Sub <: Base {}

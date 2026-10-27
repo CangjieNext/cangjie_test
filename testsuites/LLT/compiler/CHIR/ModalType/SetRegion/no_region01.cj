@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// EXEC: %compiler %n.cj %dumpCHIRDebug -o %output
+// EXEC: %compiler %local %n.cj %dumpCHIRDebug -o %output
 // RUN-EXEC: %run %run_opt %output
 // EXEC: %cat no_region01_CHIR/[0-9]*_AST_CHIR.chirtxt | compare %f
 // ASSERT: scan-not StartRegion

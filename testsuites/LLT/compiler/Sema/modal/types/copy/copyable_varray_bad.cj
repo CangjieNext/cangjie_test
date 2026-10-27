@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-1: %compiler %f -Woff all %diag_json 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %local %f -Woff all %diag_json 2>&1 | compare %f
 
 func varrayArg(a: VArray<Copyable, $1>): Unit {}
 

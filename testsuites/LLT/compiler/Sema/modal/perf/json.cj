@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: origin.json
-// EXEC: %compiler %import-cangjie-stdx %f -o %output -O2 --int-overflow=wrapping --no-sub-pkg -Woff all
+// EXEC: %compiler %local %import-cangjie-stdx %f -o %output -O2 --int-overflow=wrapping --no-sub-pkg -Woff all
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
 
 import stdx.encoding.json.*

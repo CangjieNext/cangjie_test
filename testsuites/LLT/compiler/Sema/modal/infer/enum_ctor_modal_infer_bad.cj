@@ -3,7 +3,7 @@
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
-// ERRCHECK: %frontendCompiler %f -Woff all %diag_json 2>&1
+// ERRCHECK: %frontendCompiler %local %f -Woff all %diag_json 2>&1
 
 open class C {
     init() {}

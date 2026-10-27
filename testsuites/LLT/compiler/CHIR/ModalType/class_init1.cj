@@ -5,9 +5,9 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// EXEC: %compiler %n.cj -o %output
+// EXEC: %compiler %local %n.cj -o %output
 // EXEC-PIPE-0: %run %output
-// EXEC: %compiler %n.cj %enableO2 -o %output
+// EXEC: %compiler %local %n.cj %enableO2 -o %output
 // EXEC-PIPE-0: %run %output
 
 class A {

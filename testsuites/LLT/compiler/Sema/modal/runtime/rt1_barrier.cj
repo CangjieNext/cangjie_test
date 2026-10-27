@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f -o %output
+// EXEC: %compiler %local %f -o %output
 // EXEC: %run %run_opt %output %run_args
 
 // RT-1 复现：@local! Array 的元素写入触发 Barrier::WriteGeneric SIGABRT

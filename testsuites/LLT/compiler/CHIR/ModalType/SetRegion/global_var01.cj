@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../pick_defination.py
-// EXEC: %compiler %n.cj %dumpCHIRDebug -o %output
+// EXEC: %compiler %local %n.cj %dumpCHIRDebug -o %output
 // RUN-EXEC: %run %run_opt %output
 // EXEC: %python pick_defination.py global_var01_CHIR/[0-9]*_Canonicalization.chirtxt "Func @_CGV7default1pHv" | compare %f
 // ASSERT: scan StartRegion()

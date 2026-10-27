@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %f -Woff all %cmp_opt 2>&1
+// ERRCHECK: %compiler %local %f -Woff all %cmp_opt 2>&1
 let a: Int64 @local! = 38
 
 let b = Array<Int64>() @local!

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f -o %output -Woff all
+// EXEC: %compiler %local %f -o %output -Woff all
 // RUN-EXEC: %run %run_opt %output %run_args
 class C {
     init() {}

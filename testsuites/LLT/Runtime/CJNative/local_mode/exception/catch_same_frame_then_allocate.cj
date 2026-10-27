@@ -6,7 +6,7 @@
 
 // Catching an exception in the same managed frame must not invalidate that
 // frame's local region. A local allocation after the catch must still work.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan caught same frame
 // ASSERT: scan after same-frame catch: 91

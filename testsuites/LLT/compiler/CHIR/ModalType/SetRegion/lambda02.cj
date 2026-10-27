@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../pick_defination.py
-// EXEC: %compiler %n.cj %dumpCHIRDebug -o %output
+// EXEC: %compiler %local %n.cj %dumpCHIRDebug -o %output
 // RUN-EXEC: %run %run_opt %output
 // EXEC: %python pick_defination.py lambda02_CHIR/[0-9]*_Canonicalization.chirtxt "Func @_CN7default3fooHCNY_1CE?" | compare %f
 // ASSERT: scan-not StartRegion()

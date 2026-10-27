@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %frontendCompiler %typecheck %f
+// EXEC: %frontendCompiler %local %typecheck %f
 
 main() {
     let malloc = CPointer<UInt8>()
