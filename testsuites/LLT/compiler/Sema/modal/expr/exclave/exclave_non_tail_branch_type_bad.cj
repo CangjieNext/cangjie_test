@@ -9,7 +9,7 @@
 // function cannot return a non copy @local! value, so the two variants below (no return type
 // annotation / explicit return type annotation) must both be rejected.
 
-// ERRCHECK: %compiler %cmp_opt %f -Woff all %diag_json 2>&1
+// ERRCHECK: %compiler %local %cmp_opt %f -Woff all %diag_json 2>&1
 
 class C {
     init() {}

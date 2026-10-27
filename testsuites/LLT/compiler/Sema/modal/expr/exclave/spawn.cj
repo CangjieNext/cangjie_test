@@ -3,7 +3,7 @@
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
-// EXEC: %compiler %f
+// EXEC: %compiler %local %f
 
 func sp() {
     spawn {

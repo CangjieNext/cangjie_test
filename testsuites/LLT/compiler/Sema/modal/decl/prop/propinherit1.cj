@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %diag_json %f 2>&1
+// ERRCHECK: %compiler %local %diag_json %f 2>&1
 interface I1 {
     prop foo: Int64 {
         get() {

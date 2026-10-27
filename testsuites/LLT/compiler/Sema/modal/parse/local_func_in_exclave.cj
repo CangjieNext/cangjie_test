@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f -Woff all
+// EXEC: %compiler %local %f -Woff all
 
 func foo<T>(x: T @local!)  {
     @local? func goo1(y: T @local!): Unit {

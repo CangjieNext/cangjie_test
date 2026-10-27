@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f -o %output
+// EXEC: %compiler %local %f -o %output
 
 interface ITag {
     func tag(this @local!): Int64

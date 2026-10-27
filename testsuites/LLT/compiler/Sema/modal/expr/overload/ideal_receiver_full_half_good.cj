@@ -8,7 +8,7 @@
 // @local? this-mode overloads resolves without ambiguity; the @local? candidate is selected when
 // no @~local candidate exists.
 
-// EXEC: %compiler %cmp_opt %f -Woff all -o %output
+// EXEC: %compiler %local %cmp_opt %f -Woff all -o %output
 // EXEC: %run %run_opt %output | compare %f
 
 class C {

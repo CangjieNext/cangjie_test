@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f -o %output -O2
+// EXEC: %compiler %local %f -o %output -O2
 // EXEC: %run %run_opt %output %run_args
 
 class Box {

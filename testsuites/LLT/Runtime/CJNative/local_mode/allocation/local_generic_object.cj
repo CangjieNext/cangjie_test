@@ -7,7 +7,7 @@
 // Exercise local allocation of a generic class from a generic function.
 // The compiler emits llvm.cj.alloca.local.generic for this source construct;
 // current LLVM lowering routes it to CJ_MCC_NewLocalObject.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan local generic object: 37
 

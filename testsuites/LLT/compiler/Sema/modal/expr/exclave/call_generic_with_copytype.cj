@@ -4,9 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f -o %output
+// EXEC: %compiler %local %f -o %output
 // EXEC: %run %run_opt %output %run_args
-// EXEC: %compiler %f -o %output -O2 --fno-chir-function-inlining
+// EXEC: %compiler %local %f -o %output -O2 --fno-chir-function-inlining
 // EXEC: %run %run_opt %output %run_args
 
 exclave func f<T>(x: T @local!): Unit {

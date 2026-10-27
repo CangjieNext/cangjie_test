@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f -o %output
+// EXEC: %compiler %local %f -o %output
 // EXEC-1: %run %run_opt %output %run_args
 
 // 成员方法形态（约束扩展）：T @local? == 比较 → 之前 ICE

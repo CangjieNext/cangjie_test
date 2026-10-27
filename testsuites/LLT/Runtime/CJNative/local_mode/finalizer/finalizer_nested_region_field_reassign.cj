@@ -5,7 +5,7 @@
 // The finalizer starts a nested local region, then replaces both a local field
 // and a local-to-heap field.  The writes are consumed while that nested frame
 // is still active.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %disableAPC %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %disableAPC %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan nested finalizer local: 99, true
 // ASSERT: scan nested finalizer heap: 42, false

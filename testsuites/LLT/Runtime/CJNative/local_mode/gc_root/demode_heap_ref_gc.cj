@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Exercise demode-write and relocation of heap fields in local storage.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan demode gc: 91
 

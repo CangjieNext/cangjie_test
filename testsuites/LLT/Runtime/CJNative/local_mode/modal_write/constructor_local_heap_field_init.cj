@@ -4,7 +4,7 @@
 //
 // A local constructor may initialize one ordinary local field and one demode
 // local-to-heap field.  The two writes must select their respective barriers.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %disableAPC %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %disableAPC %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan constructor local value: 0, true
 // ASSERT: scan constructor heap value: 1, false

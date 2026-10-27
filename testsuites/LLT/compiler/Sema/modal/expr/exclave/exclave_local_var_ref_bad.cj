@@ -7,7 +7,7 @@
 // A non-copy @local! local variable declared outside an exclave
 // cannot be referred to from inside the exclave. Spec rule 2.
 
-// EXEC-PIPE-1: %compiler %f -Woff all %diag_json 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %local %f -Woff all %diag_json 2>&1 | compare %f
 
 class C {
     init() {}

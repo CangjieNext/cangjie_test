@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %frontendCompiler %f
+// EXEC: %frontendCompiler %local %f
 
 interface I {}
 

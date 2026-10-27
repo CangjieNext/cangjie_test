@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-1: %compiler %enableEH %cmp_opt %f -o %output -Woff all 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %local %enableEH %cmp_opt %f -o %output -Woff all 2>&1 | compare %f
 
 import stdx.effect.Command
 

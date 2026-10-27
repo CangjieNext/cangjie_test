@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f -o %output
+// EXEC: %compiler %local %f -o %output
 // RUN-EXEC-1: %run %run_opt %output %run_args
 
 func foo(): VArray<Int64, $3> @local? {

@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Repeatedly enter and leave a local scope to catch stack/block mismatches.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan repeated scopes: 4950
 

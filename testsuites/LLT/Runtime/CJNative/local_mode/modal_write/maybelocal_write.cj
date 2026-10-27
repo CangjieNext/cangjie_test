@@ -6,7 +6,7 @@
 
 // A statically maybe-local array may be backed by a heap object at runtime.
 // Its reference writes must retain the ordinary heap write-barrier semantics.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan heap maybe local: test1
 

@@ -9,7 +9,7 @@
 // this-param candidate instead of leaving all modal overloads legal and ambiguous.
 // The selected overload is observed through the printed value.
 
-// EXEC: %compiler %cmp_opt %f -Woff all -o %output
+// EXEC: %compiler %local %cmp_opt %f -Woff all -o %output
 // EXEC: %run %run_opt %output | compare %f
 
 class C {

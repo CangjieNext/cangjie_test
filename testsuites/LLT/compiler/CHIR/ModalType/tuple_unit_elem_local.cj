@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %cmp_opt %f -Woff all
+// EXEC: %compiler %local %cmp_opt %f -Woff all
 
 struct Entry {
     let k: Rune

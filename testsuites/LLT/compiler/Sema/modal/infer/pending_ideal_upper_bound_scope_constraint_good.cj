@@ -9,7 +9,7 @@
 // meet of the upper bounds is the constraint's interface, while the literal has to keep its own
 // default Int64. The assertion pins the instantiated type down.
 
-// EXEC: %compiler %noColor %cmp_opt %compile_lib_opt %f -Woff all --dump-chir --dump-to-screen | compare %f
+// EXEC: %compiler %local %noColor %cmp_opt %compile_lib_opt %f -Woff all --dump-chir --dump-to-screen | compare %f
 
 interface Base <: ToString {}
 interface Derived <: Base {}

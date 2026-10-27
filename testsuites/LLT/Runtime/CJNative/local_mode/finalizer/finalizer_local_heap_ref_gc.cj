@@ -4,7 +4,7 @@
 //
 // A running local finalizer must keep its local-to-heap field and the target's
 // heap object graph alive across re-entrant GC.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %disableAPC %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %disableAPC %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan finalizer heap ref scope
 // ASSERT: scan finalizer heap payload: 246

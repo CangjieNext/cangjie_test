@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f
+// EXEC: %compiler %local %f
 package ohos.base
 
 public var g_schedule: ?CPointer<Unit> = None

@@ -8,7 +8,7 @@
 // concrete diagnostic (here cannot convert the literal), not a generic "parameter needs a type
 // annotation". The suppressed trial-matching diagnostics are re-reported on the failure path.
 
-// ERRCHECK: %compiler %cmp_opt %f -Woff all %diag_json 2>&1
+// ERRCHECK: %compiler %local %cmp_opt %f -Woff all %diag_json 2>&1
 
 class C {
     init() {}

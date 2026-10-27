@@ -6,7 +6,7 @@
 // an inner region is current. The field must be registered in A's owner frame,
 // not in currentFrame: after the inner region ends, a moving GC must still
 // retain and update heap B.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan nested owner frame slot: 246
 

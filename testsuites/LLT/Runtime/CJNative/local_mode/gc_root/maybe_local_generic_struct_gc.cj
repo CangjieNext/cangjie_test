@@ -6,7 +6,7 @@
 
 // Verify that a generic value containing a heap reference can be written into
 // a local owner and keeps the referenced heap object alive across GC.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan generic struct gc: 73
 

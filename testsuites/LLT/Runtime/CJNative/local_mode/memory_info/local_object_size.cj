@@ -7,7 +7,7 @@
 // Verify CJ_MCC_GetAllocatedLocalObjectSize: it is zero without active local
 // regions, reports the reserved native chunk capacity while a scope is active,
 // ignores heap objects, and falls back once the owning scope returns.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan local object size pass
 

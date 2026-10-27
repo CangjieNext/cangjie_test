@@ -13,8 +13,8 @@
 // LEVEL: 0
 // DEPENDENCE: pkgA
 // EXEC: %mkdir tmps
-// EXEC: %compiler %cmp_opt %disableAPC %compile_lib_opt pkgA/pkgA.cj -o pkgA.%middle
-// EXEC: %compiler %cmp_opt %disableAPC %save_temps_opt=tmps pkgA.%middle %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableAPC %compile_lib_opt pkgA/pkgA.cj -o pkgA.%middle
+// EXEC: %compiler %local %cmp_opt %disableAPC %save_temps_opt=tmps pkgA.%middle %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %llvmDissembler tmps/%n.bc
 // EXEC-PIPE: %cat tmps/%n.ll 2>&1 | compare %f

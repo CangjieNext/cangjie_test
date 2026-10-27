@@ -6,7 +6,7 @@
 
 // Exception control flow must finalize every local object exactly once, either
 // at its LLVM-computed live-range end or while its owning scope is unwound.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %disableAPC %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %disableAPC %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan unwind finalizer: 10
 // ASSERT: scan unwind finalizer: 20

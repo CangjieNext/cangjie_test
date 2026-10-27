@@ -3,7 +3,7 @@
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
-// EXEC: %frontendCompiler %f
+// EXEC: %frontendCompiler %local %f
 exclave func foo<K,V>(k: K@local!, v: V@local!): ?(K,V)@local! {
     Some((k,v)) // see line 11
 }

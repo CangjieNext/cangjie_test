@@ -7,7 +7,7 @@
 // An exception raised by a local finalizer must be contained by Runtime. The
 // finalizer is still completed exactly once, later finalizers still run, and
 // the mutator must be able to throw and catch an ordinary exception afterward.
-// EXEC: %compiler %cmp_opt %disableFuncInlining %disableAPC %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %disableAPC %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan throwing finalizer: 10
 // ASSERT: scan normal finalizer: 20

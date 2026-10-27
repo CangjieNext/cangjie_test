@@ -3,7 +3,7 @@
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
-// ERRCHECK: %compiler %f -Woff all %cmp_opt 2>&1
+// ERRCHECK: %compiler %local %f -Woff all %cmp_opt 2>&1
 class C {
     exclave init(this @local!) {}
     func foo(this @local!) {1}

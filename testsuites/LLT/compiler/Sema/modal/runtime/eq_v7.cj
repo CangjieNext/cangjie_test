@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %f -o %output
+// EXEC: %compiler %local %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args2>&1 | compare %f
 // ASSERT: scan-begin eq_same=true
 // ASSERT: scan-next eq_diff=false

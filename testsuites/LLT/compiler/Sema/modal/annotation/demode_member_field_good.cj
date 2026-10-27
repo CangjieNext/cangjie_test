@@ -6,7 +6,7 @@
 
 // `demode` locks instance member field to @~local regardless of receiver modal.
 
-// EXEC: %compiler %f -o %output
+// EXEC: %compiler %local %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 class D {

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-1: %compiler %f %diag_json -Woff all 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %local %f %diag_json -Woff all 2>&1 | compare %f
 
 func f1(a: (Int @local?, Int64)) {}
 func f2(a: (Int64, String @local!)) {}

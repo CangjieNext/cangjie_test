@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt -Woff all
+// EXEC: %compiler %local %cmp_opt %f -o %output %cmp_utest_opt -Woff all
 // EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.unittest.*

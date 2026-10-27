@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %f -Woff all %diag_json 2>&1
+// ERRCHECK: %compiler %local %f -Woff all %diag_json 2>&1
 @C
 func foo(a: Int64 @local?): Int64 @local! {
     a + 1

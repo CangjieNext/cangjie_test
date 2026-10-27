@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-1: %compiler %diag_json %f -Woff all 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %local %diag_json %f -Woff all 2>&1 | compare %f
 abstract class C {
     public exclave func foo(): String @local!
 }

@@ -10,7 +10,7 @@
 // bound can be a function type - or a type argument holding one - whose numeric type the solver has
 // to prefer over defaulting the pending ideal.
 
-// EXEC: %compiler %cmp_opt %f -Woff all -o %output
+// EXEC: %compiler %local %cmp_opt %f -Woff all -o %output
 // EXEC: %run %run_opt %output | compare %f
 
 func id<T>(x: T): T { x }
