@@ -7,7 +7,7 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// ERRCHECK: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// ERRCHECK: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // T129 heap Array<Int64> cannot be assigned directly to Array<Int64> @local! slot
 // RUN: none (negative case: compilation must fail; SCAN-IN below asserts the diagnostic).
 //

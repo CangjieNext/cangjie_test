@@ -5,7 +5,7 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %stdx-package -o %n.%suffix %f
+// ERRCHECK: %compiler %local %import-cangjie-stdx %cmp_opt %stdx-package -o %n.%suffix %f
 // T536: a fully local receiver must reject a fully local indent.
 // The valid shared-receiver case is covered in test_json_format_local.cj.
 

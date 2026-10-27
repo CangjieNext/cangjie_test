@@ -5,7 +5,7 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %stdx-package -o %n.%suffix %f
+// ERRCHECK: %compiler %local %import-cangjie-stdx %cmp_opt %stdx-package -o %n.%suffix %f
 //
 // LM-DOC-20260910 LEGIT-NEG (T532): one illegal heap-to-local assignment only.
 // The heap serializer line is a valid mode control and must not be used to hide

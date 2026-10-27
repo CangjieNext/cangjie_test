@@ -8,7 +8,7 @@
 // LEVEL: 0
 // UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 提供 JSON local surface；0917 SDK 实证通过，恢复 EXEC。
 // Evidence: cjc+run ALL PASSED (T526/T527/T528)。
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// EXEC: %compiler %local %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T526/T528.  Formatted output is compared byte-for-byte

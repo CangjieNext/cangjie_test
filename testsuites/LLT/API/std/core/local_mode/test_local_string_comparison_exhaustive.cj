@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %local %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
 // T001: exhaust a 14-member representative domain, not the full String domain.
 // Every ordered pair runs in 9 static mode combinations and 16 source combinations:

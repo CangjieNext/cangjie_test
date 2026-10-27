@@ -7,7 +7,7 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// ERRCHECK: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// ERRCHECK: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // T206: heap(String @~local) assigned to a String @local! slot must be
 // rejected as a mode mismatch at the assignment (compile-time).
 //

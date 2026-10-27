@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %stdx-package -o %n.%suffix %f
+// ERRCHECK: %compiler %local %import-cangjie-stdx %cmp_opt %stdx-package -o %n.%suffix %f
 // T405 / S405 / P405: one invalid mode operation.
 
 import stdx.encoding.json.*

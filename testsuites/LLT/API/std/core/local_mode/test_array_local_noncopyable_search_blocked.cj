@@ -7,7 +7,7 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
 //
 // 2026-09-28 已解锁（T134 恢复 EXEC）：七个 `Array<T> @local?` 搜索重载改为

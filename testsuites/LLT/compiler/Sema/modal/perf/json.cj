@@ -169,7 +169,6 @@ func myParse(): ArrayList<Info> {
 }
 
 main() {
-    // 20 times for performance, run only 1 for CI
     for (i in 0..20) {
         let info = myParse()
         for (i in info) {

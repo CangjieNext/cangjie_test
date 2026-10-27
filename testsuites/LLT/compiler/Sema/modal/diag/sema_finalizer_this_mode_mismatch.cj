@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-1: %compiler %local %diag_json --error-count-limit=all %f -o %output 2>&1 | compare %f
+// ERRCHECK: %compiler %local %cmp_opt %f
 
 class C {
     init() {}
@@ -14,6 +14,13 @@ class C {
     ~init(this @local!) {}
 }
 main() {}
+/* SCAN
+error: finalizer this mode '@local!' must be a supertype of the least upperbound of all initializer this mode '@local?'
+  ==> sema_finalizer_this_mode_mismatch.cj:14:5:
+   | 
+14 |     ~init(this @local!) {}
+   |     ^^^^^^^^^^^^^^^^^^^^^^ 
+   | 
 
-// ASSERT: scan "DiagKind": "sema_finalizer_this_mode_mismatch",
-// ASSERT: scan "Errors": 1,
+1 error generated, 1 error printed.
+*/

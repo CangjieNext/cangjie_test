@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// EXEC: %compiler %local %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
 
 // T502 / S502 / P502: independent IEEE-754 boundary bit patterns.

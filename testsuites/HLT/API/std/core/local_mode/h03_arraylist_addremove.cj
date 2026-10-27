@@ -5,7 +5,7 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %local %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
 
 // ArrayList 在 local region 内的增删循环不触发 GC：构造、add、remove 都在同一

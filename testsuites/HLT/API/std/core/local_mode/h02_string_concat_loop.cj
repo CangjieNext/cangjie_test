@@ -5,7 +5,7 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %local %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
 
 // String @local! 循环拼接不触发 GC：`operator func +(this @local!, right: String)`

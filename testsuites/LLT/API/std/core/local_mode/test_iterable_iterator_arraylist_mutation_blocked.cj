@@ -10,7 +10,7 @@
 // FIXED-RUNTIME: T405 历史 blocker（local remove(at:) 触发 Barrier::WriteGeneric abort）已随
 //   runtime write_generic 修复消失。doc-correct 行为已实测：public mutation 后
 //   iterator.next() 抛出 ConcurrentModificationException，本用例恢复活跃。
-// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
 
 import std.collection.*

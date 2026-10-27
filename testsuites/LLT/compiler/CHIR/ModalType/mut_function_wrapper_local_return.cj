@@ -6,12 +6,12 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../pick_defination.py
-// EXEC: %compiler %n.cj %dumpCHIRDebug -Woff unused -o %output
+// EXEC: %compiler %local %n.cj %dumpCHIRDebug -Woff unused -o %output
 // EXEC-PIPE-0: %run %output
 // EXEC: %python pick_defination.py mut_function_wrapper_local_return_CHIR/[0-9]*_SetMemoryRegion.chirtxt "Func @_CMN7default5Maker4makeHv$N7default6HolderE$CN7default5MakerE" | compare %f
 // ASSERT: scan-not StartRegion()
 // ASSERT: scan-not EndRegion()
-// EXEC: %compiler %n.cj %enableO2 -o %output
+// EXEC: %compiler %local %n.cj %enableO2 -o %output
 // EXEC-PIPE-0: %run %output
 
 // A struct inheriting an interface's `mut` default implementation gets a mut

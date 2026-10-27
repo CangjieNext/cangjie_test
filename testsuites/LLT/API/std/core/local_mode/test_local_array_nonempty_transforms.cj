@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %local %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
 
 class TransformTrace {

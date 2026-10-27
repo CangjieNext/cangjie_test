@@ -14,7 +14,7 @@
 //   2) 大块垃圾分配不会误伤 local region 对象（heap/local 互不踩踏）。
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %local %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 class Node {

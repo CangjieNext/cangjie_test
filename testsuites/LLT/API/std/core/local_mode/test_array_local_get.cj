@@ -7,7 +7,7 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
 //
 // FIXED（2026-09-24）：原 BLOCKED（设计项 LM-DOC-20260910：T118/T119/T120）三项

@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %local %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
 
 import std.collection.*

@@ -6,12 +6,12 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../pick_defination.py
-// EXEC: %compiler %n.cj %dumpCHIRDebug -Woff unused -o %output
+// EXEC: %compiler %local %n.cj %dumpCHIRDebug -Woff unused -o %output
 // EXEC-PIPE-0: %run %output
 // EXEC: %python pick_defination.py virtual_method_wrapper_local_array_CHIR/[0-9]*_SetMemoryRegion.chirtxt "Func @_CVN7default11LocalSource7toArrayHWlEv$N7default11LocalSourceE$CN7default6SourceIG_El" | compare %f
 // ASSERT: scan-not StartRegion()
 // ASSERT: scan-not EndRegion()
-// EXEC: %compiler %n.cj %enableO2 -o %output
+// EXEC: %compiler %local %n.cj %enableO2 -o %output
 // EXEC-PIPE-0: %run %output
 
 // Generic interface virtual dispatch goes through a wrapper that Boxes the
