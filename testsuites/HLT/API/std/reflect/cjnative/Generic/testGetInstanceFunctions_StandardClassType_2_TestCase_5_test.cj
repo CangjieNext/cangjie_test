@@ -33,7 +33,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(StandardClassType<Int8, Float32, UInt32>(), [], [true])
             @Expect("assertion#146: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -43,7 +43,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(1i64, [TypeInfo.of<Float32>()], [true])
             @Expect("assertion#147: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -53,7 +53,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(1i64, [], [])
             @Expect("assertion#148: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -63,7 +63,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(StandardClassType<Int8, Float32, UInt32>(), [TypeInfo.of<Float32>()], [])
             @Expect("assertion#149: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -73,7 +73,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply("hello", [], [])
             @Expect("assertion#150: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -83,7 +83,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply("hello", [TypeInfo.of<Float32>()], [true, 114.514000f64])
             @Expect("assertion#151: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -93,7 +93,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(StandardClassType<Int8, Float32, UInt32>(), [TypeInfo.of<Float32>()], [])
             @Expect("assertion#152: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -103,7 +103,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(StandardClassType<Int8, Float32, UInt32>(), [], [true, 114.514000f64])
             @Expect("assertion#153: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -113,7 +113,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(StandardClassType<Int8, Float32, UInt32>(), [], [()])
             @Expect("assertion#154: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -123,7 +123,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(1i64, [TypeInfo.of<Float32>()], [()])
             @Expect("assertion#155: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -133,7 +133,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply("hello", [], [true])
             @Expect("assertion#156: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -143,7 +143,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply("hello", [], [])
             @Expect("assertion#157: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -153,7 +153,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(1i64, [], [])
             @Expect("assertion#158: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -163,7 +163,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(1i64, [], [true, 114.514000f64])
             @Expect("assertion#159: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("非泛型函数指定了类型实参列表")
         try {
@@ -173,7 +173,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply("hello", [], [()])
             @Expect("assertion#160: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
-            @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
+            @Expect(e.message, "The function cannot be applied with 'genericTypeArgs'.")
         }
         // logger.info("成功调用")
         TypeInfo
@@ -188,7 +188,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(1i64, [true])
             @Expect("assertion#161: not throw", "实例类型错误")
         } catch (e: IllegalTypeException) {
-            @Expect(e.message, "The input instance should be \"dependency.StandardClassType<Int8, Float32, UInt32>\", but now it`s \"Int64\"")
+            @Expect(e.message, "Invalid instance type: expected 'dependency.StandardClassType<Int8, Float32, UInt32>', got 'Int64'.")
         }
         // logger.info("实例类型错误")
         try {
@@ -198,7 +198,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply("hello", [true])
             @Expect("assertion#162: not throw", "实例类型错误")
         } catch (e: IllegalTypeException) {
-            @Expect(e.message, "The input instance should be \"dependency.StandardClassType<Int8, Float32, UInt32>\", but now it`s \"String\"")
+            @Expect(e.message, "Invalid instance type: expected 'dependency.StandardClassType<Int8, Float32, UInt32>', got 'String'.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -208,7 +208,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(StandardClassType<Int8, Float32, UInt32>(), [])
             @Expect("assertion#163: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -218,7 +218,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(1i64, [])
             @Expect("assertion#164: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -228,7 +228,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply("hello", [])
             @Expect("assertion#165: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -238,7 +238,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(StandardClassType<Int8, Float32, UInt32>(), [])
             @Expect("assertion#166: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -248,7 +248,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(1i64, [])
             @Expect("assertion#167: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -258,7 +258,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply("hello", [])
             @Expect("assertion#168: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -268,7 +268,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(StandardClassType<Int8, Float32, UInt32>(), [true, 114.514000f64])
             @Expect("assertion#169: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 2.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -278,7 +278,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(1i64, [true, 114.514000f64])
             @Expect("assertion#170: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 2.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -288,7 +288,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply("hello", [true, 114.514000f64])
             @Expect("assertion#171: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 2.")
         }
         // logger.info("类型检查失败")
         try {
@@ -298,7 +298,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(StandardClassType<Int8, Float32, UInt32>(), [()])
             @Expect("assertion#172: not throw", "类型检查失败")
         } catch (e: IllegalTypeException) {
-            @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
+            @Expect(e.message, "Parameter type mismatch: expected 'Bool', got 'Unit'.")
         }
         // logger.info("类型检查失败")
         try {
@@ -308,7 +308,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply(1i64, [()])
             @Expect("assertion#173: not throw", "类型检查失败")
         } catch (e: IllegalTypeException) {
-            @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
+            @Expect(e.message, "Parameter type mismatch: expected 'Bool', got 'Unit'.")
         }
         // logger.info("类型检查失败")
         try {
@@ -318,7 +318,7 @@ class testGetInstanceFunctions_StandardClassType_2 {
                 .apply("hello", [()])
             @Expect("assertion#174: not throw", "类型检查失败")
         } catch (e: IllegalTypeException) {
-            @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
+            @Expect(e.message, "Parameter type mismatch: expected 'Bool', got 'Unit'.")
         }
         // logger.info("testcase TestCase_5 ends.")
     }

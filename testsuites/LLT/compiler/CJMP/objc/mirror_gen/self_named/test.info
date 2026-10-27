@@ -31,8 +31,8 @@ public struct S {
     public var T12: T13 = CPointer<T12>()
 }
 
-@ObjCMirror
-public open class M {
+@ObjC
+public open foreign class M {
     // protected var S: S
     // protected var T1: CPointer<T1>
     protected var T12: T13

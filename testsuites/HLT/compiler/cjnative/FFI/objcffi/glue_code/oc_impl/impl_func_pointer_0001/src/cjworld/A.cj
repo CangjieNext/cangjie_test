@@ -10,7 +10,7 @@ package cjworld
 
 import objc.lang.*
 
-@ObjCImpl
+@ObjC
 public class A <: M2 {
     public var a: CFunc<() -> Unit> = M1().fptr
     public init() {}

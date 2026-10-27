@@ -37,7 +37,7 @@ class testPointApplyGenericGlobalFunction_54 {
                 .apply([TypeInfo.of<Int64>(), TypeInfo.of<Bool>()], [GenericStructWith1TypeParameters<UInt32>()])
             @Expect("assertion#16656: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -46,7 +46,7 @@ class testPointApplyGenericGlobalFunction_54 {
                 .apply([TypeInfo.of<UInt8>(), TypeInfo.of<Int64>()], [GenericStructWith1TypeParameters<UInt32>()])
             @Expect("assertion#16657: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -56,7 +56,7 @@ class testPointApplyGenericGlobalFunction_54 {
                     [GenericStructWith1TypeParameters<UInt32>()])
             @Expect("assertion#16658: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -65,21 +65,21 @@ class testPointApplyGenericGlobalFunction_54 {
                 .apply([TypeInfo.of<UInt8>(), TypeInfo.of<Int64>(), TypeInfo.of<Bool>()], [])
             @Expect("assertion#16659: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_268")[0i64].apply([TypeInfo.of<Int64>(), TypeInfo.of<Bool>()], [])
             @Expect("assertion#16660: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_268")[0i64].apply([TypeInfo.of<UInt8>(), TypeInfo.of<Int64>()], [])
             @Expect("assertion#16661: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -88,7 +88,7 @@ class testPointApplyGenericGlobalFunction_54 {
                 .apply([TypeInfo.of<UInt8>(), TypeInfo.of<Int64>(), TypeInfo.of<Bool>(), TypeInfo.of<Float64>()], [])
             @Expect("assertion#16662: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -97,21 +97,21 @@ class testPointApplyGenericGlobalFunction_54 {
                 .apply([TypeInfo.of<UInt8>(), TypeInfo.of<Int64>(), TypeInfo.of<Bool>()], [])
             @Expect("assertion#16663: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 0.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_268")[0i64].apply([TypeInfo.of<Int64>(), TypeInfo.of<Bool>()], [])
             @Expect("assertion#16664: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_268")[0i64].apply([TypeInfo.of<UInt8>(), TypeInfo.of<Int64>()], [])
             @Expect("assertion#16665: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -120,7 +120,7 @@ class testPointApplyGenericGlobalFunction_54 {
                 .apply([TypeInfo.of<UInt8>(), TypeInfo.of<Int64>(), TypeInfo.of<Bool>(), TypeInfo.of<Float64>()], [])
             @Expect("assertion#16666: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("实参个数与形参个数不等")
         try {
@@ -130,7 +130,7 @@ class testPointApplyGenericGlobalFunction_54 {
                     [GenericStructWith1TypeParameters<UInt32>(), 114.514000f64])
             @Expect("assertion#16667: not throw", "实参个数与形参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid argument count: expected 1, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -140,7 +140,7 @@ class testPointApplyGenericGlobalFunction_54 {
                     [GenericStructWith1TypeParameters<UInt32>(), 114.514000f64])
             @Expect("assertion#16668: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -150,7 +150,7 @@ class testPointApplyGenericGlobalFunction_54 {
                     [GenericStructWith1TypeParameters<UInt32>(), 114.514000f64])
             @Expect("assertion#16669: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -160,7 +160,7 @@ class testPointApplyGenericGlobalFunction_54 {
                     [GenericStructWith1TypeParameters<UInt32>(), 114.514000f64])
             @Expect("assertion#16670: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("类型检查失败")
         try {
@@ -169,14 +169,14 @@ class testPointApplyGenericGlobalFunction_54 {
                 .apply([TypeInfo.of<UInt8>(), TypeInfo.of<Int64>(), TypeInfo.of<Bool>()], [()])
             @Expect("assertion#16671: not throw", "类型检查失败")
         } catch (e: IllegalTypeException) {
-            @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
+            @Expect(e.message, "Parameter type mismatch for generic function invocation.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_268")[0i64].apply([TypeInfo.of<Int64>(), TypeInfo.of<Bool>()], [()])
             @Expect("assertion#16672: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -185,7 +185,7 @@ class testPointApplyGenericGlobalFunction_54 {
                 .apply([TypeInfo.of<UInt8>(), TypeInfo.of<Int64>()], [()])
             @Expect("assertion#16673: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 2.")
         }
         // logger.info("类型形参个数与类型实参个数不等")
         try {
@@ -194,7 +194,7 @@ class testPointApplyGenericGlobalFunction_54 {
                 .apply([TypeInfo.of<UInt8>(), TypeInfo.of<Int64>(), TypeInfo.of<Bool>(), TypeInfo.of<Float64>()], [()])
             @Expect("assertion#16674: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
+            @Expect(e.message, "Invalid generic type argument count: expected 3, got 4.")
         }
         // logger.info("testcase TestCase_703 ends.")
     }
