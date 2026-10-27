@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../pick_defination.py
-// EXEC: %compiler %n.cj %dumpCHIRDebug %disableFuncInlining -Woff unused -o %output
+// EXEC: %compiler %local %n.cj %dumpCHIRDebug %disableFuncInlining -Woff unused -o %output
 // RUN-EXEC: %run %run_opt %output
 // EXEC: %python pick_defination.py nothing_type_region_pair01_CHIR/[0-9]*_NothingTypeExprElimination.chirtxt "Func @_CN7default3fooHv" | compare %f
 // ASSERT: scan-1 StartRegion()

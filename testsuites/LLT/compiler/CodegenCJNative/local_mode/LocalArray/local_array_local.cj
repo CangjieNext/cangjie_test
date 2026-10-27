@@ -16,11 +16,11 @@
 
 // LEVEL: 0
 // EXEC: %mkdir tmps
-// EXEC: %compiler %cmp_opt %disableFuncInlining %disableAPC %save_temps_opt=tmps %f -o %output
+// EXEC: %compiler %local %cmp_opt %disableFuncInlining %disableAPC %save_temps_opt=tmps %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %llvmDissembler tmps/%n.opt.bc
 // EXEC-PIPE: %cat tmps/%n.opt.ll 2>&1 | compare %f
-// ASSERT: scan-4 CJ_MCC_NewLocalObjArray
+// ASSERT: scan-3 CJ_MCC_NewLocalObjArray
 
 class D {
     var tag: Int64

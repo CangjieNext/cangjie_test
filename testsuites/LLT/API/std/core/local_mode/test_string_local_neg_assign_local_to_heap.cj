@@ -7,7 +7,7 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// ERRCHECK: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// ERRCHECK: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // String @local! 直接赋给 heap String 槽 —— 非 Copyable 收窄，应报 mode 不匹配
 // RUN: none (negative case: compilation must fail; SCAN-IN below asserts the diagnostic).
 //

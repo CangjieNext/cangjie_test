@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// EXEC: %compiler %n.cj -Woff unused -o %output
+// EXEC: %compiler %local %n.cj -Woff unused -o %output
 // RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan-2 7
 

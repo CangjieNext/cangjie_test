@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %local %cmp_opt %f -o %output
 // ERRCHECK: %run %run_opt %output %run_args
 // ASSERT: scan-begin at pkg1.pkg2::vthrow(VArray<Int64,$4> @ local?)
 

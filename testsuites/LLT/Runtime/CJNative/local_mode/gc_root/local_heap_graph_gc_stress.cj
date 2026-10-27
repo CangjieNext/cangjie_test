@@ -58,7 +58,7 @@ class LocalBranch {
         this.direct = direct
     }
 
-    func checksum(this @local!): Int64 {
+    exclave func checksum(this @local!): Int64 {
         let leftLocal: LocalLeaf @local! = left
         let rightLocal: LocalLeaf @local! = right
         leftLocal.checksum() + rightLocal.checksum() + direct.checksum()
@@ -76,7 +76,7 @@ class LocalRoot {
         this.direct = direct
     }
 
-    func checksum(this @local!): Int64 {
+    exclave func checksum(this @local!): Int64 {
         let firstLocal: LocalBranch @local! = first
         let secondLocal: LocalBranch @local! = second
         firstLocal.checksum() + secondLocal.checksum() + direct.checksum()

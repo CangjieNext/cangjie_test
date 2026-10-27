@@ -7,7 +7,7 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// ERRCHECK: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// ERRCHECK: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // T332: zip requires `other: ArrayList<R> @local!`. The 2026-09-18 correction to the
 // closure document records that a @local? operand cannot build the `(T, R) @local!`
 // tuple, so the argument must be @local! and a @local? argument is rejected at

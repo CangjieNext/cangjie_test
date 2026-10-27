@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../pick_defination.py
-// EXEC: %compiler %n.cj %dumpCHIRDebug -Woff unused -o %output
+// EXEC: %compiler %local %n.cj %dumpCHIRDebug -Woff unused -o %output
 // RUN-EXEC: %run %run_opt %output
 // EXEC: %python pick_defination.py ret_nested_generic_local_maybe_copyable01_CHIR/[0-9]*_Canonicalization.chirtxt "Func @_CN7default6callerHv" | compare %f
 // ASSERT: scan-1 StartRegion()
