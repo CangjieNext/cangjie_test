@@ -7,7 +7,7 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// ERRCHECK: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// ERRCHECK: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // T425: index assignment on an ArrayList<String> @local? receiver has no setter to
 // select. CJEEP-005 removed the ListOfCopyable @local? mutator surface, so the
 // ArrayList class body exposes only the @local! `[]=(this @local!, Int64, T @local!)`

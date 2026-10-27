@@ -13,7 +13,7 @@
 //   test_iterable_iterator_arraylist_mutation_blocked.cj for the local write barrier.
 //   Restore EXEC after the corresponding runtime/stdlib blockers are fixed.
 // UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
-// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
 
 import std.core.*

@@ -18,9 +18,9 @@
 
 // LEVEL: 0
 // (target_linux) DEPENDENCE: main.cj cpu.cj device_info_10.cj
-// (target_linux) EXEC: %compiler %cmp_opt device_info_10.cj %compile_dylib_opt -o libohos.device_info.%dylib_suffix
-// (target_linux) EXEC: %compiler %cmp_opt cpu.cj %compile_lib_opt -o cpu.a
-// (target_linux) EXEC: %compiler %cmp_opt main.cj cpu.cjo cpu.a -L. -lohos.device_info -o %output
+// (target_linux) EXEC: %compiler %local %cmp_opt device_info_10.cj %compile_dylib_opt -o libohos.device_info.%dylib_suffix
+// (target_linux) EXEC: %compiler %local %cmp_opt cpu.cj %compile_lib_opt -o cpu.a
+// (target_linux) EXEC: %compiler %local %cmp_opt main.cj cpu.cjo cpu.a -L. -lohos.device_info -o %output
 // (target_linux) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // (target_linux) ASSERT: scan fallback branch: 102
 // (target_linux) ASSERT: scan-not local branch

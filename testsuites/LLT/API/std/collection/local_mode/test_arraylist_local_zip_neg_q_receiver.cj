@@ -7,7 +7,7 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// ERRCHECK: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// ERRCHECK: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // T332: zip is declared only as `zip<R>(this @local!, other: ArrayList<R> @local!)`.
 // CJEEP-005 removed the ListOfCopyable receiver surface, so a @local? receiver has
 // no zip overload to select and the call must be rejected at compile time.

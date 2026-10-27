@@ -5,7 +5,7 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %stdx-package -o %n.%suffix %f
+// ERRCHECK: %compiler %local %import-cangjie-stdx %cmp_opt %stdx-package -o %n.%suffix %f
 //
 // LM-DOC-20260910 LEGIT-NEG fragment (T533): pass a local JsonArray to a
 // function whose parameter is the heap receiver type.  This is deliberately the

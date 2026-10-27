@@ -5,7 +5,7 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %local %cmp_opt %f -o %output %cmp_utest_opt
 // EXEC: %run %run_opt %output %run_utest_opt
 
 func builderFromLocalString(): StringBuilder {

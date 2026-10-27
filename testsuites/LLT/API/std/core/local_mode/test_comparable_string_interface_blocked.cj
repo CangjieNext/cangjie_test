@@ -11,7 +11,7 @@
 //   结果上的 ==/compare 落接口默认(throw)。std.core comparable.cj 的
 //   extend Ordering <: Comparable<Ordering> 已补 compare/==/!= 的 @local? 覆写,
 //   本用例恢复活跃。
-// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
 
 import std.core.*

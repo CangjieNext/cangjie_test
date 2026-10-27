@@ -8,7 +8,7 @@
 // LEVEL: 0
 // UPDATE 2026-09-11: SDK local_mode-localmods-20260911-final 已修复本文件原阻塞器，恢复 EXEC（原阻塞记录见下）。
 // UPDATE 2026-09-21: 本地重建 stdx (feat-stdx-json-local-mode-session) 下本隔离用例 cjc+run ALL PASSED，run 步骤恢复 EXEC。
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// EXEC: %compiler %local %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
 //
 // LM-DOC-20260910: T521 isolated positive.  This compilation unit contains

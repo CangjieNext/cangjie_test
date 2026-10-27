@@ -7,7 +7,7 @@
  */
 // LEVEL: 0
 // DEPENDENCE: ./local_mode_utils.cj
-// EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
+// EXEC: %compiler %local %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
 // T318: a custom Collection reaches the bulk-append path of an ArrayList @local!.
 // CJEEP-005 keeps the modifier forms on the ArrayList class body as @local!, so the
