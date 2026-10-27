@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt ./local_mode_utils.cj %f -o %output
 // EXEC: %run %run_opt %output %run_args
 // Unsupported shared toArray operations must throw.
-// Local entry views remain unsupported.
+// A fully local receiver produces a live entry view; the shared receiver stays rejected.
 
 import std.collection.*
 import std.core.*
@@ -30,14 +30,19 @@ main(): Int64 {
     }
     failed += assertB(toArrayThrew, "S19_limits_toarray_q_throws")
 
-    // A fully local receiver cannot create an entry view.
-    var entryThrew = false
+    // A fully local receiver creates a live entry view over the map.
+    var entryOk = false
     try {
-        let _: MapEntryView<String, Int64> @local! = m.entryView("a")
+        let ev: MapEntryView<String, Int64> @local! = m.entryView("a")
+        let got: ?Int64 @local! = ev.value
+        match (got) {
+            case Some(v) => if (v == 1) { entryOk = true }
+            case None => ()
+        }
     } catch (e: Exception) {
-        entryThrew = true
+        entryOk = false
     }
-    failed += assertB(entryThrew, "S19_limits_entryview_bang_throws")
+    failed += assertB(entryOk, "S19_limits_entryview_bang_live")
 
     // Shared keys and values views cannot produce local arrays.
     let keysQ: EquatableCollection<String> @local? = q.keys()

@@ -37,7 +37,7 @@ error: unable to infer generic argument of this function
    |                                                       ^^^^^^^^ 
    | 
 note: for function type '(Class-ArrayList<Generics-R> @local!) -> Class-ArrayList<Tuple<Generics-T, Generics-R>> @local!' in context type 'Class-ArrayList<Int64> @local!'
-    ==> (package std.collection)array_list.cj:1874:25:
+    ==> (package std.collection)array_list.cj:1915:25:
 note: mismatched types
   ==> test_arraylist_local_zip_neg_q_other.cj:24:64:
    | 
