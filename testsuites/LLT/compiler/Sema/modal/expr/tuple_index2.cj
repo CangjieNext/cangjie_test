@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %local %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-func foo(a: (String,String) @local!){
+exclave func foo(a: (String,String) @local!){
     let b = a
     let c = a[0]
 }

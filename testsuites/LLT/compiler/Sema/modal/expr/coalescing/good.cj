@@ -6,6 +6,7 @@
 
 // EXEC: %compiler %local %f -o %output
 // EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+import std.core
 
 class A {
     var n: Int64
@@ -28,6 +29,7 @@ func toAny(o: Option<Int64> @local!): Any {
 main() {
     let o: Option<A> @local! = A(1) @local!
     let n: Option<Int64> @local! = None<Int64>
+    let _ = core.Option<Int64>.None
     let x = use(o)
     let y = orZero(n)
     let _: Any = toAny(Some(2))
