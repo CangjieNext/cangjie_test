@@ -5,8 +5,9 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // Verify CJ_MCC_GetAllocatedLocalObjectSize: it is zero without active local
-// regions, reports the reserved native chunk capacity while a scope is active,
-// ignores heap objects, and falls back once the owning scope returns.
+// regions, reports allocated native chunk bytes while a scope is active,
+// excludes the current chunk's unused tail, ignores heap objects, and falls
+// back once the owning scope returns.
 // EXEC: %compiler %cmp_opt %disableFuncInlining %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan local object size pass
@@ -62,10 +63,11 @@ func scopedLocalObjects(): Int64 {
         }
     }
     let scopeEnd = localObjectBytes()
-    // Two small local objects fit in the initial 4 KiB native chunk.  The
-    // reported size is the chunk capacity, rather than their payload bytes.
-    check(afterFirst >= 4 * 1024, "first local object reserves a native chunk")
-    check(afterSecond == afterFirst, "second local object reuses reserved chunk")
+    // Two small local objects fit in the initial 4 KiB native chunk. Only the
+    // allocated [base, top) prefix is reported for that current chunk.
+    check(afterFirst > scopeStart, "first local object increases accounted bytes")
+    check(afterFirst - scopeStart < 4 * 1024, "current chunk unused tail is not counted")
+    check(afterSecond > afterFirst, "second local object increases accounted bytes")
     check(scopeEnd >= afterSecond && scopeEnd >= scopeStart, "active local region remains accounted")
 
     // Heap allocations must not be counted as local object bytes.
