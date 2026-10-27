@@ -1,0 +1,107 @@
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00785/c_ffi.cj
+  s_cde5bbae8361e8::t_2ec213018bb13c 11-13,15,19-21,24-25,27-28,30-40,44-73,77,81,92
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00786/c_ffi.cj
+  s_cde5bbae8361e8::t_9cf18dcb8232ab 11-13,15,19-21,24-25,27-28,30-69,73,77
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_012/c_ffi_01202n/c_ffi_main.cj
+  s_cde5bbae8361e8::t_d0cc41695a2a4e 23-24
+  s_cde5bbae8361e8::t_b5df9757fe8994 41-44
+  s_cde5bbae8361e8::t_74b0bf1fcd2b37 29-30
+  s_cde5bbae8361e8::t_358ead1668aab8 15
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00788/c_ffi.cj
+  s_cde5bbae8361e8::t_a0834a07914ad7 11-14,18-20,23-24,26-27,29-68,72,76
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00787/c_ffi.cj
+  s_cde5bbae8361e8::t_e0cefd7bfca9f3 11-13,15,19-21,29,31,33-34,36-37,39-78,82,86
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_012/c_ffi_01203n/c_ffi_main.cj
+  s_cde5bbae8361e8::t_dbcc836050b2f1 29-30
+  s_cde5bbae8361e8::t_0c3a9ee599fbd9 23-24
+  s_cde5bbae8361e8::t_4d6dfbcb0cef9e 41-44
+  s_cde5bbae8361e8::t_02a4fbfed90d8a 15
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_012/c_ffi_01206n/c_ffi_main.cj
+  s_cde5bbae8361e8::t_63470f7869d674 23-24
+  s_cde5bbae8361e8::t_0091ad9973ddd8 15
+  s_cde5bbae8361e8::t_0aecbcc615a7e6 41-44
+  s_cde5bbae8361e8::t_a88377b117c2a8 29-30
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_012/c_ffi_01205n/c_ffi_main.cj
+  s_cde5bbae8361e8::t_3918830584a50f 23-24
+  s_cde5bbae8361e8::t_59abceee03a865 29-30
+  s_cde5bbae8361e8::t_cfde5d1a24493b 41-44
+  s_cde5bbae8361e8::t_3f719111c520f9 15
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00704n/c_ffi.cj
+  s_cde5bbae8361e8::t_0d560a5b51bd05 11-13
+  s_cde5bbae8361e8::t_497caaf95f3dee 48
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_006/c_ffi_00611n/c_ffi.cj
+  s_cde5bbae8361e8::t_2b79575ed4c3d5 11-13,40
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_006/c_ffi_00621n/c_ffi.cj
+  s_cde5bbae8361e8::t_c1943cb4ed1b3f 11-13,27
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00708n/c_ffi.cj
+  s_cde5bbae8361e8::t_4d5d923890e05d 11-13,27
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00719n/c_ffi.cj
+  s_cde5bbae8361e8::t_ae008990706681 11-13,48
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00789/c_ffi.cj
+  s_cde5bbae8361e8::t_f20c2e07ff0ddc 11-16
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00790/c_ffi.cj
+  s_cde5bbae8361e8::t_834065730ddb77 11-16
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00791/c_ffi.cj
+  s_cde5bbae8361e8::t_209ff4981db74f 11-16
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00801/c_ffi.cj
+  s_cde5bbae8361e8::t_16dacfaefacdac 11-14
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00801n/c_ffi.cj
+  s_cde5bbae8361e8::t_d50c8dd2c87249 11-15,37
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00802n/c_ffi.cj
+  s_cde5bbae8361e8::t_1747a55b3c966d 11-13,41
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00803n/c_ffi.cj
+  s_cde5bbae8361e8::t_51d40def0f1ca8 11-13,26
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00804n/c_ffi.cj
+  s_cde5bbae8361e8::t_42d172edd674f0 11-13,37
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00805n/c_ffi.cj
+  s_cde5bbae8361e8::t_238aa838cfe871 11-13,41
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00809n/c_ffi.cj
+  s_cde5bbae8361e8::t_eac6630187422d 11-13,34
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00810/c_ffi.cj
+  s_cde5bbae8361e8::t_7a491477c3fca2 11-13,34
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00811/c_ffi.cj
+  s_cde5bbae8361e8::t_fbf59d5612824d 11-14
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_008/c_ffi_00812n/c_ffi.cj
+  s_cde5bbae8361e8::t_59ef11c17e553a 11-13,31
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_009/c_ffi_00911n/c_ffi.cj
+  s_cde5bbae8361e8::t_ae7d2420d41a34 11-13,35-37
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_009/c_ffi_00912n/c_ffi.cj
+  s_cde5bbae8361e8::t_7322a293d1fb62 11-13,35-37
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_009/c_ffi_00913n/c_ffi.cj
+  s_cde5bbae8361e8::t_8bd9caec94527f 11-13,39
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_009/c_ffi_00914n/c_ffi.cj
+  s_cde5bbae8361e8::t_38ad60915f4e5a 11-13,44
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_011/c_ffi_01129n/c_ffi.cj
+  s_cde5bbae8361e8::t_15a6667c0108fd 11-13,29
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_011/c_ffi_01130n/c_ffi.cj
+  s_cde5bbae8361e8::t_cddb29eb56a8bb 11-13,27
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_011/c_ffi_01131n/c_ffi.cj
+  s_cde5bbae8361e8::t_2846e2f3baf807 11-13,27-29
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_011/c_ffi_01132n/c_ffi.cj
+  s_cde5bbae8361e8::t_b4758bb244361c 11-13,30-31
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_011/c_ffi_01133n/c_ffi.cj
+  s_cde5bbae8361e8::t_f17d4b69c711b3 11-13,30-32
+testsuites/HLT/compiler/cjnative/FFI/cffi/c_ffi_012/c_ffi_01201n/c_ffi_main.cj
+  s_cde5bbae8361e8::t_5f7a5f53dea06d 11-15,26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d4303a759192bb3b27a9749c432ddcb71d022887",
+  "prompts": {},
+  "humans": {
+    "h_834af94b08725a": {
+      "author": "Al_bkt_for_brine <wubenteng1@huawei.com>"
+    }
+  },
+  "sessions": {
+    "s_cde5bbae8361e8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6a7437d4-9f74-488c-8c61-8fba1aa537be",
+        "model": "GLM-5.3-Flash"
+      },
+      "human_author": "Al_bkt_for_brine <wubenteng1@huawei.com>"
+    }
+  }
+}
