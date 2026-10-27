@@ -204,11 +204,3 @@ compiler/CJMP/merging/classes/vtable/import1.cj
 compiler/ConditionalCompilation/cfg/read_file_fail.cj
 compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
 
-# local-mode cases blocked by the current compiler/runtime (2026-10)
-
-# Reading elements through the `Collection<T> @local?` interface slot returns an
-# array of the right length whose elements are all the zero value, while the same
-# call on a concrete `@local?` receiver returns the real elements. Min repro:
-# `let i: Collection<String> @local? = c; i.toArray()` yields size 2 with `[0] == "a"` false.
-API/std/collection/local_mode/test_arraylist_local_collection_construct_q.cj
-API/std/core/local_mode/test_collection_local.cj
