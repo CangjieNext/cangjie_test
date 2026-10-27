@@ -1,0 +1,7 @@
+# 构造异常 lock：未知 version 号与未知字段，期望 cjpm 明确报错且不改写文件
+version = 99
+
+[requires."core"]
+version = "1.2.3"
+source = "registry+https://repo.example.com"
+unknown-field = 1

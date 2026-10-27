@@ -1,0 +1,5 @@
+# 旧版 cjpm.lock：version = 0，registry 依赖通过字符串形式记录
+version = 0
+
+[requires]
+test_repo_7 = { version = "1.0.0" }
