@@ -1,0 +1,19 @@
+testsuites/LLT/Tools/cjfmt/test_cases/newLine_without_space/formated/newLine_without_space.cj
+  s_ad1c51f98407b6::t_278df7f950619a 8-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b65447a0eeaeed34d05669a4da15cab6c2fb3095",
+  "prompts": {},
+  "sessions": {
+    "s_ad1c51f98407b6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a13818-6413-7fb3-bb96-169ece721668",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Cangjie-SCH <sunchihao@h-partners.com>"
+    }
+  }
+}
