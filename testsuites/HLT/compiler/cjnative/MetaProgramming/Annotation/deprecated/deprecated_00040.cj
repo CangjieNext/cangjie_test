@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // ERRCHECK: %compiler %cmp_opt %f -o %output
-// ASSERT: scan parse_expected_decl
+// ASSERT: scan parse_expected_name
 
 
 interface I1 {

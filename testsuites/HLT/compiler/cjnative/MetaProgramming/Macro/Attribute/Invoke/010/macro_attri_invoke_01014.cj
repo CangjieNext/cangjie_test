@@ -25,4 +25,4 @@ var i : Int64 = 1
 main(){
     return 0
 }
-// ASSERT: scan parse_expected_no_modifier
+// ASSERT: scan sema_native_var_error
