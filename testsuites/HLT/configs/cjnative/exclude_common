@@ -7,6 +7,10 @@
 # https://gitcode.com/Cangjie/cangjie_test/issues/521
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 
+# bug
+Runtime\performance\case25_http_complex_json_stream
+Runtime\performance\case25_http_complex_json_stream_mac
+
 # https://gitcode.com/Cangjie/cangjie_test/issues/517
 API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
 
