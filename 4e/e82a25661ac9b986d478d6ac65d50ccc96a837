@@ -1,0 +1,23 @@
+testsuites/HLT/Tools/cjfmt/comment_preserve/comment_preserve_02_split_expr/formated/comment_preserve_02_split_expr.cj
+  s_059d99170394e5::t_dfd50346e9925c 10-11
+testsuites/HLT/Tools/cjfmt/dts/test4/test4_3/formated/test4_3.cj
+  s_059d99170394e5::t_3c533faa91d6bb 33
+testsuites/HLT/Tools/cjfmt/support_config_file/config_breakLine_over100/formated/config_breakLine_over100.cj
+  s_059d99170394e5::t_edc0aa076dfc68 29-31,39-41
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4ee82a25661ac9b986d478d6ac65d50ccc96a837",
+  "prompts": {},
+  "sessions": {
+    "s_059d99170394e5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a13474-a064-7c03-b061-912f0c681411",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Cangjie-SCH <sunchihao@h-partners.com>"
+    }
+  }
+}
