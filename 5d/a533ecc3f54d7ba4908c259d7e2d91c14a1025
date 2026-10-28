@@ -1,0 +1,33 @@
+testsuites/LLT/Runtime/CJNative/local_mode/finalizer/finalizer_perf.cj
+  s_eb88edfc30d1e0::t_1fbced57e78d49 1-12,128
+  h_257b3b6b5da395 13-127,129-132
+testsuites/LLT/compiler/Sema/string/string_append.cj
+  s_eb88edfc30d1e0::t_92ec2cde89104e 1-29
+testsuites/LLT/compiler/CodegenCJNative/local_mode/LocalArray/local_array_local.cj
+  s_eb88edfc30d1e0::t_c9a3d75604a9c4 23
+  s_eb88edfc30d1e0::t_7495ec68f472b5 24
+  s_eb88edfc30d1e0::t_28534e7355c5ab 9-10
+testsuites/LLT/Runtime/CJNative/local_mode/memory_info/local_object_size.cj
+  h_257b3b6b5da395 8-10,66-70
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5da533ecc3f54d7ba4908c259d7e2d91c14a1025",
+  "prompts": {},
+  "humans": {
+    "h_257b3b6b5da395": {
+      "author": "kongbx <kongbingxin@huawei.com>"
+    }
+  },
+  "sessions": {
+    "s_eb88edfc30d1e0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a166f7-1bed-7363-a22a-281ec5b83fbf",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "kongbx <kongbingxin@huawei.com>"
+    }
+  }
+}
