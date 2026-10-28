@@ -15,17 +15,21 @@ import std.unittest.testmacro.*
 import std.unittest.mock.mockmacro.*
 
 struct S {
-    S(var v: UInt64) {}
+    var v: UInt64
+    init(v: UInt64) { this.v = v }
 }
 
 class C {
-    C(var s: S) {}
+    var s: S
+    C(s: S) { this.s = s }
+}
 
-    func addMa(n: UInt64) {
+extend C {
+    public func addMa(n: UInt64) {
         this.s.v += n
     }
 
-    func addRef(n: UInt64) {
+    public func addRef(n: UInt64) {
         s.v += n
     }
 }
@@ -34,12 +38,65 @@ func add(lhs: C, n: UInt64) {
     lhs.s.v += n
 }
 
+main() {}
+
 @Test
-func test(): Unit {
-    let c = C(S(0))
+func testSpy(): Unit {
+    let c = spy<C>(C(S(0)))
     c.addRef(1)
     c.addMa(2)
     add(c, 4)
 
+    Verify.that(@Called(c.s).times(3))
     @Assert(c.s.v, 7)
+}
+
+class PrimaryC {
+    PrimaryC(var s: S, var value: UInt64) {}
+}
+
+extend PrimaryC {
+    public func addMa(n: UInt64) {
+        this.s.v += n
+    }
+
+    public func addRef(n: UInt64) {
+        s.v += n
+    }
+
+    public func readValue(): UInt64 {
+        value
+    }
+
+    public func writeValue(n: UInt64) {
+        value = n
+    }
+}
+
+func addPrimary(lhs: PrimaryC, n: UInt64) {
+    lhs.s.v += n
+}
+
+@Test
+func testPrimaryConstructorSpy(): Unit {
+    let c = spy<PrimaryC>(PrimaryC(S(0), 1))
+    c.addRef(1)
+    c.addMa(2)
+    addPrimary(c, 4)
+
+    Verify.that(@Called(c.s).times(3))
+    Verify.that(@Called(c.s = _).times(3))
+    @Assert(c.s.v, 7)
+}
+
+class WriteBlocked <: Exception {}
+
+@Test
+func testPrimaryConstructorFieldStubs(): Unit {
+    let c = spy<PrimaryC>(PrimaryC(S(0), 1))
+    @On(c.value).returns(UInt64(10))
+    @On(c.value = _).throws(WriteBlocked())
+
+    @Assert(c.readValue(), UInt64(10))
+    @AssertThrows[WriteBlocked](c.writeValue(20))
 }
