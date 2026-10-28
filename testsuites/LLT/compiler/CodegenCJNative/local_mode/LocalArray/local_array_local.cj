@@ -6,13 +6,16 @@
 
 // [看护点]: 局部区域内的数组分配必须走 local 数组路径 (llvm.cj.malloc.local.array)。
 // 1) local region 中构造 Array<D> 字面量时，数组本体分配给到
-//    llvm.cj.malloc.local.array（含 main 中字面量的 1 处，以及实例化的
-//    std.modal Array<D> 两个 modal <init> 各 1 处，共 3 处调用）；
+//    llvm.cj.malloc.local.array。实际 IR 形态为 2 处调用加 1 处函数声明：
+//      - default.<main>                        字面量本体
+//      - Array<default:D>.<init>(this @local!)  std.core 的 local 构造器
+//      - declare i8 addrspace(1)* @CJ_MCC_NewLocalObjArray
+//    断言计的是全部出现（调用 + 声明），故为 scan-3；
 // 2) 若该路径被误并入普通 heap 数组分配（如 NewArrayFast 内联快路径），
 //    local 数组会落入普通堆 TLR 缓冲，local root 登记表在 GC 回收后悬挂，
 //    并发标记阶段解引用被覆写内存直接崩溃 —— 该错误只能靠端到端在 GC 压力下
 //    暴露，这里锁定分配路径本身不被静默替换；
-// 3) 数组元素读写经 std.modal ix 重载（local! this），结果端到端一致。
+// 3) 数组元素读写经 std.core 的 local ix 重载（local! this），结果端到端一致。
 
 // LEVEL: 0
 // EXEC: %mkdir tmps
@@ -20,7 +23,7 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %llvmDissembler tmps/%n.opt.bc
 // EXEC-PIPE: %cat tmps/%n.opt.ll 2>&1 | compare %f
-// ASSERT: scan-4 CJ_MCC_NewLocalObjArray
+// ASSERT: scan-3 CJ_MCC_NewLocalObjArray
 
 class D {
     var tag: Int64
