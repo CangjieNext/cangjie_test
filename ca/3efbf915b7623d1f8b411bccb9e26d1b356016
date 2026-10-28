@@ -1,0 +1,23 @@
+testsuites/LLT/compiler/Driver/LTO/pea_cyclic_def/dep.cj
+  s_bfe3c734b8601d::t_226c78d9e92025 1-27
+testsuites/LLT/compiler/Driver/LTO/pea_cyclic_def/main.cj
+  s_bfe3c734b8601d::t_cf4bef95e06ab7 9-10
+  s_bfe3c734b8601d::t_89dbd7c3a7cd3f 1-7,11-18,20-26
+  s_bfe3c734b8601d::t_db79869bb001fd 8,19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ca3efbf915b7623d1f8b411bccb9e26d1b356016",
+  "prompts": {},
+  "sessions": {
+    "s_bfe3c734b8601d": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a17d39-269a-7307-98e1-86ccec653795",
+        "model": "k3.1-pro"
+      },
+      "human_author": "yanjs <yejiasheng3@huawei.com>"
+    }
+  }
+}
