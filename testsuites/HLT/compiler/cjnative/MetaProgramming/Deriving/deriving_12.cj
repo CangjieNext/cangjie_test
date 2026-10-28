@@ -14,7 +14,6 @@ import std.deriving.*
 open class B<T> {}
 
 @Derive[Comparable]
-@DeriveOrder[]
 class A <: B<Int64> {
     var a = true
 }
