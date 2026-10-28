@@ -1,0 +1,40 @@
+testsuites/HLT/Tools/cjlint/rules/G_CON_01/g_con_01_005/g_con_01_005.info
+  h_fe069fe836a3e3 12
+testsuites/LLT/Tools/cjlint/rule_G_ENU_02/enum_02_test_case_07/enum_02_test_case_07.info
+  h_fe069fe836a3e3 9
+testsuites/LLT/Tools/cjlint/rule_G_FUN_03/fun_03_test_case_07/fun_03_test_case_07.info
+  h_fe069fe836a3e3 9
+testsuites/HLT/configs/cjnative/exclude_common
+  h_fe069fe836a3e3 24-31,35,41
+testsuites/LLT/Tools/cjlint/rule_G_ENU_02/enum_02_test_case_06/enum_02_test_case_06.info
+  h_fe069fe836a3e3 9
+testsuites/HLT/Tools/cjlint/rules/G_DCL_01/g_dcl_01_025/g_dcl_01_025.info
+  h_fe069fe836a3e3 12-13
+testsuites/HLT/Tools/cjlint/rules/G_OTH_02/g_oth_02_10060/g_oth_02_10060.info
+  h_fe069fe836a3e3 13
+testsuites/HLT/Tools/cjlint/rules/G_CON_01/g_con_01_006/g_con_01_006.info
+  h_fe069fe836a3e3 12
+testsuites/LLT/Tools/cjlint/rule_G_CON_01/test_case_02/src/g_con_01_rule_test_02.cj
+  h_fe069fe836a3e3 1-25
+testsuites/LLT/Tools/cjlint/rule_G_CON_01/test_case_02/test_case_02.info
+  h_fe069fe836a3e3 1-10
+testsuites/LLT/Tools/cjlint/rule_G_SYN_01/syn_01_test_case19/src/test.cj
+  h_fe069fe836a3e3 1-8
+testsuites/LLT/Tools/cjlint/rule_G_SYN_01/syn_01_test_case19/syn_01_test_case19.info
+  h_fe069fe836a3e3 1-10
+testsuites/LLT/Tools/cjlint/rule_P_01/test_013/src/test.cj
+  h_fe069fe836a3e3 1-43
+testsuites/LLT/Tools/cjlint/rule_P_01/test_013/test_013.info
+  h_fe069fe836a3e3 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bd1193962f571776ad5e7e847de52143d989a3dd",
+  "prompts": {},
+  "humans": {
+    "h_fe069fe836a3e3": {
+      "author": "zxudong <zxudong.zhang@huawei.com>"
+    }
+  }
+}
