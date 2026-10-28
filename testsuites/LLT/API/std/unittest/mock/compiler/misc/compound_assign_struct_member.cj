@@ -15,17 +15,21 @@ import std.unittest.testmacro.*
 import std.unittest.mock.mockmacro.*
 
 struct S {
-    S(var v: UInt64) {}
+    var v: UInt64
+    init(v: UInt64) { this.v = v }
 }
 
 class C {
-    C(var s: S) {}
+    var s: S
+    C(s: S) { this.s = s }
+}
 
-    func addMa(n: UInt64) {
+extend C {
+    public func addMa(n: UInt64) {
         this.s.v += n
     }
 
-    func addRef(n: UInt64) {
+    public func addRef(n: UInt64) {
         s.v += n
     }
 }
@@ -34,12 +38,15 @@ func add(lhs: C, n: UInt64) {
     lhs.s.v += n
 }
 
+main() {}
+
 @Test
-func test(): Unit {
-    let c = C(S(0))
+func testSpy(): Unit {
+    let c = spy<C>(C(S(0)))
     c.addRef(1)
     c.addMa(2)
     add(c, 4)
 
+    Verify.that(@Called(c.s).times(3))
     @Assert(c.s.v, 7)
 }
