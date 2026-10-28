@@ -1,0 +1,14 @@
+testsuites/LLT/compiler/CodegenCJNative/stable_abi/memory_layout/TypeInfoVisibility.cj
+  h_b0aadd73204706 41-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d1c73fd61a07390bd9c4bf9dfdd8da70dbfad7a3",
+  "prompts": {},
+  "humans": {
+    "h_b0aadd73204706": {
+      "author": "yanjs <yejiasheng3@huawei.com>"
+    }
+  }
+}

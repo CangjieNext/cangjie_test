@@ -1,0 +1,19 @@
+testsuites/LLT/compiler/CodegenCJNative/stable_abi/memory_layout/TypeInfoVisibility.cj
+  s_f30291f4da5ab1::t_7d3ee46a5cf537 1-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e8bbcfc8e13fc4f6fa1e8597a4f5708a307ec9fd",
+  "prompts": {},
+  "sessions": {
+    "s_f30291f4da5ab1": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a17b64-6b1a-7307-98e1-86b46ebd4cf2",
+        "model": "DeepSeek-V4.1-Flash-1017"
+      },
+      "human_author": "yanjs <yejiasheng3@huawei.com>"
+    }
+  }
+}
