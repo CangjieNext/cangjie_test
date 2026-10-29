@@ -19,7 +19,6 @@ interface A<T>{
 q
 
 class A: %compiler %cmp_opt %f -o %output
-/// RUN-EXEC: %run %run_opt %output %run_args
 
 interface A<T>{
     operator func *(b:A<T>):Bool  {

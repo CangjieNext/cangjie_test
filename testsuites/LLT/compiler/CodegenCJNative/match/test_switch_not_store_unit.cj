@@ -6,16 +6,16 @@
 
 // EXEC: %compiler %cmp_opt %enableO2 %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
-/// EXEC: %frontendCompiler %enableO2 %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
+// EXEC: %frontendCompiler %enableO2 %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 
-/// ASSERT: regex-begin default_thunk:
-/// ASSERT: regex-next br label %switch_end
-/// ASSERT: regex-after case_0_thunk:
-/// ASSERT: regex-next br label %switch_end
-/// ASSERT: regex-after case_1_thunk:
-/// ASSERT: regex-next br label %switch_end
-/// ASSERT: regex-after case_2_thunk:
-/// ASSERT: regex-next br label %switch_end
+// ASSERT: regex-begin default_thunk:
+// ASSERT: regex-next br label %switch_end
+// ASSERT: regex-after case_0_thunk:
+// ASSERT: regex-next br label %switch_end
+// ASSERT: regex-after case_1_thunk:
+// ASSERT: regex-next br label %switch_end
+// ASSERT: regex-after case_2_thunk:
+// ASSERT: regex-next br label %switch_end
 
 enum RGBColor {
     | Red | Green | Blue

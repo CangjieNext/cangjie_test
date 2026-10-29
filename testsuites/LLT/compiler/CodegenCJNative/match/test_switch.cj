@@ -6,9 +6,9 @@
 
 // EXEC: %compiler %cmp_opt %enableO2 %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
-/// EXEC: %frontendCompiler %enableO2 %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
+// EXEC: %frontendCompiler %enableO2 %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 
-/// ASSERT: regex switch i64 %\d+, label %default_thunk \[
+// ASSERT: regex switch i64 %\d+, label %default_thunk \[
 
 enum RGBColor {
     | Red | Green | Blue
