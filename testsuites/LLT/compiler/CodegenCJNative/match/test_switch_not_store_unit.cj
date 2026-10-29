@@ -8,25 +8,28 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %frontendCompiler %enableO2 %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 
-// ASSERT: regex-begin default_thunk:
-// ASSERT: regex-next br label %switch_end
-// ASSERT: regex-after case_0_thunk:
-// ASSERT: regex-next br label %switch_end
-// ASSERT: regex-after case_1_thunk:
-// ASSERT: regex-next br label %switch_end
-// ASSERT: regex-after case_2_thunk:
-// ASSERT: regex-next br label %switch_end
+// ASSERT: regex-begin switch i32 %\w+, label %bb\d+ \[
+// ASSERT: regex-next i32 2, label %bb\d+
+// ASSERT: regex-next i32 1, label %bb\d+
+// ASSERT: regex-not store %Unit\.Type
 
 enum RGBColor {
     | Red | Green | Blue
 }
 
+// 取值为运行期的可变全局变量，避免前端把常量选择子折叠掉而不再生成 switch。
+var input = RGBColor.Red
+
+func act(tag: String): Unit {
+    print(tag)
+}
+
 main() {
-    let c = RGBColor.Red
+    let c = input
     let cs = match (c) {
-        case Green => ()
-        case Blue => ()
-        case Red => ()
+        case Green => act("Green")
+        case Blue => act("Blue")
+        case Red => act("Red")
     }
     print(cs == ())
     return 0

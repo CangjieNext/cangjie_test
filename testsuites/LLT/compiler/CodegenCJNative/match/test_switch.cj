@@ -8,14 +8,19 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %frontendCompiler %enableO2 %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 
-// ASSERT: regex switch i64 %\d+, label %default_thunk \[
+// ASSERT: regex-begin switch i32 %\w+, label %bb\d+ \[
+// ASSERT: regex-next i32 2, label %bb\d+
+// ASSERT: regex-next i32 1, label %bb\d+
 
 enum RGBColor {
     | Red | Green | Blue
 }
 
+// 取值为运行期的可变全局变量，避免前端把常量选择子折叠掉而不再生成 switch。
+var input = RGBColor.Red
+
 main() {
-    let c = RGBColor.Red
+    let c = input
     let cs = match (c) {
         case Green => "Green"
         case Blue => "Blue"
