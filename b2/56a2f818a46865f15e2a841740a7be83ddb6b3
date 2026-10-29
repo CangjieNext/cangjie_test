@@ -1,0 +1,28 @@
+testsuites/HLT/Tools/cjlint/normal/004/normal_004002/normal_004002.info
+  h_6dcadf4674a1b3 14
+testsuites/HLT/Tools/cjlint/normal/004/normal_004006/normal_004006.info
+  h_6dcadf4674a1b3 10,12
+testsuites/HLT/Tools/cjlint/normal/004/normal_004001/normal_004001.info
+  h_6dcadf4674a1b3 13
+testsuites/HLT/Tools/cjlint/normal/004/normal_004004/normal_004004.info
+  h_6dcadf4674a1b3 13
+testsuites/HLT/Tools/cjlint/rules/G_NAM_05/G_NAM_05_016/G_NAM_05_016.info
+  h_6dcadf4674a1b3 12
+testsuites/HLT/Tools/cjlint/rules/G_CON_02/g_con_02_1037/g_con_02_1037.info
+  h_6dcadf4674a1b3 12
+testsuites/HLT/Tools/cjlint/normal/004/normal_004003/normal_004003.info
+  h_6dcadf4674a1b3 13-14
+testsuites/HLT/Tools/cjlint/normal/004/normal_004007/normal_004007.info
+  h_6dcadf4674a1b3 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b256a2f818a46865f15e2a841740a7be83ddb6b3",
+  "prompts": {},
+  "humans": {
+    "h_6dcadf4674a1b3": {
+      "author": "bigapple <zhangpingping11@h-partners.com>"
+    }
+  }
+}
