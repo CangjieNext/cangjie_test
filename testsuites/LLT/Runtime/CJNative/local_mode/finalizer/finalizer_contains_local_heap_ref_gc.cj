@@ -97,7 +97,9 @@ func createFinalized(value: Int64): Unit {
     let child: LocalChild @local! = LocalChild(value) @local!
     let finalizer: FinalizedWithLocalChild @local! =
         FinalizedWithLocalChild(child, value) @local!
-    println("finalizer local child scope: ${finalizer.expected}")
+    // Keep the finalizer live to this point without acquiring a raw pointer to
+    // a temporary String array while the re-entrant GC may still be forwarding.
+    blackBox(finalizer.expected)
 }
 
 main(): Unit {
