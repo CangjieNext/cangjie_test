@@ -8,14 +8,20 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %frontendCompiler %enableO2 %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 
-// ASSERT: regex switch i64 %\d+, label %default_thunk \[
+// ASSERT: regex-begin switch i32 %\w+, label %bb\d+ \[
+// ASSERT: regex-next i32 2, label %bb\d+
+// ASSERT: regex-next i32 1, label %bb\d+
 
 enum RGBColor {
     | Red | Green | Blue
 }
 
+// A mutable global keeps the selector unknown at compile time; a literal enum
+// constructor would be folded before codegen and no switch would be emitted.
+var input = RGBColor.Red
+
 main() {
-    let c = RGBColor.Red
+    let c = input
     let cs = match (c) {
         case Green => "Green"
         case Blue => "Blue"
