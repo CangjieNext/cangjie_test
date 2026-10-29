@@ -14,6 +14,7 @@ gv ro: true init lit: true
 gv str has id: true
 fn public abstract: true true
 fn has body: true params: 1
+external linkage: true true
 */
 
 import stdx.chir.*
@@ -34,4 +35,8 @@ main() {
     println("fn public abstract: ${fn.isPublic()} ${fn.isAbstract()}")
     fn.initBody()
     println("fn has body: ${fn.body.isSome()} params: ${fn.parameters.size}")
+
+    gv.setExternalLinkage()
+    fn.setExternalLinkage()
+    println("external linkage: ${gv.isExternalLinkage()} ${fn.isExternalLinkage()}")
 }
