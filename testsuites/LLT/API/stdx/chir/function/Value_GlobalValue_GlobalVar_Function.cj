@@ -14,6 +14,9 @@ gv ro: true init lit: true
 gv str has id: true
 fn public abstract: true true
 fn has body: true params: 1
+external annotation before: false false
+external linkage: true true
+external annotation after: true true
 */
 
 import stdx.chir.*
@@ -34,4 +37,10 @@ main() {
     println("fn public abstract: ${fn.isPublic()} ${fn.isAbstract()}")
     fn.initBody()
     println("fn has body: ${fn.body.isSome()} params: ${fn.parameters.size}")
+
+    println("external annotation before: ${gv.toString().contains("linkType: external")} ${fn.toString().contains("linkType: external")}")
+    gv.setExternalLinkage()
+    fn.setExternalLinkage()
+    println("external linkage: ${gv.isExternalLinkage()} ${fn.isExternalLinkage()}")
+    println("external annotation after: ${gv.toString().contains("linkType: external")} ${fn.toString().contains("linkType: external")}")
 }
