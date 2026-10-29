@@ -49,13 +49,8 @@ API/std/os/tty/test_ttyname/test_ttyname_001/test_ttyname_001.cj
 
 # cmd不支持同一行中同时设置和读取变量
 API/std/os/env/test_currentDir/test_currentDir_001/test_currentDir_001.cj
-API/std/time/TimeZone/Location/test_local_001.cj
-API/std/time/Time/test_local_001.cj
 API/std/os/env/test_envVars/test_envVars_002/test_envVars_002.cj
 API/std/os/env/test_getEnv/test_getEnv_004/test_getEnv_004.cj
-
-# windows环境中缺少/etc/localtime，无法通过Location.load("Local")获取本地时区
-API/std/time/TimeZone/Location/test_load_008.cj
 
 # windows的差异适配
 API/std/fs/os_isBlk_01.cj
@@ -67,15 +62,6 @@ API/net/Server/ServerBuilder/Http1/ServerBuilder_afterBind.cj
 API/net/Server/ServerBuilder/Http2/ServerBuilder_afterBind_H2.cj
 API/net/Server/registerOnShutdown/server_registerOnShutdown_00006.cj
 API/net/Server/listenAndServe/server_listen_00001.cj
-
-# 标准库的'kill'函数，windows不支持（标准库兼容性限制）
-API/std/os/process/test_kill/test_kill_001/test_kill_001.cj
-API/std/os/process/test_kill/test_kill_002/test_kill_002.cj
-API/std/os/process/test_kill/test_kill_003/test_kill_003.cj
-API/std/os/process/test_kill/test_kill_004/test_kill_004.cj
-API/std/os/process/test_kill/test_kill_005/test_kill_005.cj
-API/std/os/process/test_kill/test_kill_007/test_kill_007.cj
-API/std/os/process/test_kill/test_kill_008/test_kill_008.cj
 
 # 'mkfifo' is not recognized as an internal or external command,
 API/std/fs/os_isFIFO_path_mode.cj
@@ -198,10 +184,6 @@ compiler/cli/Option/lto
 compiler/cli/Option/pgo/pgo_001.cj
 compiler/cli/Option/pgo/pgo_004.cj
 compiler/cli/Option/pgo/pgo_005.cj
-
-# https://gitcode.com/Cangjie/cangjie_test/issues/315
-compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_03.cj
-compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_04.cj
 
 # cjcov, 回合main分支，暂时屏蔽
 Tools/cjcov/cjcov_special_filename/cjcov_special_filename_017

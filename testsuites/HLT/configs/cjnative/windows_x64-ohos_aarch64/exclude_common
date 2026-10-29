@@ -7,21 +7,6 @@
 # https://gitcode.com/Cangjie/cangjie_test/issues/523
 Tools/cjprof
 
-# 用例指令依赖 host 侧 unix 工具（%chmod/%ls/%grep 等）：windows cfg 将 ls/grep
-# 映射为 dir/findstr、chmod 无映射，语义不符必败。待 windows runner 就绪 unix
-# 工具链后，将用例头 (!host_win) 改回 (!target_win) 并删除本组。
-API/net/handler/FileHandler/file_handler_init_03.cj
-API/net/handler/FileHandler/file_handler_init_09.cj
-API/net/handler/FileHandler/file_handler_init_12.cj
-API/net/handler/FileHandler/file_handler_init_15.cj
-API/net/handler/FileHandler/file_handler_init_15n.cj
-API/net/handler/FileHandler/file_handler_init_18n.cj
-API/std/fs/os_chmod_n_01.cj
-API/std/fs/os_chmod_n_04.cj
-API/std/fs/os_chown_0.cj
-API/std/fs/os_fchmod_n_01.cj
-API/std/fs/os_fchmod_n_03.cj
-
 Tools/cjpm/stdx/c/build_mock/build_mock.info
 
 # windows不支持~,无法解析成绝对路径
@@ -59,18 +44,10 @@ API/std/os/process/test_getpgrp/test_getpgrp_001/test_getpgrp_001.cj
 # windows 不支持getuid
 API/std/os/process/test_getuid/test_getuid_001/test_getuid_001.cj
 
-# windows 不支持ttyname
-API/std/os/tty/test_ttyname/test_ttyname_001/test_ttyname_001.cj
-
 # cmd不支持同一行中同时设置和读取变量
 API/std/os/env/test_currentDir/test_currentDir_001/test_currentDir_001.cj
-API/std/time/TimeZone/Location/test_local_001.cj
-API/std/time/Time/test_local_001.cj
 API/std/os/env/test_envVars/test_envVars_002/test_envVars_002.cj
 API/std/os/env/test_getEnv/test_getEnv_004/test_getEnv_004.cj
-
-# windows环境中缺少/etc/localtime，无法通过Location.load("Local")获取本地时区
-API/std/time/TimeZone/Location/test_load_008.cj
 
 # windows的差异适配
 API/std/fs/os_isBlk_01.cj
@@ -82,15 +59,6 @@ API/net/Server/ServerBuilder/Http1/ServerBuilder_afterBind.cj
 API/net/Server/ServerBuilder/Http2/ServerBuilder_afterBind_H2.cj
 API/net/Server/registerOnShutdown/server_registerOnShutdown_00006.cj
 API/net/Server/listenAndServe/server_listen_00001.cj
-
-# 标准库的'kill'函数，windows不支持（标准库兼容性限制）
-API/std/os/process/test_kill/test_kill_001/test_kill_001.cj
-API/std/os/process/test_kill/test_kill_002/test_kill_002.cj
-API/std/os/process/test_kill/test_kill_003/test_kill_003.cj
-API/std/os/process/test_kill/test_kill_004/test_kill_004.cj
-API/std/os/process/test_kill/test_kill_005/test_kill_005.cj
-API/std/os/process/test_kill/test_kill_007/test_kill_007.cj
-API/std/os/process/test_kill/test_kill_008/test_kill_008.cj
 
 # 'mkfifo' is not recognized as an internal or external command,
 API/std/fs/os_isFIFO_path_mode.cj
@@ -129,8 +97,6 @@ compiler/cli/command_injection/command_injection_0015.cj
 compiler/cli/command_injection/command_injection_0013.cj
 
 # 乱码
-compiler/cli/command_injection/command_injection_0009.cj
-compiler/cli/command_injection/command_injection_0010.cj
 compiler/cli/command_injection/command_injection_0012.cj
 compiler/cli/command_injection/command_injection_0014.cj
 compiler/cli/command_injection/command_injection_0016.cj
@@ -158,20 +124,13 @@ compiler/cli/Option/library/option_library_00006.cj
 compiler/cli/Option/parallel_compile
 
 # 不支持反引号
-compiler/cli/Option/obfuscation/005/obfuscation_50001.cj
-compiler/cli/Option/obfuscation/005/obfuscation_50002.cj
 compiler/cli/Option/obfuscation/006/obfuscation_60002.cj
 compiler/cli/Option/obfuscation/006/obfuscation_60002_1.cj
-compiler/cli/Option/obfuscation/007/obfuscation_70002.cj
 
 # 修改文档表示 windows 不支持 pgo
 compiler/cli/Option/pgo/pgo_001.cj
 compiler/cli/Option/pgo/pgo_004.cj
 compiler/cli/Option/pgo/pgo_005.cj
-
-# https://gitcode.com/Cangjie/cangjie_test/issues/315
-compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_03.cj
-compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_04.cj
 
 # cjcov, 回合main分支，暂时屏蔽
 Tools/cjcov/cjcov_special_filename/cjcov_special_filename_017
