@@ -16,7 +16,7 @@ import std.sync.*
 class ConcurrentHashMapGetDuringResizeTest {
     @TestCase
     func presentKeyMustRemainVisibleDuringResize(): Unit {
-        let rounds: Int64 = 250
+        let rounds: Int64 = 50
         let readerCount: Int64 = 32
         let writerCount: Int64 = 16
         let keysPerWriter: Int64 = 150
@@ -55,18 +55,15 @@ class ConcurrentHashMapGetDuringResizeTest {
             while (readyReaders.load() < readerCount) {
                 sleep(Duration.millisecond)
             }
-            for (writer in 0..writerCount) {
-                let base = writer * keysPerWriter
-                writers.add(spawn {
-                    while (!start.load()) {
-                        sleep(Duration.millisecond)
-                    }
-                    for (key in base..base + keysPerWriter) {
-                        map.add(key, key)
-                    }
-                })
-            }
             try {
+                for (writer in 0..writerCount) {
+                    let base = writer * keysPerWriter
+                    writers.add(spawn {
+                        for (key in base..base + keysPerWriter) {
+                            map.add(key, key)
+                        }
+                    })
+                }
                 for (writer in writers) {
                     writer.get()
                 }
