@@ -1,0 +1,14 @@
+testsuites/HLT/API/std/concurrent/ThreadScope/threadscope007/threadscope.cj
+  h_37a1bf5aa76b65 15-17,26,30,34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3937408d5a6ae51e0979772813afb679ea8bd03e",
+  "prompts": {},
+  "humans": {
+    "h_37a1bf5aa76b65": {
+      "author": "Chaos John <yujiahao8@huawei.com>"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+testsuites/HLT/API/net/New_HTTP/IPv6_Http/test_ipv6_cangjie_httpconnection.cj
+  h_37a1bf5aa76b65 132-141
+testsuites/HLT/API/net/New_HTTP/data/end_rsa.cer
+  h_37a1bf5aa76b65 5,9-10,51,58-72,74,78,88-97
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e998fa7ec3c126c51a8f057208a6ed538d7eedbc",
+  "prompts": {},
+  "humans": {
+    "h_37a1bf5aa76b65": {
+      "author": "Chaos John <yujiahao8@huawei.com>"
+    }
+  }
+}
