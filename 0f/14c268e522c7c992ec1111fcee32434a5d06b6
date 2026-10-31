@@ -1,0 +1,37 @@
+testsuites/HLT/API/std/os/process/test_kill/test_kill_001/test_kill_001.cj
+  s_f854f62a386ac2::t_41c9184c3dcd8b 11-15
+testsuites/HLT/API/std/os/process/test_kill/test_kill_002/test_kill_002.cj
+  s_f854f62a386ac2::t_cbe4f05c141928 11-15
+testsuites/HLT/API/std/os/process/test_kill/test_kill_003/test_kill_003.cj
+  s_f854f62a386ac2::t_ba9f172ce929a4 11-15
+testsuites/HLT/API/std/os/process/test_kill/test_kill_004/test_kill_004.cj
+  s_f854f62a386ac2::t_0a43ec0968b908 11-15
+testsuites/HLT/API/std/os/process/test_kill/test_kill_005/test_kill_005.cj
+  s_f854f62a386ac2::t_6de748db427fce 11-15
+testsuites/HLT/API/std/os/process/test_kill/test_kill_007/test_kill_007.cj
+  s_f854f62a386ac2::t_a062f55c732adc 11-15
+testsuites/HLT/API/std/os/process/test_kill/test_kill_008/test_kill_008.cj
+  s_f854f62a386ac2::t_a25567bc092f38 11-15
+testsuites/HLT/API/std/os/process/test_kill/util/run.sh
+  s_f854f62a386ac2::t_8ae8c3a66328aa 10-17,38-42
+testsuites/HLT/Runtime/cjnative/runtime/OutOfMemoryError/oom_dump.cj
+  s_f854f62a386ac2::t_cd32aa83cdab3f 10-11
+testsuites/HLT/compiler/cjnative/LTO/ios/static/error_test_011.cj
+  s_f854f62a386ac2::t_aa6853665f89d7 14-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0f14c268e522c7c992ec1111fcee32434a5d06b6",
+  "prompts": {},
+  "sessions": {
+    "s_f854f62a386ac2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7a5b5f60-d06b-4716-96af-ec6fa9b94c87",
+        "model": "unknown"
+      },
+      "human_author": "Al_bkt_for_brine <wubenteng1@huawei.com>"
+    }
+  }
+}
