@@ -92,6 +92,21 @@ class TestStdCoreReflection {
         let t = EnumTypeInfo.get("std.core.Option<std.core.Option<Box<String>>>")
         @Expect(t.toString(), "Option<Option<Box<String>>>")
     }
+    // option-specific helpers and the compatible enum view.
+    @TestCase
+    func optionType(): Unit {
+        let t = OptionTypeInfo.get("std.core.Option<std.core.String>")
+        @Expect(t.payloadType, TypeInfo.of<String>())
+        let some = t.constructSome("payload")
+        @Expect((some as Option<String>).getOrThrow(), Some("payload"))
+        @Expect(t.getPayload(some).getOrThrow() as String, Some("payload"))
+        let enumInfo = EnumTypeInfo.get(t.qualifiedName)
+        @Expect(EnumTypeInfo.of(some), enumInfo)
+        @Expect(enumInfo.getConstructor("Some", argsCount: 1).enumTypeInfo, enumInfo)
+        let none = enumInfo.construct("None", [])
+        @Expect(t.isNone(none), true)
+        @Expect(t.getPayload(none).isNone(), true)
+    }
     // function type.
     @TestCase
     func functionType(): Unit {
