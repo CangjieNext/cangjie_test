@@ -1,0 +1,524 @@
+testsuites/LLT/compiler/Sema/modal/expr/try_expr_bad.cj
+  s_8fdac591f37cbd::t_fde5d266235729 1-21
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_equality_matrix.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_removeif.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/callee_param_lambda_local_maybe_nodefault01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/ret_lambda_local_must01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/sort/test_sort_list_exception_safety.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/lambda_type_local_maybe01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_set.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/StringBuilder/test_local_append_growth_paths.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/pkg_class.cj
+  s_da4e28ed8cf9b9::t_c7eef26a519c3f 1-35
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_object_local_blocked.cj
+  h_7fa24ec5a32f2d 11
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_import_only_good.cj
+  s_da4e28ed8cf9b9::t_df32b92b4ed6e9 1-16
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/ret_global_local_maybe01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_format_local_neg_indent.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_writer_mutation_paths.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_collection_toarray_local.cj
+  h_7fa24ec5a32f2d 10
+testsuites/HLT/configs/cjnative/linux_x64-linux_x64/g.cfg
+  h_7fa24ec5a32f2d 26
+testsuites/LLT/API/std/collection/local_mode/test_hashmap_local_view_iterator_versions.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_mode_q_array_add_neg.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_local_string_comparison_exhaustive.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_call_obj_param_full_bad.cj
+  s_da4e28ed8cf9b9::t_51b64cfc5ce0d6 1-17
+testsuites/LLT/compiler/Mangle/Demangle/model_type/modal_type_01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_mode_q_object_put_neg.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_toarray_clone.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_float_boundaries.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_list_ctor_alias.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/test_print_local_string.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_iterable_iterator_arraylist_mutation_blocked.cj
+  h_7fa24ec5a32f2d 13
+testsuites/LLT/compiler/Sema/modal/compatibility/parse_modal_func_type_bad.cj
+  s_da4e28ed8cf9b9::t_a57a676e25c254 1-14
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_spare_capacity_transforms.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_call_ret_full_bad.cj
+  s_da4e28ed8cf9b9::t_29506998a6f0ce 1-17
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_fast_slow_boundaries.cj
+  h_7fa24ec5a32f2d 9
+testsuites/HLT/configs/cjnative/linux_aarch64-linux_aarch64/basic.cfg
+  h_7fa24ec5a32f2d 25
+testsuites/LLT/API/std/core/local_mode/test_local_string_split_option_matrix.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/diag/sema_local_api_disabled.cj
+  s_da4e28ed8cf9b9::t_f976593d242097 1-35
+testsuites/LLT/cjnative_testlist
+  h_7fa24ec5a32f2d 136-138
+testsuites/LLT/API/std/collection/local_mode/test_hashmap_local_tostring_growth.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_string_local_transform.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_hashmap_local_key_dispatch.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_local_mode_exception_paths.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_mode_object_heap_payload_neg.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_array_local_judge_copyable.cj
+  h_7fa24ec5a32f2d 11
+testsuites/LLT/API/std/core/local_mode/test_array_local_neg_local_bang_assign.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/CHIR/AST2CHIR/Exclave/exclave_let_return_01.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_object_local.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_array_local_judge.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_impl_iface_this_bad.cj
+  s_da4e28ed8cf9b9::t_3c1b68cfd3d25e 1-19
+testsuites/LLT/API/std/core/local_mode/test_string_local_neg_assign_q_to_local.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/CodegenCJNative/local_mode/MangleModal/mangle_modal_symbols.cj
+  h_7fa24ec5a32f2d 22
+testsuites/LLT/API/std/collection/local_mode/test_hashmap_shared_copy_isolation.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/callee_param_nested_local_must01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/HLT/configs/cjnative/windows_x64-windows_x64/basic.cfg
+  h_7fa24ec5a32f2d 27
+testsuites/LLT/compiler/Sema/modal/compatibility/parse_modal_var_type_bad.cj
+  s_da4e28ed8cf9b9::t_0181d7ab65c748 1-14
+testsuites/LLT/Runtime/CJNative/local_mode/gc_root/local_heap_graph_gc_stress.cj
+  h_7fa24ec5a32f2d 61,79
+testsuites/LLT/API/std/core/local_mode/test_string_local_get.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/StringBuilder/test_local_builder_format_dispatch.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_shared_slice_bounds.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/Sema/modal/compatibility/parse_exclave_block_bad.cj
+  s_da4e28ed8cf9b9::t_0a7b75e92dc62e 1-15
+testsuites/LLT/API/std/core/local_mode/test_array_local_set.cj
+  h_7fa24ec5a32f2d 10
+testsuites/HLT/configs/cjnative/linux_aarch64-linux_aarch64/g.cfg
+  h_7fa24ec5a32f2d 26
+testsuites/LLT/API/std/core/local_mode/test_comparable_hashable_local.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_get_payload_blocked.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_array_copyable_extension.cj
+  h_7fa24ec5a32f2d 11
+testsuites/LLT/API/std/core/local_mode/test_local_option_lazy_exception.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/expr/array_tuple_bad.cj
+  s_8fdac591f37cbd::t_217e30b0af0175 1-29
+testsuites/LLT/compiler/CHIR/ModalType/nothing_type_region_pair03.cj
+  h_7fa24ec5a32f2d 9
+testsuites/HLT/API/std/core/local_mode/h02_string_concat_loop.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_transform_payload_blocked.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_format_local.cj
+  h_7fa24ec5a32f2d 11
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_mode_neg_02.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/API/std/core/local_mode/test_local_mode_string_region_conversion.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_value_local.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/ret_global_generic_local_must_copyable01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_ref_func_bad.cj
+  s_da4e28ed8cf9b9::t_156af096b34e2d 1-17
+testsuites/LLT/compiler/CHIR/ModalType/virtual_method_wrapper_local_array.cj
+  h_7fa24ec5a32f2d 9,14
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/ret_global_generic_local_maybe_copyable01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/CHIR/AST2CHIR/Exclave/exclave_if_return_01.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/API/std/core/local_mode/test_local_array_clone_iterator_paths.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_container_growth.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_string_local_neg_assign_heap_to_local.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_zip_neg_q_receiver.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_hashmap_s19_local_limits.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_local_collection_conformer_copies.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_local_string_split_removed_empty_limit.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_string_local_runes_lines.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_zip_neg_q_other.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/CHIR/AST2CHIR/Exclave/exclave_forin_return_01.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_set_range_blocked.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_collection_local_regressions.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/Mangle/Demangle/model_type/modal_type_02.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_hashmap_local_get.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_iterator_local.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/ret_global_local_must01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_parser_local.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_error_position_edges.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_impl_iface_param_bad.cj
+  s_da4e28ed8cf9b9::t_958192d2095d05 1-19
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/callee_param_nested_local_must_explicit01.cj
+  h_7fa24ec5a32f2d 9,31
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_ctor_param_full_bad.cj
+  s_da4e28ed8cf9b9::t_7bb9b357dfa44b 1-17
+testsuites/LLT/API/std/core/local_mode/test_local_string_copy_isolation.cj
+  h_7fa24ec5a32f2d 9
+testsuites/HLT/configs/cjnative/linux_x64-linux_x64/basic.cfg
+  h_7fa24ec5a32f2d 25
+testsuites/HLT/compiler/cjnative/local_modal/IfAvailable/ifavailable_kernel_compat.cj
+  h_7fa24ec5a32f2d 21-23
+testsuites/LLT/compiler/CodegenCJNative/local_mode/GCPressure/local_gc_stress.cj
+  h_7fa24ec5a32f2d 17
+testsuites/LLT/API/std/core/local_mode/test_local_string_branch_boundaries.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_hashmap_local_keys_contains.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_array_local_transform.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_array_local_overlap_assignment.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/CodegenCJNative/local_mode/ModalWrite/must2must_write.cj
+  h_7fa24ec5a32f2d 18
+testsuites/LLT/API/std/core/local_mode/test_local_array_nonempty_transforms.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_map_interface_local.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_fromstr_no_region.cj
+  h_7fa24ec5a32f2d 11
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_transform.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_local_mode_result_contract.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/ret_nested_local_must01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_owned_slice_logical_bounds.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_tostring_local.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_array_local_noncopyable_search_blocked.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_array_ctor_storage.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_local_string_iterator_payloads.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_array_local_get.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_unicode_scalar_boundaries.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_local_array_copy_boundaries.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_iterator_failfast_blocked.cj
+  h_7fa24ec5a32f2d 11
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_array_local.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/CodegenCJNative/local_mode/EndRegion/end_region_notail.cj
+  h_7fa24ec5a32f2d 20
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_copyable_mode_contract.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/Driver/options/help/test_showall.cj
+  h_7fa24ec5a32f2d 57
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_access_prop_half_good.cj
+  s_da4e28ed8cf9b9::t_442eab3d9e609f 1-16
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_construct.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_step_large_count.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/callee_param_lambda_local_must01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/callee_param_nested_local_maybe_default_explicit01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_string_local_default_param.cj
+  h_7fa24ec5a32f2d 10
+testsuites/HLT/configs/cjnative/mac_aarch64-mac_aarch64/basic.cfg
+  h_7fa24ec5a32f2d 27
+testsuites/LLT/compiler/Sema/modal/compatibility/pkg_iface.cj
+  s_da4e28ed8cf9b9::t_4e4d02a9f5b4b2 1-23
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_iterator_payload_blocked.cj
+  h_7fa24ec5a32f2d 11
+testsuites/LLT/compiler/Sema/modal/expr/if_expr_bad.cj
+  s_8fdac591f37cbd::t_639511c7475c14 1-21
+testsuites/LLT/API/std/core/local_mode/test_local_comparable_defaults_exhaustive.cj
+  h_7fa24ec5a32f2d 9
+testsuites/HLT/API/std/core/local_mode/h04_cross_boundary_survival.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/API/std/core/local_mode/test_object_local_identity.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/parse_modal_not_type_bad.cj
+  s_da4e28ed8cf9b9::t_7cbe656f95a680 1-14
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/callee_param_lambda_local_must_explicit01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/parse_modal_ret_type_bad.cj
+  s_da4e28ed8cf9b9::t_f48bb34a398d58 1-15
+testsuites/LLT/API/std/core/local_mode/test_local_array_callback_paths.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/CHIR/ModalType/mut_function_wrapper_local_return.cj
+  h_7fa24ec5a32f2d 9,14
+testsuites/LLT/compiler/Sema/modal/expr/chir_cc_rawarray_local_func.cj
+  s_4ceb238eb3aa7e::t_5384e43d54904f 1-25
+testsuites/LLT/compiler/Sema/modal/compatibility/parse_exclave_ident_good.cj
+  s_da4e28ed8cf9b9::t_b7bf244a5377b9 1-14
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_scalar_local.cj
+  h_7fa24ec5a32f2d 9
+testsuites/HLT/compiler/cjnative/local_modal/IfAvailable/ifavailable_local_env.cj
+  h_7fa24ec5a32f2d 19-21
+testsuites/LLT/compiler/CHIR/ModalType/nothing_type_region_pair02.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_string_local_construct.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_local_collection_callback_paths.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_interface_full_result_escape_neg.cj
+  h_7fa24ec5a32f2d 10
+testsuites/HLT/configs/cjnative/linux_x64-linux_x64/O2.cfg
+  h_7fa24ec5a32f2d 26
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/callee_param_nested_local_maybe_nodefault01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_interface_half_result_escape_neg.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_map_entryview_conformer_modes.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_judge.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_comparable_string_interface_blocked.cj
+  h_7fa24ec5a32f2d 14
+testsuites/LLT/API/std/core/local_mode/test_local_utf8_boundaries.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_string_local_judge.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/Sema/modal/expr/tuple_index2.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/sort/test_sort_list.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/ret_nested_local_maybe01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_mode_array_heap_payload_neg.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/diag/sema_finalizer_this_mode_mismatch.cj
+  h_7fa24ec5a32f2d 7,17-23,25-26
+testsuites/LLT/API/std/core/local_mode/test_string_local_neg_assign_q_to_heap.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_local_mode_default_dispatch.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/Sema/modal/expr/assign/var_decl_bad.cj
+  h_7fa24ec5a32f2d 1-14
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_half_noncopyable_write_neg.cj
+  h_7fa24ec5a32f2d 10
+testsuites/HLT/API/std/core/local_mode/h03_arraylist_addremove.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/API/std/core/local_mode/test_local_array_step_large_count.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/expr/stringiter.cj
+  h_7fa24ec5a32f2d 1-22
+testsuites/LLT/compiler/CodegenCJNative/local_mode/LocalArray/local_array_local.cj
+  h_7fa24ec5a32f2d 19
+testsuites/LLT/API/std/collection/local_mode/test_local_collection_bulk_insert_paths.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/expr/result_modal_good.cj
+  h_7fa24ec5a32f2d 1-62
+testsuites/LLT/API/std/core/local_mode/test_string_local_get_range_blocked.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_grow.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_list_modal_contract_blocked.cj
+  h_7fa24ec5a32f2d 10
+testsuites/HLT/API/std/core/local_mode/h06_exclave_region_transfer.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/API/std/collection/local_mode/test_hashmap_s19_local_full.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_array_local_construct.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/CodegenCJNative/local_mode/GenericAssign/local_generic_assign.cj
+  h_7fa24ec5a32f2d 18
+testsuites/LLT/API/std/core/local_mode/test_array_local_neg_noncopyable_q_write.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_get_slice_blocked.cj
+  h_7fa24ec5a32f2d 11
+testsuites/LLT/API/std/core/StringBuilder/test_append_local_string.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_radix_boundaries.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_access_prop_full_bad.cj
+  s_da4e28ed8cf9b9::t_fe860152148e61 1-18
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_mode_neg_01.cj
+  h_7fa24ec5a32f2d 8
+testsuites/HLT/configs/cjnative/linux_aarch64-linux_aarch64/O2.cfg
+  h_7fa24ec5a32f2d 26
+testsuites/LLT/API/std/core/local_mode/test_option_local.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_call_copy_param_half_bad.cj
+  s_da4e28ed8cf9b9::t_a5dac34a949474 1-17
+testsuites/LLT/API/std/core/local_mode/test_string_local_payload_exact_blocked.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_call_copy_param_full_bad.cj
+  s_da4e28ed8cf9b9::t_bfcc5eb80e5b5d 1-17
+testsuites/LLT/API/std/core/local_mode/test_string_local_neg_assign_local_to_heap.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_local_ordering_exhaustive.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_call_this_full_bad.cj
+  s_da4e28ed8cf9b9::t_135e74993d7102 1-17
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_self_insert_growth.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/ret_nested_generic_local_maybe_copyable01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_without_escaping_options.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/parse_modal_this_param_bad.cj
+  s_da4e28ed8cf9b9::t_773d2d46893af8 1-17
+testsuites/LLT/API/std/core/local_mode/test_local_array_clone_q_range.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_enumerate.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_unterminated_unicode.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/expr/coalescing/good.cj
+  h_7fa24ec5a32f2d 9,32
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_object_ctor_alias.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_zip.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_local_utf8_public_apis.cj
+  h_7fa24ec5a32f2d 8
+testsuites/HLT/API/std/core/local_mode/h01_array_map_chain.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_call_ret_half_bad.cj
+  s_da4e28ed8cf9b9::t_101ec58b509980 1-17
+testsuites/LLT/API/std/core/local_mode/test_string_local_tostring_no_region.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_call_this_half_good.cj
+  h_7fa24ec5a32f2d 1-18
+testsuites/LLT/compiler/Mangle/Demangle/model_type/modal_varray_01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_customcollection.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_collection_construct.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/CodegenCJNative/local_mode/EndRegion/end_region_notail_o2.cj
+  h_7fa24ec5a32f2d 21
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_impl_iface_ret_bad.cj
+  s_da4e28ed8cf9b9::t_453607975bef9b 1-21
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_construct_callback_blocked.cj
+  h_7fa24ec5a32f2d 11
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_get.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/ret_lambda_local_maybe01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_local_control_error_positions.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_local_array_clone_q_receiver.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_iterable_iterator_local.cj
+  h_7fa24ec5a32f2d 16
+testsuites/LLT/API/std/core/StringBuilder/test_local_public_apis.cj
+  h_7fa24ec5a32f2d 8
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_writer_local.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/CHIR/ModalType/SetRegion/ret_lambda_generic_local_maybe_copyable01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/pkg_func.cj
+  s_da4e28ed8cf9b9::t_09c878fff1bbac 1-40
+testsuites/LLT/compiler/CHIR/ModalType/nothing_type_region_pair01.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/compatibility/parse_modal_param_bad.cj
+  s_da4e28ed8cf9b9::t_12bbdf2483355f 1-13
+testsuites/LLT/API/std/core/local_mode/test_local_array_clone_extreme_step.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/compiler/Sema/modal/expr/match_expr_bad.cj
+  s_8fdac591f37cbd::t_98979b1301fa1a 1-27
+testsuites/LLT/API/std/core/local_mode/test_string_local_construct_blocked.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_hashmap_local_collision_paths.cj
+  h_7fa24ec5a32f2d 9
+testsuites/LLT/API/std/core/local_mode/test_array_copyable_mode_contract.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_collection_construct_q.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_arraylist_local_flatmap_scaling.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_hash_map_local_gap_coverage.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_interface_local_defaults.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/collection/local_mode/test_map_interface_local_defaults.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_array_local_flatmap_scaling.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_collection_local.cj
+  h_7fa24ec5a32f2d 14
+testsuites/LLT/API/std/core/local_mode/test_comparable_primitive_local_matrix.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/API/std/core/local_mode/test_hashable_primitive_local_matrix.cj
+  h_7fa24ec5a32f2d 10
+testsuites/LLT/compiler/Sema/modal/perf/json.sh
+  h_7fa24ec5a32f2d 8,11,14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "320b747626dd7be088e96f8d934b220a97084f65",
+  "prompts": {},
+  "humans": {
+    "h_7fa24ec5a32f2d": {
+      "author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    }
+  },
+  "sessions": {
+    "s_4ceb238eb3aa7e": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6ae151755d9c5b6f1f6b7b67",
+        "model": "DeepSeek-V4.1-Flash-1017__dev"
+      },
+      "human_author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    },
+    "s_8fdac591f37cbd": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6ae19dca5d9c5b6f1f6b80fb",
+        "model": "DeepSeek-V4.1-Flash-1017__dev"
+      },
+      "human_author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    },
+    "s_da4e28ed8cf9b9": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6adf19f45d9c5b6f1f6b5f10",
+        "model": "DeepSeek-V4.1-Flash-1017__dev"
+      },
+      "human_author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    }
+  }
+}
