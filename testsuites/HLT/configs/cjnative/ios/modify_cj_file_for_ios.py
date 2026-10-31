@@ -50,6 +50,16 @@ cangjie_main_end = """
     }
 }"""
 
+# 可执行文件路由（cjc --output-type=exe）要求包内存在仓颉 main 入口；
+# 该入口在 unsafe 上下文调用 @C cangjie_main（native 函数不允许在 safe 上下文调用）。
+# 真机拿不到进程真实退出码，结果由 cangjie_main 打印的 cj_main_return 标记回传。
+cangjie_exe_main = """
+
+main(): Int64 {
+    unsafe { cangjie_main() }
+    return 0
+}"""
+
 
 def print_log(str):
     if IS_DEBUG:
@@ -63,7 +73,7 @@ def has_return_statement(func_body: str) -> bool:
     return bool(re.search(r'\breturn\b(?!\s*Unit\b)(?!\s*@)', clean_body))
 
 
-def modify(data):
+def modify(data, emit_main=False):
     pattern_cangjie_main = r'(^\s*.*\s*func\s*cangjie_main\s*\(\)\s*:?\s*.*\s*\{)'
     # 如果将被modify的文件中已经存在cangjie_main入口则不再进行任何处理，直接返回，也不报错
     if re.search(pattern_cangjie_main, data, re.M):
@@ -126,7 +136,10 @@ def modify(data):
             modified += call_cj_ut_pref + ut_class_name + call_cj_ut_suff
         modified += call_cj_ut_end
 
-    return modified + cangjie_main_end
+    result = modified + cangjie_main_end
+    if emit_main:
+        result += cangjie_exe_main
+    return result
 
 
 # 根据info文件找到真正的入口main所在的那个文件的路径
@@ -196,7 +209,7 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
     # raise Exception(f"[ERROR] 没找到拥有main的源文件")
 
 
-def process_file(input_path: Path, output_path: Path) -> None:
+def process_file(input_path: Path, output_path: Path, emit_main: bool = False) -> None:
     # 需要判断输入文件是否是info文件，如果是info文件的话，需要读取DEPENDENCE信息来找到真正的用例入口
     entry_source_file_path_list = process_info_file(input_path)
     for entry_source_file_path in entry_source_file_path_list:
@@ -205,7 +218,7 @@ def process_file(input_path: Path, output_path: Path) -> None:
             with open(entry_source_file_path, 'r', encoding='utf-8') as f:
                 original_data = f.read()
             # 修改数据
-            modified_data = modify(original_data)
+            modified_data = modify(original_data, emit_main)
             # 写入输出文件
             with open(entry_source_file_path, 'w', encoding='utf-8') as f:
                 f.write(modified_data)
@@ -224,11 +237,13 @@ def main():
     parser.add_argument('input', help='输入文件路径')
     parser.add_argument('-o', '--output', required=True, help='输出文件路径')
     parser.add_argument("--ignore-exception", action="store_true", help="忽略异常继续执行")
+    parser.add_argument("--exe", action="store_true",
+                        help="额外生成仓颉 main 入口调用 cangjie_main（用于真机可执行文件路由 cjc --output-type=exe）")
     args = parser.parse_args()
     global IS_DEBUG
     IS_DEBUG = False if args.ignore_exception else True
 
-    process_file(Path(args.input), Path(args.output))
+    process_file(Path(args.input), Path(args.output), args.exe)
 
 
 if __name__ == '__main__':
