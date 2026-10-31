@@ -1,4 +1,8 @@
-# SPDX-License-Identifier: MulanPSL-2.0
+# Copyright (c) 2026 SKY-shenzi. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 import argparse
 import os
