@@ -47,8 +47,8 @@ case25_configure_platform() {
 case25_configure_sdk_paths() {
     local opt_root="${1%/}"
 
-    CASE25_SDK_ROOT="${CANGJIE_SDK_ROOT:-$opt_root/cangjie}"
-    CASE25_STDX_DIR="${CANGJIE_STDX_DIR:-$opt_root/$CASE25_PLATFORM_DIR/dynamic/stdx}"
+    CASE25_SDK_ROOT="$opt_root"
+    CASE25_STDX_DIR="${CANGJIE_STDX_PATH:-$opt_root/$CASE25_PLATFORM_DIR/dynamic/stdx}"
     CASE25_RUNTIME_LIB_DIR="${CANGJIE_RUNTIME_LIB_DIR:-$CASE25_SDK_ROOT/runtime/lib/$CASE25_PLATFORM_DIR}"
     CASE25_RUNTIME_LIBRARY="${CANGJIE_RUNTIME_LIBRARY:-$CASE25_RUNTIME_LIB_DIR/libcangjie-runtime.$CASE25_SHARED_LIBRARY_EXT}"
     CASE25_STDX_HTTP_LIBRARY="$CASE25_STDX_DIR/libstdx.net.http.$CASE25_SHARED_LIBRARY_EXT"

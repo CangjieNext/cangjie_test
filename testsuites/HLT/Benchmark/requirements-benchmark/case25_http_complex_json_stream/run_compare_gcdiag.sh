@@ -6,8 +6,8 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 #
 # Case25: use one cangjie-opt SDK and compare only cjEnableGC=1 vs cjEnableGC=2.
-# Set CANGJIE_OPT_ROOT when cangjie-opt is not under the default workspace path.
-# Individual paths can be overridden with CANGJIE_SDK_ROOT, CANGJIE_STDX_DIR,
+# Set CANGJIE_HOME when cangjie-opt is not under the default workspace path.
+# Individual paths can be overridden with CANGJIE_HOME, CANGJIE_STDX_PATH,
 # CANGJIE_RUNTIME_LIB_DIR, and CANGJIE_RUNTIME_LIBRARY.
 set -euo pipefail
 
@@ -21,7 +21,7 @@ HOST_ARCH="${CASE25_HOST_ARCH:-$(uname -m)}"
 case25_configure_platform "$HOST_OS" "$HOST_ARCH"
 
 DEFAULT_WORKSPACE_ROOT="$(cd "$CASE_DIR/../../../../.." && pwd -P)"
-OPT_ROOT="${CANGJIE_OPT_ROOT:-$DEFAULT_WORKSPACE_ROOT/cangjie_compiler/output/cangjie-opt}"
+OPT_ROOT="${CANGJIE_HOME:-$DEFAULT_WORKSPACE_ROOT/cangjie_compiler/output/cangjie-opt}"
 case25_configure_sdk_paths "$OPT_ROOT"
 
 SDK_ROOT="$CASE25_SDK_ROOT"
