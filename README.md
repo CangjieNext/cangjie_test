@@ -21,3 +21,7 @@ cangjie_test/
 
 [Maple Test Framework](https://gitcode.com/Cangjie/cangjie_test_framework/blob/main/README.md)
 
+## Test Framework Regression Tests
+
+[Comparison tool CLI tests](testsuites/LLT/Tools/cangjie_test_framework/README.md)
+

@@ -21,3 +21,7 @@ cangjie_test/
 
 [Maple 测试框架](https://gitcode.com/Cangjie/cangjie_test_framework/blob/main/README_zh.md)
 
+## 测试框架回归测试
+
+[比较工具命令行测试](testsuites/LLT/Tools/cangjie_test_framework/README_zh.md)
+
