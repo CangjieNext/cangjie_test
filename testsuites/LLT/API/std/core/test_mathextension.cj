@@ -1430,7 +1430,11 @@ class MathExtensionTest {
     @TestCase
     func testMathExtensionCosh(): Unit {
         @Expect("${cosh(Float64(5.0))}","74.209949")
-        @Expect("${cosh(Float32(5.0))}","74.209953")
+        // cosh(Float32)走平台coshf，与正确舍入值末位偏差实测最大2 ULP，允许±2 ULP
+        let expected: Float32 = Float32(cosh(Float64(5.0))) // 74.209946
+        let actual: Float32 = cosh(Float32(5.0))
+        let ulpDiff: Int64 = Int64(actual.toBits()) - Int64(expected.toBits())
+        @Expect(abs(ulpDiff) <= 2)
         @Expect("${cosh(Float16(5.0))}","74.187500")
     }
 
