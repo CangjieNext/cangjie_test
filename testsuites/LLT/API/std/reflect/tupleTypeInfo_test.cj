@@ -272,6 +272,10 @@ class TupleTypeInfoTest {
     @TestCase
     func testOptionElements() {
         let info = TupleTypeInfo.of<(Option<Int64>, ?String)>()
+        let intInfo = (info.elements[0] as OptionTypeInfo).getOrThrow()
+        let stringInfo = (info.elements[1] as OptionTypeInfo).getOrThrow()
+        @Expect(intInfo.payloadType, TypeInfo.of<Int64>())
+        @Expect(stringInfo.payloadType, TypeInfo.of<String>())
         let constructed = (info.construct([Option<Int64>.Some(7), Option<String>.None])
             as (Option<Int64>, ?String)).getOrThrow()
         @Expect(constructed[0].getOrThrow(), 7)
@@ -281,6 +285,25 @@ class TupleTypeInfoTest {
         @Expect(opt.getOrThrow(), 7)
         let optStr = (destructed[1] as ?String).getOrThrow()
         @Expect(optStr.isNone(), true)
+    }
+
+    @TestCase
+    func testTupleWithNestedOptionPayload() {
+        let info = TupleTypeInfo.of<(Option<(Int64, String)>, Bool)>()
+        let optionInfo = (info.elements[0] as OptionTypeInfo).getOrThrow()
+        let payloadInfo = (optionInfo.payloadType as TupleTypeInfo).getOrThrow()
+        @Expect(payloadInfo.elements[0], TypeInfo.of<Int64>())
+        @Expect(payloadInfo.elements[1], TypeInfo.of<String>())
+        let nested = optionInfo.constructSome((9, "nine"))
+        let constructed = (info.construct([nested, true]) as (Option<(Int64, String)>, Bool)).getOrThrow()
+        @Expect(constructed[0].getOrThrow()[0], 9)
+        @Expect(constructed[0].getOrThrow()[1], "nine")
+        @Expect(constructed[1], true)
+        let destructed = info.destruct(constructed)
+        let payload = (optionInfo.getPayload(destructed[0]).getOrThrow() as (Int64, String)).getOrThrow()
+        @Expect(payload[0], 9)
+        @Expect(payload[1], "nine")
+        @Expect(destructed[1] as Bool, Some(true))
     }
 
     @Skip // VArray is not support yet
