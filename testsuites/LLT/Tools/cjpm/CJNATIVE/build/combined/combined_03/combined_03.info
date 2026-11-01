@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build 2>&1 | compare %f
-// ASSERT: regex Error: field 'profile.build.combined.dep' in .[/|\\]cjpm.toml can only configured as 'dynamic'
+// ASSERT: regex Error: field 'profile.build.combined.dep' in .[/|\\]cjpm.toml can only be configured as 'dynamic'
 // ASSERT: scan Error: cjpm build failed

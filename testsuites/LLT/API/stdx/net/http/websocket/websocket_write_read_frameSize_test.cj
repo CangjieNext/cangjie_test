@@ -47,13 +47,13 @@ class TestWebSocketWriteAndReadFrameSize {
             websocket.write(BinaryWebFrame, "hello".toArray(), frameSize: 0)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "FrameSize must > 0.")
+            @Expect(e.message, "Invalid argument 'frameSize': expected a positive value, got '0'.")
         }
         try {
             websocket.write(BinaryWebFrame, "hello".toArray(), frameSize: -22)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "FrameSize must > 0.")
+            @Expect(e.message, "Invalid argument 'frameSize': expected a positive value, got '-22'.")
         }
         websocket.write(BinaryWebFrame, "hello".toArray(), frameSize: 2)
         let f = websocket.read()

@@ -4,6 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// LEVEL: 0
 // EXEC-PIPE-0: %compiler %enableO2 %f -o %n.%suffix 2>&1
 // EXEC-0:%run %run_opt %output %run_args | compare %f
 // EXEC-PIPE-0: %compiler %f -o %n.%suffix 2>&1

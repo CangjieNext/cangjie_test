@@ -8,11 +8,12 @@
 
 // LEVEL: 3
 // DEPENDENCE: inputs.cj utils.cj visitors.cj
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 extend VarDecl {
     func getTypeByInitializer(): Tokens {
@@ -80,84 +81,84 @@ class TestVarDeclGetTypeByInitializer {
 
     @Bench
     func BenchmarkVarDeclGetTypeByInitializer_001() : Unit {
-        let valType = stateInput1.getTypeByInitializer()
+        blackBox(stateInput1.getTypeByInitializer())
     }
 
     @Bench
     func BenchmarkVarDeclGetTypeByInitializer_002() : Unit {
-        let valType = stateInput2.getTypeByInitializer()
+        blackBox(stateInput2.getTypeByInitializer())
     }
  
     @Bench
     func BenchmarkVarDeclGetTypeByInitializer_003() : Unit {
-        let valType = stateInput3.getTypeByInitializer()
+        blackBox(stateInput3.getTypeByInitializer())
     }
     @Bench
     func BenchmarkVarDeclGetTypeByInitializer_004() : Unit {
-        let valType = publishInput1.getTypeByInitializer()
+        blackBox(publishInput1.getTypeByInitializer())
     }
     @Bench
     func BenchmarkVarDeclGetTypeByInitializer_005() : Unit {
-        let valType = storagePropAttrInput1.getTypeByInitializer()
+        blackBox(storagePropAttrInput1.getTypeByInitializer())
     }
     @Bench
     func BenchmarkVarDeclsGetTypeByInitializer_001() : Unit {
         for (varDecl in observedInput1) {
-            let valType = varDecl.getTypeByInitializer()
+            blackBox(varDecl.getTypeByInitializer())
         }
     }
     @Bench
     func BenchmarkVarDeclsGetTypeByInitializer_002() : Unit {
         for (varDecl in observedInput2) {
-            let valType = varDecl.getTypeByInitializer()
+            blackBox(varDecl.getTypeByInitializer())
         }
     }
     @Bench
     func BenchmarkVarDeclsGetTypeByInitializer_003() : Unit {
         for (varDecl in observedInput3) {
-            let valType = varDecl.getTypeByInitializer()
+            blackBox(varDecl.getTypeByInitializer())
         }
     }
     @Bench
     func BenchmarkVarDeclsGetTypeByInitializer_004() : Unit {
         for (varDecl in customDialogInput1) {
-            let valType = varDecl.getTypeByInitializer()
+            blackBox(varDecl.getTypeByInitializer())
         }
     }
     @Bench
     func BenchmarkVarDeclsGetTypeByInitializer_005() : Unit {
         for (varDecl in componentInput1) {
-            let valType = varDecl.getTypeByInitializer()
+            blackBox(varDecl.getTypeByInitializer())
         }
     }
     @Bench
     func BenchmarkVarDeclsGetTypeByInitializer_006() : Unit {
         for (varDecl in componentInput2) {
-            let valType = varDecl.getTypeByInitializer()
+            blackBox(varDecl.getTypeByInitializer())
         }
     }
     @Bench
     func BenchmarkVarDeclsGetTypeByInitializer_007() : Unit {
         for (varDecl in componentInput3) {
-            let valType = varDecl.getTypeByInitializer()
+            blackBox(varDecl.getTypeByInitializer())
         }
     }
     @Bench
     func BenchmarkVarDeclsGetTypeByInitializer_008() : Unit {
         for (varDecl in componentInput4) {
-            let valType = varDecl.getTypeByInitializer()
+            blackBox(varDecl.getTypeByInitializer())
         }
     }
     @Bench
     func BenchmarkVarDeclsGetTypeByInitializer_009() : Unit {
         for (varDecl in componentInput5) {
-            let valType = varDecl.getTypeByInitializer()
+            blackBox(varDecl.getTypeByInitializer())
         }
     }
     @Bench
     func BenchmarkVarDeclsGetTypeByInitializer_010() : Unit {
         for (varDecl in componentInput6) {
-            let valType = varDecl.getTypeByInitializer()
+            blackBox(varDecl.getTypeByInitializer())
         }
     }
 }

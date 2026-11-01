@@ -7,22 +7,13 @@
  */
 
 // LEVEL: 2
-// DEPENDENCE: ../MyType
-// EXEC: %compiler %cmp_opt -o %output %f
-// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-/* SCAN
-default.S0<Int64, Bool, Rune>
-Array<Int64>
-Array<Box<Int64>>
-Rune
-Int64
-UInt64
-default.S0<Int64, String, Array<Array<Int64>>>
-String
-Array<Array<Array<Int64>>>
-Array<Int64>*/
+// EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.reflect.*
+import std.unittest.*
+import std.unittest.common.*
+import std.unittest.testmacro.*
 
 public enum E0 {
     ConstructorA | ConstructorB | ConstructorC
@@ -32,16 +23,19 @@ public struct S0<T, U, G> {}
 
 type MyT = S0<Int, String, Array<Array<Int>>>
 
-main(): Unit {
-    TypeInfo.of<S0<Int64, Bool, Rune>>() |> println
-    TypeInfo.of<Array<Int64>>() |> println
-    TypeInfo.of<Array<Box<Int64>>>() |> println
-    TypeInfo.of<Rune>() |> println
-    TypeInfo.of<Int>() |> println
-    TypeInfo.of<UInt>() |> println
-    TypeInfo.of<MyT>() |> println
-
-    TypeInfo.of<String>() |> println
-    TypeInfo.of<Array<Array<Array<Int64>>>>() |> println
-    TypeInfo.of<Array<Int64>>() |> println
+@Test
+class TestReflect {
+    @TestCase
+    func testCase0(): Unit {
+        @Expect("default.S0<Int64, Bool, Rune>", TypeInfo.of<S0<Int64, Bool, Rune>>().toString())
+        @Expect("Array<Int64>", TypeInfo.of<Array<Int64>>().toString())
+        @Expect("Array<Box<Int64>>", TypeInfo.of<Array<Box<Int64>>>().toString())
+        @Expect("Rune", TypeInfo.of<Rune>().toString())
+        @Expect("Int64", TypeInfo.of<Int>().toString())
+        @Expect("UInt64", TypeInfo.of<UInt>().toString())
+        @Expect("default.S0<Int64, String, Array<Array<Int64>>>", TypeInfo.of<MyT>().toString())
+        @Expect("String", TypeInfo.of<String>().toString())
+        @Expect("Array<Array<Array<Int64>>>", TypeInfo.of<Array<Array<Array<Int64>>>>().toString())
+        @Expect("Array<Int64>", TypeInfo.of<Array<Int64>>().toString())
+    }
 }

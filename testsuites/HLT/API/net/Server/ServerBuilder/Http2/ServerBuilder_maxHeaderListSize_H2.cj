@@ -138,4 +138,4 @@ public class Test_ServerBuilder_maxHeaderListSize_h2 {
     }
 }
 
-// ASSERT: scan Total size:287 out of SettingsMaxHeaderListSize :278
+// ASSERT: scan HpackException: Total header list size '287' exceeds maximum '278'.

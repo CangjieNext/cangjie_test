@@ -125,5 +125,5 @@ class TestSettingsMaxConcurrentStreams {
     }
 }
 
-//ASSERT:scan HttpException: Active streams reach limit: 2, please wait a second
-//ASSERT:scan HttpException: Write push related to stream 4, num of active push streams exceeds SettingsMaxConcurrentStreams, which is set by client
+//ASSERT:scan HttpException: Active streams count '2' reaches limit
+//ASSERT:scan HttpException: Number of active push streams for push stream ID '4' exceeds SettingsMaxConcurrentStreams '1'

@@ -1,0 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// (Windows)EXEC: cd %n && python -c "import os,shutil,subprocess; p='deep'; [p:=os.path.join(p,'aaaa') for _ in range(12)]; os.makedirs(p); shutil.copy('cjpm_template.toml',os.path.join(p,'cjpm.toml')); os.makedirs(os.path.join(p,'src')); shutil.copy('src_template.cj',os.path.join(p,'src','main.cj')); r=subprocess.run('%cjpm build %cjpm_opt',cwd=p,shell=True); raise SystemExit(r.returncode)"

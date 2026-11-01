@@ -39,7 +39,7 @@ class TestCookieDomain {
             Cookie("1", "1", domain: "..")
             @Expect(1, 2)
         } catch (e: Exception) {
-            @Expect(e.message, "Invalid cookie domain.")
+            @Expect(e.message, "Invalid cookie domain: '..'.")
         }
 
         let fut = spawn {serverPacketCapture()}

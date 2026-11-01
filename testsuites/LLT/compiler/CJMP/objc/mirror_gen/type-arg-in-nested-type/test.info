@@ -10,13 +10,13 @@
 // EXEC: ObjCInteropGen test.toml
 // EXEC: %cat test.cj | compare %f
 /* SCAN-IN
-@ObjCMirror
-public open class M/*<ElementT>*/ {
+@ObjC
+public open foreign class M/*<ElementT>*/ {
 }
 
 public type NestedTypedef = ObjCId /*ElementT*/
 
-/* @ObjCMirror */
+/* @ObjC */
 public struct NestedStruct {
     public var x: ?ObjCId /*ElementT*/ = None
 }

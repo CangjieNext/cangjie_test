@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 internal import std.ast.{ClassDecl, GenericConstraint}
 internal import std.collection.ArrayList
@@ -22,25 +23,15 @@ main() {
     gc.dump()
 }
 
-/* SCAN
-where K <:
-GenericConstraint {
-  -keyword: Token {
-    value: "where"
-    kind: WHERE
-    pos: 17: 21
-  }
-  -typeArgument: RefType {
-    -identifier: Token {
-      value: "K"
-      kind: IDENTIFIER
-      pos: 17: 27
-    }
-  }
-  -upperBound: Token {
-    value: "<:"
-    kind: UPPERBOUND
-    pos: 17: 29
-  }
-}
-*/
+// ASSERT: scan where K <:
+// ASSERT: scan GenericConstraint {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "where"
+// ASSERT: scan kind: WHERE
+// ASSERT: scan -typeArgument: RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "K"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -upperBound: Token {
+// ASSERT: scan value: "<:"
+// ASSERT: scan kind: UPPERBOUND

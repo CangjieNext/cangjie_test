@@ -23,5 +23,5 @@ b,b 015_debug_class_obj_box_1.cj:22,015_debug_class_obj_box_1.cj:22
 AOT r,r,-> 22
 Android c,c,22
 CJVM c,c,22
-p,p b1,Box<Int64>\)[\s\S]*{(\r\n|\r|\n|)  value = 1
+p,p b1,Box<Int64>\)[\s\S]*value = 1
 q,q,

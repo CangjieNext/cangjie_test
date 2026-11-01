@@ -42,7 +42,7 @@ class BigIntPublicInterfaceTest {
             sqrt(param_a)
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The BigInt be used to calculate the square root must >= 0.")
+            @Expect(e.message, "Invalid argument 'i': must be non-negative for square root.")
         }
     }
 

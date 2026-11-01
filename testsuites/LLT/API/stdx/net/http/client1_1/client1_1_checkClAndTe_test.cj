@@ -47,7 +47,7 @@ class TestClient1_1CheckClAndTe {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The last value of transfer-encoding must be chunked.")
+            @Expect(e.message, "Invalid transfer-encoding: last value must be 'chunked'.")
         }
         // chunked has been set more than once
         let r2 = HttpRequestBuilder()
@@ -59,7 +59,7 @@ class TestClient1_1CheckClAndTe {
             client.send(r2)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Chunked should not be set more than once.")
+            @Expect(e.message, "Invalid transfer-encoding: 'chunked' appears more than once.")
         }
         // invalid Content-Length value
         let r3 = HttpRequestBuilder().url(u).header("Content-Length", "chunked").build()
@@ -67,7 +67,7 @@ class TestClient1_1CheckClAndTe {
             client.send(r3)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The content-length invalid.")
+            @Expect(e.message, "Invalid content-length value.")
         }
         // conflict Content-Length value
         let r4 = HttpRequestBuilder().url(u).header("Content-Length", "12").header("Content-Length", "13").build()
@@ -75,7 +75,7 @@ class TestClient1_1CheckClAndTe {
             client.send(r4)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The content-length should not has different values.")
+            @Expect(e.message, "Invalid content-length: values are inconsistent.")
         }
 
         println("checkClAndTe_test_ok")

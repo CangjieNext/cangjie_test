@@ -95,7 +95,7 @@ public class Test_ServerBuilder_addr_h2 {
             let server = ServerBuilder().addr("256.255.255.255").port(0).tlsConfig(serverConfig()).build()
         } catch (e: IllegalFormatException) {
             flag = true
-            @Expect(e.message.contains("IPv4 field has value >255"))
+            @Expect(e.message.contains("IPv4 field value exceeds 255"))
         }
         @Expect(flag, true)
     }

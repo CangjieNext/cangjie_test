@@ -55,7 +55,7 @@ class Test_of {
             Process.of(Int64(Int32.Max))
         } catch (e: ProcessException) {
             cnt++
-            @Expect(e.message, "Process \"2147483647\" not alive, can not get process.")
+            @Expect(e.message, "Process '2147483647' is not alive.")
         }
         @Expect(cnt, 1)
     }
@@ -66,7 +66,7 @@ class Test_of {
             Process.of(-1)
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Invaild pid: \"-1\", can not get process.")
+            @Expect(e.message, "Invalid pid '-1'.")
         }
         @Expect(cnt, 1)
 
@@ -74,7 +74,7 @@ class Test_of {
             Process.of(Int64(Int32.Max) + 1)
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Invaild pid: \"2147483648\", can not get process.")
+            @Expect(e.message, "Invalid pid '2147483648'.")
         }
         @Expect(cnt, 2)
 
@@ -82,7 +82,7 @@ class Test_of {
             Process.of(Int64.Max)
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Invaild pid: \"9223372036854775807\", can not get process.")
+            @Expect(e.message, "Invalid pid '9223372036854775807'.")
         }
         @Expect(cnt, 3)
 
@@ -90,7 +90,7 @@ class Test_of {
             Process.of(Int64.Min)
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "Invaild pid: \"-9223372036854775808\", can not get process.")
+            @Expect(e.message, "Invalid pid '-9223372036854775808'.")
         }
         @Expect(cnt, 4)
     }

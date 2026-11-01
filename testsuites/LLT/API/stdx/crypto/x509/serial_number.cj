@@ -29,7 +29,7 @@ class Test_SerialNumber {
             var serialNumber = SerialNumber(length: 0)
             println(serialNumber)
         } catch (e: Exception) {
-            @Expect(e.message.contains("Certificate serial number must contain at least 1 byte"))
+            @Expect(e.message.contains("expected at least 1 byte"))
             println(e.message)
         }
     }
@@ -41,7 +41,7 @@ class Test_SerialNumber {
             var serialNumber = SerialNumber(length: 30)
             println(serialNumber)
         } catch (e: Exception) {
-            @Expect(e.message.contains("Certificate serial number should not exceed 20 bytes"))
+            @Expect(e.message.contains("exceeds maximum '20' bytes"))
             println(e.message)
         }
     }

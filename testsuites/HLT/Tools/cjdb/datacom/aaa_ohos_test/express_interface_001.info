@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (target_ohos) DEPENDENCE: ../../cjdb_test.py ../../basecase/past_basic/063_debug_expr_interface.cj
+// (target_ohos) EXEC: python3 cjdb_test.py express_interface_001.info 001_express_basetype %run_env
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 063_debug_expr_interface.cj:43,063_debug_expr_interface.cj:43
+AOT r,r,-> 43
+c,c,43
+expr,expr a,C1\)[\s\S]*fl = 16.156[\s\S]*s1 = "aaab"[\s\S]*}
+q,q,

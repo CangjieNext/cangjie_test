@@ -8,11 +8,12 @@
 
 // LEVEL: 3
 // DEPENDENCE: inputs.cj utils.cj visitors.cj
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 extend VarDecl {
     func getTypeByInitializer(): Tokens {
@@ -112,22 +113,22 @@ class TestGenPropDecl {
 
     @Bench
     func BenchmarkGenPropDecl_001():Unit {
-        let propDecl = genPropDecl(stateInput1)
+        blackBox(genPropDecl(stateInput1))
     }
     @Bench
     func BenchmarkGenPropDecl_002():Unit {
-        let propDecl = genPropDecl(stateInput2)
+        blackBox(genPropDecl(stateInput2))
     }
     @Bench
     func BenchmarkGenPropDecl_003():Unit {
-        let propDecl = genPropDecl(stateInput3)
+        blackBox(genPropDecl(stateInput3))
     }
     @Bench
     func BenchmarkGenPropDecl_004():Unit {
-        let propDecl = genPropDecl(publishInput1)
+        blackBox(genPropDecl(publishInput1))
     }
     @Bench
     func BenchmarkGenPropDecl_005():Unit {
-        let propDecl = genPropDecl(storagePropAttrInput1)
+        blackBox(genPropDecl(storagePropAttrInput1))
     }
 }

@@ -56,9 +56,9 @@ hle 工具进行 C 胶水层生成
 
 hle 工具进行 ArkTS 胶水层生成
 
-## `cjcpl`
+## `cjcompat`
 
-cjcpl 工具
+cjcompat 工具
 
 ## `old_cjo`
 
@@ -739,6 +739,10 @@ STDX 根目录的绝对路径
 ## `cangjie-dynamic-stdx-path`
 
 保存动态库版本 STDX 的目录的绝对路径
+
+## `host-cangjie-dynamic-stdx-path`
+
+host 平台保存动态库版本 STDX 的目录的绝对路径，本地编译取 `$CANGJIE_STDX_PATH/../../dynamic/stdx`，交叉编译取 `$CANGJIE_LOCAL_STDX_PATH/../../dynamic/stdx`
 
 ## `cangjie_static_extern_stdx_path`
 

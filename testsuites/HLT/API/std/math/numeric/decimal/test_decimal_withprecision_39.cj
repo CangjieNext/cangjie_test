@@ -112,7 +112,7 @@ class Test_decimal_divwithprecision_39 {
         let dec1 = Decimal.parse("0.000")
         let dec2 = Decimal.parse("0")
         let e = @AssertThrows[ArithmeticException](dec1.divWithPrecision(dec2, 5, roundingMode:HalfEven))
-        @Expect(e.message, "Divided by zero!")
+        @Expect(e.message, "Division by zero.")
         @Expect(dec1.powWithPrecision(2, 10, roundingMode:HalfEven).toString(), "0.000000")
         @Expect(dec1.sqrtWithPrecision(10, roundingMode:HalfEven).toString(), "0.0")
         @Expect(dec2.roundWithPrecision(5, roundingMode:HalfEven).toString(), "0")

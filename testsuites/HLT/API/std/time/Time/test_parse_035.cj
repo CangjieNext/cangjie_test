@@ -24,21 +24,21 @@ class TestParseFormat {
             let time0 = DateTime.parse("00:00:00.000", "hh:mm:ss.S").toString()
         } catch (e0: TimeParseException) {
             index += 1
-            @Expect(e0.message, "Hour value in format \"hh\" must be in [1, 12].")
+            @Expect(e0.message, "Invalid hour in 'hh' format: expected 1 to 12.")
         }
 
         try {
             let time1 = DateTime.parse("00:30:30.012", "hh:mm:ss.S").toString()
         } catch (e1: TimeParseException) {
             index += 1
-            @Expect(e1.message, "Hour value in format \"hh\" must be in [1, 12].")
+            @Expect(e1.message, "Invalid hour in 'hh' format: expected 1 to 12.")
         }
 
         try {
             let time2 = DateTime.parse("12:59:59.123", "hh:mm:ss.S").toString()
         } catch (e2: TimeParseException) {
             index += 1
-            @Expect(e2.message, "Lack of year value.")
+            @Expect(e2.message, "Missing year value.")
         }
 
         @Expect(index, 3)

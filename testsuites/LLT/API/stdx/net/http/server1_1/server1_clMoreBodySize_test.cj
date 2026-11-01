@@ -74,5 +74,5 @@ class TestServer11ClMoreBs {
     }
 }
 /* SCAN-IN
-Wrote body size less than declared content-length.
+Body size '11' is less than declared content-length '100'.
  */

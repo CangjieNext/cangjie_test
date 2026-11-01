@@ -52,7 +52,7 @@ class LinkedListTest {
             var _ = LinkedList<String>(-10, {x: Int64 => x.toString()})
             @Expect("Should throw exception", "var _ = LinkedList<String>(-10, {x: Int64 => x.toString()})")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid size of LinkedList: -10."))
+            @Expect(e.message.contains("Invalid size '-10': expected a non-negative value"))
         }
     }
 
@@ -104,6 +104,24 @@ class LinkedListTest {
     }
 
     @TestCase
+    func splitOffFromHead(): Unit {
+        var list1 = LinkedList<Int64>([1, 2, 3])
+        var list2 = list1.splitOff(list1.firstNode.getOrThrow())
+
+        @Expect(list1.size, 0)
+        @Expect(list1.isEmpty())
+        @Expect(list1.first, Option<Int64>.None)
+        @Expect(list1.last, Option<Int64>.None)
+        @Expect(list1.removeFirst(), Option<Int64>.None)
+        @Expect(list1.removeLast(), Option<Int64>.None)
+        @Expect(list1.size, 0)
+        @Expect(list1.toArray(), Array<Int64>())
+
+        @Expect(list2.size, 3)
+        @Expect(list2.toArray(), [1, 2, 3])
+    }
+
+    @TestCase
     func toString(): Unit {
         var list1: LinkedList<Int64> = LinkedList<Int64>()
         @Expect(list1.toString(), "[]")
@@ -141,33 +159,114 @@ class LinkedListTest {
             node.value = 55
             @Expect("Should throw exception", "node.value = 55")
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "")
+            @Expect(e.message, "Node does not belong to any LinkedList.")
         }
         try {
             node.next
             @Expect("Should throw exception", "node.value = 55")
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "")
+            @Expect(e.message, "Node does not belong to any LinkedList.")
         }
         try {
             node.prev
             @Expect("Should throw exception", "node.value = 55")
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "")
+            @Expect(e.message, "Node does not belong to any LinkedList.")
         }
         try {
             list.forward(node)
             @Expect("Should throw exception", "node.value = 55")
         } catch (e: IllegalStateException) {
             println(e.message)
-            @Expect(e.message, "")
+            @Expect(e.message, "Node does not belong to any LinkedList.")
         }
         try {
             list.backward(node)
             @Expect("Should throw exception", "node.value = 55")
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "")
+            @Expect(e.message, "Node does not belong to any LinkedList.")
         }
+    }
+
+    @TestCase
+    func clearInvalidatesNodes(): Unit {
+        checkClearInvalidatesNode([1, 2, 3], 1)
+    }
+
+    @TestCase
+    func clearInvalidatesHeadNode(): Unit {
+        checkClearInvalidatesNode([1, 2, 3], 0)
+    }
+
+    @TestCase
+    func clearInvalidatesTailNode(): Unit {
+        checkClearInvalidatesNode([1, 2, 3], 2)
+    }
+
+    @TestCase
+    func clearInvalidatesSingletonNode(): Unit {
+        checkClearInvalidatesNode([1], 0)
+    }
+
+    func checkClearInvalidatesNode(values: Array<Int64>, index: Int64): Unit {
+        let list = LinkedList<Int64>(values)
+        let node = list.nodeAt(index).getOrThrow()
+        @Expect(node.value, values[index])
+        @Expect(node.prev.isNone(), index == 0)
+        @Expect(node.next.isNone(), index == values.size - 1)
+        let iterator = list.iterator()
+        let forward = list.forward(node)
+        let backward = list.backward(node)
+        @Expect(iterator.next(), Some(values[0]))
+        @Expect(forward.next(), Some(values[index]))
+        @Expect(backward.next(), Some(values[index]))
+
+        list.clear()
+        @Expect(list.size, 0)
+        @Expect(list.isEmpty())
+        @Expect(list.first, None)
+        @Expect(list.last, None)
+        @Expect(list.firstNode.isNone())
+        @Expect(list.lastNode.isNone())
+        @Expect(list.nodeAt(0).isNone())
+        @Expect(list.toArray(), Array<Int64>())
+        @Expect(list.iterator().next(), None)
+
+        // Detached nodes reject property access; next/prev do not return None.
+        @ExpectThrows[IllegalStateException](node.value)
+        @ExpectThrows[IllegalStateException](node.value = 99)
+        @ExpectThrows[IllegalStateException](node.next)
+        @ExpectThrows[IllegalStateException](node.prev)
+        @ExpectThrows[IllegalStateException](list.forward(node))
+        @ExpectThrows[IllegalStateException](list.backward(node))
+        @ExpectThrows[ConcurrentModificationException](iterator.next())
+        @ExpectThrows[ConcurrentModificationException](forward.next())
+        @ExpectThrows[ConcurrentModificationException](backward.next())
+
+        @ExpectThrows[IllegalArgumentException](list.addBefore(node, 4))
+        @ExpectThrows[IllegalArgumentException](list.addAfter(node, 4))
+        @ExpectThrows[IllegalArgumentException](list.remove(node))
+        @Expect(list.size, 0)
+        @Expect(list.firstNode.isNone())
+        @Expect(list.lastNode.isNone())
+
+        let first = list.addFirst(4)
+        let last = list.addLast(5)
+        @Expect(first.prev.isNone())
+        @Expect(last.next.isNone())
+        @Expect(refEq(first.next.getOrThrow(), last))
+        @Expect(refEq(last.prev.getOrThrow(), first))
+        @Expect(refEq(list.firstNode.getOrThrow(), first))
+        @Expect(refEq(list.lastNode.getOrThrow(), last))
+        @Expect(list.toArray(), [4, 5])
+        @Expect(collectArray(list.iterator()), [4, 5])
+        @Expect(collectArray(list.forward(first)), [4, 5])
+        @Expect(collectArray(list.backward(last)), [5, 4])
+        @ExpectThrows[IllegalArgumentException](list.addBefore(node, 6))
+        @ExpectThrows[IllegalArgumentException](list.addAfter(node, 6))
+        @ExpectThrows[IllegalArgumentException](list.remove(node))
+        @Expect(list.size, 2)
+        @Expect(list.toArray(), [4, 5])
     }
 
     @TestCase

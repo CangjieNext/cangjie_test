@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt   %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan Exception
-// ASSERT: scan Hour value in format "HH" must be in [0, 23]
+// ASSERT: scan Invalid hour in 'HH' format: expected 0 to 23.
 
 import std.time.*
 

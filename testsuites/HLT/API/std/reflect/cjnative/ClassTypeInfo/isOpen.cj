@@ -21,11 +21,16 @@ class Test {
         @Expect((TypeInfo.of<C0>() as ClassTypeInfo).getOrThrow().isOpen(), false)
         @Expect((TypeInfo.of<C1>() as ClassTypeInfo).getOrThrow().isOpen(), false)
         @Expect((TypeInfo.of<C2>() as ClassTypeInfo).getOrThrow().isOpen(), true)
-        @Expect((TypeInfo.of<C3>() as ClassTypeInfo).getOrThrow().isOpen(), false)
+        // C3 is `abstract class`: an abstract class is implicitly open even without
+        // the `open` modifier, so isOpen() must report true.
+        @Expect((TypeInfo.of<C3>() as ClassTypeInfo).getOrThrow().isOpen(), true)
         @Expect((TypeInfo.of<C4>() as ClassTypeInfo).getOrThrow().isOpen(), true)
         @Expect((TypeInfo.of<C5>() as ClassTypeInfo).getOrThrow().isOpen(), false)
         @Expect((TypeInfo.of<C6>() as ClassTypeInfo).getOrThrow().isOpen(), false)
         @Expect((TypeInfo.of<C8>() as ClassTypeInfo).getOrThrow().isOpen(), false)
         @Expect((TypeInfo.of<C9>() as ClassTypeInfo).getOrThrow().isOpen(), true)
+        // C11 is a bare `abstract class`, C12 an explicitly `open class`.
+        @Expect((TypeInfo.of<C11>() as ClassTypeInfo).getOrThrow().isOpen(), true)
+        @Expect((TypeInfo.of<C12>() as ClassTypeInfo).getOrThrow().isOpen(), true)
     }
 }

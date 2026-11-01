@@ -12,8 +12,8 @@ import objc.lang.*
 
 type PrimitiveType = Int8
 
-@ObjCMirror
-public class M {
+@ObjC
+public foreign class M {
     init()
 
     @ForeignName["zeroParams"]
@@ -26,5 +26,5 @@ public class M {
     public func twoParams(first: Int64, second: Float64): Unit
 
     @ForeignName["fiveParams:second:third:fourth:fifth:"]
-    public func fiveParams(first: ObjCPointer<Int64>, second: IntNative, third: PrimitiveType, fourth: Bool, fifth: ObjCPointer<Unit>): Unit
+    public func fiveParams(first: ObjCPointer<Int64>, second: IntNative, third: PrimitiveType, fourth: Bool, fifth: ObjCPointer<Byte>): Unit
 }

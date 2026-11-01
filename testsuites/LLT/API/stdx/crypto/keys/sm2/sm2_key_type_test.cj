@@ -218,7 +218,7 @@ vmsHmSKA0KbXWjuopibM/ldBtOufAGstgnen4FOLarSC46OFm/hsFNbqiA==
         } catch (e: CryptoException) {
             sum += 1
             // Should fail - either DER parsing or operation on wrong key type
-            @Expect(e.message.contains("Load") || e.message.contains("failed") || e.message.contains("error"))
+            @Expect(e.message.contains("load") || e.message.contains("Failed") || e.message.contains("key"))
         }
         @Expect(sum, 1)
     }
@@ -237,7 +237,7 @@ vmsHmSKA0KbXWjuopibM/ldBtOufAGstgnen4FOLarSC46OFm/hsFNbqiA==
             SM2PrivateKey.decodeDer(rsaDer)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Load") || e.message.contains("failed") || e.message.contains("error"))
+            @Expect(e.message.contains("load") || e.message.contains("Failed") || e.message.contains("key"))
         }
         @Expect(sum, 1)
     }

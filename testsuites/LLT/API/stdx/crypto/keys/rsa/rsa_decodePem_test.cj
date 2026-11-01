@@ -90,7 +90,7 @@ HwIDAQAB
             RSAPrivateKey.decodeFromPem(pem, password: "")
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("Password shouldn't be empty"))
+            @Expect(e.message, "Password is empty.")
         }
         @Expect(sum, 1)
     }
@@ -103,7 +103,7 @@ HwIDAQAB
             RSAPublicKey.decodeFromPem(pem)
         } catch (e: CryptoException) {
             sum += 1
-            @Expect(e.message.contains("No PUBLIC KEY entry found in PEM file."))
+            @Expect(e.message, "No 'PUBLIC KEY' entry found in PEM file.")
         }
         @Expect(sum, 1)
     }

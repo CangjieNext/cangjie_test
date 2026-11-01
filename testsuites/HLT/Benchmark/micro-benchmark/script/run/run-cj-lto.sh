@@ -35,6 +35,7 @@ export cjStackSize=64mb
 function read_testlist() {
     while read line
     do
+        line=${line%$'\r'}
         echo $line
         if [ -n "$line" ]; then
             if [ $api = "cffi" ]; then
@@ -95,6 +96,14 @@ function read_testlist() {
                 run_ast_benchmark $line
             elif [ $api = "reflect" ]; then
                 run_reflect_benchmark $line
+            elif [ $api = "json" ]; then
+                run_string_benchmark $line
+            elif [ $api = "io" ]; then
+                run_string_benchmark $line
+            elif [ $api = "convert" ]; then
+                run_string_benchmark $line
+            elif [ $api = "expression" ]; then
+                run_string_benchmark $line
             else
                 run_benchmark $line
             fi
@@ -202,8 +211,8 @@ function run_collections_hashset_benchmark() {
     cd "$base/../../cj/collections_hashset"
     result="result-lto-collections_hashset.list"
     benchmark=$1
-    cjc ${benchmark}.cj common_collection.cj $opt $lto -o ${benchmark}.out
-    res=`timeout 1800 ./${benchmark}.out`
+    cjc ${benchmark}.cj common_collection.cj $opt $lto -o ${benchmark}.out --test
+    res=`timeout 1800 ./${benchmark}.out --bench --no-color`
     if [ -n "$res" ]; then
         echo "$res" >> "$base/$result"
     else
@@ -274,14 +283,14 @@ function run_atomic_aarch64_benchmark(){
 
     if [[ "${optimized[@]}" =~ $benchmark ]]; then
         if [[ $(uname -m) == "aarch64" ]]; then
-            cjc ${benchmark}.cj $opt $lto --target-cpu=tsv110 --experimental -o ${benchmark}.out
+            cjc ${benchmark}.cj $opt $lto --target-cpu=tsv110 --experimental -o ${benchmark}.out --test
         else
-            cjc ${benchmark}.cj $opt $lto -o ${benchmark}.out
+            cjc ${benchmark}.cj $opt $lto -o ${benchmark}.out --test
         fi
     elif [[ ! "${optimized[@]}" =~ $benchmark ]]; then
-        cjc ${benchmark}.cj $opt $lto -o ${benchmark}.out
+        cjc ${benchmark}.cj $opt $lto -o ${benchmark}.out --test
     fi
-    res=`timeout 1800 ./${benchmark}.out`
+    res=`timeout 1800 ./${benchmark}.out --bench --no-color`
     if [ -n "$res" ]; then
         echo "$res" >> "$base/$result"
     else
@@ -293,8 +302,9 @@ function get_result() {
     cd $base/../testlist/
     while read line
     do
+        line=${line%$'\r'}
         sed -i '/ Benchmark/!d' $result_log
-        grep $line $result_log > $base/temp.txt
+        grep "$line" "$result_log" > $base/temp.txt
         awk -F '|' '{gsub(/ /, "",$(NF-6)); gsub(/[ -]/, "",$(NF-5)); gsub(/,/, "_",$(NF-5)); print $(NF-6)$(NF-5) $(NF-1)}' $base/temp.txt >> $base/result.txt
     done < $testlist
 
@@ -348,6 +358,102 @@ function get_result() {
     fi
 }
 
+function get_result_all() {
+    sed -i '/ Benchmark/!d' $result_log
+    awk -F '|' '{gsub(/ /, "",$(NF-6)); gsub(/[ -]/, "",$(NF-5)); gsub(/,/, "_",$(NF-5)); if ($(NF-6)=="" || $(NF-5)=="") print $(NF-6)$(NF-5) " " $(NF-1); else if ($(NF-6) ~ /_N$/) print $(NF-6)$(NF-5) " " $(NF-1); else print $(NF-6) "_" $(NF-5) " " $(NF-1)}' $result_log > $base/result.txt
+
+    while read line
+    do
+        echo $line | cut -f 1,2,3,4,5  -d ' ' >> $base/final.txt
+    done < $base/result.txt
+
+    while read line
+    do
+        if [[ $line == *"us"* ]]; then
+            num=`echo $line | cut -f 2 -d ' '`
+            new_num=$(echo "$num * 1000" | bc)
+            newline=$(echo $line | sed "s/$num/$new_num/g  ; s/us/ns/g")
+            sed -i "s#$line#$newline#g"  $base/final.txt
+        elif [[ $line == *"ms"* ]]; then
+            num=`echo $line | cut -f 2 -d ' '`
+            new_num=$(echo "$num * 1000000" | bc)
+            newline=$(echo $line | sed "s/$num/$new_num/g  ; s/ms/ns/g")
+            sed -i "s#$line#$newline#g"  $base/final.txt
+        fi
+    done < $base/final.txt
+
+    awk '{print $1":",$2}' $base/final.txt > "$base/unsorted.list"
+    sed -i 's/$/ ns\/op/' $base/unsorted.list
+
+    sort $base/unsorted.list | uniq > $base/result-lto-${api}.list
+
+    if [ -e "$base/unsorted.list" ];then
+        rm -rf ${base}/unsorted.list*
+    else
+        echo "Error! ${base}/unsorted.list not exit."
+    fi
+
+    if [ -e "$base/final.txt" ];then
+        rm -rf ${base}/final.txt*
+    else
+        echo "Error! ${base}/final.txt not exit."
+    fi
+
+    if [ -e "$base/result.txt" ];then
+        rm -rf ${base}/result.txt*
+    else
+        echo "Error! ${base}/result.txt not exit."
+    fi
+}
+
+function get_result_all_sep() {
+    sed -i '/ Benchmark/!d' $result_log
+    awk -F '|' '{gsub(/ /, "",$(NF-6)); gsub(/[ -]/, "",$(NF-5)); gsub(/,/, "_",$(NF-5)); if ($(NF-6)=="" || $(NF-5)=="") print $(NF-6)$(NF-5) " " $(NF-1); else print $(NF-6) "_" $(NF-5) " " $(NF-1)}' $result_log > $base/result.txt
+
+    while read line
+    do
+        echo $line | cut -f 1,2,3,4,5  -d ' ' >> $base/final.txt
+    done < $base/result.txt
+
+    while read line
+    do
+        if [[ $line == *"us"* ]]; then
+            num=`echo $line | cut -f 2 -d ' '`
+            new_num=$(echo "$num * 1000" | bc)
+            newline=$(echo $line | sed "s/$num/$new_num/g  ; s/us/ns/g")
+            sed -i "s#$line#$newline#g"  $base/final.txt
+        elif [[ $line == *"ms"* ]]; then
+            num=`echo $line | cut -f 2 -d ' '`
+            new_num=$(echo "$num * 1000000" | bc)
+            newline=$(echo $line | sed "s/$num/$new_num/g  ; s/ms/ns/g")
+            sed -i "s#$line#$newline#g"  $base/final.txt
+        fi
+    done < $base/final.txt
+
+    awk '{print $1":",$2}' $base/final.txt > "$base/unsorted.list"
+    sed -i 's/$/ ns\/op/' $base/unsorted.list
+
+    sort $base/unsorted.list | uniq > $base/result-lto-${api}.list
+
+    if [ -e "$base/unsorted.list" ];then
+        rm -rf ${base}/unsorted.list*
+    else
+        echo "Error! ${base}/unsorted.list not exit."
+    fi
+
+    if [ -e "$base/final.txt" ];then
+        rm -rf ${base}/final.txt*
+    else
+        echo "Error! ${base}/final.txt not exit."
+    fi
+
+    if [ -e "$base/result.txt" ];then
+        rm -rf ${base}/result.txt*
+    else
+        echo "Error! ${base}/result.txt not exit."
+    fi
+}
+
 function main() {
     read_testlist
     if [ $api = "string" ]; then
@@ -355,13 +461,13 @@ function main() {
     elif [ $api = "stringbuilder" ]; then
         get_result
     elif [ $api = "array" ]; then
-        get_result
+        get_result_all
     elif [ $api = "url" ]; then
         get_result
     elif [ $api = "collections_arraylist" ]; then
-        get_result
-    elif [ $api = "collections_hashmap" ]; then
-        get_result
+        get_result_all
+    elif [ $api = "collections_hashmap" ] || [ $api = "collections_hashset" ]; then
+        get_result_all
     elif [ $api = "collections_arraydeque" ]; then
         get_result
     elif [ $api = "collections_arraystack" ]; then
@@ -376,18 +482,26 @@ function main() {
         get_result
     elif [ $api = "reflect" ]; then
         get_result
-    elif [ $api = "loop" ]; then
+    elif [ $api = "atomic" ]; then
         get_result
+    elif [ $api = "loop" ]; then
+        get_result_all_sep
     elif [ $api = "log" ]; then
         get_result
     elif [ $api = "lambda" ]; then
-        get_result
+        get_result_all_sep
     elif [ $api = "libast_api" ]; then
-        get_result
+        get_result_all
     elif [ $api = "override" ]; then
         get_result
     elif [ $api = "libast_scene" ]; then
         get_result
+    elif [ $api = "convert" ]; then
+        get_result
+    elif [ $api = "expression" ]; then
+        get_result_all
+    elif [ $api = "json" ] || [ $api = "io" ]; then
+        get_result_all
     elif [ $api = "server_http" ]; then
         cd  $base/../run
         bash $base/../run/server_http.sh lto
@@ -409,9 +523,6 @@ function main() {
     elif [ $api = "objectpool" ]; then
         cd  $base/../result
         sed -i '/Benchmark/!d' result-lto-objectpool.list
-    elif [ $api = "expression" ]; then
-        cd  $base/../result
-        sed -i '/Benchmark/!d' result-lto-expression.list
     fi
 }
 

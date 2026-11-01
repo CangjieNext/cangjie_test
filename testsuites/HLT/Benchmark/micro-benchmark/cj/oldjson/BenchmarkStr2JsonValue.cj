@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx %optimization_level_2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
 // (依赖数据，性能测试时执行) RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args
 
 import stdx.encoding.json.*
@@ -15,6 +15,7 @@ import std.fs.*
 import std.time.*
 import std.convert.*
 import std.io.*
+import std.runtime.*
 
 let reps = 100000
 let dataPath = "../../script/data/json/"
@@ -30,7 +31,7 @@ func setUp(f: String): String {
 
 func benchmarkStr2JsonValue(str: String) {
      //for (i in 0..reps) {
-        JsonValue.fromStr(str)
+        blackBox(JsonValue.fromStr(str))
      //}
 }
 

@@ -27,6 +27,7 @@ let s9 = """
 This is a
     multi-line string
 """
+
 let s10 = #""#
 let s11 = ##""##
 let s12 = ##"
@@ -34,6 +35,7 @@ let s12 = ##"
    is a multi-line raw string"##
 let s13 = #"This is a
     multi-line string"#
+
 let s14 = """
 <div style="background-color: #FFFFFF">
 <style>h1{color: yellow;}</style>

@@ -7,6 +7,10 @@
 // (CJNATIVE) EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 // (CJNATIVE) RUN-EXEC-0: %run %run_opt %output %run_args
 
+
+
+
+
 private func foo(a: Int64, b: Int64, c: Int64) {
     return a + b + c
 }
@@ -35,20 +39,30 @@ main() {
 
 /* SCAN
 warning: unused function:'foo'
-  ==> testDCEApply10.cj:10:1:
+  ==> testDCEApply10.cj:14:1:
    | 
-10 |   private func foo(a: Int64, b: Int64, c: Int64) {
+14 |   private func foo(a: Int64, b: Int64, c: Int64) {
    |  _^
-11 | |     return a + b + c
-12 | | }
+15 | |     return a + b + c
+16 | | }
    | |_^ unused function
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-warning: unreachable expression
-  ==> testDCEApply10.cj:15:19:
+warning: unreachable 'call'
+  ==> testDCEApply10.cj:19:5:
    | 
-15 |     foo(return 1, 3, 2)
+19 |     foo(return 1, 3, 2)
+   |     ^^^ ~~~~~~~~ any code following this expression is unreachable
+   |     |
+   |     unreachable 'call'
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable expression
+  ==> testDCEApply10.cj:19:19:
+   | 
+19 |     foo(return 1, 3, 2)
    |         ~~~~~~~~  ^ unreachable expression
    |         |
    |         any code following this expression is unreachable
@@ -56,19 +70,39 @@ warning: unreachable expression
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unreachable expression
-  ==> testDCEApply10.cj:20:19:
+  ==> testDCEApply10.cj:20:5:
    | 
-20 |     foo(return 1, 3, return 2)
+19 |     foo(return 1, 3, 2)
+   |     ~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+20 |     0
+   |     ^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable expression
+  ==> testDCEApply10.cj:24:19:
+   | 
+24 |     foo(return 1, 3, return 2)
    |         ~~~~~~~~  ^ unreachable expression
    |         |
    |         any code following this expression is unreachable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unreachable expression
+  ==> testDCEApply10.cj:25:5:
+   | 
+24 |     foo(return 1, 3, return 2)
+   |     ~~~~~~~~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+25 |     0
+   |     ^ unreachable expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unreachable 'call'
-  ==> testDCEApply10.cj:25:5:
+  ==> testDCEApply10.cj:29:5:
    | 
-25 |     foo(1, 3, return 2)
+29 |     foo(1, 3, return 2)
    |     ^^^       ~~~~~~~~ any code following this expression is unreachable
    |     |
    |     unreachable 'call'
@@ -76,20 +110,30 @@ warning: unreachable 'call'
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unused expression
-  ==> testDCEApply10.cj:25:9:
+  ==> testDCEApply10.cj:29:9:
    | 
-25 |     foo(1, 3, return 2)
+29 |     foo(1, 3, return 2)
    |         ^ unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unused expression
-  ==> testDCEApply10.cj:25:12:
+  ==> testDCEApply10.cj:29:12:
    | 
-25 |     foo(1, 3, return 2)
+29 |     foo(1, 3, return 2)
    |            ^ unused expression
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-6 warnings generated, 6 warnings printed.
+warning: unreachable expression
+  ==> testDCEApply10.cj:30:5:
+   | 
+29 |     foo(1, 3, return 2)
+   |     ~~~~~~~~~~~~~~~~~~~ any code following this expression is unreachable
+30 |     0
+   |     ^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+10 warnings generated, 10 warnings printed.
 */

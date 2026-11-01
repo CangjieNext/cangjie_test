@@ -7,13 +7,10 @@
  */
 
 // LEVEL: 2
-// DEPENDENCE: ../MyType
-// EXEC: %compiler %cmp_opt %compile_library --module-name=MyType ./MyType/src/myType/*.cj -o libMyType.myType.%library_suffix
-// EXEC: %compiler %cmp_opt -o %output %f -L. -lMyType.myType %cmp_utest_opt
+// EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
 // RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 // 注解带来的元数据不会被继承，但可以利用反射来获取父类的注解信息。
 import std.reflect.*
-import MyType.myType.*
 
 @Annotation
 public class BaseAnno {

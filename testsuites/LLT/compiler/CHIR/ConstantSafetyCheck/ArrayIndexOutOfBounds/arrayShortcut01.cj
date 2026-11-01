@@ -34,22 +34,6 @@ warning: unreachable expression
   | 
   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-warning: unreachable block in 'if' expression
- ==> arrayShortcut01.cj:7:27:
-  | 
-7 |     if (true || if (true) {a = 1; true} else {true}) {
-  |                           ^^^^^^^^^^^^^ unreachable block in 'if' expression
-  | 
-  # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-warning: unreachable block in 'if' expression
- ==> arrayShortcut01.cj:7:46:
-  | 
-7 |     if (true || if (true) {a = 1; true} else {true}) {
-  |                                              ^^^^^^ unreachable block in 'if' expression
-  | 
-  # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
 error: array index is out of bounds
  ==> arrayShortcut01.cj:8:9:
   | 
@@ -73,22 +57,6 @@ warning: unreachable expression
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unreachable block in 'if' expression
-  ==> arrayShortcut01.cj:16:28:
-   | 
-16 |     if (false && if (true) {a = 1; true} else {true}) {
-   |                            ^^^^^^^^^^^^^ unreachable block in 'if' expression
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-warning: unreachable block in 'if' expression
-  ==> arrayShortcut01.cj:16:47:
-   | 
-16 |     if (false && if (true) {a = 1; true} else {true}) {
-   |                                               ^^^^^^ unreachable block in 'if' expression
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-warning: unreachable block in 'if' expression
   ==> arrayShortcut01.cj:16:55:
    | 
 16 |       if (false && if (true) {a = 1; true} else {true}) {
@@ -107,7 +75,7 @@ error: array index is out of bounds
    | 
 
 3 errors generated, 3 errors printed.
-7 warnings generated, 7 warnings printed.
+3 warnings generated, 3 warnings printed.
 */
 
 

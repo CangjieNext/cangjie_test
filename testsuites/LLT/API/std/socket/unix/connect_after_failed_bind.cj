@@ -53,7 +53,7 @@ class Test_Connect_After_Failed_Build {
             unixdatagramsocket1_2.connect(unixdatagramsocket0_2.localAddress)
             @Expect(false)
         } catch (e: Exception) {
-            @Expect("The bind of the socket has failed.", e.message)
+            @Expect("Socket is already bound.", e.message)
         }
     }
 }

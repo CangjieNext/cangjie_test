@@ -20,5 +20,5 @@ main() {
 }
 
 /* SCAN-IN
-[31merror[0m: macro declaration must be modified with 'public'
+ParseASTException: Failed to parse decl.
  */

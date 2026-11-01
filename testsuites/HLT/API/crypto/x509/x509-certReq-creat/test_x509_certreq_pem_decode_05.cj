@@ -46,7 +46,7 @@ class Test_X509_certreq_pem_decode_01 {
         try {
             X509CertificateRequest.decodeFromPem(pemData)
         } catch (e: X509Exception) {
-            @Expect(e.message.contains("No CERTIFICATE REQUEST entry found in PEM file"))
+            @Expect(e.message.contains("No 'CERTIFICATE REQUEST' entry found in PEM file"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -58,7 +58,7 @@ class Test_X509_certreq_pem_decode_01 {
         try {
             X509CertificateRequest.decodeFromPem(pemData)
         } catch (e: X509Exception) {
-            @Expect(e.message.contains("No CERTIFICATE REQUEST entry found in PEM file"))
+            @Expect(e.message.contains("No 'CERTIFICATE REQUEST' entry found in PEM file"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -70,7 +70,7 @@ class Test_X509_certreq_pem_decode_01 {
         try {
             X509CertificateRequest.decodeFromPem(pemData)
         } catch (e: X509Exception) {
-            @Expect(e.message.contains("No CERTIFICATE REQUEST entry found in PEM file"))
+            @Expect(e.message.contains("No 'CERTIFICATE REQUEST' entry found in PEM file"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -82,7 +82,7 @@ class Test_X509_certreq_pem_decode_01 {
         try {
             X509CertificateRequest.decodeFromPem(pemData)
         } catch (e: X509Exception) {
-            @Expect(e.message.contains("No CERTIFICATE REQUEST entry found in PEM file"))
+            @Expect(e.message.contains("No 'CERTIFICATE REQUEST' entry found in PEM file"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -94,7 +94,7 @@ class Test_X509_certreq_pem_decode_01 {
         try {
             X509CertificateRequest.decodeFromPem(pemData)
         } catch (e: CryptoException) {
-            @Expect(e.message.contains("Pem is empty"))
+            @Expect(e.message.contains("PEM is empty"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -118,7 +118,7 @@ class Test_X509_certreq_pem_decode_01 {
         try {
             X509CertificateRequest.decodeFromPem(pemData)
         } catch (e: CryptoException) {
-            @Expect(e.message.contains("Failed to parse base64 encoded PEM body"))
+            @Expect(e.message.contains("Failed to parse PEM: invalid base64 content"))
             sum += 1
         }
         @Expect(sum, 1)

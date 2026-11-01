@@ -11,7 +11,7 @@
 // RUN-EXEC-1: %run %run_opt %output %run_args > stack_obf.log 2>&1
 // EXEC: %touch default.obf.map
 // (not OHOS)ERRCHECK: %cjtrace_recover -f stack_obf.log -m default.obf.map
-// (not OHOS)ASSERT: scan The buffer is empty.
+// (not OHOS)ASSERT: scan buffer is empty.
 // (not OHOS)ASSERT: scan Error: failed to read file 'default.obf.map'
 
 class A {

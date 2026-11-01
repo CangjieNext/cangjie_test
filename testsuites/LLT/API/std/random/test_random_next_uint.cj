@@ -100,7 +100,7 @@ class RandomNextUIntTest {
             var _ = rand.nextUInt8(bound)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Upper must be positive, got: 0.")
+            @Expect(e.message, "Invalid argument 'upper': must be positive, got '0'.")
         }
     }
 
@@ -153,7 +153,7 @@ class RandomNextUIntTest {
             var _ = rand.nextUInt16(bound)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Upper must be positive, got: 0.")
+            @Expect(e.message, "Invalid argument 'upper': must be positive, got '0'.")
         }
     }
 
@@ -206,7 +206,7 @@ class RandomNextUIntTest {
             var _ = rand.nextUInt32(bound)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Upper must be positive, got: 0.")
+            @Expect(e.message, "Invalid argument 'upper': must be positive, got '0'.")
         }
     }
 
@@ -271,7 +271,7 @@ class RandomNextUIntTest {
             var _ = rand.nextUInt64(bound)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Upper must be positive, got: 0.")
+            @Expect(e.message, "Invalid argument 'upper': must be positive, got '0'.")
         }
     }
 

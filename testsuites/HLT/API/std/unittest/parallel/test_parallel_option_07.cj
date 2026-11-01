@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --parallel=0Cores 2>&1 | compare %f
-// ASSERT: scan UnittestCliOptionsFormatException: Wrong --parallel option argument format. Provided: 0Cores
+// ASSERT: scan UnittestCliOptionsFormatException: Wrong '--parallel' option argument format. Expected format is one of the following: positive integer number, 'nCores', N'nCores' (N is positive fractional number), got: '0Cores'.
 
 /*
  * Test description:

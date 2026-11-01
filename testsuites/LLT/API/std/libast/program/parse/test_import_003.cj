@@ -5,8 +5,9 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 import std.ast.{ImportContent, ImportKind, Token, TokenKind}
 
@@ -21,28 +22,18 @@ main() {
     importContent.importKind = ImportKind.Alias
     importContent.dump()
 }
-/* SCAN
-ORG :: 
--importKind: Multi
--orgName: Token {
-  value: "ORG"
-  kind: IDENTIFIER
-  pos: 18: 29
-}
--orgSepartaor: Token {
-  value: "::"
-  kind: DOUBLE_COLON
-  pos: 17: 34
-}
--importKind: Alias
--orgName: Token {
-  value: "ORG"
-  kind: IDENTIFIER
-  pos: 18: 29
-}
--orgSepartaor: Token {
-  value: "::"
-  kind: DOUBLE_COLON
-  pos: 17: 34
-}
-*/
+// ASSERT: scan ORG ::
+// ASSERT: scan -importKind: Multi
+// ASSERT: scan -orgName: Token {
+// ASSERT: scan value: "ORG"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -orgSepartaor: Token {
+// ASSERT: scan value: "::"
+// ASSERT: scan kind: DOUBLE_COLON
+// ASSERT: scan -importKind: Alias
+// ASSERT: scan -orgName: Token {
+// ASSERT: scan value: "ORG"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -orgSepartaor: Token {
+// ASSERT: scan value: "::"
+// ASSERT: scan kind: DOUBLE_COLON

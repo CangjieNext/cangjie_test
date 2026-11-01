@@ -45,7 +45,7 @@ class Test_StringReader_close {
             readToEnd(file)
         } catch (e: FSException) {
             cnt++
-            @Assert(Regex("^The file `.+` not opened, can not to read.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.+': file is not opened.$").matches(e.message))
         }
         @Expect(cnt, 1)
 
@@ -75,7 +75,7 @@ class Test_StringReader_close {
             readToEnd(file)
         } catch (e: FSException) {
             cnt++
-            @Assert(Regex("^The file `.+` not opened, can not to read.$").matches(e.message))
+            @Assert(Regex("^Cannot read file '.+': file is not opened.$").matches(e.message))
         }
         @Expect(cnt, 1)
 

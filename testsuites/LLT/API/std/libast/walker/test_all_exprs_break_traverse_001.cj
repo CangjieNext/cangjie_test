@@ -7,7 +7,7 @@
 */
 
 // EXEC: %compiler %enableEH %cmp_opt_chir2hlir %f -o %output
-// EXEC: %set_stdx_path %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %set_stdx_path %run %run_opt %output %run_args | compare %f
 
 import std.ast.*
 

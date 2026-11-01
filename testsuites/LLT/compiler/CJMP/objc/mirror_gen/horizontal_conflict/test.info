@@ -1,0 +1,94 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// DEPENDENCE: test.toml test.h
+// EXEC: ObjCInteropGen test.toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+@ObjC
+public open foreign class A {
+    public open mut prop foo: Int32
+}
+
+@ObjC
+public foreign interface P1 {
+    mut prop foo: Int32
+}
+
+@ObjC
+public foreign interface P2 {
+    mut prop foo: Int32
+}
+
+@ObjC
+public foreign interface P3 {
+    prop foo: Int32
+}
+
+@ObjC
+public open foreign class M1 <: A & P1 & P2 /*& P3*/ {
+}
+
+@ObjC
+public open foreign class M2 <: P1 & P2 & P3 {
+}
+
+@ObjC
+public open foreign class M3 <: A /*& P3*/ {
+}
+
+@ObjC
+public open foreign class M4 <: A /*& P3*/ & P1 & P2 {
+}
+
+@ObjC
+public open foreign class B {
+    @ForeignName["bar:"] public open func bar(x: Int32): Unit
+}
+
+@ObjC
+public foreign interface P4 {
+    @ForeignName["bar:"] func bar(x: Int32): Unit
+}
+
+@ObjC
+public foreign interface P5 {
+    @ObjCOptional
+    @ForeignName["bar:"] func bar(x: Int32): Unit
+}
+
+@ObjC
+public open foreign class M5 <: B & P4 /*& P5*/ & P1 {
+}
+
+@ObjC
+public open foreign class M6 <: P4 /*& P5*/ & P1 {
+}
+
+@ObjC
+public open foreign class M7 <: P1 & P5 /*& P4*/ {
+}
+
+@ObjC
+public foreign interface PP5 <: P5 {
+}
+
+@ObjC
+public foreign interface P6 {
+    @ObjCOptional
+    @ForeignName["bar:"] func bar(x: Int32): Unit
+}
+
+@ObjC
+public foreign interface PP6 <: P6 {
+}
+
+@ObjC
+public open foreign class M8 <: P4 /*& PP5 & PP6*/ & P1 {
+}
+*/

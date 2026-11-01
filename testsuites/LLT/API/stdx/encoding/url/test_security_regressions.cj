@@ -42,7 +42,7 @@ public class UrlSecurityRegressionTest {
             URL.parse("http://example.com:")
             @Assert(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "Port cannot be empty. Input = .")
+            @Expect(e.message, "Port is empty. Input = .")
         }
     }
 
@@ -52,7 +52,7 @@ public class UrlSecurityRegressionTest {
             URL.parse("http://example.com:12ab")
             @Assert(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "Port must contain digits only. Input = 12ab.")
+            @Expect(e.message, "Port contains non-digit characters. Input = 12ab.")
         }
     }
 
@@ -86,7 +86,7 @@ public class FormSecurityRegressionTest {
             Form(query)
             @Assert(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Form item count exceeds 4096.")
+            @Expect(e.message, "Form item count '4097' exceeds maximum '4096'.")
         }
     }
 
@@ -97,7 +97,7 @@ public class FormSecurityRegressionTest {
             form.add("overflow", "v")
             @Assert(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Form item count exceeds 4096.")
+            @Expect(e.message, "Form item count '4097' exceeds maximum '4096'.")
         }
     }
 

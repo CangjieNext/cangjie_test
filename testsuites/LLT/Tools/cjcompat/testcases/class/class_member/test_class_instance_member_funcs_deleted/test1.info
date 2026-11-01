@@ -1,0 +1,23 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: mypkg_v0.cj mypkg_v1.cj
+// EXEC: %cjc mypkg_v0.cj
+// EXEC: %move myPkgA.cjo old.cjo
+// EXEC: %cjc mypkg_v1.cj
+// EXEC: %move myPkgA.cjo new.cjo
+// EXEC-PIPE-0: %cjcompat %old old.cjo %new new.cjo | compare %f
+
+/* SCAN-IN
+[API/ABI] Class member function visible outside the module deleted or made private.
+  func_decl f: [BEFORE] myPkgA/mypkg_v0.cj:11:5-12:6
+[API/ABI] Class member function visible outside the module deleted or made private.
+  func_decl f2: [BEFORE] myPkgA/mypkg_v0.cj:14:5-15:6
+[API/ABI] Class member function visible outside the module deleted or made private.
+  func_decl bar: [BEFORE] myPkgA/mypkg_v0.cj:19:5-19:28
+[API/ABI] Class member function visible outside the module deleted or made private.
+  func_decl bar2: [BEFORE] myPkgA/mypkg_v0.cj:20:5-20:32
+*/

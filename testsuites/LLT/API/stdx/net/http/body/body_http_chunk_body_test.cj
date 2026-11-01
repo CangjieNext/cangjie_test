@@ -51,7 +51,7 @@ class TestChunkedBodyProviderReadLine {
             @Expect(1, 2)
         } catch (e: HttpException) {
             println("Client read error: ${e}")
-            @Expect(e.message, "ReadLine too long.")
+            @Expect(e.message, "ReadLine size 36864 exceeds limit 32768.")
         }
 
         fut.get()

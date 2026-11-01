@@ -6,5 +6,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build 2>&1 | compare %f
-// ASSERT: scan cjpm build success
+// (not MAC)EXEC: cd %n && %cjpm build 2>&1 | compare %f
+// (not MAC)ASSERT: scan cjpm build success

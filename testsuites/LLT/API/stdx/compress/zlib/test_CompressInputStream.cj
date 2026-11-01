@@ -49,7 +49,7 @@ class CompressInputStreamTest {
             compressInputStream.read(emptyBuf)
         } catch (e: ZlibException) {
             println(e)
-            @Expect(e.message, "The buffer for storing compressed data cannot be empty.")
+            @Expect(e.message, "Buffer for compressed data cannot be empty.")
             return
         } finally {
             compressInputStream.close()

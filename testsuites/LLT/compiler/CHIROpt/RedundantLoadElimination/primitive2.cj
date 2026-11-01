@@ -4,7 +4,17 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %debugCHIROpt %disableCodegen %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff all %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantLoadElimination.chirtxt "Func @_CN7default3fooHb" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: regex-begin %(?P<v>\d+): Int64 = Load\(@_CN7default3gv1E\)
+// ASSERT: regex-after Apply\(@CJ_CORE_PrintSigned, %(?P=v)
+// ASSERT: regex-after Add\(%(?P=v), %(?P=v)\)
+// ASSERT: regex = Load\(%\d+\) // loc: "primitive2.cj"-35-13
+// ASSERT: regex-not = Load\(%\d+\) // loc: "primitive2.cj"-30
+// ASSERT: regex-not = Load\(%\d+\) // loc: "primitive2.cj"-32
+// ASSERT: regex-not = Load\(%\d+\) // loc: "primitive2.cj"-37
 
 func goo(x: Int64) {
     x + x
@@ -31,8 +41,3 @@ main() {
     foo(true);
     0
 }
-
-// ASSERT: scan [RLE] The usages of the result of Load at [20,17] have been replaced by the value at [18,5]
-// ASSERT: scan [RLE] The usages of the result of Load at [22,13] have been replaced by the value at [18,5]
-// ASSERT: regex-not \[RLE\] The usages of the result of Load at \[25,.*\] have been replaced by the value at .*
-// ASSERT: scan [RLE] The usages of the result of Load at [27,13] have been replaced by the value at [26,5]

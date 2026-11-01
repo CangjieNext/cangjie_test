@@ -48,7 +48,7 @@ class Test_key_rsa_methods_028 {
             rsaPri.sign(md5Instance, md, padType: (OAEP(OAEPOption(SHA1(), SHA224(), label: "cangjie-helloworld"))))
             @Expect(true)
         } catch (e: CryptoException) {
-            @Expect(e.message, "OAEPOption only use in encrypt or decrypt.")
+            @Expect(e.message, "OAEPOption is only applicable to encryption or decryption operations.")
         }
     }
 
@@ -86,7 +86,7 @@ class Test_key_rsa_methods_028 {
             rsaPri.decrypt(bas2, bas3, padType: OAEP(decOpt))
             @Expect(false)
         } catch (e: CryptoException) {
-            @Expect(e.message,"Decrypt error.")
+            @Expect(e.message,"Failed to decrypt data.")
         }
     }
 
@@ -104,13 +104,13 @@ class Test_key_rsa_methods_028 {
             rsaPub.encrypt(bas1, bas2, padType: PSS(PSSOption(0)))
             @Expect(true)
         } catch (e: CryptoException) {
-            @Expect(e.message, "PSSOption only use in sign or verify.")
+            @Expect(e.message, "PSSOption is only applicable to signing or verification operations.")
         }
         try {
             rsaPri.decrypt(bas2, bas3, padType: PSS(PSSOption(1)))
             @Expect(true)
         } catch (e: CryptoException) {
-            @Expect(e.message, "PSSOption only use in sign or verify.")
+            @Expect(e.message, "PSSOption is only applicable to signing or verification operations.")
         }
     }
 
@@ -167,7 +167,7 @@ class Test_key_rsa_methods_028 {
                 padType: (OAEP(OAEPOption(SHA1(), SHA224(), label: "cangjie-helloworld"))))
             @Expect(true)
         } catch (e: CryptoException) {
-            @Expect(e.message, "OAEPOption only use in encrypt or decrypt.")
+            @Expect(e.message, "OAEPOption is only applicable to encryption or decryption operations.")
         }
     }
 }

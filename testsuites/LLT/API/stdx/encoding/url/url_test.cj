@@ -32,28 +32,28 @@ class UrlTest {
             URL(scheme: "", hostName: "huawei.com", path: "/abc")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "If a hostname exists, the scheme cannot be empty.")
+            @Expect(e.message, "Hostname exists but scheme is empty.")
         }
 
         try {
             URL(scheme: "https", hostName: "", path: "")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "If the scheme exists, the hostname or path cannot be empty.")
+            @Expect(e.message, "Scheme exists but hostname and path are empty.")
         }
 
         try {
             URL(scheme: "12https", hostName: "huawei.com", path: "/abc")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "The first part of the scheme cannot be a non-letter. Input = 12https.")
+            @Expect(e.message, "Scheme must start with a letter. Input = 12https.")
         }
 
         try {
             URL(scheme: "ht@#tps", hostName: "huawei.com", path: "/abc")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "The scheme must be a combination of letters, digits, and +-. characters. Input = ht@#tps.")
+            @Expect(e.message, "Scheme contains invalid characters: only letters, digits, '+', '-', and '.' allowed. Input = ht@#tps.")
         }
 
         try {
@@ -168,19 +168,19 @@ class UrlTest {
             URL.parse("1http://www.example.com")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "The first part of the scheme cannot be a non-letter. Input = 1http.")
+            @Expect(e.message, "Scheme must start with a letter. Input = 1http.")
         }
         try {
             URL.parse(":80")
             @Expect(false)
         } catch (e: Exception) {
-            @Expect(e.message, "The first part of the scheme cannot be a non-letter. Input = .")
+            @Expect(e.message, "Scheme must start with a letter. Input = .")
         }
         try {
             URL.parse("h1@tp://www.example.com")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "The scheme must be a combination of letters, digits, and +-. characters. Input = h1@tp.")
+            @Expect(e.message, "Scheme contains invalid characters: only letters, digits, '+', '-', and '.' allowed. Input = h1@tp.")
         }
     }
 
@@ -190,7 +190,7 @@ class UrlTest {
             URL.parse("http://")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "Missing the authority component. Input = http://.")
+            @Expect(e.message, "Missing authority component. Input = http://.")
         }
 
         try {
@@ -211,7 +211,7 @@ class UrlTest {
             URL.parse(url)
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "The userinfo contains an invalid encoding sequence.")
+            @Expect(e.message, "Userinfo contains an invalid encoding sequence.")
         }
     }
 
@@ -221,7 +221,7 @@ class UrlTest {
             URL.parse("http1.://!$&-ab:12789@@@@www.example.com:14")
             @Expect(false)
         } catch (e: Exception) {
-            @Expect(e.message, "Invalid url part. Input = @@@www.example.com.")
+            @Expect(e.message, "Invalid URL part. Input = @@@www.example.com.")
         }
     }
 
@@ -231,35 +231,35 @@ class UrlTest {
             URL.parse("http://[2001:3CA1:010F:001A:121B:0000:0000:0010]a")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "A colon connection is required between the host and the port. Input = [2001:3CA1:010F:001A:121B:0000:0000:0010]a.")
+            @Expect(e.message, "Colon required between host and port. Input = [2001:3CA1:010F:001A:121B:0000:0000:0010]a.")
         }
 
         try {
             URL.parse("http://[fe80::1%40%25en0]:8080")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "Invalid url part. Input = fe80::1%40.")
+            @Expect(e.message, "Invalid URL part. Input = fe80::1%40.")
         }
 
         try {
             URL.parse("http://[]:80")
             @Expect(false)
         } catch (e: Exception) {
-            @Expect(e.message, "IPv6 address in [] can't be empty Input = [.")
+            @Expect(e.message, "IPv6 address within brackets is empty. Input = [.")
         }
 
         try {
             URL.parse("http://[12:8080")
             @Expect(false)
         } catch (e: Exception) {
-            @Expect(e.message, "Missing r']' in host. Input = [12:8080.")
+            @Expect(e.message, "Missing ']' in host. Input = [12:8080.")
         }
 
         try {
             URL.parse("http://[1000::1]:qq")
             @Expect(false)
         } catch (e: Exception) {
-            @Expect(e.message, "Port must contain digits only. Input = qq.")
+            @Expect(e.message, "Port contains non-digit characters. Input = qq.")
         }
     }
 
@@ -270,7 +270,7 @@ class UrlTest {
                 "ftp://renyidezhanghaomimafeichangchang:12345678910112eqwrqwer1oi23u98q7dfkjbzdsf@momingqimiaodewangzhi.com:/nihao^")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "Invalid url part. Input = /nihao^.")
+            @Expect(e.message, "Invalid URL part. Input = /nihao^.")
         }
     }
 
@@ -280,7 +280,7 @@ class UrlTest {
             URL.parse("http1.://!$&-ab:12789@www#.example.com:14?1@=3b#@17")
             @Expect(false)
         } catch (e: Exception) {
-            @Expect(e.message, "Invalid url part. Input = .example.com:14?1@=3b#@17.")
+            @Expect(e.message, "Invalid URL part. Input = .example.com:14?1@=3b#@17.")
         }
     }
 
@@ -290,7 +290,7 @@ class UrlTest {
             URL.parse("http1.://user:password@www.example.com:14/abc/:^123/1?12=3b#17")
             @Expect(false)
         } catch (e: Exception) {
-            @Expect(e.message, "Invalid url part. Input = /abc/:^123/1.")
+            @Expect(e.message, "Invalid URL part. Input = /abc/:^123/1.")
         }
 
         try {
@@ -307,7 +307,7 @@ class UrlTest {
             URL.parse("http1.://user:password@www.example.com:14/abc/123/1?`!=3b#17").query
             @Expect(false)
         } catch (e: Exception) {
-            @Expect(e.message, "Invalid url part. Input = `!=3b.")
+            @Expect(e.message, "Invalid URL part. Input = `!=3b.")
         }
 
         try {
@@ -466,14 +466,14 @@ class UrlTest {
             URL.parse("http://192.168.0.2:/foo")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "Port cannot be empty. Input = .")
+            @Expect(e.message, "Port is empty. Input = .")
         }
 
         try {
             URL.parse("http://[fe80::1]:/")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "Port cannot be empty. Input = .")
+            @Expect(e.message, "Port is empty. Input = .")
         }
 
         url = URL.parse("http://hello.%e4%b8%96%e7%95%8c.com/foo")
@@ -533,7 +533,7 @@ class UrlTest {
             url.replace(scheme: "")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "If a hostname exists, the scheme cannot be empty.")
+            @Expect(e.message, "Hostname exists but scheme is empty.")
         }
 
         try {
@@ -541,7 +541,7 @@ class UrlTest {
             url.replace(hostName: "")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "If a userInfo exists, the host name cannot be empty.")
+            @Expect(e.message, "Userinfo exists but hostname is empty.")
         }
 
         try {
@@ -549,7 +549,7 @@ class UrlTest {
             url.replace(hostName: "")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "If a port exists, the host name cannot be empty.")
+            @Expect(e.message, "Port exists but hostname is empty.")
         }
 
         try {
@@ -557,7 +557,7 @@ class UrlTest {
             url.replace(hostName: "", path: "")
             @Expect(false)
         } catch (e: UrlSyntaxException) {
-            @Expect(e.message, "If the scheme exists, the host name and path cannot be empty at the same time.")
+            @Expect(e.message, "Scheme exists but hostname and path are empty.")
         }
 
         try {

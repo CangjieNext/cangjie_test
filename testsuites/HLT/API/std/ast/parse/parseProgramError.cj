@@ -10,10 +10,8 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 
-// ASSERT: scan expected declaration, found 'classA'
 // ASSERT: scan An exception has occurred:
-// ASSERT: scan ParseASTException
-// ASSERT: scan parsing program error.
+// ASSERT: scan ParseASTException: Failed to parse program.
 internal import std.ast.*
 
 main() {

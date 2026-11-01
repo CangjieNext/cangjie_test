@@ -52,7 +52,7 @@ class Test_stringBuilder_init {
             let str1 = StringBuilder(r'a', -1)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of rune should not be negative.")
+            @Expect(e.message, "Invalid argument 'n': must be non-negative, got -1.")
         }
 
         try {

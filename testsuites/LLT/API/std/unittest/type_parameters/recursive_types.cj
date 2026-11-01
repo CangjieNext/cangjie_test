@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC-PIPE-1: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt 2>&1 | compare %f
-// ASSERT: scan @Types macro does not support recursive types: type Array<U> is not allowed to use type parameter U
+// ASSERT: scan '@Types' macro does not support recursive types: type 'Array<U>' is not allowed to use type parameter 'U'
 
 @Test
 @Types[T in<Array<U>>, U in<String, Int64>]

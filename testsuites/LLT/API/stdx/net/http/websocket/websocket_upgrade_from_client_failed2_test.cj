@@ -43,13 +43,13 @@ class TestWebSocketUpgradeFromClientFailed2 {
             WebSocket.upgradeFromClient(client, u, version: HTTP1_0)
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Only the upgrade from HTTP1_1 and HTTP2_0 to WebSocket is supported.")
+            @Expect(e.message, "Unsupported protocol 'HTTP/1.0'.")
         }
         try {
             WebSocket.upgradeFromClient(client, u, version: UnknownProtocol("ooo"))
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Only the upgrade from HTTP1_1 and HTTP2_0 to WebSocket is supported.")
+            @Expect(e.message, "Unsupported protocol 'ooo'.")
         }
 
         client.close()

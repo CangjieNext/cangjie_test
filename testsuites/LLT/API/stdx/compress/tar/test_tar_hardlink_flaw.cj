@@ -51,7 +51,7 @@ public class TarHardLinkFlawTest {
             Tar.extract(fromTar: "${EXPECTED_DIRECTORY}/hardlinkflaw/tarball_hardlink_outside_dst.tar", destDir: OUTPUT_DIRECTORY, overwrite: true)
             success = true
         } catch (e: Exception) {
-            @Assert(e.message.contains("Hardlink points outside target dir."))
+            @Assert(e.message == "Hard link target points outside destination directory.")
             success = false
         }
         @Assert(!success)
@@ -68,7 +68,7 @@ public class TarHardLinkFlawTest {
             Tar.extract(fromTar: "${EXPECTED_DIRECTORY}/hardlinkflaw/tarball_hardlink_absolute_path.tar", destDir: OUTPUT_DIRECTORY, overwrite: true)
             success = true
         } catch (e: Exception) {
-            @Assert(e.message.contains("Hardlink points to absolute path outside target dir."))
+            @Assert(e.message == "Hard link target is an absolute path outside destination directory.")
             success = false
         }
         @Assert(!success)

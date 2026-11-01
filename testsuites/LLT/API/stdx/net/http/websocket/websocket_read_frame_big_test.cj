@@ -61,7 +61,7 @@ class TestWebSocketReadFrameBig {
             websocket.read()
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "The websocket connection is failed, since receiving a control frame has a payload length more than 125 bytes.")
+            @Expect(e.message, "WebSocket connection failed: control frame payload length '32256' exceeds maximum 125.")
         }
 
         sleep(Duration.millisecond * 10)
@@ -143,7 +143,7 @@ class TestWebSocketReadFrameBig {
             websocket.read()
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "The websocket connection is failed, since receiving a control frame that is fragmented.")
+            @Expect(e.message, "WebSocket connection failed: control frame is fragmented.")
         }
 
         sleep(Duration.millisecond * 10)

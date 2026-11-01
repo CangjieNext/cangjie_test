@@ -51,7 +51,7 @@ class Test_X509_creatreq_der_decode_06 {
         try {
             X509CertificateRequest.decodeFromDer(derData)
         } catch (e: Exception) {
-            @Expect(e.message.contains("The field is not a sequence: DerType(class: Universal, typeIdentifier: 2, primitive: true)"))
+            @Expect(e.message.contains("The field is not a sequence: 'DerType(class: Universal, typeIdentifier: 2, primitive: true)'."))
             sum += 1
         }
         @Expect(sum, 1)

@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args | compare %f
 
 internal import std.ast.*
 
@@ -56,23 +64,14 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-description: identifier, token_id: 137, token_literal_value: foo, fileID: 1, line: 7, column: 21
-description: less, token_id: 53, token_literal_value: <, fileID: 1, line: 7, column: 24
-description: Int32, token_id: 64, token_literal_value: Int32, fileID: 1, line: 7, column: 25
-description: greater, token_id: 54, token_literal_value: >, fileID: 1, line: 7, column: 30
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 7, column: 31
-description: integer_literal, token_id: 139, token_literal_value: 1, fileID: 1, line: 7, column: 32
-description: comma, token_id: 1, token_literal_value: ,, fileID: 1, line: 7, column: 33
-description: identifier, token_id: 137, token_literal_value: a, fileID: 1, line: 7, column: 35
-description: colon, token_id: 28, token_literal_value: :, fileID: 1, line: 7, column: 36
-description: integer_literal, token_id: 139, token_literal_value: 2, fileID: 1, line: 7, column: 38
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 7, column: 39
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan description: identifier, token_id: 137, token_literal_value: foo
+// ASSERT: scan description: less, token_id: 53, token_literal_value: <
+// ASSERT: scan description: Int32, token_id: 64, token_literal_value: Int32
+// ASSERT: scan description: greater, token_id: 54, token_literal_value: >
+// ASSERT: scan description: l_paren, token_id: 2, token_literal_value: (
+// ASSERT: scan description: integer_literal, token_id: 139, token_literal_value: 1
+// ASSERT: scan description: comma, token_id: 1, token_literal_value:
+// ASSERT: scan description: identifier, token_id: 137, token_literal_value: a
+// ASSERT: scan description: colon, token_id: 28, token_literal_value: :
+// ASSERT: scan description: integer_literal, token_id: 139, token_literal_value: 2
+// ASSERT: scan description: r_paren, token_id: 3, token_literal_value: )

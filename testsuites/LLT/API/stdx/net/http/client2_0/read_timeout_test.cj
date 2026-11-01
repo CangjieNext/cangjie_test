@@ -68,7 +68,7 @@ class TestReadTimeout {
             client.send(req)
             @Expect(false)
         } catch (e: HttpTimeoutException) {
-            @Expect(e.message, "Client2_0 receive response for stream 1 timeout.")
+            @Expect(e.message, "Receive response timeout for stream '1'.")
         }
         let req2 = HttpRequestBuilder()
             .version(HTTP2_0)

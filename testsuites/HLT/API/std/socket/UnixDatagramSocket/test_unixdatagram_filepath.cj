@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (not Windows)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (!target_win)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (!target_win)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -104,7 +104,7 @@ class Test_Unixdatagram_Filepath {
         try {
             unixdatagramsocket1.bind()
         } catch (e: SocketException) {
-            @Expect(e.message.contains("The socket is already bound"), true)
+            @Expect(e.message.contains("Socket is already bound"), true)
             sum += 1
         }
         @Expect(sum, 1)

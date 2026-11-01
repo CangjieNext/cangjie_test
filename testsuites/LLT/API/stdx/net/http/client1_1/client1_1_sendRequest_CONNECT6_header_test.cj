@@ -40,7 +40,7 @@ class TestConnNodeSendRequestCONNECT6 {
             client.connect(u, header: header)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The CONNECT request cannot contain content.")
+            @Expect(e.message, "Request method 'CONNECT' does not support content.")
         }
 
         header.add("Transfer-Encoding", "chunked")
@@ -48,7 +48,7 @@ class TestConnNodeSendRequestCONNECT6 {
             client.connect(u, header: header)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The content-length and transfer-encoding can not be set together.")
+            @Expect(e.message, "Both content-length and transfer-encoding are present.")
         }
 
         let header2 = HttpHeaders()
@@ -57,7 +57,7 @@ class TestConnNodeSendRequestCONNECT6 {
             client.connect(u, header: header2)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The CONNECT request cannot contain content.")
+            @Expect(e.message, "Request method 'CONNECT' does not support content.")
         }
 
         client.close()

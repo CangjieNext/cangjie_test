@@ -114,7 +114,7 @@ class Test_treemap_01 {
         try {
             TreeMap<Int64, Int64>(-5, PreData)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid size of TreeMap"))
+            @Expect(e.message.contains("Invalid size '-5': expected a non-negative value"))
             sum += 1
         }
         @Expect(sum, 1)

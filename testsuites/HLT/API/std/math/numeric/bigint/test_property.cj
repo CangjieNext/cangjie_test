@@ -63,7 +63,7 @@ class BigIntPropertyTest {
             flag = param_a.testBit(-96)
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The index must >= 0.")
+            @Expect(e.message, "Invalid argument 'index': must be non-negative.")
         }
     }
 
@@ -102,7 +102,7 @@ class BigIntPropertyTest {
             param_a.setBit(index)
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The index must >= 0.")
+            @Expect(e.message, "Invalid argument 'index': must be non-negative.")
         }
     }
 
@@ -131,7 +131,7 @@ class BigIntPropertyTest {
             param_a.clearBit(index)
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The index must >= 0.")
+            @Expect(e.message, "Invalid argument 'index': must be non-negative.")
         }
     }
 
@@ -161,7 +161,7 @@ class BigIntPropertyTest {
             param_a.flipBit(index)
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The index must >= 0.")
+            @Expect(e.message, "Invalid argument 'index': must be non-negative.")
         }
     }
 

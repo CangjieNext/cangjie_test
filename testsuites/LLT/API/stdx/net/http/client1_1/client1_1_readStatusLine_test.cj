@@ -51,7 +51,7 @@ class TestClient1_1ReadStatusLine {
             client.send(r)
             @Expect(1, 2)
         } catch (e: Exception) {
-            @Expect(e.message, "Invalid response status line.")
+            @Expect(e.message, "Invalid response status line: ''.")
         }
     }
     func serverPacketCapture() {
@@ -88,7 +88,7 @@ class TestClient1_1ReadStatusLine {
             client.send(r)
             @Expect(1, 2)
         } catch (e: Exception) {
-            @Expect(e.message, "Invalid response status line.")
+            @Expect(e.message, "Invalid response status line: 'HTTP/1.1'.")
         }
     }
     func serverPacketCapture2() {
@@ -117,7 +117,7 @@ class TestClient1_1ReadStatusLine {
             client.send(r)
             @Expect(1, 2)
         } catch (e: Exception) {
-            @Expect(e.message, "Invalid response status code.")
+            @Expect(e.message, "Invalid response status code: '700'.")
         }
     }
     func serverPacketCapture3() {
@@ -146,7 +146,7 @@ class TestClient1_1ReadStatusLine {
             client.send(r)
             @Expect(1, 2)
         } catch (e: Exception) {
-            @Expect(e.message, "Invalid response status line.")
+            @Expect(e.message, "Invalid response status line: 'HTTP/1.1 r00'.")
         }
     }
     func serverPacketCapture4() {
@@ -175,7 +175,7 @@ class TestClient1_1ReadStatusLine {
             client.send(r)
             @Expect(1, 2)
         } catch (e: Exception) {
-            @Expect(e.message, "The status line or header section can not contain raw CR.")
+            @Expect(e.message, "Status line or header section cannot contain raw CR.")
         }
         client.close()
         serverSocket.close()

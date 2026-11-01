@@ -39,7 +39,7 @@ class TestClientRedirect {
         try {
             client.get("http://127.0.0.1:${server.port}/hd")
         } catch (e: HttpException) {
-            @Expect(e.message.contains("Response missing Location header, status code: 302"))
+            @Expect(e.message.contains("Response missing Location header, status code: '302'"))
         }
     }
 
@@ -48,7 +48,7 @@ class TestClientRedirect {
         try {
             client.get("http://127.0.0.1:${server.port}/hd2")
         } catch (e: HttpException) {
-            @Assert(e.message.contains("Redirect loop exceed 10 times."))
+            @Assert(e.message.contains("Redirect loop exceeded 10 times."))
         }
     }
 

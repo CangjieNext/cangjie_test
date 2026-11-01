@@ -55,7 +55,7 @@ class TestClient1_1ReceiveContentLengthBody {
         try {
             client.send(r)
         } catch (e: Exception) {
-            @Expect(e.message, "Invalid response status line.")
+            @Expect(e.message, "Invalid response status line: 'klmnopqHTTPHTTP/1.1 204 ok'.")
         }
 
         // try read again

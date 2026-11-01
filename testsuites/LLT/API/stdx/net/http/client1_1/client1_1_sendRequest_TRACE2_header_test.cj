@@ -43,7 +43,7 @@ class TestConnNodeSendRequestTRACE2 {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The TRACE request cannot contain content.")
+            @Expect(e.message, "Request method 'TRACE' does not support content.")
         }
 
         let r2 = HttpRequestBuilder()
@@ -56,7 +56,7 @@ class TestConnNodeSendRequestTRACE2 {
             client.send(r2)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The content-length and transfer-encoding can not be set together.")
+            @Expect(e.message, "Both content-length and transfer-encoding are present.")
         }
 
         let r3 = HttpRequestBuilder().trace().url(u).header("Transfer-Encoding", "chunked").build()
@@ -64,7 +64,7 @@ class TestConnNodeSendRequestTRACE2 {
             client.send(r3)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The TRACE request cannot contain content.")
+            @Expect(e.message, "Request method 'TRACE' does not support content.")
         }
 
         let r4 = HttpRequestBuilder().trace().url(u).build()

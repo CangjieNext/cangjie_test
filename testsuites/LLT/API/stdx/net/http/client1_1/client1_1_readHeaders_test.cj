@@ -47,13 +47,13 @@ class TestConnNodeReadHeaders {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message.contains("Invalid field line"))
+            @Expect(e.message.contains("Invalid header field line"))
         }
         try {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message.contains("Invalid field line"))
+            @Expect(e.message.contains("Invalid header field line"))
         }
 
         client.close()

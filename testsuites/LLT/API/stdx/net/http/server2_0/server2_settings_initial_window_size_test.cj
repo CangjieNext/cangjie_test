@@ -48,7 +48,7 @@ class TestInitialWindowSize {
         try {
             let _ = ServerBuilder().initialWindowSize(UInt32(2 ** 31)).build()
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message.contains("Initial window size should not exceed 2^31-1"))
+            @Assert(e.message.contains("Invalid argument 'initialWindowSize'"))
         }
     }
 

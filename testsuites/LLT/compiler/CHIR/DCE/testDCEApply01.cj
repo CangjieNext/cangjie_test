@@ -6,6 +6,10 @@
 
 // EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
+
+
+
+
 class X <: Exception {}
 
 class A {
@@ -26,33 +30,43 @@ main() {
 
 /* SCAN
 warning: unused function:'a'
-  ==> testDCEApply01.cj:12:5:
+  ==> testDCEApply01.cj:16:5:
    | 
-12 |       func a(b: Int64): Int64 {
+16 |       func a(b: Int64): Int64 {
    |  _____^
-13 | |         return 1
-14 | |     }
+17 | |         return 1
+18 | |     }
    | |_____^ unused function
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unused variable:'b'
-  ==> testDCEApply01.cj:12:12:
+  ==> testDCEApply01.cj:16:12:
    | 
-12 |     func a(b: Int64): Int64 {
+16 |     func a(b: Int64): Int64 {
    |            ^ unused variable
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unreachable 'call'
-  ==> testDCEApply01.cj:17:9:
+  ==> testDCEApply01.cj:21:9:
    | 
-17 |         a(throw X())
+21 |         a(throw X())
    |         ^ ~~~~~~~~~ any code following this expression is unreachable
    |         |
    |         unreachable 'call'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-3 warnings generated, 3 warnings printed.
+warning: unreachable expression
+  ==> testDCEApply01.cj:22:9:
+   | 
+21 |         a(throw X())
+   |         ~~~~~~~~~~~~ any code following this expression is unreachable
+22 |         return 2
+   |         ^^^^^^^^ unreachable expression
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+4 warnings generated, 4 warnings printed.
 */

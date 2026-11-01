@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (not Windows)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 
+// (!target_win)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (!target_win)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 
 
 /*
  * Test description: Test if localAddress and remoteAddress can
@@ -187,7 +187,7 @@ class Test_Unix_Socket_Address {
         try {
             client.localAddress
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is not bound")
+            @Expect(e.message, "Socket is not bound.")
             sum += 1
         }
 

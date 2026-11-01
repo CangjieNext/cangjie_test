@@ -17,6 +17,6 @@ class MyActor {
 }
 
 /* SCAN-IN
-Actor framework: macro failed to expand.
+Actor framework: Failed to expand macro:
 @Receiver macro: receiver method 'foo' must have explicit return type.
 */

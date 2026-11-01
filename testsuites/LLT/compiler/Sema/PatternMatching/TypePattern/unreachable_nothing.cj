@@ -18,7 +18,7 @@ main() {
     f(return 0)
 }
 
-/* SCAN
+/* SCAN-IN
 warning: unreachable pattern
   ==> unreachable_nothing.cj:12:14:
    | 
@@ -26,7 +26,9 @@ warning: unreachable pattern
    |              ^^^^^^^^^^ 
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
 
+/* SCAN-IN
 warning: unused function:'f'
   ==> unreachable_nothing.cj:10:1:
    | 
@@ -38,7 +40,9 @@ warning: unused function:'f'
    | |_^ unused function
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+*/
 
+/* SCAN-IN
 warning: unreachable 'call'
   ==> unreachable_nothing.cj:18:5:
    | 
@@ -48,6 +52,4 @@ warning: unreachable 'call'
    |     unreachable 'call'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-3 warnings generated, 3 warnings printed.
 */

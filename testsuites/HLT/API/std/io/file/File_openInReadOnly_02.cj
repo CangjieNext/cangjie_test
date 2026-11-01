@@ -19,7 +19,7 @@ main() {
     try {
         var file1 = File(fileName, Read)
     } catch (e: FSException) {
-        if (!Regex("^FSException: The file `.+` does not exist or permission denied!$").matches(e.toString())) {
+        if (!Regex("^FSException: Cannot open file '.+': file does not exist or permission denied\\.$").matches(e.toString())) {
             return 1
         }
     }

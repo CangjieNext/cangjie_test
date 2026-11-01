@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (not Windows)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (!target_win)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (!target_win)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 /*
  * Test description: Test the bind and connect
@@ -137,7 +137,7 @@ class Test_Unixdatagram_Connect {
         try {
             unixdatagramsocket2.connect(addr1)
         } catch (e: SocketException) {
-            @Expect(e.message.contains("The socket is not bound"), true)
+            @Expect(e.message.contains("Socket is not bound"), true)
             println(e.message)
             sum += 1
         }
@@ -172,7 +172,7 @@ class Test_Unixdatagram_Connect {
         try {
             unixdatagramsocket2.disconnect()
         } catch (e: SocketException) {
-            @Expect(e.message.contains("The socket is not bound"), true)
+            @Expect(e.message.contains("Socket is not bound"), true)
             println(e.message)
             sum += 1
         }

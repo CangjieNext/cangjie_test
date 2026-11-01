@@ -8,7 +8,7 @@
 
 // LEVEL: 3
 // DEPENDENCE: air-blob.cj babylon-blob.cj babylon.cj basic-blob.cj global_type.cj identifier.cj inspector-blob.cj location.cj options.cj parser.cj parserComments.cj whitespace.cj 
-// EXEC: %compiler %cmp_opt %optimization_level_2 --no-sub-pkg *.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 --no-sub-pkg *.cj -o %output
 // RUN-EXEC: %export cjHeapSize=512mb && %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan ms
 

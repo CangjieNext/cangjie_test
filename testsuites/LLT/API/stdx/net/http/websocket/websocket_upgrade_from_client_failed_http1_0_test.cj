@@ -46,7 +46,7 @@ class TestWebSocketUpgradeFromClientFailedHttp10 {
             try {
                 WebSocket.upgradeFromClient(client, u)
             } catch (e: Exception) {
-                @Expect(e.message, "Upgrade to websocket failed, wrong http version HTTP/1.0 which cannot be upgraded to websocket.")
+                @Expect(e.message, "WebSocket upgrade failed: invalid HTTP version 'HTTP/1.0', cannot upgrade to WebSocket.")
             }
         }
         let resp = client.get("http://127.0.0.1:${port}/a")

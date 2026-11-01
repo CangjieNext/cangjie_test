@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 internal import std.ast.{parseExpr, RangeExpr, SubscriptExpr, ASTException}
 
@@ -29,31 +30,18 @@ main() {
     rangeExpr.dump()
 }
 
-/* SCAN
-SubscriptExpr {
-  -baseExpr: RefExpr {
-    -identifier: Token {
-      value: "arr"
-      kind: IDENTIFIER
-      pos: 15: 33
-    }
-  }
-  -indexList: 0, RangeExpr {
-    -op: Token {
-      value: ".."
-      kind: RANGEOP
-      pos: 15: 37
-    }
-  }
-}
-No start
-No end
-..
-RangeExpr {
-  -op: Token {
-    value: ".."
-    kind: RANGEOP
-    pos: 15: 37
-  }
-}
-*/
+// ASSERT: scan SubscriptExpr {
+// ASSERT: scan -baseExpr: RefExpr {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "arr"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -indexList: 0, RangeExpr {
+// ASSERT: scan -op: Token {
+// ASSERT: scan value: ".."
+// ASSERT: scan kind: RANGEOP
+// ASSERT: scan No start
+// ASSERT: scan No end
+// ASSERT: scan RangeExpr {
+// ASSERT: scan -op: Token {
+// ASSERT: scan value: ".."
+// ASSERT: scan kind: RANGEOP

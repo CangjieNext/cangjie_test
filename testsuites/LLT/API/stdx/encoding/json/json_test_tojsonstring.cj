@@ -23,7 +23,7 @@ public class JsonToJsonStringTest {
             ja.toJsonString(-1, bracketInNewLine: false, indent: "  ")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Depth cannot be negative.")
+            @Expect(e.message, "Invalid argument 'depth': value cannot be negative, got '-1'.")
         }
     }
 
@@ -164,7 +164,7 @@ false
             ja.toJsonString(0, bracketInNewLine: false, indent: "abc")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Indent must be an empty string or any combination of spaces and tabs.")
+            @Expect(e.message, "Invalid argument 'indent': contains characters other than spaces and tabs.")
         }
     }
 
@@ -186,7 +186,7 @@ false
             jo.toJsonString(-1, bracketInNewLine: false, indent: "  ")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Depth cannot be negative.")
+            @Expect(e.message, "Invalid argument 'depth': value cannot be negative, got '-1'.")
         }
     }
 
@@ -247,7 +247,7 @@ false
             jo.toJsonString(1, bracketInNewLine: false, indent: "abc")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Indent must be an empty string or any combination of spaces and tabs.")
+            @Expect(e.message, "Invalid argument 'indent': contains characters other than spaces and tabs.")
         }
     }
 

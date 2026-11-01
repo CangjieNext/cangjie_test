@@ -5,39 +5,33 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg -Woff=all %f -o %output
-// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args
-
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 import std.sync.*
 import std.time.*
-import std.convert.*
-
-var reps = 1000000000
-
+import std.runtime.*
+import std.unittest.*
 class A {
     var num: Int32 = 0
-
     init(num: Int32) {
         this.num = num
     }
 }
 
-func benchmarkAtomicLoadReference(): Unit {
-    let test = AtomicReference<A>(A(1))
+@Test
+@Configure[minDuration: Duration.second * 3]
+@Configure[warmup: Duration.second]
+@Measure[TimeNow(Nanos)]
+public class Test_AtomicLoadReference {
 
-    var startTime = DateTime.now()
-    for (i in 0..reps) {
-        test.load()
+    @Strategy
+    func atomicData(): ImmutableInputProvider<AtomicReference<A>> {
+        ImmutableInputProvider(AtomicReference<A>(A(1)))
     }
-    var endTime = DateTime.now()
-    var perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
 
-    println("BenchmarkAtomicLoadReference: " + perTime.format(".2") + " ns/op")
-}
-
-main(): Int64 {
-    benchmarkAtomicLoadReference()
-    return 0
+    @Bench[data in atomicData]
+    func BenchmarkAtomicLoadReference(data: AtomicReference<A>): Unit {
+        blackBox(data.load())
+    }
 }

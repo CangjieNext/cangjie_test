@@ -70,5 +70,5 @@ class TestServer11JudgeClAndTe {
 }
 
 /* SCAN-IN
-The logic of content-length and transfer-encoding is incorrect.
+Invalid content-length and transfer-encoding combination.
  */

@@ -8,9 +8,9 @@
 
 // LEVEL: 1
 // DEPENDENCE: ./data
-// (not Windows) EXEC: %chmod -r ./data/unreadable.txt
-// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output
-// (not Windows) RUN-EXEC: %run_stdx %output %run_args
+// (!host_win) EXEC: %chmod -r ./data/unreadable.txt
+// (!host_win) EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output
+// (!host_win) RUN-EXEC: %run_stdx %output %run_args
 
 import stdx.net.http.*
 
@@ -21,7 +21,7 @@ main(): Int64 {
         FileHandler("./data/unreadable.txt", handlerType: UpLoad)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/unreadable.txt'.") {
             return 1
         }
     }
@@ -29,7 +29,7 @@ main(): Int64 {
         FileHandler("./data/unreadable.txt", handlerType: UpLoad, bufferSize: -1)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/unreadable.txt'.") {
             return 2
         }
     }
@@ -37,7 +37,7 @@ main(): Int64 {
         FileHandler("./data/unreadable.txt", handlerType: UpLoad, bufferSize: 4 * 1024 / 2)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/unreadable.txt'.") {
             return 3
         }
     }
@@ -45,7 +45,7 @@ main(): Int64 {
         FileHandler("./data/unreadable.txt", handlerType: UpLoad, bufferSize: 4 * 1024 * 2)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/unreadable.txt'.") {
             return 4
         }
     }
@@ -53,7 +53,7 @@ main(): Int64 {
         FileHandler("./data/unreadable.txt", handlerType: UpLoad, bufferSize: 64 * 1024 / 2)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/unreadable.txt'.") {
             return 5
         }
     }
@@ -61,7 +61,7 @@ main(): Int64 {
         FileHandler("./data/unreadable.txt", handlerType: UpLoad, bufferSize: 64 * 1024 * 2)
     } catch (e: HttpException) {
         count++
-        if (e.message != "No such file or directory.") {
+        if (e.message != "Path is not a directory: './data/unreadable.txt'.") {
             return 6
         }
     }

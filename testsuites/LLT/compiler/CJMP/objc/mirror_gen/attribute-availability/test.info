@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// (Darwin) DEPENDENCE: test-ios.toml test.h expected-ios
+// (Darwin) DEPENDENCE: test-macos.toml test.h expected-macos
+// (not Darwin) DEPENDENCE: ../test.toml test.h expected
+// (Darwin) EXEC: ObjCInteropGen -Dhost_arch=%host_arch test-ios.toml
+// (Darwin) EXEC: %cat test.cj | compare expected-ios
+// (Darwin) EXEC: ObjCInteropGen -Dhost_arch=%host_arch test-macos.toml
+// (Darwin) EXEC: %cat test.cj | compare expected-macos
+// (not Darwin) EXEC: ObjCInteropGen test.toml
+// (not Darwin) EXEC: %cat test.cj | compare expected

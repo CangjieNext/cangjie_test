@@ -49,7 +49,7 @@ harness/
 |   |-- plain_text_reporter.py    生成纯文本格式测试报告
 |   |-- report_template
 |   |   `-- report_template.html    HTML报告模板文件
-|   `-- tree_view.pyl    树形结构处理类及操作方法
+|   `-- tree_view.py    树形结构处理类及操作方法
 |-- run_diff.py    报告对比执行脚本
 |-- sample_tests    一些样例
 |-- tdm    tdm模块

@@ -179,6 +179,7 @@ func f(x: I3) {} // f2
 class C1 <: I1 {}
 
 var obj = C1()
+
 var result = f(obj) // choose f1, because I4 <: I3
 
 open class C1 {}

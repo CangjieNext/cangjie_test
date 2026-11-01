@@ -8,8 +8,10 @@
 
 // LEVEL: 3
 // DEPENDENCE: Concurrency.cj WaitGroup.cj
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg -Woff=all %f Concurrency.cj WaitGroup.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg -Woff=all %f Concurrency.cj WaitGroup.cj -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args
+
+import std.runtime.*
 
 let testName = "CPUIntensive"
 
@@ -23,6 +25,7 @@ func testFunc(rep: Int64, threads: Int64): Unit {
                 for (j in 0..tasks / threads) {
                     sum += j * j
                 }
+                blackBox(sum)
                 wg.done()
             }
         }

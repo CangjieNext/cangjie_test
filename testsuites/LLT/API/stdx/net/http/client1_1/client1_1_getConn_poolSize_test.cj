@@ -48,7 +48,7 @@ class TestHttpEngine1_1GetConn {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Too many connections to the same server!")
+            @Expect(e.message, "Too many connections to the same server.")
         }
 
         client.close()

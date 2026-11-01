@@ -4,9 +4,12 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
-// (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %enableConstPropagation %cmp_opt %enableCompileDebug %f -o %output 2>&1 | compare %f
-// (DEBUG_OPTION)RUN-EXEC: %run %output
+// DEPENDENCE: ../../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableConstPropagation %dumpCHIRDebug -Woff unused %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_ConstantPropagation.chirtxt "Func @_CN7default3fooHv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan Load(@_CN7default1aE)
+// ASSERT: scan Constant(2i)
 
 var a = 1
 var b = true
@@ -38,5 +41,3 @@ main(): Int64 {
         return 1
     }
 }
-
-// ASSERT: regex-not \[ConstPropagation\].*\[global05\.cj,

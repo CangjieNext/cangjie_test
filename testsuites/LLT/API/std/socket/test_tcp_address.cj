@@ -159,7 +159,7 @@ class Test_Tcp_Socket_Address {
             //----------only this throw exception---------
             client.localAddress
         } catch (e: SocketException) {
-            @Expect(e.message, "Socket is not bound")
+            @Expect(e.message, "Socket is not bound.")
             sum += 1
         }
 

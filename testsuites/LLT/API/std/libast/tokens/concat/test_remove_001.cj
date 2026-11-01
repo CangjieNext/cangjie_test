@@ -7,7 +7,7 @@
  */
 
 // EXEC:  %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// EXEC: %run %run_opt %output %run_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt
 
 import std.ast.{Token, Tokens}
 import std.unittest.*

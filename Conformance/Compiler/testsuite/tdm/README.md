@@ -3,7 +3,7 @@
 ## Prerequisites for Creating Charts
 Prerequisites for creating charts are `plotly.express` and `pandas` packages. They can be installed by commands:
 ```shell
-pip3 install pandas plotly.express
+pip3 install pandas plotly
 ```
  
 ## Prerequisites for Memory Test

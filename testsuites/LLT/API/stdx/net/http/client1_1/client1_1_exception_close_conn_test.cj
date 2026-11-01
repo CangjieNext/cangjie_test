@@ -46,7 +46,7 @@ class TestClient1_1ExceptionCloseConn {
             try {
                 client.send(r)
             } catch (e: Exception) {
-                @Expect(e.message, "Invalid response status code.")
+                @Expect(e.message, "Invalid response status code: '700'.")
             }
         }
 

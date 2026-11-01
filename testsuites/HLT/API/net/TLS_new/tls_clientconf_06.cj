@@ -139,7 +139,7 @@ class Test_tlsclientconf_06 {
         try {
             clientConf.supportedAlpnProtocols = ["\0","h3"]
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("contain null character"))
+            @Expect(e.message.contains("contains null character"))
             sum += 1
         }
         @Expect(sum, 1)

@@ -1,7 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // DEPENDENCE: %n.expect
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output > %n.txt
-// EXEC: %diff %n.expect %n.txt
+// RUN-EXEC-PIPE-0: %run %run_opt %output 2>&1 | compare %f
+//
 
 internal import std.ast.*
 internal import std.collection.*
@@ -66,10 +74,76 @@ main(): Int64 {
     extendDecl.dump()
     return 0
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+
+// ASSERT: scan ExtendDecl {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "extend"
+// ASSERT: scan kind: EXTEND
+// ASSERT: scan -extendType: RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "Bar"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -upperBound: Token {
+// ASSERT: scan value: "<:"
+// ASSERT: scan kind: UPPERBOUND
+// ASSERT: scan -superTypes: 0, RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "I1"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -superTypes: 1, RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "I2"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -superTypes: 2, RefType {
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "I3"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -body: Body {
+// ASSERT: scan -decls: 0, FuncDecl {
+// ASSERT: scan -modifiers: 0, Modifier {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "public"
+// ASSERT: scan kind: PUBLIC
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "func"
+// ASSERT: scan kind: FUNC
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "f1"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -declType: PrimitiveType {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "Unit"
+// ASSERT: scan kind: UNIT
+// ASSERT: scan -block: Block {
+// ASSERT: scan -decls: 1, FuncDecl {
+// ASSERT: scan -modifiers: 0, Modifier {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "public"
+// ASSERT: scan kind: PUBLIC
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "func"
+// ASSERT: scan kind: FUNC
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "f2"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -declType: PrimitiveType {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "Unit"
+// ASSERT: scan kind: UNIT
+// ASSERT: scan -block: Block {
+// ASSERT: scan -decls: 2, FuncDecl {
+// ASSERT: scan -modifiers: 0, Modifier {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "public"
+// ASSERT: scan kind: PUBLIC
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "func"
+// ASSERT: scan kind: FUNC
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "f3"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -declType: PrimitiveType {
+// ASSERT: scan -keyword: Token {
+// ASSERT: scan value: "Unit"
+// ASSERT: scan kind: UNIT
+// ASSERT: scan -block: Block {

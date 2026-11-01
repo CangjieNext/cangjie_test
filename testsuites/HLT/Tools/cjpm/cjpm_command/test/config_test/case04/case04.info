@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC-PIPE-1: cd %n && %cjpm test --verbose 2>&1 | compare %f
-// ASSERT: scan UnittestCliOptionsFormatException: Wrong --parallel option argument format. Provided: 0.5Cores. Parameter format can be one of the following: positive integer number, 'nCores', N'nCores' (N is positive fractional number)
+// ASSERT: scan UnittestCliOptionsFormatException: Wrong '--parallel' option argument format. Expected format is one of the following: positive integer number, 'nCores', N'nCores' (N is positive fractional number), got: '0.5Cores'.

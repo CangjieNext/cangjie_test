@@ -18,7 +18,7 @@ main() {
     try {
         var dataArray = File.readFrom(fileName)
     } catch (e: FSException) {
-        if (e.toString() != "FSException: The input path 'parent' `./b/c` does not exist.") {
+        if (e.toString() != "FSException: Cannot open file: parent directory './b/c' does not exist.") {
             return 1
         }
     }

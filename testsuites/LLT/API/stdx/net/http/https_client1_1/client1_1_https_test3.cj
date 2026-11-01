@@ -40,7 +40,7 @@ class TestClient1_1HTTPs3 {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "TLS must be configured when HTTPS requests are sent.")
+            @Expect(e.message, "TLS configuration is required for HTTPS requests.")
         }
 
         u = URL.parse("http://127.0.0.1:${port}/a")

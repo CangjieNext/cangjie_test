@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: test.a
 // (iOSNative) EXEC-PIPE-1: %mirror_gen test.a 2>&1 | compare %f
-// ASSERT: scan Usage: ObjCInteropGen [-v] config-file.toml
+// ASSERT: scan Usage: ObjCInteropGen [-v] [-D<macro>=<value>] [--cd] config-file.toml

@@ -26,7 +26,7 @@ class TestMethod {
         try {
             let _ = HttpRequestBuilder().method("你好").build()
         } catch (e: HttpException) {
-            @Assert(e.toString(), "HttpException: Method should be tokens.")
+            @Assert(e.toString(), "HttpException: Method must be tokens.")
         }
     }
 

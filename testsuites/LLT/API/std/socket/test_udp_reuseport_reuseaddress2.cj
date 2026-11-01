@@ -102,7 +102,7 @@ class Test_Udp_ReusePort_ReuseAddress {
             udpsocket.bind()
         } catch (e: SocketException) {
             sum += 1
-            @Expect(e.message, "The socket is already bound")
+            @Expect(e.message, "Socket is already bound.")
         }
         @Expect(sum, 1)
 
@@ -122,7 +122,7 @@ class Test_Udp_ReusePort_ReuseAddress {
             udpsocket1.bind()
         } catch (e: SocketException) {
             sum += 1
-            @Expect(e.message, "Bind couldn't be invoked twice.")
+            @Expect(e.message, "Socket is already bound.")
         }
         @Expect(sum, 3)
 

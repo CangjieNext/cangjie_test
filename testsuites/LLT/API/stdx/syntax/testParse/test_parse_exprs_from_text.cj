@@ -33,45 +33,38 @@ if (x && y + 1 > 2) {
         try {
             parseText(#"import std.collection.*"#)
         } catch (e: Exception) {
-            @Expect(e.message, "unsupported node type in parseText function.")
+            @Expect(e.message, "Failed to parse text.")
         }
 
         try {
             parseText("@testMacro[public func](let a = 1)")
         } catch (e: Exception) {
-            @Expect(e.message, "unsupported node type in parseText function.")
+            @Expect(e.message, "Failed to parse text.")
         }
 
         try {
             parseText("a?")
         } catch (e: Exception) {
-            @Expect(e.message, #"unsupported node type or parse error in parseText function:
-expected '.', '(', '[', '{' or '?' after '?'
- ==> :1:2:
-
-expected expression after '?', found '<EOF>'
- ==> :1:3:
-
-"#)
+            @Expect(e.message, "Failed to parse text.")
         }
 
         try {
             parseText("( 1+1")
         } catch (e: Exception) {
-            @Expect(e.message.contains("unsupported node type or parse error in parseText function:"))
+            @Expect(e.message.contains("Failed to parse text."))
         }
 
         try {
             parseText("1+1  :Int")
         } catch (e: Exception) {
-            @Expect(e.message.contains("unsupported node type or parse error in parseText function:"))
+            @Expect(e.message.contains("Failed to parse text."))
         }
 
         try {
             parseText(#"   1 + 1
          1+1 "#)
         } catch (e: Exception) {
-            @Expect(e.message, "parseText function not support parse more than one node.")
+            @Expect(e.message, "Invalid argument 'programText': the input contains more than one syntax node.")
         }
     }
 

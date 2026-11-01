@@ -32,4 +32,4 @@ class Data <: Basec & Basei <: Basei1 {
     public var resi1: Int64 = getNum1()
 }
 // ASSERT: scan parse_expected_left_brace
-// ASSERT: scan parse_expected_decl
+// ASSERT: scan-not parse_expected_decl

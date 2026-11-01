@@ -11,16 +11,16 @@
  * Copyright style comment
  */
 
-/*malformed
-*Copyright style comment
+/* malformed
+ * Copyright style comment
 
-*statement 
-*/
+ * statement
+ */
 
 
-/*short comment
+/* short comment
   some comment
-*/
+ */
 class A {}
 
 /*short comment*/
@@ -42,6 +42,7 @@ class A { /*
    long comment
 
  */
+
 class A {
     func a() {
         /* let a = 1
@@ -57,7 +58,7 @@ class A {
 /*
 eof
 comment
-*/
+ */
 
 /*
 and

@@ -102,7 +102,7 @@ public class RawJsonValueTest {
         try {
             let obj = JSONProps.fromJson(reader)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Character not expected: ','.")
+            @Expect(e.message, "Unexpected character: ','.")
             return
         }
         @Expect(false, true)

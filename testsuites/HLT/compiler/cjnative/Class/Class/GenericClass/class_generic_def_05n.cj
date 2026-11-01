@@ -33,6 +33,6 @@ main(): Int64 {
     return run()
 }
 // ASSERT: scan parse_expected_left_brace
-// ASSERT: scan parse_var_must_be_initialized
-// ASSERT: scan parse_unexpected_declaration_in_scope
-// ASSERT: scan parse_expected_decl
+// ASSERT: scan-not parse_var_must_be_initialized
+// ASSERT: scan-not parse_unexpected_declaration_in_scope
+// ASSERT: scan-not parse_expected_decl

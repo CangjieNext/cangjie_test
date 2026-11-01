@@ -11,11 +11,13 @@ class A { // ss
     //a
     let p = 1 // abc
     let g = 2 //abc
-
     //fc
+
     //cc
+
     /*f f*/
     // f
+
     func foo(): Float32 { /*b*/ // a
 
         /*b*/

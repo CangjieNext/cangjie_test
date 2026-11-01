@@ -104,5 +104,5 @@ Invalid request target
  */
 
 /* SCAN-IN
-Incorrect version:
+Invalid request version
  */

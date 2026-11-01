@@ -49,7 +49,7 @@ class TestClient1_1maxConn {
         try {
             client.send(r)
         } catch (e: Exception) {
-            @Expect(e.message, "Too many connections to the same server!")
+            @Expect(e.message, "Too many connections to the same server.")
         }
         serverSocket.close()
         client.close()

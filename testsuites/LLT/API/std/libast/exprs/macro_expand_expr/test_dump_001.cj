@@ -6,8 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
-// EXEC: %run %run_opt %output | compare %f
+// RUN-EXEC: %run %run_opt %output | compare %f
 
 internal import std.ast.MacroExpandExpr
 
@@ -19,43 +20,25 @@ main() {
     macroExpandExpr.dump()
 }
 
-/* SCAN
-MacroExpandExpr {
-}
-@M
-class A {
-}
-
-MacroExpandExpr {
-  -packageIdentifier: Token {
-    value: "M"
-    kind: IDENTIFIER
-    pos: 17: 50
-  }
-  -identifier: Token {
-    value: "M"
-    kind: IDENTIFIER
-    pos: 17: 50
-  }
-  -macroInputs:0: Token {
-    value: "class"
-    kind: CLASS
-    pos: 17: 52
-  }
-  -macroInputs:1: Token {
-    value: "A"
-    kind: IDENTIFIER
-    pos: 17: 58
-  }
-  -macroInputs:2: Token {
-    value: "{"
-    kind: LCURL
-    pos: 17: 60
-  }
-  -macroInputs:3: Token {
-    value: "}"
-    kind: RCURL
-    pos: 17: 61
-  }
-}
-*/
+// ASSERT: scan MacroExpandExpr {
+// ASSERT: scan @M
+// ASSERT: scan class A {
+// ASSERT: scan MacroExpandExpr {
+// ASSERT: scan -packageIdentifier: Token {
+// ASSERT: scan value: "M"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -identifier: Token {
+// ASSERT: scan value: "M"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -macroInputs:0: Token {
+// ASSERT: scan value: "class"
+// ASSERT: scan kind: CLASS
+// ASSERT: scan -macroInputs:1: Token {
+// ASSERT: scan value: "A"
+// ASSERT: scan kind: IDENTIFIER
+// ASSERT: scan -macroInputs:2: Token {
+// ASSERT: scan value: "{"
+// ASSERT: scan kind: LCURL
+// ASSERT: scan -macroInputs:3: Token {
+// ASSERT: scan value: "}"
+// ASSERT: scan kind: RCURL

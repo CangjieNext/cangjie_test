@@ -8,10 +8,10 @@
 
 // LEVEL: 3
 // DEPENDENCE: getPath.sh test_fj.txt
-// (not Windows) EXEC: chmod +x getPath.sh
-// (not Windows) EXEC: ./getPath.sh b && cat mypath.cj
+// (not Windows) RUN-EXEC: %target_shell ./getPath.sh b && %cat ./mypath.cj
 // (not Windows) EXEC: %compiler %cmp_opt mypath.cj -o %output %f
 // (not Windows) RUN-EXEC: %run %run_opt %output %run_args
+
 import std.posix.*
 
 main() {

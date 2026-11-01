@@ -361,6 +361,7 @@ extend MyType {
 // 5.5 Lambda 表达式
 let f1: (Int64, Int64) -> Int64 = {a: Int64, b: Int64 => a + b}
 var f2: () -> Int32 = {=> 123}
+
 let f2 = {n: Int64, _: Int64 => return n * n}
 let f3: (Int32, Int32) -> Int32 = {n, _ => return n * n}
 let f4: (String) -> String = {_ => return "Hello"}

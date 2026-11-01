@@ -45,14 +45,14 @@ class TestConnNodeSendRequestExpect {
             client.send(r)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Must not generate a 100-continue expectation in a request that does not include content.")
+            @Expect(e.message, "Invalid expect header: cannot set '100-continue' in a request with no body content.")
         }
         let r2 = HttpRequestBuilder().url(u).header("expect", "continue,100-continue").build()
         try {
             client.send(r2)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "The only expectation supported yet is 100-continue.")
+            @Expect(e.message, "Invalid expect header: only '100-continue' is supported.")
         }
         // to server 1
         let r3 = HttpRequestBuilder().url(u).header("expect", "100-continue").body("hello".toArray()).build()
@@ -60,7 +60,7 @@ class TestConnNodeSendRequestExpect {
             client.send(r3)
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Too many 1xx responses.")
+            @Expect(e.message, "Too many 1xx responses: count is '6'.")
         }
         // to server 2
         client.send(r3)

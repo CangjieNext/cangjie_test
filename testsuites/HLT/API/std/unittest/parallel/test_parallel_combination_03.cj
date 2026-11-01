@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --bench --parallel=2 2>&1 | compare %f
-// ASSERT: scan UnittestCliOptionsFormatException: It is not allowed to use both --parallel and --bench at once
+// ASSERT: scan UnittestCliOptionsFormatException: It is not permitted to use both '--parallel' and '--bench' together.
 
 /*
  * Test description:

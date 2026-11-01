@@ -45,19 +45,19 @@ class Test_tlsclientconf_07 {
             try {
                 serverConf.supportedCipherSuites[V1_2] = ["\0"]
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message.contains("The TLS config property (supportedCipherSuites) cannot contain null character"))
+                @Expect(e.message.contains("TLS config property 'supportedCipherSuites' contains null character"))
                 sum += 1
             }
             try {
                 serverConf.supportedCipherSuites[V1_3] = ["\0"]
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message.contains("The TLS config property (supportedCipherSuites) cannot contain null character"))
+                @Expect(e.message.contains("TLS config property 'supportedCipherSuites' contains null character"))
                 sum += 1
             }
             try {
                 serverConf.supportedAlpnProtocols = ["\0"]
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message.contains("The TLS config property (supportedAlpnProtocols) cannot contain null character"))
+                @Expect(e.message.contains("TLS config property 'supportedAlpnProtocols' contains null character"))
                 sum += 1
             }
 
@@ -70,13 +70,13 @@ class Test_tlsclientconf_07 {
         try {
             clientConf.serverName = "\0"
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("The TLS config property (serverName) cannot contain null character"))
+            @Expect(e.message.contains("TLS config property 'serverName' contains null character"))
             sum += 1
         }
         try {
             clientConf.supportedAlpnProtocols = ["\0"]
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("The TLS config property (supportedAlpnProtocols) cannot contain null character"))
+            @Expect(e.message.contains("TLS config property 'supportedAlpnProtocols' contains null character"))
             sum += 1
         }
 

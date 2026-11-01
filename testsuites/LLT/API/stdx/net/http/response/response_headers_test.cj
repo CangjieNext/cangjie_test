@@ -62,7 +62,7 @@ class TestReaponseHeaders {
 
     @TestCase
     func headerNameWrong(): Unit {
-        let expectException = "HttpException: Invalid header name: h1你好."
+        let expectException = "HttpException: Invalid header name: 'h1你好'."
         try {
             let _ = HttpResponseBuilder().header("h1你好", "v1").build()
         } catch (e: HttpException) {

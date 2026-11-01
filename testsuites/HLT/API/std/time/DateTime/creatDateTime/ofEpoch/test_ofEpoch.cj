@@ -68,7 +68,7 @@ class Test_ofEpoch {
         try {
             let res = DateTime.ofEpoch(second: 0, nanosecond: -1)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "The nanosecond value should be in the range [0, 999,999,999].")
+            @Assert(e.message, "Invalid nanosecond value '-1': expected 0 to 999,999,999.")
             flag = true
         }
         @Assert(flag, true)
@@ -80,7 +80,7 @@ class Test_ofEpoch {
         try {
             let res = DateTime.ofEpoch(second: 0, nanosecond: 1000000000)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "The nanosecond value should be in the range [0, 999,999,999].")
+            @Assert(e.message, "Invalid nanosecond value '1000000000': expected 0 to 999,999,999.")
             flag = true
         }
         @Assert(flag, true)

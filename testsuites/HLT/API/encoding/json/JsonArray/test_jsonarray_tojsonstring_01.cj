@@ -71,21 +71,21 @@ class Test_jsonarray_tojsonstring_01 {
             jsonArray01.toJsonString(2, bracketInNewLine: false, indent: "\0")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Indent must be an empty string or any combination of spaces and tabs.")
+            @Expect(e.message, "Invalid argument 'indent': contains characters other than spaces and tabs.")
         }
 
         try {
             jsonArray02.toJsonString(2, bracketInNewLine: false, indent: "\0")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Indent must be an empty string or any combination of spaces and tabs.")
+            @Expect(e.message, "Invalid argument 'indent': contains characters other than spaces and tabs.")
         }
 
         try {
             jsonArray03.toJsonString(2, bracketInNewLine: false, indent: "\0")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Indent must be an empty string or any combination of spaces and tabs.")
+            @Expect(e.message, "Invalid argument 'indent': contains characters other than spaces and tabs.")
         }
     }
 
@@ -95,21 +95,21 @@ class Test_jsonarray_tojsonstring_01 {
             jsonArray01.toJsonString(2, bracketInNewLine: false, indent: "cangjietest")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Indent must be an empty string or any combination of spaces and tabs.")
+            @Expect(e.message, "Invalid argument 'indent': contains characters other than spaces and tabs.")
         }
 
         try {
             jsonArray02.toJsonString(2, bracketInNewLine: false, indent: "cangjietest")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Indent must be an empty string or any combination of spaces and tabs.")
+            @Expect(e.message, "Invalid argument 'indent': contains characters other than spaces and tabs.")
         }
 
         try {
             jsonArray03.toJsonString(2, bracketInNewLine: false, indent: "cangjietest")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Indent must be an empty string or any combination of spaces and tabs.")
+            @Expect(e.message, "Invalid argument 'indent': contains characters other than spaces and tabs.")
         }
     }
 }

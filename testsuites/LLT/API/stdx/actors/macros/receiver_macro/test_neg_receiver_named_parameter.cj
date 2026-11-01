@@ -19,6 +19,6 @@ class MyActor {
 }
 
 /* SCAN-IN
-Actor framework: macro failed to expand.
-@Receiver macro: the name priority cannot be used as a named parameter.
+Actor framework: Failed to expand macro:
+@Receiver macro: the name 'priority' cannot be used as a named parameter.
 */

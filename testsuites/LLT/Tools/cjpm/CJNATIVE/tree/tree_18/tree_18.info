@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n/binary_dep && cjpm build && cd .. && %cjpm tree -V 2>&1 | compare %f
+// ASSERT: regex |-- tree_package_option 1.0.0 (.*src)
+// ASSERT: regex     └── binary_dep (.*binary_dep/target/release/binary_dep)
+// ASSERT: scan-not IndexOutOfBoundsException
+// ASSERT: scan cjpm tree success

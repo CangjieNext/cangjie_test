@@ -27,8 +27,8 @@ p, p c1.vhsc,\(std.collection.HashSet<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1
 AOT p, p default::S1::vhs,\(std.collection.HashSet<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p globals_hs,\(std.collection.HashSet<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 locals, locals,\(std.collection.HashSet<Int64>\) lhs = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(default(?:\.|::)S1\) s1 = {[\s\S]*vhss = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(default(?:\.|::)C1\) c1 = {[\s\S]*vhsc = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-globals, globals,\(std.collection.HashSet<Int64>\) default(?:\.|::)S1::vhs = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-globals, globals,\(std.collection.HashSet<Int64>\) default(?:\.|::)globals_hs = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p default::S1::vhs,\(std.collection.HashSet<Int64>\)[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p globals_hs,\(std.collection.HashSet<Int64>\)[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 b, b genericsfun_return.cj:162,genericsfun_return.cj:162
 c,c,162
 p, p f,\(std.collection.HashSet<Int64>\)[\s\S]*{[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*

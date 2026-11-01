@@ -4,11 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %compiler %cmp_opt %debugCHIROpt %enableO2 %n.cj -o %output | compare %f
-// (DEBUG_OPTION)RUN-EXEC-PIPE-0: %run %output
-// ASSERT: regex-not [ArrayLambda] The call to arrayInitByFunction at [*,*] has been optimised to a call to arrayInitByValue.
-// ASSERT: scan-not core dumped
-// ASSERT: scan-not stack trace
+// DEPENDENCE: ../pick_defination.py
+// EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug %n.cj
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_ArrayLambdaOpt.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// RUN-EXEC-PIPE-0: %run main
+// ASSERT: scan-not RawArrayInitByValue
+// ASSERT: scan RawArray<Int64>& = Apply(@_CNatU00000003fipJc19arrayInitByFunctionIlHA0_lF0llE
+// ASSERT: regex %[0-9]*: \(.*\) -> .* = Lambda
 
 internal import std.collection.*
 

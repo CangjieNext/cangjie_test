@@ -16,6 +16,6 @@ class MyActor {
 }
 
 /* SCAN-IN
-Actor framework: macro failed to expand.
+Actor framework: Failed to expand macro:
 @Receiver macro: must be used inside an @Actor macro.
 */

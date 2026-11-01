@@ -165,7 +165,7 @@ public class Test_distributor {
             server.distributor.register("/ss", request)
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "Path: /ss already registered.")
+            @Expect(e.message, "Path '/ss' is already registered.")
         }
         @Expect(flag, true)
     }

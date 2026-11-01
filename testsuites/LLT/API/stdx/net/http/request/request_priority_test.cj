@@ -30,7 +30,7 @@ class TestTrailer {
                 .build()
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Illegal header, priority urgency should be in range [0, 7].")
+            @Expect(e.message, "Invalid header: priority urgency '-1' is out of range [0, 7].")
         }
     }
 
@@ -43,7 +43,7 @@ class TestTrailer {
                 .build()
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Illegal header, priority urgency should be in range [0, 7].")
+            @Expect(e.message, "Invalid header: priority urgency '8' is out of range [0, 7].")
         }
     }
 

@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (not Windows)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (!target_win)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (!target_win)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 /*
  * Test description: Test the bind and connect
@@ -148,7 +148,7 @@ class Test_Unixdatagram_Transportbuffer {
             unixdatagramsocket1.sendBufferSize = 0
         } catch (e: IllegalArgumentException) {
             sum += 1
-            @Expect(e.message.contains("Buffer size should be positive"), true)
+            @Expect(e.message.contains("Invalid send buffer size"), true)
         }
         @Expect(sum, 1)
         unixdatagramsocket1.sendTimeout = 100 * Duration.millisecond
@@ -189,7 +189,7 @@ class Test_Unixdatagram_Transportbuffer {
             unixdatagramsocket1.sendBufferSize = -1
         } catch (e: IllegalArgumentException) {
             sum += 1
-            @Expect(e.message.contains("Buffer size should be positive"), true)
+            @Expect(e.message.contains("Invalid send buffer size"), true)
         }
         @Expect(sum, 1)
         unixdatagramsocket1.sendTimeout = 100 * Duration.millisecond
@@ -372,7 +372,7 @@ class Test_Unixdatagram_Transportbuffer {
             unixdatagramsocket2.receiveBufferSize = 0
         } catch (e: IllegalArgumentException) {
             sum += 1
-            @Expect(e.message.contains("Buffer size should be positive"), true)
+            @Expect(e.message.contains("Invalid receive buffer size"), true)
         }
         @Expect(sum, 1)
         unixdatagramsocket2.receiveBufferSize = 6000
@@ -411,7 +411,7 @@ class Test_Unixdatagram_Transportbuffer {
             unixdatagramsocket2.receiveBufferSize = -1
         } catch (e: IllegalArgumentException) {
             sum += 1
-            @Expect(e.message.contains("Buffer size should be positive"), true)
+            @Expect(e.message.contains("Invalid receive buffer size"), true)
         }
         @Expect(sum, 1)
 

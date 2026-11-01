@@ -51,7 +51,7 @@ public class Test_process_terminate {
                 Process.of(subProcess.pid)
                 @Expect(0, 1)
             } catch (e: ProcessException) {
-                @Expect(e.message, "Process \"${ofProcess.pid}\" not alive, can not get process.")
+                @Expect(e.message, "Process '${ofProcess.pid}' is not alive.")
             }
         } catch (e: ProcessException) {}
     }
@@ -71,7 +71,7 @@ public class Test_process_terminate {
                 Process.of(subProcess.pid)
                 @Expect(0, 1)
             } catch (e: ProcessException) {
-                @Expect(e.message, "Process \"${ofProcess.pid}\" not alive, can not get process.")
+                @Expect(e.message, "Process '${ofProcess.pid}' is not alive.")
             }
         } catch (e: ProcessException) {}
     }
@@ -138,7 +138,7 @@ public class Test_process_terminate_new {
                 findProcess(subProcess.pid)
                 @Expect(0, 1)
             } catch (e: ProcessException) {
-                @Expect(e.message, "Process \"${ofProcess.pid}\" not alive, can not get process.")
+                @Expect(e.message, "Process '${ofProcess.pid}' is not alive.")
             }
         } catch (e: ProcessException) {}
     }
@@ -158,7 +158,7 @@ public class Test_process_terminate_new {
                 findProcess(subProcess.pid)
                 @Expect(0, 1)
             } catch (e: ProcessException) {
-                @Expect(e.message, "Process \"${ofProcess.pid}\" not alive, can not get process.")
+                @Expect(e.message, "Process '${ofProcess.pid}' is not alive.")
             }
         } catch (e: ProcessException) {}
     }

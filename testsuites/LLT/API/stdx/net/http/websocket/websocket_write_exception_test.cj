@@ -48,14 +48,14 @@ class TestWebSocketWriteFrameException {
             websocket.write(PingWebFrame, Array<UInt8>(126, repeat: 0))
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "All control frames must have a payload length of 125 bytes or less.")
+            @Expect(e.message, "Control frame payload length '126' exceeds maximum 125.")
         }
 
         try {
             websocket.write(UnknownWebFrame, "hello".toArray())
             @Expect(1, 2)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Invalid frame type, the type must be Text, Binary, Close, Ping, Pong.")
+            @Expect(e.message, "Invalid frame type 'UnknownWebFrame'.")
         }
 
         websocket.write(TextWebFrame, "hello".toArray())

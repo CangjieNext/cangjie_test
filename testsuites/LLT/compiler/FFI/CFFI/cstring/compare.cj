@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 // EXEC-PIPE-0: %compiler %cmp_opt_chir2hlir %f -o %output
 // EXEC-PIPE-0: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: regex-3 Exception: The two CString values to be compared cannot be null.
+// ASSERT: regex-3 IllegalMemoryException: CString values to compare cannot be null.
 
 
 main(): Int64 {

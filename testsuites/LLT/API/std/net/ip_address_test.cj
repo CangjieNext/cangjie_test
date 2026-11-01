@@ -25,11 +25,11 @@ class TestIPAddr {
     let ipstrarrs: Array<(String, IPAddress, String)> = [
         ("0.0.0.0", IPv4Address.unspecified, ""),
         ("192.168.140.255", IPv4Address(0xc0a88cff), ""),
-        ("010.000.015.001", IPv4Address.unspecified, "Parse (010.000.015.001): has leading zero."),
+        ("010.000.015.001", IPv4Address.unspecified, "Failed to parse '010.000.015.001': leading zero not allowed."),
         ("000001.00000002.00000003.000000004", IPv4Address.unspecified,
-            "Parse (000001.00000002.00000003.000000004): IPv4 address too long."),
-        ("::ffff:1.2.03.4", IPv6Address.unspecified, "Parse (::ffff:1.2.03.4): has leading zero."),
-        ("::ffff:1.2.3.z", IPv6Address.unspecified, "Parse (::ffff:1.2.3.z): each segment must have at least 1 digit."),
+            "Failed to parse '000001.00000002.00000003.000000004': IPv4 address too long."),
+        ("::ffff:1.2.03.4", IPv6Address.unspecified, "Failed to parse '::ffff:1.2.03.4': leading zero not allowed."),
+        ("::ffff:1.2.3.z", IPv6Address.unspecified, "Failed to parse '::ffff:1.2.3.z': each segment must have at least '1' digit(s)."),
         ("::", IPv6Address.unspecified, ""),
         ("::%12", IPv6Address.unspecified.scope(12), ""),
         ("::1", IPv6Address.localhost, ""),
@@ -53,7 +53,15 @@ class TestIPAddr {
         ("fe80::82bc:839e:69a6:6a98%35", IPv6Address(0xfe80, 0x0, 0x0, 0x0, 0x82bc, 0x839e, 0x69a6, 0x6a98, scopeId: 35),
             ""),
         ("2001:250:1006:dff0:4913:2aa5:8075:7c01", IPv6Address(0x2001, 0x0250, 0x1006, 0xdff0, 0x4913, 0x2aa5, 0x8075,
-                0x7c01, scopeId: None), "")
+                0x7c01, scopeId: None), ""),
+        // RFC 4291 allows the "x:x:x:x:x:x:d.d.d.d" form with a trailing embedded IPv4 address.
+        ("1:2:3:4:5:6:1.2.3.4", IPv6Address(0x0001, 0x0002, 0x0003, 0x0004, 0x0005, 0x0006, 0x0102, 0x0304,
+                scopeId: None), ""),
+        ("1:2:3:4:5:6:0.0.0.0", IPv6Address(0x0001, 0x0002, 0x0003, 0x0004, 0x0005, 0x0006, 0x0000, 0x0000,
+                scopeId: None), ""),
+        ("0:0:0:0:0:0:255.255.255.255", IPv6Address(0, 0, 0, 0, 0, 0, 0xffff, 0xffff, scopeId: None), ""),
+        ("1:2:3:4:5:6:1.2.3.4%12", IPv6Address(0x0001, 0x0002, 0x0003, 0x0004, 0x0005, 0x0006, 0x0102, 0x0304,
+                scopeId: 12), "")
     ]
     @TestCase[ipt in ipstrarrs]
     func testparseIp(ipt: (String, IPAddress, String)): Unit {
@@ -131,7 +139,9 @@ class TestIPAddr {
         // IPv6 with 5 zeros in last group
         "0:0:0:0:0:ffff:0:00000",
         // IPv6 with 5 zeros in one group and embedded IPv4
-        "0:0:0:0:00000:ffff:127.1.2.3"
+        "0:0:0:0:00000:ffff:127.1.2.3",
+        // IPv6 (without ellipsis) with too few fields for trailing embedded IPv4
+        "1:2:3:4:1.2.3.4"
     ]
     @TestCase[ipstr in invalidIPstrs]
     func testInvalidIPs(ipstr: String) {

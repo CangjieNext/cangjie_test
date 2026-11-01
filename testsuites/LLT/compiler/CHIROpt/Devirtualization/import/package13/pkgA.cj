@@ -4,6 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// LEVEL: 0
 package A
 
 public interface I {

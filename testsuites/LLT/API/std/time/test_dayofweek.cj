@@ -31,7 +31,7 @@ class DayofWeekTest {
             DayOfWeek.of(7)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The input parameter ranges from 0 to 6")
+            @Expect(e.message, "Invalid day of week: expected 0 to 6, got 7.")
         }
     }
 

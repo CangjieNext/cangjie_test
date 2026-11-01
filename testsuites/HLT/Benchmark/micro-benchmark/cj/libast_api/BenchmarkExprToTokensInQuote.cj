@@ -8,11 +8,12 @@
 
 // LEVEL: 3
 // DEPENDENCE: inputs.cj utils.cj visitors.cj
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test 
 @Measure[TimeNow(Nanos)]
@@ -46,57 +47,57 @@ class TestExprToTokens {
 
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_001(): Unit {
-        var ret = quote($handleRenderInput1)
+        blackBox(quote($handleRenderInput1))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_002(): Unit {
-        var ret = quote($handleRenderInput2)
+        blackBox(quote($handleRenderInput2))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_003(): Unit {
-        var ret = quote($handleRenderInput3)
+        blackBox(quote($handleRenderInput3))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_004(): Unit {
-        var ret = quote($handleRenderInput4)
+        blackBox(quote($handleRenderInput4))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_005(): Unit {
-        var ret = quote($handleRenderInput5)
+        blackBox(quote($handleRenderInput5))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_006(): Unit {
-        var ret = quote($handleRenderInput6)
+        blackBox(quote($handleRenderInput6))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_007(): Unit {
-        var ret = quote($handleRenderInput7)
+        blackBox(quote($handleRenderInput7))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_008(): Unit {
-        var ret = quote($handleRenderInput8)
+        blackBox(quote($handleRenderInput8))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_009(): Unit {
-        var ret = quote($handleRenderInput9)
+        blackBox(quote($handleRenderInput9))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_010(): Unit {
-        var ret = quote($handleRenderInput10)
+        blackBox(quote($handleRenderInput10))
         ()
     }
     @Bench 
     func BenchmarkExprToTokensInQuote_expr_011(): Unit {
-        var ret = quote($handleRenderInput11)
+        blackBox(quote($handleRenderInput11))
         ()
     }
 
@@ -146,7 +147,7 @@ class TestExprsToTokensInQuote {
     func BenchmarkExprToTokensInQuote_exprs_001(): Unit {
         for (exprs in componentInput1) {
             for (expr in exprs) {
-                 var callBind = quote($expr)
+                 blackBox(quote($expr))
             }
         }
         ()
@@ -155,7 +156,7 @@ class TestExprsToTokensInQuote {
     func BenchmarkExprToTokensInQuote_exprs_002(): Unit {
         for (exprs in componentInput2) {
             for (expr in exprs) {
-                 var callBind = quote($expr)
+                 blackBox(quote($expr))
             }
         }
         ()
@@ -164,7 +165,7 @@ class TestExprsToTokensInQuote {
     func BenchmarkExprToTokensInQuote_exprs_003(): Unit {
         for (exprs in componentInput3) {
             for (expr in exprs) {
-                 var callBind = quote($expr)
+                 blackBox(quote($expr))
             }
         }
         ()

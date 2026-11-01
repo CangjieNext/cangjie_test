@@ -19,7 +19,7 @@ main() {
     try {
         File.writeTo(fileName, arr)
     } catch (e: FSException) {
-        if (e.toString() != "FSException: The input path 'parent' `./b` does not exist.") {
+        if (e.toString() != "FSException: Cannot open file: parent directory './b' does not exist.") {
             return 1
         }
     }

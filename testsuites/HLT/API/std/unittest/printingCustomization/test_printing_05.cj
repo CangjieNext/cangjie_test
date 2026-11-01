@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --no-capture-output --capture-output --parallel 2>&1 | compare %f
-// ASSERT: scan UnittestCliOptionsFormatException: Should not use both --capture-output and --no-capture-output options at once.
+// ASSERT: scan UnittestCliOptionsFormatException: Should not use both '--capture-output' and '--no-capture-output' options at once.
 
 //--no-capture-output --capture-output
 @Test

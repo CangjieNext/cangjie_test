@@ -36,7 +36,7 @@ class TestClient1_1Chunked {
             client.send(request)
         } catch (e: Exception) {
             println(e.message)
-            @Expect(e.message.contains("The last value of transfer-encoding must be chunked."))
+            @Expect(e.message.contains("Invalid transfer-encoding: last value must be 'chunked'."))
         }
         client.close()
         println("ok")

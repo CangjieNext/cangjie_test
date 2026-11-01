@@ -1,5 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
-// EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
  
 import std.ast.*
  
@@ -23,28 +31,12 @@ public class C1<T> {
 // ASSERT: scan @Deprecated["123"]
 // ASSERT: scan @Anno1["1"]
  
-/* SCAN-IN
-decl.annotations.size: 1
-*/
+// ASSERT: scan decl.annotations.size: 1
  
-/* SCAN-IN
-  -annotations: 0, Annotation {
-    -identifier: Deprecated
-    -arguments: 0, Argument {
-      -expr: LitConstExpr {
-        -literal: Token {
-          value: "123"
-          kind: STRING_LITERAL
-          pos: 7: 44
-        }
-      }
-    }
-  }
-*/
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: scan -annotations: 0, Annotation {
+// ASSERT: scan -identifier: Deprecated
+// ASSERT: scan -arguments: 0, Argument {
+// ASSERT: scan -expr: LitConstExpr {
+// ASSERT: scan -literal: Token {
+// ASSERT: scan value: "123"
+// ASSERT: scan kind: STRING_LITERAL

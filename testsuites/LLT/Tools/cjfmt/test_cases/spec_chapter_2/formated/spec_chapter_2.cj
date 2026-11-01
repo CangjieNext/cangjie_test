@@ -470,6 +470,7 @@ let howManyHours = match (time12) {
     case Day => 24
     case Hour => 1
 }
+
 let time13 = TimeUnit2.Month(1.0, 1.5)
 let howManyHours = match (time13) {
     case Year(y) => y * 365.0 * 24.0
@@ -624,7 +625,6 @@ func slicingTest() {
 
     let arr2 = [1, 2, 3, 4, 5]
     arr[0..2] = arr2[0..2] // ok
-
     // arr = [1, 2, 0, 0, 0]
     arr[0..2] = arr2 // runtime exception
     arr[..] = arr2
@@ -644,7 +644,6 @@ func varray() {
     var arr7: VArray<Int64, $2> = [0, 1]
     let element0 = arr7[0] // element0 = 0
     arr7[1] = 10 // change the value of the second element of 'arr7' through index
-
     // Get and Set of multi-dimensional VArrays.
     var arr8: VArray<VArray<Int64, $2>, $2> = [[1, 2], [3, 4]]
     let arr9: VArray<Int64, $2> = [0, 1]

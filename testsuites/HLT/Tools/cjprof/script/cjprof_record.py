@@ -54,22 +54,38 @@ def recording_attach(samplingfreq, inputfile, outputfile, run_env):
         cmd = "./{}".format(inputfile)
         cmd_list = shlex.split(cmd)
         p = subprocess.Popen(cmd_list, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        time.sleep(1)
-        real_pid = subprocess.check_output(["pidof", inputfile]).split()[0].decode('utf-8')
+        real_pid = None
+        for _ in range(10):
+            try:
+                real_pid = subprocess.check_output(["pidof", inputfile]).split()[0].decode('utf-8')
+                break
+            except subprocess.CalledProcessError:
+                time.sleep(0.5)
+        if not real_pid:
+            print("ERROR: failed to get pid of {}".format(inputfile))
+            p.kill()
+            clean_subprocess(p)
+            sys.exit(1)
 
     print("\n -------- cjprof {0} real_pid: {1} -------- \n".format(inputfile, real_pid))
     print("\n -------- cjprof record {0} {1} {2}-------- \n".format('-f ' + str(samplingfreq), '-o ' + outputfile,
                                                                     '-p ' + real_pid))
+    pwd = os.environ.get('PASSWORD', '')
+    cangjie_home = os.environ['CANGJIE_HOME']                                                                
     cmd = "cjprof record {0} {1} {2}".format('-f ' + str(samplingfreq), '-o ' + outputfile, '-p ' + real_pid)
-    cmd_list = shlex.split(cmd)
+    cmd = f'echo {pwd} | sudo -S bash -c "source {cangjie_home}/envsetup.sh ; {cmd}"'
+    print(f'cmd = {cmd}')
     p_record = subprocess.Popen(
-        cmd_list,
+        cmd,
+        shell=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         preexec_fn=os.setsid)
     # Execute error-cases: with samplingfreq
     # Execute error-cases: with samplingfreq
     if samplingfreq != "max": sampling_exit(samplingfreq, p_record)
+    # wait for cjprof to actually attach to the target and start sampling
+    time.sleep(5)
     # wait until subprocess to finish its work
     p.communicate()
     p_record.communicate()
@@ -112,3 +128,4 @@ if __name__ == "__main__":
         recording_launch(options.samplingfreq, options.inputfile, options.outputfile, run_env)
     else:
         recording_attach(options.samplingfreq, options.inputfile, options.outputfile, run_env)
+

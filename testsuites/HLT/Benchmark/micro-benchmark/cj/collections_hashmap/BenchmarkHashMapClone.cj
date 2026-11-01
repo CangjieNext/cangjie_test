@@ -7,11 +7,12 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Configure[minDuration: Duration.second * 3]
@@ -40,21 +41,21 @@ public class Test_HashMap_Clone {
 
     @Bench
     func BenchmarkHashMapClone_N_16(): Unit {
-        var hashmap = hashmap_16.clone()
+        blackBox(hashmap_16.clone())
     }
 
     @Bench
     func BenchmarkHashMapClone_N_128(): Unit {
-        var hashmap = hashmap_128.clone()
+        blackBox(hashmap_128.clone())
     }
 
     @Bench
     func BenchmarkHashMapClone_N_1024(): Unit {
-        var hashmap = hashmap_1024.clone()
+        blackBox(hashmap_1024.clone())
     }
 
     @Bench
     func BenchmarkHashMapClone_N_65536(): Unit {
-        var hashmap = hashmap_65536.clone()
+        blackBox(hashmap_65536.clone())
     }
 }

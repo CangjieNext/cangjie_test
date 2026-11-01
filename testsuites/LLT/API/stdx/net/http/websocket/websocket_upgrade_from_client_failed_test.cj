@@ -48,7 +48,7 @@ class TestWebSocketUpgradeFromClientFailed {
             let headers: HttpHeaders
             (websocket, headers) = WebSocket.upgradeFromClient(client, u, subProtocols: subProtocol)
         } catch (e: WebSocketException) {
-            @Expect(e.message, "Upgrade to websocket failed, the status code should be 101, but received 200.")
+            @Expect(e.message, "WebSocket upgrade failed: invalid status code '200', expected 101.")
         }
 
         let uc = URL.parse("http://127.0.0.1:${port}/a")

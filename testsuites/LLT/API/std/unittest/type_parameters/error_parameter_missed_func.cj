@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC-PIPE-1: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt 2>&1 | compare %f
-// ASSERT: scan Generic type parameter B is not provided, did you forget to put a @Types macro?
+// ASSERT: scan Generic type parameter 'B' is not provided. Use '@Types' macro to provide it.
 
 @Test
 @Types[A in<Int64>]

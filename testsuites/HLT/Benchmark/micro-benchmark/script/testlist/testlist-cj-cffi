@@ -45,10 +45,9 @@ BenchmarkCffiStruct5
 BenchmarkCffiStruct6
 BenchmarkCffiStruct7
 BenchmarkCffiStruct8
-# DTS2023032912306
-#BenchmarkCffiReturn5
-#BenchmarkCffiReturn6
-#BenchmarkCffiReturn7
-#BenchmarkCffiReturn8
-#BenchmarkCffiReturn9
-#BenchmarkCffiReturn10
+BenchmarkCffiReturn5
+BenchmarkCffiReturn6
+BenchmarkCffiReturn7
+BenchmarkCffiReturn8
+BenchmarkCffiReturn9
+BenchmarkCffiReturn10

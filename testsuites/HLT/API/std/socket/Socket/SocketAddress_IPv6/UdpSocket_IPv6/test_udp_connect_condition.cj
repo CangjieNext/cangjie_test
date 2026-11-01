@@ -178,7 +178,7 @@ class Test_Tcp_Connect_Condition {
         try {
             udpsocket1.connect(addr)
         } catch (e: SocketException) {
-            @Expect(e.message, "The socket is already connected")
+            @Expect(e.message, "Socket is already connected.")
             sum += 1
         }
 

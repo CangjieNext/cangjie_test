@@ -11,9 +11,9 @@
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args --no-color 2>&1 | compare %f
 // ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: First argument is NaN.
 // ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Second argument is NaN.
-// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: delta is NaN.
-// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: delta must be in interval [0.0, Float16.Max). Actual delta: inf.
-// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: delta must be in interval [0.0, Float16.Max). Actual delta: -1.000000.
+// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Delta value is NaN.
+// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Delta value must be in interval [0.0, Float16.Max), got: 'inf'.
+// ASSERT: scan REASON: An exception has occurred:IllegalArgumentException: Delta value must be in interval [0.0, Float16.Max), got: '-1.000000'.
 // ASSERT: scan PASSED: 3, SKIPPED: 0, ERROR: 5
 // ASSERT: scan FAILED: 0
 

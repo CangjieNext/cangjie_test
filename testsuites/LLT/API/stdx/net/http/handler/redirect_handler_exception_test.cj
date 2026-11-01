@@ -30,13 +30,13 @@ class TestRedirectHandlerException {
         try {
             RedirectHandler("/", 200)
         } catch (e: HttpException) {
-            @Assert(e.message, "Status code should be 3xx besides 304.")
+            @Assert(e.message, "Invalid status code '200': expected a 3xx redirect code except '304'.")
         }
 
         try {
             RedirectHandler("", 300)
         } catch (e: HttpException) {
-            @Assert(e.message, "Redirect url cannot be empty.")
+            @Assert(e.message, "Redirect URL is empty.")
         }
     }
 }

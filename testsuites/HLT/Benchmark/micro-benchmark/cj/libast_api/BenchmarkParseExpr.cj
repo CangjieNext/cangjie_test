@@ -8,11 +8,12 @@
 
 // LEVEL: 3
 // DEPENDENCE: inputs.cj utils.cj visitors.cj
-// EXEC: %compiler %cmp_opt %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
+// EXEC: %compiler %cmp_opt -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f inputs.cj utils.cj visitors.cj -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run %run_opt %output %run_utest_opt %run_args --bench --no-color
 
 import std.ast.*
 import std.collection.*
+import std.runtime.*
 
 @Test
 @Measure[TimeNow(Nanos)]
@@ -29,17 +30,17 @@ class TestParseExpr {
 
     @Bench
     func BenchmarkParseExpr_RefExpr_001() : Unit {
-        let expr = (parseExpr(watchAttrInput1) as RefExpr).getOrThrow()
+        blackBox((parseExpr(watchAttrInput1) as RefExpr).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseExpr_RefExpr_002() : Unit {
-        let expr = (parseExpr(watchAttrInput2) as RefExpr).getOrThrow()
+        blackBox((parseExpr(watchAttrInput2) as RefExpr).getOrThrow())
         ()
     }
     @Bench
     func BenchmarkParseExpr_LitConstExpr_001() : Unit {
-        let expr = (parseExpr(storagePropAttrInput1) as LitConstExpr).getOrThrow()
+        blackBox((parseExpr(storagePropAttrInput1) as LitConstExpr).getOrThrow())
         ()
     }
 

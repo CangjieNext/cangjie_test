@@ -10,19 +10,19 @@
 /* SCAN-IN
 - (id)initWithM:(M*)m {
     self.$registryId = -1;
-    self = (__bridge_transfer A*)CJImpl_ObjC_cjworld_A_initWithM_PuCN7cjworld1ME((__bridge void*)self, (__bridge_retained void*)m);
+    self = (__bridge_transfer A*)CJImpl_ObjC_cjworld_A_initWithM_T1_PuCN7cjworld5A$regEECN7cjworld1ME((__bridge void*)self, (__bridge_retained void*)m);
 */
 
 package cjworld
 
 import objc.lang.*
 
-@ObjCMirror
-public open class M {
+@ObjC
+public open foreign class M {
     init()
 }
 
-@ObjCImpl
+@ObjC
 public class A <: M {
     @ForeignName["initWithM:"]
     public init(m: M) {

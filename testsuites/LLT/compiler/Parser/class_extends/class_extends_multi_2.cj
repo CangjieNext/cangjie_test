@@ -12,14 +12,7 @@ error: expected '{', found 'C2'
   |                ^^ expected '{' here
   | 
 
-error: expected ';' or '<NL>', found '}'
- ==> class_extends_multi_2.cj:5:20:
-  | 
-5 | class C3 <: C1 C2 {} 
-  |                    ^ expected ';' or '<NL>' here
-  | 
-
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

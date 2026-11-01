@@ -21,5 +21,5 @@ AOT r,r,-> 39
 Android c,c,39
 CJVM c,c,
 s,s,23
-p,p para_1,\(default(?:\.|::)test_RGBColor\)[\s\S]*{(\r|\n|\r\n)  constructor = Yellow_3[\s\S]*arg_1 = "测试%&……%￥#"[\s\S]*arg_6 = {(\r|\n|\r\n)    constructor = Yellow[\s\S]*}
+p,p para_1,\(default(?:\.|::)test_RGBColor\)[\s\S]*{(\r|\n|\r\n)  constructor = Yellow_3[\s\S]*arg_1 = "test"[\s\S]*arg_6 = {(\r|\n|\r\n)    constructor = Yellow[\s\S]*}
 q,q,

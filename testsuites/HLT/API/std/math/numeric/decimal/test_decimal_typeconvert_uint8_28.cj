@@ -31,7 +31,7 @@ class Test_decimal_typeconvert_uint8_28 {
         try {
             dec1.toInt8()
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int8.")
+            @Expect(e.message, "Value out of Int8 range.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -48,7 +48,7 @@ class Test_decimal_typeconvert_uint8_28 {
         try {
             dec1.toInt8(overflowHandling: OverflowStrategy.Throwing)
         } catch (e: OverflowException) {
-            @Expect(e.message, "Out of range of the Int8.")
+            @Expect(e.message, "Value out of Int8 range.")
             sum += 1
         }
         @Expect(sum, 2)

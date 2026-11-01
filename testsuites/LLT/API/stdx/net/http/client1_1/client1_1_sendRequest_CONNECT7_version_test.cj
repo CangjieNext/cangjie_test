@@ -38,7 +38,7 @@ class TestConnNodeSendRequestCONNECT7 {
             client.connect(u, version: UnknownProtocol("o"))
             @Expect(1, 2)
         } catch (e: HttpException) {
-            @Expect(e.message, "Protocol unknown.")
+            @Expect(e.message, "Unknown protocol.")
         }
 
         try {

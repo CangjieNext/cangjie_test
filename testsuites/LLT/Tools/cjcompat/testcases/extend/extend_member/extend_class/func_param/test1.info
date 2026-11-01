@@ -1,0 +1,28 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: mypkg_v0.cj mypkg_v1.cj
+// EXEC: %cjc mypkg_v0.cj %staticlib
+// EXEC: %move myPkgA.cjo old.cjo
+// EXEC: %cjc mypkg_v1.cj %staticlib
+// EXEC: %move myPkgA.cjo new.cjo
+// EXEC-PIPE-0: %cjcompat %old old.cjo %new new.cjo | compare %f
+
+// ASSERT: scan Incompatible!
+/* SCAN-IN
+[ABI] Changed parameter default value of a const function or function marked with @Frozen.
+  func_param a: [BEFORE] myPkgA/mypkg_v0.cj:13:27-13:39
+  func_param a: [AFTER] myPkgA/mypkg_v1.cj:14:27-14:40
+[ABI] Changed parameter default value of a const function or function marked with @Frozen.
+  func_param a: [BEFORE] myPkgA/mypkg_v0.cj:16:26-16:38
+  func_param a: [AFTER] myPkgA/mypkg_v1.cj:17:26-17:39
+[ABI] Changed parameter default value of a const function or function marked with @Frozen.
+  func_param a: [BEFORE] myPkgA/mypkg_v0.cj:22:29-22:41
+  func_param a: [AFTER] myPkgA/mypkg_v1.cj:23:29-23:42
+[ABI] Changed parameter default value of a const function or function marked with @Frozen.
+  func_param a: [BEFORE] myPkgA/mypkg_v0.cj:30:20-30:32
+  func_param a: [AFTER] myPkgA/mypkg_v1.cj:31:20-31:33
+*/

@@ -27,42 +27,42 @@ class Test_parse_offset {
             let res3 = DateTime.parse("2023/04/17 19:52:23 +26", "yyyy/MM/dd HH:mm:ss O")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "The hour in offset should be in [-24, 25].")
+            @Expect(e.message, "Invalid hour in offset: expected -24 to 25.")
         }
 
         try {
             let res4 = DateTime.parse("2023/04/17 19:52:23 -25", "yyyy/MM/dd HH:mm:ss O")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "The hour in offset should be in [-24, 25].")
+            @Expect(e.message, "Invalid hour in offset: expected -24 to 25.")
         }
 
         try {
             let res5 = DateTime.parse("2023/04/17 19:52:23 +0", "yyyy/MM/dd HH:mm:ss O")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
             let res6 = DateTime.parse("2023/04/17 19:52:23 -0", "yyyy/MM/dd HH:mm:ss O")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
             let res7 = DateTime.parse("2023/04/17 19:52:23 00", "yyyy/MM/dd HH:mm:ss O")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
             let res8 = DateTime.parse("2023/04/17 19:52:23 SS", "yyyy/MM/dd HH:mm:ss O")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
@@ -85,14 +85,14 @@ class Test_parse_offset {
             let res11 = DateTime.parse("2023/04/17 19:52:23 +000", "yyyy/MM/dd HH:mm:ss O")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Extar value, start at index 23.")
+            @Expect(e.message, "Extra value starting at index 23.")
         }
 
         try {
             let res12 = DateTime.parse("2023/04/17 19:52:23 +", "yyyy/MM/dd HH:mm:ss O")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         @Expect(cnt, 10)
@@ -110,42 +110,42 @@ class Test_parse_offset {
             let res3 = DateTime.parse("2023/04/17 19:52:23 +25:60", "yyyy/MM/dd HH:mm:ss OO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "The minute or second in offset should be in [0, 59].")
+            @Expect(e.message, "Invalid minute or second in offset: expected 0 to 59.")
         }
 
         try {
             let res4 = DateTime.parse("2023/04/17 19:52:23 -24:-1", "yyyy/MM/dd HH:mm:ss OO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Fail to parse at index 24: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 24: expected an integer, got '-'.")
         }
 
         try {
             let res5 = DateTime.parse("2023/04/17 19:52:23 +0:00", "yyyy/MM/dd HH:mm:ss OO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
             let res6 = DateTime.parse("2023/04/17 19:52:23 -0:00", "yyyy/MM/dd HH:mm:ss OO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
             let res7 = DateTime.parse("2023/04/17 19:52:23 00:00", "yyyy/MM/dd HH:mm:ss OO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
             let res8 = DateTime.parse("2023/04/17 19:52:23 SS:00", "yyyy/MM/dd HH:mm:ss OO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
@@ -168,14 +168,14 @@ class Test_parse_offset {
             let res11 = DateTime.parse("2023/04/17 19:52:23 +000:00", "yyyy/MM/dd HH:mm:ss OO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Fail to parse at index 23: \"0\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 23: expected ':', got '0'.")
         }
 
         try {
             let res12 = DateTime.parse("2023/04/17 19:52:23 +:00", "yyyy/MM/dd HH:mm:ss OO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
     }
 
@@ -191,42 +191,42 @@ class Test_parse_offset {
             let res3 = DateTime.parse("2023/04/17 19:52:23 +25:59:60", "yyyy/MM/dd HH:mm:ss OOO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "The minute or second in offset should be in [0, 59].")
+            @Expect(e.message, "Invalid minute or second in offset: expected 0 to 59.")
         }
 
         try {
             let res4 = DateTime.parse("2023/04/17 19:52:23 -24:00:-1", "yyyy/MM/dd HH:mm:ss OOO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Fail to parse at index 27: \"-\" should be integer.")
+            @Expect(e.message, "Failed to parse at index 27: expected an integer, got '-'.")
         }
 
         try {
             let res5 = DateTime.parse("2023/04/17 19:52:23 +0:00:00", "yyyy/MM/dd HH:mm:ss OOO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
             let res6 = DateTime.parse("2023/04/17 19:52:23 -0:00:00", "yyyy/MM/dd HH:mm:ss OOO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
             let res7 = DateTime.parse("2023/04/17 19:52:23 00:00:00", "yyyy/MM/dd HH:mm:ss OOO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
             let res8 = DateTime.parse("2023/04/17 19:52:23 SS:00:00", "yyyy/MM/dd HH:mm:ss OOO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
 
         try {
@@ -249,14 +249,14 @@ class Test_parse_offset {
             let res11 = DateTime.parse("2023/04/17 19:52:23 +000:00:00", "yyyy/MM/dd HH:mm:ss OOO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Fail to parse at index 23: \"0\" should be \":\".")
+            @Expect(e.message, "Failed to parse at index 23: expected ':', got '0'.")
         }
 
         try {
             let res12 = DateTime.parse("2023/04/17 19:52:23 +:00:00", "yyyy/MM/dd HH:mm:ss OOO")
         } catch (e: TimeParseException) {
             cnt += 1
-            @Expect(e.message, "Illegal zone offset value.")
+            @Expect(e.message, "Invalid zone offset value.")
         }
     }
 
@@ -278,42 +278,42 @@ class Test_parse_offset {
             let res6 = DateTime.parse("2023/04/17 19:52:23 +25:59:60", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e6: TimeParseException) {
             cnt += 1
-            @Expect(e6.message, "The minute or second in offset should be in [0, 59].")
+            @Expect(e6.message, "Invalid minute or second in offset: expected 0 to 59.")
         }
 
         try {
             let res7 = DateTime.parse("2023/04/17 19:52:23 -24:00:-1", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e7: TimeParseException) {
             cnt += 1
-            @Expect(e7.message, "Extar value, start at index 26.")
+            @Expect(e7.message, "Extra value starting at index 26.")
         }
 
         try {
             let res8 = DateTime.parse("2023/04/17 19:52:23 +0:00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e8: TimeParseException) {
             cnt += 1
-            @Expect(e8.message, "Fail to parse at index 22: \":\" should be integer.")
+            @Expect(e8.message, "Failed to parse at index 22: expected an integer, got ':'.")
         }
 
         try {
             let res9 = DateTime.parse("2023/04/17 19:52:23 -0:00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e9: TimeParseException) {
             cnt += 1
-            @Expect(e9.message, "Fail to parse at index 22: \":\" should be integer.")
+            @Expect(e9.message, "Failed to parse at index 22: expected an integer, got ':'.")
         }
 
         try {
             let res10 = DateTime.parse("2023/04/17 19:52:23 00:00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e10: TimeParseException) {
             cnt += 1
-            @Expect(e10.message, "Zone offset should start with \"+\" or \"-\".")
+            @Expect(e10.message, "Zone offset must start with '+' or '-'.")
         }
 
         try {
             let res11 = DateTime.parse("2023/04/17 19:52:23 SS:00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e11: TimeParseException) {
             cnt += 1
-            @Expect(e11.message, "Zone offset should start with \"+\" or \"-\".")
+            @Expect(e11.message, "Zone offset must start with '+' or '-'.")
         }
 
         try {
@@ -336,14 +336,14 @@ class Test_parse_offset {
             let res14 = DateTime.parse("2023/04/17 19:52:23 +000:00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e14: TimeParseException) {
             cnt += 1
-            @Expect(e14.message, "Fail to parse at index 23: \"0\" should be \":\".")
+            @Expect(e14.message, "Failed to parse at index 23: expected ':', got '0'.")
         }
 
         try {
             let res15 = DateTime.parse("2023/04/17 19:52:23 +:00:00", "yyyy/MM/dd HH:mm:ss OOOO")
         } catch (e15: TimeParseException) {
             cnt += 1
-            @Expect(e15.message, "Fail to parse at index 21: \":\" should be integer.")
+            @Expect(e15.message, "Failed to parse at index 21: expected an integer, got ':'.")
         }
 
         @Expect(cnt, 10)

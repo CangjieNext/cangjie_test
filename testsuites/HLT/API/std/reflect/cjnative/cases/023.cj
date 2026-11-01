@@ -7,8 +7,6 @@
  */
 
 // LEVEL: 2
-// DEPENDENCE: ../MyType
-// EXEC: %compiler %cmp_opt %compile_dylib_opt ./MyType/src/myType/*.cj -o ./MyType/libMyType.myType.%test_suffix
 // EXEC: %compiler %cmp_opt -o %output %f
 // RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan IllegalArgumentException

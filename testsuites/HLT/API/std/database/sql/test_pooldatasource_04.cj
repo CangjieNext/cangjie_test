@@ -200,7 +200,7 @@ class Test_PooledDatasource_03 {
             pool.connectionTimeout = Duration.Min
             @Expect(false)
         } catch (e: ArithmeticException) {
-            @Expect(e.message, "The duration in millisecond exceeds the range of 'Int64'.")
+            @Expect(e.message, "Duration in milliseconds exceeds 'Int64' range.")
         }
         pool.keepaliveTime = Duration.nanosecond
         @Expect(pool.keepaliveTime, Duration.nanosecond)

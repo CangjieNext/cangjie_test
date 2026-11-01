@@ -7,13 +7,10 @@
  */
 
 // LEVEL: 2
-// DEPENDENCE: ../MyType
-// EXEC: %compiler %cmp_opt %compile_library -p ./MyType/src/myType -o libMyType.myType.%test_suffix
-// EXEC: %compiler %cmp_opt -o %output %f --import-path . -L. -lMyType.myType %cmp_utest_opt
+// EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
 // RUN-EXEC: %run %run_opt %output %run_args %run_utest_opt
 
 import std.reflect.*
-import MyType.myType.*
 
 @Test
 class Test {

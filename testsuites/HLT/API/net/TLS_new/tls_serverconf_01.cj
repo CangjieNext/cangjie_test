@@ -116,7 +116,7 @@ class Test_tlsserverconf_01 {
         try {
             TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
         } catch (e: Exception) {
-            @Expect(e.message.contains("Failed to parse base64 encoded PEM body"))
+            @Expect(e.message.contains("Failed to parse PEM: invalid base64 content."))
             sum2 += 1
         }
         @Expect(sum2, 1)
@@ -140,7 +140,7 @@ class Test_tlsserverconf_01 {
         try {
             tlsServer.handshake()
         } catch (e: TlsException) {
-            @Expect(e.message.contains("The Certificate chain doesn't match the private key"))
+            @Expect(e.message.contains("Certificate chain does not match private key"))
             sum2 += 1
         }
         @Expect(sum2, 1)
@@ -158,7 +158,7 @@ class Test_tlsserverconf_01 {
         try {
             String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.der", Read)))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Invalid unicode scalar value."))
+            @Expect(e.message.contains("Invalid UTF-8: byte sequence starting at index"))
             sum2 += 1
         }
         @Expect(sum2, 1)

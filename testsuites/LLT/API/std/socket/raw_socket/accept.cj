@@ -115,7 +115,7 @@ class TestAccept {
             ipv4_socket.accept(timeout: Duration.second * (-1))
             @Expect(1, 2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Timeout should not be negative."), true)
+            @Expect(e.message.contains("Timeout cannot be negative."), true)
             ipv4_socket.close()
         }
     }

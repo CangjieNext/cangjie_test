@@ -49,7 +49,7 @@ class DecompressInputStreamTest {
         try {
             decompressInputStream.read(emptyBuf)
         } catch (e: ZlibException) {
-            @Expect(e.message, "The buffer for storing decompressed data cannot be empty.")
+            @Expect(e.message, "Buffer for decompressed data cannot be empty.")
             return
         } finally {
             decompressInputStream.close()
@@ -64,7 +64,7 @@ class DecompressInputStreamTest {
         try {
             var _ = DecompressInputStream(dest, wrap: DeflateFormat, bufLen: 0)
         } catch (e: ZlibException) {
-            @Expect(e.message, "Invalid buffer length: bufLen=0")
+            @Expect(e.message, "Invalid buffer length: '0'.")
             return
         }
 
@@ -78,7 +78,7 @@ class DecompressInputStreamTest {
         try {
             var _ = DecompressInputStream(dest, wrap: GzipFormat, bufLen: 0)
         } catch (e: ZlibException) {
-            @Expect(e.message, "Invalid buffer length: bufLen=0")
+            @Expect(e.message, "Invalid buffer length: '0'.")
             return
         }
 
@@ -91,7 +91,7 @@ class DecompressInputStreamTest {
         try {
             var _ = DecompressInputStream(dest, wrap: DeflateFormat, bufLen: -1)
         } catch (e: ZlibException) {
-            @Expect(e.message, "Invalid buffer length: bufLen=-1")
+            @Expect(e.message, "Invalid buffer length: '-1'.")
             return
         }
 
@@ -104,7 +104,7 @@ class DecompressInputStreamTest {
         try {
             var _ = DecompressInputStream(dest, wrap: GzipFormat, bufLen: -1)
         } catch (e: ZlibException) {
-            @Expect(e.message, "Invalid buffer length: bufLen=-1")
+            @Expect(e.message, "Invalid buffer length: '-1'.")
             return
         }
 
@@ -118,7 +118,7 @@ class DecompressInputStreamTest {
         try {
             var _ = DecompressInputStream(dest, wrap: DeflateFormat, bufLen: maxBuflen)
         } catch (e: ZlibException) {
-            @Expect(e.message, "Invalid buffer length: bufLen=-922337203685477580")
+            @Expect(e.message, "Invalid buffer length: '-922337203685477580'.")
             return
         }
 
@@ -132,7 +132,7 @@ class DecompressInputStreamTest {
         try {
             var _ = DecompressInputStream(dest, wrap: GzipFormat, bufLen: maxBuflen)
         } catch (e: ZlibException) {
-            @Expect(e.message, "Invalid buffer length: bufLen=-922337203685477580")
+            @Expect(e.message, "Invalid buffer length: '-922337203685477580'.")
             return
         }
 

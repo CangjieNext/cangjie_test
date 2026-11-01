@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 3
-// EXEC: %compiler %cmp_opt %import-cangjie-stdx %optimization_level_2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
+// EXEC: %compiler %cmp_opt %import-cangjie-stdx -O2 %overflow_wrapping --no-sub-pkg %cmp_utest_opt -Woff=all %f -o %output
 // RUN-EXEC: %export cjHeapSize=16gb && %export cjStackSize=64mb && %export JETVMPROP="-Xmx16G -Djet.cj.use.fibers -Djet.fiber.stack.size=64M" && %run_stdx %output %run_utest_opt %run_args --bench --no-color
 
 import std.time.*
@@ -41,7 +41,7 @@ public class Test_HashMap_Put_Int64 {
     }
 
     @Bench[x in hashMapStrategy]
-    func BenchmarkHashMapPut_Operator_Int64_(x: HashMap<Int64, Int64>): Unit {
+    func BenchmarkHashMapPut_Operator_Int64(x: HashMap<Int64, Int64>): Unit {
         for (v in keys) {
             x[v] = 0
         }

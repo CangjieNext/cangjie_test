@@ -10,6 +10,7 @@
 @end
 
 @interface M<ObjectType> : NSArray<ObjectType>
+-(ObjectType*)foo;
 -(void)f1:(ObjectType)x;
 -(void)f2:(NSArray<ObjectType>*)x;
 -(void)f3:(NSArray<NSArray<ObjectType>*>*)x;

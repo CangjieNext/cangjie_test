@@ -7,13 +7,10 @@
  */
 
 // LEVEL: 2
-// DEPENDENCE: ../MyType
-// EXEC: %compiler %cmp_opt %compile_library --module-name=MyType ./MyType/src/myType/*.cj -o libMyType.myType.%library_suffix
-// EXEC: %compiler %cmp_opt -o %output %f -L. -lMyType.myType %cmp_utest_opt
+// EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
 // RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 // 自定义注解可以作用于函数形参。
 import std.reflect.*
-import MyType.myType.*
 
 @Annotation
 public class Annotation1 {
