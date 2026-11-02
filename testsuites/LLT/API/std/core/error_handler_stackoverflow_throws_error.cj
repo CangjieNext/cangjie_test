@@ -5,7 +5,7 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f
+// EXEC: %compiler %cmp_opt %disableFuncInlining -o %n.%suffix %f
 // EXEC: %run %run_opt %n.%suffix %run_args 2>&1 | compare %f
 // ASSERT: scan throws an error in the error handler
 
@@ -27,6 +27,8 @@ Thread id: 2 throws an error in the error handler
 147289 E   #2  0xffffbd3915f8 in CJ_CJThreadEntry from /path/to/libcangjie-runtime.so
 [1]    147289 segmentation fault  ./errorHandlerSOF
 */
+
+import std.runtime.*
 
 var a = 0
 
@@ -52,6 +54,11 @@ main() {
 }
 
 func test(): Unit {
+    // Reach the stack limit with a bounded number of frames. Tiny recursive
+    // frames otherwise spend the test timeout scanning millions of stack maps.
+    let padding = VArray<Int64, $8192>(repeat: 0)
+    blackBox(padding)
     test()
+    blackBox(padding)
     a++
 }
