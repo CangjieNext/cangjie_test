@@ -49,11 +49,9 @@ class TestSendAndRecv {
             client.sendTo(s_addr, msg_send, 0)
             @Expect(1, 2)
         } catch (e: SocketException) {
-            // cjnative: Failed to write data: Message too long.
-            // windows: Failed to write data 10040: A message sent on a datagram socket was larger than the internal 
-            //          message buffer or some other network limit, or the buffer used to receive a datagram into 
-            //          was smaller than the datagram itself.
-            let res = e.message.contains("Message too long") || e.message.contains("Failed to write data 10040:")
+            // The standard library rejects DATAGRAM payloads larger than
+            // 65507 bytes itself, consistent with UdpSocket.sendTo.
+            let res = e.message.contains("Cannot send datagram larger than 65507")
             @Expect(res, true)
         }
         client.close()
