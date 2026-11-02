@@ -90,6 +90,11 @@ public func toString(a: Any): String {
                 sb.append(l)
                 sb.append(")")
                 sb.toString()
+            case _: OptionTypeInfo =>
+                let t = EnumTypeInfo.of(o)
+                let (eCons, l) = t.destruct(o)
+                let p = l |> map {i: Any => toString(i)} |> collectString(delimiter: ", ")
+                "${t.qualifiedName}.${eCons.name}(${p})"
             case t: EnumTypeInfo =>
                 let (eCons, l) = t.destruct(a)
                 let p = l |> map {i: Any => toString(i)} |> collectString(delimiter: ", ")
