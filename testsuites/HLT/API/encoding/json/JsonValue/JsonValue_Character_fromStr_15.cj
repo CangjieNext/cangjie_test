@@ -13,35 +13,11 @@
 import stdx.encoding.json.*
 
 main(): Int64 {
-<<<<<<< HEAD
     var jsonstrBefore = "{\"name\":\"app\nle\"}"
     try {
         JsonValue.fromStr(jsonstrBefore)
     } catch (_: JsonException) {
         return 0
-||||||| constructed merge base
-    var jsonstrBefore = "{\"name\":\"app\nle\"}"
-    var jv = JsonValue.fromStr(jsonstrBefore)
-    var jsonstrExpect = #"{
-  "name": "app\nle"
-}"#
-    var jsonstrAfter = jv.toJsonString()
-    println(jsonstrAfter)
-    if (jsonstrExpect != jsonstrAfter) {
-        println(1)
-        return 1
-=======
-    var jsonstrBefore = "{\"name\":\"app\\nle\"}"
-    var jv = JsonValue.fromStr(jsonstrBefore)
-    var jsonstrExpect = #"{
-  "name": "app\nle"
-}"#
-    var jsonstrAfter = jv.toJsonString()
-    println(jsonstrAfter)
-    if (jsonstrExpect != jsonstrAfter) {
-        println(1)
-        return 1
->>>>>>> feat: local mode
     }
     return 1
 }

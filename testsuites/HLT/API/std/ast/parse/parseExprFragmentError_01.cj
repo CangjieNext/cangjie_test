@@ -11,13 +11,7 @@
 // EXEC: %compiler %cmp_macro parseExprFragment_define.cj
 // EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
-<<<<<<< HEAD
-||||||| constructed merge base
 // ASSERT: scan expected expression after '', found '+'
-// ASSERT: scan expected expression after '+', found '%'
-=======
-// ASSERT: scan expected expression after '', found '+'
->>>>>>> feat: local mode
 // ASSERT: scan An exception has occurred:
 // ASSERT: scan ParseASTException: Failed to parse expr fragment.
 internal import std.ast.*
