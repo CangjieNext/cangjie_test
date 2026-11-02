@@ -1,0 +1,4 @@
+macro package m
+
+macro {
+}
