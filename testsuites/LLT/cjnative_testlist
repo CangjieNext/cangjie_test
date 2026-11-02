@@ -188,11 +188,6 @@ compiler/CJMP/merging/classes/vtable/import1.cj
 # Driver permission related cases.
 compiler/ConditionalCompilation/cfg/read_file_fail.cj
 compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
-<<<<<<< HEAD
 
 # https://gitcode.com/Cangjie/cangjie_compiler/issues/1208
 API/stdx/AOP_tests/replaceFuncBody_struct_mut.cj
-||||||| constructed merge base
-=======
-
->>>>>>> feat: local mode

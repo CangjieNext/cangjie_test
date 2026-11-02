@@ -4,17 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-<<<<<<< HEAD
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
 // ASSERT: scan interface function 'f1' must be implemented in 'A1'
-||||||| constructed merge base
-// (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// ASSERT: scan interface function 'f1' must be implemented in 'A1'
-=======
-// (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
-// ASSERT: scan interface function 'f1(a: Int64): Unit' must be implemented in 'A1'
->>>>>>> feat: local mode
 
 interface I1 {
     func f1(a: Int64): Unit {
