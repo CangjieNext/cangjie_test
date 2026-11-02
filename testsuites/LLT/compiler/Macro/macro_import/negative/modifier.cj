@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // ERRCHECK: %compiler %cmp_opt %f -o %output
-// ASSERT: scan expected a macro name after keyword 'macro'
+// ASSERT: scan macro import does not allow an import modifier (public/protected/internal)
 
 // Modifiers are not allowed on 'macro import' (no re-export form).
 

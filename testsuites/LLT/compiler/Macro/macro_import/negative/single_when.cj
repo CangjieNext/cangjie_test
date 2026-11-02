@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // ERRCHECK: %compiler %cmp_opt %f -o %output
-// ASSERT: scan unrecognized expression 'os.linux' in annotation '@When'
+// ASSERT: scan macro import @When condition is only allowed per-item inside a `macro { ... }` block
 
 // The single-form 'macro import' does not accept a leading @When condition;
 // conditions are only allowed per item inside the block form.
@@ -14,7 +14,7 @@ macro package m
 
 import std.ast.*
 
-@When[os.linux] macro import pc
+@When[os == "linux"] macro import pc
 
 public macro Dummy(input: Tokens): Tokens {
     input
