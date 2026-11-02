@@ -29,7 +29,7 @@ error: cannot return expression of internal @local! mode
    |     ^^^^^^ 
    | 
 
-error: cannot pass argument of external @local! to @local! parameter
+error: cannot pass an external @local! argument outside exclave
   ==> external_call.cj:15:9:
    | 
 15 |     foo(a)
@@ -43,7 +43,7 @@ error: cannot return expression of internal @local! mode
    |     ^^^^ 
    | 
 
-error: cannot pass argument of external @local! to @local! parameter
+error: cannot pass an external @local! argument outside exclave
   ==> external_call.cj:19:7:
    | 
 19 |     g(a)
