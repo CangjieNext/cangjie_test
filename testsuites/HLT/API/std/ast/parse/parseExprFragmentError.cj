@@ -10,6 +10,13 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 
+<<<<<<< HEAD
+||||||| constructed merge base
+// ASSERT: scan expected expression after '', found '+'
+// ASSERT: scan expected expression after '+', found '%'
+=======
+// ASSERT: scan expected expression after '', found '+'
+>>>>>>> feat: local mode
 // ASSERT: scan An exception has occurred:
 // ASSERT: scan ParseASTException: Failed to parse expr fragment.
 internal import std.ast.*

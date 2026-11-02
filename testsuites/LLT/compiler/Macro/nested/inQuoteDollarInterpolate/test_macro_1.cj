@@ -15,7 +15,13 @@ main(): Int64 {
 /* SCAN
 description: integer_literal, token_id: 139, token_literal_value: 1, fileID: 1, line: 10, column: 19
 description: add, token_id: 12, token_literal_value: +, fileID: 1, line: 10, column: 21
+<<<<<<< HEAD
 description: integer_literal, token_id: 139, token_literal_value: 2, fileID: 20, line: 40, column: 26
+||||||| constructed merge base
+description: integer_literal, token_id: 139, token_literal_value: 2, fileID: 26, line: 40, column: 26
+=======
+description: integer_literal, token_id: 139, token_literal_value: 2, fileID: 27, line: 40, column: 26
+>>>>>>> feat: local mode
 */
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

@@ -61,7 +61,7 @@ note: the deriving '!=' is defined here
    |                   ^^ the visibility of the deriving '!=' is 'internal'
    | 
 note: the visibility of the base '!=' is 'public'
-  ==> (package std.core)equatable.cj:20:19:
+  ==> (package std.core)equatable.cj:32:19:
 
 1 error generated, 1 error printed.
 */
