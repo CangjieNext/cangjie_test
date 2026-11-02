@@ -60,45 +60,9 @@ main(): Int64 {
     return 0
 }
 
-<<<<<<< HEAD
 // ASSERT: scan Cannot construct the 'RefType' node.
 // ASSERT: scan description: less, token_id: 53, token_literal_value: <
 // ASSERT: scan description: greater, token_id: 54, token_literal_value: >
 // ASSERT: scan description: colon, token_id: 28, token_literal_value: :
 // ASSERT: scan Illegal token kind: expected 'COMMA', got 'AND'.
 // ASSERT: scan cnt = 3
-||||||| constructed merge base
-/* SCAN-IN
-Cannot construct the 'RefType' node.
-parsing type error.
-description: less, token_id: 53, token_literal_value: <, fileID: 1, line: 33, column: 38
-description: greater, token_id: 54, token_literal_value: >, fileID: 1, line: 33, column: 44
-description: colon, token_id: 28, token_literal_value: :, fileID: 27, line: 23, column: 33
-Illegal TokenKind, TokenKind should be COMMA
-cnt = 3
-*/
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
-=======
-/* SCAN-IN
-Cannot construct the 'RefType' node.
-parsing type error.
-description: less, token_id: 53, token_literal_value: <, fileID: 1, line: 33, column: 38
-description: greater, token_id: 54, token_literal_value: >, fileID: 1, line: 33, column: 44
-description: colon, token_id: 28, token_literal_value: :, fileID: 28, line: 23, column: 33
-Illegal TokenKind, TokenKind should be COMMA
-cnt = 3
-*/
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
->>>>>>> feat: local mode

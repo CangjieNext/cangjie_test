@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %local %cmp_opt %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan-begin true
 // ASSERT: scan-next abcdabcd

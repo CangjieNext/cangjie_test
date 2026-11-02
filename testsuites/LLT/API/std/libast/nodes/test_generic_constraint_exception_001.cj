@@ -29,36 +29,6 @@ main(): Int64 {
     return 0
 }
 
-<<<<<<< HEAD
 // ASSERT: scan description: upperbound, token_id: 135, token_literal_value: <:
 // ASSERT: scan Illegal token kind: expected 'BITAND', got 'AND'.
 // ASSERT: scan cnt = 1
-||||||| constructed merge base
-/* SCAN
-description: upperbound, token_id: 135, token_literal_value: <:, fileID: 13, line: 342, column: 35
-Illegal TokenKind, TokenKind should be BITAND
-cnt = 1
-*/
-
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
-=======
-/* SCAN
-description: upperbound, token_id: 135, token_literal_value: <:, fileID: 14, line: 342, column: 35
-Illegal TokenKind, TokenKind should be BITAND
-cnt = 1
-*/
-
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
->>>>>>> feat: local mode

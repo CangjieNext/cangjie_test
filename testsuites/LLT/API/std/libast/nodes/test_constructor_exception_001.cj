@@ -49,7 +49,6 @@ main(): Int64 {
     return 0
 }
 
-<<<<<<< HEAD
 // ASSERT: scan ident(() ->,())
 // ASSERT: scan traversed!
 // ASSERT: scan Constructor {
@@ -67,52 +66,3 @@ main(): Int64 {
 // ASSERT: scan 10
 // ASSERT: scan description: identifier, token_id: 137, token_literal_value:
 // ASSERT: scan cnt = 0
-||||||| constructed merge base
-/* SCAN-IN
-ident(() ->,())
-traversed!
-Constructor {
-  -identifier: Token {
-    value: "ident"
-    kind: IDENTIFIER
-    pos: 31: 34
-  }
-  -typeArguments: 0, FuncType {
-    -ARROW: Token {
-      value: "->"
-      kind: ARROW
-    }
-    -returnType:   }
-  -typeArguments: 1, ParenType {
-    -parenthesizedType:   }
-}
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 44, column: 43
-10
-description: identifier, token_id: 137, token_literal_value: , fileID: 13, line: 82, column: 38
-cnt = 0
- */
-=======
-/* SCAN-IN
-ident(() ->,())
-traversed!
-Constructor {
-  -identifier: Token {
-    value: "ident"
-    kind: IDENTIFIER
-    pos: 31: 34
-  }
-  -typeArguments: 0, FuncType {
-    -ARROW: Token {
-      value: "->"
-      kind: ARROW
-    }
-    -returnType:   }
-  -typeArguments: 1, ParenType {
-    -parenthesizedType:   }
-}
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 44, column: 43
-10
-description: identifier, token_id: 137, token_literal_value: , fileID: 14, line: 82, column: 38
-cnt = 0
- */
->>>>>>> feat: local mode
