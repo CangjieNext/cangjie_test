@@ -12,8 +12,13 @@
 // EXEC: %run %run_opt %output %run_args
 // ASSERT: scan 1
 
-// E2E for 'macro import' block form with per-item @When condition: on a linux
-// target only 'import pl' takes effect, the @When[os == "Windows"] item is skipped.
+// E2E for 'macro import' block form with per-item @When condition, checking
+// BOTH directions on a linux target:
+// - positive: `import pl` is kept, so lval() resolves and prints 1;
+// - negative: the @When[os == "Windows"] item is skipped. pw.cj declares the
+//   same symbol name as pl on purpose, so if cond-comp evaluation degenerates
+//   to "keep all", both imports get injected and lval() fails to compile with
+//   "ambiguous match", turning this case red (the false entry cannot stay).
 
 import m.*
 

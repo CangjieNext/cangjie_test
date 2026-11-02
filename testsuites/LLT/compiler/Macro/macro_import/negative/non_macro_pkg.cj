@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // ERRCHECK: %compiler %cmp_opt %f -o %output
-// ASSERT: scan macro declaration must be defined in macro package
+// ASSERT: scan macro import is only allowed in a macro package
 
 // 'macro import' is only allowed inside a macro package.
 

@@ -4,8 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// pw deliberately declares the SAME symbol name as pl: if the @When[os == "Windows"]
+// item is wrongly kept (cond-comp evaluation degenerating to "keep all"), both
+// `import pl` and `import pw` get injected and the use of lval() in call.cj hits
+// "ambiguous match", which turns the case red. With correct evaluation pw is
+// skipped on linux and only pl.lval is visible, so call.cj runs and prints 1.
+
 package pw
 
-public func wval(): Int64 {
+public func lval(): Int64 {
     return 2
 }

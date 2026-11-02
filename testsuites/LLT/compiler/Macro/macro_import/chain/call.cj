@@ -11,9 +11,12 @@
 // EXEC: %run_macro %compiler %cmp_opt %f --import-path . -L . --link-options "-l:libpc.a" -o %output
 // EXEC: %run %run_opt %output %run_args
 // ASSERT: scan 3
+// ASSERT: scan 33
 
 // E2E for 'macro import' promotion chain: ma -> mb -> pc. The downstream only
-// imports ma, pc.cval shall become visible through the transitive promotion.
+// imports ma: pc.cval shall become visible through the transitive promotion of
+// the plain function (printed as 3), and the macro DummyB defined in mb shall
+// stay usable downstream through the same chain (printed as 33).
 
 import ma.*
 
@@ -22,6 +25,12 @@ func f(): Int64 {
     return cval()
 }
 
+@DummyB
+func g(): Int64 {
+    return 33
+}
+
 main() {
     println(f())
+    println(g())
 }
