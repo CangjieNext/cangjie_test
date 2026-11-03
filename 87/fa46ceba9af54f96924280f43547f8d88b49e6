@@ -1,0 +1,165 @@
+testsuites/HLT/Benchmark/CJ-Arkworkload/mix-case/cj/weekly/gbemu.cj
+  s_0aa1204c6db504::t_4690d21a3cebd0 13
+testsuites/HLT/Benchmark/micro-benchmark/cj/collections_treemap/BenchmarkTreeMap_Init.cj
+  s_0aa1204c6db504::t_9493f58c0ec7aa 12
+testsuites/HLT/Benchmark/Object-oriented/NCEIterator/cj/NCEIterator.cj
+  s_0aa1204c6db504::t_21c8c2e55393e2 9
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/3/3.info
+  s_e3a6ee9906c579::t_f3f5039bb47f87 17
+testsuites/HLT/Tools/cjpm/cjpm_build/profile_performance/case19/cjpm.toml
+  s_0c14f669034495::t_58ecc9cdf7e1df 22-23
+  s_0c14f669034495::t_1198eacadd130a 1-21,24-47
+testsuites/HLT/Benchmark/API/sync/cj/BenchmarkCond8.cj
+  s_0aa1204c6db504::t_4c78eab21b960c 9
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_fields_01/swbom_fields_01.info
+  s_e3a6ee9906c579::t_4eea7b89116994 15
+testsuites/HLT/Benchmark/API/runtime/cj/BenchmarkCreateThreads.cj
+  s_0aa1204c6db504::t_25a13add7ac064 9
+testsuites/HLT/Tools/cjpm/cjpm_build/profile_performance/case20/case20.info
+  s_0c14f669034495::t_682e946bad0b26 3-5
+  s_0c14f669034495::t_238e4046a277c7 6
+  s_0c14f669034495::t_613fbcc2691661 9-10
+  s_0c14f669034495::t_ae3ae24483a1fd 15
+  s_e3a6ee9906c579::t_2a1ceb1f884a0a 7-8,11-14
+  s_0c14f669034495::t_05d50304d1dcfa 1-2
+testsuites/HLT/Benchmark/API/sync/cj/BenchmarkMutex.cj
+  s_0aa1204c6db504::t_bf589c37fe26d3 9
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_inline_01/swbom_inline_01.info
+  s_e3a6ee9906c579::t_0b74d48634f213 15
+testsuites/HLT/Benchmark/API/sync/cj/BenchmarkCond16.cj
+  s_0aa1204c6db504::t_04d276ee6d20f3 9
+testsuites/HLT/Benchmark/API/math/abs/math_abs.cj
+  s_0aa1204c6db504::t_b29b8552424636 9
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_workspace_01/swbom_workspace_01.info
+  s_e3a6ee9906c579::t_ec8516028846a7 14
+testsuites/HLT/Benchmark/micro-benchmark/cj/json/BenchmarkReadString.cj
+  s_0aa1204c6db504::t_4493530e8b60b7 12
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_check_01/swbom_check_01.info
+  s_e3a6ee9906c579::t_8b66dd8a38dace 15
+testsuites/HLT/Benchmark/micro-benchmark/cj/atomic/BenchmarkConcurrencySubUInt64.cj
+  s_0aa1204c6db504::t_4176d5364bc919 65
+testsuites/HLT/Benchmark/CJ-STD-OHOS-Benchmark/collections_hashmap/BenchmarkHashMapInit.cj
+  s_0aa1204c6db504::t_2f5af03023e708 9
+testsuites/HLT/Benchmark/API/runtime/cj/BenchmarkCreateThreadsParallel.cj
+  s_0aa1204c6db504::t_e968514e63c142 9
+testsuites/HLT/Tools/cjpm/cjpm_build/profile_performance/case20/cjpm.toml
+  s_0c14f669034495::t_3950f6631f2cfc 11-13
+  s_0c14f669034495::t_26a01fdc0783d0 20-23
+  s_0c14f669034495::t_aa26b27a67a8fe 17-19
+  s_0c14f669034495::t_8cbb6f3912937b 14-16
+  s_0c14f669034495::t_b51c4d5591d94b 24-26
+  s_0c14f669034495::t_4d7b9c2d253e69 30-32
+  s_0c14f669034495::t_5fcb1c39db9ca3 27-29
+  s_0c14f669034495::t_4373c5307a1771 8-10
+  s_0c14f669034495::t_d2d61866315640 33-35
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/4/4.info
+  s_e3a6ee9906c579::t_5203104b2812a8 16
+testsuites/HLT/Tools/cjpm/cjpm_build/profile_performance/case19/src/main.cj
+  s_0c14f669034495::t_704e47153e7b9e 1-19
+testsuites/HLT/Benchmark/concurrency-benchmark/PerThreadMemUsage/cj/PerThreadMemUsage.cj
+  s_0aa1204c6db504::t_1dfbc459cbb2e2 9
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_git_registry_01/swbom_git_registry_01.info
+  s_e3a6ee9906c579::t_d71787043fd999 20
+testsuites/HLT/Benchmark/micro-benchmark/cj/libast_api/BenchmarkVisitorTraverse.cj
+  s_0aa1204c6db504::t_5e4c44d71168d8 13
+testsuites/HLT/Benchmark/API/sync/cj/BenchmarkCond1.cj
+  s_0aa1204c6db504::t_db8acbf14e4260 9
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_migrate_02/swbom_migrate_02.info
+  s_e3a6ee9906c579::t_7a8da37f72047d 15
+testsuites/HLT/Benchmark/CJ-GCbenchmark/case/MicroCase/BenchmarkJsonArray2JsonStr.cj
+  s_0aa1204c6db504::t_dc4440343d9f2d 13
+testsuites/HLT/Benchmark/API/runtime/cj/BenchmarkCreateThreadsCapture.cj
+  s_0aa1204c6db504::t_52f356b1adad80 9
+testsuites/HLT/Benchmark/micro-benchmark/cj/regex/BenchmarkAllCountEscapCharterW.cj
+  s_0aa1204c6db504::t_7cfcd63644ada8 13
+testsuites/HLT/Benchmark/API/sync/cj/BenchmarkCond4.cj
+  s_0aa1204c6db504::t_8508d069a9fb2e 9
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_run_01/swbom_run_01.info
+  s_e3a6ee9906c579::t_7c6525dfab7d6b 15
+testsuites/HLT/Tools/cjpm/cjpm_build/profile_performance/case19/src/pkg2/p2.cj
+  s_0c14f669034495::t_8463460267660b 1-11
+testsuites/HLT/Benchmark/API/sync/cj/BenchmarkMutexWork.cj
+  s_0aa1204c6db504::t_cb0c00160bbae0 9
+testsuites/HLT/Benchmark/benchmarks-game/programs/knucleotide/knucleotide.cj
+  s_0aa1204c6db504::t_78c87d0397b282 9-10
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_org_01/swbom_org_01.info
+  s_e3a6ee9906c579::t_59838b9eab9607 15
+testsuites/HLT/Benchmark/API/sync/cj/BenchmarkCond2.cj
+  s_0aa1204c6db504::t_0f0b5cbdf21059 9
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_registry_trans_01/swbom_registry_trans_01.info
+  s_e3a6ee9906c579::t_fee4f00db0d8f2 17
+testsuites/HLT/Benchmark/MemTest/main_jet.cj
+  s_0aa1204c6db504::t_abc95eb13646ec 9
+testsuites/HLT/Benchmark/linaro-benchmark/benchmarks-cj/micro/StringOps/StringIndexOfAfter032.cj
+  s_0aa1204c6db504::t_b66a410f1b615c 9
+testsuites/HLT/Benchmark/CJ-STD-OHOS-Benchmark/collections_hashmap/BenchmarkHashMapClone.cj
+  s_0aa1204c6db504::t_7dea4165a0f369 9
+testsuites/HLT/Benchmark/API/sync/cj/BenchmarkMutexSlack.cj
+  s_0aa1204c6db504::t_a9feae426ee414 9
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/2/2.info
+  s_e3a6ee9906c579::t_9dc787bd871380 17
+testsuites/HLT/Tools/cjpm/cjpm_build/profile_performance/case19/src/pkg1/p1.cj
+  s_0c14f669034495::t_577d19760c13d7 1-11
+testsuites/HLT/Benchmark/MemTest/main.cj
+  s_0aa1204c6db504::t_a11a28721231b5 9
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_registry_01/swbom_registry_01.info
+  s_e3a6ee9906c579::t_80b651d4b2af4b 15
+testsuites/HLT/Benchmark/Object-oriented/complex/cj/complex.cj
+  s_0aa1204c6db504::t_ec9254dcdcc399 9
+testsuites/HLT/Benchmark/API/core/option/option_coalescing.cj
+  s_0aa1204c6db504::t_881ddd7ecbf0b8 9
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_migrate_01/swbom_migrate_01.info
+  s_e3a6ee9906c579::t_bcc388f3218e3e 15
+testsuites/HLT/Benchmark/CJ-GCbenchmark/case/MicroCase/BenchmarkStr2Float64.cj
+  s_0aa1204c6db504::t_b797eb648c8145 13
+testsuites/HLT/Benchmark/API/sync/cj/BenchmarkCond.cj
+  s_0aa1204c6db504::t_3d45a5bd6aaafe 9
+testsuites/HLT/Benchmark/micro-benchmark/cj/atomic/BenchmarkConcurrencySubUInt32.cj
+  s_0aa1204c6db504::t_5188ebf34e6654 65
+testsuites/HLT/Benchmark/API/sync/cj/BenchmarkMutexWorkSlack.cj
+  s_0aa1204c6db504::t_2ef1c602ffbc40 9
+testsuites/HLT/Benchmark/API/sync/cj/BenchmarkCond32.cj
+  s_0aa1204c6db504::t_88b3a41897bb83 9
+testsuites/HLT/Tools/cjpm/cjpm_build/profile_performance/case19/case19.info
+  s_0c14f669034495::t_0f73a4a2aa1a57 1-22
+testsuites/HLT/configs/cjnative/exclude_common
+  s_0aa1204c6db504::t_d20c1c34b48371 84-89
+  s_0aa1204c6db504::t_5fdacdfbfe3dc8 81-83
+  s_0aa1204c6db504::t_83d1846046a907 70-75,77-78,80
+  s_0aa1204c6db504::t_ece9c949844bc3 76
+  s_0aa1204c6db504::t_202c7aff8d5c98 79
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/1/1.info
+  s_e3a6ee9906c579::t_9ede8cbe74a6f4 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "87fa46ceba9af54f96924280f43547f8d88b49e6",
+  "prompts": {},
+  "sessions": {
+    "s_0aa1204c6db504": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e6f146322ffere5An02bYNSzSv",
+        "model": "unknown"
+      },
+      "human_author": null
+    },
+    "s_0c14f669034495": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e7ec92b6dffelP4jcMx5psGUOO",
+        "model": "unknown"
+      },
+      "human_author": "yaoruili <yaoruili@huawei.com>"
+    },
+    "s_e3a6ee9906c579": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e64a28f57ffepdPu3qukvLzf8O",
+        "model": "unknown"
+      },
+      "human_author": null
+    }
+  }
+}
