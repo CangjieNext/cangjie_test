@@ -12,6 +12,11 @@
 // closure document records that a @local? operand cannot build the `(T, R) @local!`
 // tuple, so the argument must be @local! and a @local? argument is rejected at
 // compile time. The @local!/@local! form is covered by test_arraylist_local_zip.cj.
+//
+// The diagnostics are asserted with `regex` instead of a `SCAN-IN` block. A SCAN-IN
+// block is a literal substring, so it pinned the line number of the declaration the
+// note points at, and every edit to that file moved it. These patterns keep the
+// meaning of each diagnostic without depending on where the declaration sits.
 import std.collection.*
 import std.core.*
 
@@ -29,19 +34,8 @@ main(): Int64 {
     0
 }
 
-/* SCAN-IN
-error: unable to infer generic argument of this function
-  ==> test_arraylist_local_zip_neg_q_other.cj:24:55:
-   | 
-24 |     let invalid: ArrayList<(Int64, String)> @local! = left.zip(rightQ)
-   |                                                       ^^^^^^^^ 
-   | 
-note: for function type '(Class-ArrayList<Generics-R> @local!) -> Class-ArrayList<Tuple<Generics-T, Generics-R>> @local!' in context type 'Class-ArrayList<Int64> @local!'
-    ==> (package std.collection)array_list.cj:1929:25:
-note: mismatched types
-  ==> test_arraylist_local_zip_neg_q_other.cj:24:64:
-   | 
-24 |     let invalid: ArrayList<(Int64, String)> @local! = left.zip(rightQ)
-   |                                                                ^^^^^^ of type 'Class-ArrayList<Struct-String>', impossible to match parameter type 'Class-ArrayList<Generics-R>'
-   | 
-*/
+// ASSERT: regex error: unable to infer generic argument of this function
+// ASSERT: regex note: for function type '\(Class-ArrayList<Generics-R> @local!\) -> Class-ArrayList<Tuple<Generics-T, Generics-R>> @local!' in context type 'Class-ArrayList<Int64> @local!'
+// ASSERT: regex note: mismatched types
+// ASSERT: regex of type 'Class-ArrayList<Struct-String>', impossible to match parameter type 'Class-ArrayList<Generics-R>'
+// ASSERT: regex 1 error generated, 1 error printed\.
