@@ -19,6 +19,11 @@ func baz(a: F@local!): F@local! {
     g(a)
 }
 
+func qux(): F@local? {
+    let b: F@local? = F()
+    b
+}
+
 main() {}
 
 /* SCAN
@@ -50,5 +55,12 @@ error: cannot pass argument of external @local! to @local! parameter
    |       ^ 
    | 
 
-4 errors generated, 4 errors printed.
+error: cannot return expression of internal @local? mode
+  ==> external_call.cj:24:5:
+   | 
+24 |     b
+   |     ^ 
+   | 
+
+5 errors generated, 5 errors printed.
 */
