@@ -1,0 +1,18 @@
+testsuites/LLT/compiler/Sema/modal/perf/perf.sh
+  h_7fa24ec5a32f2d 8,11
+testsuites/LLT/compiler/Sema/modal/perf/json.cj
+  h_7fa24ec5a32f2d 155
+testsuites/LLT/API/stdx/encoding/json/local_mode/test_json_format_local_neg_indent.cj
+  h_7fa24ec5a32f2d 36,38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3627def32c58fb09bc5f46cb31366ea976365a96",
+  "prompts": {},
+  "humans": {
+    "h_7fa24ec5a32f2d": {
+      "author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    }
+  }
+}
