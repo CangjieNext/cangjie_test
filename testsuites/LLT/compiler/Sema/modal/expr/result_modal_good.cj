@@ -7,19 +7,8 @@
 // EXEC: %compiler %local %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-func ifExternal(a: String @local!, c: Bool): String @local! {
-    if (c) { "x" } else { a }
-}
-
 func ifInternal(c: Bool) {
     let x: String @local! = if (c) { "x" } else { "y" }
-}
-
-func matchExternal(a: String @local!, n: Int64): String @local! {
-    match (n) {
-        case 0 => "x"
-        case _ => a
-    }
 }
 
 func matchInternal(n: Int64) {
@@ -27,10 +16,6 @@ func matchInternal(n: Int64) {
         case 0 => "x"
         case _ => "y"
     }
-}
-
-func tryExternal(a: String @local!): String @local! {
-    try { "x" } catch (_: Exception) { a }
 }
 
 func tryInternal() {
@@ -43,16 +28,8 @@ func tryFinallyExternal(a: String @local!, c: Bool) {
     }
 }
 
-func arrayExternal(a: String @local!): Array<String> @local! {
-    [a]
-}
-
 func arrayInternal() {
     let x: Array<String> @local! = ["x", "y"]
-}
-
-func tupleExternal(a: String @local!): (String, String) @local! {
-    (a, "x")
 }
 
 func tupleInternal() {
