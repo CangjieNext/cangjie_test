@@ -23,6 +23,8 @@ import socket
 import re
 import threading
 import tempfile
+import atexit
+import math
 
 # Conditional winpty import: enables a real Windows PTY (ConPTY/WinPTY backend)
 # to replace the pipe-based PopenSpawn, eliminating the timing-sensitive
@@ -71,6 +73,16 @@ ANDROID_DEVICE_DIR = "/data/local/tmp/run/"
 ANDROID_RUNTIME_DIR = "linux_android_aarch64_cjnative"
 ANDROID_RUNTIME_MARKER = ANDROID_DEVICE_DIR + ".runtime_marker"
 ANDROID_RUNTIME_PUSH_LOCK_PATH = os.path.join(LOCK_DIR, 'android_runtime_push_lock')
+# Serializes `adb root`/`setenforce`/ptrace-scope setup across parallel
+# workers: concurrent sessions must not restart adbd or flip SELinux while
+# another session is mid-setup.
+ANDROID_DEVICE_SETUP_LOCK_PATH = os.path.join(LOCK_DIR, 'android_device_setup_lock')
+# All cases on one OHOS device / one iOS simulator share a single app
+# instance (fixed bundle name/id) and a single touch screen. The whole
+# install -> start -> debug -> force-stop lifecycle is serialized under
+# these locks until per-test bundles exist.
+OHOS_APP_LOCK_PATH = os.path.join(LOCK_DIR, 'ohos_app_lock')
+IOS_APP_LOCK_PATH = os.path.join(LOCK_DIR, 'ios_app_lock')
 
 OHOS_DEVICE_DIR = "/data/local/tmp/debugserver/"
 OHOS_LLDB_PORT_START = 12000
@@ -79,16 +91,146 @@ OHOS_LLDB_PORT_END = 35000
 LLDB_SERVER_PORT_START = 12000
 LLDB_SERVER_PORT_END = 35000
 
-# Timeouts: Windows/Mac defaults larger than Linux due to DLL/dylib loading
-# and CPU contention under concurrency. Env vars still override on any platform.
+# ---------------------------------------------------------------------------
+# Parallel-aware timeouts.
+#
+# With the Maple framework running `-j N`, N test processes (each spawning
+# cjdb + debuggee, plus lldb-server/CJVM on port-based backends) share the
+# host CPU, so the lean Linux defaults (10/5/10 s) get too tight and turn
+# slow-machine flakiness into false failures. Every cjdb_test.py process
+# registers itself in LOCK_DIR/sessions at startup; the timeout scale below
+# is derived from how many live sessions this host currently runs:
+#
+#   scale(N) = 1.0                          for N <= 1
+#            = min(CAP, 1 + 0.5*log2(N))    for N > 1, CAP = 3.0
+#
+# Precedence (highest wins):
+#   1. Explicit LLDB_*_TIMEOUT env var  -> ABSOLUTE value, never scaled
+#   2. CJDB_TIMEOUT_SCALE env var       -> replaces the auto-detected scale
+#   3. Auto-detected scale from live session count
+# ---------------------------------------------------------------------------
+
+SESSION_DIR = os.path.join(LOCK_DIR, 'sessions')
+TIMEOUT_SCALE_CAP = 3.0
+
+
+def _pid_alive(pid):
+    """Best-effort cross-platform PID liveness check."""
+    try:
+        if sys.platform == 'win32':
+            import ctypes
+            SYNCHRONIZE = 0x00100000
+            handle = ctypes.windll.kernel32.OpenProcess(SYNCHRONIZE, False, int(pid))
+            if handle:
+                ctypes.windll.kernel32.CloseHandle(handle)
+                return True
+            return False
+        try:
+            os.kill(int(pid), 0)
+            return True
+        except ProcessLookupError:
+            return False
+        except PermissionError:
+            return True  # alive, just owned by another user
+    except Exception:
+        # Cannot tell: assume alive so we err on the generous-timeout side.
+        return True
+
+
+def _register_this_session():
+    """Announce this process so peers can size their timeouts."""
+    try:
+        os.makedirs(SESSION_DIR, exist_ok=True)
+        path = os.path.join(
+            SESSION_DIR, '{}_{}.session'.format(os.getpid(), int(time.time() * 1000)))
+        with open(path, 'w') as f:
+            f.write(str(os.getpid()))
+        return path
+    except Exception:
+        return None
+
+
+def _unregister_this_session():
+    if _THIS_SESSION_FILE:
+        try:
+            os.remove(_THIS_SESSION_FILE)
+        except Exception:
+            pass
+
+
+def _count_live_sessions():
+    """Count live cjdb_test.py sessions (including this one); also
+    garbage-collects session files left behind by dead/crashed processes."""
+    count = 0
+    try:
+        names = os.listdir(SESSION_DIR)
+    except Exception:
+        return 1
+    for name in names:
+        if not name.endswith('.session'):
+            continue
+        try:
+            pid = int(name.split('_', 1)[0])
+        except ValueError:
+            continue
+        if _pid_alive(pid):
+            count += 1
+        else:
+            try:
+                os.remove(os.path.join(SESSION_DIR, name))
+            except Exception:
+                pass
+    return max(1, count)
+
+
+def _compute_timeout_scale(sessions):
+    env_scale = os.environ.get('CJDB_TIMEOUT_SCALE')
+    if env_scale is not None and str(env_scale).strip():
+        try:
+            return max(1.0, float(env_scale))
+        except ValueError:
+            print("WARNING: bad CJDB_TIMEOUT_SCALE={!r}, falling back to auto".format(env_scale))
+    if sessions <= 1:
+        return 1.0
+    return min(TIMEOUT_SCALE_CAP, 1.0 + 0.5 * math.log2(sessions))
+
+
+def _scaled_timeout(env_name, base_seconds):
+    """Explicit env var = absolute override; otherwise base * scale."""
+    raw = os.environ.get(env_name)
+    if raw is not None and str(raw).strip():
+        try:
+            return int(raw)
+        except ValueError:
+            print("WARNING: bad {}={!r}, using scaled default".format(env_name, raw))
+    return max(base_seconds, int(base_seconds * TIMEOUT_SCALE))
+
+
+_THIS_SESSION_FILE = _register_this_session()
+atexit.register(_unregister_this_session)
+TIMEOUT_SESSIONS = _count_live_sessions()
+TIMEOUT_SCALE = _compute_timeout_scale(TIMEOUT_SESSIONS)
+
+# Base timeouts: Windows/Mac defaults larger than Linux due to DLL/dylib
+# loading and CPU contention under concurrency.
 if sys.platform == 'win32' or sys.platform == 'darwin':
-    LLDB_STARTUP_TIMEOUT = int(os.environ.get('LLDB_STARTUP_TIMEOUT', 30))
-    LLDB_ATTACH_TIMEOUT = int(os.environ.get('LLDB_ATTACH_TIMEOUT', 15))
-    LLDB_CMD_TIMEOUT = int(os.environ.get('LLDB_CMD_TIMEOUT', 30))
+    _LLDB_BASE = (30, 15, 30)
 else:
-    LLDB_STARTUP_TIMEOUT = int(os.environ.get('LLDB_STARTUP_TIMEOUT', 10))
-    LLDB_ATTACH_TIMEOUT = int(os.environ.get('LLDB_ATTACH_TIMEOUT', 5))
-    LLDB_CMD_TIMEOUT = int(os.environ.get('LLDB_CMD_TIMEOUT', 10))
+    _LLDB_BASE = (10, 5, 10)
+
+LLDB_STARTUP_TIMEOUT = _scaled_timeout('LLDB_STARTUP_TIMEOUT', _LLDB_BASE[0])
+LLDB_ATTACH_TIMEOUT = _scaled_timeout('LLDB_ATTACH_TIMEOUT', _LLDB_BASE[1])
+LLDB_CMD_TIMEOUT = _scaled_timeout('LLDB_CMD_TIMEOUT', _LLDB_BASE[2])
+
+print("[TIMEOUT] sessions={} scale={:.2f} -> STARTUP={}s ATTACH={}s CMD={}s "
+      "(env LLDB_*_TIMEOUT=absolute, CJDB_TIMEOUT_SCALE=override)".format(
+          TIMEOUT_SESSIONS, TIMEOUT_SCALE,
+          LLDB_STARTUP_TIMEOUT, LLDB_ATTACH_TIMEOUT, LLDB_CMD_TIMEOUT))
+
+# Port pool knobs (parallel runs). The old acquire loops spun forever when
+# the range was exhausted; the pool retries a bounded number of rounds, then
+# gives up so the failure is visible instead of hanging the worker.
+PORT_POOL_WAIT_ROUNDS = int(os.environ.get('CJDB_PORT_WAIT_ROUNDS', 50))
 
 
 class WinptySpawn(SpawnBase):
@@ -547,15 +689,22 @@ def setup_android_debug(device_id=None):
         runtime_push_lock.release()
         print("Released runtime push lock")
 
-    # Get root and disable security restrictions for debugging
-    subprocess.run(build_adb_cmd('root', device_id=device_id), capture_output=True, text=True)
-    subprocess.run(build_adb_cmd('wait-for-device', device_id=device_id), capture_output=True, text=True)
-    time.sleep(2)
-    _, ret = adb_shell("setenforce 0", device_id=device_id)
-    if ret != 0:
-        adb_shell("su -c setenforce 0", device_id=device_id)
-    adb_shell("echo 0 > /proc/sys/kernel/yama/ptrace_scope 2>/dev/null; true", device_id=device_id)
-    
+    # Get root and disable security restrictions for debugging.
+    # Serialized across parallel workers: `adb root` may restart adbd and
+    # the SELinux/ptrace flips must not race another session mid-setup.
+    device_setup_lock = InterProcessLock(path=ANDROID_DEVICE_SETUP_LOCK_PATH)
+    device_setup_lock.acquire(blocking=True)
+    try:
+        subprocess.run(build_adb_cmd('root', device_id=device_id), capture_output=True, text=True)
+        subprocess.run(build_adb_cmd('wait-for-device', device_id=device_id), capture_output=True, text=True)
+        time.sleep(2)
+        _, ret = adb_shell("setenforce 0", device_id=device_id)
+        if ret != 0:
+            adb_shell("su -c setenforce 0", device_id=device_id)
+        adb_shell("echo 0 > /proc/sys/kernel/yama/ptrace_scope 2>/dev/null; true", device_id=device_id)
+    finally:
+        device_setup_lock.release()
+
     return True
 
 
@@ -571,8 +720,12 @@ def run_android_executable(executable_name, device_id=None, unique_id=None):
         executable_name = base_exec_name
     remote_path = ANDROID_DEVICE_DIR + executable_name
 
-    source_path = ANDROID_DEVICE_DIR + base_exec_name
-    adb_shell(f"cp {source_path} {remote_path}", device_id=device_id)
+    # setup() already pushed this session's unique copy; fall back to the
+    # shared base copy only for callers that did not push one (legacy path).
+    unique_exists, _ = adb_shell(f"test -f {remote_path} && echo 1", device_id=device_id)
+    if unique_exists.strip() != "1":
+        source_path = ANDROID_DEVICE_DIR + base_exec_name
+        adb_shell(f"cp {source_path} {remote_path}", device_id=device_id)
     adb_shell(f"chmod +x {remote_path}", device_id=device_id)
 
     cmd = f"cd {ANDROID_DEVICE_DIR} && export LD_LIBRARY_PATH={ANDROID_DEVICE_DIR}{ANDROID_RUNTIME_DIR} && ./{executable_name}"
@@ -645,12 +798,21 @@ class IOSDebugSession:
         self.cjdb_proc = None
         self.ios_pid = None
         self.exec_file = None
+        self.app_lock = None
     
     def setup(self, test_case, cmp_res):
         """
         setup: Setup iOS simulator debugging environment
         """
         self.exec_file = cmp_res
+        # One simulator app (fixed bundle id): the build/install/launch in
+        # run_ios_simulator and the `simctl terminate` in cleanup are shared
+        # state. Serialize the whole session host-wide; disable with
+        # CJDB_IOS_APP_LOCK=0 ONLY if each case uses its own bundle id.
+        if os.environ.get('CJDB_IOS_APP_LOCK', '1').lower() not in ('0', 'false', 'no', 'off'):
+            self.app_lock = InterProcessLock(path=IOS_APP_LOCK_PATH)
+            self.app_lock.acquire(blocking=True)
+            print("[LOCK] acquired iOS app lock (shared bundle id: serial execution)", flush=True)
         return True
     
     def run_ios_simulator(self, exec_file):
@@ -724,6 +886,13 @@ class IOSDebugSession:
                               capture_output=True)
         except Exception:
             pass
+        finally:
+            if self.app_lock:
+                try:
+                    self.app_lock.release()
+                finally:
+                    self.app_lock = None
+                print("[LOCK] released iOS app lock", flush=True)
 
 
 class AndroidDebugSession:
@@ -739,6 +908,7 @@ class AndroidDebugSession:
         self.exec_file = None
         self.lldb_port = None
         self.lldb_port_lock = None
+        self.remote_exec_name = None
         self.unique_id = str(random.randint(10000, 99999))
     
     def setup(self, test_case, cmp_res):
@@ -768,8 +938,13 @@ class AndroidDebugSession:
             print(f"Executable file not found: {exec_file}")
             return False
         
-        if not adb_push(exec_file, ANDROID_DEVICE_DIR, device_id=self.device_id):
+        # Push straight to the per-session unique remote name so concurrent
+        # sessions never read a half-pushed shared file (the legacy flow
+        # pushed the shared base name once and `cp`-ed it per session).
+        remote_unique = f"{os.path.basename(exec_file)}_{self.unique_id}"
+        if not adb_push(exec_file, ANDROID_DEVICE_DIR + remote_unique, device_id=self.device_id):
             return False
+        self.remote_exec_name = remote_unique
         
         return True
     
@@ -807,6 +982,13 @@ class AndroidDebugSession:
         except Exception:
             pass
         finally:
+            try:
+                if self.lldb_port:
+                    subprocess.run(build_adb_cmd('forward', '--remove', f'tcp:{self.lldb_port}',
+                                                 device_id=self.device_id),
+                                   capture_output=True, text=True)
+            except Exception:
+                pass
             if self.lldb_port_lock:
                 self.lldb_port_lock.release()
                 print(f"Released lldb port lock for port {self.lldb_port}")
@@ -827,6 +1009,7 @@ class OHOSDebugSession:
         self.platform_sockid = None
         self.lldb_port = None
         self.lldb_port_lock = None
+        self.app_lock = None
         self.target_arch = None
         self.lldb_arch_dir = None
 
@@ -856,6 +1039,18 @@ class OHOSDebugSession:
         self.app_name = 'myapplication'
         self.project_path = os.environ.get('PROJECT_PATH', os.getcwd())
         self.platform_sockid = os.environ.get('OHOS_SOCKID', str(random.randint(100000, 999999)))
+        
+        # All OHOS cases share ONE app instance (fixed bundle name), ONE HAP
+        # and ONE touch screen: two concurrent sessions would install over
+        # each other, `aa force-stop` each other's app, click for the wrong
+        # test and race `pgrep` for the PID. Serialize the whole app
+        # lifecycle (setup -> debug -> cleanup) host-wide; workers running
+        # in parallel simply queue here. Disable with CJDB_OHOS_APP_LOCK=0
+        # ONLY when every case runs its own bundle/HAP.
+        if os.environ.get('CJDB_OHOS_APP_LOCK', '1').lower() not in ('0', 'false', 'no', 'off'):
+            self.app_lock = InterProcessLock(path=OHOS_APP_LOCK_PATH)
+            self.app_lock.acquire(blocking=True)
+            print("[LOCK] acquired OHOS app lock (shared bundle: serial execution)", flush=True)
         
         return True
 
@@ -1451,11 +1646,10 @@ class OHOSDebugSession:
 
         self._lldb_server_remote_path = remote_path
 
-        self.lldb_port, self.lldb_port_lock = choose_lldb_server_port()
-        if not self.lldb_port:
-            print("Failed to choose lldb-server port")
-            return False
-        print(f"Selected lldb-server port: {self.lldb_port}")
+        # OHOS transport is a unix-abstract socket (see start_lldb_server),
+        # not TCP: no port pool lease is taken here, so parallel Android
+        # sessions can never starve an OHOS run out of pool ports.
+        print("lldb-server transport: unix-abstract socket (no TCP port needed)")
 
         return True
     
@@ -1558,6 +1752,12 @@ class OHOSDebugSession:
             if self.lldb_port_lock:
                 self.lldb_port_lock.release()
                 print(f"Released lldb port lock for port {self.lldb_port}")
+            if self.app_lock:
+                try:
+                    self.app_lock.release()
+                finally:
+                    self.app_lock = None
+                print("[LOCK] released OHOS app lock", flush=True)
 
 
 def read_execline(test_case):
@@ -1611,7 +1811,8 @@ def split_cmd(line_e, run_env):
 
 class check_free_port(object):
     """
-    check_free_port: Check the port is open (cross-platform)
+    check_free_port: legacy one-shot bind probe over a shuffled port range.
+    Kept for backward compatibility; the port pool below is preferred.
     """
 
     def __init__(self, start, stop):
@@ -1632,51 +1833,145 @@ class check_free_port(object):
             self.sock.close()
 
 
-class choose_free_port(object):
-    def __init__(self, start, stop):  # port choose range
-        self.lock = None
-        self.bind = None
-        self.port = None
-        while self.port == None:
-            bind = check_free_port(start, stop)
-            if bind.port is None:
-                bind.release()
-                continue
-            lock = InterProcessLock(path=os.path.join(LOCK_DIR, 'port_{}.lock'.format(bind.port)))  # Lock the Port
-            success = lock.acquire(blocking=False)
-            if success:
-                self.lock = lock
-                self.port = bind.port
-                bind.release()
-                break
-            bind.release()
-        print("")
-        print("----CHOOSE CJVM-PORT: {}----".format(self.port))
+# ---------------------------------------------------------------------------
+# Port pool: cross-process TCP port allocation for debug servers
+# (CJVM debug agent of the cjti backend; Android lldb-server behind
+# `adb forward tcp:<port> tcp:<port>`).
+#
+# Allocation protocol, per port, across ALL cjdb_test.py processes on the
+# host (the Maple framework runs one process per test case with -j N):
+#   1. bind() probe on 127.0.0.1        -> the port is free right now
+#   2. fasteners InterProcessLock       -> the port is exclusively ours;
+#      (file lock under LOCK_DIR)          no peer hands the same port out
+#   3. bind() probe AGAIN under the lock -> closes the check-then-lock race
+#      with a peer that probed the same port a moment earlier
+# The caller owns the port until release(); the OS drops the file lock when
+# the process dies, so a killed test can never leak a port permanently.
+# ---------------------------------------------------------------------------
+
+_ACTIVE_PORT_ALLOCS = []
+
+
+def _probe_bind(port):
+    """True if 127.0.0.1:<port> can be bound right now."""
+    sock = socket.socket()
+    try:
+        sock.bind(('127.0.0.1', port))
+        return True
+    except Exception:
+        return False
+    finally:
+        sock.close()
+
+
+class PortAllocation(object):
+    """A port leased from the pool. release() puts it back for the next test."""
+
+    def __init__(self, port, lock):
+        self.port = port
+        self._lock = lock
 
     def release(self):
-        self.lock.release()
+        if self._lock is not None:
+            try:
+                self._lock.release()
+            except Exception:
+                pass
+            self._lock = None
+        if self in _ACTIVE_PORT_ALLOCS:
+            _ACTIVE_PORT_ALLOCS.remove(self)
+
+
+def release_all_port_allocs():
+    """Release every port this process still holds.
+
+    Called from debugging()'s finally block so the Windows/Mac retry loop
+    (up to 3 attempts per test) and failed setups cannot pile up leases,
+    and registered via atexit as a safety net.
+    """
+    for alloc in list(_ACTIVE_PORT_ALLOCS):
+        alloc.release()
+
+
+atexit.register(release_all_port_allocs)
+
+
+def port_pool_acquire(start, stop, lock_prefix):
+    """One bounded pass over a shuffled [start, stop).
+
+    Returns a PortAllocation, or None when every candidate is either not
+    bindable or lock-held by a peer process. Callers that need to wait for
+    a busy pool retry this with a short sleep (see choose_free_port /
+    choose_lldb_server_port). Never spins forever.
+    """
+    # Exclude ports THIS process still holds: fasteners locks are reentrant
+    # per process, and a held port stays bindable (the pool probes but does
+    # not listen), so without this a second acquisition in the same process
+    # would silently get its own port again.
+    held_here = {alloc.port for alloc in _ACTIVE_PORT_ALLOCS}
+    candidates = [p for p in range(start, stop) if p not in held_here]
+    random.shuffle(candidates)
+    for port in candidates:
+        if not _probe_bind(port):
+            continue
+        lock = InterProcessLock(
+            path=os.path.join(LOCK_DIR, '{}_{}.lock'.format(lock_prefix, port)))
+        if not lock.acquire(blocking=False):
+            continue
+        # Re-verify while holding the lock: a peer may have probed the same
+        # port just before we took the lock (TOCTOU window).
+        if _probe_bind(port):
+            alloc = PortAllocation(port, lock)
+            _ACTIVE_PORT_ALLOCS.append(alloc)
+            return alloc
+        lock.release()
+    return None
+
+
+class choose_free_port(object):
+    """CJVM (cjti backend) port pool wrapper.
+
+    Same shape as the historical class (.port / .release()) so existing call
+    sites keep working, but bounded: an exhausted pool surfaces as
+    port=None (the connect command then fails visibly with 'None' in it)
+    instead of hanging the worker in an infinite loop.
+    """
+
+    def __init__(self, start, stop):  # port choose range
+        self.alloc = None
+        for _round in range(PORT_POOL_WAIT_ROUNDS):
+            self.alloc = port_pool_acquire(start, stop, 'port')
+            if self.alloc is not None:
+                break
+            time.sleep(0.1 + random.random() * 0.2)
+        self.port = self.alloc.port if self.alloc else None
+        print("")
+        if self.port is not None:
+            print("----CHOOSE CJVM-PORT: {}----".format(self.port))
+        else:
+            print("----ERROR: CJVM port pool [{}..{}) exhausted----".format(start, stop))
+
+    def release(self):
+        if self.alloc is not None:
+            self.alloc.release()
+            self.alloc = None
 
 
 def choose_lldb_server_port():
     """
-    Choose a free port for lldb-server
-    Returns: (port_string, lock_object) or (None, None) on failure
+    Choose a free port for lldb-server (Android backend: the port is used
+    twice - on the device for `lldb-server platform --listen '*:<port>'`
+    and locally for `adb forward tcp:<port> tcp:<port>`).
+    Returns: (port_string, allocation) or (None, None) on failure.
+    The allocation doubles as the historical lock object (has .release()).
     """
-    for _ in range(50):
-        bind = check_free_port(LLDB_SERVER_PORT_START, LLDB_SERVER_PORT_END)
-        if bind.port is None:
-            bind.release()
-            time.sleep(0.1 + random.random() * 0.2)
-            continue
-        lock = InterProcessLock(path=os.path.join(LOCK_DIR, 'lldb_port_{}.lock'.format(bind.port)))
-        success = lock.acquire(blocking=False)
-        if success:
-            port = bind.port
-            bind.release()
-            return str(port), lock
-        else:
-            bind.release()
-            time.sleep(0.05 + random.random() * 0.1)
+    for _round in range(PORT_POOL_WAIT_ROUNDS):
+        alloc = port_pool_acquire(LLDB_SERVER_PORT_START, LLDB_SERVER_PORT_END, 'lldb_port')
+        if alloc is not None:
+            return str(alloc.port), alloc
+        time.sleep(0.1 + random.random() * 0.2)
+    print("----ERROR: lldb-server port pool [{}..{}) exhausted----".format(
+        LLDB_SERVER_PORT_START, LLDB_SERVER_PORT_END))
     return None, None
 
 
@@ -1827,11 +2122,15 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                     attach_out = send_and_expect(process, f'attach {ohos_session.ohos_pid}', timeout=LLDB_ATTACH_TIMEOUT)
                     print(f"[STEP] attach result: {attach_out.strip()[:200] or '(ok)'}", flush=True)
 
-                    # Wait for "Executable module" (library loading complete)
+                    # Wait for "Executable module" (library loading complete);
+                    # scaled like the other timeouts because a parallel run
+                    # starves this process of CPU too.
                     if 'Executable module' not in attach_out:
                         print("[STEP] waiting for Executable module...", flush=True)
-                        process.expect(['Executable module', pexpect.TIMEOUT], timeout=20)
-                        process.expect(['\\(cjdb\\)', pexpect.TIMEOUT], timeout=10)
+                        process.expect(['Executable module', pexpect.TIMEOUT],
+                                       timeout=max(20, int(20 * TIMEOUT_SCALE)))
+                        process.expect(['\\(cjdb\\)', pexpect.TIMEOUT],
+                                       timeout=max(10, int(10 * TIMEOUT_SCALE)))
                     print("[STEP] library loading complete", flush=True)
 
             continue
@@ -2258,6 +2557,10 @@ def debugging():
                 f_e.close()
             except Exception:
                 pass
+        # Return every port-pool lease this process still holds (CJVM port,
+        # lldb-server port): covers failed setups and the Windows/Mac retry
+        # loop, which would otherwise hold ports until process exit.
+        release_all_port_allocs()
 
     return not test_failed
 
