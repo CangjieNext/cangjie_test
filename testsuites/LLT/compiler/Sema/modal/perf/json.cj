@@ -152,7 +152,7 @@ func heap2() {
 }
 
 func myParse(): ArrayList<Info> {
-    let data: String = "origin.json"
+    let data: String @local! = "origin.json"
     let s0: String @local! = "${heap()} ${heap2()}"
     println(s0)
     let raw = String.fromUtf8(File.readFrom(data))

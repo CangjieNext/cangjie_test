@@ -33,9 +33,9 @@ error: no matching function declaration for function call 'toJsonString'
    |                                      ^ 
    | 
 note: found function member of 'Class-JsonArray'
-   ==> (package stdx.encoding.json)json_object.cj:819:25:
+   ==> (package stdx.encoding.json)json_object.cj:900:25:
 note: found function member of 'Class-JsonArray'
-   ==> (package stdx.encoding.json)json_object.cj:823:17:
+   ==> (package stdx.encoding.json)json_object.cj:904:17:
 
 2 errors generated, 2 errors printed.
 */
