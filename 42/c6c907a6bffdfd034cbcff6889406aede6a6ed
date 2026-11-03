@@ -1,0 +1,65 @@
+testsuites/LLT/Tools/cjhead/test_cases/check_local_api.py
+  s_c53306d66b610e::t_e00847797752f6 1-40
+testsuites/LLT/Tools/cjhead/test_cases/test_local_default/cangjie/ordinary.cj
+  s_c53306d66b610e::t_253c0b8de4a8cf 1-16
+testsuites/LLT/Tools/cjhead/test_cases/test_local_default/cjd/ordinary.cj.d
+  s_c53306d66b610e::t_62e80f92dddcc8 1-13
+testsuites/LLT/Tools/cjhead/test_cases/test_local_default/package.cj.d
+  s_c53306d66b610e::t_0f3abc601a9e7c 1-13
+testsuites/LLT/Tools/cjhead/test_cases/test_local_default/test_local_default.info
+  s_c53306d66b610e::t_c96ad2c010c4fb 1-14
+testsuites/LLT/Tools/cjhead/test_cases/test_local_macro/cangjie/macro_use.cj
+  s_c53306d66b610e::t_ee1e604c2d1a20 1-16
+testsuites/LLT/Tools/cjhead/test_cases/test_local_macro/cjd/macro_use.cj.macrocall.d
+  s_c53306d66b610e::t_151f4d6e6ddad4 1-12
+testsuites/LLT/Tools/cjhead/test_cases/test_local_macro/macro/identity.cj
+  s_c53306d66b610e::t_8d38511fa8ae73 1-9
+testsuites/LLT/Tools/cjhead/test_cases/test_local_macro/package.cj.d
+  s_c53306d66b610e::t_7acabf6e3f46fa 1-12
+testsuites/LLT/Tools/cjhead/test_cases/test_local_macro/test_local_macro.info
+  s_c53306d66b610e::t_f11e41242fec52 1-13
+testsuites/LLT/Tools/cjhead/test_cases/test_local_scopes/cangjie/scopes.cj
+  s_c53306d66b610e::t_55d925b18e5d27 1-33
+testsuites/LLT/Tools/cjhead/test_cases/test_local_scopes/cjd/scopes.cj.d
+  s_c53306d66b610e::t_259f1172393c37 1-24
+testsuites/LLT/Tools/cjhead/test_cases/test_local_scopes/package.cj.d
+  s_c53306d66b610e::t_fbc0b13fb5a14e 1-24
+testsuites/LLT/Tools/cjhead/test_cases/test_local_scopes/test_local_scopes.info
+  s_c53306d66b610e::t_b3f4926b63709f 1-12
+testsuites/LLT/Tools/cjhead/test_cases/test_local_signatures/cangjie/signatures.cj
+  s_c53306d66b610e::t_bb64f4e92d43d6 1-35
+testsuites/LLT/Tools/cjhead/test_cases/test_local_signatures/cjd/signatures.cj.d
+  s_c53306d66b610e::t_21f5c4026fdd7d 1-19
+testsuites/LLT/Tools/cjhead/test_cases/test_local_signatures/package.cj.d
+  s_c53306d66b610e::t_f3a4cfc0eef906 1-19
+testsuites/LLT/Tools/cjhead/test_cases/test_local_signatures/test_local_signatures.info
+  s_c53306d66b610e::t_f89e81036df95e 1-15
+testsuites/LLT/Tools/cjhead/test_cases/test_local_type_signatures/cangjie/a_types.cj
+  s_c53306d66b610e::t_e3b01ac828e042 1-24
+testsuites/LLT/Tools/cjhead/test_cases/test_local_type_signatures/cangjie/b_uses.cj
+  s_c53306d66b610e::t_7ae7634bf1a5ed 1-17
+testsuites/LLT/Tools/cjhead/test_cases/test_local_type_signatures/cjd/a_types.cj.d
+  s_c53306d66b610e::t_78fef15d142fd7 1-17
+testsuites/LLT/Tools/cjhead/test_cases/test_local_type_signatures/cjd/b_uses.cj.d
+  s_c53306d66b610e::t_fa2a6528f79ccd 1-9
+testsuites/LLT/Tools/cjhead/test_cases/test_local_type_signatures/package.cj.d
+  s_c53306d66b610e::t_2aab4251c2c4c1 1-19
+testsuites/LLT/Tools/cjhead/test_cases/test_local_type_signatures/test_local_type_signatures.info
+  s_c53306d66b610e::t_5aeb37b41b82be 1-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "42c6c907a6bffdfd034cbcff6889406aede6a6ed",
+  "prompts": {},
+  "sessions": {
+    "s_c53306d66b610e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a18f92-b8b5-7223-9048-85cec00e40a9",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "wyq1213 <wangyinqiang2@huawei.com>"
+    }
+  }
+}
