@@ -14,9 +14,9 @@ gv ro: true init lit: true
 gv str has id: true
 fn public abstract: true true
 fn has body: true params: 1
-external annotation before: false false
-external linkage: true true
-external annotation after: true true
+linkage defaults: true true
+linkage repeated: true
+linkage transitions: true
 */
 
 import stdx.chir.*
@@ -38,9 +38,26 @@ main() {
     fn.initBody()
     println("fn has body: ${fn.body.isSome()} params: ${fn.parameters.size}")
 
-    println("external annotation before: ${gv.toString().contains("linkType: external")} ${fn.toString().contains("linkType: external")}")
-    gv.setExternalLinkage()
-    fn.setExternalLinkage()
-    println("external linkage: ${gv.isExternalLinkage()} ${fn.isExternalLinkage()}")
-    println("external annotation after: ${gv.toString().contains("linkType: external")} ${fn.toString().contains("linkType: external")}")
+    println("linkage defaults: ${gv.isExternalLinkage()} ${fn.isExternalLinkage()}")
+    let values: Array<GlobalValue> = [fn, gv]
+    let linkages = [LinkType.External, LinkType.ExternalWeak, LinkType.Internal, LinkType.LinkonceOdr, LinkType.WeakOdr]
+    var transitions = true
+    var repeated = true
+    for (value in values) {
+        for (previous in linkages) {
+            for (item in linkages) {
+                value.setLinkageType(previous)
+                value.setLinkageType(item)
+                let text = value.toString()
+                transitions = transitions && (value.isExternalLinkage() == (item == LinkType.External))
+                for (candidate in linkages) {
+                    transitions = transitions && (text.contains("linkType: ${candidate},") == (item == candidate))
+                }
+                value.setLinkageType(item)
+                repeated = repeated && value.toString() == text
+            }
+        }
+    }
+    println("linkage repeated: ${repeated}")
+    println("linkage transitions: ${transitions}")
 }
