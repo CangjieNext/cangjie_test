@@ -89,7 +89,7 @@ error: return type of '==' is not identical or not a subtype of the overridden/r
    |                          ^^ 
    | 
 note: 'Int64' is not a subtype of 'Bool'
-   ==> (package std.core)comparable.cj:331:26:
+   ==> (package std.core)comparable.cj:528:26:
 
 error: extend member '==' is not allowed to shadow members of 'extend Bool'
   ==> extend_overload_builtin_op1.cj:34:26:
