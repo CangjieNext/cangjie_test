@@ -1,0 +1,61 @@
+testsuites/HLT/Benchmark/micro-benchmark/cj/http2/BenchmarkHttp2PostResponseBody.cj
+  s_7c6df3a5b87292::t_1895ab0cc8e991 52
+testsuites/HLT/Benchmark/micro-benchmark/cj/https/BenchmarkHttpsHead.cj
+  s_7c6df3a5b87292::t_7ed26cdbf3b7fd 45
+testsuites/HLT/Benchmark/micro-benchmark/cj/http2/BenchmarkHttp2PutRequestBody.cj
+  s_7c6df3a5b87292::t_fa87b0ab849ce9 51
+testsuites/HLT/Benchmark/micro-benchmark/cj/https/BenchmarkHttpsPostRequestBody.cj
+  s_7c6df3a5b87292::t_37d1dddc383879 50
+testsuites/HLT/Benchmark/micro-benchmark/cj/https/BenchmarkHttpsDelete.cj
+  s_7c6df3a5b87292::t_19185596d535af 44
+testsuites/HLT/Benchmark/micro-benchmark/cj/https/BenchmarkHttpsPutForm.cj
+  s_7c6df3a5b87292::t_4f05c07fe05500 51
+testsuites/HLT/Benchmark/micro-benchmark/cj/https/BenchmarkHttpsGet.cj
+  s_7c6df3a5b87292::t_97aaa26806c25c 52
+testsuites/HLT/Benchmark/micro-benchmark/cj/https/BenchmarkHttpsPostResponseBody.cj
+  s_7c6df3a5b87292::t_7108fa8cc12a7b 51
+testsuites/HLT/Benchmark/micro-benchmark/cj/http2/BenchmarkHttp2PutForm.cj
+  s_7c6df3a5b87292::t_0a49521fdcdd84 52
+testsuites/HLT/Benchmark/micro-benchmark/cj/client_http2/BenchmarkHttp2ClientPost.cj
+  s_7c6df3a5b87292::t_0f12de726fc28f 35
+testsuites/HLT/Benchmark/micro-benchmark/cj/http2/BenchmarkHttp2PutResponseBody.cj
+  s_7c6df3a5b87292::t_1ea121864402f1 52
+testsuites/HLT/Benchmark/micro-benchmark/cj/client_http2/BenchmarkHttp2ClientGet.cj
+  s_7c6df3a5b87292::t_e853e712460cb9 33
+testsuites/HLT/Benchmark/micro-benchmark/cj/https/BenchmarkHttpsPostForm.cj
+  s_7c6df3a5b87292::t_29f832e5a26ed7 51
+testsuites/HLT/Benchmark/micro-benchmark/cj/http2/BenchmarkHttp2Delete.cj
+  s_7c6df3a5b87292::t_e8753782d0ce68 44
+testsuites/HLT/Benchmark/micro-benchmark/cj/https/BenchmarkHttpsPutResponseBody.cj
+  s_7c6df3a5b87292::t_f88cbc022bc6c9 51
+testsuites/HLT/Benchmark/micro-benchmark/cj/client_https/BenchmarkHttpsClientGet.cj
+  s_7c6df3a5b87292::t_70eb1769f64b9e 31
+testsuites/HLT/Benchmark/micro-benchmark/cj/https/BenchmarkHttpsPutRequestBody.cj
+  s_7c6df3a5b87292::t_119f5493f5cd19 51
+testsuites/HLT/Benchmark/micro-benchmark/cj/http2/BenchmarkHttp2PostRequestBody.cj
+  s_7c6df3a5b87292::t_a2d81fc1e76a0a 51
+testsuites/HLT/Benchmark/micro-benchmark/cj/http2/BenchmarkHttp2Head.cj
+  s_7c6df3a5b87292::t_1ea148b72b0f0a 44
+testsuites/HLT/Benchmark/micro-benchmark/cj/client_https/BenchmarkHttpsClientPost.cj
+  s_7c6df3a5b87292::t_369eeeac4c28f4 33
+testsuites/HLT/Benchmark/micro-benchmark/cj/http2/BenchmarkHttp2Get.cj
+  s_7c6df3a5b87292::t_29afba916b30a7 52
+testsuites/HLT/Benchmark/micro-benchmark/cj/http2/BenchmarkHttp2PostForm.cj
+  s_7c6df3a5b87292::t_5e2dccefd5f6c9 52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "68fe492a0c16389c0ab0f2ee39d60fd250bab7fb",
+  "prompts": {},
+  "sessions": {
+    "s_7c6df3a5b87292": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e5a8becf9ffeMtjAszLvA42JUw",
+        "model": "unknown"
+      },
+      "human_author": null
+    }
+  }
+}
