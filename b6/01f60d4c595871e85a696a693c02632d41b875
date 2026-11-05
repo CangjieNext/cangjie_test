@@ -1,0 +1,19 @@
+testsuites/LLT/compiler/CHIROpt/ConstAnalysis/activePoolLoopJoin.cj
+  s_ba36fb69a4a157::t_46cd30529c7009 1-116
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b601f60d4c595871e85a696a693c02632d41b875",
+  "prompts": {},
+  "sessions": {
+    "s_ba36fb69a4a157": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1a610-8b1c-7332-b55e-f26fa7a3fa1d",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Mr_Kang_Yi <kangyi9@h-partners.com>"
+    }
+  }
+}
