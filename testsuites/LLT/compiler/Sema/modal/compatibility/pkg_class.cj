@@ -28,6 +28,11 @@ public class P {
             1
         }
     }
+    public prop nestedProp: ((Int64 @local!) -> Int64) -> Int64 {
+        get() {
+            { a => 0 }
+        }
+    }
 }
 
 public class Ctor {

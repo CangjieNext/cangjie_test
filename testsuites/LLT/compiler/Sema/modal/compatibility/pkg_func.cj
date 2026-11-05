@@ -27,6 +27,10 @@ public func takeObjHalf(a: NC @local?): Int64 {
     1
 }
 
+public func takeNested(f: (Int64 @local!) -> Int64): Int64 {
+    1
+}
+
 public exclave func retObjFull(): NC @local! {
     NC()
 }
