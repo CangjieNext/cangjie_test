@@ -1,0 +1,42 @@
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/1/1.info
+  h_ec8cdfc26dd216 17
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/2/2.info
+  h_ec8cdfc26dd216 17
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/3/3.info
+  h_ec8cdfc26dd216 17
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/4/4.info
+  h_ec8cdfc26dd216 16
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_check_01/swbom_check_01.info
+  h_ec8cdfc26dd216 15
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_fields_01/swbom_fields_01.info
+  h_ec8cdfc26dd216 15
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_git_registry_01/swbom_git_registry_01.info
+  h_ec8cdfc26dd216 20
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_inline_01/swbom_inline_01.info
+  h_ec8cdfc26dd216 15
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_migrate_01/swbom_migrate_01.info
+  h_ec8cdfc26dd216 15
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_migrate_02/swbom_migrate_02.info
+  h_ec8cdfc26dd216 15
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_org_01/swbom_org_01.info
+  h_ec8cdfc26dd216 15
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_registry_01/swbom_registry_01.info
+  h_ec8cdfc26dd216 15
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_registry_trans_01/swbom_registry_trans_01.info
+  h_ec8cdfc26dd216 17
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_run_01/swbom_run_01.info
+  h_ec8cdfc26dd216 15
+testsuites/HLT/Tools/cjpm/lock/lock_swbom/swbom_workspace_01/swbom_workspace_01.info
+  h_ec8cdfc26dd216 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4c71ae98fb8ee03e302be8df26ca3bc525eba61c",
+  "prompts": {},
+  "humans": {
+    "h_ec8cdfc26dd216": {
+      "author": "yaoruili <yaoruili@huawei.com>"
+    }
+  }
+}
