@@ -1,0 +1,73 @@
+testsuites/LLT/compiler/Sema/modal/decl/defaultparam/ref_enum_ctor_good.cj
+  h_7fa24ec5a32f2d 1-17
+testsuites/LLT/compiler/Sema/modal/expr/varray_lit_return_bad.cj
+  h_7fa24ec5a32f2d 1-26
+testsuites/LLT/compiler/Sema/modal/diag/sema_external_local_arg.cj
+  h_7fa24ec5a32f2d 1-8,14-34
+  h_7fa24ec5a32f2d 9-13
+testsuites/LLT/compiler/Sema/modal/expr/literal_element_good.cj
+  h_7fa24ec5a32f2d 1-21,30-31,36-38
+  h_7fa24ec5a32f2d 22-29,32-35
+testsuites/LLT/compiler/Sema/modal/infer/branch_result_modal_infer_bad.cj
+  h_7fa24ec5a32f2d 1-31
+testsuites/LLT/compiler/Sema/modal/expr/assign/capture_half_var_assign_good.cj
+  h_7fa24ec5a32f2d 1-30
+testsuites/LLT/compiler/Sema/modal/expr/literal_element_external_bad.cj
+  h_7fa24ec5a32f2d 1-28,33-34,43-52
+  h_7fa24ec5a32f2d 29-32,35-42
+testsuites/LLT/compiler/Sema/modal/expr/return/branch_external_explicit_good.cj
+  h_7fa24ec5a32f2d 1-26
+testsuites/LLT/compiler/Sema/modal/types/option_modal_in_func_type_good.cj
+  h_7fa24ec5a32f2d 1-17
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_ref_var_bad.cj
+  h_7fa24ec5a32f2d 1-14,16-19
+  h_7fa24ec5a32f2d 15
+testsuites/LLT/compiler/Sema/modal/expr/return/branch_external_direct_bad.cj
+  h_7fa24ec5a32f2d 1-30
+testsuites/LLT/compiler/Sema/modal/expr/exclave/array_tuple_literal_good.cj
+  h_7fa24ec5a32f2d 1-31
+testsuites/LLT/compiler/Sema/modal/expr/assign/assign_member_non_this_bad.cj
+  h_7fa24ec5a32f2d 1-30
+testsuites/LLT/compiler/Sema/modal/expr/call/arg_internal_half_good.cj
+  h_7fa24ec5a32f2d 1-20
+testsuites/LLT/compiler/Sema/modal/expr/result_modal_bad.cj
+  h_7fa24ec5a32f2d 1-30
+testsuites/LLT/compiler/Sema/modal/expr/assign/capture_half_var_assign_bad.cj
+  h_7fa24ec5a32f2d 1-30
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_call_var_bad2.cj
+  h_7fa24ec5a32f2d 1-17
+testsuites/LLT/compiler/Sema/modal/expr/array_tuple_external_return_bad.cj
+  h_7fa24ec5a32f2d 1-23
+testsuites/LLT/compiler/Sema/modal/expr/return/interface_local_bad.cj
+  h_7fa24ec5a32f2d 1-24
+testsuites/LLT/compiler/Sema/modal/compatibility/pkg_var.cj
+  h_7fa24ec5a32f2d 1-19
+  h_7fa24ec5a32f2d 20-21
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_call_var_bad.cj
+  h_7fa24ec5a32f2d 1-17
+testsuites/LLT/compiler/Sema/modal/compatibility/pkg_class.cj
+  h_7fa24ec5a32f2d 31-35
+testsuites/LLT/compiler/Sema/modal/compatibility/pkg_func.cj
+  h_7fa24ec5a32f2d 30-33
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_access_prop_nested_bad.cj
+  h_7fa24ec5a32f2d 1-17
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_ref_func_nested_bad.cj
+  h_7fa24ec5a32f2d 1-17
+testsuites/LLT/compiler/Sema/modal/compatibility/sema_ref_var_bad2.cj
+  h_7fa24ec5a32f2d 1-19
+testsuites/LLT/compiler/Sema/modal/diag/sema_internal_local_return.cj
+  h_7fa24ec5a32f2d 1-43
+testsuites/LLT/compiler/Sema/modal/expr/external_call.cj
+  h_7fa24ec5a32f2d 22-26,58-65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "57cb1637c01fb0ce6b6059f89dec117ff5926006",
+  "prompts": {},
+  "humans": {
+    "h_7fa24ec5a32f2d": {
+      "author": "kkkkkkkbbbbbbb <songjian59@huawei.com>"
+    }
+  }
+}
