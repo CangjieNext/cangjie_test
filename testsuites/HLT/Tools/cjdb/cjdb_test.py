@@ -85,8 +85,6 @@ OHOS_APP_LOCK_PATH = os.path.join(LOCK_DIR, 'ohos_app_lock')
 IOS_APP_LOCK_PATH = os.path.join(LOCK_DIR, 'ios_app_lock')
 
 OHOS_DEVICE_DIR = "/data/local/tmp/debugserver/"
-OHOS_LLDB_PORT_START = 12000
-OHOS_LLDB_PORT_END = 35000
 
 LLDB_SERVER_PORT_START = 12000
 LLDB_SERVER_PORT_END = 35000
@@ -720,12 +718,9 @@ def run_android_executable(executable_name, device_id=None, unique_id=None):
         executable_name = base_exec_name
     remote_path = ANDROID_DEVICE_DIR + executable_name
 
-    # setup() already pushed this session's unique copy; fall back to the
-    # shared base copy only for callers that did not push one (legacy path).
-    unique_exists, _ = adb_shell(f"test -f {remote_path} && echo 1", device_id=device_id)
-    if unique_exists.strip() != "1":
-        source_path = ANDROID_DEVICE_DIR + base_exec_name
-        adb_shell(f"cp {source_path} {remote_path}", device_id=device_id)
+    # setup() pushed this session's unique copy (or failed loudly); chmod is
+    # all that is left. No shared-base `cp` fallback: it could resurrect a
+    # stale binary left on the device by a previous run of this case.
     adb_shell(f"chmod +x {remote_path}", device_id=device_id)
 
     cmd = f"cd {ANDROID_DEVICE_DIR} && export LD_LIBRARY_PATH={ANDROID_DEVICE_DIR}{ANDROID_RUNTIME_DIR} && ./{executable_name}"
@@ -811,7 +806,17 @@ class IOSDebugSession:
         # CJDB_IOS_APP_LOCK=0 ONLY if each case uses its own bundle id.
         if os.environ.get('CJDB_IOS_APP_LOCK', '1').lower() not in ('0', 'false', 'no', 'off'):
             self.app_lock = InterProcessLock(path=IOS_APP_LOCK_PATH)
+            _t0 = time.time()
             self.app_lock.acquire(blocking=True)
+            _waited = time.time() - _t0
+            if _waited >= 30:
+                # Blocking here burns the framework-level --timeout budget of
+                # THIS case while another worker holds the (single) simulator
+                # app. Operators seeing this should either run ios_simulator
+                # suites with -j1 or raise --timeout accordingly.
+                print("[LOCK] waited {:.0f}s for iOS app lock: consider -j1 "
+                      "or a larger --timeout for ios_simulator suites".format(_waited),
+                      flush=True)
             print("[LOCK] acquired iOS app lock (shared bundle id: serial execution)", flush=True)
         return True
     
@@ -890,8 +895,9 @@ class IOSDebugSession:
             if self.app_lock:
                 try:
                     self.app_lock.release()
-                finally:
-                    self.app_lock = None
+                except Exception:
+                    pass
+                self.app_lock = None
                 print("[LOCK] released iOS app lock", flush=True)
 
 
@@ -1007,8 +1013,6 @@ class OHOSDebugSession:
         self.app_name = None
         self.project_path = None
         self.platform_sockid = None
-        self.lldb_port = None
-        self.lldb_port_lock = None
         self.app_lock = None
         self.target_arch = None
         self.lldb_arch_dir = None
@@ -1049,7 +1053,17 @@ class OHOSDebugSession:
         # ONLY when every case runs its own bundle/HAP.
         if os.environ.get('CJDB_OHOS_APP_LOCK', '1').lower() not in ('0', 'false', 'no', 'off'):
             self.app_lock = InterProcessLock(path=OHOS_APP_LOCK_PATH)
+            _t0 = time.time()
             self.app_lock.acquire(blocking=True)
+            _waited = time.time() - _t0
+            if _waited >= 30:
+                # Blocking here burns the framework-level --timeout budget of
+                # THIS case while another worker holds the (single) device
+                # app. Operators seeing this should either run ohos_aarch64
+                # suites with -j1 or raise --timeout accordingly.
+                print("[LOCK] waited {:.0f}s for OHOS app lock: consider -j1 "
+                      "or a larger --timeout for ohos_aarch64 suites".format(_waited),
+                      flush=True)
             print("[LOCK] acquired OHOS app lock (shared bundle: serial execution)", flush=True)
         
         return True
@@ -1749,14 +1763,12 @@ class OHOSDebugSession:
         except Exception:
             pass
         finally:
-            if self.lldb_port_lock:
-                self.lldb_port_lock.release()
-                print(f"Released lldb port lock for port {self.lldb_port}")
             if self.app_lock:
                 try:
                     self.app_lock.release()
-                finally:
-                    self.app_lock = None
+                except Exception:
+                    pass
+                self.app_lock = None
                 print("[LOCK] released OHOS app lock", flush=True)
 
 
@@ -1807,30 +1819,6 @@ def split_cmd(line_e, run_env):
         print("|" + result + "|")
         print("__________________________")
     return firstcmd, doline, result
-
-
-class check_free_port(object):
-    """
-    check_free_port: legacy one-shot bind probe over a shuffled port range.
-    Kept for backward compatibility; the port pool below is preferred.
-    """
-
-    def __init__(self, start, stop):
-        self.port = None
-        self.sock = socket.socket()
-        port_list = list(range(start, stop))
-        random.shuffle(port_list)
-        for port in port_list:
-            try:
-                self.sock.bind(('127.0.0.1', port))
-                self.port = port
-                break
-            except Exception:
-                continue
-
-    def release(self):
-        if self.port is not None:
-            self.sock.close()
 
 
 # ---------------------------------------------------------------------------
