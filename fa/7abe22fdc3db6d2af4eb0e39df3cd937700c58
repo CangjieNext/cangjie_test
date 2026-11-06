@@ -1,0 +1,80 @@
+testsuites/HLT/regression/testcase_780/common/Record012.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/main.cj
+  h_6dcadf4674a1b3 2,8,19-20
+  s_ed0a390cc2d96a::t_ccd0e6fb7948b7 17
+  s_ed0a390cc2d96a::t_0b1a16273dd735 1,3-7,9-16,18
+testsuites/HLT/regression/testcase_780/tools/check_import_order.py
+  h_6dcadf4674a1b3 1-6
+  s_ed0a390cc2d96a::t_84a92eb995d0ab 118-124
+  s_ed0a390cc2d96a::t_f4cc7bb1ab992f 7-117,125-146
+testsuites/HLT/regression/testcase_780/common/Record004.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/platform/Platform.android.cj
+  h_6dcadf4674a1b3 1-13
+testsuites/HLT/regression/testcase_780/common/Record000.cj
+  h_6dcadf4674a1b3 1-9,11-16,18
+  h_6dcadf4674a1b3 10,17
+testsuites/HLT/regression/testcase_780/common/Record010.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record003.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record008.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record013.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record002.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record015.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record007.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record005.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record006.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record011.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record009.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record014.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+testsuites/HLT/regression/testcase_780/common/Record001.cj
+  h_6dcadf4674a1b3 1-9,11-16
+  h_6dcadf4674a1b3 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "fa7abe22fdc3db6d2af4eb0e39df3cd937700c58",
+  "prompts": {},
+  "humans": {
+    "h_6dcadf4674a1b3": {
+      "author": "bigapple <zhangpingping11@h-partners.com>"
+    }
+  },
+  "sessions": {
+    "s_ed0a390cc2d96a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e518b8897ffexpiapBI0J46zj2",
+        "model": "unknown"
+      },
+      "human_author": "bigapple <zhangpingping11@h-partners.com>"
+    }
+  }
+}
