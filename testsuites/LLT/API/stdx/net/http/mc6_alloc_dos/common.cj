@@ -165,11 +165,38 @@ public func collectFrames(conn: TlsSocket, total: Duration, readTimeout!: Durati
     return result
 }
 
-// read current process RSS in kB from /proc/self/status, -1 when unavailable
-public func vmRssKb(): Int64 {
+/*
+ * keep writing `payload` until a write fails (the peer has closed the
+ * connection) or the deadline expires. GOAWAY delivery is not guaranteed by
+ * the implementation, so connection errors are observed through the socket
+ * instead of the GOAWAY frame.
+ * Returns the elapsed milliseconds at the first failed write, -1 if the peer
+ * never closed within `total`.
+ */
+public func writeProbeUntilFailure(conn: TlsSocket, total: Duration, payload: Array<UInt8>,
+    interval!: Duration = Duration.millisecond * 100): Int64 {
+    let start = MonoTime.now()
+    while (MonoTime.now() - start < total) {
+        try {
+            conn.write(payload)
+        } catch (e: Exception) {
+            return (MonoTime.now() - start).toMilliseconds()
+        }
+        sleep(interval)
+    }
+    return -1
+}
+
+// an 8-byte PING frame, used as probe payload
+public func pingProbe(): Array<UInt8> {
+    return frameBytes(FT_PING, 0, 0, [0, 0, 0, 0, 0, 0, 0, 1])
+}
+
+// read a single memory metric in kB from /proc/self/status, -1 when unavailable
+public func procStatusMetricKb(metric!: String): Int64 {
     let content = String.fromUtf8(readToEnd(File("/proc/self/status", Read)))
     for (line in content.split("\n")) {
-        if (line.startsWith("VmRSS:")) {
+        if (line.startsWith(metric)) {
             var value: Int64 = 0
             var started = false
             for (r in line) {
@@ -184,6 +211,16 @@ public func vmRssKb(): Int64 {
         }
     }
     return -1
+}
+
+// current process resident memory in kB
+public func vmRssKb(): Int64 {
+    return procStatusMetricKb(metric: "VmRSS:")
+}
+
+// current process peak resident memory in kB (monotonic, immune to GC timing)
+public func vmHwmKb(): Int64 {
+    return procStatusMetricKb(metric: "VmHWM:")
 }
 
 // HPACK block of a complete GET request headers:
