@@ -283,4 +283,55 @@ class TestServer2PseudoHeadersThrowWedge {
         client.close()
         asanGC()
     }
+
+    /*
+     * follow-up review finding (VULN-001): a "priority: u=-9223372036854775808"
+     * request header made parsePriority return Int64.Min (Int64.parse only
+     * rejects out-of-range strings that do not equal Int64.Min) and
+     * `MAX_URGENCY - urgency` (7 - Int64.Min) overflow, throwing from
+     * checkAndSetRequestHeaders with the counter still at 1 - the same
+     * connection-wedging hang as the malformed-pseudo-headers case above.
+     * Fixed behavior: the urgency value is clamped to 0..7 per RFC 9218
+     * (out-of-range treated as absent, default 3), and every exit path of
+     * header validation releases the counter.
+     */
+    func poisonedPriorityConnAnswers(): Bool {
+        let conn = connectRaw()
+        if (!h2ClientHandshake(conn)) {
+            conn.close()
+            return false
+        }
+        let block = ArrayList<UInt8>()
+        block.add(all: getBlock) // valid pseudo headers
+        block.add(0x00) // literal-without-indexing, new name
+        block.add(0x08)
+        block.add(all: "priority".toArray())
+        block.add(0x16)
+        block.add(all: "u=-9223372036854775808".toArray())
+
+        let buf = ArrayList<UInt8>()
+        buf.add(all: frameBytes(FT_HEADERS, FLAG_END_HEADERS, 1, block.toArray()))
+        buf.add(all: frameBytes(FT_HEADERS, FLAG_END_HEADERS | FLAG_END_STREAM, 1, trailerBlock))
+        buf.add(all: frameBytes(FT_HEADERS, FLAG_END_HEADERS | FLAG_END_STREAM, 3, getBlock))
+        conn.write(buf.toArray())
+
+        let answered = validStreamAnswered(conn, 3, Duration.second * 4)
+        conn.close()
+        return answered
+    }
+
+    @TestCase
+    func testPriorityOverflowDoesNotWedgeConnection(): Unit {
+        startServer()
+
+        var wedgeCount = 0
+        for (_ in 0..ATTEMPTS) {
+            if (!poisonedPriorityConnAnswers()) {
+                wedgeCount++
+                break
+            }
+        }
+        @Assert(wedgeCount, 0)
+        asanGC()
+    }
 }
