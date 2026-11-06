@@ -18,24 +18,10 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN
-error: mismatched types
-  ==> test_json_format_local_neg_indent.cj:17:32:
-   | 
-17 |     let text: String @local! = array.toJsonString(2, bracketInNewLine: false, indent: indent)
-   |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected 'Struct-String @local!', found 'Struct-String'
-   | 
-
-error: no matching function declaration for function call 'toJsonString'
-  ==> test_json_format_local_neg_indent.cj:17:38:
-   | 
-17 |     let text: String @local! = array.toJsonString(2, bracketInNewLine: false, indent: indent)
-   |                                      ^ 
-   | 
-note: found function member of 'Class-JsonArray'
-   ==> (package stdx.encoding.json)json_object.cj:900:25:
-note: found function member of 'Class-JsonArray'
-   ==> (package stdx.encoding.json)json_object.cj:904:17:
-
-2 errors generated, 2 errors printed.
-*/
+// Match the diagnostic contract independently of stdx source positions.
+// ASSERT: regex error: mismatched types
+// ASSERT: regex expected 'Struct-String @local!', found 'Struct-String'
+// ASSERT: regex error: no matching function declaration for function call 'toJsonString'
+// ASSERT: regex-2 note: found function member of 'Class-JsonArray'
+// ASSERT: regex-2 \(package stdx\.encoding\.json\)json_object\.cj:[0-9]+:[0-9]+:
+// ASSERT: regex 2 errors generated, 2 errors printed\.
